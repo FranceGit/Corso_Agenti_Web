@@ -74,8 +74,9 @@ def test_domande_benchmark_complete(catalogo_vero):
         assert d.livello1.perche is not None and d.livello2.perche is not None
         assert testi_mancanti(d.model_dump(), "en") == []
         assert catalogo_vero.erogabile(d.id)
-    # le domande delle pillole con lezione rimandano ai segmenti della lezione, le altre ai passi della scaletta
-    assert {catalogo_vero.riferimento_aiuto(d)["scheda"] for d in benchmark if d.pillola in catalogo_vero.lezioni} == {"lezione"}
+    # P1.3 e P4.1 (lezioni del dimostratore) rimandano ai segmenti della lezione; un passo di scaletta resta valido
+    # anche quando una pillola riceve la sua lezione, quindi per le altre non si impone nulla
+    assert {catalogo_vero.riferimento_aiuto(d)["scheda"] for d in benchmark if d.pillola in ("P1.3", "P4.1")} == {"lezione"}
 
 
 # ---------------------------------------------------------------- migrazione dello schema
