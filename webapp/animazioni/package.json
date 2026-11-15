@@ -1,0 +1,4 @@
+{
+  "_why": "I moduli delle animazioni sono moduli ES: questo file lo dice a Node, che li usa nei test di tests_js. Non e servito dal server.",
+  "type": "module"
+}
