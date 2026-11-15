@@ -1,0 +1,184 @@
+{
+ "$defs": {
+  "Arco": {
+   "additionalProperties": false,
+   "properties": {
+    "a": {
+     "title": "A",
+     "type": "string"
+    },
+    "da": {
+     "title": "Da",
+     "type": "string"
+    },
+    "nota": {
+     "anyOf": [
+      {
+       "$ref": "#/$defs/Testo"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null
+    },
+    "peso": {
+     "exclusiveMinimum": 0,
+     "title": "Peso",
+     "type": "integer"
+    },
+    "tipo": {
+     "enum": [
+      "PRE",
+      "APP",
+      "CON",
+      "ES",
+      "MIT"
+     ],
+     "title": "Tipo",
+     "type": "string"
+    }
+   },
+   "required": [
+    "da",
+    "a",
+    "tipo",
+    "peso"
+   ],
+   "title": "Arco",
+   "type": "object"
+  },
+  "Nodo": {
+   "additionalProperties": false,
+   "properties": {
+    "anello": {
+     "minimum": 1,
+     "title": "Anello",
+     "type": "integer"
+    },
+    "id": {
+     "pattern": "^C\\d{2}$",
+     "title": "Id",
+     "type": "string"
+    },
+    "nome": {
+     "$ref": "#/$defs/Testo"
+    },
+    "pillole": {
+     "items": {
+      "type": "string"
+     },
+     "minItems": 1,
+     "title": "Pillole",
+     "type": "array"
+    }
+   },
+   "required": [
+    "id",
+    "nome",
+    "pillole",
+    "anello"
+   ],
+   "title": "Nodo",
+   "type": "object"
+  },
+  "Testo": {
+   "additionalProperties": false,
+   "description": "Testo bilingue. 'en' null = traduzione da completare (dichiarata, non nascosta).",
+   "properties": {
+    "en": {
+     "anyOf": [
+      {
+       "minLength": 1,
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "En"
+    },
+    "it": {
+     "minLength": 1,
+     "title": "It",
+     "type": "string"
+    }
+   },
+   "required": [
+    "it"
+   ],
+   "title": "Testo",
+   "type": "object"
+  }
+ },
+ "additionalProperties": false,
+ "properties": {
+  "archi": {
+   "items": {
+    "$ref": "#/$defs/Arco"
+   },
+   "title": "Archi",
+   "type": "array"
+  },
+  "fonte": {
+   "title": "Fonte",
+   "type": "string"
+  },
+  "legenda": {
+   "additionalProperties": {
+    "$ref": "#/$defs/Testo"
+   },
+   "propertyNames": {
+    "enum": [
+     "PRE",
+     "APP",
+     "CON",
+     "ES",
+     "MIT"
+    ]
+   },
+   "title": "Legenda",
+   "type": "object"
+  },
+  "nodi": {
+   "items": {
+    "$ref": "#/$defs/Nodo"
+   },
+   "minItems": 1,
+   "title": "Nodi",
+   "type": "array"
+  },
+  "pesi_per_tipo": {
+   "additionalProperties": {
+    "type": "integer"
+   },
+   "propertyNames": {
+    "enum": [
+     "PRE",
+     "APP",
+     "CON",
+     "ES",
+     "MIT"
+    ]
+   },
+   "title": "Pesi Per Tipo",
+   "type": "object"
+  },
+  "versione_schema": {
+   "const": 1,
+   "title": "Versione Schema",
+   "type": "integer"
+  }
+ },
+ "required": [
+  "versione_schema",
+  "fonte",
+  "pesi_per_tipo",
+  "legenda",
+  "nodi",
+  "archi"
+ ],
+ "title": "KnowledgeGraph",
+ "type": "object"
+}

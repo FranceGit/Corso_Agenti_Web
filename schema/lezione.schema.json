@@ -1,0 +1,342 @@
+{
+ "$defs": {
+  "Domanda": {
+   "additionalProperties": false,
+   "properties": {
+    "concetti": {
+     "items": {
+      "type": "string"
+     },
+     "minItems": 1,
+     "title": "Concetti",
+     "type": "array"
+    },
+    "concetto_principale": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Concetto Principale"
+    },
+    "id": {
+     "minLength": 1,
+     "title": "Id",
+     "type": "string"
+    },
+    "livello1": {
+     "$ref": "#/$defs/Livello"
+    },
+    "livello2": {
+     "$ref": "#/$defs/Livello2"
+    },
+    "origine": {
+     "enum": [
+      "benchmark",
+      "dimostratore"
+     ],
+     "title": "Origine",
+     "type": "string"
+    },
+    "pillola": {
+     "title": "Pillola",
+     "type": "string"
+    },
+    "segmento_aiuto": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Segmento Aiuto"
+    }
+   },
+   "required": [
+    "id",
+    "origine",
+    "pillola",
+    "concetti",
+    "livello1",
+    "livello2"
+   ],
+   "title": "Domanda",
+   "type": "object"
+  },
+  "Livello": {
+   "additionalProperties": false,
+   "properties": {
+    "domanda": {
+     "$ref": "#/$defs/Testo"
+    },
+    "opzioni": {
+     "items": {
+      "$ref": "#/$defs/Opzione"
+     },
+     "minItems": 2,
+     "title": "Opzioni",
+     "type": "array"
+    },
+    "perche": {
+     "anyOf": [
+      {
+       "$ref": "#/$defs/Testo"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null
+    }
+   },
+   "required": [
+    "domanda",
+    "opzioni"
+   ],
+   "title": "Livello",
+   "type": "object"
+  },
+  "Livello2": {
+   "additionalProperties": false,
+   "properties": {
+    "domanda": {
+     "$ref": "#/$defs/Testo"
+    },
+    "opzioni": {
+     "items": {
+      "$ref": "#/$defs/Opzione"
+     },
+     "minItems": 2,
+     "title": "Opzioni",
+     "type": "array"
+    },
+    "perche": {
+     "anyOf": [
+      {
+       "$ref": "#/$defs/Testo"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null
+    },
+    "tipo": {
+     "enum": [
+      "motivazione",
+      "trasferimento",
+      "contro-esempio",
+      "diagnosi"
+     ],
+     "title": "Tipo",
+     "type": "string"
+    }
+   },
+   "required": [
+    "domanda",
+    "opzioni",
+    "tipo"
+   ],
+   "title": "Livello2",
+   "type": "object"
+  },
+  "Opzione": {
+   "additionalProperties": false,
+   "properties": {
+    "corretta": {
+     "title": "Corretta",
+     "type": "boolean"
+    },
+    "id": {
+     "minLength": 1,
+     "title": "Id",
+     "type": "string"
+    },
+    "spiegazione": {
+     "anyOf": [
+      {
+       "$ref": "#/$defs/Testo"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null
+    },
+    "testo": {
+     "$ref": "#/$defs/Testo"
+    },
+    "tipo_distrattore": {
+     "anyOf": [
+      {
+       "enum": [
+        "quasi",
+        "poco",
+        "errata"
+       ],
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Tipo Distrattore"
+    }
+   },
+   "required": [
+    "id",
+    "testo",
+    "corretta"
+   ],
+   "title": "Opzione",
+   "type": "object"
+  },
+  "Segmento": {
+   "additionalProperties": false,
+   "description": "Un passo della lezione: narrazione semplice + stato dell'animazione da cui partire.",
+   "properties": {
+    "concetti": {
+     "items": {
+      "type": "string"
+     },
+     "minItems": 1,
+     "title": "Concetti",
+     "type": "array"
+    },
+    "id": {
+     "minLength": 1,
+     "title": "Id",
+     "type": "string"
+    },
+    "narrazione": {
+     "items": {
+      "$ref": "#/$defs/Testo"
+     },
+     "minItems": 1,
+     "title": "Narrazione",
+     "type": "array"
+    },
+    "prova": {
+     "anyOf": [
+      {
+       "$ref": "#/$defs/Testo"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null
+    },
+    "stato_animazione": {
+     "additionalProperties": true,
+     "title": "Stato Animazione",
+     "type": "object"
+    },
+    "titolo": {
+     "$ref": "#/$defs/Testo"
+    }
+   },
+   "required": [
+    "id",
+    "titolo",
+    "narrazione",
+    "concetti"
+   ],
+   "title": "Segmento",
+   "type": "object"
+  },
+  "Testo": {
+   "additionalProperties": false,
+   "description": "Testo bilingue. 'en' null = traduzione da completare (dichiarata, non nascosta).",
+   "properties": {
+    "en": {
+     "anyOf": [
+      {
+       "minLength": 1,
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "En"
+    },
+    "it": {
+     "minLength": 1,
+     "title": "It",
+     "type": "string"
+    }
+   },
+   "required": [
+    "it"
+   ],
+   "title": "Testo",
+   "type": "object"
+  }
+ },
+ "additionalProperties": false,
+ "properties": {
+  "componente": {
+   "pattern": "^[a-z_]+$",
+   "title": "Componente",
+   "type": "string"
+  },
+  "domande": {
+   "items": {
+    "$ref": "#/$defs/Domanda"
+   },
+   "title": "Domande",
+   "type": "array"
+  },
+  "id": {
+   "minLength": 1,
+   "title": "Id",
+   "type": "string"
+  },
+  "pillola": {
+   "pattern": "^P\\d+\\.\\d+$",
+   "title": "Pillola",
+   "type": "string"
+  },
+  "scenario": {
+   "additionalProperties": true,
+   "title": "Scenario",
+   "type": "object"
+  },
+  "segmenti": {
+   "items": {
+    "$ref": "#/$defs/Segmento"
+   },
+   "minItems": 1,
+   "title": "Segmenti",
+   "type": "array"
+  },
+  "sottotitolo": {
+   "$ref": "#/$defs/Testo"
+  },
+  "titolo": {
+   "$ref": "#/$defs/Testo"
+  }
+ },
+ "required": [
+  "id",
+  "pillola",
+  "componente",
+  "titolo",
+  "sottotitolo",
+  "segmenti",
+  "scenario",
+  "domande"
+ ],
+ "title": "Lezione",
+ "type": "object"
+}

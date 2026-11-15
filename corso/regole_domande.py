@@ -13,19 +13,22 @@ def fascia_budget(media_caratteri: float, cfg: Config) -> tuple[str, int]:
     fasce = cfg.prendi("domande", "budget_lettura", "fasce", tipo=list)
     if not fasce:
         raise ErroreConfigurazione("domande.budget_lettura.fasce e' vuoto")
+    # prima si controlla TUTTA la tabella, poi si sceglie la fascia: un errore di configurazione emerge sempre
     precedente = 0
     for i, f in enumerate(fasce):
         limite = f["fino_a_caratteri"]
-        if limite is None:
-            if i != len(fasce) - 1:
-                raise ErroreConfigurazione("solo l'ultima fascia del budget di lettura puo' avere fino_a_caratteri null")
+        if limite is None and i != len(fasce) - 1:
+            raise ErroreConfigurazione("solo l'ultima fascia del budget di lettura puo' avere fino_a_caratteri null")
+        if limite is not None:
+            if limite <= precedente:
+                raise ErroreConfigurazione("le fasce del budget di lettura devono avere limiti crescenti")
+            precedente = limite
+    if fasce[-1]["fino_a_caratteri"] is not None:
+        raise ErroreConfigurazione("l'ultima fascia del budget di lettura deve avere fino_a_caratteri null (nessun limite)")
+    for f in fasce:
+        if f["fino_a_caratteri"] is None or media_caratteri <= f["fino_a_caratteri"]:
             return f["nome"], f["numero_opzioni"]
-        if limite <= precedente:
-            raise ErroreConfigurazione("le fasce del budget di lettura devono avere limiti crescenti")
-        precedente = limite
-        if media_caratteri <= limite:
-            return f["nome"], f["numero_opzioni"]
-    raise ErroreConfigurazione("l'ultima fascia del budget di lettura deve avere fino_a_caratteri null (nessun limite)")
+    raise ErroreConfigurazione("budget di lettura: nessuna fascia applicabile")  # irraggiungibile: l'ultima e' senza limite
 
 
 def media_caratteri(livello: Livello, cfg: Config) -> float:

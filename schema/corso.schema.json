@@ -1,0 +1,394 @@
+{
+ "$defs": {
+  "Animazione": {
+   "additionalProperties": false,
+   "properties": {
+    "progetto": {
+     "$ref": "#/$defs/Testo"
+    },
+    "titolo": {
+     "$ref": "#/$defs/Testo"
+    }
+   },
+   "required": [
+    "titolo",
+    "progetto"
+   ],
+   "title": "Animazione",
+   "type": "object"
+  },
+  "Domanda": {
+   "additionalProperties": false,
+   "properties": {
+    "concetti": {
+     "items": {
+      "type": "string"
+     },
+     "minItems": 1,
+     "title": "Concetti",
+     "type": "array"
+    },
+    "concetto_principale": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Concetto Principale"
+    },
+    "id": {
+     "minLength": 1,
+     "title": "Id",
+     "type": "string"
+    },
+    "livello1": {
+     "$ref": "#/$defs/Livello"
+    },
+    "livello2": {
+     "$ref": "#/$defs/Livello2"
+    },
+    "origine": {
+     "enum": [
+      "benchmark",
+      "dimostratore"
+     ],
+     "title": "Origine",
+     "type": "string"
+    },
+    "pillola": {
+     "title": "Pillola",
+     "type": "string"
+    },
+    "segmento_aiuto": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Segmento Aiuto"
+    }
+   },
+   "required": [
+    "id",
+    "origine",
+    "pillola",
+    "concetti",
+    "livello1",
+    "livello2"
+   ],
+   "title": "Domanda",
+   "type": "object"
+  },
+  "Livello": {
+   "additionalProperties": false,
+   "properties": {
+    "domanda": {
+     "$ref": "#/$defs/Testo"
+    },
+    "opzioni": {
+     "items": {
+      "$ref": "#/$defs/Opzione"
+     },
+     "minItems": 2,
+     "title": "Opzioni",
+     "type": "array"
+    },
+    "perche": {
+     "anyOf": [
+      {
+       "$ref": "#/$defs/Testo"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null
+    }
+   },
+   "required": [
+    "domanda",
+    "opzioni"
+   ],
+   "title": "Livello",
+   "type": "object"
+  },
+  "Livello2": {
+   "additionalProperties": false,
+   "properties": {
+    "domanda": {
+     "$ref": "#/$defs/Testo"
+    },
+    "opzioni": {
+     "items": {
+      "$ref": "#/$defs/Opzione"
+     },
+     "minItems": 2,
+     "title": "Opzioni",
+     "type": "array"
+    },
+    "perche": {
+     "anyOf": [
+      {
+       "$ref": "#/$defs/Testo"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null
+    },
+    "tipo": {
+     "enum": [
+      "motivazione",
+      "trasferimento",
+      "contro-esempio",
+      "diagnosi"
+     ],
+     "title": "Tipo",
+     "type": "string"
+    }
+   },
+   "required": [
+    "domanda",
+    "opzioni",
+    "tipo"
+   ],
+   "title": "Livello2",
+   "type": "object"
+  },
+  "Modulo": {
+   "additionalProperties": false,
+   "properties": {
+    "anello": {
+     "minimum": 1,
+     "title": "Anello",
+     "type": "integer"
+    },
+    "id": {
+     "pattern": "^M\\d+$",
+     "title": "Id",
+     "type": "string"
+    },
+    "pillole": {
+     "items": {
+      "$ref": "#/$defs/Pillola"
+     },
+     "minItems": 1,
+     "title": "Pillole",
+     "type": "array"
+    },
+    "titolo": {
+     "$ref": "#/$defs/Testo"
+    }
+   },
+   "required": [
+    "id",
+    "titolo",
+    "anello",
+    "pillole"
+   ],
+   "title": "Modulo",
+   "type": "object"
+  },
+  "Opzione": {
+   "additionalProperties": false,
+   "properties": {
+    "corretta": {
+     "title": "Corretta",
+     "type": "boolean"
+    },
+    "id": {
+     "minLength": 1,
+     "title": "Id",
+     "type": "string"
+    },
+    "spiegazione": {
+     "anyOf": [
+      {
+       "$ref": "#/$defs/Testo"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null
+    },
+    "testo": {
+     "$ref": "#/$defs/Testo"
+    },
+    "tipo_distrattore": {
+     "anyOf": [
+      {
+       "enum": [
+        "quasi",
+        "poco",
+        "errata"
+       ],
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Tipo Distrattore"
+    }
+   },
+   "required": [
+    "id",
+    "testo",
+    "corretta"
+   ],
+   "title": "Opzione",
+   "type": "object"
+  },
+  "Pillola": {
+   "additionalProperties": false,
+   "properties": {
+    "animazione": {
+     "$ref": "#/$defs/Animazione"
+    },
+    "concetti": {
+     "items": {
+      "type": "string"
+     },
+     "minItems": 1,
+     "title": "Concetti",
+     "type": "array"
+    },
+    "domande": {
+     "items": {
+      "$ref": "#/$defs/Domanda"
+     },
+     "title": "Domande",
+     "type": "array"
+    },
+    "durata_min": {
+     "exclusiveMinimum": 0,
+     "title": "Durata Min",
+     "type": "integer"
+    },
+    "fonti": {
+     "items": {
+      "type": "string"
+     },
+     "title": "Fonti",
+     "type": "array"
+    },
+    "id": {
+     "pattern": "^P\\d+\\.\\d+$",
+     "title": "Id",
+     "type": "string"
+    },
+    "obiettivo": {
+     "$ref": "#/$defs/Testo"
+    },
+    "prerequisiti": {
+     "items": {
+      "type": "string"
+     },
+     "title": "Prerequisiti",
+     "type": "array"
+    },
+    "scaletta": {
+     "items": {
+      "$ref": "#/$defs/Testo"
+     },
+     "minItems": 1,
+     "title": "Scaletta",
+     "type": "array"
+    },
+    "titolo": {
+     "$ref": "#/$defs/Testo"
+    }
+   },
+   "required": [
+    "id",
+    "titolo",
+    "durata_min",
+    "prerequisiti",
+    "concetti",
+    "fonti",
+    "obiettivo",
+    "scaletta",
+    "animazione",
+    "domande"
+   ],
+   "title": "Pillola",
+   "type": "object"
+  },
+  "Testo": {
+   "additionalProperties": false,
+   "description": "Testo bilingue. 'en' null = traduzione da completare (dichiarata, non nascosta).",
+   "properties": {
+    "en": {
+     "anyOf": [
+      {
+       "minLength": 1,
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "En"
+    },
+    "it": {
+     "minLength": 1,
+     "title": "It",
+     "type": "string"
+    }
+   },
+   "required": [
+    "it"
+   ],
+   "title": "Testo",
+   "type": "object"
+  }
+ },
+ "additionalProperties": false,
+ "properties": {
+  "fonte": {
+   "title": "Fonte",
+   "type": "string"
+  },
+  "id": {
+   "title": "Id",
+   "type": "string"
+  },
+  "moduli": {
+   "items": {
+    "$ref": "#/$defs/Modulo"
+   },
+   "minItems": 1,
+   "title": "Moduli",
+   "type": "array"
+  },
+  "titolo": {
+   "$ref": "#/$defs/Testo"
+  },
+  "versione_schema": {
+   "const": 1,
+   "title": "Versione Schema",
+   "type": "integer"
+  }
+ },
+ "required": [
+  "versione_schema",
+  "id",
+  "titolo",
+  "fonte",
+  "moduli"
+ ],
+ "title": "Corso",
+ "type": "object"
+}

@@ -158,7 +158,7 @@ function mostraAccesso() {
       ev.preventDefault();
       err.textContent = "";
       const r = await api("POST", "/api/accesso", { email: email.value, codice: codice.value });
-      if (!r.ok) { err.textContent = r.dati.messaggio || `HTTP ${r.status}`; return; }
+      if (!r.ok) { err.textContent = r.status === 401 ? t("accesso_negato") : (r.dati.messaggio || `HTTP ${r.status}`); return; }
       await avvia();
     },
   },
@@ -722,7 +722,7 @@ async function apriDebriefing() {
     h("div", { class: "grande" }, conv ? "🛟" : "🧠"),
     h("h2", {}, conv ? t("convalescenza_titolo") : t("ripasso_titolo")),
     h("p", {}, conv ? t("convalescenza_spiega") : t("ripasso_spiega")),
-    h("p", {}, t("ripasso_pronto", { n: conv ? Math.min(info.totale, info.totale) : info.scaduti })),
+    h("p", {}, t("ripasso_pronto", { n: conv ? info.totale : info.scaduti })),
     h("div", { class: "azioni-quiz", style: "justify-content:center" },
       !conv ? h("button", { class: "btn", onclick: () => { S.vista = "mappa"; disegnaTutto(); } }, t("torna_mappa")) : null,
       h("button", { class: "btn btn-primario", onclick: avviaRip }, t("inizia_ripasso"))))));

@@ -286,7 +286,7 @@ class Motore:
                 esito.update(self._chiudi_ripasso(st, d, pulito))
         esito["salute"] = st.salute
         esito["convalescenza"] = st.convalescenza
-        if st.convalescenza and esito["prossimo"] != "livello2":
+        if st.convalescenza and ic.contesto == "spicchio" and esito["prossimo"] != "livello2":
             esito["prossimo"] = "debriefing"
         self.archivio.salva(st)
         return esito
