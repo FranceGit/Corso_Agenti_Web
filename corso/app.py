@@ -125,6 +125,10 @@ def crea_app(cfg: Config | None = None, orologio: Callable[[], datetime] = orolo
             raise ErroreNonTrovato(f"file di shell '{nome}' inesistente")
         return FileResponse(cartella_webapp / nome, media_type=FILE_SHELL[nome])
 
+    @app.get("/api/lingue")
+    def api_lingue():
+        return {"lingue": cfg.lingue(), "predefinita": cfg.prendi("lingue", "predefinita", tipo=str)}
+
     @app.get("/api/interfaccia")
     def api_interfaccia(lingua: str = Depends(lingua_valida)):
         return {
