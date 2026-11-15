@@ -1,0 +1,119 @@
+{
+  "_why": "Unica fonte dei parametri della piattaforma. Il codice non contiene valori: se una chiave manca o ha un tipo sbagliato il server si ferma con un errore esplicito che nomina la chiave (nessun valore di ripiego silenzioso).",
+  "versione_config": 1,
+
+  "server": {
+    "_why": "Indirizzo locale del server. 127.0.0.1 = raggiungibile solo da questo PC: per il collaudo di France basta e non espone nulla in rete.",
+    "host": "127.0.0.1",
+    "porta": 8780,
+    "titolo_api": "Corso Agenti AI - piattaforma web"
+  },
+
+  "percorsi_file": {
+    "_why": "Percorsi relativi alla radice del progetto. I contenuti stanno in dati/ e NON sono serviti come file statici: escono solo dalle API, dopo l'accesso.",
+    "corso": "dati/corso_v1.json",
+    "knowledge_graph": "dati/knowledge_graph.json",
+    "cartella_lezioni": "dati/lezioni",
+    "interfaccia": "config/interfaccia.json",
+    "cartella_stato_studenti": "stato_studenti",
+    "cartella_webapp": "webapp",
+    "cartella_animazioni": "webapp/animazioni"
+  },
+
+  "lingue": {
+    "_why": "Decisione di France: tutto il modello dati e' bilingue IT/EN. Se un testo manca nella lingua chiesta il server risponde con l'errore 'traduzione_mancante' (mai il testo dell'altra lingua al suo posto).",
+    "disponibili": ["it", "en"],
+    "predefinita": "it"
+  },
+
+  "account": {
+    "_why": "Accesso minimo come in CWEG (email + codice). In questa fase e' uno STUB: un codice valido e' uno di quelli elencati qui. La sessione vive in un cookie HttpOnly, cosi' anche i moduli delle animazioni si caricano solo dopo l'accesso.",
+    "modalita": "stub",
+    "codici_stub": ["DEMO-AGENTI"],
+    "nome_cookie": "corso_sessione",
+    "durata_sessione_ore": 12,
+    "lunghezza_token_byte": 32,
+    "lunghezza_massima_email": 254
+  },
+
+  "protezione_contenuti": {
+    "_why": "Il materiale resta del server: ogni risposta con contenuti dice al browser di non conservarla (no-store) e di non incorniciarla in altri siti. Nessun endpoint offre file da scaricare.",
+    "intestazioni": {
+      "Cache-Control": "no-store, max-age=0",
+      "Pragma": "no-cache",
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "no-referrer",
+      "X-Frame-Options": "DENY",
+      "Content-Disposition": "inline"
+    }
+  },
+
+  "domande": {
+    "_why": "Domande MAI aperte: due livelli a scelta multipla. Livello 1 = la risposta, livello 2 = il PERCHE' (anch'esso a scelta).",
+    "tipi_distrattore": ["quasi", "poco", "errata"],
+    "l2_dopo_l1_errata": false,
+    "_why_l2_dopo_l1_errata": "Come nel corso benchmark: il livello 2 si pone solo se il livello 1 e' corretto (se il livello 1 e' sbagliato si mostra subito la correzione con il perche').",
+    "budget_lettura": {
+      "_why": "Regola di France sul numero di risposte: piu' le opzioni sono lunghe, meno opzioni (il tempo di lettura resta simile). Misura = media dei caratteri delle opzioni nella lingua indicata. Le fasce vanno in ordine crescente; l'ultima ha fino_a_caratteri null = nessun limite superiore.",
+      "lingua_misura": "it",
+      "fasce": [
+        {"nome": "molto_brevi", "fino_a_caratteri": 30, "numero_opzioni": 7},
+        {"nome": "normali", "fino_a_caratteri": 90, "numero_opzioni": 5},
+        {"nome": "lunghe", "fino_a_caratteri": 150, "numero_opzioni": 4},
+        {"nome": "lunghissime", "fino_a_caratteri": null, "numero_opzioni": 3}
+      ]
+    },
+    "composizione_plausibilita": {
+      "_why": "France ha fissato la composizione solo per 7 opzioni: 1 corretta + 2 quasi giuste + 2 poco plausibili + 2 errate. Per 3, 4 e 5 opzioni la composizione non e' vincolata: null = 'nessun vincolo', dichiarato qui e non dedotto dal codice.",
+      "7": {"quasi": 2, "poco": 2, "errata": 2},
+      "5": null,
+      "4": null,
+      "3": null
+    }
+  },
+
+  "salute": {
+    "_why": "Modello SALUTE di France: passaggio pulito = nessun danno; passaggio con correzione = danno, con gravita' decisa dal TIPO di distrattore scelto. La salute non blocca mai: a zero scatta la convalescenza (debriefing), poi si riparte.",
+    "massima": 100,
+    "iniziale": 100,
+    "danno_per_tipo_distrattore": {"quasi": 8, "poco": 15, "errata": 25},
+    "_why_danno": "Scegliere un'opzione quasi giusta e' un errore di precisione (danno lieve); un'opzione errata rivela un concetto non capito (danno forte).",
+    "moltiplicatore_per_livello": {"1": 1.0, "2": 0.6},
+    "_why_moltiplicatore": "Chi sbaglia solo il perche' (livello 2) ha comunque riconosciuto la risposta giusta al livello 1: il danno e' ridotto.",
+    "salute_dopo_convalescenza": 60,
+    "recupero_per_ripasso_corretto": 10,
+    "danno_durante_ripasso": false,
+    "_why_ripasso": "Il debriefing di ripasso serve a recuperare: chi risponde bene recupera salute, chi sbaglia non perde nulla (l'elemento torna semplicemente da rivedere presto)."
+  },
+
+  "ripasso": {
+    "_why": "Ripasso distanziato delle cose da rivedere: dopo un errore l'elemento torna dopo il primo intervallo; ogni ripasso pulito lo sposta all'intervallo successivo; superato l'ultimo, esce dalla lista.",
+    "intervalli_ore": [24, 72, 168, 336],
+    "massimo_elementi_per_debriefing": 5
+  },
+
+  "percorso": {
+    "_why": "Generatore di anelli/spicchi/strisce dal knowledge graph, con un seme per studente: tutti gli spicchi sono sempre presenti, cambiano l'ordine e le strisce.",
+    "sale_seme": "corso-agenti-v1",
+    "strisce_per_concetto": {"minimo": 2, "massimo": 7},
+    "soglia_superamento_spicchio": 0.7,
+    "_why_soglia": "Quota minima di strisce superate in modo pulito (livello 1 e 2 giusti al primo colpo) per superare lo spicchio.",
+    "peso_base_candidato": 1,
+    "_why_peso_base": "Nella scelta del prossimo spicchio ogni candidato ha almeno questo peso, piu' la forza del legame (pesi degli archi del knowledge graph) con lo spicchio precedente: i legami forti sono preferiti ma non obbligati.",
+    "politica_sblocco": "libero",
+    "_why_politica_sblocco": "Fase dimostratore: France deve poter aprire subito entrambe le pillole complete. 'sequenziale' = un anello si apre solo quando gli spicchi erogabili dell'anello precedente sono superati (valore previsto in produzione)."
+  },
+
+  "aiuti": {
+    "_why": "Scala di aiuti dopo fallimenti ripetuti sullo stesso concetto: prima il segmento pertinente della lezione, poi la pillola intera. Il contatore riparte da zero a ogni passaggio pulito su quel concetto.",
+    "scala": [
+      {"dopo_fallimenti_consecutivi": 2, "tipo": "segmento"},
+      {"dopo_fallimenti_consecutivi": 3, "tipo": "pillola_intera"}
+    ]
+  },
+
+  "record": {
+    "_why": "Record personale finale, nessuna classifica: si confronta lo studente solo con se stesso. Criteri in ordine di importanza; il record si aggiorna quando un percorso completo lo migliora.",
+    "criteri": ["quota_passaggi_puliti", "salute_finale"]
+  }
+}

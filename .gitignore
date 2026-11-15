@@ -1,0 +1,22 @@
+# Ambiente Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Stato degli studenti (dati personali: mai nel repository)
+stato_studenti/
+
+# Esiti locali del collaudo
+collaudo_esito.txt
+
+# Sistema operativo ed editor
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/

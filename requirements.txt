@@ -1,0 +1,7 @@
+# Piattaforma web del corso sugli agenti AI (Python 3.10+). Solo librerie gratuite con licenza permissiva.
+fastapi>=0.110      # MIT  - server e API JSON
+uvicorn>=0.29       # BSD  - avvio del server (python server.py)
+pydantic>=2.5       # MIT  - modello dati del corso, validazione, schema JSON
+httpx>=0.27         # BSD  - richiesto da fastapi.testclient nei test
+pytest>=7.0         # MIT  - test
+pytest-cov>=4.0     # MIT  - misura della copertura dei test

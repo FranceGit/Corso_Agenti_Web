@@ -1,0 +1,1938 @@
+{
+ "versione_schema": 1,
+ "fonte": "CORSO_BENCHMARK_STRUTTURA.md",
+ "pesi_per_tipo": {
+  "PRE": 3,
+  "CON": 2,
+  "MIT": 2,
+  "APP": 2,
+  "ES": 1
+ },
+ "legenda": {
+  "PRE": {
+   "it": "prerequisito di",
+   "en": "prerequisite of"
+  },
+  "APP": {
+   "it": "approfondisce",
+   "en": "deepens"
+  },
+  "CON": {
+   "it": "contrasta / si distingue da",
+   "en": "contrasts with / differs from"
+  },
+  "ES": {
+   "it": "esempio di",
+   "en": "example of"
+  },
+  "MIT": {
+   "it": "mitiga (rischio -> contromisura)",
+   "en": "mitigates (risk -> countermeasure)"
+  }
+ },
+ "nodi": [
+  {
+   "id": "C01",
+   "nome": {
+    "it": "Assistente LLM (generazione di testo)",
+    "en": "LLM assistant (text generation)"
+   },
+   "pillole": [
+    "P1.1"
+   ],
+   "anello": 1
+  },
+  {
+   "id": "C02",
+   "nome": {
+    "it": "Agente AI (obiettivo + azione + osservazione)",
+    "en": "AI agent (goal + action + observation)"
+   },
+   "pillole": [
+    "P1.1"
+   ],
+   "anello": 1
+  },
+  {
+   "id": "C03",
+   "nome": {
+    "it": "Agente come sistema (non solo prompt)",
+    "en": "The agent as a system (not just a prompt)"
+   },
+   "pillole": [
+    "P1.1"
+   ],
+   "anello": 1
+  },
+  {
+   "id": "C04",
+   "nome": {
+    "it": "Token",
+    "en": "Token"
+   },
+   "pillole": [
+    "P1.2"
+   ],
+   "anello": 1
+  },
+  {
+   "id": "C05",
+   "nome": {
+    "it": "Previsione probabilistica / temperatura",
+    "en": "Probabilistic prediction / temperature"
+   },
+   "pillole": [
+    "P1.2"
+   ],
+   "anello": 1
+  },
+  {
+   "id": "C06",
+   "nome": {
+    "it": "Finestra di contesto",
+    "en": "Context window"
+   },
+   "pillole": [
+    "P1.2"
+   ],
+   "anello": 1
+  },
+  {
+   "id": "C07",
+   "nome": {
+    "it": "Allucinazione",
+    "en": "Hallucination"
+   },
+   "pillole": [
+    "P1.2",
+    "P2.4"
+   ],
+   "anello": 1
+  },
+  {
+   "id": "C08",
+   "nome": {
+    "it": "Ciclo ragiona-agisci-osserva",
+    "en": "Reason-act-observe loop"
+   },
+   "pillole": [
+    "P1.3"
+   ],
+   "anello": 1
+  },
+  {
+   "id": "C09",
+   "nome": {
+    "it": "Condizioni di arresto",
+    "en": "Stop conditions"
+   },
+   "pillole": [
+    "P1.3"
+   ],
+   "anello": 1
+  },
+  {
+   "id": "C10",
+   "nome": {
+    "it": "Modello (componente)",
+    "en": "Model (component)"
+   },
+   "pillole": [
+    "P1.4"
+   ],
+   "anello": 1
+  },
+  {
+   "id": "C11",
+   "nome": {
+    "it": "Strumenti (componente)",
+    "en": "Tools (component)"
+   },
+   "pillole": [
+    "P1.4"
+   ],
+   "anello": 1
+  },
+  {
+   "id": "C12",
+   "nome": {
+    "it": "Orchestrazione (componente)",
+    "en": "Orchestration (component)"
+   },
+   "pillole": [
+    "P1.4"
+   ],
+   "anello": 1
+  },
+  {
+   "id": "C13",
+   "nome": {
+    "it": "Memoria/contesto (componente)",
+    "en": "Memory/context (component)"
+   },
+   "pillole": [
+    "P1.4"
+   ],
+   "anello": 1
+  },
+  {
+   "id": "C14",
+   "nome": {
+    "it": "Spettro dell'autonomia",
+    "en": "Autonomy spectrum"
+   },
+   "pillole": [
+    "P1.5"
+   ],
+   "anello": 1
+  },
+  {
+   "id": "C15",
+   "nome": {
+    "it": "Workflow con LLM vs agente",
+    "en": "LLM workflow vs agent"
+   },
+   "pillole": [
+    "P1.5"
+   ],
+   "anello": 1
+  },
+  {
+   "id": "C16",
+   "nome": {
+    "it": "Principio del livello minimo sufficiente",
+    "en": "Principle of the minimum sufficient level"
+   },
+   "pillole": [
+    "P1.5"
+   ],
+   "anello": 1
+  },
+  {
+   "id": "C17",
+   "nome": {
+    "it": "Casi d'uso CRM lungo il funnel",
+    "en": "CRM use cases along the funnel"
+   },
+   "pillole": [
+    "P1.6"
+   ],
+   "anello": 1
+  },
+  {
+   "id": "C18",
+   "nome": {
+    "it": "Qualità dei dati CRM",
+    "en": "CRM data quality"
+   },
+   "pillole": [
+    "P1.6"
+   ],
+   "anello": 1
+  },
+  {
+   "id": "C19",
+   "nome": {
+    "it": "Istruzioni di sistema",
+    "en": "System instructions"
+   },
+   "pillole": [
+    "P2.1"
+   ],
+   "anello": 2
+  },
+  {
+   "id": "C20",
+   "nome": {
+    "it": "Esempi (few-shot)",
+    "en": "Examples (few-shot)"
+   },
+   "pillole": [
+    "P2.1"
+   ],
+   "anello": 2
+  },
+  {
+   "id": "C21",
+   "nome": {
+    "it": "Output strutturato e validazione",
+    "en": "Structured output and validation"
+   },
+   "pillole": [
+    "P2.2"
+   ],
+   "anello": 2
+  },
+  {
+   "id": "C22",
+   "nome": {
+    "it": "ReAct",
+    "en": "ReAct"
+   },
+   "pillole": [
+    "P2.3"
+   ],
+   "anello": 2
+  },
+  {
+   "id": "C23",
+   "nome": {
+    "it": "Pianifica-poi-esegui / decomposizione",
+    "en": "Plan-then-execute / decomposition"
+   },
+   "pillole": [
+    "P2.3"
+   ],
+   "anello": 2
+  },
+  {
+   "id": "C24",
+   "nome": {
+    "it": "Grounding e citazione delle fonti",
+    "en": "Grounding and source citation"
+   },
+   "pillole": [
+    "P2.4"
+   ],
+   "anello": 2
+  },
+  {
+   "id": "C25",
+   "nome": {
+    "it": "Fatto vs inferenza vs invenzione",
+    "en": "Fact vs inference vs invention"
+   },
+   "pillole": [
+    "P2.4"
+   ],
+   "anello": 2
+  },
+  {
+   "id": "C26",
+   "nome": {
+    "it": "Pipeline di lead generation",
+    "en": "Lead generation pipeline"
+   },
+   "pillole": [
+    "P3.1"
+   ],
+   "anello": 2
+  },
+  {
+   "id": "C27",
+   "nome": {
+    "it": "Contratto dati tra passi",
+    "en": "Data contract between steps"
+   },
+   "pillole": [
+    "P3.1"
+   ],
+   "anello": 2
+  },
+  {
+   "id": "C28",
+   "nome": {
+    "it": "Lead scoring (coerenza, calibrazione)",
+    "en": "Lead scoring (consistency, calibration)"
+   },
+   "pillole": [
+    "P3.2"
+   ],
+   "anello": 2
+  },
+  {
+   "id": "C29",
+   "nome": {
+    "it": "Arricchimento dei lead",
+    "en": "Lead enrichment"
+   },
+   "pillole": [
+    "P3.3"
+   ],
+   "anello": 2
+  },
+  {
+   "id": "C30",
+   "nome": {
+    "it": "Outreach personalizzato tracciabile",
+    "en": "Traceable personalised outreach"
+   },
+   "pillole": [
+    "P3.4"
+   ],
+   "anello": 2
+  },
+  {
+   "id": "C31",
+   "nome": {
+    "it": "Ambiente di test (sandbox email)",
+    "en": "Test environment (email sandbox)"
+   },
+   "pillole": [
+    "P3.4"
+   ],
+   "anello": 2
+  },
+  {
+   "id": "C32",
+   "nome": {
+    "it": "Classificazione delle risposte",
+    "en": "Reply classification"
+   },
+   "pillole": [
+    "P3.5"
+   ],
+   "anello": 2
+  },
+  {
+   "id": "C33",
+   "nome": {
+    "it": "Soglia di confidenza ed escalation",
+    "en": "Confidence threshold and escalation"
+   },
+   "pillole": [
+    "P3.5"
+   ],
+   "anello": 2
+  },
+  {
+   "id": "C34",
+   "nome": {
+    "it": "Function calling",
+    "en": "Function calling"
+   },
+   "pillole": [
+    "P4.1"
+   ],
+   "anello": 3
+  },
+  {
+   "id": "C35",
+   "nome": {
+    "it": "Separazione modello/esecuzione",
+    "en": "Separation of model and execution"
+   },
+   "pillole": [
+    "P4.1"
+   ],
+   "anello": 3
+  },
+  {
+   "id": "C36",
+   "nome": {
+    "it": "Progettazione degli strumenti (descrizioni, errori)",
+    "en": "Tool design (descriptions, errors)"
+   },
+   "pillole": [
+    "P4.2"
+   ],
+   "anello": 3
+  },
+  {
+   "id": "C37",
+   "nome": {
+    "it": "Idempotenza e lettura/scrittura",
+    "en": "Idempotency and read/write"
+   },
+   "pillole": [
+    "P4.2"
+   ],
+   "anello": 3
+  },
+  {
+   "id": "C38",
+   "nome": {
+    "it": "MCP (host, client, server)",
+    "en": "MCP (host, client, server)"
+   },
+   "pillole": [
+    "P4.3"
+   ],
+   "anello": 3
+  },
+  {
+   "id": "C39",
+   "nome": {
+    "it": "Strumenti, risorse, prompt MCP",
+    "en": "MCP tools, resources, prompts"
+   },
+   "pillole": [
+    "P4.3"
+   ],
+   "anello": 3
+  },
+  {
+   "id": "C40",
+   "nome": {
+    "it": "Costo di contesto degli strumenti",
+    "en": "Context cost of tools"
+   },
+   "pillole": [
+    "P4.4"
+   ],
+   "anello": 3
+  },
+  {
+   "id": "C41",
+   "nome": {
+    "it": "Scoperta progressiva / esecuzione di codice",
+    "en": "Progressive discovery / code execution"
+   },
+   "pillole": [
+    "P4.4"
+   ],
+   "anello": 3
+  },
+  {
+   "id": "C42",
+   "nome": {
+    "it": "Prompt injection indiretta",
+    "en": "Indirect prompt injection"
+   },
+   "pillole": [
+    "P4.5"
+   ],
+   "anello": 3
+  },
+  {
+   "id": "C43",
+   "nome": {
+    "it": "Minimo privilegio e segreti",
+    "en": "Least privilege and secrets"
+   },
+   "pillole": [
+    "P4.5"
+   ],
+   "anello": 3
+  },
+  {
+   "id": "C44",
+   "nome": {
+    "it": "Context engineering",
+    "en": "Context engineering"
+   },
+   "pillole": [
+    "P5.1"
+   ],
+   "anello": 4
+  },
+  {
+   "id": "C45",
+   "nome": {
+    "it": "Sessione: storia e stato",
+    "en": "Session: history and state"
+   },
+   "pillole": [
+    "P5.2"
+   ],
+   "anello": 4
+  },
+  {
+   "id": "C46",
+   "nome": {
+    "it": "Compattazione",
+    "en": "Compaction"
+   },
+   "pillole": [
+    "P5.2"
+   ],
+   "anello": 4
+  },
+  {
+   "id": "C47",
+   "nome": {
+    "it": "Memoria a lungo termine (estrai-consolida-recupera)",
+    "en": "Long-term memory (extract-consolidate-retrieve)"
+   },
+   "pillole": [
+    "P5.3"
+   ],
+   "anello": 4
+  },
+  {
+   "id": "C48",
+   "nome": {
+    "it": "Memoria dichiarativa vs procedurale",
+    "en": "Declarative vs procedural memory"
+   },
+   "pillole": [
+    "P5.3"
+   ],
+   "anello": 4
+  },
+  {
+   "id": "C49",
+   "nome": {
+    "it": "Embedding e ricerca semantica",
+    "en": "Embeddings and semantic search"
+   },
+   "pillole": [
+    "P5.4"
+   ],
+   "anello": 4
+  },
+  {
+   "id": "C50",
+   "nome": {
+    "it": "RAG",
+    "en": "RAG"
+   },
+   "pillole": [
+    "P5.4"
+   ],
+   "anello": 4
+  },
+  {
+   "id": "C51",
+   "nome": {
+    "it": "Privacy della memoria / cancellazione",
+    "en": "Memory privacy / deletion"
+   },
+   "pillole": [
+    "P5.5"
+   ],
+   "anello": 4
+  },
+  {
+   "id": "C52",
+   "nome": {
+    "it": "Isolamento e avvelenamento della memoria",
+    "en": "Memory isolation and poisoning"
+   },
+   "pillole": [
+    "P5.5"
+   ],
+   "anello": 4
+  },
+  {
+   "id": "C53",
+   "nome": {
+    "it": "Specializzazione multi-agente",
+    "en": "Multi-agent specialisation"
+   },
+   "pillole": [
+    "P6.1"
+   ],
+   "anello": 4
+  },
+  {
+   "id": "C54",
+   "nome": {
+    "it": "Schemi: sequenziale, parallelo, ciclo",
+    "en": "Patterns: sequential, parallel, loop"
+   },
+   "pillole": [
+    "P6.2"
+   ],
+   "anello": 4
+  },
+  {
+   "id": "C55",
+   "nome": {
+    "it": "Schema supervisore/router",
+    "en": "Supervisor/router pattern"
+   },
+   "pillole": [
+    "P6.2"
+   ],
+   "anello": 4
+  },
+  {
+   "id": "C56",
+   "nome": {
+    "it": "Comunicazione: stato condiviso / eventi",
+    "en": "Communication: shared state / events"
+   },
+   "pillole": [
+    "P6.3"
+   ],
+   "anello": 4
+  },
+  {
+   "id": "C57",
+   "nome": {
+    "it": "A2A e agent card",
+    "en": "A2A and agent card"
+   },
+   "pillole": [
+    "P6.3"
+   ],
+   "anello": 4
+  },
+  {
+   "id": "C58",
+   "nome": {
+    "it": "Errori a cascata e limiti globali",
+    "en": "Cascading errors and global limits"
+   },
+   "pillole": [
+    "P6.4"
+   ],
+   "anello": 4
+  },
+  {
+   "id": "C59",
+   "nome": {
+    "it": "Non determinismo nella valutazione",
+    "en": "Non-determinism in evaluation"
+   },
+   "pillole": [
+    "P7.1"
+   ],
+   "anello": 5
+  },
+  {
+   "id": "C60",
+   "nome": {
+    "it": "Valutazione di risultato e traiettoria",
+    "en": "Outcome and trajectory evaluation"
+   },
+   "pillole": [
+    "P7.1"
+   ],
+   "anello": 5
+  },
+  {
+   "id": "C61",
+   "nome": {
+    "it": "Log, tracce, metriche",
+    "en": "Logs, traces, metrics"
+   },
+   "pillole": [
+    "P7.2"
+   ],
+   "anello": 5
+  },
+  {
+   "id": "C62",
+   "nome": {
+    "it": "Correlation id e redazione nei log",
+    "en": "Correlation id and redaction in logs"
+   },
+   "pillole": [
+    "P7.2"
+   ],
+   "anello": 5
+  },
+  {
+   "id": "C63",
+   "nome": {
+    "it": "Set di valutazione (tipici, limite, avversari)",
+    "en": "Evaluation set (typical, edge, adversarial)"
+   },
+   "pillole": [
+    "P7.3"
+   ],
+   "anello": 5
+  },
+  {
+   "id": "C64",
+   "nome": {
+    "it": "Test di regressione",
+    "en": "Regression tests"
+   },
+   "pillole": [
+    "P7.3"
+   ],
+   "anello": 5
+  },
+  {
+   "id": "C65",
+   "nome": {
+    "it": "LLM come giudice e bias",
+    "en": "LLM as a judge and bias"
+   },
+   "pillole": [
+    "P7.4"
+   ],
+   "anello": 5
+  },
+  {
+   "id": "C66",
+   "nome": {
+    "it": "Revisione umana e calibrazione",
+    "en": "Human review and calibration"
+   },
+   "pillole": [
+    "P7.4"
+   ],
+   "anello": 5
+  },
+  {
+   "id": "C67",
+   "nome": {
+    "it": "Metriche di business vs tecniche",
+    "en": "Business vs technical metrics"
+   },
+   "pillole": [
+    "P7.5"
+   ],
+   "anello": 5
+  },
+  {
+   "id": "C68",
+   "nome": {
+    "it": "Gruppo di controllo / A/B",
+    "en": "Control group / A/B"
+   },
+   "pillole": [
+    "P7.5"
+   ],
+   "anello": 5
+  },
+  {
+   "id": "C69",
+   "nome": {
+    "it": "Ambienti e versionamento",
+    "en": "Environments and versioning"
+   },
+   "pillole": [
+    "P8.1"
+   ],
+   "anello": 6
+  },
+  {
+   "id": "C70",
+   "nome": {
+    "it": "Rilascio graduale e rollback",
+    "en": "Gradual rollout and rollback"
+   },
+   "pillole": [
+    "P8.1"
+   ],
+   "anello": 6
+  },
+  {
+   "id": "C71",
+   "nome": {
+    "it": "Livelli di rischio delle azioni",
+    "en": "Action risk levels"
+   },
+   "pillole": [
+    "P8.2"
+   ],
+   "anello": 6
+  },
+  {
+   "id": "C72",
+   "nome": {
+    "it": "Approvazione umana e fail-closed",
+    "en": "Human approval and fail-closed"
+   },
+   "pillole": [
+    "P8.2"
+   ],
+   "anello": 6
+  },
+  {
+   "id": "C73",
+   "nome": {
+    "it": "Kill switch",
+    "en": "Kill switch"
+   },
+   "pillole": [
+    "P8.3"
+   ],
+   "anello": 6
+  },
+  {
+   "id": "C74",
+   "nome": {
+    "it": "Audit trail e spiegabilità",
+    "en": "Audit trail and explainability"
+   },
+   "pillole": [
+    "P8.3"
+   ],
+   "anello": 6
+  },
+  {
+   "id": "C75",
+   "nome": {
+    "it": "Isolamento multi-tenant",
+    "en": "Multi-tenant isolation"
+   },
+   "pillole": [
+    "P8.4"
+   ],
+   "anello": 6
+  },
+  {
+   "id": "C76",
+   "nome": {
+    "it": "Redazione PII e luogo di elaborazione",
+    "en": "PII redaction and processing location"
+   },
+   "pillole": [
+    "P8.4"
+   ],
+   "anello": 6
+  },
+  {
+   "id": "C77",
+   "nome": {
+    "it": "Costo e instradamento dei modelli",
+    "en": "Cost and model routing"
+   },
+   "pillole": [
+    "P8.5"
+   ],
+   "anello": 6
+  },
+  {
+   "id": "C78",
+   "nome": {
+    "it": "Dipendenza dal fornitore",
+    "en": "Provider dependency"
+   },
+   "pillole": [
+    "P8.5"
+   ],
+   "anello": 6
+  },
+  {
+   "id": "C79",
+   "nome": {
+    "it": "Blueprint integrato",
+    "en": "Integrated blueprint"
+   },
+   "pillole": [
+    "P8.6"
+   ],
+   "anello": 6
+  }
+ ],
+ "archi": [
+  {
+   "da": "C01",
+   "a": "C02",
+   "tipo": "CON",
+   "peso": 2,
+   "nota": {
+    "it": "testo vs azione",
+    "en": null
+   }
+  },
+  {
+   "da": "C02",
+   "a": "C08",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C02",
+   "a": "C03",
+   "tipo": "APP",
+   "peso": 2,
+   "nota": null
+  },
+  {
+   "da": "C03",
+   "a": "C10",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C03",
+   "a": "C11",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C03",
+   "a": "C12",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C03",
+   "a": "C13",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C04",
+   "a": "C06",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C04",
+   "a": "C40",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": {
+    "it": "costo in token",
+    "en": null
+   }
+  },
+  {
+   "da": "C04",
+   "a": "C77",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C05",
+   "a": "C07",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C05",
+   "a": "C28",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": {
+    "it": "coerenza dello scoring",
+    "en": null
+   }
+  },
+  {
+   "da": "C05",
+   "a": "C59",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": {
+    "it": "non determinismo",
+    "en": null
+   }
+  },
+  {
+   "da": "C06",
+   "a": "C44",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C06",
+   "a": "C40",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C06",
+   "a": "C46",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C07",
+   "a": "C24",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C07",
+   "a": "C25",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C24",
+   "a": "C07",
+   "tipo": "MIT",
+   "peso": 2,
+   "nota": null
+  },
+  {
+   "da": "C08",
+   "a": "C09",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C08",
+   "a": "C22",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C08",
+   "a": "C34",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C09",
+   "a": "C58",
+   "tipo": "APP",
+   "peso": 2,
+   "nota": {
+    "it": "limiti globali",
+    "en": null
+   }
+  },
+  {
+   "da": "C10",
+   "a": "C77",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C11",
+   "a": "C34",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C12",
+   "a": "C21",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": {
+    "it": "validazione nel codice",
+    "en": null
+   }
+  },
+  {
+   "da": "C12",
+   "a": "C35",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C12",
+   "a": "C45",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C13",
+   "a": "C45",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C13",
+   "a": "C47",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C14",
+   "a": "C15",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C15",
+   "a": "C16",
+   "tipo": "APP",
+   "peso": 2,
+   "nota": null
+  },
+  {
+   "da": "C15",
+   "a": "C26",
+   "tipo": "ES",
+   "peso": 1,
+   "nota": {
+    "it": "la pipeline è un workflow",
+    "en": null
+   }
+  },
+  {
+   "da": "C16",
+   "a": "C53",
+   "tipo": "CON",
+   "peso": 2,
+   "nota": {
+    "it": "non moltiplicare agenti senza motivo",
+    "en": null
+   }
+  },
+  {
+   "da": "C14",
+   "a": "C71",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": {
+    "it": "più autonomia → più rischio",
+    "en": null
+   }
+  },
+  {
+   "da": "C17",
+   "a": "C26",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C17",
+   "a": "C53",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": {
+    "it": "ruoli CRM",
+    "en": null
+   }
+  },
+  {
+   "da": "C18",
+   "a": "C28",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C18",
+   "a": "C29",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C19",
+   "a": "C20",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C19",
+   "a": "C21",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C19",
+   "a": "C43",
+   "tipo": "CON",
+   "peso": 2,
+   "nota": {
+    "it": "istruzioni ≠ permessi",
+    "en": null
+   }
+  },
+  {
+   "da": "C19",
+   "a": "C75",
+   "tipo": "CON",
+   "peso": 2,
+   "nota": {
+    "it": "istruzioni ≠ isolamento",
+    "en": null
+   }
+  },
+  {
+   "da": "C19",
+   "a": "C69",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": {
+    "it": "versionare i prompt",
+    "en": null
+   }
+  },
+  {
+   "da": "C21",
+   "a": "C27",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C21",
+   "a": "C32",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C21",
+   "a": "C34",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C22",
+   "a": "C23",
+   "tipo": "CON",
+   "peso": 2,
+   "nota": {
+    "it": "adattività vs controllabilità",
+    "en": null
+   }
+  },
+  {
+   "da": "C23",
+   "a": "C72",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": {
+    "it": "piano approvabile",
+    "en": null
+   }
+  },
+  {
+   "da": "C25",
+   "a": "C29",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C25",
+   "a": "C30",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C26",
+   "a": "C27",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C26",
+   "a": "C54",
+   "tipo": "ES",
+   "peso": 1,
+   "nota": {
+    "it": "sequenziale",
+    "en": null
+   }
+  },
+  {
+   "da": "C27",
+   "a": "C58",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": {
+    "it": "validazione ai passaggi",
+    "en": null
+   }
+  },
+  {
+   "da": "C28",
+   "a": "C68",
+   "tipo": "APP",
+   "peso": 2,
+   "nota": {
+    "it": "calibrazione con esiti",
+    "en": null
+   }
+  },
+  {
+   "da": "C29",
+   "a": "C51",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": {
+    "it": "minimizzazione",
+    "en": null
+   }
+  },
+  {
+   "da": "C30",
+   "a": "C31",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C30",
+   "a": "C72",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": {
+    "it": "revisione prima dell'invio",
+    "en": null
+   }
+  },
+  {
+   "da": "C31",
+   "a": "C69",
+   "tipo": "ES",
+   "peso": 1,
+   "nota": {
+    "it": "separazione degli ambienti",
+    "en": null
+   }
+  },
+  {
+   "da": "C32",
+   "a": "C33",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C33",
+   "a": "C71",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": {
+    "it": "confidenza → rischio",
+    "en": null
+   }
+  },
+  {
+   "da": "C33",
+   "a": "C66",
+   "tipo": "ES",
+   "peso": 1,
+   "nota": {
+    "it": "escalation all'umano",
+    "en": null
+   }
+  },
+  {
+   "da": "C34",
+   "a": "C35",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C34",
+   "a": "C36",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C35",
+   "a": "C43",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C36",
+   "a": "C37",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C37",
+   "a": "C58",
+   "tipo": "MIT",
+   "peso": 2,
+   "nota": {
+    "it": "niente effetti duplicati",
+    "en": null
+   }
+  },
+  {
+   "da": "C34",
+   "a": "C38",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C38",
+   "a": "C39",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C38",
+   "a": "C57",
+   "tipo": "CON",
+   "peso": 2,
+   "nota": {
+    "it": "agente-strumento vs agente-agente",
+    "en": null
+   }
+  },
+  {
+   "da": "C38",
+   "a": "C41",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C38",
+   "a": "C78",
+   "tipo": "MIT",
+   "peso": 2,
+   "nota": {
+    "it": "standard aperto",
+    "en": null
+   }
+  },
+  {
+   "da": "C40",
+   "a": "C41",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C40",
+   "a": "C44",
+   "tipo": "ES",
+   "peso": 1,
+   "nota": null
+  },
+  {
+   "da": "C41",
+   "a": "C77",
+   "tipo": "APP",
+   "peso": 2,
+   "nota": null
+  },
+  {
+   "da": "C41",
+   "a": "C43",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": {
+    "it": "sandbox",
+    "en": null
+   }
+  },
+  {
+   "da": "C42",
+   "a": "C43",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C43",
+   "a": "C42",
+   "tipo": "MIT",
+   "peso": 2,
+   "nota": null
+  },
+  {
+   "da": "C42",
+   "a": "C52",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": {
+    "it": "avvelenamento della memoria",
+    "en": null
+   }
+  },
+  {
+   "da": "C42",
+   "a": "C63",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": {
+    "it": "casi avversari",
+    "en": null
+   }
+  },
+  {
+   "da": "C44",
+   "a": "C45",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C44",
+   "a": "C50",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C45",
+   "a": "C46",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C45",
+   "a": "C47",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C46",
+   "a": "C47",
+   "tipo": "CON",
+   "peso": 2,
+   "nota": {
+    "it": "riassunto di sessione vs memoria persistente",
+    "en": null
+   }
+  },
+  {
+   "da": "C47",
+   "a": "C48",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C47",
+   "a": "C50",
+   "tipo": "CON",
+   "peso": 2,
+   "nota": {
+    "it": "memoria vs RAG",
+    "en": null
+   }
+  },
+  {
+   "da": "C47",
+   "a": "C51",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C49",
+   "a": "C50",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C50",
+   "a": "C07",
+   "tipo": "MIT",
+   "peso": 2,
+   "nota": {
+    "it": "grounding",
+    "en": null
+   }
+  },
+  {
+   "da": "C51",
+   "a": "C76",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C52",
+   "a": "C75",
+   "tipo": "APP",
+   "peso": 2,
+   "nota": null
+  },
+  {
+   "da": "C53",
+   "a": "C54",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C53",
+   "a": "C55",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C53",
+   "a": "C43",
+   "tipo": "APP",
+   "peso": 2,
+   "nota": {
+    "it": "permessi per ruolo",
+    "en": null
+   }
+  },
+  {
+   "da": "C54",
+   "a": "C56",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C55",
+   "a": "C56",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C56",
+   "a": "C57",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C56",
+   "a": "C58",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C58",
+   "a": "C62",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": {
+    "it": "correlation id",
+    "en": null
+   }
+  },
+  {
+   "da": "C59",
+   "a": "C60",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C59",
+   "a": "C63",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C60",
+   "a": "C61",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C61",
+   "a": "C62",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C61",
+   "a": "C74",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C62",
+   "a": "C76",
+   "tipo": "APP",
+   "peso": 2,
+   "nota": {
+    "it": "redazione",
+    "en": null
+   }
+  },
+  {
+   "da": "C63",
+   "a": "C64",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C63",
+   "a": "C65",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C64",
+   "a": "C69",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C64",
+   "a": "C70",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C65",
+   "a": "C66",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C65",
+   "a": "C66",
+   "tipo": "CON",
+   "peso": 2,
+   "nota": {
+    "it": "automatico vs umano",
+    "en": null
+   }
+  },
+  {
+   "da": "C67",
+   "a": "C68",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C67",
+   "a": "C79",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": {
+    "it": "KPI",
+    "en": null
+   }
+  },
+  {
+   "da": "C69",
+   "a": "C70",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C71",
+   "a": "C72",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C72",
+   "a": "C73",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C73",
+   "a": "C74",
+   "tipo": "APP",
+   "peso": 2,
+   "nota": null
+  },
+  {
+   "da": "C75",
+   "a": "C76",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C77",
+   "a": "C78",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": null
+  },
+  {
+   "da": "C16",
+   "a": "C79",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": {
+    "it": "il blueprint integra",
+    "en": null
+   }
+  },
+  {
+   "da": "C27",
+   "a": "C79",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": {
+    "it": "il blueprint integra",
+    "en": null
+   }
+  },
+  {
+   "da": "C43",
+   "a": "C79",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": {
+    "it": "il blueprint integra",
+    "en": null
+   }
+  },
+  {
+   "da": "C51",
+   "a": "C79",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": {
+    "it": "il blueprint integra",
+    "en": null
+   }
+  },
+  {
+   "da": "C63",
+   "a": "C79",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": {
+    "it": "il blueprint integra",
+    "en": null
+   }
+  },
+  {
+   "da": "C67",
+   "a": "C79",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": {
+    "it": "il blueprint integra",
+    "en": null
+   }
+  },
+  {
+   "da": "C72",
+   "a": "C79",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": {
+    "it": "il blueprint integra",
+    "en": null
+   }
+  },
+  {
+   "da": "C74",
+   "a": "C79",
+   "tipo": "PRE",
+   "peso": 3,
+   "nota": {
+    "it": "il blueprint integra",
+    "en": null
+   }
+  }
+ ]
+}
