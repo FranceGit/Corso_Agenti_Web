@@ -26,6 +26,7 @@ sys.path.insert(0, str(RADICE))
 from corso.modello import Corso, KnowledgeGraph  # noqa: E402
 
 FILE_TITOLI_EN = RADICE / "strumenti" / "titoli_en.json"
+FILE_TRADUZIONI_PILLOLE = RADICE / "strumenti" / "traduzioni_en_pillole.json"
 USCITA_CORSO = RADICE / "dati" / "corso_v1.json"
 USCITA_KG = RADICE / "dati" / "knowledge_graph.json"
 
@@ -178,12 +179,31 @@ def segna_corretta(livello: dict, lettera: str, did: str) -> None:
     trovate[0]["corretta"] = True
 
 
-def estrai_pillola(pid: str, righe: list[str], titoli_en: dict) -> dict:
+RE_TUTTE = re.compile(r"tutte le pillole dei moduli (\d+)-(\d+)")
+
+
+def leggi_prerequisiti(pid: str, testo_pre: str, tutte_le_pillole: list[str]) -> list[str]:
+    """'nessuno' | 'P1.1, P1.2' | 'tutte le pillole dei moduli 1-8 (in particolare ...)'."""
+    if testo_pre == "nessuno":
+        return []
+    m = RE_TUTTE.search(testo_pre)
+    if m:
+        primo, ultimo = int(m.group(1)), int(m.group(2))
+        return [p for p in tutte_le_pillole if p != pid and primo <= int(p[1:].split(".")[0]) <= ultimo]
+    ids = [x.strip() for x in testo_pre.split(",")]
+    for x in ids:
+        if not re.fullmatch(r"P\d+\.\d+", x):
+            raise ErroreEstrazione(f"{pid}: prerequisito non riconosciuto {x!r}")
+    return ids
+
+
+def estrai_pillola(pid: str, righe: list[str], titoli_en: dict, tutte_le_pillole: list[str]) -> dict:
     meta = next((RE_META.match(r) for r in righe if RE_META.match(r)), None)
     if meta is None:
         raise ErroreEstrazione(f"{pid}: riga Durata/Prerequisiti/Nodi/Fonti non trovata")
-    prerequisiti = [] if meta.group(2).strip() == "nessuno" else [x.strip() for x in meta.group(2).split(",")]
-    concetti = [x.strip() for x in meta.group(3).split(",")]
+    prerequisiti = leggi_prerequisiti(pid, meta.group(2).strip(), tutte_le_pillole)
+    # i nodi possono avere una nota fra parentesi, es. "C79 (integra tutti i nodi)": si tiene solo l'id
+    concetti = [re.sub(r"\s*\(.*\)$", "", x.strip()) for x in meta.group(3).split(",")]
     fonti = [x.strip().strip("[]") for x in meta.group(4).split(",")]
     obiettivo = next((r for r in righe if r.startswith("- **Obiettivo:**")), None)
     if obiettivo is None:
@@ -261,6 +281,25 @@ def anelli_dei_moduli(righe: list[str]) -> dict[str, int]:
     return risultato
 
 
+def applica_traduzioni_pillole(corso: dict, traduzioni: dict) -> None:
+    """Completa in inglese obiettivo, scaletta e progetto dell'animazione delle pillole tradotte."""
+    pillole = {p["id"]: p for m in corso["moduli"] for p in m["pillole"]}
+    for pid, tr in traduzioni.items():
+        if pid.startswith("_"):
+            continue
+        if pid not in pillole:
+            raise ErroreEstrazione(f"traduzioni: pillola {pid} inesistente")
+        p = pillole[pid]
+        if len(tr["scaletta"]) != len(p["scaletta"]):
+            raise ErroreEstrazione(
+                f"traduzioni {pid}: {len(tr['scaletta'])} voci di scaletta tradotte, il documento ne ha {len(p['scaletta'])}"
+            )
+        p["obiettivo"]["en"] = tr["obiettivo"]
+        for voce, testo_en in zip(p["scaletta"], tr["scaletta"]):
+            voce["en"] = testo_en
+        p["animazione"]["progetto"]["en"] = tr["animazione"]
+
+
 def estrai(percorso_md: Path) -> tuple[dict, dict]:
     righe = percorso_md.read_text(encoding="utf-8").splitlines()
     titoli_en = json.loads(FILE_TITOLI_EN.read_text(encoding="utf-8"))
@@ -277,11 +316,12 @@ def estrai(percorso_md: Path) -> tuple[dict, dict]:
                 "id": mid,
                 "titolo": testo(titolo, titoli_en["moduli"].get(mid)),
                 "anello": anelli[mid],
-                "pillole": [estrai_pillola(pid, pillole[pid], titoli_en) for pid in pillole if modulo_di[pid] == mid],
+                "pillole": [estrai_pillola(pid, pillole[pid], titoli_en, list(pillole)) for pid in pillole if modulo_di[pid] == mid],
             }
             for mid, titolo, _ in moduli
         ],
     }
+    applica_traduzioni_pillole(corso, json.loads(FILE_TRADUZIONI_PILLOLE.read_text(encoding="utf-8")))
     kg = estrai_kg(righe, anelli, titoli_en, percorso_md.name)
     Corso.model_validate(corso)
     KnowledgeGraph.model_validate(kg)

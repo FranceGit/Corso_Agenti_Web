@@ -13,6 +13,14 @@ class ErroreDati(ErrorePiattaforma):
     """Contenuto del corso, del knowledge graph o di una lezione incoerente."""
 
 
+class ErroreNonTrovato(ErroreDati):
+    """Un identificativo chiesto (pillola, domanda, file) non esiste."""
+
+
+class ErroreAccesso(ErrorePiattaforma):
+    """Credenziali non valide o sessione assente/scaduta."""
+
+
 class TraduzioneMancante(ErrorePiattaforma):
     """Un testo non esiste nella lingua chiesta. Porta l'elenco dei percorsi dei testi mancanti."""
 

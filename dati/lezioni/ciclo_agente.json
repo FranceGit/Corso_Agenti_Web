@@ -1,0 +1,393 @@
+{
+ "id": "L_ciclo_agente",
+ "pillola": "P1.3",
+ "componente": "ciclo_agente",
+ "titolo": {"it": "Che cos'è un agente AI: il giro che lo fa lavorare", "en": "What an AI agent is: the loop that makes it work"},
+ "sottotitolo": {"it": "Cambia l'obiettivo o i dati del lead e guarda l'agente decidere in modo diverso.", "en": "Change the goal or the lead's data and watch the agent decide differently."},
+ "segmenti": [
+  {
+   "id": "intro",
+   "titolo": {"it": "Un agente ha un obiettivo", "en": "An agent has a goal"},
+   "narrazione": [
+    {"it": "Un assistente come una chat riceve una domanda, scrive una risposta e si ferma lì.", "en": "An assistant like a chat receives a question, writes an answer and stops there."},
+    {"it": "Un agente AI invece riceve un obiettivo, cioè un risultato da raggiungere. Per raggiungerlo lavora a giri: guarda la situazione, decide che cosa fare, lo fa, controlla com'è andata. Poi ricomincia, finché ha finito.", "en": "An AI agent instead receives a goal, that is, a result to reach. To reach it, it works in rounds: it looks at the situation, decides what to do, does it, checks how it went. Then it starts again, until it is done."},
+    {"it": "Qui l'agente lavora per il marketing: deve capire se un lead (una persona che ha mostrato interesse per i nostri prodotti) è pronto per parlare con un commerciale.", "en": "Here the agent works for marketing: it must work out whether a lead (a person who has shown interest in our products) is ready to talk to a salesperson."}
+   ],
+   "prova": {"it": "Premi «Avvia» e segui il puntino luminoso che fa il giro.", "en": "Press «Start» and follow the glowing dot as it goes round."},
+   "concetti": ["C02", "C08"],
+   "stato_animazione": {"obiettivo": "qualifica", "dipendenti": 120, "visite": 7, "ruolo": "direttore", "ha_risposto": false, "gia_cliente": false, "crm_guasto": false, "limite_giri": 6, "modalita": "agente"}
+  },
+  {
+   "id": "fasi",
+   "titolo": {"it": "Le quattro fasi del giro", "en": "The four phases of the loop"},
+   "narrazione": [
+    {"it": "Percepisce: l'agente legge quello che ha davanti. All'inizio l'obiettivo e la scheda del lead; nei giri successivi anche quello che ha appena scoperto.", "en": "Perceives: the agent reads what is in front of it. At the start, the goal and the lead's record; in later rounds, also what it has just found out."},
+    {"it": "Ragiona: decide il prossimo passo. Per esempio: «prima controllo se è già nostro cliente».", "en": "Reasons: it decides the next step. For example: «first I check whether they are already our customer»."},
+    {"it": "Agisce: usa uno strumento. Uno strumento è un collegamento a un programma vero, come il CRM (il programma dove l'azienda tiene i dati dei clienti) o il calendario.", "en": "Acts: it uses a tool. A tool is a connection to a real program, such as the CRM (the program where the company keeps its customer data) or the calendar."},
+    {"it": "Osserva: guarda il risultato vero dell'azione, anche se è un errore. È questo che gli permette di decidere bene il giro dopo.", "en": "Observes: it looks at the real result of the action, even if it is an error. This is what lets it decide well in the next round."}
+   ],
+   "prova": {"it": "Usa «Un passo» per avanzare una fase alla volta e leggi il diario a destra.", "en": "Use «One step» to move forward one phase at a time and read the diary on the right."},
+   "concetti": ["C08"],
+   "stato_animazione": {"obiettivo": "qualifica", "dipendenti": 120, "visite": 7, "ruolo": "direttore", "ha_risposto": false, "gia_cliente": false, "crm_guasto": false, "limite_giri": 6, "modalita": "agente"}
+  },
+  {
+   "id": "cambia_lead",
+   "titolo": {"it": "Cambi i dati, cambia la decisione", "en": "Change the data, change the decision"},
+   "narrazione": [
+    {"it": "L'agente non ha una risposta pronta: decide ogni volta in base a quello che percepisce e osserva.", "en": "The agent has no ready-made answer: it decides each time based on what it perceives and observes."},
+    {"it": "Qui il lead ha visitato molte volte la pagina dei prezzi e chi ci ha scritto decide gli acquisti: l'agente lo considera «caldo», cioè pronto.", "en": "Here the lead has visited the pricing page many times and the person who wrote to us decides on purchases: the agent considers them «hot», that is, ready."}
+   ],
+   "prova": {"it": "Porta le visite alla pagina dei prezzi a 0 e scegli il ruolo «Stagista». L'agente rifà il giro e decide diversamente.", "en": "Set the pricing-page visits to 0 and choose the role «Intern». The agent runs the loop again and decides differently."},
+   "concetti": ["C08", "C02"],
+   "stato_animazione": {"obiettivo": "qualifica", "dipendenti": 300, "visite": 9, "ruolo": "direttore", "ha_risposto": true, "gia_cliente": false, "crm_guasto": false, "limite_giri": 6, "modalita": "agente"}
+  },
+  {
+   "id": "cambia_obiettivo",
+   "titolo": {"it": "Cambi l'obiettivo, cambia il lavoro", "en": "Change the goal, change the work"},
+   "narrazione": [
+    {"it": "Lo stesso lead caldo può portare a lavori diversi: dipende dall'obiettivo che diamo all'agente.", "en": "The same hot lead can lead to different work: it depends on the goal we give the agent."},
+    {"it": "Con «Fissare una call» l'agente cerca un orario libero e prepara un invito. Con «Tenere in ordine il CRM» aggiorna solo la scheda e non contatta nessuno, anche se il lead è caldo.", "en": "With «Book a call» the agent looks for a free slot and prepares an invitation. With «Keep the CRM tidy» it only updates the record and contacts nobody, even if the lead is hot."}
+   ],
+   "prova": {"it": "Prova i tre obiettivi uno dopo l'altro, senza toccare i dati del lead.", "en": "Try the three goals one after another, without touching the lead's data."},
+   "concetti": ["C02", "C08"],
+   "stato_animazione": {"obiettivo": "call", "dipendenti": 300, "visite": 9, "ruolo": "direttore", "ha_risposto": true, "gia_cliente": false, "crm_guasto": false, "limite_giri": 6, "modalita": "agente"}
+  },
+  {
+   "id": "osservare",
+   "titolo": {"it": "Osservare evita gli errori", "en": "Observing avoids mistakes"},
+   "narrazione": [
+    {"it": "Un vecchio script automatico fa sempre le stesse cose nello stesso ordine: non guarda i risultati.", "en": "An old automatic script always does the same things in the same order: it does not look at the results."},
+    {"it": "L'agente invece controlla nel CRM prima di agire. Se scopre che il lead è già cliente, cambia strada e avvisa il suo referente invece di trattarlo come uno sconosciuto.", "en": "The agent instead checks the CRM before acting. If it finds out the lead is already a customer, it changes course and alerts their account manager instead of treating them like a stranger."}
+   ],
+   "prova": {"it": "Accendi «Nel CRM risulta già cliente». Poi passa da «Agente» a «Script fisso» e confronta i due diari.", "en": "Switch on «Already a customer in the CRM». Then switch from «Agent» to «Fixed script» and compare the two diaries."},
+   "concetti": ["C08", "C02"],
+   "stato_animazione": {"obiettivo": "qualifica", "dipendenti": 120, "visite": 7, "ruolo": "direttore", "ha_risposto": false, "gia_cliente": true, "crm_guasto": false, "limite_giri": 6, "modalita": "agente"}
+  },
+  {
+   "id": "imprevisti",
+   "titolo": {"it": "Quando qualcosa va storto: il limite di giri", "en": "When something goes wrong: the round limit"},
+   "narrazione": [
+    {"it": "Se il CRM non risponde, un buon agente non inventa i dati: riprova una volta e poi passa il caso a una persona, spiegando che cosa è successo.", "en": "If the CRM does not answer, a good agent does not make up the data: it tries once more and then hands the case to a person, explaining what happened."},
+    {"it": "C'è anche un freno di sicurezza: il numero massimo di giri. Se l'agente arriva al limite senza aver finito, si ferma comunque. Così non può girare all'infinito sprecando tempo e soldi.", "en": "There is also a safety brake: the maximum number of rounds. If the agent reaches the limit without finishing, it stops anyway. This way it cannot loop forever, wasting time and money."}
+   ],
+   "prova": {"it": "Accendi «Il CRM è guasto» e guarda come reagisce. Poi spegnilo e porta il limite di giri a 2: l'agente si ferma prima di finire.", "en": "Switch on «The CRM is down» and watch how it reacts. Then switch it off and set the round limit to 2: the agent stops before finishing."},
+   "concetti": ["C09", "C08"],
+   "stato_animazione": {"obiettivo": "qualifica", "dipendenti": 120, "visite": 7, "ruolo": "direttore", "ha_risposto": false, "gia_cliente": false, "crm_guasto": true, "limite_giri": 6, "modalita": "agente"}
+  }
+ ],
+ "scenario": {
+  "stazioni": [
+   {"id": "percepisce", "nome": {"it": "Percepisce", "en": "Perceives"}, "breve": {"it": "legge la situazione", "en": "reads the situation"}},
+   {"id": "ragiona", "nome": {"it": "Ragiona", "en": "Reasons"}, "breve": {"it": "decide il passo", "en": "decides the step"}},
+   {"id": "agisce", "nome": {"it": "Agisce", "en": "Acts"}, "breve": {"it": "usa uno strumento", "en": "uses a tool"}},
+   {"id": "osserva", "nome": {"it": "Osserva", "en": "Observes"}, "breve": {"it": "guarda il risultato", "en": "looks at the result"}}
+  ],
+  "strumenti": [
+   {"id": "crm", "nome": {"it": "CRM", "en": "CRM"}, "spiega": {"it": "dati dei clienti", "en": "customer data"}},
+   {"id": "web", "nome": {"it": "Statistiche sito", "en": "Website stats"}, "spiega": {"it": "visite alle pagine", "en": "page visits"}},
+   {"id": "calendario", "nome": {"it": "Calendario", "en": "Calendar"}, "spiega": {"it": "orari liberi", "en": "free slots"}},
+   {"id": "email", "nome": {"it": "Email", "en": "Email"}, "spiega": {"it": "messaggi", "en": "messages"}}
+  ],
+  "obiettivi": [
+   {"id": "qualifica", "nome": {"it": "Qualificare il lead", "en": "Qualify the lead"}, "frase": {"it": "Capire se il lead è pronto per un commerciale", "en": "Work out whether the lead is ready for a salesperson"}},
+   {"id": "call", "nome": {"it": "Fissare una call", "en": "Book a call"}, "frase": {"it": "Fissare una call, ma solo se il lead è davvero interessato", "en": "Book a call, but only if the lead is really interested"}},
+   {"id": "ordine", "nome": {"it": "Tenere in ordine il CRM", "en": "Keep the CRM tidy"}, "frase": {"it": "Tenere in ordine il CRM, senza contattare nessuno", "en": "Keep the CRM tidy, without contacting anyone"}}
+  ],
+  "lead": {
+   "azienda": {"it": "Azienda Alfa", "en": "Alfa Ltd"},
+   "dipendenti": {"min": 5, "max": 1000, "passo": 5, "etichetta": {"it": "Dipendenti dell'azienda", "en": "Company employees"}},
+   "visite": {"min": 0, "max": 10, "passo": 1, "etichetta": {"it": "Visite alla pagina dei prezzi (7 giorni)", "en": "Pricing-page visits (7 days)"}},
+   "ruoli": [
+    {"id": "direttore", "nome": {"it": "Direttrice marketing", "en": "Marketing director"}, "decide": true},
+    {"id": "acquisti", "nome": {"it": "Responsabile acquisti", "en": "Purchasing manager"}, "decide": true},
+    {"id": "stagista", "nome": {"it": "Stagista", "en": "Intern"}, "decide": false}
+   ],
+   "etichetta_ruolo": {"it": "Chi ci ha scritto", "en": "Who wrote to us"},
+   "etichetta_risposta": {"it": "Ha risposto alla nostra ultima email", "en": "Replied to our last email"}
+  },
+  "situazione": {
+   "etichetta_gia_cliente": {"it": "Nel CRM risulta già cliente", "en": "Already a customer in the CRM"},
+   "etichetta_crm_guasto": {"it": "Il CRM è guasto (non risponde)", "en": "The CRM is down (no answer)"}
+  },
+  "limite_giri": {"min": 1, "max": 8, "etichetta": {"it": "Numero massimo di giri", "en": "Maximum number of rounds"}},
+  "punteggio": {
+   "soglia_dipendenti": 50,
+   "punti_dipendenti": 20,
+   "punti_per_visita": 6,
+   "massimo_punti_visite": 36,
+   "punti_decisore": 25,
+   "punti_risposta": 19,
+   "soglia_caldo": 60,
+   "soglia_tiepido": 35,
+   "massimo": 100
+  },
+  "tentativi_crm": 2,
+  "tempi": {"ms_per_fase": 1500, "ms_viaggio": 650, "velocita_min": 0.5, "velocita_max": 2.5, "velocita_iniziale": 1},
+  "livelli": {
+   "caldo": {"it": "caldo", "en": "hot"},
+   "tiepido": {"it": "tiepido", "en": "warm"},
+   "freddo": {"it": "freddo", "en": "cold"}
+  },
+  "testi": {
+   "perc_obiettivo": {"it": "Leggo l'obiettivo: «{obiettivo}».", "en": "I read the goal: «{obiettivo}»."},
+   "perc_lead": {"it": "Leggo la scheda del lead: {azienda}, {dipendenti} dipendenti, ci ha scritto: {ruolo}.", "en": "I read the lead's record: {azienda}, {dipendenti} employees, written to us by: {ruolo}."},
+   "perc_aggiorno": {"it": "Aggiorno quello che so: {fatto}.", "en": "I update what I know: {fatto}."},
+   "rag_controllo": {"it": "Prima di tutto devo sapere se {azienda} è già nostra cliente. Lo chiedo al CRM.", "en": "First of all I need to know whether {azienda} is already our customer. I ask the CRM."},
+   "agi_cerca": {"it": "Chiedo al CRM: «{azienda} è già cliente?»", "en": "I ask the CRM: «Is {azienda} already a customer?»"},
+   "oss_errore": {"it": "Il CRM risponde con un errore: «servizio non disponibile».", "en": "The CRM answers with an error: «service unavailable»."},
+   "fatto_errore": {"it": "il CRM non risponde", "en": "the CRM is not answering"},
+   "rag_riprovo": {"it": "Senza questo dato non posso decidere. Riprovo una volta.", "en": "Without this data I cannot decide. I try once more."},
+   "rag_arrendo": {"it": "Il CRM continua a non rispondere. Non invento nulla: passo il caso a una persona e spiego che cosa è successo.", "en": "The CRM still does not answer. I make nothing up: I hand the case to a person and explain what happened."},
+   "esito_guasto": {"it": "CRM guasto: caso passato a una persona, nessun dato inventato.", "en": "CRM down: case handed to a person, no data made up."},
+   "oss_cliente": {"it": "Il CRM risponde: {azienda} è già cliente.", "en": "The CRM answers: {azienda} is already a customer."},
+   "fatto_cliente": {"it": "è già cliente", "en": "they are already a customer"},
+   "rag_cliente": {"it": "Non è un nuovo lead: non devo trattarlo come uno sconosciuto. Avviso il suo referente commerciale.", "en": "This is not a new lead: I must not treat them like a stranger. I alert their account manager."},
+   "agi_avviso": {"it": "Mando una nota interna al referente: «{azienda} sta guardando i prezzi».", "en": "I send an internal note to the account manager: «{azienda} is looking at prices»."},
+   "oss_avviso": {"it": "Nota consegnata al referente.", "en": "Note delivered to the account manager."},
+   "fatto_avviso": {"it": "il referente è avvisato", "en": "the account manager has been alerted"},
+   "esito_cliente": {"it": "Già cliente: nessun messaggio commerciale, avvisato il referente.", "en": "Already a customer: no sales message, account manager alerted."},
+   "rag_cliente_ordine": {"it": "È già cliente: lo segno correttamente nella scheda. Non contatto nessuno.", "en": "They are already a customer: I mark it correctly in the record. I contact nobody."},
+   "agi_segna_cliente": {"it": "Scrivo nel CRM: tipo di contatto «Cliente».", "en": "I write in the CRM: contact type «Customer»."},
+   "oss_salvato": {"it": "Il CRM conferma: salvato.", "en": "The CRM confirms: saved."},
+   "fatto_salvato": {"it": "la scheda è salvata", "en": "the record is saved"},
+   "esito_cliente_ordine": {"it": "Scheda corretta: segnato come cliente, nessun contatto.", "en": "Record fixed: marked as customer, no contact."},
+   "oss_non_cliente": {"it": "Il CRM risponde: {azienda} non è ancora cliente.", "en": "The CRM answers: {azienda} is not a customer yet."},
+   "fatto_non_cliente": {"it": "non è ancora cliente", "en": "they are not a customer yet"},
+   "rag_dati": {"it": "Per capire quanto è interessato mi servono le visite al sito. Le chiedo alle statistiche.", "en": "To understand how interested they are I need the website visits. I ask the stats."},
+   "agi_visite": {"it": "Chiedo alle statistiche del sito: «quante visite alla pagina dei prezzi?»", "en": "I ask the website stats: «how many visits to the pricing page?»"},
+   "oss_visite": {"it": "Risposta: {visite} visite alla pagina dei prezzi negli ultimi 7 giorni.", "en": "Answer: {visite} visits to the pricing page in the last 7 days."},
+   "fatto_visite": {"it": "{visite} visite ai prezzi", "en": "{visite} pricing-page visits"},
+   "rag_punteggio": {"it": "Faccio il conto: {dettaglio}. Totale {punteggio} su {massimo}: il lead è {livello}.", "en": "I do the maths: {dettaglio}. Total {punteggio} out of {massimo}: the lead is {livello}."},
+   "det_dipendenti": {"it": "{dipendenti} dipendenti +{punti}", "en": "{dipendenti} employees +{punti}"},
+   "det_visite": {"it": "{visite} visite +{punti}", "en": "{visite} visits +{punti}"},
+   "det_decide": {"it": "chi scrive decide gli acquisti +{punti}", "en": "the writer decides on purchases +{punti}"},
+   "det_non_decide": {"it": "chi scrive non decide gli acquisti +0", "en": "the writer does not decide on purchases +0"},
+   "det_risposta": {"it": "ha risposto +{punti}", "en": "replied +{punti}"},
+   "fatto_punteggio": {"it": "punteggio {punteggio}: {livello}", "en": "score {punteggio}: {livello}"},
+   "rag_q_caldo": {"it": "È caldo: il mio compito è segnalarlo al commerciale.", "en": "It is hot: my job is to flag it to sales."},
+   "agi_q_caldo": {"it": "Scrivo nel CRM: stato «Pronto per il commerciale».", "en": "I write in the CRM: status «Ready for sales»."},
+   "esito_q_caldo": {"it": "Lead CALDO: segnato «Pronto per il commerciale».", "en": "HOT lead: marked «Ready for sales»."},
+   "rag_q_tiepido": {"it": "È interessato ma non ancora pronto: va coltivato con contenuti utili.", "en": "They are interested but not ready yet: they need nurturing with useful content."},
+   "agi_q_tiepido": {"it": "Scrivo nel CRM: stato «Da coltivare».", "en": "I write in the CRM: status «To nurture»."},
+   "esito_q_tiepido": {"it": "Lead TIEPIDO: segnato «Da coltivare».", "en": "WARM lead: marked «To nurture»."},
+   "rag_q_freddo": {"it": "Per ora non è interessato: un commerciale perderebbe tempo.", "en": "For now they are not interested: a salesperson would waste time."},
+   "agi_q_freddo": {"it": "Scrivo nel CRM: stato «Non ancora pronto».", "en": "I write in the CRM: status «Not ready yet»."},
+   "esito_q_freddo": {"it": "Lead FREDDO: segnato «Non ancora pronto».", "en": "COLD lead: marked «Not ready yet»."},
+   "rag_c_caldo": {"it": "È caldo: cerco un momento libero per la call.", "en": "It is hot: I look for a free slot for the call."},
+   "agi_slot": {"it": "Chiedo al calendario: «primo spazio libero di 30 minuti?»", "en": "I ask the calendar: «first free 30-minute slot?»"},
+   "oss_slot": {"it": "Il calendario risponde: martedì alle 10:00 è libero.", "en": "The calendar answers: Tuesday at 10:00 is free."},
+   "fatto_slot": {"it": "martedì 10:00 è libero", "en": "Tuesday 10:00 is free"},
+   "rag_bozza": {"it": "Scrivere al cliente è un'azione delicata: preparo l'invito, ma non lo invio da solo.", "en": "Writing to the customer is a delicate action: I prepare the invitation, but I do not send it on my own."},
+   "agi_bozza": {"it": "Preparo la bozza dell'invito per martedì alle 10:00.", "en": "I prepare the draft invitation for Tuesday at 10:00."},
+   "oss_bozza": {"it": "Bozza pronta, non inviata.", "en": "Draft ready, not sent."},
+   "fatto_bozza": {"it": "la bozza è pronta", "en": "the draft is ready"},
+   "esito_c_caldo": {"it": "Invito per martedì 10:00 pronto: attende l'approvazione di una persona.", "en": "Invitation for Tuesday 10:00 ready: waiting for a person's approval."},
+   "rag_c_no": {"it": "Non è abbastanza interessato: proporre ora una call sarebbe insistente. Non la fisso.", "en": "They are not interested enough: proposing a call now would be pushy. I do not book it."},
+   "agi_c_no": {"it": "Scrivo nel CRM: «ricontattare più avanti».", "en": "I write in the CRM: «contact again later»."},
+   "esito_c_no": {"it": "Nessuna call: il lead non è ancora pronto.", "en": "No call: the lead is not ready yet."},
+   "rag_o_caldo": {"it": "È caldo, ma il mio obiettivo è solo tenere in ordine il CRM: non contatto nessuno, aggiorno la scheda con il punteggio.", "en": "It is hot, but my goal is only to keep the CRM tidy: I contact nobody, I update the record with the score."},
+   "rag_o_altro": {"it": "Il mio obiettivo è tenere in ordine il CRM: aggiorno la scheda con il punteggio, senza contattare nessuno.", "en": "My goal is to keep the CRM tidy: I update the record with the score, without contacting anyone."},
+   "agi_o": {"it": "Scrivo nel CRM: dipendenti, ruolo e punteggio {punteggio}.", "en": "I write in the CRM: employees, role and score {punteggio}."},
+   "esito_o": {"it": "Scheda in ordine, nessun contatto: come chiesto.", "en": "Record tidy, no contact: as requested."},
+   "rag_fine": {"it": "Obiettivo raggiunto: mi fermo.", "en": "Goal reached: I stop."},
+   "rag_limite": {"it": "Ho raggiunto il limite di {massimo} giri senza finire. Mi fermo e passo a una persona quello che ho scoperto.", "en": "I have reached the limit of {massimo} rounds without finishing. I stop and hand what I found to a person."},
+   "esito_limite": {"it": "Fermato dal limite di giri: caso passato a una persona.", "en": "Stopped by the round limit: case handed to a person."},
+   "scr_1": {"it": "Invio l'email standard: «Scopri il nostro prodotto!»", "en": "I send the standard email: «Discover our product!»"},
+   "scr_2": {"it": "Dopo 3 giorni invio il promemoria standard.", "en": "After 3 days I send the standard reminder."},
+   "scr_3": {"it": "Propongo una call. La propongo sempre, a tutti.", "en": "I propose a call. I always propose it, to everyone."},
+   "scr_salta": {"it": "saltato", "en": "skipped"},
+   "scr_esito": {"it": "Lo script fa sempre le stesse 3 cose, qualunque cosa succeda.", "en": "The script always does the same 3 things, whatever happens."},
+   "scr_err_cliente": {"it": "Ha scritto «Scopri il nostro prodotto» a chi è GIÀ cliente.", "en": "It wrote «Discover our product» to someone who is ALREADY a customer."},
+   "scr_err_guasto": {"it": "Non si è accorto che il CRM era guasto: non lo ha mai guardato.", "en": "It did not notice that the CRM was down: it never looked at it."},
+   "scr_err_ruolo": {"it": "Ha proposto una call a chi non decide gli acquisti.", "en": "It proposed a call to someone who does not decide on purchases."},
+   "scr_err_freddo": {"it": "Ha insistito con un lead che non è interessato.", "en": "It pushed a lead who is not interested."},
+   "scr_err_ordine": {"it": "L'obiettivo era non contattare nessuno: ha contattato il lead tre volte.", "en": "The goal was to contact nobody: it contacted the lead three times."}
+  },
+  "etichette": {
+   "titolo_comandi": {"it": "Prova a cambiare", "en": "Try changing"},
+   "obiettivo": {"it": "Obiettivo dell'agente", "en": "Agent's goal"},
+   "lead": {"it": "Il lead", "en": "The lead"},
+   "situazione": {"it": "La situazione", "en": "The situation"},
+   "modalita": {"it": "Chi lavora", "en": "Who is working"},
+   "agente": {"it": "Agente", "en": "Agent"},
+   "script": {"it": "Script fisso", "en": "Fixed script"},
+   "avvia": {"it": "Avvia", "en": "Start"},
+   "pausa": {"it": "Pausa", "en": "Pause"},
+   "passo": {"it": "Un passo", "en": "One step"},
+   "ricomincia": {"it": "Da capo", "en": "Restart"},
+   "velocita": {"it": "Velocità", "en": "Speed"},
+   "diario": {"it": "Diario dell'agente", "en": "Agent's diary"},
+   "sa": {"it": "Che cosa sa adesso", "en": "What it knows now"},
+   "esito": {"it": "Risultato", "en": "Result"},
+   "giro": {"it": "giro", "en": "round"},
+   "di_max": {"it": "di max", "en": "of max"},
+   "agente_centro": {"it": "AGENTE", "en": "AGENT"},
+   "script_centro": {"it": "SCRIPT", "en": "SCRIPT"},
+   "attenzione": {"it": "Che cosa è andato storto", "en": "What went wrong"},
+   "cambiato": {"it": "Hai cambiato qualcosa: l'agente rifà il lavoro da capo.", "en": "You changed something: the agent redoes the work from the start."},
+   "vuoto": {"it": "Premi «Avvia»: qui comparirà che cosa pensa e fa l'agente, passo per passo.", "en": "Press «Start»: here you will see what the agent thinks and does, step by step."},
+   "nessun_fatto": {"it": "Ancora niente: lo scoprirà strada facendo.", "en": "Nothing yet: it will find out along the way."},
+   "descrizione_scena": {"it": "Schema animato: quattro fasi in cerchio (percepisce, ragiona, agisce, osserva) e, a destra, gli strumenti che l'agente può usare.", "en": "Animated diagram: four phases in a circle (perceives, reasons, acts, observes) and, on the right, the tools the agent can use."}
+  }
+ },
+ "domande": [
+  {
+   "id": "DX1.3-1", "origine": "dimostratore", "pillola": "P1.3", "concetti": ["C08"], "concetto_principale": "C08", "segmento_aiuto": "fasi",
+   "livello1": {
+    "domanda": {"it": "In che ordine lavora un agente, a ogni giro?", "en": "In what order does an agent work, in each round?"},
+    "opzioni": [
+     {"id": "a", "corretta": true, "testo": {"it": "Percepisce, ragiona, agisce, osserva", "en": "Perceives, reasons, acts, observes"}},
+     {"id": "b", "corretta": false, "tipo_distrattore": "quasi", "testo": {"it": "Percepisce, agisce, ragiona", "en": "Perceives, acts, reasons"}, "spiegazione": {"it": "Agire prima di ragionare vuol dire agire alla cieca, e manca il controllo del risultato.", "en": "Acting before reasoning means acting blindly, and the check on the result is missing."}},
+     {"id": "c", "corretta": false, "tipo_distrattore": "quasi", "testo": {"it": "Ragiona, agisce, osserva", "en": "Reasons, acts, observes"}, "spiegazione": {"it": "Quasi: manca la prima fase, in cui l'agente legge l'obiettivo e i dati.", "en": "Almost: the first phase is missing, where the agent reads the goal and the data."}},
+     {"id": "d", "corretta": false, "tipo_distrattore": "poco", "testo": {"it": "Agisce e basta", "en": "Just acts"}, "spiegazione": {"it": "Senza leggere, decidere e controllare non è un agente: è un pulsante.", "en": "Without reading, deciding and checking it is not an agent: it is a button."}},
+     {"id": "e", "corretta": false, "tipo_distrattore": "poco", "testo": {"it": "Risponde e si ferma", "en": "Answers and stops"}, "spiegazione": {"it": "Questo è ciò che fa una chat, non un agente che lavora verso un obiettivo.", "en": "That is what a chat does, not an agent working towards a goal."}},
+     {"id": "f", "corretta": false, "tipo_distrattore": "errata", "testo": {"it": "Sceglie a caso", "en": "Picks at random"}, "spiegazione": {"it": "Un agente decide in base a quello che legge e osserva, non a caso.", "en": "An agent decides based on what it reads and observes, not at random."}},
+     {"id": "g", "corretta": false, "tipo_distrattore": "errata", "testo": {"it": "Ripete l'ultima azione", "en": "Repeats the last action"}, "spiegazione": {"it": "Ripetere senza guardare il risultato è proprio l'errore che il giro evita.", "en": "Repeating without looking at the result is exactly the mistake the loop avoids."}}
+    ],
+    "perche": {"it": "A ogni giro l'agente percepisce (legge obiettivo e dati), ragiona (decide il passo), agisce (usa uno strumento) e osserva (guarda il risultato). Poi ricomincia.", "en": "In each round the agent perceives (reads goal and data), reasons (decides the step), acts (uses a tool) and observes (looks at the result). Then it starts again."}
+   },
+   "livello2": {
+    "tipo": "motivazione",
+    "domanda": {"it": "Perché il giro finisce con «osserva»?", "en": "Why does the round end with «observe»?"},
+    "opzioni": [
+     {"id": "a", "corretta": true, "testo": {"it": "Per usare il risultato vero dell'azione e decidere il passo dopo", "en": "To use the real result of the action and decide the next step"}},
+     {"id": "b", "corretta": false, "tipo_distrattore": "quasi", "testo": {"it": "Per tenere un registro di tutto quello che ha fatto", "en": "To keep a record of everything it has done"}, "spiegazione": {"it": "Un registro è utile, ma osservare serve soprattutto a decidere il passo successivo.", "en": "A record is useful, but observing is mainly for deciding the next step."}},
+     {"id": "c", "corretta": false, "tipo_distrattore": "poco", "testo": {"it": "Per chiedere all'utente se è soddisfatto", "en": "To ask the user whether they are satisfied"}, "spiegazione": {"it": "L'agente osserva il risultato dell'azione (dati, errori), non l'umore dell'utente.", "en": "The agent observes the result of the action (data, errors), not the user's mood."}},
+     {"id": "d", "corretta": false, "tipo_distrattore": "errata", "testo": {"it": "Per far passare il tempo fra un'azione e l'altra", "en": "To let time pass between one action and the next"}, "spiegazione": {"it": "Osservare non è un'attesa: è leggere che cosa è successo davvero.", "en": "Observing is not waiting: it is reading what really happened."}},
+     {"id": "e", "corretta": false, "tipo_distrattore": "errata", "testo": {"it": "Perché lo impone una legge", "en": "Because a law requires it"}, "spiegazione": {"it": "Nessuna legge: è il modo in cui l'agente si accorge se deve cambiare strada.", "en": "No law: it is how the agent notices whether it must change course."}}
+    ],
+    "perche": {"it": "Osservare il risultato reale, anche un errore, permette all'agente di cambiare strada. Senza, ripeterebbe le stesse azioni alla cieca.", "en": "Observing the real result, even an error, lets the agent change course. Without it, it would repeat the same actions blindly."}
+   }
+  },
+  {
+   "id": "DX1.3-2", "origine": "dimostratore", "pillola": "P1.3", "concetti": ["C08", "C02"], "concetto_principale": "C08", "segmento_aiuto": "cambia_lead",
+   "livello1": {
+    "domanda": {"it": "Il lead Alfa aveva visitato 9 volte la pagina dei prezzi. Cambi i dati: zero visite, e chi ha scritto è uno stagista. Che cosa fa l'agente?", "en": "Lead Alfa had visited the pricing page 9 times. You change the data: zero visits, and the person who wrote is an intern. What does the agent do?"},
+    "opzioni": [
+     {"id": "a", "corretta": true, "testo": {"it": "Rifà il giro con i nuovi dati e decide diversamente: il lead non è pronto, quindi non lo passa al commerciale", "en": "It runs the loop again with the new data and decides differently: the lead is not ready, so it does not pass it to sales"}},
+     {"id": "b", "corretta": false, "tipo_distrattore": "quasi", "testo": {"it": "Rifà il giro con i nuovi dati, ma arriva alla stessa decisione di prima perché l'obiettivo non è cambiato", "en": "It runs the loop again with the new data, but reaches the same decision as before because the goal has not changed"}, "spiegazione": {"it": "Rifà il giro, sì, ma i dati nuovi cambiano il punteggio e quindi la decisione.", "en": "It does run the loop again, but the new data change the score and therefore the decision."}},
+     {"id": "c", "corretta": false, "tipo_distrattore": "poco", "testo": {"it": "Ignora i dati nuovi e ripete la decisione presa la prima volta, perché su quel lead ha già finito", "en": "It ignores the new data and repeats the first decision, because it has already finished with that lead"}, "spiegazione": {"it": "Un agente decide in base a quello che percepisce adesso, non a una risposta pronta.", "en": "An agent decides based on what it perceives now, not on a ready-made answer."}},
+     {"id": "d", "corretta": false, "tipo_distrattore": "errata", "testo": {"it": "Si blocca con un errore, perché può lavorare solo con i dati ricevuti all'inizio della giornata", "en": "It stops with an error, because it can only work with the data received at the start of the day"}, "spiegazione": {"it": "Falso: l'agente legge i dati a ogni giro, proprio per poter reagire ai cambiamenti.", "en": "False: the agent reads the data in every round, precisely to react to changes."}}
+    ],
+    "perche": {"it": "L'agente non ha una risposta pronta: rifà il giro, ricalcola il punteggio con i dati nuovi e decide di conseguenza.", "en": "The agent has no ready-made answer: it runs the loop again, recalculates the score with the new data and decides accordingly."}
+   },
+   "livello2": {
+    "tipo": "motivazione",
+    "domanda": {"it": "Perché la decisione cambia?", "en": "Why does the decision change?"},
+    "opzioni": [
+     {"id": "a", "corretta": true, "testo": {"it": "Perché l'agente decide in base a quello che percepisce e osserva adesso", "en": "Because the agent decides based on what it perceives and observes now"}},
+     {"id": "b", "corretta": false, "tipo_distrattore": "quasi", "testo": {"it": "Perché è cambiato l'obiettivo che gli abbiamo dato", "en": "Because the goal we gave it has changed"}, "spiegazione": {"it": "Anche l'obiettivo cambia le decisioni, ma qui l'obiettivo è rimasto lo stesso: sono cambiati i dati.", "en": "The goal also changes decisions, but here the goal stayed the same: the data changed."}},
+     {"id": "c", "corretta": false, "tipo_distrattore": "poco", "testo": {"it": "Perché ha imparato dagli errori del giorno prima", "en": "Because it learned from the previous day's mistakes"}, "spiegazione": {"it": "Qui non c'è nessun apprendimento: semplicemente i dati letti in questo giro sono diversi.", "en": "There is no learning here: simply, the data read in this round are different."}},
+     {"id": "d", "corretta": false, "tipo_distrattore": "errata", "testo": {"it": "Perché ogni volta sceglie a caso", "en": "Because it picks at random each time"}, "spiegazione": {"it": "Con gli stessi dati l'agente della lezione decide sempre allo stesso modo: non è il caso.", "en": "With the same data the lesson's agent always decides the same way: it is not chance."}},
+     {"id": "e", "corretta": false, "tipo_distrattore": "errata", "testo": {"it": "Perché il CRM ha cancellato il lead", "en": "Because the CRM deleted the lead"}, "spiegazione": {"it": "Il lead è ancora nel CRM: sono cambiate le visite e il ruolo di chi ha scritto.", "en": "The lead is still in the CRM: the visits and the writer's role changed."}}
+    ],
+    "perche": {"it": "Le decisioni nascono da ciò che l'agente percepisce e osserva in quel momento: dati diversi, decisione diversa.", "en": "Decisions come from what the agent perceives and observes at that moment: different data, different decision."}
+   }
+  },
+  {
+   "id": "DX1.3-3", "origine": "dimostratore", "pillola": "P1.3", "concetti": ["C08", "C02"], "concetto_principale": "C08", "segmento_aiuto": "cambia_obiettivo",
+   "livello1": {
+    "domanda": {"it": "Stesso lead caldo, ma l'obiettivo diventa «tenere in ordine il CRM, senza contattare nessuno». Che cosa fa l'agente?", "en": "Same hot lead, but the goal becomes «keep the CRM tidy, without contacting anyone». What does the agent do?"},
+    "opzioni": [
+     {"id": "a", "corretta": true, "testo": {"it": "Aggiorna la scheda nel CRM e non contatta il lead", "en": "It updates the record in the CRM and does not contact the lead"}},
+     {"id": "b", "corretta": false, "tipo_distrattore": "quasi", "testo": {"it": "Aggiorna la scheda e fissa comunque una call", "en": "It updates the record and books a call anyway"}, "spiegazione": {"it": "La scheda sì, ma la call va contro l'obiettivo: «senza contattare nessuno».", "en": "The record yes, but the call goes against the goal: «without contacting anyone»."}},
+     {"id": "c", "corretta": false, "tipo_distrattore": "poco", "testo": {"it": "Scrive al lead per chiedere i dati che mancano", "en": "It writes to the lead to ask for the missing data"}, "spiegazione": {"it": "Scrivere al lead è un contatto: l'obiettivo lo esclude.", "en": "Writing to the lead is a contact: the goal rules it out."}},
+     {"id": "d", "corretta": false, "tipo_distrattore": "errata", "testo": {"it": "Cancella il lead perché è già caldo", "en": "It deletes the lead because it is already hot"}, "spiegazione": {"it": "Nessun motivo per cancellare: tenere in ordine vuol dire aggiornare, non eliminare.", "en": "No reason to delete: keeping tidy means updating, not removing."}},
+     {"id": "e", "corretta": false, "tipo_distrattore": "errata", "testo": {"it": "Niente: un agente ha un solo obiettivo possibile", "en": "Nothing: an agent has only one possible goal"}, "spiegazione": {"it": "Falso: lo stesso agente può ricevere obiettivi diversi e lavora in modo diverso.", "en": "False: the same agent can receive different goals and works differently."}}
+    ],
+    "perche": {"it": "L'obiettivo guida ogni decisione: con «tenere in ordine il CRM» l'agente aggiorna la scheda e non contatta nessuno, anche se il lead è caldo.", "en": "The goal drives every decision: with «keep the CRM tidy» the agent updates the record and contacts nobody, even if the lead is hot."}
+   },
+   "livello2": {
+    "tipo": "trasferimento",
+    "domanda": {"it": "Un altro agente ha l'obiettivo «rispondere alle domande sui prezzi». Un cliente chiede di disdire l'abbonamento. Che cosa fa un agente ben fatto?", "en": "Another agent has the goal «answer questions about prices». A customer asks to cancel their subscription. What does a well-built agent do?"},
+    "opzioni": [
+     {"id": "a", "corretta": true, "testo": {"it": "Capisce che non è il suo compito e passa la richiesta a chi se ne occupa", "en": "It understands this is not its job and passes the request to whoever handles it"}},
+     {"id": "b", "corretta": false, "tipo_distrattore": "quasi", "testo": {"it": "Risponde spiegando i prezzi degli altri abbonamenti", "en": "It answers by explaining the prices of the other plans"}, "spiegazione": {"it": "Resta nel suo obiettivo, ma ignora la vera richiesta del cliente.", "en": "It stays within its goal, but ignores the customer's real request."}},
+     {"id": "c", "corretta": false, "tipo_distrattore": "poco", "testo": {"it": "Disdice subito l'abbonamento per accontentarlo", "en": "It cancels the subscription straight away to please them"}, "spiegazione": {"it": "Disdire non è un compito che gli è stato dato: agirebbe fuori dal suo obiettivo.", "en": "Cancelling is not a task it was given: it would act outside its goal."}},
+     {"id": "d", "corretta": false, "tipo_distrattore": "errata", "testo": {"it": "Ignora il messaggio senza dire nulla", "en": "It ignores the message without saying anything"}, "spiegazione": {"it": "Lasciare il cliente senza risposta è il comportamento peggiore.", "en": "Leaving the customer without an answer is the worst behaviour."}},
+     {"id": "e", "corretta": false, "tipo_distrattore": "errata", "testo": {"it": "Inventa una procedura di disdetta", "en": "It makes up a cancellation procedure"}, "spiegazione": {"it": "Inventare istruzioni può danneggiare il cliente e l'azienda.", "en": "Making up instructions can harm the customer and the company."}}
+    ],
+    "perche": {"it": "L'obiettivo dice anche che cosa NON è compito dell'agente: in quel caso deve passare la richiesta a chi se ne occupa.", "en": "The goal also says what is NOT the agent's job: in that case it must pass the request to whoever handles it."}
+   }
+  },
+  {
+   "id": "DX1.3-4", "origine": "dimostratore", "pillola": "P1.3", "concetti": ["C08", "C02"], "concetto_principale": "C08", "segmento_aiuto": "osservare",
+   "livello1": {
+    "domanda": {"it": "Nel CRM il lead risulta già cliente. Che cosa fa lo script fisso?", "en": "In the CRM the lead is already a customer. What does the fixed script do?"},
+    "opzioni": [
+     {"id": "a", "corretta": true, "testo": {"it": "Gli scrive come a uno sconosciuto", "en": "Writes to them like a stranger"}},
+     {"id": "b", "corretta": false, "tipo_distrattore": "quasi", "testo": {"it": "Avvisa il referente", "en": "Alerts the manager"}, "spiegazione": {"it": "Questo lo fa l'agente, che ha guardato il CRM. Lo script non guarda nulla.", "en": "The agent does this, because it looked at the CRM. The script looks at nothing."}},
+     {"id": "c", "corretta": false, "tipo_distrattore": "quasi", "testo": {"it": "Controlla prima il CRM", "en": "Checks the CRM first"}, "spiegazione": {"it": "È proprio quello che lo script NON fa: segue sempre gli stessi passi.", "en": "That is exactly what the script does NOT do: it always follows the same steps."}},
+     {"id": "d", "corretta": false, "tipo_distrattore": "poco", "testo": {"it": "Si ferma da solo", "en": "Stops by itself"}, "spiegazione": {"it": "Per fermarsi dovrebbe accorgersi che è un cliente: non se ne accorge.", "en": "To stop it would have to notice it is a customer: it does not notice."}},
+     {"id": "e", "corretta": false, "tipo_distrattore": "poco", "testo": {"it": "Chiede a una persona", "en": "Asks a person"}, "spiegazione": {"it": "Chiedere aiuto richiede di capire che c'è un problema: lo script non lo capisce.", "en": "Asking for help requires understanding there is a problem: the script does not."}},
+     {"id": "f", "corretta": false, "tipo_distrattore": "errata", "testo": {"it": "Cancella il cliente", "en": "Deletes the customer"}, "spiegazione": {"it": "Lo script manda sempre le stesse email: non cancella nulla.", "en": "The script always sends the same emails: it deletes nothing."}},
+     {"id": "g", "corretta": false, "tipo_distrattore": "errata", "testo": {"it": "Ripara il CRM", "en": "Repairs the CRM"}, "spiegazione": {"it": "Nessuno script ripara il CRM: qui non c'è nemmeno un guasto.", "en": "No script repairs the CRM: here there is not even a fault."}}
+    ],
+    "perche": {"it": "Lo script non osserva nulla: manda «Scopri il nostro prodotto» anche a chi è già cliente.", "en": "The script observes nothing: it sends «Discover our product» even to someone who is already a customer."}
+   },
+   "livello2": {
+    "tipo": "contro-esempio",
+    "domanda": {"it": "Quale di questi sistemi NON osserva i risultati delle sue azioni?", "en": "Which of these systems does NOT observe the results of its actions?"},
+    "opzioni": [
+     {"id": "a", "corretta": true, "testo": {"it": "Uno script che manda sempre le stesse 3 email, qualunque cosa succeda", "en": "A script that always sends the same 3 emails, whatever happens"}},
+     {"id": "b", "corretta": false, "tipo_distrattore": "quasi", "testo": {"it": "Un agente che riprova una volta dopo un errore", "en": "An agent that tries once more after an error"}, "spiegazione": {"it": "Riprova proprio perché ha osservato l'errore.", "en": "It tries again precisely because it observed the error."}},
+     {"id": "c", "corretta": false, "tipo_distrattore": "poco", "testo": {"it": "Un agente che controlla nel CRM se il lead è già cliente", "en": "An agent that checks the CRM to see whether the lead is already a customer"}, "spiegazione": {"it": "Controllare e usare la risposta è osservare.", "en": "Checking and using the answer is observing."}},
+     {"id": "d", "corretta": false, "tipo_distrattore": "poco", "testo": {"it": "Un agente che legge le visite al sito prima di dare un punteggio", "en": "An agent that reads the website visits before giving a score"}, "spiegazione": {"it": "Usa un dato vero raccolto da uno strumento: osserva.", "en": "It uses real data collected by a tool: it observes."}},
+     {"id": "e", "corretta": false, "tipo_distrattore": "errata", "testo": {"it": "Un agente che passa il caso a una persona quando il CRM non risponde", "en": "An agent that hands the case to a person when the CRM does not answer"}, "spiegazione": {"it": "Si accorge del silenzio del CRM: è osservazione, e porta a una buona decisione.", "en": "It notices the CRM's silence: that is observation, and it leads to a good decision."}}
+    ],
+    "perche": {"it": "Solo lo script ignora i risultati: fa gli stessi passi in ogni caso. Gli altri sistemi guardano che cosa è successo e decidono di conseguenza.", "en": "Only the script ignores the results: it does the same steps in every case. The other systems look at what happened and decide accordingly."}
+   }
+  },
+  {
+   "id": "DX1.3-5", "origine": "dimostratore", "pillola": "P1.3", "concetti": ["C09"], "concetto_principale": "C09", "segmento_aiuto": "imprevisti",
+   "livello1": {
+    "domanda": {"it": "Che cos'è il «numero massimo di giri» di un agente?", "en": "What is an agent's «maximum number of rounds»?"},
+    "opzioni": [
+     {"id": "a", "corretta": true, "testo": {"it": "Il numero di giri dopo cui l'agente si ferma comunque", "en": "The number of rounds after which the agent stops anyway"}},
+     {"id": "b", "corretta": false, "tipo_distrattore": "quasi", "testo": {"it": "Il numero di strumenti che l'agente può usare", "en": "The number of tools the agent can use"}, "spiegazione": {"it": "Gli strumenti sono un'altra cosa: il limite conta i giri del ciclo.", "en": "Tools are a different thing: the limit counts the rounds of the loop."}},
+     {"id": "c", "corretta": false, "tipo_distrattore": "poco", "testo": {"it": "La velocità con cui l'agente risponde", "en": "The speed at which the agent answers"}, "spiegazione": {"it": "Il limite non rende l'agente più veloce: lo ferma dopo un certo numero di giri.", "en": "The limit does not make the agent faster: it stops it after a set number of rounds."}},
+     {"id": "d", "corretta": false, "tipo_distrattore": "poco", "testo": {"it": "Il numero di lead che può gestire in un giorno", "en": "The number of leads it can handle in a day"}, "spiegazione": {"it": "Il limite riguarda un singolo lavoro, non quanti lead al giorno.", "en": "The limit concerns a single job, not how many leads per day."}},
+     {"id": "e", "corretta": false, "tipo_distrattore": "errata", "testo": {"it": "Il tempo che serve per installarlo", "en": "The time it takes to install it"}, "spiegazione": {"it": "Non c'entra l'installazione: è un freno durante il lavoro.", "en": "Installation has nothing to do with it: it is a brake during the work."}}
+    ],
+    "perche": {"it": "È un freno di sicurezza: arrivato al limite, l'agente si ferma anche se non ha finito, e passa il caso a una persona.", "en": "It is a safety brake: once at the limit, the agent stops even if it has not finished, and hands the case to a person."}
+   },
+   "livello2": {
+    "tipo": "motivazione",
+    "domanda": {"it": "Perché serve questo limite?", "en": "Why is this limit needed?"},
+    "opzioni": [
+     {"id": "a", "corretta": true, "testo": {"it": "Per evitare che, se qualcosa si rompe, l'agente giri all'infinito sprecando soldi", "en": "To stop the agent from looping forever, wasting money, if something breaks"}},
+     {"id": "b", "corretta": false, "tipo_distrattore": "quasi", "testo": {"it": "Per far finire prima il lavoro, anche quando tutto funziona", "en": "To finish the work sooner, even when everything works"}, "spiegazione": {"it": "Se tutto funziona l'agente finisce da solo: il limite serve per quando qualcosa va storto.", "en": "If everything works the agent finishes by itself: the limit is for when something goes wrong."}},
+     {"id": "c", "corretta": false, "tipo_distrattore": "poco", "testo": {"it": "Per rendere più creative le risposte dell'agente", "en": "To make the agent's answers more creative"}, "spiegazione": {"it": "Il limite non cambia lo stile delle risposte.", "en": "The limit does not change the style of the answers."}},
+     {"id": "d", "corretta": false, "tipo_distrattore": "errata", "testo": {"it": "Perché i computer si scaldano dopo pochi giri", "en": "Because computers overheat after a few rounds"}, "spiegazione": {"it": "Non è un problema di calore: è un problema di costi e di azioni ripetute.", "en": "It is not a heat problem: it is a problem of cost and repeated actions."}},
+     {"id": "e", "corretta": false, "tipo_distrattore": "errata", "testo": {"it": "Perché lo chiede il cliente in ogni email", "en": "Because the customer asks for it in every email"}, "spiegazione": {"it": "Il cliente non c'entra: è una protezione decisa da chi progetta l'agente.", "en": "The customer has nothing to do with it: it is a protection decided by whoever designs the agent."}}
+    ],
+    "perche": {"it": "Senza limite, un errore che si ripete fa girare l'agente all'infinito: costi che salgono e azioni ripetute. Il limite lo ferma e coinvolge una persona.", "en": "Without a limit, a repeating error makes the agent loop forever: rising costs and repeated actions. The limit stops it and brings in a person."}
+   }
+  },
+  {
+   "id": "DX1.3-6", "origine": "dimostratore", "pillola": "P1.3", "concetti": ["C09", "C08"], "concetto_principale": "C09", "segmento_aiuto": "imprevisti",
+   "livello1": {
+    "domanda": {"it": "Il CRM risponde «servizio non disponibile» due volte di fila. Quale comportamento dell'agente è quello giusto?", "en": "The CRM answers «service unavailable» twice in a row. Which behaviour of the agent is the right one?"},
+    "opzioni": [
+     {"id": "a", "corretta": true, "testo": {"it": "Si ferma, non inventa nulla e passa il caso a una persona, spiegando che il CRM non risponde e che cosa ha già scoperto", "en": "It stops, makes nothing up and hands the case to a person, explaining that the CRM is not answering and what it has already found"}},
+     {"id": "b", "corretta": false, "tipo_distrattore": "quasi", "testo": {"it": "Riprova ancora molte volte di seguito, senza un limite, finché prima o poi il CRM torna a rispondere", "en": "It keeps trying many more times in a row, with no limit, until sooner or later the CRM answers again"}, "spiegazione": {"it": "Riprovare una volta ha senso; senza limite invece l'agente può girare all'infinito.", "en": "Trying once more makes sense; with no limit, though, the agent can loop forever."}},
+     {"id": "c", "corretta": false, "tipo_distrattore": "poco", "testo": {"it": "Decide che il lead non è cliente, visto che il CRM non lo ha trovato, e va avanti con la qualificazione", "en": "It decides the lead is not a customer, since the CRM did not find them, and carries on with qualification"}, "spiegazione": {"it": "Il CRM non ha detto «non trovato»: ha dato un errore. Scambiare un errore per una risposta è un errore grave.", "en": "The CRM did not say «not found»: it gave an error. Mistaking an error for an answer is a serious mistake."}},
+     {"id": "d", "corretta": false, "tipo_distrattore": "errata", "testo": {"it": "Inventa in modo credibile i dati mancanti del lead, così il lavoro arriva comunque alla fine senza disturbare nessuno", "en": "It convincingly makes up the lead's missing data, so the work still gets finished without bothering anyone"}, "spiegazione": {"it": "Inventare i dati è l'errore più pericoloso: le decisioni dopo sarebbero tutte sbagliate.", "en": "Making up data is the most dangerous mistake: every decision after it would be wrong."}}
+    ],
+    "perche": {"it": "Un buon agente usa l'osservazione dell'errore: riprova una volta, poi si ferma e coinvolge una persona, senza inventare.", "en": "A good agent uses the observed error: it tries once more, then stops and brings in a person, without making things up."}
+   },
+   "livello2": {
+    "tipo": "diagnosi",
+    "domanda": {"it": "Un agente senza limite di giri riceve sempre lo stesso errore. Che cosa si vede succedere?", "en": "An agent with no round limit keeps getting the same error. What do you see happening?"},
+    "opzioni": [
+     {"id": "a", "corretta": true, "testo": {"it": "Il contatore dei giri sale senza fermarsi e i costi crescono", "en": "The round counter keeps climbing and costs grow"}},
+     {"id": "b", "corretta": false, "tipo_distrattore": "quasi", "testo": {"it": "L'agente si ferma da solo dopo qualche errore", "en": "The agent stops by itself after a few errors"}, "spiegazione": {"it": "Si fermerebbe solo se ci fosse un limite: qui non c'è.", "en": "It would stop only if there were a limit: here there is none."}},
+     {"id": "c", "corretta": false, "tipo_distrattore": "poco", "testo": {"it": "Il CRM si ripara grazie ai tentativi", "en": "The CRM fixes itself thanks to the attempts"}, "spiegazione": {"it": "Ripetere la stessa richiesta non ripara un guasto.", "en": "Repeating the same request does not fix a fault."}},
+     {"id": "d", "corretta": false, "tipo_distrattore": "errata", "testo": {"it": "L'agente si costruisce un nuovo strumento", "en": "The agent builds itself a new tool"}, "spiegazione": {"it": "Un agente usa gli strumenti che gli sono stati collegati: non se ne crea di nuovi.", "en": "An agent uses the tools it has been connected to: it does not create new ones."}},
+     {"id": "e", "corretta": false, "tipo_distrattore": "errata", "testo": {"it": "Il lead riceve un'email di scuse", "en": "The lead receives an apology email"}, "spiegazione": {"it": "Nessuno ha previsto un'email di scuse: l'agente continua solo a ripetere la richiesta.", "en": "Nobody planned an apology email: the agent just keeps repeating the request."}}
+    ],
+    "perche": {"it": "Senza limite il ciclo non finisce mai: ogni giro costa e non porta a nulla. Per questo serve il freno.", "en": "Without a limit the loop never ends: every round costs and leads nowhere. That is why the brake is needed."}
+   }
+  }
+ ]
+}

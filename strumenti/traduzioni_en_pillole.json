@@ -1,0 +1,26 @@
+{
+ "_why": "Traduzioni inglesi complete dei testi lunghi di alcune pillole (obiettivo, scaletta, progetto dell'animazione). L'estrattore le applica solo se il numero di voci della scaletta coincide con il documento: se il documento cambia, l'estrazione si ferma con un errore invece di accoppiare testi sbagliati.",
+ "P1.3": {
+  "obiettivo": "describe the loop goal → reasoning → action → observation and understand why stop conditions are needed.",
+  "scaletta": [
+   "The agent receives the goal and gathers the context.",
+   "It reasons/plans: it decides the next step.",
+   "It acts: it calls a tool.",
+   "It observes the result, even an error, and updates its state.",
+   "It repeats until the goal is reached or a stop condition kicks in (maximum number of steps, budget, request for human intervention).",
+   "The Google day-1 whitepaper describes a similar five-phase loop. Check the exact wording against the downloaded text."
+  ],
+  "animazione": "- What you see:\n- A circle with four stations: Reason, Act, Observe, Update state. A light indicator travels round the circle.\n- Beside it, a \"state\" panel fills up with lines at each round: \"12 leads found\", \"3 without email\", \"drafts created: 9\".\n- Interaction:\n- The \"break the tool\" button makes the CRM icon return an error (\"contact not found\"). The indicator shows the reaction: a new attempt with different parameters, or a detour to \"ask a human\".\n- The \"maximum number of steps\" slider (from 3 to 20) shows that with a low limit the agent stops before finishing, and with no limit a repeated error creates an endless loop (the cost counter climbs).\n- Why it helps: it shows that observation is what makes the agent adaptive and that the limit is a protection, not a flaw."
+ },
+ "P4.1": {
+  "obiettivo": "describe the mechanism by which the model requests an action and the system carries it out.",
+  "scaletta": [
+   "A tool is described by a name, a description and parameters (with types). The model reads these descriptions.",
+   "When needed, the model produces a structured call request (e.g. `cerca_lead(settore=\"logistica\", giorni=7)`).",
+   "It is the orchestration code that makes the real call to the CRM or API. The model never touches the systems directly.",
+   "The result goes back to the model as an observation.",
+   "Consequence: permissions, checks and limits are placed in the code."
+  ],
+  "animazione": "- What you see: a sequence diagram with three vertical lanes: Model, Orchestration, CRM.\n- An \"envelope\" leaves the Model with the call request (tool name plus parameters, readable).\n- The Orchestration opens it, checks permissions (green tick) and forwards it to the CRM.\n- The CRM returns a small 3-row table, which travels back up to the Model.\n- Interaction:\n- The learner can change the tool description (clear or ambiguous version) and see the model pick the wrong tool or pass wrong parameters.\n- A \"remove the permission check\" switch lets an unauthorised delete call through (highlighted in red).\n- Why it helps: it makes clear who does what. It is the most common misunderstanding (\"the AI gets into my CRM\")."
+ }
+}

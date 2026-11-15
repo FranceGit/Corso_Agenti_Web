@@ -6,7 +6,9 @@
     "_why": "Indirizzo locale del server. 127.0.0.1 = raggiungibile solo da questo PC: per il collaudo di France basta e non espone nulla in rete.",
     "host": "127.0.0.1",
     "porta": 8780,
-    "titolo_api": "Corso Agenti AI - piattaforma web"
+    "titolo_api": "Corso Agenti AI - piattaforma web",
+    "livello_log": "warning",
+    "codice_uscita_porta_occupata": 3
   },
 
   "percorsi_file": {

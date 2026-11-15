@@ -893,32 +893,32 @@
      ],
      "obiettivo": {
       "it": "descrivere il ciclo obiettivo → ragionamento → azione → osservazione e capire perché servono le condizioni di arresto.",
-      "en": null
+      "en": "describe the loop goal → reasoning → action → observation and understand why stop conditions are needed."
      },
      "scaletta": [
       {
        "it": "L'agente riceve l'obiettivo e raccoglie il contesto.",
-       "en": null
+       "en": "The agent receives the goal and gathers the context."
       },
       {
        "it": "Ragiona/pianifica: decide il prossimo passo.",
-       "en": null
+       "en": "It reasons/plans: it decides the next step."
       },
       {
        "it": "Agisce: chiama uno strumento.",
-       "en": null
+       "en": "It acts: it calls a tool."
       },
       {
        "it": "Osserva il risultato, anche un errore, e aggiorna lo stato.",
-       "en": null
+       "en": "It observes the result, even an error, and updates its state."
       },
       {
        "it": "Ripete finché l'obiettivo è raggiunto oppure scatta una condizione di arresto (massimo di passi, budget, richiesta di intervento umano).",
-       "en": null
+       "en": "It repeats until the goal is reached or a stop condition kicks in (maximum number of steps, budget, request for human intervention)."
       },
       {
        "it": "Il whitepaper Google del giorno 1 descrive un ciclo analogo a cinque fasi. Verificare la formulazione esatta sul testo scaricato.",
-       "en": null
+       "en": "The Google day-1 whitepaper describes a similar five-phase loop. Check the exact wording against the downloaded text."
       }
      ],
      "animazione": {
@@ -928,7 +928,7 @@
       },
       "progetto": {
        "it": "- Cosa si vede:\n- Un cerchio con quattro stazioni: Ragiona, Agisce, Osserva, Aggiorna stato. Un indicatore luminoso percorre il cerchio.\n- Accanto, un pannello \"stato\" si riempie di righe a ogni giro: \"trovati 12 lead\", \"3 senza email\", \"bozze create: 9\".\n- Interazione:\n- Il pulsante \"guasta lo strumento\" fa restituire all'icona CRM un errore (\"contatto non trovato\"). L'indicatore mostra la reazione: nuovo tentativo con parametri diversi, oppure deviazione verso \"chiedi a un umano\".\n- Lo slider \"numero massimo di passi\" (da 3 a 20) mostra che con un limite basso l'agente si ferma prima di finire, e senza limite un errore ripetuto genera un anello infinito (il contatore costo sale).\n- Perché aiuta: fa vedere che l'osservazione è ciò che rende l'agente adattivo e che il limite è una protezione, non un difetto.",
-       "en": null
+       "en": "- What you see:\n- A circle with four stations: Reason, Act, Observe, Update state. A light indicator travels round the circle.\n- Beside it, a \"state\" panel fills up with lines at each round: \"12 leads found\", \"3 without email\", \"drafts created: 9\".\n- Interaction:\n- The \"break the tool\" button makes the CRM icon return an error (\"contact not found\"). The indicator shows the reaction: a new attempt with different parameters, or a detour to \"ask a human\".\n- The \"maximum number of steps\" slider (from 3 to 20) shows that with a low limit the agent stops before finishing, and with no limit a repeated error creates an endless loop (the cost counter climbs).\n- Why it helps: it shows that observation is what makes the agent adaptive and that the limit is a protection, not a flaw."
       }
      },
      "domande": [
@@ -6373,28 +6373,28 @@
      ],
      "obiettivo": {
       "it": "descrivere il meccanismo con cui il modello richiede un'azione e il sistema la esegue.",
-      "en": null
+      "en": "describe the mechanism by which the model requests an action and the system carries it out."
      },
      "scaletta": [
       {
        "it": "Uno strumento è descritto da nome, descrizione e parametri (con tipi). Il modello legge queste descrizioni.",
-       "en": null
+       "en": "A tool is described by a name, a description and parameters (with types). The model reads these descriptions."
       },
       {
        "it": "Quando serve, il modello produce una richiesta strutturata di chiamata (es. `cerca_lead(settore=\"logistica\", giorni=7)`).",
-       "en": null
+       "en": "When needed, the model produces a structured call request (e.g. `cerca_lead(settore=\"logistica\", giorni=7)`)."
       },
       {
        "it": "È il codice dell'orchestrazione a eseguire la chiamata reale verso CRM o API. Il modello non tocca direttamente i sistemi.",
-       "en": null
+       "en": "It is the orchestration code that makes the real call to the CRM or API. The model never touches the systems directly."
       },
       {
        "it": "Il risultato torna al modello come osservazione.",
-       "en": null
+       "en": "The result goes back to the model as an observation."
       },
       {
        "it": "Conseguenza: è nel codice che si mettono permessi, controlli e limiti.",
-       "en": null
+       "en": "Consequence: permissions, checks and limits are placed in the code."
       }
      ],
      "animazione": {
@@ -6404,7 +6404,7 @@
       },
       "progetto": {
        "it": "- Cosa si vede: un diagramma di sequenza con tre corsie verticali: Modello, Orchestrazione, CRM.\n- Dal Modello parte una \"busta\" con la richiesta di chiamata (nome dello strumento più parametri, leggibili).\n- L'Orchestrazione la apre, controlla i permessi (spunta verde) e la inoltra al CRM.\n- Il CRM restituisce una tabellina di 3 righe, che risale fino al Modello.\n- Interazione:\n- Lo studente può modificare la descrizione dello strumento (versione chiara o ambigua) e vedere che il modello sceglie lo strumento sbagliato o passa parametri errati.\n- Un interruttore \"togli il controllo permessi\" fa passare una chiamata di cancellazione non autorizzata (evidenziata in rosso).\n- Perché aiuta: chiarisce chi fa cosa. È il malinteso più comune (\"l'AI entra nel mio CRM\").",
-       "en": null
+       "en": "- What you see: a sequence diagram with three vertical lanes: Model, Orchestration, CRM.\n- An \"envelope\" leaves the Model with the call request (tool name plus parameters, readable).\n- The Orchestration opens it, checks permissions (green tick) and forwards it to the CRM.\n- The CRM returns a small 3-row table, which travels back up to the Model.\n- Interaction:\n- The learner can change the tool description (clear or ambiguous version) and see the model pick the wrong tool or pass wrong parameters.\n- A \"remove the permission check\" switch lets an unauthorised delete call through (highlighted in red).\n- Why it helps: it makes clear who does what. It is the most common misunderstanding (\"the AI gets into my CRM\")."
       }
      },
      "domande": [
@@ -16458,14 +16458,48 @@
      },
      "durata_min": 6,
      "prerequisiti": [
-      "tutte le pillole dei moduli 1-8 (in particolare P3.1",
+      "P1.1",
+      "P1.2",
+      "P1.3",
+      "P1.4",
+      "P1.5",
+      "P1.6",
+      "P2.1",
+      "P2.2",
+      "P2.3",
+      "P2.4",
+      "P3.1",
+      "P3.2",
+      "P3.3",
+      "P3.4",
+      "P3.5",
+      "P4.1",
+      "P4.2",
+      "P4.3",
+      "P4.4",
       "P4.5",
+      "P5.1",
+      "P5.2",
+      "P5.3",
+      "P5.4",
       "P5.5",
+      "P6.1",
+      "P6.2",
+      "P6.3",
+      "P6.4",
+      "P7.1",
+      "P7.2",
       "P7.3",
-      "P8.2)"
+      "P7.4",
+      "P7.5",
+      "P8.1",
+      "P8.2",
+      "P8.3",
+      "P8.4",
+      "P8.5"
      ],
      "concetti": [
-      "C79 (integra tutti i nodi)"
+      "C79"
      ],
      "fonti": [
       "G1]-[G5",
@@ -16532,7 +16566,7 @@
        "origine": "benchmark",
        "pillola": "P8.6",
        "concetti": [
-        "C79 (integra tutti i nodi)"
+        "C79"
        ],
        "concetto_principale": null,
        "segmento_aiuto": null,
@@ -16651,7 +16685,7 @@
        "origine": "benchmark",
        "pillola": "P8.6",
        "concetti": [
-        "C79 (integra tutti i nodi)"
+        "C79"
        ],
        "concetto_principale": null,
        "segmento_aiuto": null,
@@ -16770,7 +16804,7 @@
        "origine": "benchmark",
        "pillola": "P8.6",
        "concetti": [
-        "C79 (integra tutti i nodi)"
+        "C79"
        ],
        "concetto_principale": null,
        "segmento_aiuto": null,

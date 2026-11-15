@@ -1,0 +1,298 @@
+{
+ "id": "L_strumenti_agente",
+ "pillola": "P4.1",
+ "componente": "strumenti_agente",
+ "titolo": {"it": "Gli strumenti dell'agente: le sue mani", "en": "The agent's tools: its hands"},
+ "sottotitolo": {"it": "Collega e scollega gli strumenti e guarda che cosa l'agente riesce, o non riesce, a fare.", "en": "Connect and disconnect the tools and see what the agent can, or cannot, do."},
+ "segmenti": [
+  {
+   "id": "senza_strumenti",
+   "titolo": {"it": "Un modello da solo sa solo scrivere", "en": "On its own, a model can only write"},
+   "narrazione": [
+    {"it": "Dentro ogni agente c'è un modello: il «cervello» che legge, decide e scrive testo. Da solo, però, non può toccare niente: non legge il CRM (il programma dove l'azienda tiene i dati dei clienti), non manda email, non vede il calendario.", "en": "Inside every agent there is a model: the «brain» that reads, decides and writes text. On its own, though, it cannot touch anything: it does not read the CRM (the program where the company keeps its customer data), it does not send emails, it does not see the calendar."},
+    {"it": "Per agire gli servono gli strumenti. Uno strumento è un collegamento a un programma vero, con un compito preciso: per esempio «leggere il CRM» oppure «inviare un'email». Sono le mani dell'agente.", "en": "To act, it needs tools. A tool is a connection to a real program, with a precise job: for example «read the CRM» or «send an email». They are the agent's hands."}
+   ],
+   "prova": {"it": "Tutti gli strumenti sono scollegati. Premi «Avvia» e guarda che cosa riesce a fare l'agente.", "en": "All the tools are disconnected. Press «Start» and see what the agent manages to do."},
+   "concetti": ["C11", "C34"],
+   "stato_animazione": {"compito": "qualifica", "strumenti": {"leggi_crm": "scollegato", "aggiorna_crm": "scollegato", "cerca_web": "scollegato", "invia_email": "scollegato", "calendario": "scollegato"}, "permesso_scrittura": true, "comportamento": "onesto"}
+  },
+  {
+   "id": "collegare",
+   "titolo": {"it": "Collegare gli strumenti giusti", "en": "Connecting the right tools"},
+   "narrazione": [
+    {"it": "Ogni compito ha bisogno di certi strumenti. Per qualificare un lead (capire se un possibile cliente è pronto) l'agente deve leggere la sua scheda e poi salvare il risultato: servono «Leggere il CRM» e «Scrivere nel CRM».", "en": "Every task needs certain tools. To qualify a lead (work out whether a potential customer is ready) the agent must read their record and then save the result: it needs «Read the CRM» and «Write to the CRM»."},
+    {"it": "Alcuni strumenti sono facoltativi: senza «Cercare sul web» il compito riesce lo stesso, ma con meno informazioni, quindi con meno qualità.", "en": "Some tools are optional: without «Search the web» the task still succeeds, but with less information, so with lower quality."}
+   ],
+   "prova": {"it": "Clicca sulle schede degli strumenti a destra per collegarli. Collega solo «Leggere il CRM» e «Scrivere nel CRM» e premi «Avvia». Poi collega anche «Cercare sul web».", "en": "Click the tool cards on the right to connect them. Connect only «Read the CRM» and «Write to the CRM» and press «Start». Then also connect «Search the web»."},
+   "concetti": ["C11", "C34"],
+   "stato_animazione": {"compito": "qualifica", "strumenti": {"leggi_crm": "scollegato", "aggiorna_crm": "scollegato", "cerca_web": "scollegato", "invia_email": "scollegato", "calendario": "scollegato"}, "permesso_scrittura": true, "comportamento": "onesto"}
+  },
+  {
+   "id": "orchestrazione",
+   "titolo": {"it": "Chi fa davvero le cose: l'orchestrazione", "en": "Who really does things: the orchestration"},
+   "narrazione": [
+    {"it": "Il modello non entra mai direttamente nel CRM. Scrive una richiesta, come una busta con dentro «vorrei usare questo strumento, con questi dati».", "en": "The model never goes directly into the CRM. It writes a request, like an envelope saying «I would like to use this tool, with this data»."},
+    {"it": "La busta arriva all'orchestrazione: è il codice, scritto dalle persone che costruiscono l'agente, che riceve le richieste, controlla i permessi e solo allora esegue l'azione vera. Per questo i controlli di sicurezza si mettono lì.", "en": "The envelope reaches the orchestration: the code, written by the people who build the agent, that receives the requests, checks the permissions and only then carries out the real action. That is why safety checks are placed there."}
+   ],
+   "prova": {"it": "Spegni «Permesso di scrittura» e premi «Avvia»: guarda chi blocca la richiesta di scrivere nel CRM, e che cosa fa l'agente.", "en": "Switch off «Write permission» and press «Start»: see who blocks the request to write to the CRM, and what the agent does."},
+   "concetti": ["C35", "C34"],
+   "stato_animazione": {"compito": "qualifica", "strumenti": {"leggi_crm": "collegato", "aggiorna_crm": "collegato", "cerca_web": "collegato", "invia_email": "scollegato", "calendario": "scollegato"}, "permesso_scrittura": true, "comportamento": "onesto"}
+  },
+  {
+   "id": "guasti",
+   "titolo": {"it": "Quando uno strumento si rompe", "en": "When a tool breaks"},
+   "narrazione": [
+    {"it": "Uno strumento può essere collegato ma non funzionare: il programma dall'altra parte è fermo, oppure la rete non risponde.", "en": "A tool can be connected but not working: the program on the other side is down, or the network does not answer."},
+    {"it": "Un buon agente non fa finta di niente: legge l'errore, riprova una volta e, se non va, avvisa una persona spiegando che cosa non ha potuto fare.", "en": "A good agent does not pretend nothing happened: it reads the error, tries once more and, if that fails, alerts a person explaining what it could not do."}
+   ],
+   "prova": {"it": "Scegli il compito «Fissare una call». Clicca due volte sulla scheda «Calendario» per metterla in stato «Guasto» e premi «Avvia».", "en": "Choose the task «Book a call». Click the «Calendar» card twice to set it to «Broken» and press «Start»."},
+   "concetti": ["C34", "C11"],
+   "stato_animazione": {"compito": "call", "strumenti": {"leggi_crm": "collegato", "aggiorna_crm": "collegato", "cerca_web": "collegato", "invia_email": "collegato", "calendario": "collegato"}, "permesso_scrittura": true, "comportamento": "onesto"}
+  },
+  {
+   "id": "inventare",
+   "titolo": {"it": "L'errore peggiore: inventare", "en": "The worst mistake: making things up"},
+   "narrazione": [
+    {"it": "Un modello è bravissimo a scrivere frasi convincenti. Se manca uno strumento, un agente progettato male può scrivere «Fatto!» anche se non è successo niente.", "en": "A model is very good at writing convincing sentences. If a tool is missing, a badly designed agent can write «Done!» even though nothing happened."},
+    {"it": "Per questo chi progetta l'agente gli chiede di dire sempre che cosa gli manca, e fa controllare all'orchestrazione gli esiti veri delle azioni.", "en": "That is why whoever designs the agent asks it to always say what it is missing, and has the orchestration check the real results of the actions."}
+   ],
+   "prova": {"it": "Passa a «Agente che inventa», lascia scollegato «Scrivere nel CRM» e premi «Avvia». Poi torna ad «Agente onesto» e confronta.", "en": "Switch to «Agent that makes things up», leave «Write to the CRM» disconnected and press «Start». Then go back to «Honest agent» and compare."},
+   "concetti": ["C34", "C35"],
+   "stato_animazione": {"compito": "qualifica", "strumenti": {"leggi_crm": "collegato", "aggiorna_crm": "scollegato", "cerca_web": "collegato", "invia_email": "scollegato", "calendario": "scollegato"}, "permesso_scrittura": true, "comportamento": "inventa"}
+  }
+ ],
+ "scenario": {
+  "strumenti": [
+   {"id": "leggi_crm", "icona": "database", "scrive": false, "nome": {"it": "Leggere il CRM", "en": "Read the CRM"}, "descrizione": {"it": "legge le schede di clienti e lead", "en": "reads customer and lead records"}, "chiamata": "leggi_crm(azienda=\"Alfa\")", "risultato": {"it": "Alfa: lead, 120 dipendenti, contatto: direttrice marketing, 7 visite ai prezzi", "en": "Alfa: lead, 120 employees, contact: marketing director, 7 pricing-page visits"}},
+   {"id": "aggiorna_crm", "icona": "matita", "scrive": true, "nome": {"it": "Scrivere nel CRM", "en": "Write to the CRM"}, "descrizione": {"it": "modifica le schede", "en": "changes records"}, "chiamata": "aggiorna_crm(azienda=\"Alfa\", stato=\"Qualificato\")", "risultato": {"it": "scheda di Alfa aggiornata: «Qualificato»", "en": "Alfa's record updated: «Qualified»"}},
+   {"id": "cerca_web", "icona": "globo", "scrive": false, "nome": {"it": "Cercare sul web", "en": "Search the web"}, "descrizione": {"it": "trova notizie pubbliche", "en": "finds public news"}, "chiamata": "cerca_web(\"Azienda Alfa notizie\")", "risultato": {"it": "Alfa ha aperto una nuova sede a Torino il mese scorso", "en": "Alfa opened a new office in Turin last month"}},
+   {"id": "invia_email", "icona": "busta", "scrive": true, "nome": {"it": "Inviare email", "en": "Send emails"}, "descrizione": {"it": "spedisce messaggi", "en": "sends messages"}, "chiamata": "invia_email(a=\"contatto Alfa\", testo=bozza)", "risultato": {"it": "email consegnata al contatto di Alfa", "en": "email delivered to Alfa's contact"}},
+   {"id": "calendario", "icona": "calendario", "scrive": true, "nome": {"it": "Calendario", "en": "Calendar"}, "descrizione": {"it": "trova e prenota orari", "en": "finds and books slots"}, "chiamata": "prenota_slot(durata=30)", "risultato": {"it": "prenotato martedì alle 10:00", "en": "booked Tuesday at 10:00"}}
+  ],
+  "compiti": [
+   {"id": "qualifica", "nome": {"it": "Qualificare il lead Alfa", "en": "Qualify lead Alfa"}, "frase": {"it": "Capire se Alfa è pronta per un commerciale e salvarlo nel CRM", "en": "Work out whether Alfa is ready for sales and save it in the CRM"},
+    "passi": [
+     {"strumento": "leggi_crm", "obbligatorio": true, "scopo": {"it": "leggere la scheda di Alfa", "en": "read Alfa's record"}},
+     {"strumento": "cerca_web", "obbligatorio": false, "scopo": {"it": "cercare notizie recenti su Alfa", "en": "look for recent news about Alfa"}, "senza": {"it": "valuto Alfa solo con i dati del CRM: il giudizio sarà meno preciso", "en": "I assess Alfa with CRM data only: the judgement will be less precise"}},
+     {"strumento": "aggiorna_crm", "obbligatorio": true, "scopo": {"it": "salvare nel CRM che Alfa è qualificata", "en": "save in the CRM that Alfa is qualified"}}
+    ],
+    "riuscito": {"it": "Alfa è qualificata e il risultato è salvato nel CRM.", "en": "Alfa is qualified and the result is saved in the CRM."}},
+   {"id": "email", "nome": {"it": "Email personalizzata", "en": "Personalised email"}, "frase": {"it": "Scrivere e inviare ad Alfa un'email di benvenuto personalizzata", "en": "Write and send Alfa a personalised welcome email"},
+    "passi": [
+     {"strumento": "leggi_crm", "obbligatorio": true, "scopo": {"it": "sapere a chi scrivo e che cosa ha guardato", "en": "know who I am writing to and what they looked at"}},
+     {"strumento": "cerca_web", "obbligatorio": false, "scopo": {"it": "trovare una notizia su Alfa da citare", "en": "find a piece of news about Alfa to mention"}, "senza": {"it": "l'email sarà meno personalizzata: niente notizie recenti da citare", "en": "the email will be less personalised: no recent news to mention"}},
+     {"strumento": "invia_email", "obbligatorio": true, "scopo": {"it": "inviare l'email", "en": "send the email"}}
+    ],
+    "riuscito": {"it": "Email personalizzata inviata ad Alfa.", "en": "Personalised email sent to Alfa."}},
+   {"id": "call", "nome": {"it": "Fissare una call", "en": "Book a call"}, "frase": {"it": "Fissare con Alfa una call di 30 minuti e mandare l'invito", "en": "Book a 30-minute call with Alfa and send the invitation"},
+    "passi": [
+     {"strumento": "leggi_crm", "obbligatorio": true, "scopo": {"it": "trovare il contatto giusto in Alfa", "en": "find the right contact at Alfa"}},
+     {"strumento": "calendario", "obbligatorio": true, "scopo": {"it": "trovare e prenotare un orario libero", "en": "find and book a free slot"}},
+     {"strumento": "invia_email", "obbligatorio": true, "scopo": {"it": "mandare l'invito", "en": "send the invitation"}}
+    ],
+    "riuscito": {"it": "Call prenotata per martedì alle 10:00 e invito spedito.", "en": "Call booked for Tuesday at 10:00 and invitation sent."}},
+   {"id": "notizie", "nome": {"it": "Notizie su Alfa", "en": "News about Alfa"}, "frase": {"it": "Trovare notizie recenti su Azienda Alfa", "en": "Find recent news about Alfa Ltd"},
+    "passi": [
+     {"strumento": "cerca_web", "obbligatorio": true, "scopo": {"it": "cercare notizie recenti su Alfa", "en": "look for recent news about Alfa"}}
+    ],
+    "riuscito": {"it": "Trovata una notizia recente su Alfa.", "en": "Found a recent piece of news about Alfa."}}
+  ],
+  "tentativi_su_guasto": 2,
+  "tempi": {"ms_tratto": 700, "ms_pausa": 650, "velocita_min": 0.5, "velocita_max": 2.5, "velocita_iniziale": 1},
+  "testi": {
+   "richiesta": {"it": "Vorrei usare {chiamata}, per {scopo}.", "en": "I would like to use {chiamata}, to {scopo}."},
+   "cancello_ok": {"it": "Strumento collegato, permesso valido: eseguo.", "en": "Tool connected, permission valid: executing."},
+   "cancello_scollegato": {"it": "«Strumento non disponibile»: non è collegato.", "en": "«Tool not available»: it is not connected."},
+   "cancello_negato": {"it": "«Permesso negato»: questo agente può solo leggere.", "en": "«Permission denied»: this agent can only read."},
+   "risposta_guasto": {"it": "«Errore: servizio non raggiungibile»", "en": "«Error: service unreachable»"},
+   "agente_ok": {"it": "Bene: ora posso andare avanti.", "en": "Good: now I can move on."},
+   "agente_riprovo": {"it": "Lo strumento ha dato un errore. Riprovo una volta.", "en": "The tool returned an error. I try once more."},
+   "agente_guasto": {"it": "Ancora errore. Non posso {scopo}: lo segnalo a una persona e non fingo di averlo fatto.", "en": "Still an error. I cannot {scopo}: I report it to a person and do not pretend I did it."},
+   "agente_manca": {"it": "Non posso {scopo}: mi manca lo strumento «{nome}». Lo dico chiaramente e mi fermo qui.", "en": "I cannot {scopo}: I am missing the tool «{nome}». I say so clearly and stop here."},
+   "agente_negato": {"it": "Non ho il permesso di scrivere. Preparo la modifica e chiedo a una persona di approvarla.", "en": "I do not have permission to write. I prepare the change and ask a person to approve it."},
+   "agente_facoltativo": {"it": "Ne faccio a meno: {senza}.", "en": "I will do without it: {senza}."},
+   "agente_inventa": {"it": "Fatto! Sono riuscito a {scopo}.", "en": "Done! I managed to {scopo}."},
+   "agente_fermo": {"it": "Mi fermo qui: senza quel passo il compito non si può completare.", "en": "I stop here: without that step the task cannot be completed."},
+   "esito_ok": {"it": "fatto", "en": "done"},
+   "esito_limitato": {"it": "fatto con meno qualità", "en": "done with lower quality"},
+   "esito_no": {"it": "non fatto", "en": "not done"},
+   "esito_approvazione": {"it": "in attesa di approvazione", "en": "waiting for approval"},
+   "esito_falso": {"it": "DICHIARATO MA FALSO", "en": "CLAIMED BUT FALSE"},
+   "esito_saltato": {"it": "non tentato (compito fermato prima)", "en": "not attempted (task stopped earlier)"},
+   "finale_ok": {"it": "Compito riuscito.", "en": "Task succeeded."},
+   "finale_limitato": {"it": "Compito riuscito, ma con meno qualità.", "en": "Task succeeded, but with lower quality."},
+   "finale_parziale": {"it": "Compito non completato: l'agente lo ha detto chiaramente.", "en": "Task not completed: the agent said so clearly."},
+   "finale_approvazione": {"it": "Compito quasi completato: manca l'approvazione di una persona.", "en": "Task almost completed: a person's approval is missing."},
+   "finale_falso": {"it": "L'agente dice che è tutto fatto, ma NON è vero.", "en": "The agent says everything is done, but it is NOT true."}
+  },
+  "spiegazioni": {
+   "scollegato": {"it": "Lo strumento non è collegato: per l'agente è come non avere le mani per quel lavoro. Il modello può solo chiedere; se nessuno strumento risponde, l'azione non avviene.", "en": "The tool is not connected: for the agent it is like having no hands for that job. The model can only ask; if no tool answers, the action does not happen."},
+   "negato": {"it": "Lo strumento c'è, ma l'orchestrazione (il codice che esegue le richieste) ha bloccato l'azione perché questo agente non ha il permesso di scrivere. È una protezione voluta, decisa da chi ha costruito l'agente.", "en": "The tool is there, but the orchestration (the code that carries out the requests) blocked the action because this agent has no permission to write. It is a deliberate protection, decided by whoever built the agent."},
+   "guasto": {"it": "Lo strumento è collegato ma non funziona in questo momento. Un buon agente non finge: riprova una volta e poi avvisa una persona.", "en": "The tool is connected but not working right now. A good agent does not pretend: it tries once more and then alerts a person."},
+   "inventato": {"it": "ATTENZIONE: l'agente dice di aver fatto una cosa che non è successa. È l'errore più pericoloso. Per evitarlo, l'agente deve dichiarare che cosa gli manca e l'orchestrazione deve controllare gli esiti veri.", "en": "WARNING: the agent says it did something that did not happen. It is the most dangerous mistake. To avoid it, the agent must declare what it is missing and the orchestration must check the real results."},
+   "facoltativo": {"it": "Lo strumento non era indispensabile: il compito riesce, ma con meno informazioni.", "en": "The tool was not essential: the task succeeds, but with less information."},
+   "ok": {"it": "Ogni richiesta del modello è passata dall'orchestrazione, che l'ha controllata ed eseguita con lo strumento giusto.", "en": "Every request from the model went through the orchestration, which checked it and carried it out with the right tool."}
+  },
+  "etichette": {
+   "compito": {"it": "Compito dell'agente", "en": "Agent's task"},
+   "strumenti": {"it": "Strumenti (clicca per cambiare)", "en": "Tools (click to change)"},
+   "collegato": {"it": "Collegato", "en": "Connected"},
+   "scollegato": {"it": "Scollegato", "en": "Disconnected"},
+   "guasto": {"it": "Guasto", "en": "Broken"},
+   "legge": {"it": "legge", "en": "reads"},
+   "scrive": {"it": "scrive", "en": "writes"},
+   "regole": {"it": "Regole dell'orchestrazione", "en": "Orchestration rules"},
+   "permesso_scrittura": {"it": "Permesso di scrittura", "en": "Write permission"},
+   "comportamento": {"it": "Se manca uno strumento, l'agente…", "en": "If a tool is missing, the agent…"},
+   "onesto": {"it": "Agente onesto", "en": "Honest agent"},
+   "inventa": {"it": "Agente che inventa", "en": "Agent that makes things up"},
+   "avvia": {"it": "Avvia", "en": "Start"},
+   "pausa": {"it": "Pausa", "en": "Pause"},
+   "passo": {"it": "Un passo", "en": "One step"},
+   "ricomincia": {"it": "Da capo", "en": "Restart"},
+   "velocita": {"it": "Velocità", "en": "Speed"},
+   "modello": {"it": "MODELLO", "en": "MODEL"},
+   "modello_sotto": {"it": "legge, decide, scrive testo", "en": "reads, decides, writes text"},
+   "orchestrazione": {"it": "ORCHESTRAZIONE: il codice che riceve le richieste ed esegue", "en": "ORCHESTRATION: the code that receives requests and executes"},
+   "cancello": {"it": "controllo", "en": "check"},
+   "conversazione": {"it": "Che cosa succede", "en": "What happens"},
+   "esito": {"it": "Risultato del compito", "en": "Task result"},
+   "perche": {"it": "Perché", "en": "Why"},
+   "chi_modello": {"it": "Modello", "en": "Model"},
+   "chi_orchestrazione": {"it": "Orchestrazione", "en": "Orchestration"},
+   "vuoto": {"it": "Premi «Avvia»: qui vedrai le richieste del modello e le risposte degli strumenti.", "en": "Press «Start»: here you will see the model's requests and the tools' answers."},
+   "cambiato": {"it": "Hai cambiato qualcosa: premi «Avvia» per rifare il compito.", "en": "You changed something: press «Start» to redo the task."},
+   "descrizione_scena": {"it": "Schema animato: a sinistra il modello dentro l'orchestrazione; a destra gli strumenti, collegati con cavi. Le richieste viaggiano come buste.", "en": "Animated diagram: on the left the model inside the orchestration; on the right the tools, connected with cables. Requests travel as envelopes."}
+  }
+ },
+ "domande": [
+  {
+   "id": "DX4.1-1", "origine": "dimostratore", "pillola": "P4.1", "concetti": ["C34", "C11"], "concetto_principale": "C34", "segmento_aiuto": "senza_strumenti",
+   "livello1": {
+    "domanda": {"it": "Che cosa serve a un agente per aggiornare una scheda nel CRM?", "en": "What does an agent need to update a record in the CRM?"},
+    "opzioni": [
+     {"id": "a", "corretta": true, "testo": {"it": "Uno strumento che scrive nel CRM", "en": "A tool that writes to the CRM"}},
+     {"id": "b", "corretta": false, "tipo_distrattore": "quasi", "testo": {"it": "Uno strumento che legge il CRM", "en": "A tool that reads the CRM"}, "spiegazione": {"it": "Leggere serve, ma per modificare una scheda serve lo strumento che scrive.", "en": "Reading helps, but to change a record you need the tool that writes."}},
+     {"id": "c", "corretta": false, "tipo_distrattore": "quasi", "testo": {"it": "Un'istruzione più chiara", "en": "A clearer instruction"}, "spiegazione": {"it": "Le istruzioni dicono che cosa fare, ma senza strumento l'agente non può farlo.", "en": "Instructions say what to do, but without a tool the agent cannot do it."}},
+     {"id": "d", "corretta": false, "tipo_distrattore": "poco", "testo": {"it": "Un modello più grande", "en": "A bigger model"}, "spiegazione": {"it": "Anche il modello più grande sa solo scrivere testo: non tocca il CRM.", "en": "Even the biggest model can only write text: it does not touch the CRM."}},
+     {"id": "e", "corretta": false, "tipo_distrattore": "poco", "testo": {"it": "Più tempo", "en": "More time"}, "spiegazione": {"it": "Il tempo non sostituisce il collegamento al CRM.", "en": "Time does not replace the connection to the CRM."}},
+     {"id": "f", "corretta": false, "tipo_distrattore": "errata", "testo": {"it": "La password nel testo", "en": "The password in the text"}, "spiegazione": {"it": "Mettere una password nel testo è pericoloso e comunque non dà le mani all'agente.", "en": "Putting a password in the text is dangerous and still does not give the agent hands."}},
+     {"id": "g", "corretta": false, "tipo_distrattore": "errata", "testo": {"it": "Niente: lo fa da solo", "en": "Nothing: it does it alone"}, "spiegazione": {"it": "Un modello da solo non può modificare nessun programma.", "en": "A model on its own cannot change any program."}}
+    ],
+    "perche": {"it": "Per cambiare qualcosa in un programma vero serve lo strumento che lo fa: qui, quello che scrive nel CRM.", "en": "To change something in a real program you need the tool that does it: here, the one that writes to the CRM."}
+   },
+   "livello2": {
+    "tipo": "motivazione",
+    "domanda": {"it": "Perché senza quello strumento l'agente non ci riesce?", "en": "Why can't the agent do it without that tool?"},
+    "opzioni": [
+     {"id": "a", "corretta": true, "testo": {"it": "Perché il modello sa solo produrre testo: per cambiare un programma serve uno strumento", "en": "Because the model can only produce text: changing a program takes a tool"}},
+     {"id": "b", "corretta": false, "tipo_distrattore": "quasi", "testo": {"it": "Perché le sue istruzioni non glielo permettono", "en": "Because its instructions do not allow it"}, "spiegazione": {"it": "Anche con il permesso nelle istruzioni, senza strumento l'azione non può avvenire.", "en": "Even with permission in the instructions, without a tool the action cannot happen."}},
+     {"id": "c", "corretta": false, "tipo_distrattore": "poco", "testo": {"it": "Perché il modello non conosce il nome del cliente", "en": "Because the model does not know the customer's name"}, "spiegazione": {"it": "Conoscere il nome non basta: serve il collegamento per scrivere.", "en": "Knowing the name is not enough: the connection to write is needed."}},
+     {"id": "d", "corretta": false, "tipo_distrattore": "errata", "testo": {"it": "Perché il CRM è scritto in un'altra lingua", "en": "Because the CRM is written in another language"}, "spiegazione": {"it": "La lingua non c'entra: manca proprio il collegamento.", "en": "Language has nothing to do with it: the connection itself is missing."}},
+     {"id": "e", "corretta": false, "tipo_distrattore": "errata", "testo": {"it": "Perché gli agenti non possono mai modificare dati", "en": "Because agents can never change data"}, "spiegazione": {"it": "Possono, se hanno lo strumento giusto e il permesso.", "en": "They can, if they have the right tool and permission."}}
+    ],
+    "perche": {"it": "Il modello è il cervello che scrive testo; gli strumenti sono le mani. Senza mani, nessuna azione sui programmi.", "en": "The model is the brain that writes text; the tools are the hands. Without hands, no action on programs."}
+   }
+  },
+  {
+   "id": "DX4.1-2", "origine": "dimostratore", "pillola": "P4.1", "concetti": ["C34", "C11"], "concetto_principale": "C34", "segmento_aiuto": "collegare",
+   "livello1": {
+    "domanda": {"it": "Compito: «scrivi e invia ad Alfa un'email personalizzata». Sono collegati solo «Leggere il CRM» e «Inviare email». Che cosa succede?", "en": "Task: «write and send Alfa a personalised email». Only «Read the CRM» and «Send emails» are connected. What happens?"},
+    "opzioni": [
+     {"id": "a", "corretta": true, "testo": {"it": "L'email parte, ma è meno personalizzata: senza la ricerca sul web l'agente usa solo i dati del CRM", "en": "The email goes out, but less personalised: without web search the agent only uses CRM data"}},
+     {"id": "b", "corretta": false, "tipo_distrattore": "quasi", "testo": {"it": "L'email non parte, perché per inviare un'email servono collegati tutti gli strumenti disponibili", "en": "The email does not go out, because sending an email needs every available tool connected"}, "spiegazione": {"it": "Servono solo gli strumenti indispensabili: la ricerca sul web qui è facoltativa.", "en": "Only the essential tools are needed: web search is optional here."}},
+     {"id": "c", "corretta": false, "tipo_distrattore": "poco", "testo": {"it": "L'email parte personalizzata come sempre, perché il modello conosce già le ultime notizie su Alfa", "en": "The email goes out as personalised as ever, because the model already knows the latest news about Alfa"}, "spiegazione": {"it": "Il modello non conosce le notizie di oggi: per saperle deve cercarle con uno strumento.", "en": "The model does not know today's news: to know it, it must search with a tool."}},
+     {"id": "d", "corretta": false, "tipo_distrattore": "errata", "testo": {"it": "L'agente si collega da solo alla ricerca sul web, perché capisce che gli serve per finire il compito", "en": "The agent connects itself to web search, because it understands it needs it to finish the task"}, "spiegazione": {"it": "Gli strumenti li collegano le persone che costruiscono l'agente, non l'agente da solo.", "en": "Tools are connected by the people who build the agent, not by the agent itself."}}
+    ],
+    "perche": {"it": "La ricerca sul web era facoltativa: il compito riesce con gli strumenti indispensabili, ma con meno informazioni.", "en": "Web search was optional: the task succeeds with the essential tools, but with less information."}
+   },
+   "livello2": {
+    "tipo": "trasferimento",
+    "domanda": {"it": "Vuoi un agente che fissi le call con i lead. Quale strumento è indispensabile?", "en": "You want an agent that books calls with leads. Which tool is essential?"},
+    "opzioni": [
+     {"id": "a", "corretta": true, "testo": {"it": "Uno strumento che legge e prenota il calendario", "en": "A tool that reads and books the calendar"}},
+     {"id": "b", "corretta": false, "tipo_distrattore": "quasi", "testo": {"it": "Uno strumento che cerca notizie sul web", "en": "A tool that searches the web for news"}, "spiegazione": {"it": "Utile per personalizzare, ma senza calendario nessuna call si può fissare.", "en": "Useful to personalise, but without a calendar no call can be booked."}},
+     {"id": "c", "corretta": false, "tipo_distrattore": "poco", "testo": {"it": "Un modello che scrive in modo più elegante", "en": "A model that writes more elegantly"}, "spiegazione": {"it": "Scrivere bene non trova orari liberi.", "en": "Writing well does not find free slots."}},
+     {"id": "d", "corretta": false, "tipo_distrattore": "errata", "testo": {"it": "Uno schermo con più colori", "en": "A screen with more colours"}, "spiegazione": {"it": "L'aspetto grafico non dà nessuna capacità all'agente.", "en": "Graphics give the agent no ability at all."}},
+     {"id": "e", "corretta": false, "tipo_distrattore": "errata", "testo": {"it": "Un logo aziendale più grande", "en": "A bigger company logo"}, "spiegazione": {"it": "Non c'entra nulla con le capacità dell'agente.", "en": "It has nothing to do with the agent's abilities."}}
+    ],
+    "perche": {"it": "Per fissare una call bisogna vedere gli orari liberi e prenotarne uno: senza lo strumento del calendario è impossibile.", "en": "To book a call you must see the free slots and book one: without the calendar tool it is impossible."}
+   }
+  },
+  {
+   "id": "DX4.1-3", "origine": "dimostratore", "pillola": "P4.1", "concetti": ["C34", "C07"], "concetto_principale": "C34", "segmento_aiuto": "inventare",
+   "livello1": {
+    "domanda": {"it": "«Scrivere nel CRM» è scollegato. L'agente risponde: «Fatto, ho salvato Alfa come qualificata». Che cosa è successo?", "en": "«Write to the CRM» is disconnected. The agent replies: «Done, I saved Alfa as qualified». What happened?"},
+    "opzioni": [
+     {"id": "a", "corretta": true, "testo": {"it": "L'agente ha inventato il risultato: senza lo strumento nessuna modifica è possibile, quindi la frase è falsa. Un agente ben progettato deve dire chiaramente che gli manca lo strumento, non fingere.", "en": "The agent made up the result: without the tool no change is possible, so the sentence is false. A well-designed agent must say clearly that the tool is missing, not pretend."}},
+     {"id": "b", "corretta": false, "tipo_distrattore": "quasi", "testo": {"it": "L'agente ha salvato il dato in un altro posto, per esempio nella sua memoria, e lo trasferirà nel CRM appena qualcuno del team ricollegherà lo strumento che manca.", "en": "The agent saved the data somewhere else, for example in its memory, and will move it to the CRM as soon as someone on the team reconnects the missing tool."}, "spiegazione": {"it": "Sembra ragionevole, ma la frase dice «ho salvato nel CRM»: è falsa. E nessun trasferimento è stato previsto.", "en": "It sounds reasonable, but the sentence says «I saved in the CRM»: it is false. And no transfer was planned."}},
+     {"id": "c", "corretta": false, "tipo_distrattore": "errata", "testo": {"it": "Il CRM ha accettato la modifica arrivata direttamente dal modello, che può sempre scrivere nei sistemi aziendali anche senza strumenti collegati, solo un po' più lentamente.", "en": "The CRM accepted the change sent directly by the model, which can always write to company systems even without connected tools, just a bit more slowly."}, "spiegazione": {"it": "Il modello non scrive mai direttamente nei sistemi: senza strumento non succede niente.", "en": "The model never writes directly to systems: without a tool nothing happens."}}
+    ],
+    "perche": {"it": "Il modello sa scrivere frasi convincenti anche quando sono false. Senza lo strumento la modifica non può essere avvenuta: l'agente ha inventato.", "en": "The model can write convincing sentences even when they are false. Without the tool the change cannot have happened: the agent made it up."}
+   },
+   "livello2": {
+    "tipo": "trasferimento",
+    "domanda": {"it": "Come si evita questo errore?", "en": "How do you avoid this mistake?"},
+    "opzioni": [
+     {"id": "a", "corretta": true, "testo": {"it": "Chiedere all'agente di dire che cosa gli manca e controllare gli esiti veri", "en": "Ask the agent to say what it is missing and check the real results"}},
+     {"id": "b", "corretta": false, "tipo_distrattore": "quasi", "testo": {"it": "Controllare a mano, ogni tanto, qualche scheda del CRM", "en": "Check a few CRM records by hand, now and then"}, "spiegazione": {"it": "Aiuta a scoprire l'errore dopo, ma non lo evita: servono controlli su ogni esito.", "en": "It helps find the mistake afterwards, but does not prevent it: every result needs checking."}},
+     {"id": "c", "corretta": false, "tipo_distrattore": "poco", "testo": {"it": "Dare all'agente più tempo per rispondere", "en": "Give the agent more time to answer"}, "spiegazione": {"it": "Con più tempo inventerebbe lo stesso: manca lo strumento, non il tempo.", "en": "With more time it would make things up just the same: the tool is missing, not time."}},
+     {"id": "d", "corretta": false, "tipo_distrattore": "errata", "testo": {"it": "Scrivere email di conferma più lunghe", "en": "Write longer confirmation emails"}, "spiegazione": {"it": "Un testo più lungo non rende vera un'azione mai avvenuta.", "en": "A longer text does not make a never-happened action true."}},
+     {"id": "e", "corretta": false, "tipo_distrattore": "errata", "testo": {"it": "Togliere all'agente lo strumento per leggere", "en": "Take away the agent's reading tool"}, "spiegazione": {"it": "Togliere strumenti peggiora le cose: l'agente saprebbe ancora meno.", "en": "Removing tools makes things worse: the agent would know even less."}}
+    ],
+    "perche": {"it": "Due difese insieme: l'agente dichiara gli strumenti mancanti invece di fingere, e l'orchestrazione verifica che ogni azione sia davvero avvenuta.", "en": "Two defences together: the agent declares missing tools instead of pretending, and the orchestration verifies that each action really happened."}
+   }
+  },
+  {
+   "id": "DX4.1-4", "origine": "dimostratore", "pillola": "P4.1", "concetti": ["C35", "C34"], "concetto_principale": "C35", "segmento_aiuto": "orchestrazione",
+   "livello1": {
+    "domanda": {"it": "Chi esegue davvero la modifica nel CRM?", "en": "Who actually carries out the change in the CRM?"},
+    "opzioni": [
+     {"id": "a", "corretta": true, "testo": {"it": "Il codice dell'orchestrazione, dopo aver controllato la richiesta", "en": "The orchestration code, after checking the request"}},
+     {"id": "b", "corretta": false, "tipo_distrattore": "quasi", "testo": {"it": "Il modello, collegandosi da solo al CRM", "en": "The model, connecting to the CRM by itself"}, "spiegazione": {"it": "Il modello scrive solo la richiesta (la «busta»); non tocca mai il CRM.", "en": "The model only writes the request (the «envelope»); it never touches the CRM."}},
+     {"id": "c", "corretta": false, "tipo_distrattore": "poco", "testo": {"it": "L'utente, copiando a mano la risposta", "en": "The user, copying the answer by hand"}, "spiegazione": {"it": "Con un agente il passaggio a mano non serve: lo esegue l'orchestrazione.", "en": "With an agent no manual step is needed: the orchestration carries it out."}},
+     {"id": "d", "corretta": false, "tipo_distrattore": "poco", "testo": {"it": "Il fornitore del modello, dal suo server", "en": "The model provider, from its server"}, "spiegazione": {"it": "Il fornitore non entra nei sistemi dell'azienda.", "en": "The provider does not enter the company's systems."}},
+     {"id": "e", "corretta": false, "tipo_distrattore": "errata", "testo": {"it": "Nessuno: il risultato viene immaginato", "en": "Nobody: the result is imagined"}, "spiegazione": {"it": "Se nessuno esegue, la modifica non esiste: e l'agente non dovrebbe dire il contrario.", "en": "If nobody executes it, the change does not exist: and the agent should not say otherwise."}}
+    ],
+    "perche": {"it": "Il modello chiede, l'orchestrazione controlla ed esegue con lo strumento. È il codice scritto da chi costruisce l'agente.", "en": "The model asks, the orchestration checks and executes with the tool. It is the code written by whoever builds the agent."}
+   },
+   "livello2": {
+    "tipo": "motivazione",
+    "domanda": {"it": "Perché è utile che il modello chieda e l'orchestrazione esegua?", "en": "Why is it useful that the model asks and the orchestration executes?"},
+    "opzioni": [
+     {"id": "a", "corretta": true, "testo": {"it": "Perché così controlli e permessi stanno nel codice, prima di ogni azione", "en": "Because then checks and permissions live in the code, before every action"}},
+     {"id": "b", "corretta": false, "tipo_distrattore": "quasi", "testo": {"it": "Perché così il modello lavora più velocemente", "en": "Because then the model works faster"}, "spiegazione": {"it": "La velocità non è il punto: il punto è poter controllare ogni azione.", "en": "Speed is not the point: the point is being able to check every action."}},
+     {"id": "c", "corretta": false, "tipo_distrattore": "poco", "testo": {"it": "Perché così le email diventano più corte", "en": "Because then emails become shorter"}, "spiegazione": {"it": "La lunghezza delle email non dipende da chi esegue.", "en": "Email length does not depend on who executes."}},
+     {"id": "d", "corretta": false, "tipo_distrattore": "errata", "testo": {"it": "Perché il modello non sa scrivere i nomi", "en": "Because the model cannot write names"}, "spiegazione": {"it": "Il modello scrive benissimo i nomi: è proprio la sua specialità.", "en": "The model writes names very well: it is exactly its speciality."}},
+     {"id": "e", "corretta": false, "tipo_distrattore": "errata", "testo": {"it": "Perché così non servono più strumenti", "en": "Because then no tools are needed any more"}, "spiegazione": {"it": "Al contrario: l'orchestrazione esegue proprio usando gli strumenti.", "en": "On the contrary: the orchestration executes precisely by using the tools."}}
+    ],
+    "perche": {"it": "Separare chi chiede da chi esegue permette di mettere nel codice permessi, controlli e limiti, qualunque cosa il modello scriva.", "en": "Separating who asks from who executes lets you put permissions, checks and limits in the code, whatever the model writes."}
+   }
+  },
+  {
+   "id": "DX4.1-5", "origine": "dimostratore", "pillola": "P4.1", "concetti": ["C35", "C43"], "concetto_principale": "C35", "segmento_aiuto": "orchestrazione",
+   "livello1": {
+    "domanda": {"it": "Il permesso di scrittura è spento. Il modello chiede «aggiorna_crm(stato=Qualificato)». Che cosa succede?", "en": "Write permission is off. The model asks for «aggiorna_crm(stato=Qualificato)». What happens?"},
+    "opzioni": [
+     {"id": "a", "corretta": true, "testo": {"it": "L'orchestrazione blocca la richiesta prima che arrivi al CRM, e l'agente propone la modifica a una persona perché la approvi", "en": "The orchestration blocks the request before it reaches the CRM, and the agent proposes the change to a person for approval"}},
+     {"id": "b", "corretta": false, "tipo_distrattore": "quasi", "testo": {"it": "La richiesta arriva fino al CRM, che la rifiuta perché si accorge che l'agente non ha i permessi necessari", "en": "The request goes all the way to the CRM, which refuses it because it notices the agent lacks the permissions"}, "spiegazione": {"it": "Il blocco avviene prima, nell'orchestrazione: la richiesta non parte nemmeno.", "en": "The block happens earlier, in the orchestration: the request does not even leave."}},
+     {"id": "c", "corretta": false, "tipo_distrattore": "poco", "testo": {"it": "Il modello trova un'altra strada per entrare nel CRM, per esempio usando lo strumento delle email al posto di quello giusto", "en": "The model finds another way into the CRM, for example using the email tool instead of the right one"}, "spiegazione": {"it": "Ogni strumento fa solo il suo lavoro: l'email non scrive nel CRM.", "en": "Each tool only does its own job: email does not write to the CRM."}},
+     {"id": "d", "corretta": false, "tipo_distrattore": "errata", "testo": {"it": "Il CRM viene aggiornato lo stesso, perché i permessi valgono solo per le persone e non per gli agenti AI", "en": "The CRM is updated anyway, because permissions only apply to people and not to AI agents"}, "spiegazione": {"it": "Falso: i permessi valgono anche, e soprattutto, per gli agenti.", "en": "False: permissions also apply, and above all, to agents."}}
+    ],
+    "perche": {"it": "L'orchestrazione controlla ogni richiesta prima di eseguirla: senza permesso la blocca, e un buon agente chiede l'approvazione di una persona.", "en": "The orchestration checks every request before executing it: without permission it blocks it, and a good agent asks a person for approval."}
+   },
+   "livello2": {
+    "tipo": "diagnosi",
+    "domanda": {"it": "Un agente ha cancellato contatti che non doveva toccare. Dove va messa la correzione principale?", "en": "An agent deleted contacts it should not have touched. Where should the main fix go?"},
+    "opzioni": [
+     {"id": "a", "corretta": true, "testo": {"it": "Nei permessi dell'orchestrazione: niente cancellazioni senza approvazione", "en": "In the orchestration's permissions: no deletions without approval"}},
+     {"id": "b", "corretta": false, "tipo_distrattore": "quasi", "testo": {"it": "Nelle istruzioni: scrivere «non cancellare mai nulla»", "en": "In the instructions: write «never delete anything»"}, "spiegazione": {"it": "Aiuta, ma il modello può sbagliare lo stesso: il blocco sicuro sta nel codice.", "en": "It helps, but the model can still get it wrong: the safe block lives in the code."}},
+     {"id": "c", "corretta": false, "tipo_distrattore": "poco", "testo": {"it": "Nel modello: usarne uno più grande", "en": "In the model: use a bigger one"}, "spiegazione": {"it": "Un modello più grande può sbagliare anche lui: serve un controllo che non dipenda dal modello.", "en": "A bigger model can make mistakes too: you need a check that does not depend on the model."}},
+     {"id": "d", "corretta": false, "tipo_distrattore": "errata", "testo": {"it": "Nel colore dell'interfaccia del CRM", "en": "In the colour of the CRM interface"}, "spiegazione": {"it": "I colori non fermano nessuna cancellazione.", "en": "Colours stop no deletion."}},
+     {"id": "e", "corretta": false, "tipo_distrattore": "errata", "testo": {"it": "Nel numero di email inviate ogni giorno", "en": "In the number of emails sent each day"}, "spiegazione": {"it": "Le email non c'entrano con le cancellazioni nel CRM.", "en": "Emails have nothing to do with deletions in the CRM."}}
+    ],
+    "perche": {"it": "I permessi nel codice dell'orchestrazione valgono sempre, qualunque cosa il modello decida: sono la protezione più affidabile.", "en": "Permissions in the orchestration code always apply, whatever the model decides: they are the most reliable protection."}
+   }
+  }
+ ]
+}
