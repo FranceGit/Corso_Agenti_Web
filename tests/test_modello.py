@@ -49,7 +49,8 @@ def test_corso_estratto_completo():
     assert len(c.moduli) == 8
     assert len(c.pillole()) == 40
     assert sum(len(p.domande) for p in c.pillole()) == 120
-    assert all(len(d.livello1.opzioni) == 5 and len(d.livello2.opzioni) == 4 for p in c.pillole() for d in p.domande)
+    # dopo l'upgrade il numero di opzioni segue il budget di lettura (3/4/5/7), non piu' il 5+4 del documento
+    assert all(len(liv.opzioni) in (3, 4, 5, 7) for p in c.pillole() for d in p.domande for liv in (d.livello1, d.livello2))
     assert c.anello_di("P1.1") == 1 and c.anello_di("P8.6") == 6
     with pytest.raises(KeyError):
         c.pillola("P9.9")

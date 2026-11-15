@@ -94,7 +94,8 @@ def test_flusso_quiz_via_api(client_dentro):
     assert client_dentro.get("/api/debriefing/domanda?lingua=it").json()["errore"] == "debriefing_non_iniziato"
     assert client_dentro.post("/api/debriefing/concludi").json()["errore"] == "debriefing_non_iniziato"
     assert client_dentro.post("/api/percorso/ricomincia").json()["giro"] == 2
-    assert client_dentro.get("/api/rapporto").json()["domande_erogabili"] == 11
+    r = client_dentro.get("/api/rapporto").json()
+    assert r["domande_erogabili"] == r["domande_totali"] == 131
 
 
 def test_sessione_scade(cfg, orologio):

@@ -88,8 +88,8 @@ def test_strisce_deterministiche_per_tentativo(catalogo_vero):
 def test_carenze_dichiarate_per_spicchi_senza_domande_erogabili(catalogo_vero):
     s = genera_strisce(catalogo_vero, "P1.1", "x", 1)
     assert not s.erogabile and s.domande == []
-    assert [c.concetto for c in s.carenze] == ["C01", "C02", "C03"]
-    assert all(c.disponibili == 0 and c.minimo == 2 for c in s.carenze)
+    # P1.1 ha 3 domande: 2 su C02 (bastano), 1 su C03, nessuna su C01 -> carenze dichiarate su C01 e C03
+    assert [(c.concetto, c.disponibili, c.minimo) for c in s.carenze] == [("C01", 0, 2), ("C03", 1, 2)]
 
 
 def test_strisce_configurazione_incoerente(dati_config):

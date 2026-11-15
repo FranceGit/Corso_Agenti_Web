@@ -98,6 +98,8 @@
     "_why": "Generatore di anelli/spicchi/strisce dal knowledge graph, con un seme per studente: tutti gli spicchi sono sempre presenti, cambiano l'ordine e le strisce.",
     "sale_seme": "corso-agenti-v1",
     "strisce_per_concetto": {"minimo": 2, "massimo": 7},
+    "strisce_obiettivo_autori": 3,
+    "_why_strisce_obiettivo_autori": "Usato solo dal calcolo del fabbisogno (strumenti/fabbisogno_strisce.py): oltre al minimo per erogare, ogni concetto dovrebbe avere almeno questo numero di domande, ognuna da un punto di vista diverso (definizione, esempio pratico, contro-esempio, diagnosi).",
     "soglia_superamento_spicchio": 0.7,
     "_why_soglia": "Quota minima di strisce superate in modo pulito (livello 1 e 2 giusti al primo colpo) per superare lo spicchio.",
     "peso_base_candidato": 1,

@@ -21,21 +21,31 @@ def test_rapporto_erogabilita(catalogo_vero):
     assert r["pillole"] == 40 and r["concetti"] == 79 and r["archi"] == 128
     assert r["lezioni_interattive"] == ["P1.3", "P4.1"]
     assert r["domande_totali"] == 131
-    assert r["domande_erogabili"] == 11  # tutte e sole le domande del dimostratore
-    assert r["motivi_non_erogabile"]["concetto principale non assegnato"] == 120
-    for d in catalogo_vero.domande_erogabili("P1.3") + catalogo_vero.domande_erogabili("P4.1"):
-        assert d.origine == "dimostratore"
+    # dall'upgrade del 16/11/2026 anche le 120 domande benchmark sono conformi: tutte erogabili
+    assert r["domande_erogabili"] == 131
+    assert r["motivi_non_erogabile"] == {}
+    origini = {d.origine for d in catalogo_vero.domande_erogabili("P1.3") + catalogo_vero.domande_erogabili("P4.1")}
+    assert origini == {"dimostratore", "benchmark"}
 
 
-def test_domande_benchmark_non_erogabili_con_motivi_espliciti(catalogo_vero):
-    motivi = catalogo_vero.motivi_non_erogabile["D1.1-a"]
-    testo = " | ".join(motivi)
+def test_domande_benchmark_non_erogabili_con_motivi_espliciti(tmp_path, dati_config):
+    """Una domanda benchmark riportata allo stato grezzo del documento non e' erogabile, e dice perche'."""
+    def grezza(c):
+        d = pillola(c, "P1.1")["domande"][0]
+        d.update(concetto_principale=None, segmento_aiuto=None, striscia=None)
+        for liv in ("livello1", "livello2"):
+            d[liv]["domanda"]["en"] = None
+            for o in d[liv]["opzioni"]:
+                o["tipo_distrattore"] = None
+    cat = Catalogo(copia_dati(tmp_path, dati_config, modifica_corso=grezza))
+    testo = " | ".join(cat.motivi_non_erogabile["D1.1-a"])
     assert "distrattori senza tipo" in testo
     assert "concetto principale non assegnato" in testo
     assert "segmento di aiuto" in testo
+    assert "striscia non assegnata" in testo
     assert "traduzione 'en'" in testo
-    assert not catalogo_vero.erogabile("D1.1-a")
-    assert catalogo_vero.erogabile("DX1.3-1")
+    assert not cat.erogabile("D1.1-a")
+    assert cat.erogabile("D1.1-b") and cat.erogabile("DX1.3-1")
 
 
 def test_identificativi_inesistenti(catalogo_vero):
@@ -57,6 +67,9 @@ def copia_dati(tmp_path, dati_config, modifica_corso=None, modifica_kg=None, mod
     (tmp_path / "corso.json").write_text(json.dumps(corso, ensure_ascii=False), encoding="utf-8")
     (tmp_path / "kg.json").write_text(json.dumps(kg, ensure_ascii=False), encoding="utf-8")
     (tmp_path / "lezioni" / "a.json").write_text(json.dumps(lez, ensure_ascii=False), encoding="utf-8")
+    # anche la seconda lezione, invariata: le domande benchmark di P4.1 rimandano ai suoi segmenti come aiuto
+    altra = (DATI / "lezioni" / "strumenti_agente.json").read_text(encoding="utf-8")
+    (tmp_path / "lezioni" / "z_strumenti.json").write_text(altra, encoding="utf-8")
     dati = copy.deepcopy(dati_config)
     dati["percorsi_file"]["corso"] = str(tmp_path / "corso.json")
     dati["percorsi_file"]["knowledge_graph"] = str(tmp_path / "kg.json")

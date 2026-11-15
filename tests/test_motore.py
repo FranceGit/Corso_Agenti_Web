@@ -16,6 +16,21 @@ def completa_pulito(motore, pid):
             return e
 
 
+def spicchi_erogabili(motore):
+    """Spicchi erogabili non ancora superati, in ordine di anello (dall'upgrade delle domande non sono piu' solo P1.3 e P4.1)."""
+    v = motore.vista_percorso(EMAIL, "it")
+    return [s["pillola"] for a in sorted(v["anelli"], key=lambda a: a["numero"]) for s in a["spicchi"]
+            if s["erogabile"] and s["stato"] != "superato"]
+
+
+def completa_tutti(motore):
+    """Supera in modo pulito tutti gli spicchi erogabili; restituisce l'esito dell'ultima striscia."""
+    e = None
+    while (restanti := spicchi_erogabili(motore)):
+        e = completa_pulito(motore, restanti[0])
+    return e
+
+
 def test_stato_iniziale(motore):
     r = motore.riepilogo(EMAIL, "it")
     assert r["salute"] == r["salute_massima"] == 100
@@ -78,8 +93,8 @@ def test_livello2_anche_dopo_errore_se_configurato(dati_config, tmp_path, orolog
 def test_spicchio_superato_e_record_finale(motore):
     e = completa_pulito(motore, "P1.3")
     assert e["spicchio_concluso"] and e["spicchio"]["stato"] == "superato"
-    assert e["risultato_percorso"] is None  # manca ancora P4.1
-    e = completa_pulito(motore, "P4.1")
+    assert e["risultato_percorso"] is None  # mancano ancora gli altri spicchi erogabili
+    e = completa_tutti(motore)
     rp = e["risultato_percorso"]
     assert rp["completato"] and rp["nuovo_record"]
     assert rp["record"]["quota_passaggi_puliti"] == 1.0 and rp["record"]["salute_finale"] == 100
@@ -94,20 +109,19 @@ def test_spicchio_superato_e_record_finale(motore):
 
 
 def test_record_non_peggiora(motore):
-    completa_pulito(motore, "P1.3")
-    completa_pulito(motore, "P4.1")
+    completa_tutti(motore)
     motore.ricomincia(EMAIL)
     # secondo giro con un errore iniziale: quota piu' bassa, il record resta quello del primo giro
     motore.inizia_spicchio(EMAIL, "P1.3")
     motore.domanda_spicchio(EMAIL, "P1.3", "it")
-    motore.rispondi(EMAIL, posizione(motore, EMAIL, False, "quasi"), "it")
+    motore.rispondi(EMAIL, posizione(motore, EMAIL, False), "it")  # un distrattore qualunque
     while True:
         e = striscia_pulita(motore, EMAIL, "P1.3")
         if e["prossimo"] != "striscia_successiva":
             break
     assert e["spicchio"]["stato"] in ("superato", "non_superato")
     if e["spicchio"]["stato"] == "superato":
-        e = completa_pulito(motore, "P4.1")
+        e = completa_tutti(motore)
         assert e["risultato_percorso"]["nuovo_record"] is False
         assert e["risultato_percorso"]["record"]["giro"] == 1
 
@@ -138,7 +152,7 @@ def test_scala_degli_aiuti(motore):
             break
         motore.domanda_spicchio(EMAIL, "P1.3", "it")
         concetti.append(motore.cat.domanda(motore.stato(EMAIL).in_corso.domanda).concetto_principale)
-        e = motore.rispondi(EMAIL, posizione(motore, EMAIL, False, "quasi"), "it")
+        e = motore.rispondi(EMAIL, posizione(motore, EMAIL, False), "it")  # non ogni domanda ha un "quasi"
         aiuti.append(e["aiuto"])
     pad = motore.stato(EMAIL).padronanza
     for c, a in zip(concetti, aiuti):
@@ -278,9 +292,11 @@ def test_politica_sequenziale(dati_config, tmp_path, orologio):
         m.contenuto_pillola(EMAIL, "P4.1", "it")
     completa_pulito(m, "P1.3")
     sblocco = {a["numero"]: a["sbloccato"] for a in m.vista_percorso(EMAIL, "it")["anelli"]}
-    # l'anello 2 non ha spicchi erogabili (nulla da superare): si apre anche il 3, che contiene P4.1
-    assert sblocco[2] and sblocco[3] and not sblocco[4]
-    completa_pulito(m, "P4.1")
+    # l'anello 2 ha spicchi erogabili (es. P2.2) ancora da superare: si apre il 2, non il 3 che contiene P4.1
+    assert sblocco[2] and not sblocco[3]
+    with pytest.raises(ErroreFlusso, match="anello 3"):
+        m.inizia_spicchio(EMAIL, "P4.1")
+    completa_tutti(m)  # in ordine di anello: ogni anello superato apre il successivo
     sblocco = {a["numero"]: a["sbloccato"] for a in m.vista_percorso(EMAIL, "it")["anelli"]}
     assert all(sblocco.values())
 
@@ -293,11 +309,13 @@ def test_politica_sconosciuta(dati_config, tmp_path, orologio):
 
 def test_criterio_record_non_valido(dati_config, tmp_path, orologio):
     m = motore_con(dati_config, tmp_path, orologio, **{"record.criteri": ["simpatia"]})
-    completa_pulito(m, "P1.3")
-    m.inizia_spicchio(EMAIL, "P4.1")
+    *prima, ultimo = spicchi_erogabili(m)
+    for pid in prima:
+        completa_pulito(m, pid)
+    m.inizia_spicchio(EMAIL, ultimo)
     with pytest.raises(ErroreConfigurazione, match="simpatia"):
         while True:
-            striscia_pulita(m, EMAIL, "P4.1")
+            striscia_pulita(m, EMAIL, ultimo)
 
 
 def test_contenuto_pillola_senza_domande(motore):

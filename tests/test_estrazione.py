@@ -181,8 +181,11 @@ DOC_VERO = os.environ.get("CORSO_BENCHMARK_MD")
 
 @pytest.mark.skipif(not DOC_VERO, reason="CORSO_BENCHMARK_MD non impostata: documento benchmark fuori dal repository")
 def test_estrazione_del_documento_vero_riproducibile():
+    """Moduli, pillole e KG si riestraggono identici; le domande vivono nel JSON (fonte di verita' dall'upgrade)
+    e il documento resta la loro origine storica: si verifica che corrispondano ancora all'origine."""
     corso, kg = ec.estrai(Path(DOC_VERO))
     su_disco_corso = json.loads((RADICE_PROGETTO / "dati" / "corso_v1.json").read_text(encoding="utf-8"))
     su_disco_kg = json.loads((RADICE_PROGETTO / "dati" / "knowledge_graph.json").read_text(encoding="utf-8"))
-    assert corso == su_disco_corso, "dati/corso_v1.json non corrisponde al documento: rilanciare l'estrattore"
+    unito = ec.conserva_domande(json.loads(json.dumps(corso)), su_disco_corso)
+    assert unito == su_disco_corso, "dati/corso_v1.json non corrisponde al documento: rilanciare l'estrattore"
     assert kg == su_disco_kg
