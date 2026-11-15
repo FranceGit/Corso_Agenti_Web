@@ -74,6 +74,24 @@
      ],
      "default": null,
      "title": "Segmento Aiuto"
+    },
+    "striscia": {
+     "anyOf": [
+      {
+       "enum": [
+        "definizione",
+        "esempio_pratico",
+        "contro_esempio",
+        "diagnosi"
+       ],
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Striscia"
     }
    },
    "required": [
@@ -377,7 +395,7 @@
    "$ref": "#/$defs/Testo"
   },
   "versione_schema": {
-   "const": 1,
+   "const": 2,
    "title": "Versione Schema",
    "type": "integer"
   }

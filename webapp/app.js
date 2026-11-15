@@ -13,6 +13,7 @@ const S = {
   linguaContenuto: null,
   segmento: 0,
   scheda: "lezione",
+  passoScaletta: null,
   modulo: null,
   quiz: null,
 };
@@ -417,6 +418,7 @@ async function apriPillola(pid, opzioni) {
   S.pid = pid;
   S.segmento = op.segmento || 0;
   S.scheda = op.scheda || "lezione";
+  S.passoScaletta = typeof op.passo === "number" ? op.passo : null;
   S.linguaContenuto = op.linguaContenuto || S.lingua;
   disegnaTutto();
   const el = document.getElementById("principale");
@@ -481,7 +483,7 @@ function disegnaScaletta(area, c) {
   area.append(h("div", { class: "testo-lungo entra" },
     !c.lezione ? h("div", { class: "prova-tu", style: "margin-bottom:16px" }, icona("libro"), h("span", {}, t("lezione_non_pronta"))) : null,
     h("h3", {}, t("obiettivo_pillola")), h("p", {}, c.obiettivo),
-    h("h3", {}, t("scheda_scaletta")), h("ol", {}, c.scaletta.map((v) => h("li", {}, v))),
+    h("h3", {}, t("scheda_scaletta")), h("ol", {}, c.scaletta.map((v, k) => h("li", k === S.passoScaletta ? { class: "passo-aiuto" } : {}, v))),
     h("h3", {}, `${t("scheda_animazione_prevista")}: «${c.animazione.titolo}»`),
     h("ul", {}, c.animazione.progetto.split("\n").map((v) => h("li", {}, v.replace(/^- /, ""))))));
 }
@@ -616,7 +618,9 @@ function disegnaRiscontro(e) {
   if (e.aiuto) {
     parti.push(h("div", { class: "aiuto" }, icona("libro"),
       h("div", { style: "flex:1" }, h("b", {}, t("aiuto_titolo")), h("div", {}, e.aiuto.tipo === "segmento" ? t("aiuto_segmento") : t("aiuto_pillola"))),
-      h("button", { class: "btn", onclick: () => apriPillola(e.aiuto.pillola, { segmento: e.aiuto.tipo === "segmento" ? e.aiuto.segmento : 0 }) }, t("apri_aiuto"))));
+      h("button", { class: "btn", onclick: () => apriPillola(e.aiuto.pillola, e.aiuto.tipo === "segmento"
+        ? { segmento: e.aiuto.segmento, scheda: e.aiuto.scheda, passo: e.aiuto.passo }
+        : { segmento: 0 }) }, t("apri_aiuto"))));
   }
   box.replaceChildren(h("div", { class: `riscontro ${giusta ? "ok" : "male"}` }, parti),
     h("div", { class: "azioni-quiz" }, h("button", { class: "btn btn-primario", id: "continua", onclick: continua }, t("continua"), icona("avanti"))));

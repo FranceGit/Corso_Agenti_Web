@@ -351,10 +351,9 @@ class Motore:
         if gradino is None:
             return None
         if gradino["tipo"] == "segmento":
-            lez = self.cat.lezioni.get(d.pillola)
-            if lez is None or d.segmento_aiuto is None:
-                raise ErroreDati(f"domanda {d.id}: la scala prevede il segmento ma la pillola non ha lezione o segmento")
-            return {"tipo": "segmento", "pillola": d.pillola, "segmento": d.segmento_aiuto}
+            if d.segmento_aiuto is None:
+                raise ErroreDati(f"domanda {d.id}: la scala prevede il segmento ma la domanda non ha segmento_aiuto")
+            return {"tipo": "segmento", "pillola": d.pillola, "segmento": d.segmento_aiuto, **self.cat.riferimento_aiuto(d)}
         if gradino["tipo"] == "pillola_intera":
             return {"tipo": "pillola_intera", "pillola": d.pillola}
         raise ErroreConfigurazione(f"aiuti.scala: tipo di aiuto '{gradino['tipo']}' non previsto (segmento | pillola_intera)")

@@ -232,7 +232,7 @@
  },
  "domande": [
   {
-   "id": "DX1.3-1", "origine": "dimostratore", "pillola": "P1.3", "concetti": ["C08"], "concetto_principale": "C08", "segmento_aiuto": "fasi",
+   "id": "DX1.3-1", "origine": "dimostratore", "pillola": "P1.3", "concetti": ["C08"], "concetto_principale": "C08", "segmento_aiuto": "fasi", "striscia": "definizione",
    "livello1": {
     "domanda": {"it": "In che ordine lavora un agente, a ogni giro?", "en": "In what order does an agent work, in each round?"},
     "opzioni": [
@@ -260,7 +260,7 @@
    }
   },
   {
-   "id": "DX1.3-2", "origine": "dimostratore", "pillola": "P1.3", "concetti": ["C08", "C02"], "concetto_principale": "C08", "segmento_aiuto": "cambia_lead",
+   "id": "DX1.3-2", "origine": "dimostratore", "pillola": "P1.3", "concetti": ["C08", "C02"], "concetto_principale": "C08", "segmento_aiuto": "cambia_lead", "striscia": "esempio_pratico",
    "livello1": {
     "domanda": {"it": "Il lead Alfa aveva visitato 9 volte la pagina dei prezzi. Cambi i dati: zero visite, e chi ha scritto è uno stagista. Che cosa fa l'agente?", "en": "Lead Alfa had visited the pricing page 9 times. You change the data: zero visits, and the person who wrote is an intern. What does the agent do?"},
     "opzioni": [
@@ -285,7 +285,7 @@
    }
   },
   {
-   "id": "DX1.3-3", "origine": "dimostratore", "pillola": "P1.3", "concetti": ["C08", "C02"], "concetto_principale": "C08", "segmento_aiuto": "cambia_obiettivo",
+   "id": "DX1.3-3", "origine": "dimostratore", "pillola": "P1.3", "concetti": ["C08", "C02"], "concetto_principale": "C08", "segmento_aiuto": "cambia_obiettivo", "striscia": "esempio_pratico",
    "livello1": {
     "domanda": {"it": "Stesso lead caldo, ma l'obiettivo diventa «tenere in ordine il CRM, senza contattare nessuno». Che cosa fa l'agente?", "en": "Same hot lead, but the goal becomes «keep the CRM tidy, without contacting anyone». What does the agent do?"},
     "opzioni": [
@@ -311,7 +311,7 @@
    }
   },
   {
-   "id": "DX1.3-4", "origine": "dimostratore", "pillola": "P1.3", "concetti": ["C08", "C02"], "concetto_principale": "C08", "segmento_aiuto": "osservare",
+   "id": "DX1.3-4", "origine": "dimostratore", "pillola": "P1.3", "concetti": ["C08", "C02"], "concetto_principale": "C08", "segmento_aiuto": "osservare", "striscia": "contro_esempio",
    "livello1": {
     "domanda": {"it": "Nel CRM il lead risulta già cliente. Che cosa fa lo script fisso?", "en": "In the CRM the lead is already a customer. What does the fixed script do?"},
     "opzioni": [
@@ -339,7 +339,7 @@
    }
   },
   {
-   "id": "DX1.3-5", "origine": "dimostratore", "pillola": "P1.3", "concetti": ["C09"], "concetto_principale": "C09", "segmento_aiuto": "imprevisti",
+   "id": "DX1.3-5", "origine": "dimostratore", "pillola": "P1.3", "concetti": ["C09"], "concetto_principale": "C09", "segmento_aiuto": "imprevisti", "striscia": "definizione",
    "livello1": {
     "domanda": {"it": "Che cos'è il «numero massimo di giri» di un agente?", "en": "What is an agent's «maximum number of rounds»?"},
     "opzioni": [
@@ -365,7 +365,7 @@
    }
   },
   {
-   "id": "DX1.3-6", "origine": "dimostratore", "pillola": "P1.3", "concetti": ["C09", "C08"], "concetto_principale": "C09", "segmento_aiuto": "imprevisti",
+   "id": "DX1.3-6", "origine": "dimostratore", "pillola": "P1.3", "concetti": ["C09", "C08"], "concetto_principale": "C09", "segmento_aiuto": "imprevisti", "striscia": "diagnosi",
    "livello1": {
     "domanda": {"it": "Il CRM risponde «servizio non disponibile» due volte di fila. Quale comportamento dell'agente è quello giusto?", "en": "The CRM answers «service unavailable» twice in a row. Which behaviour of the agent is the right one?"},
     "opzioni": [

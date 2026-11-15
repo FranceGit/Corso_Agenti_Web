@@ -276,6 +276,7 @@ select.scelta { width: 100%; border: 1px solid var(--bordo); border-radius: 9px;
 .riscontro .etichetta { font-size: .72rem; font-weight: 800; text-transform: uppercase; letter-spacing: .07em; color: var(--tenue); display: block; }
 .tipo-chip { font-size: .7rem; font-weight: 800; padding: .15em .6em; border-radius: 999px; background: #fff; border: 1px solid currentColor; }
 .danno-chip { margin-left: auto; font-weight: 800; color: var(--male); }
+.passo-aiuto { background: #f5f7ff; outline: 2px dashed #a5b4fc; border-radius: 6px; }
 .aiuto { margin-top: 14px; border: 1px dashed #a5b4fc; background: #f5f7ff; border-radius: 12px; padding: 12px 14px; display: flex; gap: 12px; align-items: center; }
 .azioni-quiz { display: flex; justify-content: flex-end; gap: 10px; margin-top: 16px; }
 .conclusione { text-align: center; padding: 30px 20px; }

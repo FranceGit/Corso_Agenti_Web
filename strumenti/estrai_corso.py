@@ -12,6 +12,14 @@ Cosa NON inventa:
   - il concetto principale di ogni domanda resta null (il documento lega le domande alla pillola, non al nodo);
   - i testi inglesi restano null, tranne i titoli brevi di strumenti/titoli_en.json.
 Il risultato viene validato con il modello (corso/modello.py) prima di essere scritto.
+
+FONTE DI VERITA' DELLE DOMANDE (dall'upgrade del 16/11/2026): le domande vivono in dati/corso_v1.json, dove
+sono state classificate, adattate al budget di lettura, tradotte e assegnate a concetto, aiuto e striscia.
+Il documento benchmark resta la loro ORIGINE STORICA. Per questo, se dati/corso_v1.json esiste gia',
+l'estrattore aggiorna da documento solo moduli, pillole e knowledge graph e CONSERVA le domande del JSON,
+dopo aver controllato che corrispondano ancora all'origine (stessi id per pillola, stesso testo italiano
+delle due domande, stessa risposta corretta, stesso tipo di livello 2). Se il documento e' cambiato su una
+domanda l'estrazione si ferma e dice quale: la riconciliazione e' un lavoro d'autore, non automatico.
 """
 from __future__ import annotations
 
@@ -23,7 +31,8 @@ from pathlib import Path
 RADICE = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(RADICE))
 
-from corso.modello import Corso, KnowledgeGraph  # noqa: E402
+from corso.migrazioni import migra_corso  # noqa: E402
+from corso.modello import VERSIONE_SCHEMA_CORSO, Corso, KnowledgeGraph  # noqa: E402
 
 FILE_TITOLI_EN = RADICE / "strumenti" / "titoli_en.json"
 FILE_TRADUZIONI_PILLOLE = RADICE / "strumenti" / "traduzioni_en_pillole.json"
@@ -144,6 +153,7 @@ def estrai_domande(pid: str, righe: list[str], concetti: list[str]) -> list[dict
                 "concetti": list(concetti),
                 "concetto_principale": None,
                 "segmento_aiuto": None,
+                "striscia": None,
                 "livello1": {"domanda": testo(pulisci(m.group(2))), "opzioni": [], "perche": None},
                 "livello2": None,
             }
@@ -307,7 +317,7 @@ def estrai(percorso_md: Path) -> tuple[dict, dict]:
     moduli, pillole, modulo_di = blocchi_pillole(righe)
     titolo_corso = re.match(r'^# CORSO BENCHMARK: "(.+)"$', next(r for r in righe if r.startswith("# CORSO"))).group(1)
     corso = {
-        "versione_schema": 1,
+        "versione_schema": VERSIONE_SCHEMA_CORSO,
         "id": "corso_agenti_crm_v1",
         "titolo": testo(titolo_corso, titoli_en["corso"]),
         "fonte": percorso_md.name,
@@ -328,6 +338,38 @@ def estrai(percorso_md: Path) -> tuple[dict, dict]:
     return corso, kg
 
 
+def _impronta(d: dict) -> tuple:
+    """Cio' che lega una domanda alla sua origine nel documento (non cambia con l'upgrade)."""
+    corretta = lambda liv: next(o["id"] for o in liv["opzioni"] if o["corretta"])  # noqa: E731
+    return (d["livello1"]["domanda"]["it"], corretta(d["livello1"]),
+            d["livello2"]["tipo"], d["livello2"]["domanda"]["it"], corretta(d["livello2"]))
+
+
+def conserva_domande(estratto: dict, esistente: dict) -> dict:
+    """Corso estratto con le domande prese dal JSON esistente (fonte di verita'), verificate contro l'origine."""
+    esistente = migra_corso(esistente)
+    domande_json = {p["id"]: p["domande"] for m in esistente["moduli"] for p in m["pillole"]}
+    differenze: list[str] = []
+    for m in estratto["moduli"]:
+        for p in m["pillole"]:
+            if p["id"] not in domande_json:
+                differenze.append(f"{p['id']}: pillola nuova nel documento, assente dal JSON")
+                continue
+            dal_doc = {d["id"]: d for d in p["domande"]}
+            dal_json = {d["id"]: d for d in domande_json[p["id"]]}
+            if set(dal_doc) != set(dal_json):
+                differenze.append(f"{p['id']}: domande diverse (documento {sorted(dal_doc)}, JSON {sorted(dal_json)})")
+                continue
+            for did, d in dal_doc.items():
+                if _impronta(d) != _impronta(dal_json[did]):
+                    differenze.append(f"{did}: testo della domanda, risposta corretta o tipo di livello 2 cambiati nel documento")
+            p["domande"] = domande_json[p["id"]]
+    if differenze:
+        raise ErroreEstrazione("il documento non corrisponde piu' alle domande del JSON (fonte di verita'): " + "; ".join(differenze))
+    Corso.model_validate(estratto)
+    return estratto
+
+
 def scrivi(percorso: Path, dati: dict) -> None:
     percorso.parent.mkdir(parents=True, exist_ok=True)
     tmp = percorso.with_suffix(".tmp")
@@ -340,6 +382,9 @@ def main(argv: list[str]) -> int:
         print(__doc__)
         return 2
     corso, kg = estrai(Path(argv[1]))
+    if USCITA_CORSO.is_file():
+        corso = conserva_domande(corso, json.loads(USCITA_CORSO.read_text(encoding="utf-8")))
+        print(f"domande conservate da {USCITA_CORSO} (fonte di verita'), verificate contro il documento")
     scrivi(USCITA_CORSO, corso)
     scrivi(USCITA_KG, kg)
     n_pill = sum(len(m["pillole"]) for m in corso["moduli"])

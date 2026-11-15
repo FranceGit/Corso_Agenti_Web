@@ -12,6 +12,7 @@ from pathlib import Path
 from .config import Config, leggi_json
 from .errori import ErroreDati, ErroreNonTrovato
 from .lingua import testi_mancanti
+from .migrazioni import migra_corso
 from .modello import Corso, Domanda, KnowledgeGraph, Lezione, Pillola
 from .regole_domande import violazioni_livello
 
@@ -19,7 +20,7 @@ from .regole_domande import violazioni_livello
 class Catalogo:
     def __init__(self, cfg: Config):
         self.cfg = cfg
-        self.corso = Corso.model_validate(leggi_json(cfg.percorso_file("corso")))
+        self.corso = Corso.model_validate(migra_corso(leggi_json(cfg.percorso_file("corso"))))
         self.kg = KnowledgeGraph.model_validate(leggi_json(cfg.percorso_file("knowledge_graph")))
         self.lezioni: dict[str, Lezione] = self._carica_lezioni(cfg.percorso_file("cartella_lezioni"))
         self._domande: dict[str, Domanda] = {}
@@ -63,7 +64,6 @@ class Catalogo:
                 raise ErroreDati(f"lezione {lez.id}: pillola {pid} inesistente")
             if not (cartella_anim / f"{lez.componente}.js").is_file():
                 raise ErroreDati(f"lezione {lez.id}: componente {lez.componente}.js assente in {cartella_anim}")
-            segmenti = {s.id for s in lez.segmenti}
             for s in lez.segmenti:
                 for c in s.concetti:
                     if c not in nodi:
@@ -71,8 +71,6 @@ class Catalogo:
             for d in lez.domande:
                 if d.pillola != pid:
                     raise ErroreDati(f"lezione {lez.id}: la domanda {d.id} dichiara la pillola {d.pillola}")
-                if d.segmento_aiuto is not None and d.segmento_aiuto not in segmenti:
-                    raise ErroreDati(f"domanda {d.id}: segmento_aiuto {d.segmento_aiuto} inesistente nella lezione {lez.id}")
             self._banca[pid].extend(lez.domande)
         for pid, domande in self._banca.items():
             for d in domande:
@@ -81,7 +79,30 @@ class Catalogo:
                         raise ErroreDati(f"domanda {d.id}: concetto {c} inesistente")
                 if d.id in self._domande:
                     raise ErroreDati(f"id di domanda duplicato fra corso e lezioni: {d.id}")
+                if d.segmento_aiuto is not None:
+                    self.riferimento_aiuto(d)  # un riferimento che non porta da nessuna parte ferma il caricamento
                 self._domande[d.id] = d
+
+    def riferimento_aiuto(self, d: Domanda) -> dict:
+        """Dove porta il segmento di aiuto di una domanda: un segmento della lezione o un passo della scaletta.
+
+        {"scheda": "lezione", "segmento": id} oppure {"scheda": "scaletta", "passo": indice da 0}.
+        """
+        if d.segmento_aiuto is None:
+            raise ErroreDati(f"domanda {d.id}: segmento_aiuto non assegnato")
+        prefisso = self.cfg.prendi("aiuti", "prefisso_passo_scaletta", tipo=str)
+        rif = d.segmento_aiuto
+        if rif.startswith(prefisso):
+            numero = rif[len(prefisso):]
+            scaletta = self.corso.pillola(d.pillola).scaletta
+            if not numero.isdigit() or not 1 <= int(numero) <= len(scaletta):
+                raise ErroreDati(f"domanda {d.id}: segmento_aiuto {rif} fuori dalla scaletta di {d.pillola} ({len(scaletta)} passi)")
+            return {"scheda": "scaletta", "passo": int(numero) - 1}
+        lez = self.lezioni.get(d.pillola)
+        if lez is None or rif not in {s.id for s in lez.segmenti}:
+            dove = f"nella lezione {lez.id}" if lez else f"(la pillola {d.pillola} non ha lezione)"
+            raise ErroreDati(f"domanda {d.id}: segmento_aiuto {rif} inesistente {dove}")
+        return {"scheda": "lezione", "segmento": rif}
 
     # ------------------------------------------------------------ erogabilita'
 
@@ -100,6 +121,8 @@ class Catalogo:
         tipi_aiuto = [g["tipo"] for g in self.cfg.prendi("aiuti", "scala", tipo=list)]
         if "segmento" in tipi_aiuto and d.segmento_aiuto is None:
             motivi.append("manca il segmento di aiuto (la scala degli aiuti prevede il segmento)")
+        if d.striscia is None:
+            motivi.append("striscia non assegnata (punto di vista: definizione, esempio pratico, contro-esempio, diagnosi)")
         for lingua in self.cfg.lingue():
             mancanti = testi_mancanti(d.model_dump(), lingua)
             if mancanti:

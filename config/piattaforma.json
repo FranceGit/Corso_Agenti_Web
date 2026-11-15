@@ -111,7 +111,9 @@
     "scala": [
       {"dopo_fallimenti_consecutivi": 2, "tipo": "segmento"},
       {"dopo_fallimenti_consecutivi": 3, "tipo": "pillola_intera"}
-    ]
+    ],
+    "prefisso_passo_scaletta": "scaletta-",
+    "_why_prefisso_passo_scaletta": "Il segmento di aiuto di una domanda e' un segmento della lezione interattiva oppure, per le pillole che non hanno ancora la lezione, un passo della scaletta scritto come prefisso + numero del passo contato da 1 (es. scaletta-3). Lo stesso riferimento resta valido anche quando la lezione arriva."
   },
 
   "record": {

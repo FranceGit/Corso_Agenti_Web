@@ -167,7 +167,7 @@
  },
  "domande": [
   {
-   "id": "DX4.1-1", "origine": "dimostratore", "pillola": "P4.1", "concetti": ["C34", "C11"], "concetto_principale": "C34", "segmento_aiuto": "senza_strumenti",
+   "id": "DX4.1-1", "origine": "dimostratore", "pillola": "P4.1", "concetti": ["C34", "C11"], "concetto_principale": "C34", "segmento_aiuto": "senza_strumenti", "striscia": "definizione",
    "livello1": {
     "domanda": {"it": "Che cosa serve a un agente per aggiornare una scheda nel CRM?", "en": "What does an agent need to update a record in the CRM?"},
     "opzioni": [
@@ -195,7 +195,7 @@
    }
   },
   {
-   "id": "DX4.1-2", "origine": "dimostratore", "pillola": "P4.1", "concetti": ["C34", "C11"], "concetto_principale": "C34", "segmento_aiuto": "collegare",
+   "id": "DX4.1-2", "origine": "dimostratore", "pillola": "P4.1", "concetti": ["C34", "C11"], "concetto_principale": "C34", "segmento_aiuto": "collegare", "striscia": "esempio_pratico",
    "livello1": {
     "domanda": {"it": "Compito: «scrivi e invia ad Alfa un'email personalizzata». Sono collegati solo «Leggere il CRM» e «Inviare email». Che cosa succede?", "en": "Task: «write and send Alfa a personalised email». Only «Read the CRM» and «Send emails» are connected. What happens?"},
     "opzioni": [
@@ -220,7 +220,7 @@
    }
   },
   {
-   "id": "DX4.1-3", "origine": "dimostratore", "pillola": "P4.1", "concetti": ["C34", "C07"], "concetto_principale": "C34", "segmento_aiuto": "inventare",
+   "id": "DX4.1-3", "origine": "dimostratore", "pillola": "P4.1", "concetti": ["C34", "C07"], "concetto_principale": "C34", "segmento_aiuto": "inventare", "striscia": "diagnosi",
    "livello1": {
     "domanda": {"it": "«Scrivere nel CRM» è scollegato. L'agente risponde: «Fatto, ho salvato Alfa come qualificata». Che cosa è successo?", "en": "«Write to the CRM» is disconnected. The agent replies: «Done, I saved Alfa as qualified». What happened?"},
     "opzioni": [
@@ -244,7 +244,7 @@
    }
   },
   {
-   "id": "DX4.1-4", "origine": "dimostratore", "pillola": "P4.1", "concetti": ["C35", "C34"], "concetto_principale": "C35", "segmento_aiuto": "orchestrazione",
+   "id": "DX4.1-4", "origine": "dimostratore", "pillola": "P4.1", "concetti": ["C35", "C34"], "concetto_principale": "C35", "segmento_aiuto": "orchestrazione", "striscia": "definizione",
    "livello1": {
     "domanda": {"it": "Chi esegue davvero la modifica nel CRM?", "en": "Who actually carries out the change in the CRM?"},
     "opzioni": [
@@ -270,7 +270,7 @@
    }
   },
   {
-   "id": "DX4.1-5", "origine": "dimostratore", "pillola": "P4.1", "concetti": ["C35", "C43"], "concetto_principale": "C35", "segmento_aiuto": "orchestrazione",
+   "id": "DX4.1-5", "origine": "dimostratore", "pillola": "P4.1", "concetti": ["C35", "C43"], "concetto_principale": "C35", "segmento_aiuto": "orchestrazione", "striscia": "diagnosi",
    "livello1": {
     "domanda": {"it": "Il permesso di scrittura è spento. Il modello chiede «aggiorna_crm(stato=Qualificato)». Che cosa succede?", "en": "Write permission is off. The model asks for «aggiorna_crm(stato=Qualificato)». What happens?"},
     "opzioni": [

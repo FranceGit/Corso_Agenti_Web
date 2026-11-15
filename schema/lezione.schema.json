@@ -57,6 +57,24 @@
      ],
      "default": null,
      "title": "Segmento Aiuto"
+    },
+    "striscia": {
+     "anyOf": [
+      {
+       "enum": [
+        "definizione",
+        "esempio_pratico",
+        "contro_esempio",
+        "diagnosi"
+       ],
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Striscia"
     }
    },
    "required": [

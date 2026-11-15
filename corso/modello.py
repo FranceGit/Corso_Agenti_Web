@@ -14,6 +14,9 @@ TipoDistrattore = Literal["quasi", "poco", "errata"]
 TipoL2 = Literal["motivazione", "trasferimento", "contro-esempio", "diagnosi"]
 TipoArco = Literal["PRE", "APP", "CON", "ES", "MIT"]
 Origine = Literal["benchmark", "dimostratore"]
+# Striscia = punto di vista con cui una domanda guarda il suo concetto (piu' strisce = piu' punti di vista).
+Striscia = Literal["definizione", "esempio_pratico", "contro_esempio", "diagnosi"]
+VERSIONE_SCHEMA_CORSO = 2  # v2: campo 'striscia' nelle domande (migrazione da v1 in corso/migrazioni.py)
 
 
 class Base(BaseModel):
@@ -79,7 +82,8 @@ class Domanda(Base):
     pillola: str
     concetti: list[str] = Field(min_length=1)
     concetto_principale: Optional[str] = None  # null = da assegnare (la domanda non e' ancora erogabile)
-    segmento_aiuto: Optional[str] = None  # segmento della lezione da proporre come primo aiuto
+    segmento_aiuto: Optional[str] = None  # segmento della lezione, o passo della scaletta, da proporre come primo aiuto
+    striscia: Optional[Striscia] = None  # null = punto di vista da assegnare (la domanda non e' ancora erogabile)
     livello1: Livello
     livello2: Livello2
 
@@ -119,7 +123,7 @@ class Modulo(Base):
 
 
 class Corso(Base):
-    versione_schema: Literal[1]
+    versione_schema: Literal[2]
     id: str
     titolo: Testo
     fonte: str  # documento da cui il contenuto e' stato estratto
