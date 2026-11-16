@@ -1,0 +1,210 @@
+{
+ "id": "L_blueprint_crm",
+ "pillola": "P8.6",
+ "componente": "blueprint_crm",
+ "titolo": {"it": "Il blueprint finale: assembla l'agente CRM", "en": "The final blueprint: assemble the CRM agent"},
+ "sottotitolo": {"it": "Componi a blocchi l'agente che qualifica i lead del modulo web e prepara il primo contatto: la verifica di coerenza controlla ogni sezione e le regole incrociate.", "en": "Build, block by block, the agent that qualifies web-form leads and prepares the first contact: the consistency check tests every section and the cross-rules."},
+ "segmenti": [
+  {
+   "id": "regole_kpi",
+   "titolo": {"it": "La pianta, le regole e l'obiettivo", "en": "The plan, the rules and the goal"},
+   "narrazione": [
+    {"it": "Il blueprint è la pianta del progetto: lo schema completo dell'agente prima di costruirlo. Qui progetti l'agente che riceve i lead dal modulo web, li qualifica e prepara il primo contatto. Le 8 sezioni sono una scelta didattica del corso e l'esempio è un nostro adattamento [EXP].", "en": "The blueprint is the plan of the project: the complete outline of the agent before building it. Here you design the agent that receives leads from the web form, qualifies them and prepares the first contact. The 8 sections are a teaching choice of the course and the example is our own adaptation [EXP]."},
+    {"it": "In alto stanno le regole non negoziabili (privacy, tono del brand, soglie di approvazione), che valgono per ogni sezione. Poi l'obiettivo: un KPI (indicatore chiave) di risultato, sempre affiancato da una metrica di rischio.", "en": "At the top sit the non-negotiable rules (privacy, brand tone, approval thresholds), which apply to every section. Then the goal: a result KPI (key performance indicator), always paired with a risk metric."}
+   ],
+   "prova": {"it": "Apri «Obiettivo e KPI», sostituisci «email inviate al giorno» con il blocco che misura opportunità e disiscrizioni e guarda il semaforo.", "en": "Open «Goal and KPIs», replace «emails sent per day» with the block that measures opportunities and unsubscribes and watch the light."},
+   "concetti": ["C79"],
+   "stato_animazione": {"vista": "tavola", "scelte": {"regole": "regole_ok", "kpi": "kpi_vanitoso"}, "sezione_aperta": "kpi", "verificato": true}
+  },
+  {
+   "id": "autonomia_processo",
+   "titolo": {"it": "Autonomia e contratto dati", "en": "Autonomy and data contract"},
+   "narrazione": [
+    {"it": "Autonomia: quanto decide da solo l'agente. Prima chiediti se serve davvero un agente: decisioni complesse, regole difficili da mantenere, dati non strutturati. Qui sì, ma l'invio di un'email è un'azione ad alto rischio e sopra una soglia chiede l'approvazione di una persona.", "en": "Autonomy: how much the agent decides alone. First ask whether you really need an agent: complex decisions, rules hard to maintain, unstructured data. Here you do, but sending an email is a high-risk action and above a threshold it asks for a person's approval."},
+    {"it": "Processo e contratto dati: quali campi del modulo sono obbligatori e che cosa fare se mancano.", "en": "Process and data contract: which form fields are required and what to do if they are missing."}
+   ],
+   "prova": {"it": "Premi «Verifica coerenza» con «invio automatico di tutto»; poi passa a «bozza + approvazione» e completa il contratto dati.", "en": "Press «Check consistency» with «automatic sending of everything»; then switch to «draft + approval» and complete the data contract."},
+   "concetti": ["C79"],
+   "stato_animazione": {"vista": "tavola", "scelte": {"regole": "regole_ok", "kpi": "kpi_buono", "autonomia": "aut_totale", "processo": "proc_parziale"}, "sezione_aperta": "autonomia", "verificato": false}
+  },
+  {
+   "id": "strumenti_memoria",
+   "titolo": {"it": "Strumenti con il loro rischio, memoria con la sua scadenza", "en": "Tools with their risk, memory with its expiry"},
+   "narrazione": [
+    {"it": "Strumenti e permessi: ogni strumento ha un livello di rischio, basso, medio o alto, in base a lettura o scrittura, reversibilità, permessi e impatto economico. È il livello a far scattare l'approvazione: se manca, l'approvazione scritta nell'autonomia non parte mai.", "en": "Tools and permissions: every tool has a risk level, low, medium or high, based on read or write, reversibility, permissions and financial impact. The level is what triggers approval: without it, the approval written in the autonomy section never starts."},
+    {"it": "Contesto e memoria: memoria per singolo lead, isolata per cliente, con una scadenza e la possibilità di cancellarla.", "en": "Context and memory: memory for each single lead, isolated per customer, with an expiry and the option to delete it."}
+   ],
+   "prova": {"it": "Verifica e leggi l'avviso incrociato tra autonomia e strumenti; poi correggi strumenti e memoria finché tornano verdi.", "en": "Check and read the cross-warning between autonomy and tools; then fix tools and memory until they turn green."},
+   "concetti": ["C79"],
+   "stato_animazione": {"vista": "tavola", "scelte": {"regole": "regole_ok", "kpi": "kpi_buono", "autonomia": "aut_approvazione", "processo": "proc_contratto", "istruzioni": "istr_buone", "strumenti": "str_tutti", "memoria": "mem_condivisa"}, "sezione_aperta": "strumenti", "verificato": true}
+  },
+  {
+   "id": "qualita_governance",
+   "titolo": {"it": "Valutazione, osservabilità e governance", "en": "Evaluation, observability and governance"},
+   "narrazione": [
+    {"it": "Valutazione e osservabilità: un set di prove con casi tipici, limite e avversari, un giudice calibrato dalle persone, tracce e metriche. Senza set di prove nessuna versione può passare il cancello di valutazione.", "en": "Evaluation and observability: a test set with typical, edge and adversarial cases, a judge calibrated by people, traces and metrics. Without a test set no version can pass the evaluation gate."},
+    {"it": "Governance e produzione: rilascio canary dall'1%, interruttore per ogni strumento, registro delle decisioni, budget di costo con allarme e risposta agli incidenti.", "en": "Governance and production: canary release from 1%, a switch for each tool, decision log, cost budget with an alarm and incident response."}
+   ],
+   "prova": {"it": "Leggi gli avvisi del blueprint difettoso, poi correggi una sezione alla volta finché diventano tutte verdi.", "en": "Read the warnings of the faulty blueprint, then fix one section at a time until they all turn green."},
+   "concetti": ["C79"],
+   "stato_animazione": {"vista": "tavola", "scelte": {"regole": "regole_ok", "kpi": "kpi_solo", "autonomia": "aut_totale", "processo": "proc_contratto", "istruzioni": "istr_chiave", "strumenti": "str_tutti", "memoria": "mem_eterna", "valutazione": "val_niente", "governance": "gov_tutto"}, "sezione_aperta": "governance", "verificato": true}
+  },
+  {
+   "id": "assembla",
+   "titolo": {"it": "Assembla tu l'intero sistema", "en": "Assemble the whole system yourself"},
+   "narrazione": [
+    {"it": "Ora tocca a te: assembla l'agente da zero. La verifica controlla anche le regole incrociate tra sezioni, perché un blueprint fallisce soprattutto dove le parti non si parlano.", "en": "Now it is your turn: assemble the agent from scratch. The check also tests the cross-rules between sections, because a blueprint fails mostly where the parts do not talk to each other."},
+    {"it": "La vista SDD (Spec-Driven Development, «sviluppo guidato dalla specifica») raggruppa le sezioni in regole, specifica e piano: valutazione e governance restano fuori, come «operazioni» da aggiungere.", "en": "The SDD view (Spec-Driven Development) groups the sections into rules, specification and plan: evaluation and governance stay outside, as «operations» to be added."}
+   ],
+   "prova": {"it": "Scegli un blocco per ognuna delle 9 parti, verifica e porta tutto al verde; poi apri la vista SDD.", "en": "Choose a block for each of the 9 parts, check and bring everything to green; then open the SDD view."},
+   "concetti": ["C79"],
+   "stato_animazione": {"vista": "tavola", "scelte": {}, "sezione_aperta": "regole", "verificato": false}
+  },
+  {
+   "id": "riassunto",
+   "titolo": {"it": "In tre frasi", "en": "In three sentences"},
+   "narrazione": [
+    {"it": "Il blueprint mette in fila le regole non negoziabili e 8 sezioni, dall'obiettivo con i suoi KPI fino a governance e produzione.", "en": "The blueprint lines up the non-negotiable rules and 8 sections, from the goal with its KPIs to governance and production."},
+    {"it": "Le sezioni vanno verificate insieme: autonomia, livelli di rischio degli strumenti, set di prove e versioni devono essere coerenti tra loro.", "en": "The sections must be checked together: autonomy, tool risk levels, test set and versions must be consistent with each other."},
+    {"it": "Lo sviluppo guidato dalla specifica copre bene regole, specifica e piano, ma valutazione, osservabilità, rilascio e costi sono la parte «operazioni» da aggiungere.", "en": "Spec-driven development covers rules, specification and plan well, but evaluation, observability, release and costs are the «operations» part to be added."}
+   ],
+   "concetti": ["C79"],
+   "stato_animazione": {"vista": "sdd", "scelte": {"regole": "regole_ok", "kpi": "kpi_buono", "autonomia": "aut_approvazione", "processo": "proc_contratto", "istruzioni": "istr_buone", "strumenti": "str_rischio", "memoria": "mem_buona", "valutazione": "val_buona", "governance": "gov_buona"}, "sezione_aperta": "regole", "verificato": true}
+  }
+ ],
+ "scenario": {
+  "a_capo_caratteri": 22,
+  "a_capo_nome": 18,
+  "sezioni": [
+   {"id": "regole", "numero": "★", "nome": {"it": "Regole non negoziabili", "en": "Non-negotiable rules"}, "pillole": "P2.1, P8.2",
+    "riepilogo": {"it": "Vincoli che valgono per ogni sezione: privacy, tono del brand, soglie di approvazione.", "en": "Constraints that apply to every section: privacy, brand tone, approval thresholds."},
+    "blocchi": [
+     {"id": "regole_ok", "breve": {"it": "Privacy, tono del brand, soglie", "en": "Privacy, brand tone, thresholds"}, "testo": {"it": "Privacy e GDPR, tono del brand, soglie di approvazione: valgono per ogni sezione.", "en": "Privacy and GDPR, brand tone, approval thresholds: they apply to every section."}, "tratti": ["regole_ok"]},
+     {"id": "regole_vaghe", "breve": {"it": "«Essere professionali»", "en": "«Be professional»"}, "testo": {"it": "Una sola regola generica: «essere professionali e gentili».", "en": "A single generic rule: «be professional and kind»."}, "tratti": ["regole_vaghe"]},
+     {"id": "regole_nessuna", "breve": {"it": "Nessuna regola scritta", "en": "No written rule"}, "testo": {"it": "Nessuna regola scritta: ogni sezione decide da sé.", "en": "No written rule: each section decides for itself."}, "tratti": ["regole_assenti"]}
+    ]},
+   {"id": "kpi", "numero": "1", "nome": {"it": "Obiettivo e KPI", "en": "Goal and KPIs"}, "pillole": "P1.6, P7.5",
+    "riepilogo": {"it": "Il risultato di business che conta, con una metrica di rischio accanto.", "en": "The business result that matters, with a risk metric beside it."},
+    "blocchi": [
+     {"id": "kpi_buono", "breve": {"it": "Opportunità + disiscrizioni", "en": "Opportunities + unsubscribes"}, "testo": {"it": "Lead qualificati che diventano opportunità, tempo di prima risposta, tasso di disiscrizioni e reclami.", "en": "Qualified leads that become opportunities, first-response time, unsubscribe and complaint rate."}, "tratti": ["kpi_risultato", "kpi_rischio"]},
+     {"id": "kpi_solo", "breve": {"it": "Solo opportunità create", "en": "Only opportunities created"}, "testo": {"it": "Lead qualificati che diventano opportunità, senza nessuna metrica di rischio.", "en": "Qualified leads that become opportunities, with no risk metric."}, "tratti": ["kpi_risultato"]},
+     {"id": "kpi_vanitoso", "breve": {"it": "Email inviate al giorno", "en": "Emails sent per day"}, "testo": {"it": "Numero di email inviate al giorno.", "en": "Number of emails sent per day."}, "tratti": ["kpi_vanitoso"]}
+    ]},
+   {"id": "autonomia", "numero": "2", "nome": {"it": "Livello di autonomia", "en": "Level of autonomy"}, "pillole": "P1.5",
+    "riepilogo": {"it": "Che cosa decide da solo l'agente e dove si ferma per una persona.", "en": "What the agent decides alone and where it stops for a person."},
+    "blocchi": [
+     {"id": "aut_approvazione", "breve": {"it": "Bozza + approvazione sopra soglia", "en": "Draft + approval above threshold"}, "testo": {"it": "Classifica e scrive la bozza da solo; l'invio sopra soglia chiede l'approvazione di una persona.", "en": "It classifies and writes the draft alone; sending above a threshold asks for a person's approval."}, "tratti": ["approvazione"]},
+     {"id": "aut_manuale", "breve": {"it": "Ogni passo approvato a mano", "en": "Every step approved by hand"}, "testo": {"it": "Una persona approva ogni singolo passo, anche la lettura del CRM.", "en": "A person approves every single step, even reading the CRM."}, "tratti": ["tutto_manuale"]},
+     {"id": "aut_totale", "breve": {"it": "Invio automatico di tutto", "en": "Automatic sending of everything"}, "testo": {"it": "Invia da solo email, offerte e sconti, senza approvazioni.", "en": "It sends emails, offers and discounts alone, with no approvals."}, "tratti": ["invio_auto"]}
+    ]},
+   {"id": "processo", "numero": "3", "nome": {"it": "Processo e contratti dati", "en": "Process and data contracts"}, "pillole": "P3.1",
+    "riepilogo": {"it": "Le stazioni del flusso e i campi che ciascuna riceve e consegna.", "en": "The stations of the flow and the fields each one receives and hands over."},
+    "blocchi": [
+     {"id": "proc_contratto", "breve": {"it": "Campi obbligatori e regola se mancano", "en": "Required fields and rule if missing"}, "testo": {"it": "Campi obbligatori del modulo (nome, email, azienda) e che cosa fare se mancano: chiedere o passare a una persona.", "en": "Required form fields (name, email, company) and what to do if they are missing: ask or pass to a person."}, "tratti": ["contratto"]},
+     {"id": "proc_parziale", "breve": {"it": "Campi elencati, niente regola", "en": "Fields listed, no rule"}, "testo": {"it": "Elenco dei campi del modulo, senza dire che cosa fare se mancano.", "en": "List of the form fields, without saying what to do if they are missing."}, "tratti": ["contratto_incompleto"]},
+     {"id": "proc_niente", "breve": {"it": "«L'agente si arrangia»", "en": "«The agent manages»"}, "testo": {"it": "Nessun contratto: l'agente interpreta il modulo come può.", "en": "No contract: the agent reads the form as best it can."}, "tratti": ["nessun_contratto"]}
+    ]},
+   {"id": "istruzioni", "numero": "4", "nome": {"it": "Istruzioni e output strutturati", "en": "Instructions and structured output"}, "pillole": "P2.1, P2.2",
+    "riepilogo": {"it": "Istruzioni versionate con le regole del brand e una risposta che il CRM sa leggere.", "en": "Versioned instructions with the brand rules and a reply the CRM can read."},
+    "blocchi": [
+     {"id": "istr_buone", "breve": {"it": "Versionate, output strutturato", "en": "Versioned, structured output"}, "testo": {"it": "Istruzioni versionate con le regole del brand; output strutturato: punteggio, motivazione, prossima azione.", "en": "Versioned instructions with the brand rules; structured output: score, reason, next action."}, "tratti": ["istr_versionate", "output_strutturato"]},
+     {"id": "istr_libere", "breve": {"it": "Testo libero, non versionate", "en": "Free text, not versioned"}, "testo": {"it": "Istruzioni modificate al volo, risposta in testo libero.", "en": "Instructions changed on the fly, reply in free text."}, "tratti": ["istr_non_versionate", "testo_libero"]},
+     {"id": "istr_chiave", "breve": {"it": "Con la chiave email dentro", "en": "With the email key inside"}, "testo": {"it": "Istruzioni versionate e output strutturato, ma con la chiave del servizio email scritta dentro «per comodità».", "en": "Versioned instructions and structured output, but with the email service key written inside «for convenience»."}, "tratti": ["istr_versionate", "output_strutturato", "segreto_istruzioni"]}
+    ]},
+   {"id": "strumenti", "numero": "5", "nome": {"it": "Strumenti e permessi", "en": "Tools and permissions"}, "pillole": "P4.1-P4.5",
+    "riepilogo": {"it": "Solo gli strumenti del ruolo, ognuno con il suo livello di rischio.", "en": "Only the role's tools, each with its risk level."},
+    "blocchi": [
+     {"id": "str_rischio", "breve": {"it": "Rischio basso / medio / alto", "en": "Risk low / medium / high"}, "testo": {"it": "leggi_crm rischio basso, aggiorna_crm medio, invia_email alto; solo gli strumenti del ruolo.", "en": "read_crm low risk, update_crm medium, send_email high; only the role's tools."}, "tratti": ["rischio_strumenti"]},
+     {"id": "str_superfluo", "breve": {"it": "Rischi + «esporta contatti»", "en": "Risks + «export contacts»"}, "testo": {"it": "Livelli di rischio assegnati, ma c'è anche esporta_tutti_i_contatti, che al ruolo non serve.", "en": "Risk levels assigned, but export_all_contacts is there too, which the role does not need."}, "tratti": ["rischio_strumenti", "strumento_superfluo"]},
+     {"id": "str_tutti", "breve": {"it": "Tutti i permessi («select all»)", "en": "All permissions («select all»)"}, "testo": {"it": "Tutti gli strumenti con tutti i permessi («select all»), nessun livello di rischio.", "en": "All tools with all permissions («select all»), no risk level."}, "tratti": ["scrittura_senza_rischio"]}
+    ]},
+   {"id": "memoria", "numero": "6", "nome": {"it": "Contesto e memoria", "en": "Context and memory"}, "pillole": "P5.1-P5.5",
+    "riepilogo": {"it": "Che cosa l'agente ricorda, per chi e fino a quando.", "en": "What the agent remembers, for whom and until when."},
+    "blocchi": [
+     {"id": "mem_buona", "breve": {"it": "Per lead, isolata, con scadenza", "en": "Per lead, isolated, with expiry"}, "testo": {"it": "Memoria per singolo lead, isolata per cliente, cancellata dopo un tempo stabilito o su richiesta.", "en": "Memory for each lead, isolated per customer, deleted after a set time or on request."}, "tratti": ["memoria_ok"]},
+     {"id": "mem_eterna", "breve": {"it": "Isolata ma senza scadenza", "en": "Isolated but no expiry"}, "testo": {"it": "Memoria isolata per cliente, mai cancellata.", "en": "Memory isolated per customer, never deleted."}, "tratti": ["memoria_senza_scadenza"]},
+     {"id": "mem_condivisa", "breve": {"it": "Un'unica memoria per tutti", "en": "One memory for everyone"}, "testo": {"it": "Un'unica memoria condivisa da tutti i clienti, mai cancellata.", "en": "A single memory shared by all customers, never deleted."}, "tratti": ["memoria_condivisa", "memoria_senza_scadenza"]}
+    ]},
+   {"id": "valutazione", "numero": "7", "nome": {"it": "Valutazione e osservabilità", "en": "Evaluation and observability"}, "pillole": "P7.1-P7.4",
+    "riepilogo": {"it": "Come si misura la qualità prima e dopo il rilascio.", "en": "How quality is measured before and after release."},
+    "blocchi": [
+     {"id": "val_buona", "breve": {"it": "Set completo + giudice calibrato", "en": "Full set + calibrated judge"}, "testo": {"it": "Set di prove con casi tipici, limite e avversari; giudice LLM calibrato dalle persone; tracce e metriche.", "en": "Test set with typical, edge and adversarial cases; LLM judge calibrated by people; traces and metrics."}, "tratti": ["set_prove"]},
+     {"id": "val_tipici", "breve": {"it": "Set solo con casi tipici", "en": "Set with typical cases only"}, "testo": {"it": "Set di prove con 10 casi, tutti lead completi e cortesi.", "en": "Test set with 10 cases, all complete and polite leads."}, "tratti": ["set_prove", "set_solo_tipici"]},
+     {"id": "val_niente", "breve": {"it": "«Qualche email a occhio»", "en": "«A few emails by eye»"}, "testo": {"it": "Nessun set di prove: qualche email controllata a occhio prima del lancio.", "en": "No test set: a few emails checked by eye before launch."}, "tratti": ["nessun_set"]}
+    ]},
+   {"id": "governance", "numero": "8", "nome": {"it": "Governance e produzione", "en": "Governance and production"}, "pillole": "P8.1-P8.5",
+    "riepilogo": {"it": "Come si rilascia, si ferma, si spiega e si paga l'agente.", "en": "How the agent is released, stopped, explained and paid for."},
+    "blocchi": [
+     {"id": "gov_buona", "breve": {"it": "Canary, interruttori, registro, budget", "en": "Canary, switches, log, budget"}, "testo": {"it": "Rilascio canary dall'1%, interruttore per strumento, registro delle decisioni, budget di costo con allarme, risposta agli incidenti.", "en": "Canary release from 1%, a switch per tool, decision log, cost budget with an alarm, incident response."}, "tratti": ["gov", "canary", "registro", "budget"]},
+     {"id": "gov_senza_budget", "breve": {"it": "Canary e registro, niente budget", "en": "Canary and log, no budget"}, "testo": {"it": "Rilascio canary dall'1%, interruttore per strumento, registro delle decisioni; nessun budget di costo.", "en": "Canary release from 1%, a switch per tool, decision log; no cost budget."}, "tratti": ["gov", "canary", "registro"]},
+     {"id": "gov_tutto", "breve": {"it": "Tutti subito, nessun registro", "en": "Everyone at once, no log"}, "testo": {"it": "Pubblicato subito al 100% dei lead, nessun registro delle decisioni, nessun budget.", "en": "Released at once to 100% of leads, no decision log, no budget."}, "tratti": ["gov", "rilascio_totale"]}
+    ]}
+  ],
+  "regole": [
+   {"id": "r_vanitoso", "quando": ["kpi_vanitoso"], "salvo": [], "sezioni": ["kpi"], "gravita": "rosso", "testo": {"it": "Un KPI di attività non è un risultato: più email non vogliono dire più clienti.", "en": "An activity KPI is not a result: more emails do not mean more customers."}, "fonte": "COMP p.70; WP4 p.14"},
+   {"id": "r_rischio_kpi", "quando": ["kpi_risultato"], "salvo": ["kpi_rischio"], "sezioni": ["kpi"], "gravita": "giallo", "testo": {"it": "Affianca alla metrica di risultato una metrica di rischio (disiscrizioni, reclami).", "en": "Pair the result metric with a risk metric (unsubscribes, complaints)."}, "fonte": "ANT p.17"},
+   {"id": "r_regole_vaghe", "quando": ["regole_vaghe"], "salvo": [], "sezioni": ["regole"], "gravita": "giallo", "testo": {"it": "Regole troppo vaghe per essere verificate.", "en": "Rules too vague to be checked."}, "fonte": "SDD p.6"},
+   {"id": "r_regole_assenti", "quando": ["regole_assenti"], "salvo": [], "sezioni": ["regole"], "gravita": "rosso", "testo": {"it": "Senza regole non negoziabili, privacy e brand restano a discrezione di ogni sezione.", "en": "Without non-negotiable rules, privacy and brand are left to each section's discretion."}, "fonte": "SDD pp.6, 9; SEC pp.12-13"},
+   {"id": "r_invio_auto", "quando": ["invio_auto"], "salvo": [], "sezioni": ["autonomia", "governance"], "gravita": "rosso", "testo": {"it": "Azioni ad alto rischio (invii, offerte, sconti) senza supervisione umana.", "en": "High-risk actions (sending, offers, discounts) with no human oversight."}, "fonte": "OAI p.31; SEC p.12"},
+   {"id": "r_manuale", "quando": ["tutto_manuale"], "salvo": [], "sezioni": ["autonomia"], "gravita": "giallo", "testo": {"it": "Se ogni passo è approvato a mano, chiediti se serve davvero un agente: forse basta una soluzione più semplice.", "en": "If every step is approved by hand, ask whether you really need an agent: a simpler solution may be enough."}, "fonte": "OAI p.6"},
+   {"id": "r_approvazione_senza_rischio", "quando": ["approvazione", "scrittura_senza_rischio"], "salvo": [], "sezioni": ["autonomia", "strumenti"], "gravita": "rosso", "testo": {"it": "Regola incrociata: l'approvazione sopra soglia non scatta, perché gli strumenti non hanno un livello di rischio che la faccia partire.", "en": "Cross-rule: approval above the threshold never triggers, because the tools have no risk level to start it."}, "fonte": "OAI p.26"},
+   {"id": "r_scrittura_senza_rischio", "quando": ["scrittura_senza_rischio"], "salvo": [], "sezioni": ["strumenti"], "gravita": "rosso", "testo": {"it": "Strumenti di scrittura con tutti i permessi e nessun livello di rischio.", "en": "Write tools with all permissions and no risk level."}, "fonte": "OAI p.26; SEC p.12"},
+   {"id": "r_superfluo", "quando": ["strumento_superfluo"], "salvo": [], "sezioni": ["strumenti"], "gravita": "giallo", "testo": {"it": "Uno strumento che al ruolo non serve allarga il danno possibile: permessi minimi.", "en": "A tool the role does not need widens the possible damage: minimum permissions."}, "fonte": "SEC p.12"},
+   {"id": "r_contratto_incompleto", "quando": ["contratto_incompleto"], "salvo": [], "sezioni": ["processo"], "gravita": "giallo", "testo": {"it": "Manca che cosa fare se un campo obbligatorio non c'è.", "en": "What to do when a required field is missing is not stated."}, "fonte": "COMP p.47"},
+   {"id": "r_nessun_contratto", "quando": ["nessun_contratto"], "salvo": [], "sezioni": ["processo"], "gravita": "rosso", "testo": {"it": "Senza contratto dati l'agente indovina i campi del modulo.", "en": "Without a data contract the agent guesses the form fields."}, "fonte": "COMP p.47"},
+   {"id": "r_testo_libero", "quando": ["testo_libero"], "salvo": [], "sezioni": ["istruzioni"], "gravita": "giallo", "testo": {"it": "Senza output strutturato il CRM non sa leggere punteggio e prossima azione.", "en": "Without structured output the CRM cannot read the score and the next action."}, "fonte": "OAI pp.11-12"},
+   {"id": "r_non_versionate", "quando": ["istr_non_versionate"], "salvo": [], "sezioni": ["istruzioni"], "gravita": "giallo", "testo": {"it": "Istruzioni non versionate: niente tasto «annulla».", "en": "Instructions not versioned: no «undo» button."}, "fonte": "WP5 p.16"},
+   {"id": "r_canary_senza_versioni", "quando": ["canary", "istr_non_versionate"], "salvo": [], "sezioni": ["istruzioni", "governance"], "gravita": "rosso", "testo": {"it": "Regola incrociata: il canary scopre il guasto, ma senza versioni non c'è una versione a cui tornare.", "en": "Cross-rule: the canary finds the fault, but without versions there is no version to go back to."}, "fonte": "WP5 p.16"},
+   {"id": "r_segreto", "quando": ["segreto_istruzioni"], "salvo": [], "sezioni": ["istruzioni"], "gravita": "rosso", "testo": {"it": "Segreto nelle istruzioni: finisce nel testo letto dal modello e nei log.", "en": "Secret in the instructions: it ends up in the text read by the model and in the logs."}, "fonte": "WP5 p.15; WP2 p.47"},
+   {"id": "r_memoria_condivisa", "quando": ["memoria_condivisa"], "salvo": [], "sezioni": ["memoria"], "gravita": "rosso", "testo": {"it": "Memoria condivisa tra clienti: manca l'isolamento.", "en": "Memory shared between customers: isolation is missing."}, "fonte": "WP3 p.69"},
+   {"id": "r_privacy_contraddetta", "quando": ["regole_ok", "memoria_condivisa"], "salvo": [], "sezioni": ["regole", "memoria"], "gravita": "rosso", "testo": {"it": "Regola incrociata: le regole dichiarano la privacy, ma la memoria condivisa la contraddice.", "en": "Cross-rule: the rules declare privacy, but the shared memory contradicts it."}, "fonte": "WP3 p.69; SDD p.6"},
+   {"id": "r_memoria_scadenza", "quando": ["memoria_senza_scadenza"], "salvo": [], "sezioni": ["memoria"], "gravita": "giallo", "testo": {"it": "Memoria senza scadenza né cancellazione.", "en": "Memory with no expiry or deletion."}, "fonte": "WP3 pp.21, 69"},
+   {"id": "r_nessun_set", "quando": ["nessun_set"], "salvo": [], "sezioni": ["valutazione", "governance"], "gravita": "rosso", "testo": {"it": "Nessun set di prove: nessuna versione può passare il cancello di valutazione.", "en": "No test set: no version can pass the evaluation gate."}, "fonte": "WP5 p.11"},
+   {"id": "r_solo_tipici", "quando": ["set_solo_tipici"], "salvo": [], "sezioni": ["valutazione"], "gravita": "giallo", "testo": {"it": "Nel set di prove mancano casi limite e avversari.", "en": "The test set lacks edge and adversarial cases."}, "fonte": "WP4 p.26"},
+   {"id": "r_budget", "quando": ["gov"], "salvo": ["budget"], "sezioni": ["governance"], "gravita": "giallo", "testo": {"it": "Nessun budget né allarme di costo: la bolletta del weekend arriva senza che nessuno sappia perché.", "en": "No budget or cost alarm: the weekend bill arrives and nobody knows why."}, "fonte": "WP5 p.6"},
+   {"id": "r_registro", "quando": ["gov"], "salvo": ["registro"], "sezioni": ["governance"], "gravita": "rosso", "testo": {"it": "Nessun registro delle decisioni: impossibile spiegare perché l'agente ha agito così.", "en": "No decision log: impossible to explain why the agent acted that way."}, "fonte": "SEC p.13"},
+   {"id": "r_rilascio_totale", "quando": ["rilascio_totale"], "salvo": [], "sezioni": ["governance"], "gravita": "rosso", "testo": {"it": "Rilascio a tutti subito: si parte dall'1% degli utenti e si sale per gradi.", "en": "Release to everyone at once: you start from 1% of users and scale up step by step."}, "fonte": "WP5 p.16"}
+  ],
+  "preset": {
+   "esempio": {"regole": "regole_ok", "kpi": "kpi_buono", "autonomia": "aut_approvazione", "processo": "proc_contratto", "istruzioni": "istr_buone", "strumenti": "str_rischio", "memoria": "mem_buona", "valutazione": "val_buona", "governance": "gov_buona"},
+   "difettoso": {"regole": "regole_ok", "kpi": "kpi_solo", "autonomia": "aut_totale", "processo": "proc_contratto", "istruzioni": "istr_chiave", "strumenti": "str_tutti", "memoria": "mem_eterna", "valutazione": "val_niente", "governance": "gov_tutto"}
+  },
+  "sdd": [
+   {"id": "constitution", "nome": {"it": "Regole (Constitution)", "en": "Rules (Constitution)"}, "sezioni": ["regole", "istruzioni"], "operazioni": false},
+   {"id": "specify", "nome": {"it": "Specifica (Specify)", "en": "Specify"}, "sezioni": ["kpi", "processo"], "operazioni": false},
+   {"id": "plan", "nome": {"it": "Piano (Plan)", "en": "Plan"}, "sezioni": ["autonomia", "strumenti", "memoria"], "operazioni": false},
+   {"id": "tasks", "nome": {"it": "Passi e codice (Tasks, Implement)", "en": "Tasks, Implement"}, "sezioni": [], "operazioni": false},
+   {"id": "operazioni", "nome": {"it": "Operazioni: fuori da SDD", "en": "Operations: outside SDD"}, "sezioni": ["valutazione", "governance"], "operazioni": true}
+  ],
+  "testi": {
+   "vuota": {"it": "Sezione vuota: scegli un blocco.", "en": "Empty section: choose a block."},
+   "collegamento": {"it": "Collegamento: {pillole}", "en": "Link: {pillole}"},
+   "verdi": {"it": "Parti verdi: {n} su {tot}", "en": "Green parts: {n} of {tot}"},
+   "coerente": {"it": "Blueprint coerente: ogni parte è verde e nessuna regola incrociata è violata.", "en": "Consistent blueprint: every part is green and no cross-rule is broken."},
+   "avviso": {"it": "{testo} — sezioni: {sezioni} [{fonte}]", "en": "{testo} — sections: {sezioni} [{fonte}]"},
+   "non_verificato": {"it": "Premi «Verifica coerenza» per vedere semafori e avvisi.", "en": "Press «Check consistency» to see lights and warnings."},
+   "tasks_nota": {"it": "I passi del flusso nascono dalla specifica", "en": "The flow's steps come from the spec"},
+   "nota_exp": {"it": "Le 8 sezioni sono una scelta didattica del corso; l'esempio è un adattamento [EXP].", "en": "The 8 sections are a teaching choice of the course; the example is an adaptation [EXP]."},
+   "apri_sezione": {"it": "Apri la sezione {nome}", "en": "Open the section {nome}"},
+   "blocco_scelto": {"it": "Scelto", "en": "Chosen"}
+  },
+  "etichette": {
+   "titolo_comandi": {"it": "Il tavolo del progetto", "en": "The project table"},
+   "vista": {"it": "Vista", "en": "View"},
+   "vista_tavola": {"it": "Tavola", "en": "Board"},
+   "vista_sdd": {"it": "Vista SDD", "en": "SDD view"},
+   "esempio": {"it": "Compila l'esempio guidato", "en": "Fill in the guided example"},
+   "difettoso": {"it": "Carica il blueprint difettoso", "en": "Load the faulty blueprint"},
+   "svuota": {"it": "Svuota la tavola", "en": "Clear the board"},
+   "verifica": {"it": "Verifica coerenza", "en": "Check consistency"},
+   "nota_comandi": {"it": "Clic su una parte della tavola per scegliere il suo blocco.", "en": "Click a part of the board to choose its block."},
+   "titolo_destra": {"it": "La parte scelta", "en": "The chosen part"},
+   "titolo_avvisi": {"it": "Verifica di coerenza", "en": "Consistency check"},
+   "gravita_rosso": {"it": "grave", "en": "serious"},
+   "gravita_giallo": {"it": "da migliorare", "en": "to improve"},
+   "titolo_scena": {"it": "BLUEPRINT · agente di qualificazione e primo contatto (lead dal modulo web)", "en": "BLUEPRINT · qualification and first-contact agent (web-form leads)"},
+   "descrizione_scena": {"it": "Una tavola con le regole non negoziabili in alto e otto sezioni del progetto, ognuna con il blocco scelto e un semaforo.", "en": "A board with the non-negotiable rules at the top and eight project sections, each with the chosen block and a light."}
+  }
+ },
+ "domande": []
+}
