@@ -1,0 +1,500 @@
+[
+ {
+  "id": "DA8.6-1",
+  "origine": "autori",
+  "pillola": "P8.6",
+  "concetti": [
+   "C79"
+  ],
+  "concetto_principale": "C79",
+  "segmento_aiuto": "strumenti_memoria",
+  "striscia": "diagnosi",
+  "livello1": {
+   "domanda": {
+    "it": "Un blueprint scrive nella sezione autonomia: «l'invio sopra soglia chiede l'approvazione di una persona». Nella sezione strumenti, però, invia_email ha tutti i permessi e nessun livello di rischio. Che cosa succede in produzione?",
+    "en": "A blueprint says in the autonomy section: «sending above a threshold asks for a person's approval». In the tools section, however, send_email has all permissions and no risk level. What happens in production?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "L'approvazione non scatta mai: manca il livello di rischio che la attiva",
+      "en": "Approval never triggers: the risk level that activates it is missing"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "È il livello di rischio dello strumento a far partire l'approvazione: senza, l'email parte da sola.",
+      "en": "The tool's risk level is what starts approval: without it, the email goes out on its own."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "L'approvazione scatta, ma solo per le email più lunghe",
+      "en": "Approval triggers, but only for the longest emails"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Non c'è nessun livello che la faccia partire, per nessuna email.",
+      "en": "There is no level to start it, for any email."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Funziona, ma è più lento perché ogni email aspetta una persona",
+      "en": "It works, but it is slower because every email waits for a person"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Sarebbe così se il livello di rischio ci fosse; senza, l'email parte da sola.",
+      "en": "That would be true if the risk level existed; without it, the email goes out alone."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Le email vengono inviate in inglese",
+      "en": "The emails are sent in English"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "La lingua non c'entra con la coerenza tra le sezioni.",
+      "en": "Language has nothing to do with consistency between sections."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Va bene così: il modello capisce da solo quando è il caso di chiedere l'approvazione",
+      "en": "It is fine: the model works out on its own when to ask for approval"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Non è il modello a deciderlo: lo decide una regola fuori dal modello, legata al livello di rischio.",
+      "en": "It is not the model's call: a rule outside the model, tied to the risk level, decides."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Le sezioni vanno verificate insieme: l'approvazione dichiarata nell'autonomia scatta solo se lo strumento ha un livello di rischio [OAI p.26].",
+    "en": "The sections must be checked together: the approval stated in autonomy triggers only if the tool has a risk level [OAI p.26]."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché la verifica del blueprint guarda le sezioni insieme e non una alla volta?",
+    "en": "Why does the blueprint check look at the sections together and not one at a time?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché molti difetti nascono dove due sezioni si contraddicono",
+      "en": "Because many faults arise where two sections contradict each other"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Certi difetti si vedono solo incrociando le sezioni.",
+      "en": "Some faults only show up when the sections are crossed."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché così la verifica è più veloce",
+      "en": "Because that way the check is faster"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Non è questione di velocità: certi difetti si vedono solo incrociando.",
+      "en": "It is not about speed: some faults only show up when crossing."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché le fonti chiedono di avere sempre esattamente 8 sezioni da controllare",
+      "en": "Because the sources require always having exactly 8 sections to check"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Le 8 sezioni sono una scelta didattica del corso, non una regola delle fonti.",
+      "en": "The 8 sections are a teaching choice of the course, not a rule of the sources."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Perché le sezioni hanno tutte lo stesso autore",
+      "en": "Because the sections all have the same author"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Chi le scrive non cambia il motivo della verifica incrociata.",
+      "en": "Who writes them does not change the reason for the cross-check."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Perché ogni sezione presa da sola è sempre corretta",
+      "en": "Because each section taken alone is always correct"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Una sezione può essere sbagliata anche da sola; in più ci sono difetti che nascono solo incrociando.",
+      "en": "A section can be wrong on its own too; on top of that, some faults only arise from crossing."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Un blueprint fallisce soprattutto dove le parti non si parlano: per questo la verifica di coerenza usa anche regole incrociate tra sezioni.",
+    "en": "A blueprint fails mostly where the parts do not talk to each other: that is why the consistency check also uses cross-rules between sections."
+   }
+  }
+ },
+ {
+  "id": "DA8.6-2",
+  "origine": "autori",
+  "pillola": "P8.6",
+  "concetti": [
+   "C79"
+  ],
+  "concetto_principale": "C79",
+  "segmento_aiuto": "qualita_governance",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Un team presenta un blueprint con rilascio canary dall'1% e registro delle decisioni, ma le istruzioni dell'agente si modificano al volo, senza versioni. Che cosa rispondi?",
+    "en": "A team presents a blueprint with a canary release from 1% and a decision log, but the agent's instructions are changed on the fly, with no versions. What do you reply?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Il canary trova il guasto, ma non c'è una versione a cui tornare",
+      "en": "The canary finds the fault, but there is no version to go back to"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Senza versioni manca il tasto «annulla»: il ritorno alla versione precedente è impossibile.",
+      "en": "Without versions there is no «undo» button: going back to the previous version is impossible."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Va bene, purché il canary parta dal 5% invece che dall'1%",
+      "en": "Fine, as long as the canary starts from 5% instead of 1%"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "La percentuale non c'entra (e la fonte parte dall'1%): manca il tasto «annulla».",
+      "en": "The percentage is not the point (and the source starts from 1%): the «undo» button is missing."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Basta aggiungere un budget di costo",
+      "en": "Just add a cost budget"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il budget serve, ma non risolve l'assenza di versioni.",
+      "en": "The budget is useful, but it does not solve the lack of versions."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Bisogna cambiare modello prima del rilascio",
+      "en": "You must change model before the release"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Cambiare modello non dà una versione a cui tornare.",
+      "en": "Changing model does not give a version to go back to."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "È perfetto: con il registro delle decisioni le versioni non servono più",
+      "en": "It is perfect: with the decision log, versions are no longer needed"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Il registro spiega che cosa è successo, ma non permette di tornare indietro.",
+      "en": "The log explains what happened, but it does not let you go back."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Ogni componente va versionato (codice, istruzioni, modello, strumenti, memoria, set di prove): è il tasto «annulla» della produzione [WP5 p.16].",
+    "en": "Every component must be versioned (code, instructions, model, tools, memory, test sets): it is production's «undo» button [WP5 p.16]."
+   }
+  },
+  "livello2": {
+   "tipo": "contro-esempio",
+   "domanda": {
+    "it": "Quale aggiunta rende coerente quel blueprint?",
+    "en": "Which addition makes that blueprint consistent?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Versionare istruzioni, modello, strumenti e set di prove, per poter tornare indietro",
+      "en": "Version instructions, model, tools and test sets, so you can go back"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Con tutto versionato il canary può riportare il traffico a uno stato noto.",
+      "en": "With everything versioned the canary can bring traffic back to a known state."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Versionare solo il codice dell'agente",
+      "en": "Version only the agent's code"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Anche istruzioni, modello e set di prove cambiano il comportamento: vanno versionati tutti.",
+      "en": "Instructions, model and test sets also change behaviour: they must all be versioned."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Salvare a mano una copia delle istruzioni una volta al mese",
+      "en": "Save a copy of the instructions by hand once a month"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Meglio di niente, ma il ritorno deve essere a una versione precisa e recente.",
+      "en": "Better than nothing, but going back must be to a precise, recent version."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Scrivere istruzioni più corte",
+      "en": "Write shorter instructions"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "La lunghezza non dà il tasto «annulla».",
+      "en": "Length does not give an «undo» button."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Togliere il canary e pubblicare subito a tutti",
+      "en": "Remove the canary and release to everyone at once"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Toglie la protezione invece di completarla.",
+      "en": "It removes the protection instead of completing it."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Canary e versioni lavorano insieme: il canary scopre il problema, la versione precedente è il punto a cui tornare [WP5 p.16].",
+    "en": "Canary and versions work together: the canary finds the problem, the previous version is the point to return to [WP5 p.16]."
+   }
+  }
+ },
+ {
+  "id": "DA8.6-3",
+  "origine": "autori",
+  "pillola": "P8.6",
+  "concetti": [
+   "C79"
+  ],
+  "concetto_principale": "C79",
+  "segmento_aiuto": "assembla",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Il team usa lo sviluppo guidato dalla specifica (SDD) per scrivere il blueprint dell'agente di qualificazione lead. Quali parti restano scoperte e vanno aggiunte?",
+    "en": "The team uses spec-driven development (SDD) to write the blueprint of the lead qualification agent. Which parts are left uncovered and must be added?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Valutazione, osservabilità, rilascio graduale e costi",
+      "en": "Evaluation, observability, gradual release and costs"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "SDD copre regole, specifica e piano; le operazioni in produzione vanno aggiunte.",
+      "en": "SDD covers rules, specification and plan; production operations must be added."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Le regole non negoziabili su privacy, tono del brand e soglie",
+      "en": "The non-negotiable rules on privacy, brand tone and thresholds"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Sono la «Constitution» di SDD: sono già coperte.",
+      "en": "They are SDD's «Constitution»: they are already covered."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Gli obiettivi e i KPI dell'agente",
+      "en": "The agent's goals and KPIs"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Stanno nella specifica (Specify).",
+      "en": "They belong to the specification (Specify)."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Il nome dell'agente e il suo logo",
+      "en": "The agent's name and logo"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Nome e logo non sono una parte del progetto che manca a SDD.",
+      "en": "Name and logo are not a project part missing from SDD."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Nessuna: SDD copre tutto, anche la vita in produzione",
+      "en": "None: SDD covers everything, production life included"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "SDD si ferma al codice: valutazione in produzione, rilascio e costi vanno aggiunti.",
+      "en": "SDD stops at the code: production evaluation, release and costs must be added."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Le fasi SDD coprono bene le sezioni 1-6 del blueprint; valutazione in produzione, osservabilità, rilascio graduale e costi vengono da altre fonti (WP4, WP5, SEC, OAI) [SDD p.6].",
+    "en": "The SDD phases cover sections 1-6 of the blueprint well; production evaluation, observability, gradual release and costs come from other sources (WP4, WP5, SEC, OAI) [SDD p.6]."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Nel tuo blueprint, dove metti «rilascio canary dall'1% e allarme sul budget di costo»?",
+    "en": "In your blueprint, where do you put «canary release from 1% and a cost budget alarm»?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Nella sezione governance e produzione, tra le operazioni",
+      "en": "In the governance and production section, among operations"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Rilascio e budget sono decisioni di governance e produzione.",
+      "en": "Release and budget are governance and production decisions."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Nelle regole non negoziabili",
+      "en": "In the non-negotiable rules"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Le soglie di approvazione sì, ma rilascio e budget sono operazioni.",
+      "en": "Approval thresholds yes, but release and budget are operations."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Nella sezione valutazione e osservabilità, accanto alle metriche",
+      "en": "In the evaluation and observability section, next to the metrics"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il canary usa le metriche, ma decidere come rilasciare è governance.",
+      "en": "The canary uses metrics, but deciding how to release is governance."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Nella sezione contesto e memoria",
+      "en": "In the context and memory section"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "La memoria riguarda che cosa l'agente ricorda, non come si rilascia.",
+      "en": "Memory is about what the agent remembers, not how it is released."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Da nessuna parte: si decide dopo il lancio",
+      "en": "Nowhere: it is decided after launch"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Senza piano di rilascio e budget il blueprint non è completo.",
+      "en": "Without a release plan and budget the blueprint is not complete."
+     }
+    }
+   ],
+   "perche": {
+    "it": "La sezione 8 del blueprint, governance e produzione, raccoglie rilascio canary, interruttori, registro, budget e risposta agli incidenti [WP5 pp.6, 16, 22].",
+    "en": "Blueprint section 8, governance and production, gathers canary release, switches, log, budget and incident response [WP5 pp.6, 16, 22]."
+   }
+  }
+ }
+]

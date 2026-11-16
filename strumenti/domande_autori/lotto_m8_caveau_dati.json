@@ -1,0 +1,526 @@
+[
+ {
+  "id": "DA8.4-4",
+  "origine": "autori",
+  "pillola": "P8.4",
+  "concetti": [
+   "C75"
+  ],
+  "concetto_principale": "C75",
+  "segmento_aiuto": "accessi",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Per far partire più in fretta le email di follow-up, un collega incolla la chiave del servizio email nelle istruzioni dell'agente. Dove dovrebbe stare la chiave?",
+    "en": "To get follow-up emails going faster, a colleague pastes the email service key into the agent's instructions. Where should the key be?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "In un servizio dei segreti",
+      "en": "In a secrets service"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Il segreto sta in un servizio dedicato e arriva all'agente solo durante l'esecuzione.",
+      "en": "The secret lives in a dedicated service and reaches the agent only while it runs."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "In un file sul server",
+      "en": "In a file on the server"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Meglio delle istruzioni, ma resta scritta in chiaro e non scade.",
+      "en": "Better than the instructions, but it stays in plain text and never expires."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Nelle istruzioni, ma cifrata",
+      "en": "In the instructions, but encrypted"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Per usarla il modello deve leggerla: finisce comunque nel contesto e nei log.",
+      "en": "To use it the model must read it: it still ends up in the context and the logs."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "In un foglio condiviso",
+      "en": "In a shared sheet"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Chiunque lo apra vede e copia la chiave.",
+      "en": "Anyone who opens it sees and copies the key."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Nel testo delle email",
+      "en": "In the text of the emails"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Uscirebbe verso i clienti a ogni invio.",
+      "en": "It would go out to customers with every send."
+     }
+    },
+    {
+     "id": "F",
+     "testo": {
+      "it": "Nelle istruzioni va bene",
+      "en": "In the instructions is fine"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Il segreto finisce nel testo letto dal modello e nei log.",
+      "en": "The secret ends up in the text read by the model and in the logs."
+     }
+    },
+    {
+     "id": "G",
+     "testo": {
+      "it": "Nella scheda di ogni lead",
+      "en": "In each lead's record"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Moltiplica le copie del segreto nel CRM.",
+      "en": "It multiplies copies of the secret in the CRM."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Il segreto si tiene in un servizio dedicato e si dà all'agente al momento dell'esecuzione, limitato e di breve durata: mai nelle istruzioni [WP5 p.15; WP2 pp.46-47].",
+    "en": "The secret is kept in a dedicated service and given to the agent when it runs, limited and short-lived: never in the instructions [WP5 p.15; WP2 pp.46-47]."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché il permesso che l'agente riceve dovrebbe durare poco (per esempio 15 minuti)?",
+    "en": "Why should the permission the agent receives be short-lived (for example 15 minutes)?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché se viene rubato o usato male smette presto di funzionare",
+      "en": "Because if it is stolen or misused it soon stops working"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Una durata breve limita il danno di un permesso finito nelle mani sbagliate.",
+      "en": "A short life limits the harm of a permission that falls into the wrong hands."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché con un permesso breve l'agente lavora più velocemente e consuma meno",
+      "en": "Because with a short permission the agent works faster and uses less"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "La durata non cambia la velocità: limita il danno.",
+      "en": "The duration does not change the speed: it limits the harm."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché il fornitore email lo chiede sempre",
+      "en": "Because the email supplier always requires it"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Non è una regola del fornitore: è una scelta di sicurezza.",
+      "en": "It is not a supplier rule: it is a security choice."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Perché il modello dimentica il permesso dopo 15 minuti",
+      "en": "Because the model forgets the permission after 15 minutes"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il modello non c'entra: il permesso scade nel servizio dei segreti.",
+      "en": "The model has nothing to do with it: the permission expires in the secrets service."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Perché un permesso lungo costa di più",
+      "en": "Because a long permission costs more"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Il costo non c'entra con la durata del permesso.",
+      "en": "Cost has nothing to do with the permission's duration."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Credenziali limitate e di breve durata riducono il danno se qualcosa va storto [WP2 pp.46-47; SEC p.12].",
+    "en": "Limited, short-lived credentials reduce the harm if something goes wrong [WP2 pp.46-47; SEC p.12]."
+   }
+  }
+ },
+ {
+  "id": "DA8.4-5",
+  "origine": "autori",
+  "pillola": "P8.4",
+  "concetti": [
+   "C76"
+  ],
+  "concetto_principale": "C76",
+  "segmento_aiuto": "uscita_dove",
+  "striscia": "diagnosi",
+  "livello1": {
+   "domanda": {
+    "it": "Dopo aver letto l'email di un prospect, l'agente inserisce nella firma un'immagine il cui indirizzo contiene email e telefoni dei clienti. Che cosa sta succedendo?",
+    "en": "After reading a prospect's email, the agent adds to the signature an image whose address contains customers' emails and phone numbers. What is happening?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Un'esfiltrazione: l'indirizzo dell'immagine porta fuori i dati",
+      "en": "Exfiltration: the image address carries the data outside"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "È una fuga di dati provocata da un attacco, nascosta in un indirizzo web.",
+      "en": "It is a data leak caused by an attack, hidden in a web address."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Un errore di formattazione della firma, da correggere nel modello delle email",
+      "en": "A signature formatting error, to be fixed in the email template"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Sembra un dettaglio grafico, ma i dati escono: è una fuga provocata.",
+      "en": "It looks like a design detail, but the data leaves: it is a provoked leak."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Un problema di isolamento tra due clienti dell'agenzia",
+      "en": "An isolation problem between two of the agency's customers"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "I dati non passano a un altro cliente: escono verso un attaccante.",
+      "en": "The data does not pass to another customer: it goes out to an attacker."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Un'immagine troppo pesante che rallenta l'invio",
+      "en": "An image too heavy that slows sending"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il peso dell'immagine non c'entra: conta che cosa c'è nel suo indirizzo.",
+      "en": "The image's size does not matter: what matters is what is in its address."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Niente di grave: l'indirizzo di un'immagine non lo legge nessuno",
+      "en": "Nothing serious: nobody reads an image's address"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Chi gestisce quel sito legge l'indirizzo, e con esso i dati.",
+      "en": "Whoever runs that site reads the address, and the data with it."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Un agente manipolato da un'email può nascondere i dati in un indirizzo o in un'immagine: è l'esfiltrazione, e il controllo dell'output la blocca prima che parta [SEC p.10].",
+    "en": "An agent manipulated by an email can hide data in an address or an image: this is exfiltration, and the output check blocks it before it leaves [SEC p.10]."
+   }
+  },
+  "livello2": {
+   "tipo": "diagnosi",
+   "domanda": {
+    "it": "Quale controllo avrebbe fermato la fuga?",
+    "en": "Which check would have stopped the leak?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Un controllo sull'output dell'agente prima dell'invio",
+      "en": "A check on the agent's output before sending"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Il controllo dell'output blocca i dati che l'agente sta per mandare fuori.",
+      "en": "The output check blocks the data the agent is about to send out."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Il mascheramento dei dati personali nei log",
+      "en": "Masking personal data in the logs"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Protegge i log, non ciò che l'agente manda fuori.",
+      "en": "It protects the logs, not what the agent sends out."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "L'isolamento dei dati dei clienti, imposto direttamente nel database",
+      "en": "Isolating customers' data, enforced directly in the database"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Utile, ma qui i dati sono del cliente giusto: è l'uscita da controllare.",
+      "en": "Useful, but here the data belongs to the right customer: it is the output that must be checked."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Un modello più grande",
+      "en": "A bigger model"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Anche un modello grande può essere ingannato da un'email.",
+      "en": "A big model can also be fooled by an email."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Più email di prova inviate ai clienti veri",
+      "en": "More test emails sent to real customers"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Mandare prove ai clienti veri aggiunge rischio, non lo toglie.",
+      "en": "Sending tests to real customers adds risk, it does not remove it."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Contro l'esfiltrazione serve un controllo su ciò che esce dall'agente, perché l'istruzione ostile arriva dentro dati che l'agente legge [SEC p.10; OAI p.26].",
+    "en": "Against exfiltration you need a check on what leaves the agent, because the hostile instruction arrives inside data the agent reads [SEC p.10; OAI p.26]."
+   }
+  }
+ },
+ {
+  "id": "DA8.4-6",
+  "origine": "autori",
+  "pillola": "P8.4",
+  "concetti": [
+   "C76"
+  ],
+  "concetto_principale": "C76",
+  "segmento_aiuto": "mascheramento",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Un tutorial consiglia di conservare per sempre tutte le chat con i lead, con nomi ed email in chiaro, «perché un giorno potrebbero servire». Che cosa va fatto in produzione?",
+    "en": "A tutorial recommends keeping all chats with leads forever, with names and emails in plain text, «because they might be useful one day». What should be done in production?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Mascherare prima di salvare e cancellare le sessioni inattive dopo un tempo fissato",
+      "en": "Mask before saving and delete inactive sessions after a set time"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Mascheramento prima della scrittura e cancellazione automatica (TTL) insieme.",
+      "en": "Masking before writing and automatic deletion (TTL) together."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Mascherare i dati, ma conservare comunque tutte le sessioni senza scadenza",
+      "en": "Mask the data, but still keep all sessions with no expiry"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il mascheramento aiuta, ma conservare tutto per sempre e senza motivo resta sbagliato.",
+      "en": "Masking helps, but keeping everything forever for no reason is still wrong."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Cancellare le sessioni dopo 30 giorni, lasciando nomi ed email in chiaro nel frattempo",
+      "en": "Delete sessions after 30 days, leaving names and emails in plain text meanwhile"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "La scadenza aiuta, ma nel frattempo i dati vanno mascherati prima della scrittura.",
+      "en": "The expiry helps, but meanwhile the data must be masked before writing."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Spostare le sessioni su un disco più grande",
+      "en": "Move the sessions to a bigger disk"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Lo spazio non è il problema: lo sono i dati personali conservati.",
+      "en": "Space is not the problem: the personal data kept is."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Seguire il tutorial: più dati si conservano, meglio lavora l'agente",
+      "en": "Follow the tutorial: the more data you keep, the better the agent works"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Conservare dati personali senza motivo aumenta il danno in caso di fuga.",
+      "en": "Keeping personal data for no reason increases the harm in case of a leak."
+     }
+    }
+   ],
+   "perche": {
+    "it": "I dati personali si mascherano prima di scrivere log e sessioni, e le sessioni inattive si cancellano dopo un tempo stabilito [WP4 p.42; WP3 pp.21, 48].",
+    "en": "Personal data is masked before writing logs and sessions, and inactive sessions are deleted after a set time [WP4 p.42; WP3 pp.21, 48]."
+   }
+  },
+  "livello2": {
+   "tipo": "contro-esempio",
+   "domanda": {
+    "it": "Un cliente chiede di cancellare tutti i suoi dati. Il team cancella le sue chat, ma lascia nel CRM le note ricavate da quelle chat. Che cosa non va?",
+    "en": "A customer asks for all their data to be deleted. The team deletes their chats, but leaves in the CRM the notes drawn from those chats. What is wrong?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Vanno cancellati anche i dati ricavati dalle sue conversazioni",
+      "en": "The data drawn from their conversations must be deleted too"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Se si revoca una fonte, vanno cancellati anche i dati derivati.",
+      "en": "If a source is revoked, the derived data must be deleted too."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Bastava mascherare il suo nome nelle note, lasciando il resto del contenuto",
+      "en": "It was enough to mask their name in the notes, leaving the rest of the content"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Le note restano dati suoi: con la cancellazione vanno tolte anche quelle.",
+      "en": "The notes are still their data: with deletion they must go too."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Bisognava chiedergli prima il motivo della richiesta",
+      "en": "They should have asked the reason for the request first"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "La richiesta di cancellazione va eseguita, non discussa.",
+      "en": "A deletion request must be carried out, not debated."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Andava cancellato l'intero CRM",
+      "en": "The whole CRM should have been deleted"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Si cancellano i dati di quella persona, non quelli di tutti.",
+      "en": "You delete that person's data, not everyone's."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Niente: le note del CRM non sono dati personali",
+      "en": "Nothing: CRM notes are not personal data"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Note su una persona riconoscibile sono dati personali.",
+      "en": "Notes about an identifiable person are personal data."
+     }
+    }
+   ],
+   "perche": {
+    "it": "L'utente deve poter chiedere la cancellazione di tutti i suoi dati, e revocando una fonte si cancellano anche i dati derivati [WP3 pp.51, 69].",
+    "en": "Users must be able to ask for all their data to be deleted, and revoking a source also deletes the derived data [WP3 pp.51, 69]."
+   }
+  }
+ }
+]

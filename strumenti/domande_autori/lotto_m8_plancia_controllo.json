@@ -1,0 +1,500 @@
+[
+ {
+  "id": "DA8.3-4",
+  "origine": "autori",
+  "pillola": "P8.3",
+  "concetti": [
+   "C73"
+  ],
+  "concetto_principale": "C73",
+  "segmento_aiuto": "fail_closed",
+  "striscia": "diagnosi",
+  "livello1": {
+   "domanda": {
+    "it": "Durante un guasto, il servizio che dice se gli interruttori dell'agente sono accesi non risponde. L'agente procede comunque e invia 300 email a un cliente che il manager aveva appena fermato. Che cosa non ha funzionato?",
+    "en": "During an outage, the service that says whether the agent's switches are on does not answer. The agent carries on anyway and sends 300 emails to a customer the manager had just stopped. What went wrong?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Era fail-open: senza risposta dal controllo, l'azione è passata",
+      "en": "It was fail-open: with no answer from the check, the action went through"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Con fail-open, se il controllo non risponde tutto passa, anche ciò che era stato fermato.",
+      "en": "With fail-open, if the check does not answer everything passes, even what had been stopped."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "L'agente controllava l'interruttore solo all'avvio della campagna",
+      "en": "The agent checked the switch only when the campaign started"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Sarebbe un altro difetto: qui l'agente ha provato a controllare, ma il servizio non rispondeva.",
+      "en": "That would be a different fault: here the agent tried to check, but the service did not answer."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Mancava un interruttore per il singolo cliente: serviva quello globale",
+      "en": "There was no switch for the single customer: the global one was needed"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "L'interruttore del cliente c'era ed era premuto: il problema è che nessuno poteva leggerlo.",
+      "en": "The customer's switch existed and was pressed: the problem is that nobody could read it."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Il modello ha scritto email troppo lunghe e il servizio si è bloccato",
+      "en": "The model wrote emails that were too long and the service froze"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "La lunghezza delle email non c'entra con la regola da seguire quando il controllo non risponde.",
+      "en": "Email length has nothing to do with the rule to follow when the check does not answer."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Niente: se il controllo non risponde, proseguire evita di perdere vendite",
+      "en": "Nothing: if the check does not answer, carrying on avoids losing sales"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Proseguire significa ignorare un arresto: è proprio il danno da evitare.",
+      "en": "Carrying on means ignoring a stop: that is exactly the harm to avoid."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Con fail-closed, se il controllo non risponde le azioni con effetti si negano; fail-open le lascia passare, anche contro un arresto (regola del progetto di riferimento [R15]).",
+    "en": "With fail-closed, if the check does not answer, actions with effects are denied; fail-open lets them through, even against a stop (rule of the reference project [R15])."
+   }
+  },
+  "livello2": {
+   "tipo": "diagnosi",
+   "domanda": {
+    "it": "Quale regola avrebbe evitato le 300 email?",
+    "en": "Which rule would have prevented the 300 emails?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Fail-closed: senza risposta dal controllo, niente azioni con effetti",
+      "en": "Fail-closed: with no answer from the check, no actions with effects"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Le azioni con effetti restano negate finché il controllo non torna a rispondere.",
+      "en": "Actions with effects stay denied until the check answers again."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Rilanciare la richiesta al servizio finché risponde, e intanto inviare",
+      "en": "Keep retrying the service until it answers, and send in the meantime"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Ritentare va bene, ma nel frattempo l'azione deve restare negata.",
+      "en": "Retrying is fine, but meanwhile the action must stay denied."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Inviare le email a lotti più piccoli",
+      "en": "Send the emails in smaller batches"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Lotti più piccoli riducono il danno, ma non rispettano l'arresto.",
+      "en": "Smaller batches reduce the harm, but they do not respect the stop."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Usare un modello più potente per decidere se inviare",
+      "en": "Use a more powerful model to decide whether to send"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Non è il modello a dover decidere: la regola sta fuori dal modello.",
+      "en": "It is not for the model to decide: the rule sits outside the model."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Spegnere il registro delle decisioni durante il guasto",
+      "en": "Turn off the decision log during the outage"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Il registro serve proprio a ricostruire che cosa è successo.",
+      "en": "The log is exactly what helps rebuild what happened."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Fail-closed nega le azioni con effetti quando il controllo non risponde: l'arresto del manager resta valido anche durante il guasto.",
+    "en": "Fail-closed denies actions with effects when the check does not answer: the manager's stop stays valid during the outage too."
+   }
+  }
+ },
+ {
+  "id": "DA8.3-5",
+  "origine": "autori",
+  "pillola": "P8.3",
+  "concetti": [
+   "C73"
+  ],
+  "concetto_principale": "C73",
+  "segmento_aiuto": "livelli",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Un prospect di un solo cliente manda email con istruzioni nascoste che provano a far inviare l'elenco dei contatti all'esterno. Intanto gli agenti qualificano lead e rispondono in chat per tutti i clienti. Qual è la prima mossa?",
+    "en": "A prospect of a single customer sends emails with hidden instructions that try to get the contact list sent outside. Meanwhile the agents are qualifying leads and replying in chat for all customers. What is the first move?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Spegnere solo lo strumento invia_email e passare i casi sospetti a una persona",
+      "en": "Turn off only the send_email tool and pass suspicious cases to a person"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Si contiene il danno spegnendo solo lo strumento colpito, e si smistano le richieste sospette.",
+      "en": "You contain the harm by turning off only the affected tool, and triage the suspicious requests."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Arrestare tutto il sistema finché il problema non è risolto",
+      "en": "Stop the whole system until the problem is solved"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Funziona, ma ferma anche il lavoro sicuro: basta spegnere lo strumento colpito.",
+      "en": "It works, but it also stops safe work: turning off the affected tool is enough."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Mettere in pausa il solo agente che scrive le bozze",
+      "en": "Pause only the agent that writes drafts"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "In pausa l'agente finisce la card in corso, che potrebbe essere proprio l'email pericolosa.",
+      "en": "In pause the agent finishes the card in progress, which could be the dangerous email itself."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Scrivere nelle istruzioni dell'agente «non obbedire mai alle email dei prospect»",
+      "en": "Write in the agent's instructions «never obey prospects' emails»"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Una frase nelle istruzioni non è un blocco affidabile: prima si contiene, poi si corregge passando dalla pipeline.",
+      "en": "A sentence in the instructions is not a reliable block: first you contain, then you fix through the pipeline."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Aspettare il report settimanale per capire quanto è grave",
+      "en": "Wait for the weekly report to see how serious it is"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Nel frattempo i dati uscirebbero: un incidente si contiene subito.",
+      "en": "Meanwhile the data would leave: an incident is contained at once."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Il circuit breaker spegne all'istante solo lo strumento colpito: è il primo tempo (contenere) della risposta a un incidente, poi si smista e si risolve [WP5 p.22].",
+    "en": "The circuit breaker instantly turns off only the affected tool: it is the first step (contain) of incident response, then you triage and resolve [WP5 p.22]."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché spegnere lo strumento e non l'intero sistema?",
+    "en": "Why turn off the tool and not the whole system?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché il circuit breaker spegne solo ciò che è colpito, e il resto continua",
+      "en": "Because the circuit breaker turns off only what is affected, and the rest goes on"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Qualifica e chat non sono coinvolte: possono continuare in sicurezza.",
+      "en": "Qualification and chat are not involved: they can go on safely."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché le fonti vietano di arrestare tutto il sistema durante un incidente di sicurezza",
+      "en": "Because the sources forbid stopping the whole system during a security incident"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Non è vietato: è solo più del necessario.",
+      "en": "It is not forbidden: it is just more than needed."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché così il cliente non si accorge dell'incidente",
+      "en": "Because that way the customer does not notice the incident"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Lo scopo non è nascondere: è limitare il danno senza fermare il lavoro sicuro.",
+      "en": "The aim is not to hide: it is to limit the harm without stopping safe work."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Perché lo strumento costa più degli altri",
+      "en": "Because the tool costs more than the others"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il costo non c'entra con la scelta del livello a cui fermarsi.",
+      "en": "Cost has nothing to do with choosing the level at which to stop."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Perché l'agente che qualifica i lead non va mai controllato",
+      "en": "Because the lead-qualifying agent never needs checking"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Ogni agente va controllato; qui semplicemente non è coinvolto.",
+      "en": "Every agent needs checking; here it is simply not involved."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Si ferma il meno possibile, ma tutto quello che serve: lo strumento colpito si spegne, il lavoro sicuro continua.",
+    "en": "Stop as little as possible, but everything needed: the affected tool goes off, safe work goes on."
+   }
+  }
+ },
+ {
+  "id": "DA8.3-6",
+  "origine": "autori",
+  "pillola": "P8.3",
+  "concetti": [
+   "C74"
+  ],
+  "concetto_principale": "C74",
+  "segmento_aiuto": "registro",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Il registro di un agente CRM salva per ogni azione solo l'esito finale («email inviata»), senza input, strumenti, parametri né versione. Un cliente chiede perché ha ricevuto un'offerta sbagliata. Che cosa manca?",
+    "en": "A CRM agent's log saves only the final outcome for each action («email sent»), with no inputs, tools, parameters or version. A customer asks why they received a wrong offer. What is missing?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Input mascherati, strumenti e parametri, ragionamento e versione usata",
+      "en": "Masked inputs, tools and parameters, reasoning and the version used"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Sono gli elementi che permettono di ricostruire e spiegare la decisione.",
+      "en": "These are the elements that let you rebuild and explain the decision."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Il testo completo dei prompt con nome e telefono del cliente in chiaro",
+      "en": "The full prompts with the customer's name and phone in plain text"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Servono gli input, ma mascherati: i dati personali in chiaro nel registro sono un rischio.",
+      "en": "The inputs are needed, but masked: plain personal data in the log is a risk."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Solo l'ora esatta di ogni invio",
+      "en": "Only the exact time of each send"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "L'ora aiuta, ma non dice perché l'agente ha deciso così.",
+      "en": "The time helps, but it does not say why the agent decided that way."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Un riassunto mensile delle email inviate",
+      "en": "A monthly summary of the emails sent"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Un dato aggregato non spiega la singola decisione.",
+      "en": "An aggregate figure does not explain the single decision."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Niente: l'esito finale basta a spiegare qualunque decisione dell'agente",
+      "en": "Nothing: the final outcome is enough to explain any decision of the agent"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "L'esito dice che cosa è successo, non perché.",
+      "en": "The outcome says what happened, not why."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Il registro delle decisioni salva input (mascherati), strumenti, parametri, risultato, ragionamento, tipo di azione e versione: così si risponde a «perché l'agente ha fatto questo?» [SEC p.13].",
+    "en": "The decision log saves inputs (masked), tools, parameters, result, reasoning, type of action and version: that is how you answer «why did the agent do this?» [SEC p.13]."
+   }
+  },
+  "livello2": {
+   "tipo": "contro-esempio",
+   "domanda": {
+    "it": "Il team decide di registrare tutto, ma lascia il registro leggibile da chiunque in azienda. Che cosa non va?",
+    "en": "The team decides to log everything, but leaves the log readable by anyone in the company. What is wrong?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Il registro va protetto: accesso per ruolo e dati personali mascherati",
+      "en": "The log must be protected: access by role and personal data masked"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Il registro contiene dati sensibili: va protetto come i dati che descrive.",
+      "en": "The log holds sensitive data: it must be protected like the data it describes."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Basta cancellare il registro ogni settimana, così nessuno può leggere i dati vecchi",
+      "en": "Just delete the log every week, so nobody can read the old data"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Cancellarlo toglie la possibilità di spiegare: va protetto, non svuotato.",
+      "en": "Deleting it removes the ability to explain: it must be protected, not emptied."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Il registro deve stare solo nel computer del manager",
+      "en": "The log must sit only on the manager's computer"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Non è un controllo d'accesso per ruolo, e si perde facilmente.",
+      "en": "It is not role-based access control, and it is easily lost."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Il registro va scritto in inglese",
+      "en": "The log must be written in English"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "La lingua non c'entra con la protezione.",
+      "en": "Language has nothing to do with protection."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Niente: più persone lo leggono, più errori si trovano",
+      "en": "Nothing: the more people read it, the more mistakes are found"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Il registro contiene dati sensibili: l'accesso va limitato.",
+      "en": "The log holds sensitive data: access must be limited."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Il registro va protetto: dati personali mascherati [SEC p.13; WP4 p.42] e accesso per ruolo, separato per cliente (schema del progetto di riferimento [R15]).",
+    "en": "The log must be protected: personal data masked [SEC p.13; WP4 p.42] and access by role, separate per customer (scheme of the reference project [R15])."
+   }
+  }
+ }
+]
