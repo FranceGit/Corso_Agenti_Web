@@ -31,7 +31,7 @@
    "It acts: it calls a tool.",
    "It observes the result, even an error, and updates its state.",
    "It repeats until the goal is reached or a stop condition kicks in (maximum number of steps, budget, request for human intervention).",
-   "An industry reference guide [G1] breaks the loop into five phases (\"five fundamental steps\"): \"Get the Mission\", \"Scan the Scene\", \"Think It Through\" (reason and plan), \"Take Action\", \"Observe and Iterate\". The loop \"repeats, returning to Step 3\": it goes back to reasoning, not to the mission. Stop conditions are not in [G1]: they come from OpenAI (a final tool, an output in the expected format, an error, a maximum number of turns) and from an industry operations guide (maximum number of steps); a budget as a limit is [EXP]."
+   "An industry reference guide [G1] breaks the loop into five phases (\"five fundamental steps\"): \"Get the Mission\", \"Scan the Scene\", \"Think It Through\" (reason and plan), \"Take Action\", \"Observe and Iterate\". The loop \"repeats, returning to Step 3\": it goes back to reasoning, not to the mission. The most common stop conditions are a final tool, an output in the expected format, an error and a maximum number of turns [OAI] or steps [OPS]; a spending budget can also act as a limit [EXP]."
   ],
   "animazione": "- What you see:\n- A circle with four stations: Reason, Act, Observe, Update state. A light indicator travels round the circle.\n- Beside it, a \"state\" panel fills up with lines at each round: \"12 leads found\", \"3 without email\", \"drafts created: 9\".\n- Interaction:\n- The \"break the tool\" button makes the CRM icon return an error (\"contact not found\"). The indicator shows the reaction: a new attempt with different parameters, or a detour to \"ask a human\".\n- The \"maximum number of steps\" slider (from 3 to 20) shows that with a low limit the agent stops before finishing, and with no limit a repeated error creates an endless loop (the cost counter climbs).\n- Why it helps: it shows that observation is what makes the agent adaptive and that the limit is a protection, not a flaw."
  },
@@ -187,7 +187,7 @@
    "Task-oriented granularity: \"find this week's hot leads\" is better than ten raw API calls in a row.",
    "Short outputs and informative errors (\"email field missing for contact 123\", not \"error 500\").",
    "Keep reading tools separate from writing tools. Make writes idempotent (repeating the same request does not double the effect: no duplicate emails).",
-   "One of the course's reference notebooks covers tool best practices: compare with the downloaded text."
+   "To go further: in the notebook [NB2a] every tool returns a status («success» or «error») and, when it fails, a message that explains the error; try rereading its tools with the rules of this pill."
   ],
   "animazione": "- What you see: two \"tool cards\" side by side.\n- The first is called `api_call`, has a vague description and 9 parameters.\n- The second is called `find_hot_leads`, has a clear description and 2 parameters.\n- Below, a gauge \"correct choices by the model over 20 tasks\" fills up differently for the two cards (illustrative values).\n- Interaction:\n- The student chooses between 3 error messages and sees how the agent reacts: with \"error 500\" it retries pointlessly; with \"email missing for contact 123\" it moves on to the next contact and reports it.\n- An \"idempotency\" switch shows a double click on \"send\": with idempotency only one email goes out, without it two go out.\n- Why it helps: every good practice matches a visible effect."
  },
@@ -198,7 +198,7 @@
    "MCP is an open protocol that standardises how an AI application discovers and uses outside tools and data. You get N+M connectors instead of N×M.",
    "The roles: host (the AI application), client (a connection managed by the host), server (exposes what a system can do).",
    "An MCP server can expose tools (actions), resources (data to read) and prompts (instruction templates).",
-   "One of the course's reference guides is devoted to tools and interoperability with MCP. The repo [R10] organises GitHub and Slack tools in an MCP registry.",
+   "To go further: the guide [G2] is devoted to tools and interoperability with MCP. The repo [R10] organises GitHub and Slack tools in an MCP registry.",
    "Limits: the standard does not make a server reliable. Quality, permissions and security must always be assessed."
   ],
   "animazione": "- What you see:\n- On the left 3 AI applications, on the right 4 systems. At first 12 different cables, coloured and tangled, connect them. A counter reads \"12 integrations\".\n- Pressing \"introduce the standard\", the cables pull back. Each application gets an identical socket (client); each system gets an identical adapter (server). The connections rearrange neatly and the counter drops to \"7 components\".\n- Interaction:\n- The student adds a fifth system and sees that a single new server is enough.\n- Clicking on a server opens its \"catalogue\": tools, resources, prompts (CRM examples: `find_contact`, `company_profile`, `followup_email_template`).\n- Why it helps: the N×M → N+M argument becomes obvious in a few seconds."
@@ -233,7 +233,7 @@
    "Context engineering means selecting, summarizing and injecting these parts (the words of the source): \"the right information, at the right time\", no more and no less than what is needed.",
    "Too little context leads to errors from missing information. Too much context leads to noise, costs and diluted attention.",
    "The main techniques: summaries, targeted retrieval (RAG, see P5.4), selective memory, removal of results that are no longer useful.",
-   "One of the course's reference guides is devoted to context engineering, sessions and memory."
+   "To go further: the guide [G3] is devoted to context engineering, sessions and memory."
   ],
   "animazione": "- What you see: a suitcase with a fixed capacity (the context window). Around it, draggable objects of different sizes: instructions, 20 tools, a history of 50 messages, customer record, 3 product documents, memories, current question. A \"answer quality\" indicator goes up and down depending on the objects put in.\n- Interaction: the student packs the suitcase for the task \"answer customer X's question about the price\".\n- If the customer record or the price list is missing, quality goes down.\n- If all 50 messages and all the documents are crammed in, the suitcase bulges, the objects at the bottom turn faint and quality goes down anyway.\n- A \"summarise the history\" button turns the 50 messages into a small capsule.\n- Why it helps: the \"happy medium\" becomes an experience you can handle."
  },
@@ -245,7 +245,7 @@
    "The model does not remember between one call and the next: it is the orchestration that sends back the needed part of the session each time.",
    "Long sessions must be compacted: summaries of the old turns, keeping state and decisions intact.",
    "When the session ends, whatever is not saved elsewhere (memory) is lost.",
-   "One of the course's reference notebooks is devoted to sessions."
+   "To go further: the notebook [NB3a] builds an agent with sessions."
   ],
   "animazione": "- What you see: a growing vertical timeline of messages and tool calls. On the side, a fixed \"state\" panel with 4 variables (lead_id, stage, pending_drafts, last_error).\n- Interaction:\n- When the timeline passes a threshold (dashed line), the oldest messages roll up into a \"summary capsule\". The state stays intact.\n- The \"close session\" button makes the timeline and the state vanish. Only one or two cards dragged into the \"memory container\" survive (bridge to P5.3).\n- A \"summary too aggressive\" switch makes an important decision get lost (\"the customer asked not to be called on Mondays\"), which you see disappear.\n- Why it helps: it clarifies the difference between history, state and memory, and the risk of compaction."
  },
@@ -256,7 +256,7 @@
    "The memory cycle:\n- extraction (what is worth remembering);\n- consolidation (merging duplicates, resolving conflicts, updating outdated facts);\n- retrieval (bringing only the relevant memories into the context).",
    "The types of memory: declarative (facts and preferences) and procedural (how to carry out a task, e.g. the approved procedure for quotes).",
    "Memory is not the full log: it is a curated selection.",
-   "One of the course's reference notebooks is devoted to memory."
+   "To go further: the notebook [NB3b] adds long-term memory."
   ],
   "animazione": "- What you see: a session conversation flows into a funnel (extraction). From the bottom come out 3 dated memory cards. The cards end up in an archive.\n- Interaction:\n- A new session produces a conflicting card (\"now prefers the phone\"). The animation shows consolidation: the old card is marked \"outdated\" with a date, the new one becomes active.\n- In a third session on another topic (contract renewal), a retrieval lens lights up only the relevant cards, which enter the context. The others stay in the archive.\n- A \"without consolidation\" switch shows two contradictory cards retrieved together, and the agent picks the wrong channel.\n- Why it helps: the extract-consolidate-retrieve cycle becomes a physical process you can watch."
  },
@@ -301,7 +301,7 @@
    "Parallel: several agents work at the same time on independent parts (e.g. enriching from 3 sources at once) and then the results are merged.",
    "Generator-reviewer loop: one agent produces, another evaluates and asks for corrections until a quality criterion or a limit is reached.",
    "Supervisor (or router): a coordinating agent hands out the tasks to the specialists and combines the answers.",
-   "One of the course's reference notebooks covers agent architectures. The repo [R15] uses a graph-based workflow orchestrator. The pattern is chosen based on dependencies, timing and the control required."
+   "To go further: the notebook [NB1b] builds sequential, parallel and loop agents. The repo [R15] uses a graph-based workflow orchestrator. The pattern is chosen based on dependencies, timing and the control required."
   ],
   "animazione": "- What you see: four diagrams side by side, each one travelled by a glowing \"token\".\n- Sequential: the token goes from A to B to C.\n- Parallel: the token splits in two and then joins up again.\n- Loop: the token bounces between generator and reviewer, with a round counter.\n- Supervisor: a central node sends tokens out like spokes.\n- Under each diagram, two counters: total time and calls to the model.\n- Interaction: the student picks a scenario (\"write an email and have it checked for tone and compliance\", \"enrich from 3 independent sources\", \"sort mixed requests\") and drags it onto the diagram they think is right. The token sets off and the counters confirm or disprove the choice.\n- Why it helps: you learn each pattern by linking it to a recognisable shape and movement."
  },
@@ -311,7 +311,7 @@
    "Shared state: the agents read and write in a common space (the repo [R13] uses a shared store). It is simple, but it carries a risk of conflicts.",
    "Messages/events: one agent publishes an event (\"lead qualified\") and whoever is interested reacts. The repo [R13] uses message queues and pub/sub; the repo [R15] an event stream. The agents stay decoupled and the trace is complete.",
    "Direct call: one agent calls another as if it were a tool.",
-   "A2A (Agent-to-Agent): a protocol that lets agents work together even across different systems or vendors. Each agent introduces itself with a \"card\" (agent card) that describes its capabilities and endpoint. It is covered in one of the course's reference notebooks.",
+   "A2A (Agent-to-Agent): a protocol that lets agents work together even across different systems or vendors. Each agent introduces itself with a \"card\" (agent card) that describes its capabilities and endpoint. To go further: the notebook [NB5a].",
    "Key difference: MCP connects an agent to tools and data; A2A connects agents to other agents."
   ],
   "animazione": "- What you see:\n- Lower level: each agent has vertical cables to its tools, labelled MCP.\n- Upper level: horizontal arrows between agents, labelled A2A. Clicking an agent opens its card: name, capabilities, accepted inputs, how to contact it.\n- Second scene: three animated modes.\n- Shared whiteboard: two agents write on the same field at the same time and a conflict appears.\n- Event board: an event is published and two agents pick it up, while a timeline records everything.\n- Direct phone call.\n- Interaction: the student \"switches off\" an agent. With events, the messages stay in the queue and are processed when it comes back on. With the direct call, the caller gets an error.\n- Why it helps: it visually separates the two levels (tools versus agents) and shows the properties of each mode."
@@ -334,7 +334,7 @@
    "There is often more than one correct answer: you cannot just compare against one exact string.",
    "You evaluate the result (was the goal reached?) and the trajectory (right tools? pointless steps? risky actions?).",
    "The quality dimensions are: effectiveness, efficiency (steps, cost, time), robustness (hard cases), safety (respecting the limits).",
-   "One of the course's reference guides is devoted to agent quality."
+   "To go further: the guide [G4] is devoted to agent quality."
   ],
   "animazione": "- What you see: the same task (\"find the hot leads and prepare the drafts\") is run 5 times. 5 paths appear on a map of nodes (tools).\n- 3 paths reach the finish line: one direct, one with a pointless detour, one passing through a \"risky\" tool (highlighted).\n- 1 path stops halfway.\n- 1 path reaches the wrong finish line.\n- Interaction:\n- The \"evaluate the result only\" switch turns 3 paths green.\n- The \"evaluate the trajectory too\" switch leaves only the direct one green and marks the other two with different warnings (inefficient, risky).\n- Why it helps: it shows that a right result can hide an unacceptable process."
  },
@@ -346,7 +346,7 @@
    "Metrics: values added up over time (latency, errors, tool calls, approvals requested). The repo [R15] lists metrics of this kind for each agent.",
    "The shared identifier (P6.4) ties together the logs and traces of a single request.",
    "Privacy: raw prompts with personal data or secrets do not belong in logs. Redaction and pointers are used (a principle stated in [R15]).",
-   "One of the course's reference notebooks is devoted to observability."
+   "To go further: the notebook [NB4a] follows an agent with logs and traces."
   ],
   "animazione": "- What you see: a \"waterfall\" diagram of a lead's trace.\n- The horizontal bars are nested: request → model call → CRM tool → model call → email tool.\n- Each bar's length is proportional to the time.\n- One bar is red: the email tool returned an error.\n- Interaction:\n- Clicking a bar opens the details: redacted input, output, duration.\n- A selector switches from the \"one trace\" view to the \"metrics\" view: aggregated charts over 1,000 requests (errors per hour, median latency). You notice a spike of errors at the same time of day, and a click takes you back to the traces of that spike.\n- Why it helps: it shows the move from \"what happened in this case\" to \"what happens in general\", and back."
  },
@@ -355,9 +355,9 @@
   "scaletta": [
    "An evaluation set (golden set) is a collection of cases with the expected result or the acceptance criteria.",
    "It must contain typical cases, edge cases (missing data, different languages, ambiguous replies) and adversarial cases (prompt injection, out-of-scope requests).",
-   "You start with a core of well-chosen cases (roughly 20-50: an order of magnitude from experience, the sources give no number [EXP]) and grow by adding every real error found in production.",
+   "You start with a core of well-chosen cases (roughly 20-50, an order of magnitude based on experience [EXP]) and grow by adding every real error found in production.",
    "Regression: before changing instructions, model, model settings (e.g. temperature), tools or data, you rerun the set and compare with the previous version.",
-   "One of the course's reference notebooks is devoted to evaluation."
+   "To go further: the notebook [NB4b] evaluates an agent on a set of cases."
   ],
   "animazione": "- What you see: a grid of 40 boxes (test cases), grouped by type: typical, edge, adversarial. All green with version 1 of the instructions.\n- Interaction:\n- The student applies a change (\"make the emails shorter\") and presses \"rerun\". 37 boxes stay green; 3 turn red, all in the \"edge\" group (e.g. the lead with no name now gets \"Dear ,\"). The red boxes pulse with the label \"regression\".\n- The \"add case from production\" button turns a real error (orange card) into a new permanent box.\n- Why it helps: the idea of regression becomes a visible before/after event."
  },
@@ -365,7 +365,7 @@
   "obiettivo": "use an LLM as an evaluator in a controlled way and combine it with human review.",
   "scaletta": [
    "Many outputs (emails, summaries) do not have a single answer. An LLM judge evaluates them with an explicit rubric (relevance, accuracy against the data, tone, compliance).",
-   "Biases of LLM judges ([EXP] own expertise: the course sources do not list them; only position bias is referenced, through a study cited in an industry guide):\n- preference for longer answers;\n- influence of the order of presentation (position bias);\n- possible preference for texts similar to their own.",
+   "The best-known biases of LLM judges [EXP] (position bias is also documented by studies [WP4]):\n- preference for longer answers;\n- influence of the order of presentation (position bias);\n- possible preference for texts similar to their own.",
    "The mitigations:\n- checkable criteria;\n- double evaluation with the order reversed ([EXP]);\n- calibration on a sample judged by people.",
    "Human review is done on a sample and on flagged cases. It provides a reference calibrated on human judgement (not an objective truth: even experts do not always agree) for calibrating the judge.",
    "The judge is a measuring instrument: it must be validated like any other instrument."
@@ -391,7 +391,7 @@
    "Versioning of instructions, the model and its settings/parameters (e.g. temperature), tools, configurations and data (documents, examples, evaluation sets). Every result must be traceable to a version.",
    "Gradual release (canary: you start with 1% of users and scale up step by step), monitoring, quick return to the previous version (rollback).",
    "Reliability: handling errors and timeouts, rate limits of outside services, queues.",
-   "One of the course's reference guides is devoted to the move from prototype to production."
+   "To go further: the guide [G5] is devoted to the move from prototype to production."
   ],
   "animazione": "- What you see: the flow of requests is a river of dots running towards version 1 of the agent. The \"release v2\" button diverts 1% of the dots to v2. Two charts side by side (success rate of v1 and v2) update in real time.\n- Interaction:\n- The student chooses between two scenarios.\n- In the first, v2 is better and the traffic rises to 5%, 25%, 50%, 100%.\n- In the second, v2 has a defect: its chart falls below the threshold, the automatic rollback kicks in and all the dots go back to v1. A label shows which version of instructions and model caused the drop.\n- Why it helps: it makes a controlled-risk release and the value of versioning concrete."
  },
@@ -401,7 +401,7 @@
    "Every action of the agent is described in a structured \"package\": agent, type of action, resource, risk level, confidence, evidence. This is the approach documented in [R15].",
    "Risk levels (scheme from [R15]):\n- LOW: automatic execution with logging;\n- MEDIUM: automatic execution with policy rules;\n- HIGH: blocked until a human approves.",
    "The risk depends on the type of action, the sensitivity of the resource (deletions, personal data, money thresholds) and low confidence, which raises the level.",
-   "Fail-closed (according to the R15 repo, not checked in depth: no verified source of the course names it, [EXP]): if the service that decides the permissions does not answer, the action is denied, not allowed.",
+   "Fail-closed (a pattern from the [R15] repo, not yet common in industry guides [EXP]): if the service that decides the permissions does not answer, the action is denied, not allowed.",
    "The approval has an expiry and is recorded."
   ],
   "animazione": "- What you see: action packages (cards with labels: \"update note\", \"send email to 500 contacts\", \"apply 30% discount\", \"delete contact\") move along a conveyor belt towards a sorter with three exits.\n- Green exit: execute.\n- Yellow exit: execute with a policy check.\n- Red exit: approval queue, where a neutral stick figure with a stamp approves or rejects.\n- Interaction:\n- The \"confidence\" slider of a package: lowering it, the \"update note\" package moves from green to yellow.\n- The \"authorisation service unavailable\" switch: in fail-closed mode all the packages stop (padlock). In a \"fail-open\" mode, shown for comparison, the \"delete contact\" action goes through unchecked, with an alarm.\n- Why it helps: it shows that supervision is a graded, automatic mechanism, not a manual check of everything."
@@ -409,7 +409,7 @@
  "P8.3": {
   "obiettivo": "know the emergency stop mechanisms, the recording of decisions and how to explain them.",
   "scaletta": [
-   "Kill switch at several levels: single agent, single customer or tenant, global. The states are: running, paused (finishes what it is doing), stopped (no new effects). Scheme from the R15 repo (not checked in depth): no verified source uses the term \"kill switch\"; the documented equivalent is the switch that instantly turns off a single tool (circuit breaker) [G5].",
+   "Kill switch at several levels: single agent, single customer or tenant, global. The states are: running, paused (finishes what it is doing), stopped (no new effects). The levels come from the [R15] repo; in industry guides the equivalent is the switch that instantly turns off a single tool (circuit breaker) [G5].",
    "The agent checks the state before every action that has effects, not only at start-up.",
    "Decision log (audit trail). For each decision you save: redacted inputs, decision factors, confidence, evidence (references, not secrets), tools called, outcome.",
    "Explainability: the log makes it possible to answer \"why did the agent do this?\" for a customer, an auditor or an authority.",

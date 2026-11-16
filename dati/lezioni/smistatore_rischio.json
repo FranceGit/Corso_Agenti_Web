@@ -9,7 +9,7 @@
    "id": "fattori",
    "titolo": {"it": "Quattro manopole per il rischio", "en": "Four knobs for risk"},
    "narrazione": [
-    {"it": "Ogni azione dell'agente porta un rischio. OpenAI propone di dare a ogni strumento un livello, basso, medio o alto, guardando quattro fattori:", "en": "Every action of the agent carries a risk. OpenAI suggests giving each tool a level, low, medium or high, by looking at four factors:"},
+    {"it": "Ogni azione dell'agente porta un rischio. Una prassi diffusa è dare a ogni strumento un livello, basso, medio o alto, guardando quattro fattori [OAI]:", "en": "Every action of the agent carries a risk. A common practice is to give each tool a level, low, medium or high, by looking at four factors [OAI]:"},
     {"it": "• legge o scrive?", "en": "• does it read or write?"},
     {"it": "• si può annullare?", "en": "• can it be undone?"},
     {"it": "• quali permessi chiede?", "en": "• what permissions does it need?"},
@@ -39,7 +39,7 @@
    "id": "persona",
    "titolo": {"it": "Quando entra in gioco una persona", "en": "When a person steps in"},
    "narrazione": [
-    {"it": "OpenAI indica due momenti per chiamare una persona: l'agente fallisce troppe volte, per esempio non capisce il cliente dopo tre tentativi (numero d'esempio), oppure l'azione è delicata o irreversibile.", "en": "OpenAI names two moments to call a person: the agent fails too many times, for example it does not understand the customer after three attempts (an example number), or the action is sensitive or irreversible."},
+    {"it": "I momenti per chiamare una persona sono due [OAI]: l'agente fallisce troppe volte, per esempio non capisce il cliente dopo tre tentativi (numero d'esempio), oppure l'azione è delicata o irreversibile.", "en": "There are two moments to call a person [OAI]: the agent fails too many times, for example it does not understand the customer after three attempts (an example number), or the action is sensitive or irreversible."},
     {"it": "Durante l'attesa l'azione è in pausa e si salva una fotografia: messaggi, strumento, parametri. Quando il manager approva, l'agente riprende dallo stesso punto, grazie allo stesso identificativo dell'esecuzione.", "en": "While waiting, the action is paused and a snapshot is saved: messages, tool, parameters. When the manager approves, the agent resumes from the same point, thanks to the same run identifier."}
    ],
    "prova": {"it": "Approva lo sconto, poi accendi «Perdi l'identificativo»; infine porta i tentativi falliti a 3.", "en": "Approve the discount, then switch on «Lose the identifier»; finally take the failed attempts to 3."},

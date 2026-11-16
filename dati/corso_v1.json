@@ -3327,8 +3327,8 @@
        "en": "It repeats until the goal is reached or a stop condition kicks in (maximum number of steps, budget, request for human intervention)."
       },
       {
-       "it": "Una guida di riferimento del settore [G1] scompone il ciclo in cinque fasi (\"five fundamental steps\"): \"Get the Mission\" (ricevere la missione), \"Scan the Scene\" (esplorare la scena), \"Think It Through\" (ragionare e pianificare), \"Take Action\" (agire), \"Observe and Iterate\" (osservare e ripetere). Il giro \"repeats, returning to Step 3\": si torna al ragionamento, non alla missione. Le condizioni di arresto non sono in [G1]: vengono da OpenAI (strumento finale, output nel formato atteso, errore, numero massimo di turni) e da una guida operativa di settore (massimo di passi); il budget come limite è [EXP].",
-       "en": "An industry reference guide [G1] breaks the loop into five phases (\"five fundamental steps\"): \"Get the Mission\", \"Scan the Scene\", \"Think It Through\" (reason and plan), \"Take Action\", \"Observe and Iterate\". The loop \"repeats, returning to Step 3\": it goes back to reasoning, not to the mission. Stop conditions are not in [G1]: they come from OpenAI (a final tool, an output in the expected format, an error, a maximum number of turns) and from an industry operations guide (maximum number of steps); a budget as a limit is [EXP]."
+       "it": "Una guida di riferimento del settore [G1] scompone il ciclo in cinque fasi (\"five fundamental steps\"): \"Get the Mission\" (ricevere la missione), \"Scan the Scene\" (esplorare la scena), \"Think It Through\" (ragionare e pianificare), \"Take Action\" (agire), \"Observe and Iterate\" (osservare e ripetere). Il giro \"repeats, returning to Step 3\": si torna al ragionamento, non alla missione. Le condizioni di arresto più usate sono uno strumento finale, un output nel formato atteso, un errore e un numero massimo di turni [OAI] o di passi [OPS]; anche un budget di spesa può fare da limite [EXP].",
+       "en": "An industry reference guide [G1] breaks the loop into five phases (\"five fundamental steps\"): \"Get the Mission\", \"Scan the Scene\", \"Think It Through\" (reason and plan), \"Take Action\", \"Observe and Iterate\". The loop \"repeats, returning to Step 3\": it goes back to reasoning, not to the mission. The most common stop conditions are a final tool, an output in the expected format, an error and a maximum number of turns [OAI] or steps [OPS]; a spending budget can also act as a limit [EXP]."
       }
      ],
      "animazione": {
@@ -18542,8 +18542,8 @@
        "en": "Keep reading tools separate from writing tools. Make writes idempotent (repeating the same request does not double the effect: no duplicate emails)."
       },
       {
-       "it": "Uno dei notebook di riferimento del corso tratta le best practice degli strumenti: confrontare con il testo scaricato.",
-       "en": "One of the course's reference notebooks covers tool best practices: compare with the downloaded text."
+       "it": "Per approfondire: nel notebook [NB2a] ogni strumento restituisce uno stato («success» o «error») e, se fallisce, un messaggio che spiega l'errore; prova a rileggere i suoi strumenti con le regole di questa pillola.",
+       "en": "To go further: in the notebook [NB2a] every tool returns a status («success» or «error») and, when it fails, a message that explains the error; try rereading its tools with the rules of this pill."
       }
      ],
      "animazione": {
@@ -19845,8 +19845,8 @@
        "en": "An MCP server can expose tools (actions), resources (data to read) and prompts (instruction templates)."
       },
       {
-       "it": "Una delle guide di riferimento del corso è dedicata a strumenti e interoperabilità con MCP. Il repo [R10] organizza strumenti GitHub e Slack in un registro MCP.",
-       "en": "One of the course's reference guides is devoted to tools and interoperability with MCP. The repo [R10] organises GitHub and Slack tools in an MCP registry."
+       "it": "Per approfondire: la guida [G2] è dedicata a strumenti e interoperabilità con MCP. Il repo [R10] organizza strumenti GitHub e Slack in un registro MCP.",
+       "en": "To go further: the guide [G2] is devoted to tools and interoperability with MCP. The repo [R10] organises GitHub and Slack tools in an MCP registry."
       },
       {
        "it": "Limiti: lo standard non rende un server affidabile. Qualità, permessi e sicurezza vanno sempre valutati.",
@@ -23716,8 +23716,8 @@
        "en": "The main techniques: summaries, targeted retrieval (RAG, see P5.4), selective memory, removal of results that are no longer useful."
       },
       {
-       "it": "Una delle guide di riferimento del corso è dedicata a context engineering, sessioni e memoria.",
-       "en": "One of the course's reference guides is devoted to context engineering, sessions and memory."
+       "it": "Per approfondire: la guida [G3] è dedicata a context engineering, sessioni e memoria.",
+       "en": "To go further: the guide [G3] is devoted to context engineering, sessions and memory."
       }
      ],
      "animazione": {
@@ -24583,8 +24583,8 @@
        "en": "When the session ends, whatever is not saved elsewhere (memory) is lost."
       },
       {
-       "it": "Uno dei notebook di riferimento del corso è dedicato alle sessioni.",
-       "en": "One of the course's reference notebooks is devoted to sessions."
+       "it": "Per approfondire: il notebook [NB3a] costruisce un agente con le sessioni.",
+       "en": "To go further: the notebook [NB3a] builds an agent with sessions."
       }
      ],
      "animazione": {
@@ -25902,8 +25902,8 @@
        "en": "Memory is not the full log: it is a curated selection."
       },
       {
-       "it": "Uno dei notebook di riferimento del corso è dedicato alla memoria.",
-       "en": "One of the course's reference notebooks is devoted to memory."
+       "it": "Per approfondire: il notebook [NB3b] aggiunge la memoria a lungo termine.",
+       "en": "To go further: the notebook [NB3b] adds long-term memory."
       }
      ],
      "animazione": {
@@ -30690,8 +30690,8 @@
        "en": "Supervisor (or router): a coordinating agent hands out the tasks to the specialists and combines the answers."
       },
       {
-       "it": "Uno dei notebook di riferimento del corso tratta le architetture di agenti. Il repo [R15] usa un orchestratore di workflow a grafo. Lo schema si sceglie in base a dipendenze, tempi e controllo richiesto.",
-       "en": "One of the course's reference notebooks covers agent architectures. The repo [R15] uses a graph-based workflow orchestrator. The pattern is chosen based on dependencies, timing and the control required."
+       "it": "Per approfondire: il notebook [NB1b] costruisce agenti sequenziali, paralleli e a ciclo. Il repo [R15] usa un orchestratore di workflow a grafo. Lo schema si sceglie in base a dipendenze, tempi e controllo richiesto.",
+       "en": "To go further: the notebook [NB1b] builds sequential, parallel and loop agents. The repo [R15] uses a graph-based workflow orchestrator. The pattern is chosen based on dependencies, timing and the control required."
       }
      ],
      "animazione": {
@@ -32057,8 +32057,8 @@
        "en": "Direct call: one agent calls another as if it were a tool."
       },
       {
-       "it": "A2A (Agent-to-Agent): protocollo per far collaborare agenti anche di sistemi o fornitori diversi. Ogni agente si presenta con una \"scheda\" (agent card) che descrive capacità ed endpoint. È trattato in uno dei notebook di riferimento del corso.",
-       "en": "A2A (Agent-to-Agent): a protocol that lets agents work together even across different systems or vendors. Each agent introduces itself with a \"card\" (agent card) that describes its capabilities and endpoint. It is covered in one of the course's reference notebooks."
+       "it": "A2A (Agent-to-Agent): protocollo per far collaborare agenti anche di sistemi o fornitori diversi. Ogni agente si presenta con una \"scheda\" (agent card) che descrive capacità ed endpoint. Per approfondire: il notebook [NB5a].",
+       "en": "A2A (Agent-to-Agent): a protocol that lets agents work together even across different systems or vendors. Each agent introduces itself with a \"card\" (agent card) that describes its capabilities and endpoint. To go further: the notebook [NB5a]."
       },
       {
        "it": "Differenza chiave: MCP collega un agente a strumenti e dati; A2A collega agenti ad altri agenti.",
@@ -34277,8 +34277,8 @@
        "en": "The quality dimensions are: effectiveness, efficiency (steps, cost, time), robustness (hard cases), safety (respecting the limits)."
       },
       {
-       "it": "Una delle guide di riferimento del corso è dedicata alla qualità degli agenti.",
-       "en": "One of the course's reference guides is devoted to agent quality."
+       "it": "Per approfondire: la guida [G4] è dedicata alla qualità degli agenti.",
+       "en": "To go further: the guide [G4] is devoted to agent quality."
       }
      ],
      "animazione": {
@@ -35630,8 +35630,8 @@
        "en": "Privacy: raw prompts with personal data or secrets do not belong in logs. Redaction and pointers are used (a principle stated in [R15])."
       },
       {
-       "it": "Uno dei notebook di riferimento del corso è dedicato all'osservabilità.",
-       "en": "One of the course's reference notebooks is devoted to observability."
+       "it": "Per approfondire: il notebook [NB4a] segue un agente con log e tracce.",
+       "en": "To go further: the notebook [NB4a] follows an agent with logs and traces."
       }
      ],
      "animazione": {
@@ -36940,16 +36940,16 @@
        "en": "It must contain typical cases, edge cases (missing data, different languages, ambiguous replies) and adversarial cases (prompt injection, out-of-scope requests)."
       },
       {
-       "it": "Si parte da un nucleo di casi ben scelti (indicativamente 20-50: ordine di grandezza da esperienza, le fonti non danno un numero [EXP]) e si cresce aggiungendo ogni errore reale trovato in produzione.",
-       "en": "You start with a core of well-chosen cases (roughly 20-50: an order of magnitude from experience, the sources give no number [EXP]) and grow by adding every real error found in production."
+       "it": "Si parte da un nucleo di casi ben scelti (indicativamente 20-50, un ordine di grandezza dettato dall'esperienza [EXP]) e si cresce aggiungendo ogni errore reale trovato in produzione.",
+       "en": "You start with a core of well-chosen cases (roughly 20-50, an order of magnitude based on experience [EXP]) and grow by adding every real error found in production."
       },
       {
        "it": "Regressione: prima di cambiare istruzioni, modello, settaggi del modello (es. temperatura), strumenti o dati si rilancia il set e si confronta con la versione precedente.",
        "en": "Regression: before changing instructions, model, model settings (e.g. temperature), tools or data, you rerun the set and compare with the previous version."
       },
       {
-       "it": "Uno dei notebook di riferimento del corso è dedicato alla valutazione.",
-       "en": "One of the course's reference notebooks is devoted to evaluation."
+       "it": "Per approfondire: il notebook [NB4b] valuta un agente su un set di casi.",
+       "en": "To go further: the notebook [NB4b] evaluates an agent on a set of cases."
       }
      ],
      "animazione": {
@@ -38255,8 +38255,8 @@
        "en": "Many outputs (emails, summaries) do not have a single answer. An LLM judge evaluates them with an explicit rubric (relevance, accuracy against the data, tone, compliance)."
       },
       {
-       "it": "I bias dei giudici LLM ([EXP] competenza propria: le fonti del corso non li elencano; solo il bias di posizione è richiamato da uno studio citato in una guida di settore):\n- preferenza per le risposte più lunghe;\n- influenza dell'ordine di presentazione (bias di posizione);\n- possibile preferenza per testi simili ai propri.",
-       "en": "Biases of LLM judges ([EXP] own expertise: the course sources do not list them; only position bias is referenced, through a study cited in an industry guide):\n- preference for longer answers;\n- influence of the order of presentation (position bias);\n- possible preference for texts similar to their own."
+       "it": "I bias più noti dei giudici LLM [EXP] (il bias di posizione è documentato anche da studi [WP4]):\n- preferenza per le risposte più lunghe;\n- influenza dell'ordine di presentazione (bias di posizione);\n- possibile preferenza per testi simili ai propri.",
+       "en": "The best-known biases of LLM judges [EXP] (position bias is also documented by studies [WP4]):\n- preference for longer answers;\n- influence of the order of presentation (position bias);\n- possible preference for texts similar to their own."
       },
       {
        "it": "Le mitigazioni:\n- criteri verificabili;\n- doppia valutazione con ordine invertito ([EXP]);\n- calibrazione su un campione giudicato da persone.",
@@ -40948,8 +40948,8 @@
        "en": "Reliability: handling errors and timeouts, rate limits of outside services, queues."
       },
       {
-       "it": "Una delle guide di riferimento del corso è dedicata al passaggio dal prototipo alla produzione.",
-       "en": "One of the course's reference guides is devoted to the move from prototype to production."
+       "it": "Per approfondire: la guida [G5] è dedicata al passaggio dal prototipo alla produzione.",
+       "en": "To go further: the guide [G5] is devoted to the move from prototype to production."
       }
      ],
      "animazione": {
@@ -42629,8 +42629,8 @@
        "en": "The risk depends on the type of action, the sensitivity of the resource (deletions, personal data, money thresholds) and low confidence, which raises the level."
       },
       {
-       "it": "Fail-closed (secondo il repo R15, non verificato a fondo: nessuna fonte verificata del corso lo nomina, [EXP]): se il servizio che decide le autorizzazioni non risponde, l'azione è negata, non concessa.",
-       "en": "Fail-closed (according to the R15 repo, not checked in depth: no verified source of the course names it, [EXP]): if the service that decides the permissions does not answer, the action is denied, not allowed."
+       "it": "Fail-closed (schema del repo [R15], non ancora diffuso nelle guide di settore [EXP]): se il servizio che decide le autorizzazioni non risponde, l'azione è negata, non concessa.",
+       "en": "Fail-closed (a pattern from the [R15] repo, not yet common in industry guides [EXP]): if the service that decides the permissions does not answer, the action is denied, not allowed."
       },
       {
        "it": "L'approvazione ha una scadenza e viene registrata.",
@@ -43870,8 +43870,8 @@
      },
      "scaletta": [
       {
-       "it": "Kill switch a più livelli: singolo agente, singolo cliente o tenant, globale. Gli stati sono: in esecuzione, in pausa (finisce ciò che ha in corso), arrestato (nessun nuovo effetto). Schema del repo R15 (non verificato a fondo): nessuna fonte verificata usa il termine \"kill switch\"; l'equivalente documentato è l'interruttore che spegne all'istante un singolo strumento (circuit breaker) [G5].",
-       "en": "Kill switch at several levels: single agent, single customer or tenant, global. The states are: running, paused (finishes what it is doing), stopped (no new effects). Scheme from the R15 repo (not checked in depth): no verified source uses the term \"kill switch\"; the documented equivalent is the switch that instantly turns off a single tool (circuit breaker) [G5]."
+       "it": "Kill switch a più livelli: singolo agente, singolo cliente o tenant, globale. Gli stati sono: in esecuzione, in pausa (finisce ciò che ha in corso), arrestato (nessun nuovo effetto). I livelli vengono dal repo [R15]; nelle guide di settore l'equivalente è l'interruttore che spegne all'istante un singolo strumento (circuit breaker) [G5].",
+       "en": "Kill switch at several levels: single agent, single customer or tenant, global. The states are: running, paused (finishes what it is doing), stopped (no new effects). The levels come from the [R15] repo; in industry guides the equivalent is the switch that instantly turns off a single tool (circuit breaker) [G5]."
       },
       {
        "it": "L'agente controlla lo stato prima di ogni azione con effetti, non solo all'avvio.",

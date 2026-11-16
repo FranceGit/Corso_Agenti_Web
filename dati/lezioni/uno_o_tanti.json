@@ -20,7 +20,7 @@
    "id": "segnali",
    "titolo": {"it": "I due segnali per dividere", "en": "The two signals for splitting"},
    "narrazione": [
-    {"it": "OpenAI indica due segnali. Logica complessa: le istruzioni sono piene di «se succede questo, fai quello». Sovraccarico di strumenti: troppi strumenti simili tra loro.", "en": "OpenAI points to two signals. Complex logic: the instructions are full of «if this happens, do that». Tool overload: too many tools that are similar to each other."},
+    {"it": "I segnali sono due [OAI]. Logica complessa: le istruzioni sono piene di «se succede questo, fai quello». Sovraccarico di strumenti: troppi strumenti simili tra loro.", "en": "There are two signals [OAI]. Complex logic: the instructions are full of «if this happens, do that». Tool overload: too many tools that are similar to each other."},
     {"it": "Conta la somiglianza, non il numero: alcuni agenti gestiscono bene più di 15 strumenti distinti, altri si confondono con meno di 10 sovrapposti. Per questo, prima di dividere, si chiariscono nomi e descrizioni.", "en": "Similarity matters, not the number: some agents handle more than 15 distinct tools well, others get confused with fewer than 10 overlapping ones. So, before splitting, you clarify names and descriptions."}
    ],
    "prova": {"it": "Premi «Chiarisci i nomi»: l'indicatore risale senza dividere. Poi alza le condizioni se/allora: lì i nomi non bastano.", "en": "Press «Clarify the names»: the indicator goes back up without splitting. Then raise the if/then conditions: there, names are not enough."},
@@ -43,7 +43,7 @@
    "titolo": {"it": "Il prezzo della squadra", "en": "The price of the team"},
    "narrazione": [
     {"it": "La squadra non è gratis. Gli agenti devono coordinarsi: più chiamate al modello, più attesa per il cliente, più punti in cui qualcosa può rompersi.", "en": "The team is not free. The agents must coordinate: more calls to the model, more waiting for the customer, more points where something can break."},
-    {"it": "Per questo la regola di OpenAI è: prima massimizza un agente, poi dividi. Spesso un agente con i suoi strumenti basta.", "en": "That is why OpenAI's rule is: first maximise one agent, then split. Often a single agent with its tools is enough."}
+    {"it": "Per questo la regola è: prima massimizza un agente, poi dividi [OAI]. Spesso un agente con i suoi strumenti basta.", "en": "That is why the rule is: first maximise one agent, then split [OAI]. Often a single agent with its tools is enough."}
    ],
    "prova": {"it": "Passa da «Un agente» a «Squadra» e confronta chiamate, tempo e messaggi di coordinamento.", "en": "Switch from «One agent» to «Team» and compare calls, time and coordination messages."},
    "concetti": ["C53"],
@@ -143,7 +143,7 @@
    "crm_si": {"it": "Può scrivere nel CRM.", "en": "Can write to the CRM."},
    "crm_no": {"it": "Non può scrivere nel CRM: se sbaglia, non tocca le schede.", "en": "Cannot write to the CRM: if it makes a mistake, it does not touch the records."},
    "nota_costi": {"it": "Numeri illustrativi: le fonti non misurano il costo in più di una squadra.", "en": "Illustrative numbers: the sources do not measure the extra cost of a team."},
-   "nota_indicatore": {"it": "Valori illustrativi, ispirati a «più di 15 strumenti distinti» contro «meno di 10 sovrapposti» (OpenAI).", "en": "Illustrative values, inspired by «more than 15 distinct tools» versus «fewer than 10 overlapping» (OpenAI)."},
+   "nota_indicatore": {"it": "Valori illustrativi, ispirati a «più di 15 strumenti distinti» contro «meno di 10 sovrapposti» [OAI].", "en": "Illustrative values, inspired by «more than 15 distinct tools» versus «fewer than 10 overlapping» [OAI]."},
    "secondi": {"it": "{n} s", "en": "{n} s"},
    "apri_agente": {"it": "Apri la scheda dell'agente {nome}", "en": "Open the card of the agent {nome}"},
    "scegli_per": {"it": "Risposta per il caso {n}", "en": "Answer for case {n}"},

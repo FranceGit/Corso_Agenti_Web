@@ -1,5 +1,5 @@
 {
- "_why": "Bibliografia del corso (cantiere CONTENUTI-REV, 16/11/2026): le opere da cui vengono i contenuti, con titolo, autori, anno, editore e tipo come si leggono nei documenti studiati (CORSO_CONTENUTI_VERIFICATI.md, sezione 0; frontespizi dei PDF). Nessun URL. Le sigle in 'nota' sono quelle usate nelle citazioni dei contenuti verificati e del documento benchmark. Anno omesso quando il documento non lo dichiara. Dal cantiere OFFICINA-CONTENUTI anche le 8 fonti del livello 2 (sigle DOCKER-DOC, LAB-L1, REPO-PATOWARI, NEBULA-CRM, NEBULA-AGENTS, MCP-SERVERS, ASSISTENTE-OFFICINA, CODESPACES-DOC, le stesse del campo 'fonti' delle pillole dell'Officina).",
+ "_why": "Bibliografia del corso (cantiere CONTENUTI-REV, 16/11/2026): le opere da cui vengono i contenuti, con titolo, autori, anno, editore e tipo come si leggono nei documenti studiati (CORSO_CONTENUTI_VERIFICATI.md, sezione 0; frontespizi dei PDF). Nessun URL. Le sigle in 'nota' sono quelle usate nelle citazioni dei contenuti verificati e del documento benchmark. Anno omesso quando il documento non lo dichiara. Dal cantiere OFFICINA-CONTENUTI anche le fonti del livello 2 (sigle DOCKER-DOC, LAB-L1, REPO-PATOWARI, NEBULA-CRM, NEBULA-AGENTS, MCP-SERVERS, ASSISTENTE-OFFICINA, CODESPACES-DOC, le stesse del campo 'fonti' delle pillole dell'Officina; REPO-PATOWARI e' la stessa opera di [R11] e sta nella sua nota).",
  "opere": [
   {
    "id": "wp1",
@@ -476,8 +476,8 @@
     "en": "Software repository"
    },
    "nota": {
-    "it": "Sigla nelle fonti del corso: [R11]",
-    "en": "Code in the course sources: [R11]"
+    "it": "Sigla nelle fonti del corso: [R11]; nel livello 2 (unità O2 e O5): REPO-PATOWARI, commit 49959e3, senza licenza dichiarata: solo studio",
+    "en": "Code in the course sources: [R11]; in level 2 (units O2 and O5): REPO-PATOWARI, commit 49959e3, no declared licence: study only"
    }
   },
   {
@@ -589,25 +589,6 @@
    "nota": {
     "it": "Sigla nelle fonti del corso: DOCKER-DOC (livello 2, unità O1 e O2)",
     "en": "Code in the course sources: DOCKER-DOC (level 2, units O1 and O2)"
-   }
-  },
-  {
-   "id": "repo_patowari",
-   "titolo": {
-    "it": "AI-Enhanced-Sales-Campaign-CRM (commit 49959e3)",
-    "en": "AI-Enhanced-Sales-Campaign-CRM (commit 49959e3)"
-   },
-   "autori": {
-    "it": "patowari",
-    "en": "patowari"
-   },
-   "tipo": {
-    "it": "Repository di codice, senza licenza dichiarata: solo studio",
-    "en": "Code repository, no declared licence: study only"
-   },
-   "nota": {
-    "it": "Sigla nelle fonti del corso: REPO-PATOWARI (livello 2, unità O2 e O5)",
-    "en": "Code in the course sources: REPO-PATOWARI (level 2, units O2 and O5)"
    }
   },
   {

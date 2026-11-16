@@ -31,7 +31,7 @@
    "id": "sovrapposti",
    "titolo": {"it": "Tanti strumenti o strumenti simili?", "en": "Many tools or similar tools?"},
    "narrazione": [
-    {"it": "Il problema non è solo quanti strumenti ha l'agente, ma quanto si somigliano. Secondo OpenAI alcuni agenti gestiscono bene più di 15 strumenti distinti, altri si confondono con meno di 10 sovrapposti.", "en": "The problem is not only how many tools the agent has, but how similar they are. According to OpenAI, some agents handle more than 15 distinct tools well, while others get confused with fewer than 10 overlapping ones."},
+    {"it": "Il problema non è solo quanti strumenti ha l'agente, ma quanto si somigliano. Alcuni agenti gestiscono bene più di 15 strumenti distinti, altri si confondono con meno di 10 sovrapposti [OAI].", "en": "The problem is not only how many tools the agent has, but how similar they are. Some agents handle more than 15 distinct tools well, while others get confused with fewer than 10 overlapping ones [OAI]."},
     {"it": "Con descrizioni simili il modello sceglie, cambia idea, riprova: gira in tondo.", "en": "With similar descriptions the model chooses, changes its mind, tries again: it goes round in circles."}
    ],
    "prova": {"it": "Accendi «Strumenti simili tra loro» e muovi il cursore; poi confronta con 20 strumenti tutti diversi.", "en": "Switch on «Tools similar to each other» and move the slider; then compare with 20 tools that are all different."},
