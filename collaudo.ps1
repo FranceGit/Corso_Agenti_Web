@@ -67,7 +67,16 @@ Write-Host "Lezioni interattive da provare (distintivo 'interattiva' nell'elenco
 $Codice = & $Py -c "import json; print(json.load(open('config/piattaforma.json', encoding='utf-8'))['account']['codici_stub'][0])"
 Write-Host ""
 Write-Host "Per entrare nel corso: email = una qualsiasi (es. prova@esempio.it), codice = $Codice" -ForegroundColor Cyan
-$scelta = Read-Host "Premi S per avviare il server, Q per uscire"
+# Un Invio rimasto nel buffer della tastiera puo' arrivare a Read-Host come risposta vuota
+# e far uscire lo script senza che l'utente abbia scelto: si richiede finche' non arriva S o Q.
+do {
+    $scelta = Read-Host "Premi S per avviare il server, Q per uscire"
+} while ($scelta -notmatch '^[sSqQ]')
+if ($scelta -match '^[qQ]') {
+    Write-Host "Uscita senza avviare il server. Per avviarlo in seguito:" -ForegroundColor Yellow
+    Write-Host "  cd $Radice"
+    Write-Host "  .\.venv\Scripts\python.exe server.py"
+}
 if ($scelta -match '^[sS]') {
     Write-Host "Server in avvio: per fermarlo premi Ctrl+C in questa finestra."
     Write-Host "Nessun browser si apre da solo: copia l'indirizzo della riga 'Apri nel tuo browser' nel browser che preferisci." -ForegroundColor Yellow

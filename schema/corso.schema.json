@@ -40,6 +40,21 @@
      "default": null,
      "title": "Concetto Principale"
     },
+    "glossario": {
+     "anyOf": [
+      {
+       "items": {
+        "$ref": "#/$defs/VoceGlossario"
+       },
+       "type": "array"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Glossario"
+    },
     "id": {
      "minLength": 1,
      "title": "Id",
@@ -371,6 +386,40 @@
     "it"
    ],
    "title": "Testo",
+   "type": "object"
+  },
+  "VoceGlossario": {
+   "additionalProperties": false,
+   "properties": {
+    "en": {
+     "anyOf": [
+      {
+       "minLength": 1,
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "En"
+    },
+    "it": {
+     "minLength": 1,
+     "title": "It",
+     "type": "string"
+    },
+    "termine": {
+     "minLength": 1,
+     "title": "Termine",
+     "type": "string"
+    }
+   },
+   "required": [
+    "termine",
+    "it"
+   ],
+   "title": "VoceGlossario",
    "type": "object"
   }
  },

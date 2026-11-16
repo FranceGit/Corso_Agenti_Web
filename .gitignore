@@ -27,3 +27,6 @@ _lavoro/
 # Stato degli esercizi pratici (dati degli studenti: mai nel repository)
 stato_esercizi/
 esercizi/ambiente/.env
+
+# Dipendenze Node dei controlli in tests_js (jsdom: npm install --no-save jsdom)
+node_modules/

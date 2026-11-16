@@ -51,6 +51,44 @@ def carica_interfaccia(cfg: Config) -> dict:
     return testi
 
 
+CAMPI_OPERA = ("titolo", "autori", "anno", "editore", "tipo", "nota")
+
+
+def _testo_opera(valore, lingua: str):
+    """Un campo di un'opera: stringa/numero cosi' com'e', testo {it, en} nella lingua chiesta (None se manca)."""
+    if isinstance(valore, dict) and set(valore) <= {"it", "en"}:
+        return valore.get(lingua) or None
+    if isinstance(valore, list):
+        return ", ".join(str(v) for v in valore if v)
+    return valore
+
+
+def carica_bibliografia(cfg: Config, lingua: str) -> dict:
+    """Opere della pagina Bibliografia, SENZA indirizzi web (nessun campo url/link esce dal server).
+
+    File vero: dati/bibliografia.json (cantiere CONTENUTI-REV), come elenco di opere o oggetto {"opere": [...]}.
+    Se non c'e' ancora: voci d'esempio di config, dichiarate con esempio = true.
+    """
+    vero = cfg.percorso_file("bibliografia")
+    esempio = not vero.is_file()
+    dati = leggi_json(cfg.percorso_file("bibliografia_esempio") if esempio else vero)
+    opere_grezze = dati.get("opere") if isinstance(dati, dict) else dati
+    if not isinstance(opere_grezze, list):
+        raise ErroreDati(f"bibliografia: atteso un elenco di opere (o {{\"opere\": [...]}}) in {vero}")
+    opere = []
+    for i, o in enumerate(opere_grezze):
+        if isinstance(o, str):
+            o = {"titolo": o}
+        if not isinstance(o, dict):
+            raise ErroreDati(f"bibliografia: l'opera {i} non e' un oggetto")
+        voce = {k: _testo_opera(o[k], lingua) for k in CAMPI_OPERA if o.get(k) not in (None, "", [])}
+        if not voce.get("titolo"):
+            continue  # titolo assente nella lingua chiesta: la voce non si mostra (mai l'altra lingua al suo posto)
+        voce["id"] = str(o.get("id", i + 1))
+        opere.append(voce)
+    return {"esempio": esempio, "opere": opere}
+
+
 def crea_app(cfg: Config | None = None, orologio: Callable[[], datetime] = orologio_utc,
              cartella_stato: Path | None = None, cartella_esercizi: Path | None = None) -> FastAPI:
     cfg = cfg or carica_config()
@@ -212,6 +250,24 @@ def crea_app(cfg: Config | None = None, orologio: Callable[[], datetime] = orolo
     @app.get("/api/rapporto")
     def api_rapporto(email: str = Depends(studente)):
         return catalogo.rapporto()
+
+    # ------------------------------------------------------------ collaudo alpha, riepilogo, bibliografia (ALPHA-FIX)
+
+    @app.get("/api/spicchi/{pid}/rivedi/{indice}")
+    def api_rivedi(pid: str, indice: int, lingua: str = Depends(lingua_valida), email: str = Depends(studente)):
+        return motore.rivedi_risposta(email, pid, indice, lingua)
+
+    @app.get("/api/spicchi/{pid}/riepilogo")
+    def api_riepilogo(pid: str, lingua: str = Depends(lingua_valida), email: str = Depends(studente)):
+        return motore.riepilogo_spicchio(email, pid, lingua)
+
+    @app.post("/api/spicchi/{pid}/assumi_superato")
+    def api_assumi_superato(pid: str, email: str = Depends(studente)):
+        return motore.assumi_superato(email, pid)
+
+    @app.get("/api/bibliografia")
+    def api_bibliografia(lingua: str = Depends(lingua_valida), email: str = Depends(studente)):
+        return carica_bibliografia(cfg, lingua)
 
     # ------------------------------------------------------------ esercizi pratici (cantiere esercizi/)
 

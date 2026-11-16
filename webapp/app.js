@@ -16,7 +16,12 @@ const S = {
   passoScaletta: null,
   modulo: null,
   quiz: null,
+  canone: null,
 };
+
+// strumenti del collaudo alpha: li accende/spegne config alpha.modalita_alpha (in beta va spenta)
+const alpha = () => Boolean(S.stato && S.stato.alpha && S.stato.alpha.modalita_alpha);
+const NUMERI_FINESTRA = ["①", "②", "③", "④", "⑤", "⑥"];
 
 const radice = document.getElementById("radice");
 const CHIAVE_LINGUA = "corso_lingua";
@@ -136,6 +141,7 @@ async function cambiaLingua(l) {
   await aggiornaDati();
   if (S.vista === "pillola") await apriPillola(S.pid, { segmento: S.segmento, scheda: S.scheda });
   else if (S.vista === "quiz" && S.quiz && !S.quiz.risposto) await caricaDomandaCorrente();
+  else if (S.vista === "riepilogo" && S.pid) await apriRiepilogo(S.pid);
   else disegnaTutto();
 }
 
@@ -274,6 +280,8 @@ function laterale() {
     // esercizi pratici (cantiere esercizi/): la pagina e' un modulo a parte, caricato dopo l'accesso
     h("button", { class: `voce voce-esercizi ${S.vista === "esercizi" ? "attiva" : ""}`, id: "voce-esercizi",
       onclick: apriEsercizi }, icona("lampo", "icona-stato"), h("span", {}, t("esercizi_pratici"))),
+    h("button", { class: `voce voce-bibliografia ${S.vista === "bibliografia" ? "attiva" : ""}`, id: "voce-bibliografia",
+      onclick: apriBibliografia }, icona("libro", "icona-stato"), h("span", {}, t("bibliografia"))),
     h("h2", {}, t("missioni")),
     S.percorso.anelli.map((a, i) => h("div", { class: "gruppo-anello" },
       h("h3", {}, h("span", { class: "pallino", style: `background:${COLORI_ANELLO[i % COLORI_ANELLO.length]}` }),
@@ -293,6 +301,33 @@ function disegnaPrincipale() {
   el.replaceChildren();
   if (S.vista === "mappa") el.append(vistaMappa());
   if (S.vista === "esercizi") montaEsercizi(el);
+  if (S.vista === "bibliografia") montaBibliografia(el);
+}
+
+// ------------------------------------------------------------------ bibliografia (dati/bibliografia.json, senza URL)
+
+function apriBibliografia() {
+  S.vista = "bibliografia";
+  S.pid = null;
+  disegnaTutto();
+}
+
+async function montaBibliografia(el) {
+  el.replaceChildren(h("div", { class: "caricamento" }, t("caricamento")));
+  const r = await api("GET", conLingua("/api/bibliografia"));
+  if (!r.ok) return errore(r);
+  if (S.vista !== "bibliografia") return;
+  const b = r.dati;
+  el.replaceChildren(h("div", { class: "bibliografia testo-lungo entra" },
+    h("h1", {}, t("bibliografia")),
+    h("p", { class: "sottotitolo" }, t("bibliografia_spiega")),
+    b.esempio ? h("div", { class: "prova-tu", role: "note" }, icona("libro"), h("span", {}, t("bibliografia_esempio"))) : null,
+    b.opere.length
+      ? h("ol", { class: "opere" }, b.opere.map((o) => h("li", { class: "opera" },
+        h("div", { class: "opera-titolo" }, o.titolo, o.tipo ? h("span", { class: "distintivo" }, o.tipo) : null),
+        h("div", { class: "opera-dati" }, [o.autori, o.editore, o.anno].filter((x) => x !== undefined && x !== null && x !== "").join(" · ")),
+        o.nota ? h("div", { class: "opera-nota" }, o.nota) : null)))
+      : h("p", {}, t("bibliografia_vuota"))));
 }
 
 // ------------------------------------------------------------------ esercizi pratici (modulo protetto)
@@ -428,6 +463,8 @@ function vistaMappa() {
 // ------------------------------------------------------------------ pillola
 
 function distruggiModulo() {
+  if (S.canone) S.canone.distruggi();
+  S.canone = null;
   if (S.modulo && S.modulo.distruggi) S.modulo.distruggi();
   S.modulo = null;
 }
@@ -477,6 +514,149 @@ function pulsanteVerifica(sp) {
     sp.stato === "superato" ? icona("spunta") : icona("avanti"), t(etichette[sp.stato]));
 }
 
+// ------------------------------------------------------------------ riepilogo, riassunto e strumenti del collaudo alpha
+
+function riepilogoDisponibile(sp) {
+  if (!sp || sp.stato === "in_preparazione") return false;
+  if (alpha()) return true;
+  const regola = S.stato.alpha ? S.stato.alpha.riepilogo_in_beta : "mai";
+  if (regola === "sempre") return sp.stato !== "da_iniziare";
+  if (regola === "solo_superato") return sp.stato === "superato";
+  return false;
+}
+
+/** Striscia ben marcata con gli acceleratori del collaudo: c'e' solo con alpha.modalita_alpha = true. */
+function strumentiAlpha(pid, sp) {
+  if (!alpha()) return null;
+  const erogabile = sp && sp.stato !== "in_preparazione";
+  return h("div", { class: "strumenti-alpha", role: "group", "aria-label": t("alpha_etichetta") },
+    h("span", { class: "alpha-etichetta" }, t("alpha_etichetta")),
+    h("button", { class: "btn", id: "riassumi-spicchio", onclick: () => apriRiassunto(pid) }, icona("libro"), t("riassumi_spicchio")),
+    h("button", { class: "btn btn-alpha", id: "assumi-superato", disabled: !erogabile || sp.stato === "superato",
+      onclick: () => confermaAssumi(pid) }, icona("lampo"), t("assumi_superato")));
+}
+
+function modale(titolo, ...contenuto) {
+  const chiudi = () => { sfondo.remove(); document.removeEventListener("keydown", esc); };
+  const esc = (e) => { if (e.key === "Escape") chiudi(); };
+  const sfondo = h("div", { class: "modale-sfondo", onclick: (e) => { if (e.target === sfondo) chiudi(); } },
+    h("div", { class: "modale entra", role: "dialog", "aria-modal": "true", "aria-label": titolo },
+      h("div", { class: "modale-testa" }, h("h2", {}, titolo),
+        h("button", { class: "btn btn-fantasma", "aria-label": t("chiudi"), onclick: () => chiudi() }, icona("croce"))),
+      h("div", { class: "modale-corpo" }, ...contenuto)));
+  document.addEventListener("keydown", esc);
+  document.body.append(sfondo);
+  return { chiudi, nodo: sfondo };
+}
+
+/** Riassunto dello spicchio costruito dai dati gia' esistenti della pillola (riassunto della lezione, passi, scaletta). */
+function costruisciRiassunto(c) {
+  const lez = c.lezione;
+  const riassunto = lez ? lez.segmenti.find((s) => s.id === "riassunto") : null;
+  const punti = riassunto ? riassunto.narrazione.slice() : c.scaletta.slice();
+  const passi = lez ? lez.segmenti.filter((s) => s.id !== "riassunto").map((s) => ({ titolo: s.titolo, prova: s.prova || null })) : [];
+  return { titolo: lez ? lez.titolo : c.titolo, obiettivo: c.obiettivo, punti, passi, concetti: c.concetti.map((k) => k.nome) };
+}
+
+async function apriRiassunto(pid) {
+  let c = S.contenuto && S.contenuto.id === pid ? S.contenuto : null;
+  if (!c) {
+    const r = await api("GET", conLingua(`/api/pillole/${encodeURIComponent(pid)}`));
+    if (!r.ok) return errore(r);
+    c = r.dati;
+  }
+  const R = costruisciRiassunto(c);
+  modale(`${t("riassunto_titolo")} · ${pid}`,
+    h("p", { class: "alpha-etichetta" }, t("alpha_etichetta")),
+    h("h3", {}, R.titolo), h("p", {}, R.obiettivo),
+    h("div", { class: "concetti-pill" }, R.concetti.map((n) => h("span", {}, n))),
+    h("h4", {}, t("riassunto_punti_chiave")), h("ul", { class: "riassunto-punti" }, R.punti.map((p) => h("li", {}, p))),
+    R.passi.length ? h("h4", {}, t("riassunto_passi")) : null,
+    R.passi.length ? h("ol", { class: "riassunto-passi" }, R.passi.map((p) => h("li", {}, h("b", {}, p.titolo), p.prova ? h("div", { class: "nota-passo" }, `${t("prova_tu")}: ${p.prova}`) : null))) : null);
+}
+
+function confermaAssumi(pid) {
+  const m = modale(t("assumi_superato"),
+    h("p", { class: "alpha-etichetta" }, t("alpha_etichetta")),
+    h("p", {}, t("assumi_conferma")),
+    h("div", { class: "azioni-quiz" },
+      h("button", { class: "btn", onclick: () => m.chiudi() }, t("chiudi")),
+      h("button", { class: "btn btn-alpha", id: "conferma-assumi", onclick: async () => { m.chiudi(); await assumiSuperato(pid); } }, icona("lampo"), t("assumi_superato"))));
+}
+
+async function assumiSuperato(pid) {
+  // il modulo della lezione si chiude solo a esito positivo: su errore la lezione resta viva
+  const r = await api("POST", `/api/spicchi/${encodeURIComponent(pid)}/assumi_superato`);
+  if (!r.ok) return errore(r);
+  distruggiModulo();
+  avvisa(t("assunto_fatto", { pid }));
+  await aggiornaDati();
+  const prossimo = r.dati.prossimo_spicchio;
+  if (prossimo) return apriPillola(prossimo);
+  avvisa(t("nessun_successivo"));
+  S.vista = "mappa"; S.pid = null; disegnaTutto();
+}
+
+/** Riepilogo di fine spicchio: domanda, risposta data, risposta giusta, spiegazione (in beta secondo config). */
+async function apriRiepilogo(pid) {
+  const r = await api("GET", conLingua(`/api/spicchi/${encodeURIComponent(pid)}/riepilogo`));
+  if (!r.ok) return errore(r);
+  distruggiModulo();
+  // aperto dal quiz (o rimasto aperto dopo un cambio di lingua): si offre il ritorno alla domanda in corso
+  const dalQuiz = (S.vista === "quiz" || S.vista === "riepilogo") && S.quiz && S.quiz.contesto === "spicchio" && S.quiz.pid === pid && S.quiz.domanda
+    && (S.vista === "quiz" || S.riepilogoDalQuiz);
+  S.riepilogoDalQuiz = Boolean(dalQuiz);
+  S.vista = "riepilogo";
+  S.pid = pid;
+  disegnaTutto();
+  const R = r.dati;
+  const el = document.getElementById("principale");
+  const rigaLivello = (L) => {
+    const data = L.risposta_data;
+    const stato = data ? (L.corretta ? "ok" : "male") : "vuoto";
+    return h("div", { class: `riepilogo-livello ${stato}` },
+      h("div", { class: "riepilogo-domanda" }, h("span", { class: `livello-badge ${L.livello === 2 ? "l2" : ""}` }, L.livello === 1 ? t("livello1") : t("livello2")), h("b", {}, L.testo)),
+      h("p", {}, h("span", { class: "etichetta" }, t("tua_risposta")),
+        data ? h("span", { class: "risposta-data" }, L.corretta ? icona("spunta") : icona("croce"), " ", data.testo)
+          : h("i", {}, L._l1Sbagliata ? t("non_posta") : t("non_risposta")),
+        data && !L.corretta && data.spiegazione ? h("span", { class: "spiega-scelta" }, "→ ", data.spiegazione) : null),
+      h("p", {}, h("span", { class: "etichetta" }, t("risposta_giusta")), h("b", {}, L.risposta_giusta)),
+      h("p", {}, h("span", { class: "etichetta" }, t("perche")), L.perche));
+  };
+  el.replaceChildren(h("div", { class: "riepilogo-spicchio entra" },
+    h("div", { class: "pillola-testa" },
+      h("div", {}, h("div", { class: "sopratitolo" }, pid), h("h1", {}, t("riepilogo_titolo")), h("p", { class: "sottotitolo" }, t("riepilogo_spiega")),
+        R.assunto ? h("p", { class: "alpha-etichetta" }, t("spicchio_assunto")) : null),
+      h("div", { class: "azioni" },
+        dalQuiz ? h("button", { class: "btn btn-primario", id: "riepilogo-torna-quiz", onclick: tornaAlQuiz }, icona("indietro"), t("riprendi_verifica")) : null,
+        h("button", { class: "btn", onclick: () => apriPillola(pid) }, icona("indietro"), t("scheda_lezione")),
+        h("button", { class: "btn", onclick: () => { S.vista = "mappa"; S.pid = null; disegnaTutto(); } }, t("torna_mappa")))),
+    R.voci.map((v) => {
+      const [l1, l2] = v.livelli;
+      if (l1.risposta_data && !l1.corretta) l2._l1Sbagliata = true;
+      return h("section", { class: "domanda-scheda riepilogo-voce" },
+        h("div", { class: "passo-di" }, `${t("domanda")} ${v.numero} ${t("di")} ${R.voci.length}`),
+        rigaLivello(l1), rigaLivello(l2), riquadroTermini(v.glossario));
+    })));
+}
+
+/** Dal riepilogo aperto durante la verifica torna alla domanda in corso: col riscontro se era gia' risposta,
+ *  altrimenti ricaricata dal server (sola lettura, nella lingua attuale). */
+function tornaAlQuiz() {
+  S.riepilogoDalQuiz = false;
+  S.vista = "quiz";
+  disegnaTutto();
+  if (S.quiz.risposto && S.quiz.esito) return ripristinaDomanda();
+  return caricaDomandaCorrente();
+}
+
+function riquadroTermini(voci) {
+  if (!voci || !voci.length) return null;
+  return h("aside", { class: "glossario", "aria-label": t("termini") },
+    h("h4", {}, t("termini")),
+    h("dl", {}, voci.flatMap((v) => [h("dt", {}, v.termine), h("dd", {}, v.definizione)])));
+}
+
 function disegnaPillola(el) {
   const c = S.contenuto;
   const info = spicchio(c.id);
@@ -492,7 +672,10 @@ function disegnaPillola(el) {
       h("div", { class: "concetti-pill" }, c.concetti.map((k) => h("span", { title: k.id }, k.nome)))),
     h("div", { class: "azioni" },
       h("button", { class: "btn", onclick: () => { S.vista = "mappa"; S.pid = null; disegnaTutto(); } }, icona("indietro"), t("torna_mappa")),
+      riepilogoDisponibile(info && info.spicchio) ? h("button", { class: "btn", id: "apri-riepilogo", onclick: () => apriRiepilogo(c.id) }, icona("libro"), t("apri_riepilogo")) : null,
       pulsanteVerifica(info && info.spicchio))));
+  const attrezzi = strumentiAlpha(c.id, info && info.spicchio);
+  if (attrezzi) el.append(attrezzi);
   const schede = [
     c.lezione ? ["lezione", t("scheda_lezione")] : null,
     lab ? ["laboratorio", t("scheda_laboratorio")] : null,
@@ -518,9 +701,14 @@ function disegnaScaletta(area, c) {
 }
 
 async function montaLezione(area, lez) {
-  const narr = h("section", { class: "narrazione", "aria-live": "polite" });
+  const narr = h("section", { class: "narrazione finestra", "aria-live": "polite", "data-finestra": "1" });
+  const messaggio = h("div", { class: "guida-messaggio", id: "guida-messaggio", "aria-live": "polite" });
+  const guida = h("div", { class: "guida-lezione", id: "guida-lezione" },
+    h("div", { class: "avviso-lettura", id: "avviso-lettura" }, icona("libro"), h("span", {}, t("avviso_lettura"))),
+    messaggio,
+    h("button", { class: "btn", id: "rivedi-animazione", onclick: () => rivediAnimazione(lez) }, icona("orologio"), t("rivedi_animazione")));
   const banco = h("div", { id: "banco" });
-  area.append(narr, banco);
+  area.append(narr, guida, banco);
   try {
     const mod = await import(`/protetto/animazioni/${lez.componente}.js`);
     S.modulo = mod.monta(banco, lez, { lingua: S.lingua });
@@ -530,6 +718,126 @@ async function montaLezione(area, lez) {
     return;
   }
   disegnaSegmento(narr, lez);
+  S.canone = applicaCanone(narr, banco.querySelector(".banco"), messaggio);
+}
+
+/** "Rivedi l'animazione": rilancia la sequenza del passo corrente dal suo stato di partenza. */
+function rivediAnimazione(lez) {
+  const seg = lez.segmenti[S.segmento];
+  if (!S.modulo || !S.modulo.applica || !seg) return;
+  try { S.modulo.applica(seg.stato_animazione); } catch (e) { console.error(e); avvisa(`${t("errore")}: ${e.message}`, "male"); }
+}
+
+// ------------------------------------------------------------------ canone di lettura delle lezioni (componente condiviso)
+// Vale per TUTTE le lezioni senza toccarle una per una: ogni componente costruisce il suo banco come
+// [comandi, scena, pannello destro]; la shell lo riordina nell'ordine di lettura canonico sinistra→destra
+// (① concetto sopra, ② spiegazioni/diario, ③ animazione, ④ comandi), numera le finestre e, quando una
+// manipolazione aggiorna una finestra, ne illumina il bordo e scrive il messaggio-guida.
+
+const DURATA_ILLUMINA_MS = 1400;
+const ATTESA_GUIDA_MS = 380;
+
+/** Ruolo di ciascun figlio del banco: "scena", "spiegazioni" (pannello destro/diario) o "comandi". */
+function ruoliBanco(banco) {
+  const figli = [...banco.children];
+  return figli.map((f) => (f.classList.contains("scena") ? "scena" : f.classList.contains("destra") ? "spiegazioni" : "comandi"));
+}
+
+/** Etichetta succinta del comando toccato (testo del bottone, etichetta del cursore o dell'interruttore). */
+function etichettaComando(bersaglio) {
+  const el = bersaglio.closest("button, label, select, input, [role=button], [aria-label]") || bersaglio;
+  let testo = "";
+  if (el.matches("input[type=range]")) {
+    const riga = el.closest(".cursore");
+    testo = el.getAttribute("aria-label") || (riga && riga.querySelector(".riga span") ? riga.querySelector(".riga span").textContent : "");
+  } else if (el.matches("input[type=checkbox], input[type=radio]")) {
+    const lab = el.closest("label");
+    testo = lab ? lab.textContent : el.getAttribute("aria-label") || "";
+  } else if (el.matches("select")) {
+    testo = el.getAttribute("aria-label") || (el.selectedOptions && el.selectedOptions[0] ? el.selectedOptions[0].textContent : "");
+  } else {
+    testo = el.getAttribute("aria-label") || el.textContent || "";
+  }
+  testo = testo.replace(/\s+/g, " ").trim();
+  return testo.length > 48 ? `${testo.slice(0, 47).trimEnd()}…` : testo;
+}
+
+function elencoNumeri(numeri) {
+  const segni = numeri.map((n) => NUMERI_FINESTRA[n - 1] || String(n));
+  if (segni.length <= 1) return segni.join("");
+  return `${segni.slice(0, -1).join(", ")}${t("congiunzione_e")}${segni[segni.length - 1]}`;
+}
+
+function applicaCanone(narr, banco, messaggio) {
+  if (!banco) return { distruggi() {} };
+  banco.classList.add("canone");
+  const ruoli = ruoliBanco(banco);
+  const ORDINE = { spiegazioni: 2, scena: 3, comandi: 4 };
+  const NOMI = { spiegazioni: "finestra_spiegazioni", scena: "finestra_scena", comandi: "finestra_comandi" };
+  const finestre = [{ nodo: narr, numero: 1, ruolo: "concetto" }];
+  [...banco.children].forEach((f, i) => {
+    const ruolo = ruoli[i];
+    const numero = ORDINE[ruolo];
+    f.classList.add("finestra", `finestra-${ruolo}`);
+    f.dataset.finestra = String(numero);
+    finestre.push({ nodo: f, numero, ruolo });
+  });
+  // numero disegnato da CSS (::before su data-numero): resiste ai ridisegni dei componenti, che svuotano i pannelli
+  for (const w of finestre) {
+    const nome = t(w.ruolo === "concetto" ? "finestra_concetto" : NOMI[w.ruolo]);
+    w.nodo.dataset.numero = NUMERI_FINESTRA[w.numero - 1];
+    w.nodo.setAttribute("aria-roledescription", t("finestra_n", { n: w.numero, nome }));
+  }
+  let toccate = new Set();
+  let origine = null;
+  let cosa = "";
+  let timer = null;
+  const timerLuce = new Map();
+  const osservatori = finestre.filter((w) => w.ruolo !== "concetto").map((w) => {
+    const o = new MutationObserver(() => { if (origine) toccate.add(w.numero); });
+    o.observe(w.nodo, { subtree: true, childList: true, characterData: true, attributes: true, attributeFilter: ["class", "style", "transform", "fill", "stroke", "opacity", "d", "aria-pressed", "width", "height", "x", "y"] });
+    return o;
+  });
+  const illumina = (w) => {
+    w.nodo.classList.remove("illumina");
+    void w.nodo.offsetWidth;
+    w.nodo.classList.add("illumina");
+    clearTimeout(timerLuce.get(w.numero));
+    timerLuce.set(w.numero, setTimeout(() => w.nodo.classList.remove("illumina"), DURATA_ILLUMINA_MS));
+  };
+  const concludi = () => {
+    timer = null;
+    const numeri = [...toccate].filter((n) => n !== origine).sort();
+    origine = null;
+    if (!numeri.length || !cosa) return;
+    for (const w of finestre) if (numeri.includes(w.numero)) illumina(w);
+    messaggio.textContent = t(numeri.length === 1 ? "guida_una" : "guida_piu", { cosa, n: elencoNumeri(numeri) });
+    messaggio.classList.remove("nuovo"); void messaggio.offsetWidth; messaggio.classList.add("nuovo");
+  };
+  const suInterazione = (ev) => {
+    const w = finestre.find((x) => x.ruolo !== "concetto" && x.nodo.contains(ev.target));
+    if (!w) return;
+    if (ev.type === "input" && !ev.target.matches("input[type=range]")) return;
+    origine = w.numero;
+    cosa = etichettaComando(ev.target);
+    toccate = new Set();
+    clearTimeout(timer);
+    timer = setTimeout(concludi, ATTESA_GUIDA_MS);
+  };
+  for (const tipo of ["click", "change", "input"]) banco.addEventListener(tipo, suInterazione, true);
+  // l'unico testo che non puo' andare a capo e' la voce scelta di un menu a tendina: ellissi (CSS) + title col testo intero
+  const titoloMenu = (s) => { if (s.selectedOptions && s.selectedOptions[0]) s.title = s.selectedOptions[0].textContent; };
+  banco.querySelectorAll("select").forEach(titoloMenu);
+  banco.addEventListener("change", (ev) => { if (ev.target.matches && ev.target.matches("select")) titoloMenu(ev.target); });
+  return {
+    finestre: () => finestre.map((w) => ({ numero: w.numero, ruolo: w.ruolo })),
+    distruggi() {
+      osservatori.forEach((o) => o.disconnect());
+      clearTimeout(timer);
+      timerLuce.forEach((x) => clearTimeout(x));
+      for (const tipo of ["click", "change", "input"]) banco.removeEventListener(tipo, suInterazione, true);
+    },
+  };
 }
 
 function disegnaSegmento(narr, lez) {
@@ -551,6 +859,9 @@ function disegnaSegmento(narr, lez) {
         i < lez.segmenti.length - 1
           ? h("button", { class: "btn btn-primario", onclick: () => { S.segmento++; disegnaSegmento(narr, lez); } }, t("successivo"), icona("avanti"))
           : pulsanteVerifica(spicchio(S.pid) && spicchio(S.pid).spicchio))));
+  narr.dataset.numero = NUMERI_FINESTRA[0];
+  const guida = document.getElementById("guida-messaggio");
+  if (guida) guida.textContent = "";
   if (S.modulo && S.modulo.applica) S.modulo.applica(seg.stato_animazione);
 }
 
@@ -581,6 +892,7 @@ async function caricaDomandaCorrente() {
   q.risposto = false;
   q.domanda = r.dati;
   q.progresso = r.dati.progresso;
+  if (q.contesto === "spicchio") q.risposteDate = r.dati.progresso.risposte_date || 0;
   disegnaTutto();
   disegnaDomanda();
 }
@@ -597,14 +909,79 @@ function disegnaDomanda() {
   const opzioni = h("div", { class: `opzioni ${media < 34 ? "compatte" : ""}`, id: "opzioni" },
     d.opzioni.map((o, i) => h("button", { class: "opzione", "data-pos": String(o.posizione), onclick: () => rispondi(o.posizione) },
       h("span", { class: "lettera" }, String.fromCharCode(65 + i)), h("span", {}, o.testo))));
+  const indietro = indiceRevisione();
   el.replaceChildren(h("div", { class: "quiz entra" },
     h("div", { class: "quiz-testa" },
-      q.contesto === "spicchio" ? h("button", { class: "btn btn-fantasma", onclick: () => apriPillola(q.pid) }, icona("indietro")) : null,
+      q.contesto === "spicchio" ? h("button", { class: "btn btn-fantasma", "aria-label": t("scheda_lezione"), title: t("scheda_lezione"), onclick: () => apriPillola(q.pid) }, icona("indietro")) : null,
       h("b", {}, titolo),
       h("div", { class: "avanzamento", "aria-hidden": "true" }, h("span", { style: `width:${pct}%` })),
-      h("span", {}, `${t("domanda")} ${q.progresso.striscia} ${t("di")} ${q.progresso.totale}`),
+      h("span", { class: "contatore-domanda" }, `${t("domanda")} ${q.progresso.striscia} ${t("di")} ${q.progresso.totale}`),
       h("span", { class: `livello-badge ${d.livello === 2 ? "l2" : ""}` }, d.livello === 1 ? t("livello1") : t("livello2"))),
-    h("div", { class: "domanda-scheda" }, h("h2", {}, d.testo), opzioni, h("div", { id: "riscontro" }))));
+    alpha() && q.contesto === "spicchio" ? h("div", { class: "quiz-strumenti" },
+      h("button", { class: "btn", id: "domanda-precedente", disabled: indietro < 0, onclick: () => disegnaRevisione(indietro) }, icona("indietro"), t("domanda_precedente")),
+      h("button", { class: "btn", id: "riepilogo-quiz", onclick: () => apriRiepilogo(q.pid) }, icona("libro"), t("apri_riepilogo"))) : null,
+    h("div", { class: "domanda-scheda" }, h("h2", {}, d.testo), opzioni, riquadroTermini(d.glossario), h("div", { id: "riscontro" }))));
+}
+
+/** Indice (nelle risposte date dello spicchio) della domanda da rivedere andando "indietro" da quella mostrata. */
+function indiceRevisione() {
+  const q = S.quiz;
+  if (!q || q.contesto !== "spicchio") return -1;
+  const n = q.risposteDate || 0;
+  return q.risposto ? n - 2 : n - 1;
+}
+
+/** Rivede una risposta gia' data (solo alpha): scelta evidenziata, giusta in verde, salute mai ricalcolata. */
+async function disegnaRevisione(indice) {
+  const q = S.quiz;
+  const r = await api("GET", conLingua(`/api/spicchi/${encodeURIComponent(q.pid)}/rivedi/${indice}`));
+  if (!r.ok) return errore(r);
+  const v = r.dati;
+  const el = document.getElementById("principale");
+  const opzioni = h("div", { class: "opzioni revisione", id: "opzioni" },
+    v.opzioni.map((o, i) => {
+      const classe = o.posizione === v.posizione_corretta ? "giusta" : o.posizione === v.posizione_scelta ? "sbagliata" : "spenta";
+      return h("button", { class: `opzione ${classe} ${o.posizione === v.posizione_scelta ? "scelta" : ""}`, disabled: true, "data-pos": String(o.posizione) },
+        h("span", { class: "lettera" }, String.fromCharCode(65 + i)), h("span", {}, o.testo),
+        o.posizione === v.posizione_scelta ? h("span", { class: "segno-scelta" }, t("tua_risposta")) : null);
+    }));
+  el.replaceChildren(h("div", { class: "quiz entra" },
+    h("div", { class: "quiz-testa" },
+      h("b", {}, `${t("rivedi_titolo")} · ${q.pid}`),
+      h("div", { class: "spazio" }),
+      v.striscia ? h("span", { class: "contatore-domanda" }, `${t("domanda")} ${v.striscia} ${t("di")} ${v.strisce}`) : null,
+      h("span", { class: `livello-badge ${v.livello === 2 ? "l2" : ""}` }, v.livello === 1 ? t("livello1") : t("livello2"))),
+    h("div", { class: "quiz-strumenti" },
+      h("button", { class: "btn", id: "revisione-indietro", disabled: indice <= 0, onclick: () => disegnaRevisione(indice - 1) }, icona("indietro"), t("piu_indietro")),
+      h("button", { class: "btn", id: "revisione-avanti", disabled: indice >= v.totale - 1, onclick: () => disegnaRevisione(indice + 1) }, t("piu_avanti"), icona("avanti")),
+      h("button", { class: "btn btn-primario", id: "torna-domanda", onclick: ripristinaDomanda }, t("torna_domanda_corrente"))),
+    h("p", { class: "nota-revisione", role: "note" }, icona("cuore"), " ", t("rivedi_nota")),
+    h("div", { class: "domanda-scheda" }, h("h2", {}, v.testo), opzioni, riquadroTermini(v.glossario),
+      h("div", { class: `riscontro ${v.corretta ? "ok" : "male"}` },
+        h("p", {}, h("span", { class: "etichetta" }, t("tua_risposta")), v.scelta.testo,
+          !v.corretta && v.scelta.spiegazione ? h("span", { class: "spiega-scelta" }, "→ ", v.scelta.spiegazione) : null),
+        !v.corretta ? h("p", {}, h("span", { class: "etichetta" }, t("risposta_giusta")), h("b", {}, v.opzioni.find((o) => o.posizione === v.posizione_corretta).testo)) : null,
+        h("p", {}, h("span", { class: "etichetta" }, t("perche")), v.perche)))));
+}
+
+/** Torna alla domanda in corso com'era (con il riscontro, se gia' risposta) senza richiamare il server. */
+function ripristinaDomanda() {
+  const q = S.quiz;
+  disegnaDomanda();
+  if (q.risposto && q.esito) {
+    segnaOpzioni(q.esito, q.ultimaPosizione);
+    disegnaRiscontro(q.esito);
+  }
+}
+
+function segnaOpzioni(e, posizione) {
+  document.querySelectorAll("#opzioni .opzione").forEach((b) => {
+    b.disabled = true;
+    const p = Number(b.dataset.pos);
+    if (p === e.posizione_corretta) b.classList.add("giusta");
+    else if (p === posizione) b.classList.add("sbagliata");
+    else b.classList.add("spenta");
+  });
 }
 
 async function rispondi(posizione) {
@@ -616,12 +993,11 @@ async function rispondi(posizione) {
   if (!r.ok) { q.risposto = false; return errore(r); }
   const e = r.dati;
   q.esito = e;
-  document.querySelectorAll("#opzioni .opzione").forEach((b) => {
-    const p = Number(b.dataset.pos);
-    if (p === e.posizione_corretta) b.classList.add("giusta");
-    else if (p === posizione) b.classList.add("sbagliata");
-    else b.classList.add("spenta");
-  });
+  q.ultimaPosizione = posizione;
+  if (q.contesto === "spicchio") q.risposteDate = (q.risposteDate || 0) + 1;
+  segnaOpzioni(e, posizione);
+  const strumento = document.getElementById("domanda-precedente");
+  if (strumento) strumento.disabled = indiceRevisione() < 0;
   const delta = e.salute - S.stato.salute;
   aggiornaSalute(e.salute, delta);
   S.stato.convalescenza = e.convalescenza;
@@ -691,6 +1067,7 @@ function disegnaConclusione(e) {
         h("p", {}, t("record_formato", { quota: Math.round(rp.record.quota_passaggi_puliti * 100), salute: rp.record.salute_finale }))) : null,
       h("div", { class: "azioni-quiz", style: "justify-content:center" },
         h("button", { class: "btn", onclick: () => { S.vista = "mappa"; S.pid = null; disegnaTutto(); } }, t("torna_mappa")),
+        riepilogoDisponibile(sp) ? h("button", { class: "btn", id: "riepilogo-fine", onclick: () => apriRiepilogo(sp.pillola) }, icona("libro"), t("apri_riepilogo")) : null,
         !superato ? h("button", { class: "btn", onclick: () => apriPillola(sp.pillola) }, t("scheda_lezione")) : null,
         !superato ? h("button", { class: "btn btn-primario", onclick: () => avviaVerifica(sp.pillola) }, t("ripeti_verifica")) : null,
         rp ? h("button", { class: "btn btn-primario", onclick: ricominciaPercorso }, t("ricomincia_percorso")) : null))));

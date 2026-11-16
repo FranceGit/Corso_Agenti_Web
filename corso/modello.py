@@ -78,6 +78,15 @@ class Livello2(Livello):
     tipo: TipoL2
 
 
+# Voce del glossario di una domanda (contratto dati ALPHA-FIX, popolato dal cantiere CONTENUTI-REV):
+# il termine come appare nel testo e la sua definizione succinta in ogni lingua. 'en' null = da tradurre:
+# in inglese la voce non viene mostrata (mai la definizione italiana al suo posto).
+class VoceGlossario(Base):
+    termine: str = Field(min_length=1)
+    it: str = Field(min_length=1)
+    en: Optional[str] = Field(default=None, min_length=1)
+
+
 class Domanda(Base):
     id: str = Field(min_length=1)
     origine: Origine
@@ -88,6 +97,7 @@ class Domanda(Base):
     striscia: Optional[Striscia] = None  # null = punto di vista da assegnare (la domanda non e' ancora erogabile)
     livello1: Livello
     livello2: Livello2
+    glossario: Optional[list[VoceGlossario]] = None  # riquadro "Termini" sotto la domanda (facoltativo)
 
     @model_validator(mode="after")
     def _principale_fra_concetti(self) -> "Domanda":

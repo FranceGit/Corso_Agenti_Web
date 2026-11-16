@@ -6,8 +6,62 @@ const NS = "http://www.w3.org/2000/svg";
 const STAZIONI = ["percepisce", "ragiona", "agisce", "osserva"];
 const ANGOLO = { percepisce: -90, ragiona: 0, agisce: 90, osserva: 180 };
 const COLORE = { percepisce: "#0ea5e9", ragiona: "#8b5cf6", agisce: "#f59e0b", osserva: "#10b981" };
-const CENTRO = { x: 262, y: 238 };
+// ALPHA-FIX (1): centro spostato a destra e didascalie a capo, perche' l'etichetta di «Osserva» (a sinistra)
+// usciva dal riquadro e quella di «Ragiona» toccava gli strumenti. Geometria verificata da tests_js/misura_testi.mjs.
+const CENTRO = { x: 290, y: 238 };
 const RAGGIO = 156;
+const STRUMENTO = { cx: 628, w: 128, h: 78, xTesto: -24, margine: 6 };
+const LARGHEZZA_DIDASCALIA = 70; // px massimi di una riga della didascalia delle stazioni laterali
+
+/** Larghezza stimata (px) di un testo SVG: stima prudente per caratteri (nessuna misura dal browser, deterministica). */
+export function larghezzaTesto(testo, px, grassetto) {
+  let em = 0;
+  for (const c of String(testo)) {
+    if ("il.,:;'|!ìíI".includes(c)) em += 0.3;
+    else if ("ftjr()[]- ".includes(c)) em += 0.38;
+    else if ("mwMW@".includes(c)) em += 0.9;
+    else if (c >= "A" && c <= "Z") em += 0.7;
+    else em += 0.58;
+  }
+  return em * px * (grassetto ? 1.08 : 1);
+}
+
+/** A capo per parole entro `max` px (una parola troppo lunga resta da sola sulla sua riga). */
+export function aCapoPx(testo, px, grassetto, max) {
+  const righe = [];
+  let cur = "";
+  for (const p of String(testo).split(" ")) {
+    const prova = cur ? `${cur} ${p}` : p;
+    if (!cur || larghezzaTesto(prova, px, grassetto) <= max) cur = prova;
+    else { righe.push(cur); cur = p; }
+  }
+  if (cur) righe.push(cur);
+  return righe;
+}
+
+/** Righe e coordinate delle etichette (stazioni e strumenti), usate dal disegno e dal controllo dei bordi. */
+export function geometriaEtichette(sc) {
+  const out = [];
+  for (const st of sc.stazioni) {
+    const p = punto(ANGOLO[st.id], RAGGIO);
+    const lato = { percepisce: [0, -52, "middle"], agisce: [0, 60, "middle"], osserva: [-44, -4, "end"], ragiona: [44, -4, "start"] }[st.id];
+    const laterale = lato[2] !== "middle";
+    const righe = laterale ? aCapoPx(st.breve, 11, false, LARGHEZZA_DIDASCALIA) : [st.breve];
+    out.push({ id: st.id, x: p.x + lato[0], y: p.y + lato[1], anchor: lato[2], testo: st.nome, px: 15, grassetto: true });
+    righe.forEach((r, i) => out.push({ id: st.id, x: p.x + lato[0], y: p.y + lato[1] + 16 + i * 13, anchor: lato[2], testo: r, px: 11, grassetto: false, didascalia: true }));
+  }
+  sc.strumenti.forEach((st, i) => {
+    const y = 78 + i * 104;
+    const max = STRUMENTO.w / 2 - STRUMENTO.xTesto - STRUMENTO.margine;
+    const nome = aCapoPx(st.nome, 12.5, true, max);
+    const spiega = aCapoPx(st.spiega, 10.5, false, max);
+    const tutte = [...nome.map((r) => ({ r, px: 12.5, g: true })), ...spiega.map((r) => ({ r, px: 10.5, g: false }))];
+    const y0 = -((tutte.length - 1) * 13) / 2 + 4;
+    tutte.forEach((x, k) => out.push({ id: st.id, strumento: true, x: STRUMENTO.cx + STRUMENTO.xTesto, y: y + y0 + k * 13, anchor: "start", testo: x.r, px: x.px, grassetto: x.g, riquadro: { x0: STRUMENTO.cx - STRUMENTO.w / 2, x1: STRUMENTO.cx + STRUMENTO.w / 2 } }));
+  });
+  return out;
+}
+export const VIEWBOX = { w: 720, h: 476 };
 
 const ICONE_STAZIONE = {
   percepisce: '<path d="M-13,0 C-8,-8 8,-8 13,0 C8,8 -8,8 -13,0Z" fill="none" stroke="currentColor" stroke-width="2.4"/><circle r="4.2" fill="currentColor"/>',
@@ -275,23 +329,26 @@ export function monta(radice, lez, contesto) {
   const gLinee = svgEl("g");
   const gStrumenti = svgEl("g");
   const nodoAgisce = punto(ANGOLO.agisce, RAGGIO);
+  const etichette = geometriaEtichette(sc);
+  const bordoSx = STRUMENTO.cx - STRUMENTO.w / 2;
   sc.strumenti.forEach((st, i) => {
     const y = 78 + i * 104;
-    POS_STR[st.id] = { x: 628, y };
-    const d = `M${nodoAgisce.x + 28},${nodoAgisce.y} C${nodoAgisce.x + 200},${nodoAgisce.y} ${560},${y} ${574},${y}`;
+    POS_STR[st.id] = { x: STRUMENTO.cx, y };
+    const d = `M${nodoAgisce.x + 28},${nodoAgisce.y} C${nodoAgisce.x + 180},${nodoAgisce.y} ${bordoSx - 14},${y} ${bordoSx - 2},${y}`;
     const linea = svgEl("path", { d, fill: "none", stroke: "#d6dcea", "stroke-width": 2, "stroke-dasharray": "5 6", "data-str": st.id });
     gLinee.append(linea);
     POS_STR[st.id].linea = linea;
-    const g = svgEl("g", { transform: `translate(628,${y})`, filter: "url(#ca-ombra)" });
-    const box = svgEl("rect", { x: -56, y: -30, width: 112, height: 60, rx: 14, fill: "#fff", stroke: "#dde3f0", "stroke-width": 1.5 });
-    const ic = svgEl("g", { transform: "translate(-32,0)", color: "#64748b" }, ICONE_STRUMENTO[st.id] || "");
-    const nome = svgEl("text", { x: -14, y: -3, "font-size": 13, "font-weight": 700, fill: "#17203b" });
-    nome.textContent = st.nome;
-    const spiega = svgEl("text", { x: -14, y: 14, "font-size": 10.5, fill: "#64748b" });
-    spiega.textContent = st.spiega;
-    const segno = svgEl("g", { transform: "translate(50,-26)", opacity: 0 });
+    const g = svgEl("g", { transform: `translate(${STRUMENTO.cx},${y})`, filter: "url(#ca-ombra)" });
+    const box = svgEl("rect", { x: -STRUMENTO.w / 2, y: -STRUMENTO.h / 2, width: STRUMENTO.w, height: STRUMENTO.h, rx: 14, fill: "#fff", stroke: "#dde3f0", "stroke-width": 1.5 });
+    const ic = svgEl("g", { transform: `translate(${-STRUMENTO.w / 2 + 20},0)`, color: "#64748b" }, ICONE_STRUMENTO[st.id] || "");
+    const testi = etichette.filter((x) => x.strumento && x.id === st.id).map((x) => {
+      const nodo = svgEl("text", { x: STRUMENTO.xTesto, y: x.y - y, "font-size": x.px, "font-weight": x.grassetto ? 700 : 400, fill: x.grassetto ? "#17203b" : "#64748b" });
+      nodo.textContent = x.testo;
+      return nodo;
+    });
+    const segno = svgEl("g", { transform: `translate(${STRUMENTO.w / 2 - 6},${-STRUMENTO.h / 2 + 4})`, opacity: 0 });
     segno.append(svgEl("circle", { r: 10, fill: "#e11d48" }), Object.assign(svgEl("text", { y: 4.5, "text-anchor": "middle", "font-size": 13, "font-weight": 900, fill: "#fff" }), { textContent: "!" }));
-    g.append(box, ic, nome, spiega, segno);
+    g.append(box, ic, ...testi, segno);
     gStrumenti.append(g);
     Object.assign(POS_STR[st.id], { g, box, ic, segno });
   });
@@ -307,15 +364,17 @@ export function monta(radice, lez, contesto) {
     const disco = svgEl("circle", { r: 30, fill: "#fff", stroke: COLORE[st.id], "stroke-width": 3.5, filter: "url(#ca-ombra)" });
     const ic = svgEl("g", { color: COLORE[st.id] }, ICONE_STAZIONE[st.id]);
     const etichetta = svgEl("g");
-    const lato = { percepisce: [0, -52, "middle"], agisce: [0, 60, "middle"], osserva: [-44, -4, "end"], ragiona: [44, -4, "start"] }[st.id];
-    const t1 = svgEl("text", { x: lato[0], y: lato[1], "text-anchor": lato[2], "font-size": 15, "font-weight": 800, fill: COLORE[st.id] });
-    t1.textContent = st.nome;
-    const t2 = svgEl("text", { x: lato[0], y: lato[1] + 16, "text-anchor": lato[2], "font-size": 11, fill: "#64748b" });
-    t2.textContent = st.breve;
-    const ySaltato = st.id === "percepisce" ? lato[1] - 18 : lato[1] + 31;
-    const saltato = svgEl("text", { x: lato[0], y: ySaltato, "text-anchor": lato[2], "font-size": 10.5, "font-weight": 800, fill: "#e11d48", opacity: 0 });
+    const mie = etichette.filter((x) => !x.strumento && x.id === st.id);
+    const nodiTesto = mie.map((x) => {
+      const nodo = svgEl("text", { x: x.x - p.x, y: x.y - p.y, "text-anchor": x.anchor, "font-size": x.px, "font-weight": x.grassetto ? 800 : 400, fill: x.didascalia ? "#64748b" : COLORE[st.id] });
+      nodo.textContent = x.testo;
+      return nodo;
+    });
+    const ultima = mie[mie.length - 1];
+    const ySaltato = st.id === "percepisce" ? mie[0].y - p.y - 18 : ultima.y - p.y + 15;
+    const saltato = svgEl("text", { x: mie[0].x - p.x, y: ySaltato, "text-anchor": mie[0].anchor, "font-size": 10.5, "font-weight": 800, fill: "#e11d48", opacity: 0 });
     saltato.textContent = `— ${sc.testi.scr_salta} —`;
-    etichetta.append(t1, t2, saltato);
+    etichetta.append(...nodiTesto, saltato);
     g.append(alone, disco, ic, etichetta);
     gStazioni.append(g);
     NODI[st.id] = { g, alone, disco, ic, saltato, p };

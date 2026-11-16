@@ -44,7 +44,9 @@ def test_stato_iniziale(motore):
 def test_domanda_non_rivela_la_risposta(motore):
     motore.inizia_spicchio(EMAIL, "P1.3")
     v = motore.domanda_spicchio(EMAIL, "P1.3", "it")
-    assert set(v) == {"pillola", "livello", "tipo_livello2", "testo", "opzioni", "progresso"}
+    # ALPHA-FIX: si aggiunge il glossario (termini e definizioni, nessuna informazione sulla risposta)
+    assert set(v) == {"pillola", "livello", "tipo_livello2", "testo", "opzioni", "progresso", "glossario"}
+    assert all(set(g) == {"termine", "definizione"} for g in v["glossario"])
     assert all(set(o) == {"posizione", "testo"} for o in v["opzioni"])
     # richiederla di nuovo non rimescola: stessa presentazione
     assert motore.domanda_spicchio(EMAIL, "P1.3", "it") == v

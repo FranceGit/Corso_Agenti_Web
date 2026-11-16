@@ -1,5 +1,62 @@
 # PROGRESSI — Corso Agenti Web
 
+## Stato al 16/11/2026 — cantiere ALPHA-FIX (interfaccia/UX dal primo playtest alpha)
+Perimetro: webapp, server, config, schema. **Non** toccati i contenuti di domande e lezioni (`dati/corso_v1.json` e `dati/lezioni/*.json` sono del cantiere parallelo CONTENUTI-REV).
+
+Il lavoro è stato scritto senza poterlo eseguire, perché lo spazio dei comandi si era bloccato per disco pieno. È stato collaudato e committato in una seconda sessione: vedi «Collaudo» più sotto (tutto verde, 2 difetti riparati).
+
+### Fatto (fix per fix)
+- **(1) Testo che sborda.**
+  - CSS generale: `overflow-wrap: anywhere` su pannelli, opzioni, riscontri e modali; `min-width: 0` sui figli di griglia, sui bottoni a segmenti e sulle righe dei cursori; i bottoni vanno a capo. L'ellissi con `title` resta solo sulla voce scelta dei menu a tendina, l'unico caso inevitabile.
+  - P1.3 `ciclo_agente`: l'etichetta di «Osserva» usciva a sinistra (x da −50), quella di «Ragiona» toccava gli strumenti e «Statistiche sito» usciva dal suo riquadro. Ora il centro è spostato, le didascalie vanno a capo misurate in px e i riquadri degli strumenti sono più larghi, con testo a capo. La geometria è esportata (`geometriaEtichette`) per il controllo.
+  - Classi della shell che colpivano le lezioni, ora legate alla shell: `.corpo` → `#radice > .corpo` (spezzava in due colonne il corpo dell'email di P2.1); `.voce` → `.laterale .voce`; `.legenda` → `.mappa .legenda`; `.avvisi`/`.avviso` → `#avvisi`.
+  - Nuovo check Node `tests_js/misura_testi.mjs`:
+    - etichette di P1.3 in IT e EN, dentro la scena e dentro i riquadri;
+    - regola che vieta classi «nude» della shell con posizione o griglia uguali a classi delle lezioni;
+    - con jsdom e app.css: nessun elemento fisso nel banco di ogni lezione, in IT e EN, e gli esiti di P8.6 sotto la tavola.
+  - Non fatto: le misure a 1280 e 1600 su un browser vero (la regola del layout a 1280 c'è).
+- **(11) P8.6, esiti del blueprint.** Causa: la `div.avvisi` del componente prendeva `position: fixed` dalla regola dei toast della shell e si posava sulla tavola. Gli esiti ora stanno in un pannello proprio (`.esiti-verifica`) dentro la scena, sotto la tavola, con scorrimento interno (`max-height` 240 px). Nel pannello destro restano solo i blocchi.
+- **(2) Indietro sulle domande** (solo alpha). Il motore registra ogni risposta dello spicchio (`StatoSpicchio.risposte`: domanda, livello, ordine mostrato, scelta). `GET /api/spicchi/{pid}/rivedi/{i}` restituisce la domanda con la scelta evidenziata e la giusta in verde, ed è in sola lettura: salute, esiti e domanda in corso non cambiano. Nel quiz ci sono i bottoni «Domanda precedente», «Più indietro / Più avanti» e «Torna alla domanda in corso», che ripristina anche il riscontro.
+- **(3) Riepilogo di fine spicchio.** `GET /api/spicchi/{pid}/riepilogo` mostra ogni domanda (livelli 1 e 2) con la risposta data, la risposta giusta, il perché e la spiegazione della scelta sbagliata. In alpha è sempre disponibile; in beta lo regola `alpha.riepilogo_in_beta` (`solo_superato` | `sempre` | `mai`). Bottone nella testata della pillola, nel quiz e nella schermata di fine verifica.
+- **(5) Acceleratori alpha** dietro `alpha.modalita_alpha` (oggi true; il `_why` dice che in beta va spenta). Stanno in una striscia tratteggiata ambra «ALPHA · strumento da collaudo»:
+  - «Riassumi lo spicchio»: finestra con obiettivo, concetti, punti chiave (il segmento `riassunto` della lezione, oppure la scaletta) e passi con il loro «Prova tu»;
+  - «Assumi superato (0 errori) e passa al successivo»: chiede conferma, poi `POST /api/spicchi/{pid}/assumi_superato`. Lo spicchio risulta superato senza danno e con `assunto: true`; padronanza invariata; si apre il prossimo spicchio erogabile e non superato.
+- **(6) Lettura prima della manipolazione.** Barra fissa fra concetto e banco: «Completa prima la lettura dei passi: capirai cosa osservare» e «Rivedi l'animazione», che riapplica lo stato del passo corrente e rilancia la sequenza. Le lezioni restano interattive.
+- **(7) Ordine di lettura canonico**, un solo componente condiviso nella shell (`applicaCanone` in `webapp/app.js`) e nessuna lezione toccata a mano:
+  - finestre numerate da CSS (`::before` su `data-numero`, resiste ai ridisegni): ① concetto sopra, ② spiegazioni/diario, ③ animazione, ④ comandi;
+  - a 1280 px le spiegazioni vanno sopra a tutta larghezza, poi animazione e comandi;
+  - dopo una manipolazione, le finestre cambiate (rilevate con MutationObserver) si illuminano e compare «Hai cambiato «X» → osserva la finestra ③» (testi `guida_una` / `guida_piu`);
+  - Avanti e concetto restano dove sono.
+- **Contratto dati (rendering):**
+  - (a) campo facoltativo `glossario: [{termine, it, en}]` nel modello `Domanda` (schemi `corso` e `lezione` aggiornati a mano: **da riverificare** con `python strumenti/esporta_schema.py`). Riquadro «Termini» sotto la domanda, nella revisione e nel riepilogo. Una voce senza la lingua chiesta non si mostra e il glossario non cambia l'erogabilità della domanda.
+  - (b) pagina «Bibliografia» nella barra laterale, servita da `GET /api/bibliografia`. Il server toglie ogni campo diverso da titolo, autori, anno, editore, tipo e nota, quindi nessun URL. Senza `dati/bibliografia.json` mostra `config/bibliografia_esempio.json` con la scritta «Dati d'esempio».
+
+### File toccati
+`webapp/app.js`, `webapp/app.css`, `webapp/animazioni/ciclo_agente.js`, `webapp/animazioni/blueprint_crm.js`, `corso/motore.py`, `corso/stato.py`, `corso/modello.py`, `corso/app.py`, `config/piattaforma.json` (sezione `alpha`, percorsi bibliografia), `config/interfaccia.json` (+38 testi IT/EN), `config/bibliografia_esempio.json` (nuovo), `schema/corso.schema.json`, `schema/lezione.schema.json`, `tests/test_alpha_fix.py` (nuovo), `tests/test_motore.py` (dichiarato: la vista della domanda ha anche `glossario`), `tests_js/misura_testi.mjs` (nuovo).
+
+### Collaudo (eseguito il 16/11/2026 in una seconda sessione, prima del commit)
+1. `python strumenti/esporta_schema.py`: gli schemi rigenerati sono **identici byte per byte** a quelli editati a mano. `git diff schema/` mostra solo le aggiunte del glossario (+49 righe per file) rispetto al commit precedente.
+2. pytest: `tests` 199 superati e 1 saltato; `esercizi/tests` 143 superati.
+3. `node tests_js/prova_animazioni.mjs`: 548 prove superate. `node tests_js/misura_testi.mjs`: 94 prove superate, con la parte jsdom (tutte le lezioni IT/EN senza elementi fissi; P8.6 con gli esiti sotto la tavola). jsdom è installato con `npm install --no-save jsdom` e `node_modules/` è aggiunto a `.gitignore`.
+4. Browser simulato (jsdom sulla webapp servita dal server vero; script in `outputs\alphafix\collaudo\`):
+   - `lezioni.mjs`: 39 lezioni e 2 laboratori, in IT e in EN, 243 passi e 2.923 azioni per lingua. Ogni banco è in canone con le finestre ①②③④ senza numeri ripetuti, il bordo si illumina e il messaggio-guida compare in tutte le 41 schede, «Rivedi l'animazione» funziona su ogni passo, gli esiti di P8.6 sono dentro la scena e dopo la tavola. Nessun errore JS e nessun testo sospetto.
+   - `alpha.mjs` (IT ed EN):
+     - striscia ALPHA, «Riassumi» (finestra con punti chiave e passi; si chiude con Esc), riepilogo prima di iniziare e dopo un cambio di lingua;
+     - «Domanda precedente» spento alla prima domanda e acceso dopo; revisione con la scelta evidenziata e la risposta giusta in verde; «Più indietro / Più avanti»; «Torna alla domanda in corso» con il riscontro ripristinato; salute invariata;
+     - «Assumi superato» porta a P1.4 senza cambiare la salute; Bibliografia senza URL;
+     - beta simulata: gli strumenti spariscono e il riepilogo compare solo a spicchio superato.
+   - `fine.mjs` (IT ed EN): spicchio completo fino a «Spicchio superato!», poi riepilogo dalla schermata di fine (una risposta sbagliata segnata, il livello 2 non posto resta vuoto).
+5. **Difetti trovati e riparati** (in `webapp/app.js`):
+   - `apriRiepilogo` e `assumiSuperato` chiudevano il modulo della lezione *prima* della risposta del server: su un errore la lezione restava a video ma morta (comandi e canone scollegati). Ora il modulo si chiude solo a esito positivo. Coperto da `alpha.mjs` con un errore simulato.
+   - Il riepilogo aperto durante la verifica non offriva un ritorno alla domanda in corso (solo «Lezione» e «Mappa»). Ora c'è «Riprendi la verifica» (`tornaAlQuiz`): se la domanda era già risposta torna col riscontro, altrimenti la ricarica dal server. Il bottone resta anche dopo un cambio di lingua e non compare se il riepilogo è aperto dalla pillola.
+6. Resta da fare: le misure a 1280 e 1600 su un browser vero per P1.3 e P8.6 (nella sandbox non c'è un browser vero).
+7. Nel commit entra anche la modifica precedente di `collaudo.ps1`, non ancora committata: il Read-Host richiede S/Q finché non arriva una risposta valida, perché un Invio rimasto nel buffer faceva uscire lo script.
+
+### Da sapere
+- Il campo `glossario` nel modello è codice (perimetro di questo cantiere). CONTENUTI-REV deve solo popolarlo nei dati, nel formato `[{"termine": "...", "it": "...", "en": "..."}]` con `termine` stringa.
+- Il riassunto dello spicchio prende il segmento con id `riassunto` (stesso id di `regole_lezioni.id_segmento_riassunto`).
+- Gli spicchi «assunti» entrano nel record come passaggi puliti: è uno strumento da collaudo, in beta si spegne con `modalita_alpha`.
+
 ## Stato al 16/11/2026 — cantiere COMPLETAMENTI: lezioni P6.4 e P8.5 + esercizi 4-6
 Commit `fc1d317` (esercizi) e successivo (lezioni). Ora **ogni pillola di M1-M8 ha la sua lezione** tranne P3.3 (scelta dichiarata della fase 4).
 

@@ -18,9 +18,11 @@ from .salute import (
     applica_danno, danno, gradino_dopo_ripasso, recupera, salute_fine_convalescenza, scadenza,
 )
 from .stato import (
-    Archivio, DaRivedere, Debriefing, DomandaInCorso, EsitoStriscia, Padronanza, Record, StatoSpicchio,
-    StatoStudente,
+    Archivio, DaRivedere, Debriefing, DomandaInCorso, EsitoStriscia, Padronanza, Record, RispostaData,
+    StatoSpicchio, StatoStudente,
 )
+
+REGOLE_RIEPILOGO_BETA = ("solo_superato", "sempre", "mai")
 
 
 class Motore:
@@ -109,6 +111,10 @@ class Motore:
             ],
             "in_corso": {"contesto": st.in_corso.contesto, "pillola": st.in_corso.pillola} if st.in_corso else None,
             "debriefing": self._info_debriefing(st),
+            "alpha": {
+                "modalita_alpha": self.modalita_alpha(),
+                "riepilogo_in_beta": self._regola_riepilogo_beta(),
+            },
         }
 
     def vista_percorso(self, email: str, lingua: str) -> dict:
@@ -200,7 +206,7 @@ class Motore:
         else:
             vista = self._presenta(st, "spicchio", self.cat.domanda(sp.strisce[sp.indice]), 1, lingua)
             self.archivio.salva(st)
-        vista["progresso"] = {"striscia": sp.indice + 1, "totale": len(sp.strisce)}
+        vista["progresso"] = {"striscia": sp.indice + 1, "totale": len(sp.strisce), "risposte_date": len(sp.risposte)}
         return vista
 
     def _vista_spicchio(self, sp: StatoSpicchio) -> dict:
@@ -218,6 +224,156 @@ class Motore:
     def _no_convalescenza(self, st: StatoStudente) -> None:
         if st.convalescenza:
             raise ErroreFlusso("convalescenza", "salute a zero: prima il debriefing di convalescenza, poi si riprende")
+
+    # ------------------------------------------------------------ strumenti del collaudo alpha (config alpha.*)
+
+    def modalita_alpha(self) -> bool:
+        return self.cfg.prendi("alpha", "modalita_alpha", tipo=bool)
+
+    def _regola_riepilogo_beta(self) -> str:
+        regola = self.cfg.prendi("alpha", "riepilogo_in_beta", tipo=str)
+        if regola not in REGOLE_RIEPILOGO_BETA:
+            raise ErroreConfigurazione(f"alpha.riepilogo_in_beta '{regola}' non prevista {REGOLE_RIEPILOGO_BETA}")
+        return regola
+
+    def _solo_alpha(self, cosa: str) -> None:
+        if not self.modalita_alpha():
+            raise ErroreFlusso("solo_alpha", f"{cosa}: disponibile solo con alpha.modalita_alpha = true")
+
+    def rivedi_risposta(self, email: str, pid: str, indice: int, lingua: str) -> dict:
+        """Una risposta gia' data nel tentativo corrente (o nell'ultimo) dello spicchio, con la scelta evidenziata.
+
+        Sola lettura: non tocca salute, esiti, padronanza ne' la domanda in corso.
+        """
+        self._solo_alpha("rivedere una domanda gia' risposta")
+        st = self.stato(email)
+        sp = st.spicchi.get(pid)
+        if sp is None or not sp.risposte:
+            raise ErroreFlusso("niente_da_rivedere", f"nello spicchio {pid} non ci sono ancora risposte da rivedere")
+        if not 0 <= indice < len(sp.risposte):
+            raise ErroreFlusso("indice_non_valido", f"indice {indice} fuori da 0..{len(sp.risposte) - 1}")
+        r = sp.risposte[indice]
+        d = self.cat.domanda(r.domanda)
+        liv = self._livello(d, r.livello)
+        vista = self._vista_domanda(d, r.livello, r.ordine, lingua)
+        scelta = next(o for o in liv.opzioni if o.id == r.scelta)
+        giusta = liv.corretta()
+        vista.update({
+            "indice": indice,
+            "totale": len(sp.risposte),
+            "striscia": sp.strisce.index(d.id) + 1 if d.id in sp.strisce else None,
+            "strisce": len(sp.strisce),
+            "posizione_scelta": r.ordine.index(r.scelta) + 1,
+            "posizione_corretta": r.ordine.index(giusta.id) + 1,
+            "corretta": r.corretta,
+            "scelta": self._vista_opzione(scelta, lingua),
+            "perche": risolvi(liv.perche, lingua),
+        })
+        return vista
+
+    def _riepilogo_disponibile(self, sp: StatoSpicchio | None) -> bool:
+        if self.modalita_alpha():
+            return True
+        regola = self._regola_riepilogo_beta()
+        if regola == "sempre":
+            return sp is not None
+        if regola == "solo_superato":
+            return sp is not None and sp.stato == "superato"
+        return False
+
+    def riepilogo_spicchio(self, email: str, pid: str, lingua: str) -> dict:
+        """Tutte le domande dello spicchio con risposta data, risposta giusta e spiegazione (livello 1 e 2)."""
+        st = self.stato(email)
+        self.cat.pillola(pid)
+        sp = st.spicchi.get(pid)
+        if not self._riepilogo_disponibile(sp):
+            raise ErroreFlusso("riepilogo_non_disponibile",
+                               f"riepilogo dello spicchio {pid}: in beta si apre secondo alpha.riepilogo_in_beta "
+                               f"('{self._regola_riepilogo_beta()}')")
+        if sp is not None:
+            domande, stato = sp.strisce, sp.stato
+        else:  # solo in alpha: le domande che il prossimo tentativo porrebbe
+            strisce = self._strisce(st, pid, 1)
+            if not strisce.erogabile:
+                raise ErroreFlusso("spicchio_non_erogabile", f"lo spicchio {pid} e' in preparazione")
+            domande, stato = strisce.domande, "da_iniziare"
+        risposte = sp.risposte if sp else []
+        voci = []
+        for n, did in enumerate(domande, start=1):
+            d = self.cat.domanda(did)
+            livelli = []
+            for livello in (1, 2):
+                liv = self._livello(d, livello)
+                data = next((r for r in reversed(risposte) if r.domanda == did and r.livello == livello), None)
+                scelta = next(o for o in liv.opzioni if o.id == data.scelta) if data else None
+                livelli.append({
+                    "livello": livello,
+                    "testo": risolvi(liv.domanda, lingua),
+                    "risposta_data": self._vista_opzione(scelta, lingua) if scelta else None,
+                    "corretta": data.corretta if data else None,
+                    "risposta_giusta": risolvi(liv.corretta().testo, lingua),
+                    "perche": risolvi(liv.perche, lingua),
+                })
+            voci.append({"numero": n, "domanda": did, "livelli": livelli, "glossario": self._glossario(d, lingua)})
+        return {
+            "pillola": pid,
+            "stato": stato,
+            "assunto": bool(sp and sp.assunto),
+            "modalita_alpha": self.modalita_alpha(),
+            "voci": voci,
+        }
+
+    def _ordine_percorso(self, st: StatoStudente) -> list[str]:
+        return [pid for a in self.anelli(st) for pid in a.spicchi]
+
+    def prossimo_spicchio(self, st: StatoStudente, pid: str) -> str | None:
+        """Il primo spicchio dopo `pid` (in ordine di percorso, poi da capo) erogabile, sbloccato e non superato."""
+        ordine = self._ordine_percorso(st)
+        anelli = self.anelli(st)
+        erogabili = self._erogabili(st)
+        sblocco = self._anelli_sbloccati(st, anelli, erogabili)
+        anello_di = {p: a.numero for a in anelli for p in a.spicchi}
+        i = ordine.index(pid) if pid in ordine else -1
+        for cand in ordine[i + 1:] + ordine[:i + 1]:
+            if cand == pid:
+                continue
+            sp = st.spicchi.get(cand)
+            if sp is not None and sp.stato == "superato":
+                continue
+            if not sblocco[anello_di[cand]]:
+                continue
+            if sp is not None or erogabili[cand].erogabile:
+                return cand
+        return None
+
+    def assumi_superato(self, email: str, pid: str) -> dict:
+        """Strumento di collaudo: lo spicchio risulta superato con 0 errori (nessun danno, nessuna risposta inventata)."""
+        self._solo_alpha("assumere superato uno spicchio")
+        st = self.stato(email)
+        self._verifica_sbloccato(st, pid)
+        sp = st.spicchi.get(pid)
+        if sp is None or sp.stato != "in_corso":
+            tentativo = (sp.tentativo + 1) if sp else 1
+            strisce = self._strisce(st, pid, tentativo)
+            if not strisce.erogabile:
+                raise ErroreFlusso("spicchio_non_erogabile", f"lo spicchio {pid} e' in preparazione")
+            sp = StatoSpicchio(pillola=pid, tentativo=tentativo, strisce=strisce.domande)
+            st.spicchi[pid] = sp
+        sp.esiti = [EsitoStriscia(domanda=did, concetto=self.cat.domanda(did).concetto_principale, pulito=True, danno=0)
+                    for did in sp.strisce]
+        sp.indice = len(sp.strisce)
+        sp.stato = "superato"
+        sp.assunto = True
+        if st.in_corso is not None and st.in_corso.contesto == "spicchio" and st.in_corso.pillola == pid:
+            st.in_corso = None
+        risultato_percorso = self._forse_record(st)
+        self.archivio.salva(st)
+        return {
+            "spicchio": self._vista_spicchio(sp),
+            "assunto": True,
+            "prossimo_spicchio": self.prossimo_spicchio(st, pid),
+            "risultato_percorso": risultato_percorso,
+        }
 
     # ------------------------------------------------------------ domande
 
@@ -244,7 +400,19 @@ class Motore:
             "tipo_livello2": d.livello2.tipo if livello == 2 else None,
             "testo": risolvi(liv.domanda, lingua),
             "opzioni": [{"posizione": i + 1, "testo": risolvi(per_id[oid].testo, lingua)} for i, oid in enumerate(ordine)],
+            "glossario": self._glossario(d, lingua),
         }
+
+    @staticmethod
+    def _glossario(d: Domanda, lingua: str) -> list[dict]:
+        """Voci del riquadro "Termini" nella lingua chiesta. Una voce senza definizione in quella lingua
+        non si mostra (mai la definizione dell'altra lingua al suo posto)."""
+        voci = []
+        for v in d.glossario or []:
+            definizione = getattr(v, lingua, None)
+            if definizione:
+                voci.append({"termine": v.termine, "definizione": definizione})
+        return voci
 
     def rispondi(self, email: str, posizione: int, lingua: str) -> dict:
         st = self.stato(email)
@@ -266,6 +434,10 @@ class Motore:
             "perche": risolvi(liv.perche, lingua),
             "danno": 0,
         }
+        if ic.contesto == "spicchio" and ic.pillola in st.spicchi:
+            # memoria della risposta per "Domanda precedente" e per il riepilogo (sola lettura, salute esclusa)
+            st.spicchi[ic.pillola].risposte.append(RispostaData(
+                domanda=d.id, livello=ic.livello, ordine=list(ic.ordine), scelta=scelta.id, corretta=scelta.corretta))
         if not scelta.corretta:
             penalizza = ic.contesto == "spicchio" or self.cfg.prendi("salute", "danno_durante_ripasso", tipo=bool)
             if penalizza:

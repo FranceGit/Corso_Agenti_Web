@@ -24,6 +24,16 @@ class EsitoStriscia(Base):
     danno: int
 
 
+class RispostaData(Base):
+    """Una risposta data nello spicchio (livello 1 o 2): serve a rivederla e al riepilogo, mai a ricalcolare la salute."""
+
+    domanda: str
+    livello: Literal[1, 2]
+    ordine: list[str]  # id delle opzioni nell'ordine mostrato allo studente
+    scelta: str  # id dell'opzione scelta
+    corretta: bool
+
+
 class StatoSpicchio(Base):
     pillola: str
     tentativo: int
@@ -31,6 +41,8 @@ class StatoSpicchio(Base):
     indice: int = 0
     esiti: list[EsitoStriscia] = Field(default_factory=list)
     stato: Literal["in_corso", "superato", "non_superato"] = "in_corso"
+    risposte: list[RispostaData] = Field(default_factory=list)
+    assunto: bool = False  # vero = superato con lo strumento di collaudo alpha "Assumi superato", non rispondendo
 
 
 class Padronanza(Base):

@@ -26,11 +26,13 @@ const STILE = `
 .lz-blueprint_crm .blocchi button { text-align: left; font-size: .8rem; padding: 7px 9px; border-radius: 10px; border: 1.5px solid #dfe4f0; background: #fff; cursor: pointer; }
 .lz-blueprint_crm .blocchi button[aria-pressed="true"] { border-color: #4f46e5; background: var(--primario-chiaro); }
 .lz-blueprint_crm .riepilogo { font-size: .82rem; }
-.lz-blueprint_crm .avvisi { display: grid; gap: 5px; margin-top: 8px; }
-.lz-blueprint_crm .avvisi div { font-size: .76rem; padding: 6px 9px; border-radius: 9px; }
-.lz-blueprint_crm .avvisi .rosso { background: var(--male-chiaro); color: #9f1239; }
-.lz-blueprint_crm .avvisi .giallo { background: var(--avviso-chiaro); color: #92400e; }
-.lz-blueprint_crm .punteggio { font-weight: 800; font-size: .86rem; margin-top: 10px; }
+.lz-blueprint_crm .esiti-verifica { margin-top: 10px; border-top: 1px solid #dfe4f0; padding: 10px 4px 2px; }
+.lz-blueprint_crm .esiti-verifica h4 { margin: 0 0 6px; font-size: .8rem; text-transform: uppercase; letter-spacing: .07em; color: var(--tenue); }
+.lz-blueprint_crm .esiti-elenco { display: grid; gap: 5px; margin-top: 8px; max-height: 240px; overflow-y: auto; padding-right: 4px; }
+.lz-blueprint_crm .esiti-elenco div { font-size: .78rem; padding: 6px 9px; border-radius: 9px; overflow-wrap: anywhere; }
+.lz-blueprint_crm .esiti-elenco .rosso { background: var(--male-chiaro); color: #9f1239; }
+.lz-blueprint_crm .esiti-elenco .giallo { background: var(--avviso-chiaro); color: #92400e; }
+.lz-blueprint_crm .punteggio { font-weight: 800; font-size: .86rem; }
 `;
 
 function svgEl(tag, attr) {
@@ -170,7 +172,9 @@ export function monta(radice, lez, contesto) {
     gParti.append(g);
     PARTI[sez.id] = { g, fondo, breve, luce };
   }
-  scena.append(svg);
+  // esiti della verifica: pannello proprio SOTTO la tavola (mai sopra i blocchi), con scorrimento interno se lunghi
+  const esiti = el("section", { class: "esiti-verifica", "aria-live": "polite", "aria-label": E.titolo_avvisi });
+  scena.append(svg, esiti);
 
   const destra = el("aside", { class: "pannello destra", "aria-live": "polite" });
   const banco = el("div", { class: `banco lz-${COMPONENTE}` }, comandi, scena, destra);
@@ -223,20 +227,25 @@ export function monta(radice, lez, contesto) {
       el("div", { class: "blocchi", role: "group", "aria-label": sez.nome },
         ...sez.blocchi.map((b) => el("button", { "aria-pressed": String(s.scelte[sez.id] === b.id), onclick: () => cambia({ scelte: { ...s.scelte, [sez.id]: b.id } }) }, b.testo))),
       el("p", { class: "nota" }, riempi(T.collegamento, { pillole: sez.pillole })),
-      el("h4", {}, E.titolo_avvisi),
     ];
+    destra.replaceChildren(...figli);
+    if (!ridotto) destra.animate([{ opacity: 0.4 }, { opacity: 1 }], { duration: 220 });
+    disegnaEsiti(v);
+  }
+
+  function disegnaEsiti(v) {
+    const figli = [el("h4", {}, E.titolo_avvisi)];
     if (!s.verificato) figli.push(el("p", { class: "nota" }, T.non_verificato));
     else {
       figli.push(el("div", { class: "punteggio" }, riempi(T.verdi, { n: num(v.verdi), tot: num(v.totale) })));
       if (v.coerente) figli.push(el("div", { class: "esito-scheda ok" }, el("div", {}, T.coerente)));
       const nomi = (ids) => ids.map((id) => sezione[id].nome).join(", ");
       const vuote = sc.sezioni.filter((x) => v.semafori[x.id] === "vuoto");
-      figli.push(el("div", { class: "avvisi" },
+      figli.push(el("div", { class: "esiti-elenco" },
         ...v.avvisi.map((r) => el("div", { class: r.gravita }, `${r.gravita === "rosso" ? E.gravita_rosso : E.gravita_giallo}: ${riempi(T.avviso, { testo: r.testo, sezioni: nomi(r.sezioni), fonte: r.fonte })}`)),
         ...vuote.map((x) => el("div", { class: "giallo" }, `${x.nome}: ${T.vuota}`))));
     }
-    destra.replaceChildren(...figli);
-    if (!ridotto) destra.animate([{ opacity: 0.4 }, { opacity: 1 }], { duration: 220 });
+    esiti.replaceChildren(...figli);
   }
 
   function aggiornaComandi() {

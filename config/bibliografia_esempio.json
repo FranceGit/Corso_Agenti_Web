@@ -1,0 +1,9 @@
+{
+ "_why": "Voci d'ESEMPIO della pagina Bibliografia, mostrate solo finche' dati/bibliografia.json (cantiere CONTENUTI-REV) non esiste; la pagina lo dichiara a schermo. Stesso formato atteso dal file vero: elenco 'opere', ogni opera con titolo (testo o {it,en}), autori, anno, editore, tipo e nota facoltativi. Un eventuale campo 'url' non arriva mai allo studente (lo toglie il server).",
+ "opere": [
+  {"id": "esempio-1", "titolo": "Agents", "autori": "Google", "anno": 2024, "editore": "Google (whitepaper)", "tipo": {"it": "Whitepaper", "en": "Whitepaper"}, "url": "https://esempio.invalid/non-mostrato"},
+  {"id": "esempio-2", "titolo": "A practical guide to building agents", "autori": "OpenAI", "anno": 2025, "tipo": {"it": "Guida", "en": "Guide"}},
+  {"id": "esempio-3", "titolo": "Building effective agents", "autori": "Anthropic", "anno": 2024, "tipo": {"it": "Articolo tecnico", "en": "Technical article"}},
+  {"id": "esempio-4", "titolo": "Model Context Protocol — specification", "autori": "Model Context Protocol", "tipo": {"it": "Specifica", "en": "Specification"}, "nota": {"it": "Voce d'esempio: sostituita dal file vero.", "en": "Example entry: replaced by the real file."}}
+ ]
+}

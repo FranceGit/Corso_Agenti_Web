@@ -125,22 +125,26 @@ span[aria-hidden="true"] > svg { width: 1.15em; height: 1.15em; vertical-align: 
 .record b { color: var(--inchiostro); }
 
 /* ---------------------------------------------------------------- struttura */
-.corpo { display: grid; grid-template-columns: 300px 1fr; min-height: calc(100% - 64px); }
+/* ALPHA-FIX: le classi della shell sono legate alla loro posizione (#radice > .corpo, .laterale .voce, #avvisi),
+   cosi' non colpiscono gli elementi omonimi dei componenti delle lezioni (es. .corpo dell'email in P2.1,
+   .avvisi del blueprint P8.6, che con position:fixed finiva sopra la tavola). */
+#radice > .corpo { display: grid; grid-template-columns: 300px minmax(0, 1fr); min-height: calc(100% - 64px); }
 .laterale { border-right: 1px solid var(--bordo); background: rgba(255, 255, 255, .55); padding: 18px 14px 40px; overflow-y: auto; max-height: calc(100vh - 64px); position: sticky; top: 64px; }
 .laterale h2 { font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; color: var(--tenue); margin: 4px 8px 12px; }
 .gruppo-anello { margin-bottom: 14px; }
 .gruppo-anello h3 { display: flex; align-items: center; gap: 8px; font-size: .84rem; margin: 10px 8px 6px; color: var(--inchiostro); }
 .gruppo-anello h3 .pallino { width: 10px; height: 10px; border-radius: 50%; }
 .gruppo-anello h3 small { color: var(--tenue-2); font-weight: 500; }
-.voce {
-  width: 100%; text-align: left; display: grid; grid-template-columns: 22px 1fr auto; gap: 8px; align-items: center;
+.laterale .voce {
+  width: 100%; text-align: left; display: grid; grid-template-columns: 22px minmax(0, 1fr) auto; gap: 8px; align-items: center;
   border: 0; background: transparent; padding: 7px 8px; border-radius: 9px; font-size: .86rem; color: var(--inchiostro);
 }
-.voce:hover { background: var(--superficie); }
-.voce.attiva { background: var(--primario-chiaro); }
-.voce .sigla { font-family: var(--mono); font-size: .74rem; color: var(--tenue-2); }
-.voce .icona-stato { width: 18px; height: 18px; }
-.voce.in_preparazione { color: var(--tenue-2); }
+.laterale .voce > span { min-width: 0; overflow-wrap: anywhere; }
+.laterale .voce:hover { background: var(--superficie); }
+.laterale .voce.attiva { background: var(--primario-chiaro); }
+.laterale .voce .sigla { font-family: var(--mono); font-size: .74rem; color: var(--tenue-2); }
+.laterale .voce .icona-stato { width: 18px; height: 18px; }
+.laterale .voce.in_preparazione { color: var(--tenue-2); }
 .distintivo { font-size: .68rem; font-weight: 700; padding: .15em .55em; border-radius: 999px; background: linear-gradient(90deg, #ede9fe, #e0f2fe); color: #5b21b6; white-space: nowrap; }
 
 .principale { padding: 26px 30px 60px; min-width: 0; }
@@ -154,9 +158,9 @@ span[aria-hidden="true"] > svg { width: 1.15em; height: 1.15em; vertical-align: 
 @keyframes respiro { 0%, 100% { filter: brightness(1); } 50% { filter: brightness(1.12); } }
 .mappa h1 { font-family: var(--font-titolo); font-size: 1.6rem; margin: 0 0 8px; letter-spacing: -.01em; }
 .mappa p { color: var(--tenue); }
-.legenda { display: grid; gap: 8px; margin: 18px 0; }
-.legenda div { display: flex; align-items: center; gap: 10px; font-size: .88rem; }
-.legenda i { width: 16px; height: 16px; border-radius: 5px; display: inline-block; }
+.mappa .legenda { display: grid; gap: 8px; margin: 18px 0; }
+.mappa .legenda div { display: flex; align-items: center; gap: 10px; font-size: .88rem; }
+.mappa .legenda i { width: 16px; height: 16px; border-radius: 5px; display: inline-block; }
 .suggerimento { position: fixed; pointer-events: none; z-index: 50; background: var(--inchiostro); color: #fff; padding: 8px 12px; border-radius: 10px; font-size: .84rem; max-width: 280px; box-shadow: var(--ombra-forte); opacity: 0; transition: opacity .15s; }
 .suggerimento.visibile { opacity: 1; }
 .scheda { background: var(--superficie); border-radius: var(--raggio); box-shadow: var(--ombra); padding: 18px 20px; }
@@ -285,17 +289,109 @@ select.scelta { width: 100%; border: 1px solid var(--bordo); border-radius: 9px;
 .coriandoli { position: fixed; inset: 0; pointer-events: none; z-index: 60; }
 
 /* ---------------------------------------------------------------- avvisi */
-.avvisi { position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%); z-index: 70; display: grid; gap: 8px; }
-.avviso { background: var(--inchiostro); color: #fff; padding: 10px 16px; border-radius: 12px; box-shadow: var(--ombra-forte); font-size: .88rem; animation: entra .3s ease; max-width: 640px; }
-.avviso.male { background: #9f1239; }
+#avvisi { position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%); z-index: 70; display: grid; gap: 8px; }
+#avvisi > .avviso { background: var(--inchiostro); color: #fff; padding: 10px 16px; border-radius: 12px; box-shadow: var(--ombra-forte); font-size: .88rem; animation: entra .3s ease; max-width: min(640px, 92vw); overflow-wrap: anywhere; }
+#avvisi > .avviso.male { background: #9f1239; }
 .caricamento { color: var(--tenue); padding: 40px; text-align: center; }
+
+/* ---------------------------------------------------------------- ALPHA-FIX (1): testo che non sborda */
+.pannello, .narrazione, .scena, .domanda-scheda, .opzione, .riscontro, .esito-scheda, .prova-tu, .aiuto,
+.glossario, .modale, .guida-lezione, .strumenti-alpha, .riepilogo-voce, .bibliografia { overflow-wrap: anywhere; }
+.btn { max-width: 100%; white-space: normal; text-align: left; line-height: 1.25; }
+.btn > span[aria-hidden="true"] { flex: 0 0 auto; }
+.segmentato button { min-width: 0; white-space: normal; overflow-wrap: anywhere; line-height: 1.25; }
+.opzione > span:last-child, .esito-scheda > div, .voce-diario > div, .interruttore > span, .cursore .riga span { min-width: 0; }
+.interruttore > span, .cursore .riga span { overflow-wrap: anywhere; }
+.cursore .riga { gap: 8px; }
+.cursore .riga b { flex: 0 0 auto; }
+select.scelta { max-width: 100%; text-overflow: ellipsis; }
+.pillola-testa > div:first-child { min-width: 0; flex: 1 1 auto; }
+.pillola-testa .azioni { flex: 0 1 auto; }
+.quiz-testa { flex-wrap: wrap; }
+.quiz-testa .avanzamento { min-width: 120px; }
+.narrazione > div { min-width: 0; }
+.scena svg text { font-kerning: normal; }
+
+/* ---------------------------------------------------------------- ALPHA-FIX (6)(7): canone di lettura delle lezioni */
+.finestra { position: relative; }
+.finestra[data-numero]::before {
+  content: attr(data-numero); position: absolute; top: -9px; left: -9px; z-index: 4;
+  width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--primario); color: #fff; font-weight: 800; font-size: 15px; line-height: 1;
+  box-shadow: 0 2px 6px rgba(79, 70, 229, .35); pointer-events: none;
+}
+.finestra.illumina { animation: illumina 1.4s ease; }
+@keyframes illumina {
+  0% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0), var(--ombra); }
+  18% { box-shadow: 0 0 0 4px rgba(79, 70, 229, .6), 0 0 24px rgba(79, 70, 229, .45); }
+  100% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0), var(--ombra); }
+}
+.banco.canone { grid-template-columns: minmax(240px, 300px) minmax(0, 1fr) minmax(220px, 268px); }
+.banco.canone > .finestra-spiegazioni { order: 1; }
+.banco.canone > .finestra-scena { order: 2; }
+.banco.canone > .finestra-comandi { order: 3; }
+.guida-lezione {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin: 0 0 14px;
+  background: var(--superficie); border: 1px solid var(--bordo); border-radius: 12px; padding: 8px 12px;
+}
+.avviso-lettura { display: flex; align-items: center; gap: 8px; font-weight: 700; color: #92400e; background: var(--avviso-chiaro); border-radius: 9px; padding: 5px 10px; }
+.guida-messaggio { flex: 1 1 240px; min-width: 0; font-weight: 700; color: var(--primario); min-height: 1.3em; }
+.guida-messaggio.nuovo { animation: entra .35s ease; }
+
+/* ---------------------------------------------------------------- ALPHA-FIX (2)(3)(5): quiz, riepilogo, strumenti alpha */
+.strumenti-alpha {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 0 0 12px; padding: 8px 12px; border-radius: 12px;
+  border: 2px dashed #f59e0b; background: repeating-linear-gradient(135deg, #fffbeb 0 14px, #fff7e0 14px 28px);
+}
+.alpha-etichetta { font-size: .72rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; color: #b45309; }
+.btn-alpha { background: #f59e0b; border-color: #d97706; color: #1f1300; }
+.btn-alpha:hover { background: #d97706; border-color: #b45309; }
+.quiz-strumenti { display: flex; gap: 8px; flex-wrap: wrap; margin: -4px 0 12px; }
+.nota-revisione { color: var(--tenue); font-size: .86rem; margin: 0 0 10px; }
+.opzione.scelta { outline: 3px solid color-mix(in srgb, var(--primario) 45%, transparent); outline-offset: 1px; }
+.opzione .segno-scelta { grid-column: 2; justify-self: start; font-size: .7rem; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; color: var(--primario); }
+.spiega-scelta { display: block; color: var(--tenue); }
+.glossario { margin-top: 14px; border: 1px solid #c7d2fe; background: #f8f9ff; border-radius: 12px; padding: 10px 14px; font-size: .88rem; }
+.glossario h4 { margin: 0 0 6px; font-size: .74rem; text-transform: uppercase; letter-spacing: .08em; color: var(--primario); }
+.glossario dl { margin: 0; display: grid; grid-template-columns: minmax(80px, max-content) minmax(0, 1fr); gap: 4px 12px; }
+.glossario dt { font-weight: 700; }
+.glossario dd { margin: 0; color: var(--tenue); }
+.riepilogo-spicchio { max-width: 900px; margin: 0 auto; display: grid; gap: 14px; }
+.riepilogo-voce .passo-di { font-size: .76rem; font-weight: 700; color: var(--tenue-2); text-transform: uppercase; letter-spacing: .07em; margin-bottom: 6px; }
+.riepilogo-livello { border-left: 4px solid var(--bordo); padding: 4px 0 4px 12px; margin: 8px 0; }
+.riepilogo-livello.ok { border-left-color: var(--ok); }
+.riepilogo-livello.male { border-left-color: var(--male); }
+.riepilogo-livello p { margin: 4px 0; }
+.riepilogo-livello .etichetta { font-size: .7rem; font-weight: 800; text-transform: uppercase; letter-spacing: .07em; color: var(--tenue); display: block; }
+.riepilogo-domanda { display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
+.riepilogo-livello.ok .risposta-data { color: #166534; }
+.riepilogo-livello.male .risposta-data { color: #9f1239; }
+.modale-sfondo { position: fixed; inset: 0; z-index: 80; background: rgba(23, 32, 59, .45); display: grid; place-items: center; padding: 16px; }
+.modale { width: min(760px, 100%); max-height: calc(100vh - 32px); overflow-y: auto; background: var(--superficie); border-radius: 18px; box-shadow: var(--ombra-forte); padding: 18px 22px; }
+.modale-testa { display: flex; align-items: flex-start; gap: 10px; }
+.modale-testa h2 { flex: 1; margin: 0; font-family: var(--font-titolo); font-size: 1.2rem; }
+.modale h4 { margin: 14px 0 6px; }
+.riassunto-punti li, .riassunto-passi li { margin-bottom: 6px; }
+.nota-passo { color: var(--tenue); font-size: .86rem; }
+
+/* ---------------------------------------------------------------- bibliografia */
+.bibliografia h1 { font-family: var(--font-titolo); margin: 0 0 4px; }
+.bibliografia .sottotitolo { color: var(--tenue); margin-top: 0; }
+.opere { padding-left: 22px; display: grid; gap: 10px; }
+.opera-titolo { font-weight: 700; display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
+.opera-dati { color: var(--tenue); font-size: .9rem; }
+.opera-nota { color: var(--tenue-2); font-size: .84rem; font-style: italic; }
 
 @media (max-width: 1280px) {
   .banco { grid-template-columns: 240px minmax(0, 1fr); }
   .banco > .pannello.destra { grid-column: 1 / -1; }
+  /* canone a 1280: spiegazioni sopra (a tutta larghezza), poi animazione e comandi da sinistra a destra */
+  .banco.canone { grid-template-columns: minmax(0, 1fr) minmax(220px, 260px); }
+  .banco.canone > .finestra-spiegazioni { grid-column: 1 / -1; }
 }
 @media (max-width: 960px) {
-  .corpo { grid-template-columns: 1fr; }
+  #radice > .corpo { grid-template-columns: 1fr; }
+  .banco.canone { grid-template-columns: minmax(0, 1fr); }
   .laterale { position: static; max-height: none; border-right: 0; border-bottom: 1px solid var(--bordo); }
   .mappa { grid-template-columns: 1fr; }
   .banco { grid-template-columns: 1fr; }

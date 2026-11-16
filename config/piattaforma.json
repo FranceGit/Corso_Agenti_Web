@@ -19,7 +19,17 @@
     "interfaccia": "config/interfaccia.json",
     "cartella_stato_studenti": "stato_studenti",
     "cartella_webapp": "webapp",
-    "cartella_animazioni": "webapp/animazioni"
+    "cartella_animazioni": "webapp/animazioni",
+    "bibliografia": "dati/bibliografia.json",
+    "bibliografia_esempio": "config/bibliografia_esempio.json",
+    "_why_bibliografia": "dati/bibliografia.json lo scrive il cantiere CONTENUTI-REV (titoli delle opere, nessun URL mostrato). Finche' non c'e', la pagina Bibliografia mostra le voci d'esempio di config/bibliografia_esempio.json con la scritta 'dati d'esempio' (degrado pulito, mai una pagina vuota o un errore)."
+  },
+
+  "alpha": {
+    "_why": "Strumenti del collaudo alpha (playtest di France). In BETA 'modalita_alpha' VA SPENTA (false): spariscono 'Domanda precedente', 'Riassumi lo spicchio', 'Assumi superato' e il riepilogo segue la regola di beta qui sotto.",
+    "modalita_alpha": true,
+    "riepilogo_in_beta": "solo_superato",
+    "_why_riepilogo_in_beta": "Riepilogo di fine spicchio (tutte le domande con risposta data, risposta giusta e spiegazione). In alpha e' sempre disponibile; in beta: 'solo_superato' = solo a spicchio superato, 'sempre' = sempre, 'mai' = mai."
   },
 
   "esercizi": {
