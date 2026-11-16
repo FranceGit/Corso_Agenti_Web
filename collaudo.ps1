@@ -63,7 +63,7 @@ if ($t -eq 0 -and $c -eq 0 -and $j -eq 0) {
 }
 Write-Host ""
 Write-Host "Lezioni interattive da provare (distintivo 'interattiva' nell'elenco a sinistra):" -ForegroundColor Cyan
-& $Py -c "import sys; sys.stdout.reconfigure(encoding='utf-8'); from corso.config import carica_config; from corso.catalogo import Catalogo; c = Catalogo(carica_config()); [print('  ' + pid + '  ' + l.titolo.it) for pid, l in sorted(c.lezioni.items())]"
+& $Py -c "import sys; sys.stdout.reconfigure(encoding='utf-8'); from corso.config import carica_config; from corso.catalogo import Catalogo; c = Catalogo(carica_config()); [print('  ' + pid + '  ' + l.titolo.it) for pid, l in sorted(c.lezioni.items())]; [print('  ' + pid + '  (scheda Laboratorio) ' + l.titolo.it) for pid, l in sorted(c.laboratori.items())]"
 $Codice = & $Py -c "import json; print(json.load(open('config/piattaforma.json', encoding='utf-8'))['account']['codici_stub'][0])"
 Write-Host ""
 Write-Host "Per entrare nel corso: email = una qualsiasi (es. prova@esempio.it), codice = $Codice" -ForegroundColor Cyan

@@ -27,7 +27,7 @@ Il browser **non** si apre da solo: il server stampa `Apri nel tuo browser: http
 | `config/interfaccia.json` | testi dell'interfaccia IT/EN |
 | `dati/corso_v1.json` | 8 moduli, 40 pillole, 120 domande (fonte di verità delle domande; origine storica: il documento benchmark). Schema v2: ogni domanda ha la sua striscia |
 | `dati/knowledge_graph.json` | 79 concetti, 128 archi tipizzati (PRE/APP/CON/ES/MIT) con pesi |
-| `dati/lezioni/*.json` | lezioni interattive (passi numerati, riassunto in 3 frasi, scenario dell'animazione, eventuali domande): oggi tutte le pillole dei moduli 1 e 2 + P4.1 |
+| `dati/lezioni/*.json` | lezioni interattive (passi numerati, riassunto in 3 frasi, scenario dell'animazione, eventuali domande): oggi tutte le pillole dei moduli 1 e 2, il modulo 3 tranne P3.3, e P4.1. Una pillola può avere anche un **laboratorio** (`"tipo": "laboratorio"`, scheda a parte nella webapp): oggi P3.5 «Trova l'errore» |
 | `schema/*.schema.json` | schemi JSON generati dal modello (`strumenti/esporta_schema.py`) |
 | `corso/` | modello dati, catalogo, regole delle domande, generatore di percorso, salute, motore, account, server |
 | `webapp/` | shell pubblica (`index.html`, `app.js`, `app.css`) |
