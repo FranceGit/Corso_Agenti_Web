@@ -268,7 +268,7 @@ function areaRisposte(n, a, area) {
         h("td", {}, r.categoria_crm ? h("span", { class: "es-chip", style: `background:${cat[r.categoria_crm].colore}` }, cat[r.categoria_crm].nome) : "—",
           r.optout ? h("span", { class: "es-badge male" }, t("e3_optout")) : null)))))),
     h("h3", {}, t("e3_stazione")),
-    h("div", { class: "es-pipeline", id: "es-stazioni" }, a.stazioni.map((s, i) => [i ? h("span", { class: "es-freccia", "aria-hidden": "true" }, "→") : null,
+    h("div", { class: "es-pipeline", id: "es-stazioni" }, a.stazioni.flatMap((s, i) => [i ? h("span", { class: "es-freccia", "aria-hidden": "true" }, "→") : null,
       h("button", { class: `es-stazione ${a.stazione === s.id ? "scelta" : ""}`, "data-stazione": s.id, "aria-pressed": String(a.stazione === s.id),
         onclick: () => azione(n, "stazione", { valore: s.id }, area) }, s.nome)])),
     h("h3", {}, t("e3_correzione")),

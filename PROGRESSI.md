@@ -1,5 +1,30 @@
 # PROGRESSI — Corso Agenti Web
 
+## Stato al 16/11/2026 — cantiere ESERCIZI PRATICI: fondamenta (laboratorio, correttore, esercizi 1-3)
+Tocca solo `esercizi/` più agganci minimi: `corso/app.py` (monta le API se `esercizi.attivi`), `config/piattaforma.json` (sezione `esercizi`), `config/interfaccia.json` (testo `esercizi_pratici`), `webapp/app.js` (voce laterale + caricamento del modulo protetto), `pytest.ini` (`esercizi/tests`), `.gitignore` (`stato_esercizi/`).
+
+### Fatto
+1. **Laboratorio** (`esercizi/ambiente/`): `docker-compose.yml` (portale, CRM in sola lettura per il docente, finto-LLM che parla il protocollo Ollama, Mailpit, Ollama vero nel profilo `ollama`; porte solo su 127.0.0.1), `Dockerfile` unico, script-involucro `avvia_laboratorio`, `azzera_laboratorio`, `verifica_esercizio` (.ps1 per Windows e .sh), parametri in testa con `_why`. Guida per non tecnici: `esercizi/LEGGIMI_DOCKER.md`.
+2. **Motore** (`esercizi/motore/`): contratto dell'esercizio (setup, consegna IT/EN, area di lavoro, azioni, fotografia, chiave, controlli con nome/peso/aiuto/bloccante), CRM SQLite per studente ed esercizio (pseudonimo, mai l'email), posta locale o Mailpit, modello finto o Ollama sempre dietro al **registro LLM** (impronta della richiesta → risposta), correttore puro con verbale JSON e impronte, ricorrezione dei tentativi salvati, CLI. Config in `esercizi/config/laboratorio.json` (soglie 80/75/80 e tolleranze parametriche).
+3. **Esercizi** (`esercizi/catalogo/`):
+   1. pulizia dei lead, 25 righe con variante per studente. Difetti: 3 doppioni, 2 email rotte, 1 azienda senza dimensione, 2 disiscritti. Trappola: il «non contattare» sta solo sulla riga doppia. Il controllo sui disiscritti è bloccante.
+   2. punteggio a regole: cursori per pesi e soglie, 20 lead nascosti con la fascia del direttore vendite. I vincoli CEO e stagisti sono bloccanti.
+   3. «trova l'errore»: lessico e correzioni del laboratorio P3.5, 15 risposte visibili più 12 nascoste. Il controllo «Not Interested → interessato» è bloccante. Si corregge lo stato finale di CRM e posta.
+4. **Portale**: voce «Esercizi pratici» nella barra laterale. Pagina con schede, consegna, area di lavoro per esercizio, «Verifica», verbale leggibile con «come rimediare», «Ricorreggi» e «Ricomincia». Le API stanno sotto `/api/esercizi/*` e il modulo sotto `/protetto/esercizi/*`, tutto dietro la sessione. La chiave di correzione e i dati nascosti non escono mai dal server.
+5. **Test**: 78 pytest in `esercizi/tests` (copertura 97%), compresa la riproducibilità: ricorrezione identica, manomissione rilevata, registro che tiene ferme le risposte del modello, due laboratori con stesso lavoro e stesso verbale. Esiti attesi dell'esercizio 3: bug → 0, inverti → 50, esatta → 65, giusta → 100. Collaudo nel browser simulato (jsdom) contro il server vero: `esercizi/collaudo/flusso_browser.mjs`, 49 passi e 0 errori (accesso, i tre esercizi fino al voto 100 per il 2 e il 3, unione/correzione/segmento nell'1, ricomincia, cambio lingua).
+
+### Da sapere
+- La numerazione è quella del corso: l'esercizio 3 del portale corrisponde all'esercizio 4 del piano (campo `piano` nel verbale).
+- Senza Docker tutto gira con il finto-LLM e la posta locale in SQLite (`stato_esercizi/`, nel .gitignore): anche `python server.py` mostra già la pagina Esercizi.
+- Mai eseguito in sandbox: Docker, Mailpit e Ollama veri. Il dialogo con Mailpit (intestazione `X-Tags` e ricerca `tag:`) è provato solo con un server finto. I tag fissati (`axllent/mailpit:v1.20.0`, `ollama/ollama:0.5.7`) sono sostituibili da `.env`.
+- Nessun browser vero disponibile: verificato solo il DOM simulato.
+- Nella suite generale `tests/` alcuni test falliscono per il lavoro in corso dei cantieri lezioni (P8.1 laboratorio, D8.6, griglia_test senza JS). Non dipendono dagli esercizi: verificato in una copia pulita di HEAD.
+
+### Resta da fare
+- Esercizi 4-9 del piano: prompt con rubrica e JSON, email con politica di marca, approvazioni, agente con strumenti, memoria, report KPI.
+- Prova a secco con Ollama vero (`qwen2.5:3b`) sul PC di France.
+- Collaudo visivo su browser vero.
+
 ## Stato al 16/11/2026 — fase 6: lezioni interattive M6-M8 (IN CORSO)
 Cantiere M6-M8, in parallelo al cantiere M4-M5. Tocca solo: `dati/lezioni/`, `webapp/animazioni/`, `tests_js/lezioni/` dei componenti `uno_o_tanti`, `schemi_orchestrazione`, `due_piani_a2a`, `cinque_strade`, `tre_pilastri`, `griglia_test`, `giudice_bias`, `metriche_impatto`, `prototipo_produzione`, `rilascio_canary` (laboratorio P8.1), `smistatore_rischio`, `plancia_controllo`, `caveau_dati`, `blueprint_crm`; i lotti `strumenti/domande_autori/lotto_m6_*`, `lotto_m7_*` (non `lotto_m7_m8.json`), `lotto_m8_*`; il test `tests/test_lezioni_m6_m8.py`.
 

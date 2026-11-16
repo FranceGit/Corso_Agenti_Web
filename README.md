@@ -35,6 +35,7 @@ Il browser **non** si apre da solo: il server stampa `Apri nel tuo browser: http
 | `strumenti/estrai_corso.py` | estrattore dal documento benchmark (`titoli_en.json`, `traduzioni_en_pillole.json` per l'inglese); conserva le domande già presenti nel JSON |
 | `strumenti/fabbisogno_strisce.py` | calcola quante domande mancano per concetto e quali punti di vista scrivere (`dati/fabbisogno_strisce.json`) |
 | `tests/`, `tests_js/` | test pytest (`tests/test_lezioni.py`: regole delle lezioni) e test Node della logica delle animazioni (`tests_js/prova_animazioni.mjs` + un file per lezione in `tests_js/lezioni/`) |
+| `esercizi/` | esercizi pratici: laboratorio (CRM SQLite, posta finta, finto-LLM/Ollama con registro), correttore deterministico con verbale JSON, esercizi 1-3, pagina «Esercizi pratici», docker-compose e script (`esercizi/LEGGIMI_DOCKER.md`) |
 | `server.py` | avvio del server locale (controlla la porta, stampa l'indirizzo) |
 | `collaudo.ps1` | collaudo in un comando |
 | `PROGRESSI.md` | stato del lavoro |
