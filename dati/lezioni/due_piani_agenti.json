@@ -1,0 +1,208 @@
+{
+ "id": "L_due_piani_agenti",
+ "pillola": "P6.3",
+ "componente": "due_piani_agenti",
+ "titolo": {"it": "Due piani di connessione: come comunicano gli agenti (MCP e A2A)", "en": "Two connection floors: how agents communicate (MCP and A2A)"},
+ "sottotitolo": {"it": "Sotto, i cavi verso gli strumenti; sopra, le frecce tra agenti. Apri la scheda di un agente, prova quattro modi di passarsi il lavoro e spegni il fornitore.", "en": "Below, the cables to the tools; above, the arrows between agents. Open an agent's card, try four ways of passing work and switch off the supplier."},
+ "segmenti": [
+  {
+   "id": "due_piani",
+   "titolo": {"it": "Due piani: strumenti sotto, agenti sopra", "en": "Two floors: tools below, agents above"},
+   "narrazione": [
+    {"it": "Al piano di sotto ogni agente è collegato ai suoi strumenti e dati con MCP, uno standard per collegare un agente al CRM, all'email, all'archivio. Con MCP dici: «Fai questa cosa precisa».", "en": "On the lower floor each agent is connected to its tools and data with MCP, a standard for connecting an agent to the CRM, email, the archive. With MCP you say: «Do this specific thing»."},
+    {"it": "Al piano di sopra gli agenti parlano tra loro con A2A (Agent2Agent), uno standard aperto per agenti costruiti da team o aziende diverse. Con A2A dici: «Raggiungi questo obiettivo». I due standard non sono rivali: sono complementari.", "en": "On the upper floor the agents talk to each other with A2A (Agent2Agent), an open standard for agents built by different teams or companies. With A2A you say: «Achieve this complex goal». The two standards are not rivals: they are complementary."},
+    {"it": "Ogni agente A2A pubblica una scheda (agent card): un biglietto da visita digitale con cosa sa fare, dove contattarlo e come autenticarsi.", "en": "Each A2A agent publishes a card (agent card): a digital business card saying what it can do, where to contact it and how to authenticate."}
+   ],
+   "prova": {"it": "Clicca l'agente Catalogo del fornitore e leggi la sua scheda; poi clicca l'agente Assistenza.", "en": "Click the supplier's Catalogue agent and read its card; then click the Support agent."},
+   "concetti": ["C57"],
+   "stato_animazione": {"vista": "piani", "modo": "lavagna", "agente_aperto": "catalogo", "fornitore_acceso": true, "fattori": {"team": "altro", "latenza": "accettabile", "contratto": "formale"}, "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "lavagna_strumento",
+   "titolo": {"it": "Lavagna comune o agente come strumento", "en": "Shared board or agent as a tool"},
+   "narrazione": [
+    {"it": "Primo modo: lo stato condiviso, una lavagna comune. Un agente scrive il risultato con un'etichetta, per esempio { scheda_account }, e il successivo la legge. È semplice, adatto a compiti molto collegati.", "en": "First way: shared state, a common board. One agent writes its result with a label, for example { scheda_account }, and the next one reads it. It is simple, suited to closely linked tasks."},
+    {"it": "Secondo modo: l'agente come strumento. Vendite chiede a Prezzi lo sconto, riceve la risposta e resta lui a parlare con il cliente: resta al comando.", "en": "Second way: the agent as a tool. Sales asks Pricing for the discount, receives the answer and keeps talking to the customer: it stays in charge."}
+   ],
+   "prova": {"it": "Passa da «Lavagna comune» ad «Agente come strumento»: guarda chi resta al comando e chi parla con il cliente.", "en": "Switch from «Shared board» to «Agent as a tool»: see who stays in charge and who talks to the customer."},
+   "concetti": ["C56"],
+   "stato_animazione": {"vista": "modi", "modo": "lavagna", "agente_aperto": "assistenza", "fornitore_acceso": true, "fattori": {"team": "altro", "latenza": "accettabile", "contratto": "formale"}, "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "handoff_a2a",
+   "titolo": {"it": "Passaggio di consegne e A2A verso il fornitore", "en": "Handoff and A2A to the supplier"},
+   "narrazione": [
+    {"it": "Terzo modo: il passaggio di consegne (handoff). Il Triage cede del tutto la conversazione all'agente Ordini, che da lì risponde lui al cliente.", "en": "Third way: the handoff. The Triage agent fully hands the conversation over to the Orders agent, which answers the customer from then on."},
+    {"it": "Quarto modo: A2A. L'Assistenza chiede disponibilità e prezzo all'agente Catalogo di un fornitore esterno, riceve la risposta e risponde al cliente. Se il fornitore è spento, nella demo non c'è un nuovo tentativo: arriva un errore di rete.", "en": "Fourth way: A2A. Support asks an external supplier's Catalogue agent for availability and price, receives the answer and replies to the customer. If the supplier is down, in the demo there is no retry: a network error arrives."}
+   ],
+   "prova": {"it": "Scegli «A2A», poi spegni il fornitore: guarda dove si ferma il percorso.", "en": "Choose «A2A», then switch off the supplier: see where the path stops."},
+   "concetti": ["C56", "C57"],
+   "stato_animazione": {"vista": "modi", "modo": "handoff", "agente_aperto": "assistenza", "fornitore_acceso": true, "fattori": {"team": "altro", "latenza": "accettabile", "contratto": "formale"}, "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "bilancia_a2a",
+   "titolo": {"it": "A2A o sotto-agente locale?", "en": "A2A or local sub-agent?"},
+   "narrazione": [
+    {"it": "A2A conviene per collaborazioni formali tra team o aziende diverse, quando serve un contratto stabile e un po' di attesa in rete è accettabile.", "en": "A2A pays off for formal collaborations between different teams or companies, when a stable contract is needed and some network waiting is acceptable."},
+    {"it": "Per i compiti dentro la stessa applicazione basta un sotto-agente locale: è più veloce e più semplice.", "en": "For tasks inside the same application a local sub-agent is enough: it is faster and simpler."}
+   ],
+   "prova": {"it": "Cambia i tre fattori e guarda l'ago muoversi tra A2A e sotto-agente locale.", "en": "Change the three factors and watch the needle move between A2A and local sub-agent."},
+   "concetti": ["C57"],
+   "stato_animazione": {"vista": "bilancia", "modo": "a2a", "agente_aperto": "catalogo", "fornitore_acceso": true, "fattori": {"team": "tuo", "latenza": "bassa", "contratto": "interno"}, "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "decidi_collegamento",
+   "titolo": {"it": "Decidi tu: quale collegamento?", "en": "You decide: which connection?"},
+   "narrazione": [
+    {"it": "Quattro situazioni di vendita e assistenza. Per ognuna scegli il collegamento giusto: MCP, agente come strumento, passaggio di consegne oppure A2A.", "en": "Four sales and support situations. For each one choose the right connection: MCP, agent as a tool, handoff or A2A."}
+   ],
+   "prova": {"it": "Scegli un collegamento per ogni situazione, poi premi «Controlla» e leggi il perché.", "en": "Choose a connection for each situation, then press «Check» and read why."},
+   "concetti": ["C56", "C57"],
+   "stato_animazione": {"vista": "decidi", "modo": "a2a", "agente_aperto": "catalogo", "fornitore_acceso": true, "fattori": {"team": "altro", "latenza": "accettabile", "contratto": "formale"}, "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "riassunto",
+   "titolo": {"it": "In tre frasi", "en": "In three sentences"},
+   "narrazione": [
+    {"it": "MCP collega un agente ai suoi strumenti e dati, A2A collega agenti ad altri agenti: sono complementari.", "en": "MCP connects an agent to its tools and data, A2A connects agents to other agents: they are complementary."},
+    {"it": "Gli agenti si passano il lavoro con una lavagna comune, chiamandosi come strumenti (chi chiama resta al comando) o con un passaggio di consegne (lo specialista prende la conversazione).", "en": "Agents pass work through a shared board, by calling each other as tools (the caller stays in charge) or with a handoff (the specialist takes over the conversation)."},
+    {"it": "A2A, con la scheda dell'agente, serve per collaborazioni formali tra team o aziende; dentro la stessa applicazione basta un sotto-agente locale.", "en": "A2A, with the agent card, is for formal collaborations between teams or companies; inside the same application a local sub-agent is enough."}
+   ],
+   "concetti": ["C56", "C57"],
+   "stato_animazione": {"vista": "piani", "modo": "a2a", "agente_aperto": "catalogo", "fornitore_acceso": true, "fattori": {"team": "altro", "latenza": "accettabile", "contratto": "formale"}, "scelte": {}, "verificato": false}
+  }
+ ],
+ "scenario": {
+  "agenti": [
+   {"id": "vendite", "nome": {"it": "Vendite", "en": "Sales"}, "esterno": false, "strumenti": ["crm", "email"],
+    "scheda": [{"it": "Agente della tua azienda.", "en": "Your company's agent."}, {"it": "Strumenti via MCP: CRM, email.", "en": "Tools via MCP: CRM, email."}]},
+   {"id": "assistenza", "nome": {"it": "Assistenza", "en": "Support"}, "esterno": false, "strumenti": ["crm", "archivio"],
+    "scheda": [{"it": "Agente della tua azienda: risponde ai clienti.", "en": "Your company's agent: it answers customers."}, {"it": "Strumenti via MCP: CRM, archivio delle risposte.", "en": "Tools via MCP: CRM, answer archive."}, {"it": "Per i prodotti del fornitore chiede via A2A all'agente Catalogo.", "en": "For the supplier's products it asks the Catalogue agent via A2A."}]},
+   {"id": "catalogo", "nome": {"it": "Catalogo fornitore", "en": "Supplier catalogue"}, "esterno": true, "strumenti": ["magazzino"],
+    "scheda": [
+     {"it": "nome: product_catalog_agent", "en": "name: product_catalog_agent"},
+     {"it": "descrizione: agente del catalogo prodotti di un fornitore esterno: informazioni e disponibilità", "en": "description: an external vendor's product catalogue agent: product information and availability"},
+     {"it": "indirizzo della scheda: /.well-known/agent-card.json", "en": "card address: /.well-known/agent-card.json"},
+     {"it": "versione del protocollo: 0.3.0", "en": "protocol version: 0.3.0"},
+     {"it": "ingresso e uscita: testo semplice", "en": "input and output: plain text"},
+     {"it": "capacità (skills): informazioni prodotto, disponibilità", "en": "capabilities (skills): product information, availability"},
+     {"it": "autenticazione: indicata nella scheda", "en": "authentication: stated in the card"}
+    ]}
+  ],
+  "strumenti": [
+   {"id": "crm", "nome": {"it": "CRM", "en": "CRM"}},
+   {"id": "email", "nome": {"it": "Email", "en": "Email"}},
+   {"id": "archivio", "nome": {"it": "Archivio risposte", "en": "Answer archive"}},
+   {"id": "magazzino", "nome": {"it": "Magazzino fornitore", "en": "Supplier stock"}}
+  ],
+  "modi": [
+   {"id": "lavagna", "nome": {"it": "Lavagna comune", "en": "Shared board"},
+    "a": {"it": "Ricerca", "en": "Research"}, "b": {"it": "Email", "en": "Email"}, "esterno": false,
+    "passi": [{"da": "a", "verso": "lavagna", "etichetta": {"it": "scrive { scheda_account }", "en": "writes { scheda_account }"}},
+              {"da": "lavagna", "verso": "b", "etichetta": {"it": "legge { scheda_account }", "en": "reads { scheda_account }"}},
+              {"da": "b", "verso": "cliente", "etichetta": {"it": "email personalizzata", "en": "personalised email"}}],
+    "comando": {"it": "nessuno: i due agenti condividono lo stesso spazio di memoria", "en": "nobody: the two agents share the same memory space"},
+    "parla": "b"},
+   {"id": "strumento", "nome": {"it": "Agente come strumento", "en": "Agent as a tool"},
+    "a": {"it": "Vendite", "en": "Sales"}, "b": {"it": "Prezzi", "en": "Pricing"}, "esterno": false,
+    "passi": [{"da": "cliente", "verso": "a", "etichetta": {"it": "«Che sconto ho?»", "en": "«What discount do I get?»"}},
+              {"da": "a", "verso": "b", "etichetta": {"it": "chiede lo sconto", "en": "asks for the discount"}},
+              {"da": "b", "verso": "a", "etichetta": {"it": "«10%»", "en": "«10%»"}},
+              {"da": "a", "verso": "cliente", "etichetta": {"it": "risponde Vendite", "en": "Sales answers"}}],
+    "comando": {"it": "Vendite, che chiama Prezzi e riceve la risposta", "en": "Sales, which calls Pricing and receives the answer"},
+    "parla": "a"},
+   {"id": "handoff", "nome": {"it": "Passaggio di consegne", "en": "Handoff"},
+    "a": {"it": "Triage", "en": "Triage"}, "b": {"it": "Ordini", "en": "Orders"}, "esterno": false,
+    "passi": [{"da": "cliente", "verso": "a", "etichetta": {"it": "«Dov'è il mio ordine?»", "en": "«Where is my order?»"}},
+              {"da": "a", "verso": "b", "etichetta": {"it": "cede la conversazione", "en": "hands over the conversation"}},
+              {"da": "b", "verso": "cliente", "etichetta": {"it": "«È in consegna!»", "en": "«It is on its way!»"}}],
+    "comando": {"it": "Ordini: il Triage è uscito dalla conversazione", "en": "Orders: the Triage agent has left the conversation"},
+    "parla": "b"},
+   {"id": "a2a", "nome": {"it": "A2A", "en": "A2A"},
+    "a": {"it": "Assistenza", "en": "Support"}, "b": {"it": "Catalogo fornitore", "en": "Supplier catalogue"}, "esterno": true,
+    "passi": [{"da": "cliente", "verso": "a", "etichetta": {"it": "«Le cuffie sono disponibili?»", "en": "«Are the headphones available?»"}},
+              {"da": "a", "verso": "b", "etichetta": {"it": "incarico A2A", "en": "A2A task"}},
+              {"da": "b", "verso": "a", "etichetta": {"it": "«disponibili, 399 $»", "en": "«in stock, $399»"}},
+              {"da": "a", "verso": "cliente", "etichetta": {"it": "risponde l'Assistenza", "en": "Support answers"}}],
+    "comando": {"it": "Assistenza, che affida un obiettivo all'agente del fornitore", "en": "Support, which entrusts a goal to the supplier's agent"},
+    "parla": "a"}
+  ],
+  "fattori": [
+   {"id": "team", "nome": {"it": "Chi costruisce l'altro agente", "en": "Who builds the other agent"},
+    "valori": [{"id": "altro", "nome": {"it": "Altro team o azienda", "en": "Other team or company"}, "verso_a2a": true}, {"id": "tuo", "nome": {"it": "Il tuo team", "en": "Your team"}, "verso_a2a": false}]},
+   {"id": "latenza", "nome": {"it": "Tempo di risposta", "en": "Response time"},
+    "valori": [{"id": "accettabile", "nome": {"it": "Attesa in rete accettabile", "en": "Network waiting acceptable"}, "verso_a2a": true}, {"id": "bassa", "nome": {"it": "Serve risposta immediata", "en": "Immediate answer needed"}, "verso_a2a": false}]},
+   {"id": "contratto", "nome": {"it": "Accordo tra le parti", "en": "Agreement between parties"},
+    "valori": [{"id": "formale", "nome": {"it": "Contratto formale", "en": "Formal contract"}, "verso_a2a": true}, {"id": "interno", "nome": {"it": "Interfaccia interna", "en": "Internal interface"}, "verso_a2a": false}]}
+  ],
+  "soglia_a2a": 2,
+  "collegamenti": [
+   {"id": "mcp", "nome": {"it": "MCP", "en": "MCP"}},
+   {"id": "strumento", "nome": {"it": "Agente come strumento", "en": "Agent as a tool"}},
+   {"id": "handoff", "nome": {"it": "Passaggio di consegne", "en": "Handoff"}},
+   {"id": "a2a", "nome": {"it": "A2A", "en": "A2A"}}
+  ],
+  "casi": [
+   {"id": "c1", "testo": {"it": "L'agente Vendite deve leggere la scheda del lead nel CRM.", "en": "The Sales agent must read the lead's record in the CRM."},
+    "migliore": "mcp", "quasi": [],
+    "spiega": {"it": "Il CRM è uno strumento, non un agente: «fai questa cosa precisa» passa da MCP.", "en": "The CRM is a tool, not an agent: «do this specific thing» goes through MCP."}},
+   {"id": "c2", "testo": {"it": "L'Assistenza deve chiedere disponibilità e prezzi all'agente catalogo di un fornitore, costruito da un'altra azienda.", "en": "Support must ask availability and prices from a supplier's catalogue agent, built by another company."},
+    "migliore": "a2a", "quasi": ["strumento"],
+    "spiega": {"it": "Agente esterno, altra azienda, contratto formale: è il caso tipico di A2A.", "en": "External agent, another company, formal contract: it is the typical A2A case."}},
+   {"id": "c3", "testo": {"it": "L'Assistenza chiede a Prezzi lo sconto per il cliente e continua lei la conversazione.", "en": "Support asks Pricing for the customer's discount and carries on the conversation itself."},
+    "migliore": "strumento", "quasi": ["a2a"],
+    "spiega": {"it": "Chi chiama resta al comando: Prezzi lavora come uno strumento. A2A sarebbe pesante per un agente interno.", "en": "The caller stays in charge: Pricing works like a tool. A2A would be heavy for an internal agent."}},
+   {"id": "c4", "testo": {"it": "Il Triage riconosce una richiesta di reso e lascia che sia l'agente Resi a seguire il cliente.", "en": "The Triage agent recognises a return request and lets the Returns agent look after the customer."},
+    "migliore": "handoff", "quasi": ["strumento"],
+    "spiega": {"it": "Lo specialista prende la conversazione: è un passaggio di consegne.", "en": "The specialist takes over the conversation: it is a handoff."}}
+  ],
+  "testi": {
+   "mcp_frase": {"it": "MCP · «Fai questa cosa precisa»", "en": "MCP · «Do this specific thing»"},
+   "a2a_frase": {"it": "A2A · «Raggiungi questo obiettivo»", "en": "A2A · «Achieve this complex goal»"},
+   "comando": {"it": "Chi resta al comando: {chi}", "en": "Who stays in charge: {chi}"},
+   "parla": {"it": "Chi parla con il cliente: {chi}", "en": "Who talks to the customer: {chi}"},
+   "errore_rete": {"it": "Errore di rete: l'agente del fornitore non risponde e nella demo non c'è un nuovo tentativo. In produzione servono gestione degli errori e ritentativi.", "en": "Network error: the supplier's agent does not answer and in the demo there is no retry. In production you need error handling and retries."},
+   "fornitore_spento": {"it": "fornitore spento", "en": "supplier down"},
+   "verdetto_a2a": {"it": "A2A: collaborazione formale tra team o aziende.", "en": "A2A: formal collaboration between teams or companies."},
+   "verdetto_locale": {"it": "Sotto-agente locale: compito interno, più veloce e semplice.", "en": "Local sub-agent: an internal task, faster and simpler."},
+   "punti": {"it": "{n} fattori su {tot} spingono verso A2A", "en": "{n} of {tot} factors push towards A2A"},
+   "apri_agente": {"it": "Apri la scheda dell'agente {nome}", "en": "Open the card of the agent {nome}"},
+   "situazione": {"it": "Situazione {n}", "en": "Situation {n}"},
+   "scegli_per": {"it": "Collegamento per la situazione {n}", "en": "Connection for situation {n}"},
+   "ver_giusto": {"it": "Situazione {n}: giusto. {spiega}", "en": "Situation {n}: right. {spiega}"},
+   "ver_quasi": {"it": "Situazione {n}: funzionerebbe, ma meglio «{migliore}». {spiega}", "en": "Situation {n}: it would work, but «{migliore}» is better. {spiega}"},
+   "ver_sbagliato": {"it": "Situazione {n}: no, meglio «{migliore}». {spiega}", "en": "Situation {n}: no, «{migliore}» is better. {spiega}"},
+   "ver_vuoto": {"it": "Situazione {n}: non hai scelto. Il collegamento migliore è «{migliore}». {spiega}", "en": "Situation {n}: you did not choose. The best connection is «{migliore}». {spiega}"},
+   "ver_punteggio": {"it": "Collegamenti giusti: {giuste} su {totali}.", "en": "Right connections: {giuste} of {totali}."},
+   "ver_tutto_giusto": {"it": "Perfetto: strumenti con MCP, agenti esterni con A2A, e sai chi resta al comando.", "en": "Perfect: tools with MCP, external agents with A2A, and you know who stays in charge."}
+  },
+  "etichette": {
+   "titolo_comandi": {"it": "Prova a cambiare", "en": "Try changing"},
+   "vista": {"it": "Vista", "en": "View"},
+   "vista_piani": {"it": "Due piani", "en": "Two floors"},
+   "vista_modi": {"it": "Quattro modi", "en": "Four ways"},
+   "vista_bilancia": {"it": "Bilancia", "en": "Scale"},
+   "vista_decidi": {"it": "Decidi tu", "en": "You decide"},
+   "modo": {"it": "Come si passano il lavoro", "en": "How they pass work"},
+   "fornitore": {"it": "Fornitore acceso", "en": "Supplier on"},
+   "scegli": {"it": "— scegli —", "en": "— choose —"},
+   "controlla": {"it": "Controlla", "en": "Check"},
+   "titolo_scheda": {"it": "La scheda", "en": "The card"},
+   "titolo_scheda_agente": {"it": "Scheda dell'agente (agent card)", "en": "Agent card"},
+   "cliente": {"it": "Cliente", "en": "Customer"},
+   "lavagna": {"it": "Lavagna comune", "en": "Shared board"},
+   "tua_azienda": {"it": "LA TUA AZIENDA", "en": "YOUR COMPANY"},
+   "altra_azienda": {"it": "ALTRA AZIENDA", "en": "ANOTHER COMPANY"},
+   "piano_agenti": {"it": "PIANO DEGLI AGENTI", "en": "AGENT FLOOR"},
+   "piano_strumenti": {"it": "PIANO DEGLI STRUMENTI", "en": "TOOL FLOOR"},
+   "a2a": {"it": "A2A", "en": "A2A"},
+   "mcp": {"it": "MCP", "en": "MCP"},
+   "locale": {"it": "Sotto-agente locale", "en": "Local sub-agent"},
+   "titolo_bilancia": {"it": "A2A O SOTTO-AGENTE LOCALE?", "en": "A2A OR LOCAL SUB-AGENT?"},
+   "titolo_decidi": {"it": "QUATTRO SITUAZIONI: QUALE COLLEGAMENTO?", "en": "FOUR SITUATIONS: WHICH CONNECTION?"},
+   "complementari": {"it": "Complementari, non rivali", "en": "Complementary, not rivals"},
+   "descrizione_scena": {"it": "Due piani: in basso gli strumenti collegati con MCP, in alto gli agenti collegati con A2A; oppure i modi in cui due agenti si passano il lavoro.", "en": "Two floors: below the tools connected with MCP, above the agents connected with A2A; or the ways two agents pass work to each other."}
+  }
+ },
+ "domande": []
+}

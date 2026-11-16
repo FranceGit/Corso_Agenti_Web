@@ -1,0 +1,361 @@
+[
+ {
+  "id": "DA6.3-4",
+  "origine": "autori",
+  "pillola": "P6.3",
+  "concetti": [
+   "C57"
+  ],
+  "concetto_principale": "C57",
+  "segmento_aiuto": "bilancia_a2a",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Il tuo team collega con A2A due agenti della stessa app CRM, scritti da voi, che devono rispondere in chat al cliente in un istante. Che cosa non va?",
+    "en": "Your team connects with A2A two agents of the same CRM app, written by you, that must answer the customer in chat instantly. What is wrong?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Per un compito interno e veloce basta un sotto-agente locale",
+      "en": "For an internal, fast task a local sub-agent is enough"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "A2A serve per collaborazioni formali tra team o aziende; dentro la stessa app un sotto-agente locale è più efficiente.",
+      "en": "A2A is for formal collaborations between teams or companies; inside the same app a local sub-agent is more efficient."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "A2A funziona solo tra agenti dello stesso fornitore di modelli",
+      "en": "A2A only works between agents from the same model provider"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "È il contrario: A2A serve proprio ad agenti costruiti da chiunque, con qualsiasi tecnologia.",
+      "en": "It is the opposite: A2A is meant for agents built by anyone, with any technology."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Mancano le schede degli agenti, quindi A2A va bene così",
+      "en": "The agent cards are missing, so A2A is fine as it is"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "La scheda non risolve il problema: il collegamento è troppo pesante per un compito interno.",
+      "en": "The card does not fix the problem: the connection is too heavy for an internal task."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Bisognerebbe usare MCP tra i due agenti al posto di A2A",
+      "en": "They should use MCP between the two agents instead of A2A"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "MCP collega un agente ai suoi strumenti e dati, non due agenti tra loro.",
+      "en": "MCP connects an agent to its tools and data, not two agents to each other."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Nulla: A2A è sempre la scelta più moderna e sicura",
+      "en": "Nothing: A2A is always the most modern and safe choice"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Non sempre: aggiunge rete, attesa e un contratto formale che qui non servono.",
+      "en": "Not always: it adds network, waiting and a formal contract that are not needed here."
+     }
+    }
+   ],
+   "perche": {
+    "it": "A2A conviene per integrazioni formali tra team o aziende; per compiti interni e che chiedono risposte immediate è meglio un sotto-agente locale.",
+    "en": "A2A pays off for formal integrations between teams or companies; for internal tasks that need immediate answers a local sub-agent is better."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Quale fattore pesa di più contro A2A in questo caso?",
+    "en": "Which factor weighs most against A2A in this case?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "La risposta deve arrivare subito, senza attese di rete",
+      "en": "The answer must arrive at once, without network waiting"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "A2A passa dalla rete: se serve bassa latenza e l'agente è vostro, il sotto-agente locale vince.",
+      "en": "A2A goes over the network: if low latency is needed and the agent is yours, the local sub-agent wins."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Il CRM ha troppi campi per A2A",
+      "en": "The CRM has too many fields for A2A"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il numero di campi del CRM non decide il collegamento tra agenti.",
+      "en": "The number of CRM fields does not decide the connection between agents."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "I due agenti parlano lingue diverse",
+      "en": "The two agents speak different languages"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Sono della stessa app e dello stesso team: questo spingerebbe semmai verso A2A, non contro.",
+      "en": "They belong to the same app and team: that would push towards A2A if anything, not against it."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "A2A non permette di rispondere ai clienti quando sono in chat",
+      "en": "A2A does not allow answering customers when they are in chat"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Con A2A l'agente che chiama può rispondere al cliente: il problema è l'attesa inutile.",
+      "en": "With A2A the calling agent can answer the customer: the problem is the needless waiting."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Serve un contratto formale tra i due agenti",
+      "en": "A formal contract is needed between the two agents"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il contratto formale è un motivo per scegliere A2A; qui basta un'interfaccia interna.",
+      "en": "A formal contract is a reason to choose A2A; here an internal interface is enough."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Stesso team, stessa app e risposta immediata: tutti i fattori indicano il sotto-agente locale.",
+    "en": "Same team, same app and an immediate answer: every factor points to the local sub-agent."
+   }
+  }
+ },
+ {
+  "id": "DA6.3-5",
+  "origine": "autori",
+  "pillola": "P6.3",
+  "concetti": [
+   "C57",
+   "C56"
+  ],
+  "concetto_principale": "C57",
+  "segmento_aiuto": "handoff_a2a",
+  "striscia": "diagnosi",
+  "livello1": {
+   "domanda": {
+    "it": "L'agente Assistenza chiede via A2A la disponibilità all'agente catalogo del fornitore. Il server del fornitore è giù e il cliente riceve un errore. Che cosa manca?",
+    "en": "The Support agent asks the supplier's catalogue agent for availability via A2A. The supplier's server is down and the customer gets an error. What is missing?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Errori gestiti e ritentativi",
+      "en": "Handled errors and retries"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Nella demo non ci sono ritentativi: in produzione servono, insieme a un messaggio di riserva per il cliente.",
+      "en": "In the demo there are no retries: in production they are needed, along with a fallback message for the customer."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Una scheda dell'agente più lunga",
+      "en": "A longer agent card"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "La scheda dice come contattare l'agente, ma non lo tiene acceso quando il server cade.",
+      "en": "The card says how to contact the agent, but it does not keep it running when the server goes down."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Un collegamento MCP al CRM",
+      "en": "An MCP connection to the CRM"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il CRM non sa nulla del magazzino del fornitore: il guasto è sulla chiamata A2A.",
+      "en": "The CRM knows nothing about the supplier's stock: the failure is on the A2A call."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Un passaggio di consegne",
+      "en": "A handoff"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Passare la conversazione a un altro agente interno non fa tornare su il fornitore.",
+      "en": "Handing the conversation to another internal agent does not bring the supplier back up."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Un modello più potente",
+      "en": "A more powerful model"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Il modello non c'entra: è un guasto di rete.",
+      "en": "The model has nothing to do with it: it is a network failure."
+     }
+    },
+    {
+     "id": "F",
+     "testo": {
+      "it": "Più strumenti",
+      "en": "More tools"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Aggiungere strumenti non ripara il collegamento con l'agente remoto.",
+      "en": "Adding tools does not repair the connection to the remote agent."
+     }
+    },
+    {
+     "id": "G",
+     "testo": {
+      "it": "Un nuovo logo",
+      "en": "A new logo"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "La grafica non c'entra con un errore di rete.",
+      "en": "Graphics have nothing to do with a network error."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Con A2A le dipendenze esterne diventano invisibili: rete e guasti del fornitore vanno gestiti con errori, ritentativi e riserve.",
+    "en": "With A2A, external dependencies become invisible: the network and supplier failures must be handled with errors, retries and fallbacks."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Che cosa serve, oltre ai ritentativi, per seguire questa richiesta tra i due agenti quando qualcosa va storto?",
+    "en": "What else, besides retries, do you need to follow this request between the two agents when something goes wrong?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Un identificativo unico che accompagni la richiesta",
+      "en": "A unique ID that travels with the request"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Con un identificativo di traccia unico si ricostruisce il percorso della richiesta tra gli agenti.",
+      "en": "With a unique trace ID you can rebuild the request's path across the agents."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Un'email al fornitore ogni volta che il cliente scrive",
+      "en": "An email to the supplier every time the customer writes"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Non aiuta a capire dove si è fermata la richiesta.",
+      "en": "It does not help to understand where the request stopped."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Spegnere l'Assistenza finché il fornitore non torna",
+      "en": "Switching off Support until the supplier is back"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Fermerebbe anche le richieste che non dipendono dal fornitore.",
+      "en": "It would also stop requests that do not depend on the supplier."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Copiare il catalogo del fornitore nella lavagna comune",
+      "en": "Copying the supplier's catalogue onto the shared board"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "La lavagna comune è per agenti della stessa applicazione e i dati invecchierebbero.",
+      "en": "The shared board is for agents of the same application, and the data would go stale."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Togliere la scheda dell'agente dal sito",
+      "en": "Removing the agent card from the website"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Senza scheda gli altri agenti non saprebbero più come contattarlo.",
+      "en": "Without the card other agents would no longer know how to contact it."
+     }
+    }
+   ],
+   "perche": {
+    "it": "In produzione ogni richiesta A2A porta un identificativo unico: serve per il debug e per un registro coerente tra agenti.",
+    "en": "In production every A2A request carries a unique ID: it is needed for debugging and for a consistent record across agents."
+   }
+  }
+ }
+]
