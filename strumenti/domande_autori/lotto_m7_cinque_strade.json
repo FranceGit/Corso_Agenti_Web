@@ -1,0 +1,335 @@
+[
+ {
+  "id": "DA7.1-4",
+  "origine": "autori",
+  "pillola": "P7.1",
+  "concetti": [
+   "C59",
+   "C60"
+  ],
+  "concetto_principale": "C59",
+  "segmento_aiuto": "ripeti",
+  "striscia": "diagnosi",
+  "livello1": {
+   "domanda": {
+    "it": "Il nuovo agente che prepara le bozze per i lead ha superato il collaudo: un solo lancio, risultato perfetto. In produzione, su 5 lanci dello stesso compito, 2 bozze arrivano sbagliate. Qual è stato l'errore del collaudo?",
+    "en": "The new agent that prepares drafts for leads passed its test: a single run, perfect result. In production, out of 5 runs of the same task, 2 drafts come out wrong. What was the mistake in the test?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Ha giudicato su un solo lancio, ma l'agente non segue sempre la stessa strada",
+      "en": "It judged on a single run, but the agent does not always follow the same road"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Un agente non è deterministico: un lancio riuscito può essere solo fortuna.",
+      "en": "An agent is not deterministic: one successful run may be just luck."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Ha provato un lead troppo facile: bastava sceglierne uno più difficile e lanciarlo una volta",
+      "en": "It tried a lead that was too easy: choosing a harder one and running it once was enough"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Un caso più difficile aiuta, ma un solo lancio resta un solo lancio.",
+      "en": "A harder case helps, but one run is still one run."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Ha confrontato la bozza parola per parola con un'email modello",
+      "en": "It compared the draft word for word with a model email"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "È un altro errore possibile, ma qui il problema è il lancio unico.",
+      "en": "It is another possible mistake, but here the problem is the single run."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Il modello si è stancato dopo il primo lancio",
+      "en": "The model got tired after the first run"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Un modello non si stanca: segue strade diverse perché non è deterministico.",
+      "en": "A model does not get tired: it follows different roads because it is not deterministic."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "In produzione i lead cambiano sempre, quindi i collaudi non servono",
+      "en": "In production leads always change, so tests are useless"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "I collaudi servono, ma vanno ripetuti più volte e su casi diversi.",
+      "en": "Tests are useful, but they must be repeated several times and on different cases."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Lo stesso compito può prendere strade diverse: per valutare un agente lo si lancia più volte.",
+    "en": "The same task can take different roads: to evaluate an agent you run it several times."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché un solo lancio riuscito non basta?",
+    "en": "Why is a single successful run not enough?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché può essere un caso fortunato: altri lanci possono seguire strade diverse",
+      "en": "Because it may be a lucky case: other runs may follow different roads"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "È la conseguenza del non determinismo.",
+      "en": "It is the consequence of non-determinism."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché un solo lancio non misura il costo medio dell'agente",
+      "en": "Because a single run does not measure the agent's average cost"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Vero in parte, ma il motivo principale è che il risultato può cambiare.",
+      "en": "Partly true, but the main reason is that the result can change."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché il primo lancio serve solo a scaldare il modello",
+      "en": "Because the first run only warms up the model"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Non esiste un riscaldamento: ogni lancio vale come gli altri.",
+      "en": "There is no warm-up: every run counts like the others."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Perché l'agente ripete sempre la stessa identica risposta",
+      "en": "Because the agent always repeats the very same answer"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "È il contrario: le risposte possono cambiare da un lancio all'altro.",
+      "en": "It is the opposite: answers can change from one run to another."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Perché il commerciale deve vedere almeno cinque bozze diverse prima di poterle firmare",
+      "en": "Because the salesperson must see at least five different drafts before being able to sign them"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Non c'entra la firma: conta la variabilità dell'agente.",
+      "en": "Signing has nothing to do with it: the agent's variability matters."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Un lancio riuscito può essere fortuna: solo più lanci mostrano come si comporta davvero l'agente.",
+    "en": "A successful run may be luck: only several runs show how the agent really behaves."
+   }
+  }
+ },
+ {
+  "id": "DA7.1-5",
+  "origine": "autori",
+  "pillola": "P7.1",
+  "concetti": [
+   "C60"
+  ],
+  "concetto_principale": "C60",
+  "segmento_aiuto": "traiettoria",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Un collega valuta l'agente così: «Conta solo il risultato: se alla fine le bozze per i lead caldi sono giuste, è promosso». Quale caso mostra il limite di questa regola?",
+    "en": "A colleague evaluates the agent like this: «Only the result counts: if in the end the drafts for the hot leads are right, it passes». Which case shows the limit of this rule?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Le bozze sono giuste, ma l'agente ne ha già inviata una a un cliente senza approvazione",
+      "en": "The drafts are right, but the agent already sent one to a customer without approval"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Risultato giusto, strada inaccettabile: solo la traiettoria lo mostra.",
+      "en": "Right result, unacceptable road: only the trajectory shows it."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Le bozze sono giuste e l'agente ha chiesto l'approvazione del commerciale prima di ogni invio",
+      "en": "The drafts are right and the agent asked the salesperson for approval before every sending"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Qui risultato e strada sono buoni: la regola non sbaglia.",
+      "en": "Here both result and road are good: the rule does not fail."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Le bozze sono sbagliate perché l'agente ha preso i lead freddi",
+      "en": "The drafts are wrong because the agent took the cold leads"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Questo caso è già bocciato dal risultato: non mostra il limite della regola.",
+      "en": "This case already fails on the result: it does not show the limit of the rule."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Le bozze sono giuste ma scritte con parole diverse da quelle previste",
+      "en": "The drafts are right but written with different words from those expected"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Più risposte possono essere giuste: non è un difetto da scoprire.",
+      "en": "Several answers can be right: it is not a flaw to find."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "L'agente ha impiegato due secondi in meno del solito",
+      "en": "The agent took two seconds less than usual"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Essere più veloce non nasconde un problema.",
+      "en": "Being faster does not hide a problem."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Un risultato giusto può nascondere un processo inaccettabile: per questo si valuta anche la strada.",
+    "en": "A right result can hide an unacceptable process: that is why you also evaluate the road."
+   }
+  },
+  "livello2": {
+   "tipo": "contro-esempio",
+   "domanda": {
+    "it": "Che cosa aggiunge la valutazione della traiettoria?",
+    "en": "What does evaluating the trajectory add?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Guarda anche i passi: strumenti usati, giri inutili e azioni rischiose",
+      "en": "It also looks at the steps: tools used, useless detours and risky actions"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "La traiettoria è la sequenza dei passi dell'agente.",
+      "en": "The trajectory is the agent's sequence of steps."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Guarda solo quanto tempo ha impiegato l'agente",
+      "en": "It only looks at how long the agent took"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il tempo è una parte (efficienza), non tutta la strada.",
+      "en": "Time is one part (efficiency), not the whole road."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Controlla che il testo delle bozze sia identico a un modello",
+      "en": "It checks that the drafts' text is identical to a model"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Il confronto parola per parola penalizza risposte giuste scritte in altro modo.",
+      "en": "Word-for-word comparison penalises right answers written another way."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Sostituisce il controllo del risultato finale",
+      "en": "It replaces checking the final result"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Si valutano entrambi: risultato e traiettoria.",
+      "en": "Both are evaluated: result and trajectory."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Serve solo quando l'agente usa più di dieci strumenti diversi nello stesso compito",
+      "en": "It is only needed when the agent uses more than ten different tools in the same task"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Serve sempre, anche con pochi strumenti.",
+      "en": "It is always needed, even with few tools."
+     }
+    }
+   ],
+   "perche": {
+    "it": "La traiettoria mostra come l'agente è arrivato al risultato: strumenti, passi inutili, rischi.",
+    "en": "The trajectory shows how the agent reached the result: tools, useless steps, risks."
+   }
+  }
+ }
+]

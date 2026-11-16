@@ -1,0 +1,322 @@
+[
+ {
+  "id": "DA7.3-4",
+  "origine": "autori",
+  "pillola": "P7.3",
+  "concetti": [
+   "C63",
+   "C64"
+  ],
+  "concetto_principale": "C63",
+  "segmento_aiuto": "famiglie",
+  "striscia": "diagnosi",
+  "livello1": {
+   "domanda": {
+    "it": "Dopo la modifica «email più brevi» il set di valutazione è tutto verde. Ma in produzione un lead senza nome riceve «Gentile ,». Perché il set non l'ha visto?",
+    "en": "After the «shorter emails» change the evaluation set is all green. But in production a lead with no name receives «Dear ,». Why did the set not see it?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Conteneva solo casi tipici: nessun caso limite come il lead senza nome",
+      "en": "It contained only typical cases: no edge case like the lead with no name"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Un set senza casi limite promuove anche un agente fragile.",
+      "en": "A set without edge cases also passes a fragile agent."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Il set andava rilanciato due volte di seguito",
+      "en": "The set should have been run twice in a row"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Ripetere aiuta, ma se il caso non c'è non si vede comunque.",
+      "en": "Repeating helps, but if the case is missing you still cannot see it."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Il set aveva troppi casi avversari",
+      "en": "The set had too many adversarial cases"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Non c'era nessun caso difficile: era il contrario.",
+      "en": "There was no difficult case at all: it was the opposite."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "In produzione arrivano sempre lead diversi, e nessun set di prova può prevederli tutti",
+      "en": "Production always brings different leads, and no test set can foresee them all"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Non tutti, ma i casi limite noti vanno inclusi.",
+      "en": "Not all of them, but the known edge cases must be included."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Le istruzioni più brevi non cambiano mai il comportamento",
+      "en": "Shorter instructions never change the behaviour"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Anche un cambio delle sole istruzioni può rompere qualcosa.",
+      "en": "Even a change to the instructions alone can break something."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Un buon set copre casi tipici, limite e avversari: senza casi limite la regressione non si vede.",
+    "en": "A good set covers typical, edge and adversarial cases: without edge cases the regression cannot be seen."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Che cosa va aggiunto al set adesso?",
+    "en": "What must be added to the set now?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Il caso del lead senza nome, come caso permanente",
+      "en": "The case of the lead with no name, as a permanent case"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Ogni errore vero diventa un caso permanente del set.",
+      "en": "Every real error becomes a permanent case of the set."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Altri dieci casi tipici di lead cortesi e completi",
+      "en": "Ten more typical cases of polite, complete leads"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Più casi facili non coprono il caso che ha fallito.",
+      "en": "More easy cases do not cover the case that failed."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Un caso fuori ambito qualsiasi, giusto per fare numero",
+      "en": "Any out-of-scope case, just to make up the number"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Serve il caso che ha fallito, non un caso a caso.",
+      "en": "You need the case that failed, not a random one."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Niente: basta correggere le istruzioni e pubblicare",
+      "en": "Nothing: just fix the instructions and publish"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Senza il caso, lo stesso errore può tornare alla prossima modifica.",
+      "en": "Without the case, the same error can come back at the next change."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Una nota nel manuale del commerciale",
+      "en": "A note in the salesperson's manual"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Una nota non viene rilanciata a ogni modifica.",
+      "en": "A note is not run again at every change."
+     }
+    }
+   ],
+   "perche": {
+    "it": "L'errore trovato in produzione entra nel set come caso permanente, così non torna.",
+    "en": "The error found in production enters the set as a permanent case, so it does not come back."
+   }
+  }
+ },
+ {
+  "id": "DA7.3-5",
+  "origine": "autori",
+  "pillola": "P7.3",
+  "concetti": [
+   "C64"
+  ],
+  "concetto_principale": "C64",
+  "segmento_aiuto": "regressione",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Il team passa a un modello più economico per l'agente che scrive ai lead. Istruzioni e strumenti restano uguali. Che cosa si fa prima di pubblicare?",
+    "en": "The team switches to a cheaper model for the agent that writes to leads. Instructions and tools stay the same. What do you do before publishing?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Si rilancia tutto il set di valutazione con il nuovo modello e si confrontano i risultati con la versione in uso, caso per caso",
+      "en": "You run the whole evaluation set with the new model and compare the results with the version in use, case by case"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "È il test di regressione: vale per ogni modifica, anche del solo modello.",
+      "en": "It is the regression test: it applies to every change, even of the model only."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Si provano tre lead a mano: se le bozze sembrano buone si pubblica subito, perché istruzioni e strumenti non cambiano",
+      "en": "You try three leads by hand: if the drafts look good you publish at once, because instructions and tools do not change"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Tre prove a mano non bastano e non si confrontano con la versione in uso.",
+      "en": "Three manual tries are not enough and are not compared with the version in use."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Si pubblica e si aspetta che i commerciali segnalino eventuali problemi nelle prossime settimane, senza altre prove",
+      "en": "You publish and wait for salespeople to report any problems in the coming weeks, without other tests"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Gli errori arriverebbero ai clienti prima di essere visti.",
+      "en": "Errors would reach customers before being seen."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Si butta e si riscrive da capo il set di valutazione, perché quello vecchio era pensato per il modello precedente e non vale più",
+      "en": "You throw away and rewrite the evaluation set, because the old one was made for the previous model and is no longer valid"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il set descrive il comportamento atteso: vale per qualunque modello.",
+      "en": "The set describes the expected behaviour: it is valid for any model."
+     }
+    }
+   ],
+   "perche": {
+    "it": "A ogni cambio di istruzioni, modello o strumenti si rilancia il set e si confronta con la versione in uso.",
+    "en": "At every change of instructions, model or tools you run the set again and compare with the version in use."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Perché serve anche se istruzioni e strumenti non cambiano?",
+    "en": "Why is it needed even if instructions and tools do not change?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché lo stesso prompt può comportarsi in modo diverso su un altro modello",
+      "en": "Because the same prompt can behave differently on another model"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Il modello è parte dell'agente: cambiarlo cambia il comportamento.",
+      "en": "The model is part of the agent: changing it changes the behaviour."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché un modello economico sbaglia sempre di più",
+      "en": "Because a cheap model always makes more mistakes"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Non sempre: a volte va bene. Proprio per questo si misura.",
+      "en": "Not always: sometimes it is fine. That is exactly why you measure."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché il set di valutazione scade ogni tre mesi",
+      "en": "Because the evaluation set expires every three months"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il set non scade: cresce con gli errori trovati.",
+      "en": "The set does not expire: it grows with the errors found."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Non serve: il modello non influisce sulle risposte",
+      "en": "It is not needed: the model does not affect the answers"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Il modello genera le risposte: influisce eccome.",
+      "en": "The model generates the answers: it matters a lot."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Perché il nuovo modello costa meno e quindi va ricontrollato il conto del mese",
+      "en": "Because the new model costs less and so the monthly bill must be checked again"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il costo è un'altra misura: qui conta il comportamento.",
+      "en": "Cost is another measure: here behaviour counts."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Lo stesso prompt su un modello diverso può dare risultati diversi: si rilancia il set.",
+    "en": "The same prompt on a different model can give different results: you run the set again."
+   }
+  }
+ }
+]

@@ -1,0 +1,360 @@
+[
+ {
+  "id": "DA7.2-4",
+  "origine": "autori",
+  "pillola": "P7.2",
+  "concetti": [
+   "C61"
+  ],
+  "concetto_principale": "C61",
+  "segmento_aiuto": "metriche_quanto",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Il cruscotto di sistema dell'agente CRM è tutto verde: tempi bassi, errori allo 0,4%, costi stabili. Il responsabile conclude: «Le risposte ai clienti vanno bene». Che cosa non va in questa conclusione?",
+    "en": "The CRM agent's system dashboard is all green: low times, 0.4% errors, stable costs. The manager concludes: «The answers to customers are fine». What is wrong with this conclusion?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Il sistema verde dice che l'agente gira, non che risponde bene: serve il cruscotto della qualità",
+      "en": "A green system says the agent runs, not that it answers well: you need the quality dashboard"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Servono due cruscotti: sistema e qualità. Il secondo può calare mentre il primo è verde.",
+      "en": "You need two dashboards: system and quality. The second can drop while the first is green."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Bisognerebbe leggere uno per uno tutti i log della giornata prima di concludere",
+      "en": "You should read every log of the day one by one before concluding"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Con 1.000 richieste al giorno non si fa: per il quadro generale servono metriche di qualità.",
+      "en": "With 1,000 requests a day it cannot be done: for the overall picture you need quality metrics."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Nei log mancano i dati personali dei clienti, utili per capire meglio",
+      "en": "The logs lack the customers' personal data, which would help understand"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "I dati personali vanno mascherati, non aggiunti.",
+      "en": "Personal data must be masked, not added."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Lo 0,4% di errori è troppo alto per qualunque agente",
+      "en": "0.4% errors is too high for any agent"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il numero non è il punto: manca la misura della qualità.",
+      "en": "The number is not the point: the quality measure is missing."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Niente: se tempi, errori e costi sono tutti verdi, anche la qualità delle risposte è per forza buona",
+      "en": "Nothing: if times, errors and costs are all green, the quality of the answers must be good too"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Un agente può funzionare benissimo e rispondere male: è un guasto silenzioso.",
+      "en": "An agent can run perfectly and answer badly: it is a silent failure."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Le metriche di sistema dicono se l'agente funziona; quelle di qualità dicono se risponde bene.",
+    "en": "System metrics say whether the agent works; quality metrics say whether it answers well."
+   }
+  },
+  "livello2": {
+   "tipo": "diagnosi",
+   "domanda": {
+    "it": "L'utilità delle risposte è scesa del 10% in 24 ore. Qual è il passo successivo?",
+    "en": "The usefulness of the answers dropped 10% in 24 hours. What is the next step?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Aprire le tracce delle richieste coinvolte nel calo per capire perché",
+      "en": "Open the traces of the requests involved in the drop to understand why"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Le metriche dicono quanto bene va, le tracce dicono perché.",
+      "en": "Metrics say how well it goes, traces say why."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Guardare di nuovo il cruscotto di sistema, che è verde",
+      "en": "Look again at the system dashboard, which is green"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il sistema è già verde: non spiega il calo di qualità.",
+      "en": "The system is already green: it does not explain the quality drop."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Aspettare una settimana per vedere se il calo sparisce da solo",
+      "en": "Wait a week to see if the drop goes away by itself"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Aspettare lascia arrivare risposte peggiori ai clienti.",
+      "en": "Waiting lets worse answers reach customers."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Spegnere la redazione dei dati personali per avere log più ricchi da leggere",
+      "en": "Switch off the redaction of personal data to get richer logs to read"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "La privacy non si sacrifica: le tracce bastano a trovare la causa.",
+      "en": "Privacy is not sacrificed: traces are enough to find the cause."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Cambiare subito modello senza guardare altro",
+      "en": "Change the model at once without looking at anything else"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Senza diagnosi si rischia di cambiare la cosa sbagliata.",
+      "en": "Without a diagnosis you risk changing the wrong thing."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Dal calo della metrica si passa alle tracce coinvolte: lì si vede la causa.",
+    "en": "From the metric drop you move to the traces involved: that is where the cause shows."
+   }
+  }
+ },
+ {
+  "id": "DA7.2-5",
+  "origine": "autori",
+  "pillola": "P7.2",
+  "concetti": [
+   "C62"
+  ],
+  "concetto_principale": "C62",
+  "segmento_aiuto": "privacy_log",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Nel log dell'agente arriva la riga «Richiesta da Marta Rossi, 333 1234567, marta@alfa.it». Prima di conservarla, che cosa si fa?",
+    "en": "The agent's log receives the line «Request from Marta Rossi, 333 1234567, marta@alfa.it». Before keeping it, what do you do?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Mascherare i dati personali",
+      "en": "Mask the personal data"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Nome, telefono ed email diventano segnaposto come [NOME].",
+      "en": "Name, phone and email become placeholders like [NAME]."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Cancellare tutto il log",
+      "en": "Delete the whole log"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Protegge i dati, ma perdi la registrazione utile per il debug.",
+      "en": "It protects the data, but you lose the record useful for debugging."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Cifrare solo il telefono",
+      "en": "Encrypt only the phone"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Nome ed email restano in chiaro.",
+      "en": "Name and email stay in clear text."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Stamparlo su carta",
+      "en": "Print it on paper"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "La carta non protegge i dati, li sposta.",
+      "en": "Paper does not protect the data, it moves it."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Inviarlo al commerciale",
+      "en": "Send it to sales"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Diffondere il log aumenta l'esposizione.",
+      "en": "Spreading the log increases exposure."
+     }
+    },
+    {
+     "id": "F",
+     "testo": {
+      "it": "Conservarlo così com'è",
+      "en": "Keep it as it is"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "I dati personali in chiaro nei log sono un rischio.",
+      "en": "Personal data in clear text in logs is a risk."
+     }
+    },
+    {
+     "id": "G",
+     "testo": {
+      "it": "Aggiungere anche l'indirizzo",
+      "en": "Add the address too"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "È il contrario: meno dati personali, non di più.",
+      "en": "It is the opposite: less personal data, not more."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Prima di conservare un log, i dati personali si sostituiscono con segnaposto (redazione).",
+    "en": "Before keeping a log, personal data are replaced with placeholders (redaction)."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Le righe di tre richieste sono mescolate nel log. Che cosa permette di trovare quelle di Marta senza leggere i suoi dati?",
+    "en": "The lines of three requests are mixed in the log. What lets you find Marta's lines without reading her data?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Un identificativo comune della richiesta su ogni riga, come R-0412",
+      "en": "A common request identifier on every line, like R-0412"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Lo stesso codice lega tutte le righe di una richiesta.",
+      "en": "The same code ties together all the lines of a request."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "L'ora esatta di ogni riga",
+      "en": "The exact time of each line"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Più richieste arrivano nello stesso secondo: l'ora non basta.",
+      "en": "Several requests arrive in the same second: time is not enough."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Il nome di Marta lasciato in chiaro in ogni riga del log, per cercarlo",
+      "en": "Marta's name left in clear text on every log line, to search for it"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Si trova la riga, ma si espone un dato personale.",
+      "en": "You find the line, but you expose personal data."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Il colore della riga nel programma",
+      "en": "The colour of the line in the program"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il colore non è un dato registrato della richiesta.",
+      "en": "Colour is not recorded data of the request."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Una metrica media del giorno",
+      "en": "An average metric of the day"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Le metriche riassumono tante richieste, non ne isolano una.",
+      "en": "Metrics summarise many requests, they do not isolate one."
+     }
+    }
+   ],
+   "perche": {
+    "it": "L'identificativo comune (trace_id) lega log e passi della stessa richiesta senza usare dati personali.",
+    "en": "The common identifier (trace_id) ties together the logs and steps of the same request without using personal data."
+   }
+  }
+ }
+]
