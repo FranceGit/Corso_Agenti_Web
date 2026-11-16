@@ -6,7 +6,8 @@ Fonti:
     correzioni, cosi' l'esercizio usa lo stesso lessico del laboratorio della lezione P3.5.
 Scrive:
   - esercizi/catalogo/dati/e03_risposte.json
-  - esercizi/finto_llm/tabelle.json (compito 'classifica_risposta')
+  - esercizi/finto_llm/tabelle.json (compito 'classifica_risposta', piu' i compiti degli esercizi 4-6 copiati
+    da esercizi/strumenti/compiti_finto_e04_e06.json: un solo file di tabelle per il finto-LLM)
 Uso: python esercizi/strumenti/genera_dati_e03.py   (deterministico)
 """
 from __future__ import annotations
@@ -47,7 +48,7 @@ def genera() -> tuple[dict, dict]:
     }
     tabella = {v["testo"]["it"]: v["etichetta_finto"] for v in dati["visibili"] + dati["nascosti"]}
     tabelle = {
-        "_why": "Risposte del finto-LLM, deterministiche. Per ogni compito: prima la tabella esatta (testo normalizzato -> risposta), poi le regole di ripiego (prima frase contenuta -> risposta), poi la risposta di ripiego. Imita un modello piccolo con i suoi difetti (per esempio chi chiede la disiscrizione diventa spesso 'Not Interested'). Generato da esercizi/strumenti/genera_dati_e03.py.",
+        "_why": "Risposte del finto-LLM, deterministiche. Per ogni compito: prima la tabella esatta (testo normalizzato -> risposta), poi le regole di ripiego (prima frase contenuta -> risposta), poi la risposta di ripiego. Imita un modello piccolo con i suoi difetti (per esempio chi chiede la disiscrizione diventa spesso 'Not Interested'). Generato da esercizi/strumenti/genera_dati_e03.py. I compiti 'simulatore' (esercizi 4-5) non usano tabelle: la risposta dipende dalle istruzioni (esercizi/finto_llm/simulatori.py).",
         "versione": 1,
         "risposta_generica": "Non ho capito la richiesta.",
         "compiti": {
@@ -64,6 +65,7 @@ def genera() -> tuple[dict, dict]:
             }
         },
     }
+    tabelle["compiti"].update(leggi(RADICE / "esercizi" / "strumenti" / "compiti_finto_e04_e06.json")["compiti"])
     return dati, tabelle
 
 

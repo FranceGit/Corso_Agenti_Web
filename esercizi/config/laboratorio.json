@@ -53,15 +53,23 @@
     "attivi": [
       {"numero": 1, "modulo": "e01_pulizia_lead", "piano": 1},
       {"numero": 2, "modulo": "e02_punteggio_regole", "piano": 2},
-      {"numero": 3, "modulo": "e03_trova_errore", "piano": 4}
-    ]
+      {"numero": 3, "modulo": "e03_trova_errore", "piano": 4},
+      {"numero": 4, "modulo": "e04_prompt_rubrica", "piano": 3},
+      {"numero": 5, "modulo": "e05_email_approvazione", "piano": 5},
+      {"numero": 6, "modulo": "e06_strumenti_agente", "piano": 7}
+    ],
+    "_why_piano_5": "L'esercizio 5 del portale unisce gli esercizi 5 (email con politica di marca) e 6 (approvazione umana e interruttore) del piano: nel campo 'piano' c'e' il primo dei due."
   },
 
   "soglie": {
     "_why": "Soglia di sufficienza (voto su 100) di ogni esercizio, dal piano: 80 per la pulizia, 75 per il punteggio a regole, 80 per 'trova l'errore'. Un controllo 'bloccante' fallito porta comunque il voto a 0.",
     "1": 80,
     "2": 75,
-    "3": 80
+    "3": 80,
+    "4": 70,
+    "5": 80,
+    "6": 70,
+    "_why_4_5_6": "Dal piano: 70 per il prompt con rubrica, 80 per email + approvazioni (soglia dell'esercizio 6 del piano, la piu' severa delle due unite), 70 per l'agente con strumenti. Nell'esercizio 5 la privacy pesa 25 e la posta giusta 20: con telefono o note private inviati al modello, o senza inviare niente, non si supera."
   },
 
   "parametri_esercizi": {
@@ -79,6 +87,25 @@
       "_why_accordo_minimo_etichette_mano": "Lo studente etichetta a mano le 15 risposte visibili: almeno 13 uguali alle etichette di riferimento (due dubbi ammessi).",
       "accordo_minimo_nascosti": 11,
       "_why_accordo_minimo_nascosti": "Piano: con la correzione scelta, sulle 12 risposte nascoste almeno 11 finiscono nella categoria giusta."
+    },
+    "4": {
+      "parole_massime_motivazione": 40,
+      "_why_parole_massime_motivazione": "Piano: motivazione di al massimo 40 parole (schema JSON dell'esercizio 3 del piano).",
+      "quota_massima_fascia": 0.7,
+      "_why_quota_massima_fascia": "Piano: distribuzione non degenere, nessuna fascia con piu' del 70% dei lead.",
+      "fasce_diverse_minime": 2,
+      "_why_fasce_diverse_minime": "Piano: almeno 2 fasce diverse fra i lead nascosti.",
+      "accordo_minimo_nascosti": 7,
+      "_why_accordo_minimo_nascosti": "Piano: accordo con le fasce del direttore (esercizio 2) almeno 7 su 10."
+    },
+    "5": {
+      "_why": "Lunghezza massima, parole vietate e marcatori di firma, disiscrizione e sconto stanno nei dati dell'esercizio (esercizi/catalogo/dati/e05_email.json), insieme alle regole di marca della lezione P3.4: cambiano il voto e sono gia' nell'impronta tramite la fotografia e la versione dell'esercizio.",
+      "bozze_nascoste_minime": 8,
+      "_why_bozze_nascoste_minime": "Piano: le proprieta' si controllano su 8 bozze generate dai lead nascosti; tutte e 8 devono essere in regola per i punti pieni (quota proporzionale altrimenti)."
+    },
+    "6": {
+      "tetto_massimo_passi": 10,
+      "_why_tetto_massimo_passi": "Piano: il diario dell'agente contiene al massimo 10 passi. Il tetto scelto dallo studente deve stare fra il compito necessario piu' lungo e questo valore: cosi' i compiti veri si completano e un ciclo a vuoto si ferma presto."
     }
   }
 }

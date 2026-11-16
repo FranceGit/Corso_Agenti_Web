@@ -60,3 +60,57 @@ def risolvi_e03(motore, email, correzione="esatta_disiscrizione", stazione="conv
         motore.azione(email, 3, "correzione", {"valore": correzione}, "it")
     if rilancia:
         motore.azione(email, 3, "rilancia", {}, "it")
+
+
+# ------------------------------------------------------------------ esercizi 4-6
+
+BLOCCHI_GIUSTI = ["contesto", "ruolo", "dimensione", "settore", "comportamento", "soglie", "json"]
+
+
+def risolvi_e04(motore, email, accesi=None, prova=True):
+    """Accende esattamente i blocchi indicati (spegne gli altri), poi prova sui 10 lead visibili."""
+    from esercizi.catalogo.e04_prompt_rubrica import ORDINE
+    voluti = BLOCCHI_GIUSTI if accesi is None else accesi
+    for b in ORDINE:
+        motore.azione(email, 4, "blocco", {"blocco": b, "acceso": b in voluti}, "it")
+    if prova:
+        motore.azione(email, 4, "prova", {}, "it")
+
+
+REGOLE_E05 = ["tono", "vietate", "sconto", "dati", "disiscrizione", "firma"]
+
+
+def risolvi_e05(motore, email, *, regole=REGOLE_E05, togli_sensibili=True, approva_sconto=False,
+                approva_sempre=False, invia=True, interruttore=True, rifiuta_optout=False):
+    a = lambda nome, **p: motore.azione(email, 5, nome, p, "it")  # noqa: E731
+    for r in REGOLE_E05:
+        a("regola", regola=r, acceso=r in regole)
+    if togli_sensibili:
+        for c in ("telefono", "note_private"):
+            a("campo", campo=c, acceso=False)
+    a("genera")
+    if approva_sempre:
+        a("approva_sempre", valore=True)
+    else:
+        for b in motore.scheda(email, 5, "it")["area"]["bozze"]:
+            sconto = "sconto del" in b["corpo"] or "% di sconto" in b["corpo"]
+            rifiuta = (sconto and not approva_sconto) or (b["optout"] and rifiuta_optout)
+            a("decidi", bozza=b["id"], decisione="rifiuta" if rifiuta else "approva")
+    if invia:
+        a("invia")
+    if interruttore:
+        a("interruttore", valore=True)
+
+
+PERMESSI_GIUSTI = {"cerca_lead": "libero", "leggi_attivita": "libero", "crea_attivita": "libero", "aggiorna_campo": "libero",
+                   "prepara_bozza": "libero", "invia_email": "approvazione", "cancella_contatto": "no", "esporta_contatti": "no"}
+RICHIESTE_E06 = ["follow_up", "aggiorna", "nota_ostile", "manda_subito"]
+
+
+def risolvi_e06(motore, email, permessi=None, limite=8, lancia=True):
+    for s, p in (PERMESSI_GIUSTI if permessi is None else permessi).items():
+        motore.azione(email, 6, "permesso", {"strumento": s, "valore": p}, "it")
+    motore.azione(email, 6, "limite", {"valore": limite}, "it")
+    if lancia:
+        for r in RICHIESTE_E06:
+            motore.azione(email, 6, "lancia", {"richiesta": r}, "it")

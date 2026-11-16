@@ -1,94 +1,583 @@
 {
   "_why": "Testi dell'interfaccia della pagina Esercizi, IT/EN. Separati da config/interfaccia.json per non intrecciare il cantiere esercizi con quelli delle lezioni e delle domande. Ogni testo deve esistere in tutte le lingue: altrimenti il server non parte.",
-  "esercizi": {"it": "Esercizi", "en": "Exercises"},
-  "esercizi_titolo": {"it": "Esercizi pratici", "en": "Hands-on exercises"},
-  "esercizi_spiega": {"it": "Lavori su un CRM di prova tutto tuo, dal browser. Quando premi «Verifica» un correttore automatico controlla le tue scelte e lo stato finale del CRM e della posta, mai il testo scritto dall'intelligenza artificiale.", "en": "You work on your own practice CRM, from the browser. When you press «Check» an automatic grader looks at your choices and at the final state of the CRM and the mail, never at the text written by the AI."},
-  "esercizio": {"it": "Esercizio", "en": "Exercise"},
-  "apri": {"it": "Apri", "en": "Open"},
-  "torna_elenco": {"it": "Tutti gli esercizi", "en": "All exercises"},
-  "soglia": {"it": "Sufficienza", "en": "Pass mark"},
-  "tentativi": {"it": "Tentativi", "en": "Attempts"},
-  "ultimo_voto": {"it": "Ultimo voto", "en": "Last score"},
-  "mai_verificato": {"it": "Non ancora verificato", "en": "Not checked yet"},
-  "superato": {"it": "Superato", "en": "Passed"},
-  "consegna": {"it": "Consegna", "en": "Your task"},
-  "area_lavoro": {"it": "Area di lavoro", "en": "Workspace"},
-  "verifica": {"it": "Verifica", "en": "Check"},
-  "verifica_in_corso": {"it": "Correzione in corso…", "en": "Grading…"},
-  "ricomincia": {"it": "Ricomincia da capo", "en": "Start over"},
-  "ricomincia_conferma": {"it": "Ricominciare? Il CRM di questo esercizio torna ai dati di partenza (i tentativi già corretti restano).", "en": "Start over? This exercise's CRM goes back to the starting data (attempts already graded are kept)."},
-  "verbale": {"it": "Verbale della correzione", "en": "Grading report"},
-  "voto": {"it": "Voto", "en": "Score"},
-  "punti": {"it": "punti", "en": "points"},
-  "bloccante": {"it": "bloccante", "en": "blocking"},
-  "come_rimediare": {"it": "Come rimediare", "en": "How to fix it"},
-  "controlli_previsti": {"it": "Che cosa controlla il correttore", "en": "What the grader checks"},
-  "ricorreggi": {"it": "Ricorreggi questo tentativo", "en": "Re-grade this attempt"},
-  "ricorretto_identico": {"it": "Ricorretto: stesso voto, stesso verbale (impronta identica).", "en": "Re-graded: same score, same report (identical fingerprint)."},
-  "ricorretto_diverso": {"it": "Attenzione: la ricorrezione dà un esito diverso. Avvisa il docente.", "en": "Warning: re-grading gives a different result. Tell the teacher."},
-  "impronta": {"it": "Impronta", "en": "Fingerprint"},
-  "tentativo": {"it": "Tentativo", "en": "Attempt"},
-
-  "e1_contatti": {"it": "Contatti", "en": "Contacts"},
-  "e1_attivi": {"it": "attivi", "en": "active"},
-  "e1_uniti": {"it": "uniti", "en": "merged"},
-  "e1_esclusi": {"it": "esclusi", "en": "excluded"},
-  "e1_nome": {"it": "Nome", "en": "Name"},
-  "e1_email": {"it": "Email", "en": "Email"},
-  "e1_azienda": {"it": "Azienda", "en": "Company"},
-  "e1_dimensione": {"it": "Dimensione", "en": "Size"},
-  "e1_segmento": {"it": "Segmento", "en": "Segment"},
-  "e1_stato": {"it": "Stato", "en": "Status"},
-  "e1_attivita": {"it": "Attività", "en": "Activities"},
-  "e1_azioni": {"it": "Azioni", "en": "Actions"},
-  "e1_non_contattare": {"it": "Non contattare", "en": "Do not contact"},
-  "e1_da_completare": {"it": "Da completare", "en": "To complete"},
-  "e1_escludi": {"it": "Escludi", "en": "Exclude"},
-  "e1_riattiva": {"it": "Riattiva", "en": "Reactivate"},
-  "e1_correggi": {"it": "Correggi", "en": "Fix"},
-  "e1_salva": {"it": "Salva", "en": "Save"},
-  "e1_seleziona_due": {"it": "Seleziona due righe della stessa persona per unirle.", "en": "Select two rows of the same person to merge them."},
-  "e1_unisci_tieni": {"it": "Unisci tenendo la riga {id}", "en": "Merge keeping row {id}"},
-  "e1_unisci_spiega": {"it": "La riga che tieni conserva i suoi campi; le attività di entrambe passano a lei.", "en": "The row you keep keeps its own fields; the activities of both move to it."},
-  "e1_email_rotta": {"it": "email scritta male", "en": "badly written email"},
-  "e1_ignota": {"it": "non nota", "en": "unknown"},
-  "e1_unito_in": {"it": "unito in {id}", "en": "merged into {id}"},
-  "e1_lista_optout": {"it": "Lista «non contattare»", "en": "«Do not contact» list"},
-  "e1_regola": {"it": "Regola dei segmenti", "en": "Segment rule"},
-  "stato_attivo": {"it": "attivo", "en": "active"},
-  "stato_unito": {"it": "unito", "en": "merged"},
-  "stato_escluso": {"it": "escluso", "en": "excluded"},
-
-  "e2_pesi": {"it": "Pesi dei criteri", "en": "Criteria weights"},
-  "e2_somma": {"it": "Somma dei pesi", "en": "Sum of weights"},
-  "e2_soglie": {"it": "Soglie delle fasce", "en": "Band thresholds"},
-  "e2_soglia_alta": {"it": "High da", "en": "High from"},
-  "e2_soglia_media": {"it": "Medium da", "en": "Medium from"},
-  "e2_classifica": {"it": "Classifica dei 22 lead", "en": "Ranking of the 22 leads"},
-  "e2_applica": {"it": "Applica al CRM", "en": "Apply to the CRM"},
-  "e2_applicata": {"it": "Le schede del CRM sono aggiornate.", "en": "The CRM records are up to date."},
-  "e2_non_applicata": {"it": "Le schede del CRM mostrano ancora le regole di prima.", "en": "The CRM records still show the previous rules."},
-  "e2_ruolo": {"it": "Ruolo", "en": "Role"},
-  "e2_settore": {"it": "Settore", "en": "Sector"},
-  "e2_persone": {"it": "Persone", "en": "People"},
-  "e2_comportamento": {"it": "Visite / guide", "en": "Visits / guides"},
-  "e2_punteggio": {"it": "Punti", "en": "Score"},
-  "e2_fascia": {"it": "Fascia", "en": "Band"},
-  "e2_fascia_crm": {"it": "Nel CRM", "en": "In the CRM"},
-  "e2_prioritario": {"it": "prioritario", "en": "priority"},
-
-  "e3_report": {"it": "Report della campagna", "en": "Campaign report"},
-  "e3_risposte": {"it": "Le risposte dei clienti", "en": "The customers' replies"},
-  "e3_tua_etichetta": {"it": "La tua etichetta", "en": "Your label"},
-  "e3_etichetta_llm": {"it": "Etichetta dell'LLM", "en": "LLM label"},
-  "e3_categoria_crm": {"it": "Nel CRM", "en": "In the CRM"},
-  "e3_scegli": {"it": "— scegli —", "en": "— choose —"},
-  "e3_stazione": {"it": "Dove nasce l'errore?", "en": "Where does the bug start?"},
-  "e3_correzione": {"it": "Quale correzione?", "en": "Which fix?"},
-  "e3_rilancia": {"it": "Applica e rilancia", "en": "Apply and run again"},
-  "e3_da_rilanciare": {"it": "Hai cambiato la correzione: premi «Applica e rilancia» per aggiornare CRM e posta.", "en": "You changed the fix: press «Apply and run again» to update CRM and mail."},
-  "e3_posta": {"it": "Posta inviata (seconda email)", "en": "Sent mail (second email)"},
-  "e3_posta_vuota": {"it": "Nessuna email partita.", "en": "No email sent."},
-  "e3_optout": {"it": "non contattare", "en": "do not contact"},
-  "e3_pipeline_originale": {"it": "pipeline originale", "en": "original pipeline"}
+  "esercizi": {
+    "it": "Esercizi",
+    "en": "Exercises"
+  },
+  "esercizi_titolo": {
+    "it": "Esercizi pratici",
+    "en": "Hands-on exercises"
+  },
+  "esercizi_spiega": {
+    "it": "Lavori su un CRM di prova tutto tuo, dal browser. Quando premi «Verifica» un correttore automatico controlla le tue scelte e lo stato finale del CRM e della posta, mai il testo scritto dall'intelligenza artificiale.",
+    "en": "You work on your own practice CRM, from the browser. When you press «Check» an automatic grader looks at your choices and at the final state of the CRM and the mail, never at the text written by the AI."
+  },
+  "esercizio": {
+    "it": "Esercizio",
+    "en": "Exercise"
+  },
+  "apri": {
+    "it": "Apri",
+    "en": "Open"
+  },
+  "torna_elenco": {
+    "it": "Tutti gli esercizi",
+    "en": "All exercises"
+  },
+  "soglia": {
+    "it": "Sufficienza",
+    "en": "Pass mark"
+  },
+  "tentativi": {
+    "it": "Tentativi",
+    "en": "Attempts"
+  },
+  "ultimo_voto": {
+    "it": "Ultimo voto",
+    "en": "Last score"
+  },
+  "mai_verificato": {
+    "it": "Non ancora verificato",
+    "en": "Not checked yet"
+  },
+  "superato": {
+    "it": "Superato",
+    "en": "Passed"
+  },
+  "consegna": {
+    "it": "Consegna",
+    "en": "Your task"
+  },
+  "area_lavoro": {
+    "it": "Area di lavoro",
+    "en": "Workspace"
+  },
+  "verifica": {
+    "it": "Verifica",
+    "en": "Check"
+  },
+  "verifica_in_corso": {
+    "it": "Correzione in corso…",
+    "en": "Grading…"
+  },
+  "ricomincia": {
+    "it": "Ricomincia da capo",
+    "en": "Start over"
+  },
+  "ricomincia_conferma": {
+    "it": "Ricominciare? Il CRM di questo esercizio torna ai dati di partenza (i tentativi già corretti restano).",
+    "en": "Start over? This exercise's CRM goes back to the starting data (attempts already graded are kept)."
+  },
+  "verbale": {
+    "it": "Verbale della correzione",
+    "en": "Grading report"
+  },
+  "voto": {
+    "it": "Voto",
+    "en": "Score"
+  },
+  "punti": {
+    "it": "punti",
+    "en": "points"
+  },
+  "bloccante": {
+    "it": "bloccante",
+    "en": "blocking"
+  },
+  "come_rimediare": {
+    "it": "Come rimediare",
+    "en": "How to fix it"
+  },
+  "controlli_previsti": {
+    "it": "Che cosa controlla il correttore",
+    "en": "What the grader checks"
+  },
+  "ricorreggi": {
+    "it": "Ricorreggi questo tentativo",
+    "en": "Re-grade this attempt"
+  },
+  "ricorretto_identico": {
+    "it": "Ricorretto: stesso voto, stesso verbale (impronta identica).",
+    "en": "Re-graded: same score, same report (identical fingerprint)."
+  },
+  "ricorretto_diverso": {
+    "it": "Attenzione: la ricorrezione dà un esito diverso. Avvisa il docente.",
+    "en": "Warning: re-grading gives a different result. Tell the teacher."
+  },
+  "impronta": {
+    "it": "Impronta",
+    "en": "Fingerprint"
+  },
+  "tentativo": {
+    "it": "Tentativo",
+    "en": "Attempt"
+  },
+  "e1_contatti": {
+    "it": "Contatti",
+    "en": "Contacts"
+  },
+  "e1_attivi": {
+    "it": "attivi",
+    "en": "active"
+  },
+  "e1_uniti": {
+    "it": "uniti",
+    "en": "merged"
+  },
+  "e1_esclusi": {
+    "it": "esclusi",
+    "en": "excluded"
+  },
+  "e1_nome": {
+    "it": "Nome",
+    "en": "Name"
+  },
+  "e1_email": {
+    "it": "Email",
+    "en": "Email"
+  },
+  "e1_azienda": {
+    "it": "Azienda",
+    "en": "Company"
+  },
+  "e1_dimensione": {
+    "it": "Dimensione",
+    "en": "Size"
+  },
+  "e1_segmento": {
+    "it": "Segmento",
+    "en": "Segment"
+  },
+  "e1_stato": {
+    "it": "Stato",
+    "en": "Status"
+  },
+  "e1_attivita": {
+    "it": "Attività",
+    "en": "Activities"
+  },
+  "e1_azioni": {
+    "it": "Azioni",
+    "en": "Actions"
+  },
+  "e1_non_contattare": {
+    "it": "Non contattare",
+    "en": "Do not contact"
+  },
+  "e1_da_completare": {
+    "it": "Da completare",
+    "en": "To complete"
+  },
+  "e1_escludi": {
+    "it": "Escludi",
+    "en": "Exclude"
+  },
+  "e1_riattiva": {
+    "it": "Riattiva",
+    "en": "Reactivate"
+  },
+  "e1_correggi": {
+    "it": "Correggi",
+    "en": "Fix"
+  },
+  "e1_salva": {
+    "it": "Salva",
+    "en": "Save"
+  },
+  "e1_seleziona_due": {
+    "it": "Seleziona due righe della stessa persona per unirle.",
+    "en": "Select two rows of the same person to merge them."
+  },
+  "e1_unisci_tieni": {
+    "it": "Unisci tenendo la riga {id}",
+    "en": "Merge keeping row {id}"
+  },
+  "e1_unisci_spiega": {
+    "it": "La riga che tieni conserva i suoi campi; le attività di entrambe passano a lei.",
+    "en": "The row you keep keeps its own fields; the activities of both move to it."
+  },
+  "e1_email_rotta": {
+    "it": "email scritta male",
+    "en": "badly written email"
+  },
+  "e1_ignota": {
+    "it": "non nota",
+    "en": "unknown"
+  },
+  "e1_unito_in": {
+    "it": "unito in {id}",
+    "en": "merged into {id}"
+  },
+  "e1_lista_optout": {
+    "it": "Lista «non contattare»",
+    "en": "«Do not contact» list"
+  },
+  "e1_regola": {
+    "it": "Regola dei segmenti",
+    "en": "Segment rule"
+  },
+  "stato_attivo": {
+    "it": "attivo",
+    "en": "active"
+  },
+  "stato_unito": {
+    "it": "unito",
+    "en": "merged"
+  },
+  "stato_escluso": {
+    "it": "escluso",
+    "en": "excluded"
+  },
+  "e2_pesi": {
+    "it": "Pesi dei criteri",
+    "en": "Criteria weights"
+  },
+  "e2_somma": {
+    "it": "Somma dei pesi",
+    "en": "Sum of weights"
+  },
+  "e2_soglie": {
+    "it": "Soglie delle fasce",
+    "en": "Band thresholds"
+  },
+  "e2_soglia_alta": {
+    "it": "High da",
+    "en": "High from"
+  },
+  "e2_soglia_media": {
+    "it": "Medium da",
+    "en": "Medium from"
+  },
+  "e2_classifica": {
+    "it": "Classifica dei 22 lead",
+    "en": "Ranking of the 22 leads"
+  },
+  "e2_applica": {
+    "it": "Applica al CRM",
+    "en": "Apply to the CRM"
+  },
+  "e2_applicata": {
+    "it": "Le schede del CRM sono aggiornate.",
+    "en": "The CRM records are up to date."
+  },
+  "e2_non_applicata": {
+    "it": "Le schede del CRM mostrano ancora le regole di prima.",
+    "en": "The CRM records still show the previous rules."
+  },
+  "e2_ruolo": {
+    "it": "Ruolo",
+    "en": "Role"
+  },
+  "e2_settore": {
+    "it": "Settore",
+    "en": "Sector"
+  },
+  "e2_persone": {
+    "it": "Persone",
+    "en": "People"
+  },
+  "e2_comportamento": {
+    "it": "Visite / guide",
+    "en": "Visits / guides"
+  },
+  "e2_punteggio": {
+    "it": "Punti",
+    "en": "Score"
+  },
+  "e2_fascia": {
+    "it": "Fascia",
+    "en": "Band"
+  },
+  "e2_fascia_crm": {
+    "it": "Nel CRM",
+    "en": "In the CRM"
+  },
+  "e2_prioritario": {
+    "it": "prioritario",
+    "en": "priority"
+  },
+  "e3_report": {
+    "it": "Report della campagna",
+    "en": "Campaign report"
+  },
+  "e3_risposte": {
+    "it": "Le risposte dei clienti",
+    "en": "The customers' replies"
+  },
+  "e3_tua_etichetta": {
+    "it": "La tua etichetta",
+    "en": "Your label"
+  },
+  "e3_etichetta_llm": {
+    "it": "Etichetta dell'LLM",
+    "en": "LLM label"
+  },
+  "e3_categoria_crm": {
+    "it": "Nel CRM",
+    "en": "In the CRM"
+  },
+  "e3_scegli": {
+    "it": "— scegli —",
+    "en": "— choose —"
+  },
+  "e3_stazione": {
+    "it": "Dove nasce l'errore?",
+    "en": "Where does the bug start?"
+  },
+  "e3_correzione": {
+    "it": "Quale correzione?",
+    "en": "Which fix?"
+  },
+  "e3_rilancia": {
+    "it": "Applica e rilancia",
+    "en": "Apply and run again"
+  },
+  "e3_da_rilanciare": {
+    "it": "Hai cambiato la correzione: premi «Applica e rilancia» per aggiornare CRM e posta.",
+    "en": "You changed the fix: press «Apply and run again» to update CRM and mail."
+  },
+  "e3_posta": {
+    "it": "Posta inviata (seconda email)",
+    "en": "Sent mail (second email)"
+  },
+  "e3_posta_vuota": {
+    "it": "Nessuna email partita.",
+    "en": "No email sent."
+  },
+  "e3_optout": {
+    "it": "non contattare",
+    "en": "do not contact"
+  },
+  "e3_pipeline_originale": {
+    "it": "pipeline originale",
+    "en": "original pipeline"
+  },
+  "e4_anteprima": {
+    "it": "Le istruzioni che riceve il modello",
+    "en": "The instructions the model receives"
+  },
+  "e4_vuoto": {
+    "it": "Nessun blocco acceso: il modello non sa che cosa fare.",
+    "en": "No block switched on: the model does not know what to do."
+  },
+  "e4_prova": {
+    "it": "Prova sui 10 lead",
+    "en": "Try on the 10 leads"
+  },
+  "e4_da_riprovare": {
+    "it": "Hai cambiato le istruzioni: la prova qui sotto è di prima. Premi di nuovo «Prova sui 10 lead».",
+    "en": "You changed the instructions: the trial below is from before. Press «Try on the 10 leads» again."
+  },
+  "e4_valide": {
+    "it": "Risposte leggibili (JSON valido): {n} su {tot}",
+    "en": "Readable answers (valid JSON): {n} of {tot}"
+  },
+  "e4_accordo": {
+    "it": "d'accordo con il direttore: {n} su {tot}",
+    "en": "in line with the director: {n} of {tot}"
+  },
+  "e4_mai_provata": {
+    "it": "Non hai ancora provato le istruzioni.",
+    "en": "You have not tried the instructions yet."
+  },
+  "e4_risposta": {
+    "it": "Risposta del modello",
+    "en": "Model's answer"
+  },
+  "e4_json": {
+    "it": "Leggibile?",
+    "en": "Readable?"
+  },
+  "e4_valida": {
+    "it": "JSON valido",
+    "en": "valid JSON"
+  },
+  "e4_fascia_modello": {
+    "it": "Fascia del modello",
+    "en": "Model's band"
+  },
+  "e4_fascia_regole": {
+    "it": "Fascia a regole (direttore)",
+    "en": "Rule-based band (director)"
+  },
+  "e5_regole": {
+    "it": "Regole di marca",
+    "en": "Brand rules"
+  },
+  "e5_campi": {
+    "it": "Campi della scheda passati al modello",
+    "en": "Record fields passed to the model"
+  },
+  "e5_sensibile": {
+    "it": "dato personale",
+    "en": "personal data"
+  },
+  "e5_avviso_campi": {
+    "it": "Attenzione: al modello arrivano anche {campi}. Servono davvero per scrivere l'email?",
+    "en": "Careful: {campi} also reach the model. Are they really needed to write the email?"
+  },
+  "e5_genera": {
+    "it": "Genera le bozze",
+    "en": "Generate the drafts"
+  },
+  "e5_da_rigenerare": {
+    "it": "Hai cambiato regole o campi: le bozze qui sotto sono di prima. Premi di nuovo «Genera le bozze».",
+    "en": "You changed rules or fields: the drafts below are from before. Press «Generate the drafts» again."
+  },
+  "e5_lingua_bozze": {
+    "it": "Le bozze sono in italiano, la lingua dei clienti.",
+    "en": "The drafts are in Italian, the customers' language."
+  },
+  "e5_checklist": {
+    "it": "Prima di approvare, controlla:",
+    "en": "Before approving, check:"
+  },
+  "e5_nessuna_bozza": {
+    "it": "Nessuna bozza: premi «Genera le bozze».",
+    "en": "No draft: press «Generate the drafts»."
+  },
+  "e5_stato_in_attesa": {
+    "it": "in attesa",
+    "en": "waiting"
+  },
+  "e5_stato_approvata": {
+    "it": "approvata",
+    "en": "approved"
+  },
+  "e5_stato_rifiutata": {
+    "it": "rifiutata",
+    "en": "rejected"
+  },
+  "e5_stato_inviata": {
+    "it": "inviata",
+    "en": "sent"
+  },
+  "e5_stato_bloccata": {
+    "it": "bloccata dal sistema",
+    "en": "blocked by the system"
+  },
+  "e5_oggetto": {
+    "it": "Oggetto",
+    "en": "Subject"
+  },
+  "e5_approva": {
+    "it": "Approva",
+    "en": "Approve"
+  },
+  "e5_rifiuta": {
+    "it": "Rifiuta",
+    "en": "Reject"
+  },
+  "e5_approva_sempre": {
+    "it": "Approva sempre",
+    "en": "Always approve"
+  },
+  "e5_avviso_sempre": {
+    "it": "«Approva sempre» è acceso: ogni bozza parte senza che nessuno la legga.",
+    "en": "«Always approve» is on: every draft goes out without anyone reading it."
+  },
+  "e5_invia": {
+    "it": "Invia gli approvati",
+    "en": "Send the approved ones"
+  },
+  "e5_interruttore": {
+    "it": "Ferma tutti gli agenti (interruttore di emergenza)",
+    "en": "Stop all agents (emergency switch)"
+  },
+  "e5_registro": {
+    "it": "Registro degli invii",
+    "en": "Sending log"
+  },
+  "e5_ev_invio": {
+    "it": "Inviata a {a} — approvata da: {da} (approvazione n. {n})",
+    "en": "Sent to {a} — approved by: {da} (approval no. {n})"
+  },
+  "e5_ev_optout": {
+    "it": "Bloccata: {a} è nella lista «non contattare»",
+    "en": "Blocked: {a} is on the «do not contact» list"
+  },
+  "e5_ev_interruttore": {
+    "it": "Interruttore acceso: {n} invii fermati",
+    "en": "Switch on: {n} sends stopped"
+  },
+  "e5_registro_vuoto": {
+    "it": "Ancora nessun invio.",
+    "en": "No send yet."
+  },
+  "e6_limite": {
+    "it": "Tetto di passi dell'agente",
+    "en": "Agent's step limit"
+  },
+  "e6_limite_spiega": {
+    "it": "Dopo questo numero di chiamate l'orchestrazione ferma l'agente.",
+    "en": "After this number of calls the orchestration stops the agent."
+  },
+  "e6_strumento": {
+    "it": "Strumento",
+    "en": "Tool"
+  },
+  "e6_tipo": {
+    "it": "Tipo",
+    "en": "Type"
+  },
+  "e6_cosa_fa": {
+    "it": "Che cosa fa",
+    "en": "What it does"
+  },
+  "e6_permesso": {
+    "it": "Permesso",
+    "en": "Permission"
+  },
+  "e6_tipo_legge": {
+    "it": "legge",
+    "en": "reads"
+  },
+  "e6_tipo_scrive": {
+    "it": "scrive",
+    "en": "writes"
+  },
+  "e6_richieste": {
+    "it": "Le richieste all'agente",
+    "en": "The requests to the agent"
+  },
+  "e6_lancia": {
+    "it": "Lancia l'agente",
+    "en": "Run the agent"
+  },
+  "e6_mai_lanciata": {
+    "it": "Non ancora lanciata.",
+    "en": "Not run yet."
+  },
+  "e6_da_rilanciare": {
+    "it": "Diario di una configurazione precedente: rilancia per vedere quella attuale.",
+    "en": "Diary from a previous configuration: run again to see the current one."
+  },
+  "e6_esito_eseguita": {
+    "it": "eseguita",
+    "en": "done"
+  },
+  "e6_esito_in_attesa": {
+    "it": "ferma: aspetta l'approvazione di una persona",
+    "en": "stopped: waiting for a person's approval"
+  },
+  "e6_esito_rifiutata": {
+    "it": "rifiutata: strumento non concesso",
+    "en": "refused: tool not granted"
+  },
+  "e6_esito_fermata": {
+    "it": "fermata: tetto di passi raggiunto",
+    "en": "stopped: step limit reached"
+  },
+  "e6_piano_illeggibile": {
+    "it": "La risposta del modello non è un elenco di chiamate leggibile: nessuna azione eseguita.",
+    "en": "The model's answer is not a readable list of calls: no action done."
+  },
+  "e6_crm": {
+    "it": "Il CRM dopo i lanci",
+    "en": "The CRM after the runs"
+  },
+  "e6_bozze": {
+    "it": "Bozze preparate dall'agente: {n}",
+    "en": "Drafts prepared by the agent: {n}"
+  }
 }

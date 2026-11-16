@@ -69,6 +69,99 @@ const $ = (s) => d.querySelector(s);
 const $$ = (s) => [...d.querySelectorAll(s)];
 const scegli = (el, valore) => { el.value = valore; el.dispatchEvent(new w.Event("change", { bubbles: true })); };
 
+
+const spunta = (el, valore) => { el.checked = valore; el.dispatchEvent(new w.Event("change", { bubbles: true })); };
+const TESTI = {
+  it: { prova: "Prova sui 10 lead", genera: "Genera le bozze", lancia: "Lancia l'agente", superato: "Superato" },
+  en: { prova: "Try on the 10 leads", genera: "Generate the drafts", lancia: "Run the agent", superato: "Passed" },
+};
+
+async function apriEsercizio(n) {
+  if ($(".es-indietro")) $(".es-indietro").click();
+  await aspetta(() => $$(".es-carta").length === 6, `elenco con 6 esercizi (verso il ${n})`);
+  $(`.es-carta[data-esercizio="${n}"] button`).click();
+  await aspetta(() => $(`[data-scheda="${n}"]`) && $("#es-area").children.length > 0, `esercizio ${n} aperto`);
+}
+
+async function verificaCento(n, lingua) {
+  $("#es-verbale").replaceChildren();  // il verbale di un tentativo precedente non deve far passare il controllo
+  $("#es-verifica").click();
+  await aspetta(() => $(".es-verbale")?.dataset.voto === "100", `[${lingua}] esercizio ${n}: verifica con voto 100`, 8000);
+  controlla($(".es-riassunto").textContent.startsWith(TESTI[lingua].superato), `[${lingua}] esercizio ${n}: riassunto nella lingua giusta`);
+  const falliti = $$(".es-controlli li.male").map((li) => `${li.dataset.controllo}: ${li.querySelector(".es-controllo-spiega").textContent}`);
+  controlla(falliti.length === 0, `[${lingua}] esercizio ${n}: nessun controllo fallito ${falliti.join(" | ")}`);
+}
+
+async function flussoE4(lingua) {
+  await aspetta(() => $("#es-blocchi"), `[${lingua}] e4: blocchi delle istruzioni`);
+  controlla($("#es-prova").textContent === TESTI[lingua].prova, `[${lingua}] e4: bottone di prova tradotto`);
+  $("#es-prova").click();
+  await aspetta(() => $("#es-riepilogo"), `[${lingua}] e4: prova con le istruzioni di partenza`);
+  controlla($$("#es-prova-tabella .es-badge.male").length === 10, `[${lingua}] e4: partenza, 10 risposte illeggibili`);
+  const voluti = { vago: false, ruolo: true, dimensione: true, settore: true, comportamento: true, soglie: true, json: true };
+  for (const [b, v] of Object.entries(voluti)) {
+    spunta($(`input[data-blocco="${b}"]`), v);
+    await aspetta(() => $(`input[data-blocco="${b}"]`).checked === v && $(`input[data-blocco="${b}"]`).closest("label").classList.contains("acceso") === v, `[${lingua}] e4: blocco ${b} ${v ? "acceso" : "spento"}`, 3000);
+  }
+  controlla(!!$(".es-rilancio .es-errore"), `[${lingua}] e4: avviso «prova da rifare»`);
+  $("#es-prova").click();
+  await aspetta(() => $$("#es-prova-tabella .es-badge.ok").length === 10 && !$(".es-rilancio .es-errore"), `[${lingua}] e4: 10 risposte JSON valide`);
+  await verificaCento(4, lingua);
+}
+
+async function flussoE5(lingua) {
+  await aspetta(() => $("#es-regole"), `[${lingua}] e5: regole di marca`);
+  controlla($("#es-genera").textContent === TESTI[lingua].genera, `[${lingua}] e5: bottone «genera» tradotto`);
+  controlla(!!$("#es-avviso-campi"), `[${lingua}] e5: avviso sui dati personali spuntati`);
+  for (const r of ["tono", "vietate", "sconto", "dati", "disiscrizione", "firma"]) {
+    spunta($(`input[data-regola="${r}"]`), true);
+    await aspetta(() => $(`input[data-regola="${r}"]`).closest("label").classList.contains("acceso"), `[${lingua}] e5: regola ${r}`, 3000);
+  }
+  for (const c of ["telefono", "note_private"]) {
+    spunta($(`input[data-campo="${c}"]`), false);
+    await aspetta(() => !$(`input[data-campo="${c}"]`).closest("label").classList.contains("acceso"), `[${lingua}] e5: campo ${c} tolto`, 3000);
+  }
+  controlla(!$("#es-avviso-campi"), `[${lingua}] e5: avviso sparito`);
+  $("#es-genera").click();
+  await aspetta(() => $$(".es-bozza").length === 8, `[${lingua}] e5: 8 bozze generate`);
+  const ids = $$(".es-bozza").map((b) => b.dataset.bozza);
+  for (const id of ids) {
+    const corpo = $(`.es-bozza[data-bozza="${id}"] .es-corpo`).textContent;
+    const decisione = corpo.includes("sconto del") ? "rifiuta" : "approva";
+    $(`.es-bozza[data-bozza="${id}"] [data-decisione="${decisione}"]`).click();
+    const stato = decisione === "approva" ? "approvata" : "rifiutata";
+    await aspetta(() => $(`.es-bozza[data-bozza="${id}"] [data-stato]`)?.dataset.stato === stato, `[${lingua}] e5: bozza ${id} ${stato}`, 3000);
+  }
+  $("#es-invia").click();
+  await aspetta(() => $$("#es-posta li").length === 6, `[${lingua}] e5: 6 email partite`);
+  controlla($$('#es-registro li[data-evento="blocco_optout"]').length === 1, `[${lingua}] e5: blocco «non contattare» nel registro`);
+  spunta($("#es-interruttore"), true);
+  await aspetta(() => $("#es-interruttore").checked && $("#es-genera").disabled, `[${lingua}] e5: interruttore acceso, generazione ferma`);
+  await verificaCento(5, lingua);
+}
+
+async function flussoE6(lingua) {
+  await aspetta(() => $("#es-strumenti"), `[${lingua}] e6: tabella degli strumenti`);
+  const permessi = { invia_email: "approvazione", cancella_contatto: "no", esporta_contatti: "no" };
+  for (const [s, p] of Object.entries(permessi)) {
+    scegli($(`select[data-strumento="${s}"]`), p);
+    await aspetta(() => $(`[data-strumento-riga="${s}"]`).classList.contains(`perm-${p}`), `[${lingua}] e6: ${s} → ${p}`, 3000);
+  }
+  const c = $('input[name="limite"]');
+  c.value = "8";
+  c.dispatchEvent(new w.Event("input", { bubbles: true }));
+  await aspetta(() => $("#es-area").dataset.limite === "8" && $("#es-limite-valore").textContent === "8", `[${lingua}] e6: tetto 8 salvato dal server`, 3000);
+  controlla($('[data-azione="lancia"]').textContent === TESTI[lingua].lancia, `[${lingua}] e6: bottone «lancia» tradotto`);
+  for (const r of ["follow_up", "aggiorna", "nota_ostile", "manda_subito"]) {
+    $(`[data-richiesta="${r}"] [data-azione="lancia"]`).click();
+    await aspetta(() => $$(`[data-richiesta="${r}"] .es-diario li`).length > 0 && !$(`[data-richiesta="${r}"] .es-errore`), `[${lingua}] e6: diario di ${r}`, 3000);
+  }
+  controlla($$('[data-richiesta="nota_ostile"] li[data-esito="rifiutata"]').length === 2, `[${lingua}] e6: cancellazioni della nota ostile rifiutate`);
+  controlla($$('[data-richiesta="manda_subito"] li[data-esito="in_attesa"]').length === 3, `[${lingua}] e6: invii in attesa di una persona`);
+  controlla($$("#es-posta li").length === 0 && !$("#es-crm .stato-escluso"), `[${lingua}] e6: nessuna email partita, nessun contatto cancellato`);
+  await verificaCento(6, lingua);
+}
+
 await importa("/shell/app.js");
 try {
 
@@ -82,7 +175,7 @@ controlla($("#voce-esercizi").textContent.includes("Esercizi pratici"), "voce in
 
 // ---------------------------------------------------------------- elenco
 $("#voce-esercizi").click();
-await aspetta(() => $$(".es-carta").length === 3, "elenco con 3 schede di esercizio");
+await aspetta(() => $$(".es-carta").length === 6, "elenco con 6 schede di esercizio");
 controlla($(".es-titolo").textContent === "Esercizi pratici", "titolo della pagina");
 controlla(!!d.getElementById("stile-esercizi"), "foglio di stile degli esercizi caricato");
 
@@ -114,7 +207,7 @@ await aspetta(() => $("#es-ricorrezione").textContent.includes("stesso voto"), "
 
 // ---------------------------------------------------------------- esercizio 2
 $(".es-indietro").click();
-await aspetta(() => $$(".es-carta").length === 3 && $$(".es-carta")[2].textContent.includes("100/100"), "elenco aggiornato: ultimo voto 100 sull'esercizio 3");
+await aspetta(() => $$(".es-carta").length === 6 && $$(".es-carta")[2].textContent.includes("100/100"), "elenco aggiornato: ultimo voto 100 sull'esercizio 3");
 $$(".es-carta")[1].querySelector("button").click();
 await aspetta(() => $("#es-classifica") && $$("#es-classifica tbody tr").length === 22, "esercizio 2: classifica di 22 lead");
 const valori = { peso_ruolo: 40, peso_dimensione: 25, peso_settore: 20, peso_comportamento: 15, soglia_alta: 65, soglia_media: 40 };
@@ -132,7 +225,7 @@ await aspetta(() => $(".es-verbale")?.dataset.voto === "100", "esercizio 2: voto
 
 // ---------------------------------------------------------------- esercizio 1
 $(".es-indietro").click();
-await aspetta(() => $$(".es-carta").length === 3, "di nuovo l'elenco");
+await aspetta(() => $$(".es-carta").length === 6, "di nuovo l'elenco");
 $$(".es-carta")[0].querySelector("button").click();
 await aspetta(() => $$("#es-tabella-lead tbody tr").length === 25, "esercizio 1: 25 righe importate");
 controlla($$(".es-email.rotta").length === 2, "2 email segnalate come scritte male");
@@ -155,6 +248,12 @@ controlla($$(".es-aiuto").length >= 1, "i controlli falliti mostrano «come rime
 $("#es-ricomincia").click();
 await aspetta(() => $(".es-contatori") && $(".es-contatori").textContent.includes("0 uniti"), "ricomincia: dati di partenza");
 
+// ---------------------------------------------------------------- esercizi 4-6 in italiano
+for (const [n, flusso] of [[4, flussoE4], [5, flussoE5], [6, flussoE6]]) {
+  await apriEsercizio(n);
+  await flusso("it");
+}
+
 // ---------------------------------------------------------------- inglese
 const en = $$(".lingue button").find((b) => b.textContent === "EN");
 en.click();
@@ -162,6 +261,14 @@ await aspetta(() => $(".es-titolo")?.textContent === "Hands-on exercises", "camb
 controlla($("#voce-esercizi").textContent.includes("Hands-on exercises"), "voce laterale in inglese");
 $$(".es-carta")[2].querySelector("button").click();
 await aspetta(() => $(".es-verbale") && $(".es-riassunto").textContent.startsWith("Passed"), "verbale salvato riletto in inglese");
+// esercizi 4-6 rifatti da capo in inglese
+for (const [n, flusso] of [[4, flussoE4], [5, flussoE5], [6, flussoE6]]) {
+  await apriEsercizio(n);
+  $("#es-ricomincia").click();
+  const ripartito = { 4: () => $("#es-blocchi") && !$("#es-riepilogo"), 5: () => $("#es-regole") && !$(".es-bozza"), 6: () => $("#es-strumenti") && !$(".es-diario") };
+  await aspetta(ripartito[n], `[en] esercizio ${n}: ricominciato dai dati di partenza`);
+  await flusso("en");
+}
 
 } catch (e) {
   errori.push("interrotto: " + e.message + " " + String(e.stack || "").split("\n")[1]);

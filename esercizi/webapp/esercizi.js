@@ -5,7 +5,7 @@
 let C = null;          // contesto dalla shell: { lingua, api, conLingua, avvisa, h }
 let T = {};            // testi dell'interfaccia esercizi
 let radice = null;
-let attesa = null;     // timer del salvataggio dei cursori (esercizio 2)
+let attesa = null;     // timer del salvataggio dei cursori (esercizi 2 e 6)
 let selezione = [];    // righe selezionate per l'unione (esercizio 1)
 
 const h = (...a) => C.h(...a);
@@ -87,7 +87,8 @@ async function scheda(n, dati) {
 
 function disegnaArea(s, area) {
   area.replaceChildren();
-  const disegna = { tabella_lead: areaLead, foglio_pesi: areaPesi, pipeline_risposte: areaRisposte }[s.tipo_area];
+  const disegna = { tabella_lead: areaLead, foglio_pesi: areaPesi, pipeline_risposte: areaRisposte, blocchi_prompt: areaBlocchi,
+    email_marca: areaEmail, strumenti_agente: areaStrumenti }[s.tipo_area];
   if (!disegna) { area.append(h("p", {}, `tipo_area ${s.tipo_area}?`)); return; }
   disegna(s.numero, s.area, area);
 }
@@ -281,4 +282,127 @@ function areaRisposte(n, a, area) {
     a.posta.length ? h("ul", { class: "es-posta", id: "es-posta" }, a.posta.map((m) => h("li", {}, h("b", {}, m.a), " — ", m.oggetto)))
       : h("p", { class: "es-tenue", id: "es-posta" }, t("e3_posta_vuota")),
     h("div", { class: "es-nota" }, h("b", {}, `${t("e1_lista_optout")}: `), a.lista_optout.join(", ") || "—"));
+}
+
+// ------------------------------------------------------------------ esercizio 4: istruzioni a blocchi con rubrica
+
+function areaBlocchi(n, a, area) {
+  area.dataset.tipo = "blocchi_prompt";
+  const fascia = (f) => (f ? h("span", { class: `es-fascia f-${f}` }, f) : "—");
+  area.append(
+    h("div", { class: "es-blocchi", id: "es-blocchi" }, a.gruppi.map((g) => h("div", { class: "es-gruppo" },
+      h("h3", {}, g.nome),
+      g.blocchi.map((b) => h("label", { class: `es-blocco ${b.acceso ? "acceso" : ""}` },
+        h("input", { type: "checkbox", checked: b.acceso, "data-blocco": b.id,
+          onchange: (ev) => azione(n, "blocco", { blocco: b.id, acceso: ev.target.checked }, area) }),
+        h("span", {}, b.testo)))))),
+    h("h3", {}, t("e4_anteprima")),
+    a.anteprima.length ? h("ol", { class: "es-anteprima", id: "es-anteprima" }, a.anteprima.map((x) => h("li", {}, x)))
+      : h("p", { class: "es-errore", id: "es-anteprima" }, t("e4_vuoto")),
+    h("div", { class: "es-rilancio" },
+      h("button", { class: "btn btn-primario", id: "es-prova", "data-azione": "prova", onclick: () => azione(n, "prova", {}, area) }, t("e4_prova")),
+      a.provata && !a.prova_aggiornata ? h("span", { class: "es-errore" }, t("e4_da_riprovare")) : null),
+    a.provata ? h("div", { class: "es-contatori", id: "es-riepilogo" },
+      h("b", {}, t("e4_valide", { n: a.valide, tot: a.totale })), " · ", t("e4_accordo", { n: a.accordo, tot: a.totale }), " · ",
+      Object.entries(a.conteggio).map(([f, q]) => `${f}: ${q}`).join(" · ")) : h("p", { class: "es-tenue" }, t("e4_mai_provata")),
+    h("div", { class: "es-scorri" }, h("table", { class: "es-tabella", id: "es-prova-tabella" },
+      h("thead", {}, h("tr", {}, [t("e1_nome"), t("e2_ruolo"), t("e4_risposta"), t("e4_json"), t("e2_punteggio"), t("e4_fascia_modello"), t("e4_fascia_regole")].map((x) => h("th", {}, x)))),
+      h("tbody", {}, a.righe.map((r) => h("tr", { "data-lead": r.id },
+        h("td", {}, r.nome, h("div", { class: "es-tenue" }, r.azienda)),
+        h("td", {}, r.ruolo, h("div", { class: "es-tenue" }, `${r.settore} · ${r.dipendenti}`)),
+        h("td", { class: "es-mono es-risposta" }, r.risposta === null ? "—" : r.risposta),
+        h("td", {}, r.risposta === null ? "—" : r.valida ? h("span", { class: "es-badge ok" }, t("e4_valida")) : h("span", { class: "es-badge male" }, r.motivo)),
+        h("td", { class: "es-num" }, r.punteggio === null || r.punteggio === undefined ? "—" : String(r.punteggio)),
+        h("td", {}, fascia(r.fascia)),
+        h("td", {}, fascia(r.fascia_regole), h("div", { class: "es-tenue" }, String(r.punteggio_regole)))))))));
+}
+
+// ------------------------------------------------------------------ esercizio 5: email con regole di marca e approvazione
+
+function areaEmail(n, a, area) {
+  area.dataset.tipo = "email_marca";
+  const spunta = (voce, nome, chiave, extra) => h("label", { class: `es-blocco ${voce.acceso ? "acceso" : ""}` },
+    h("input", { type: "checkbox", checked: voce.acceso, [`data-${chiave}`]: voce.id,
+      onchange: (ev) => azione(n, nome, { [chiave]: voce.id, acceso: ev.target.checked }, area) }),
+    h("span", {}, h("b", {}, voce.nome), extra));
+  const bozze = a.bozze.map((b) => h("article", { class: `es-bozza stato-${b.stato}`, "data-bozza": String(b.id) },
+    h("div", { class: "es-bozza-testa" },
+      h("div", {}, h("b", {}, b.nome), " ", h("span", { class: "es-tenue" }, `<${b.email}> · ${b.azienda}`),
+        b.optout ? h("span", { class: "es-badge male" }, t("e3_optout")) : null),
+      h("span", { class: `es-badge ${b.stato === "inviata" ? "ok" : b.stato === "bloccata" || b.stato === "rifiutata" ? "male" : ""}`, "data-stato": b.stato }, t(`e5_stato_${b.stato}`))),
+    h("div", { class: "es-tenue" }, `${t("e5_oggetto")}: ${b.oggetto}`),
+    h("pre", { class: "es-corpo" }, b.corpo),
+    ["in_attesa", "approvata", "rifiutata"].includes(b.stato) ? h("div", { class: "es-decidi" },
+      h("button", { class: "btn btn-piccolo", "data-decisione": "approva", "aria-pressed": String(b.stato === "approvata"),
+        onclick: () => azione(n, "decidi", { bozza: b.id, decisione: "approva" }, area) }, t("e5_approva")),
+      h("button", { class: "btn btn-piccolo btn-fantasma", "data-decisione": "rifiuta", "aria-pressed": String(b.stato === "rifiutata"),
+        onclick: () => azione(n, "decidi", { bozza: b.id, decisione: "rifiuta" }, area) }, t("e5_rifiuta"))) : null));
+  area.append(
+    h("div", { class: "es-pesi" },
+      h("div", { id: "es-regole" }, h("h3", {}, t("e5_regole")), a.regole.map((r) => spunta(r, "regola", "regola", h("div", { class: "es-tenue" }, r.effetto)))),
+      h("div", { id: "es-campi" }, h("h3", {}, t("e5_campi")), a.campi.map((c) => spunta(c, "campo", "campo", c.sensibile ? h("span", { class: "es-badge male" }, t("e5_sensibile")) : null)),
+        a.sensibili_accesi.length ? h("p", { class: "es-errore", id: "es-avviso-campi" }, t("e5_avviso_campi", { campi: a.sensibili_accesi.join(", ") })) : null)),
+    h("div", { class: "es-rilancio" },
+      h("button", { class: "btn btn-primario", id: "es-genera", "data-azione": "genera", disabled: a.interruttore, onclick: () => azione(n, "genera", {}, area) }, t("e5_genera")),
+      a.generate && !a.generazione_aggiornata ? h("span", { class: "es-errore" }, t("e5_da_rigenerare")) : null),
+    h("p", { class: "es-tenue" }, t("e5_lingua_bozze")),
+    a.generate ? h("div", { class: "es-checklist" }, h("b", {}, t("e5_checklist")), h("ul", {}, a.checklist.map((c) => h("li", {}, c)))) : null,
+    h("div", { class: "es-bozze", id: "es-bozze" }, bozze.length ? bozze : h("p", { class: "es-tenue" }, t("e5_nessuna_bozza"))),
+    h("div", { class: "es-comandi-invio" },
+      h("label", { class: "es-spunta" }, h("input", { type: "checkbox", id: "es-approva-sempre", checked: a.approva_sempre,
+        onchange: (ev) => azione(n, "approva_sempre", { valore: ev.target.checked }, area) }), t("e5_approva_sempre")),
+      a.approva_sempre ? h("span", { class: "es-errore" }, t("e5_avviso_sempre")) : null,
+      h("button", { class: "btn btn-primario", id: "es-invia", "data-azione": "invia", onclick: () => azione(n, "invia", {}, area) }, t("e5_invia")),
+      h("label", { class: `es-interruttore ${a.interruttore ? "acceso" : ""}` }, h("input", { type: "checkbox", id: "es-interruttore", checked: a.interruttore,
+        onchange: (ev) => azione(n, "interruttore", { valore: ev.target.checked }, area) }), t("e5_interruttore"))),
+    h("h3", {}, t("e3_posta")),
+    a.posta.length ? h("ul", { class: "es-posta", id: "es-posta" }, a.posta.map((m) => h("li", {}, h("b", {}, m.a), " — ", m.oggetto)))
+      : h("p", { class: "es-tenue", id: "es-posta" }, t("e3_posta_vuota")),
+    h("h3", {}, t("e5_registro")),
+    a.registro.length ? h("ul", { class: "es-posta", id: "es-registro" }, a.registro.map((e) => h("li", { "data-evento": e.azione },
+      e.azione === "invio" ? t("e5_ev_invio", { a: e.a, da: e.approvato_da, n: e.approvazione === null ? "—" : e.approvazione })
+        : e.azione === "blocco_optout" ? t("e5_ev_optout", { a: e.a }) : t("e5_ev_interruttore", { n: e.bozze.length }))))
+      : h("p", { class: "es-tenue", id: "es-registro" }, t("e5_registro_vuoto")),
+    h("div", { class: "es-nota" }, h("b", {}, `${t("e1_lista_optout")}: `), a.lista_optout.join(", ") || "—"));
+}
+
+// ------------------------------------------------------------------ esercizio 6: strumenti dell'agente
+
+function areaStrumenti(n, a, area) {
+  area.dataset.tipo = "strumenti_agente";
+  area.dataset.limite = String(a.limite);  // valore salvato sul server (il cursore mostra subito quello locale)
+  const valore = h("output", { class: "es-valore", id: "es-limite-valore" }, String(a.limite));
+  const limite = h("input", { type: "range", name: "limite", min: a.limiti.min, max: a.limiti.max, step: a.limiti.passo, value: a.limite, "aria-label": t("e6_limite"),
+    oninput: (ev) => {
+      valore.textContent = ev.target.value;
+      clearTimeout(attesa);
+      attesa = setTimeout(() => azione(n, "limite", { valore: Number(ev.target.value) }, area), 300);
+    } });
+  area.append(
+    h("div", { class: "es-scorri" }, h("table", { class: "es-tabella", id: "es-strumenti" },
+      h("thead", {}, h("tr", {}, [t("e6_strumento"), t("e6_tipo"), t("e6_cosa_fa"), t("e6_permesso")].map((x) => h("th", {}, x)))),
+      h("tbody", {}, a.strumenti.map((s) => h("tr", { "data-strumento-riga": s.id, class: `perm-${s.permesso}` },
+        h("td", { class: "es-mono" }, s.id), h("td", {}, h("span", { class: "es-badge" }, t(`e6_tipo_${s.tipo}`))), h("td", {}, s.descrizione),
+        h("td", {}, h("select", { "data-strumento": s.id, "aria-label": s.id, onchange: (ev) => azione(n, "permesso", { strumento: s.id, valore: ev.target.value }, area) },
+          a.permessi.map((p) => h("option", { value: p.id, selected: p.id === s.permesso }, p.nome))))))))),
+    h("div", { class: "es-cursore" }, h("div", { class: "es-cursore-testa" }, h("b", {}, t("e6_limite")), valore), limite, h("small", {}, t("e6_limite_spiega"))),
+    h("h3", {}, t("e6_richieste")),
+    h("div", { class: "es-richieste", id: "es-richieste" }, a.richieste.map((r) => h("article", { class: "es-richiesta", "data-richiesta": r.id },
+      h("div", { class: "es-bozza-testa" }, h("span", { class: "es-citazione" }, `«${r.testo}»`),
+        h("button", { class: "btn btn-piccolo", "data-azione": "lancia", onclick: () => azione(n, "lancia", { richiesta: r.id }, area) }, t("e6_lancia"))),
+      r.diario === null || r.diario === undefined ? h("p", { class: "es-tenue" }, t("e6_mai_lanciata"))
+        : h("div", {},
+          !r.aggiornato ? h("p", { class: "es-errore" }, t("e6_da_rilanciare")) : null,
+          r.diario.length ? h("ol", { class: "es-diario" }, r.diario.map((d) => h("li", { class: `esito-${d.esito}`, "data-esito": d.esito },
+            h("span", { class: "es-mono" }, `${d.strumento}(${Object.entries(d.argomenti).map(([k, v]) => `${k}=${JSON.stringify(v)}`).join(", ")})`), " → ", t(`e6_esito_${d.esito}`))))
+            : h("p", { class: "es-errore" }, t("e6_piano_illeggibile")))))),
+    h("h3", {}, t("e6_crm")),
+    h("div", { class: "es-scorri" }, h("table", { class: "es-tabella", id: "es-crm" },
+      h("thead", {}, h("tr", {}, [t("e1_nome"), t("e1_azienda"), t("e2_fascia"), t("e1_stato"), t("e1_attivita")].map((x) => h("th", {}, x)))),
+      h("tbody", {}, a.contatti.map((c) => h("tr", { class: `stato-${c.stato}` },
+        h("td", {}, c.nome), h("td", {}, c.azienda), h("td", {}, c.fascia), h("td", {}, t(`stato_${c.stato}`)), h("td", { class: "es-num" }, String(c.attivita))))))),
+    h("p", { class: "es-nota" }, t("e6_bozze", { n: a.bozze })),
+    h("h3", {}, t("e3_posta")),
+    a.posta.length ? h("ul", { class: "es-posta", id: "es-posta" }, a.posta.map((m) => h("li", {}, h("b", {}, m.a), " — ", m.oggetto)))
+      : h("p", { class: "es-tenue", id: "es-posta" }, t("e3_posta_vuota")));
 }

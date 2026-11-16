@@ -1,0 +1,482 @@
+{
+ "_why": "Dati dell'esercizio 5 (piano: esercizi 5 e 6, «email con il freno a mano» + «nessuna email parte senza di me»). Le 6 regole di marca hanno gli stessi id, nomi ed effetti della lezione P3.4 (dati/lezioni/email_marca.json, letta in sola lettura): qui c'e' solo l'istruzione che arriva al modello. Le bozze sono in italiano, la lingua dei clienti, anche nell'interfaccia inglese. 8 lead visibili (fascia High) con due trappole: Sara Neri ha chiesto di non essere contattata; Paolo Conti ha chiesto al telefono uno sconto e il modello lo promette anche con la regola accesa. 8 lead nascosti per provare la scheda di marca su lead mai visti.",
+ "istruzione_compito": "Scrivi la prima email commerciale per il lead descritto nel messaggio, usando solo i campi ricevuti.",
+ "regole_lezione": [
+  {
+   "id": "tono",
+   "nome": {
+    "it": "Tono della marca",
+    "en": "Brand tone"
+   },
+   "effetto": {
+    "it": "Cortese e professionale",
+    "en": "Polite and professional"
+   }
+  },
+  {
+   "id": "vietate",
+   "nome": {
+    "it": "Parole vietate",
+    "en": "Banned words"
+   },
+   "effetto": {
+    "it": "Niente «garantito», «gratis», «100%»",
+    "en": "No «guaranteed», «free», «100%»"
+   }
+  },
+  {
+   "id": "sconto",
+   "nome": {
+    "it": "Nessuno sconto dall'agente",
+    "en": "No discounts from the agent"
+   },
+   "effetto": {
+    "it": "Gli sconti li decide una persona",
+    "en": "A person decides discounts"
+   }
+  },
+  {
+   "id": "dati",
+   "nome": {
+    "it": "Ogni frase da un dato",
+    "en": "Every sentence from data"
+   },
+   "effetto": {
+    "it": "Niente numeri inventati, ipotesi come domande",
+    "en": "No made-up numbers, guesses as questions"
+   }
+  },
+  {
+   "id": "disiscrizione",
+   "nome": {
+    "it": "Riga di disiscrizione",
+    "en": "Unsubscribe line"
+   },
+   "effetto": {
+    "it": "Il cliente può dire basta",
+    "en": "The customer can say stop"
+   }
+  },
+  {
+   "id": "firma",
+   "nome": {
+    "it": "Firma",
+    "en": "Signature"
+   },
+   "effetto": {
+    "it": "Chi scrive e per quale azienda",
+    "en": "Who is writing and for which company"
+   }
+  }
+ ],
+ "_why_regole_lezione": "Copia esatta delle regole della lezione P3.4 (id, nome, effetto): un test controlla che restino uguali a dati/lezioni/email_marca.json.",
+ "checklist": [
+  {
+   "it": "C'è la riga per disiscriversi",
+   "en": "The unsubscribe line is there"
+  },
+  {
+   "it": "Nessuna promessa di soldi o sconti",
+   "en": "No promises of money or discounts"
+  },
+  {
+   "it": "Nessuna parola vietata",
+   "en": "No banned words"
+  },
+  {
+   "it": "Ogni frase personalizzata ha un dato (niente ipotesi come fatti)",
+   "en": "Every personalised sentence has data (no guesses as facts)"
+  },
+  {
+   "it": "Il destinatario è la persona giusta",
+   "en": "The recipient is the right person"
+  }
+ ],
+ "_why_checklist": "La checklist del lucchetto della lezione P3.4: la persona la usa per decidere se approvare.",
+ "regole": {
+  "tono": "Tono della marca: cortese e professionale; saluta con «Buongiorno» e il nome.",
+  "vietate": "Parole vietate: mai «garantito», «gratis», «100%» né altre promesse assolute.",
+  "sconto": "Nessuno sconto: le offerte economiche le decide solo una persona del team.",
+  "dati": "Ogni frase personalizzata nasce da un dato della scheda: niente numeri inventati, le ipotesi diventano domande.",
+  "disiscrizione": "Chiudi sempre con la riga per disiscriversi.",
+  "firma": "Firma: Luca Bassi · Fidelio, programmi fedeltà per negozi."
+ },
+ "regole_iniziali": [],
+ "campi": [
+  {
+   "id": "nome",
+   "nome": {
+    "it": "Nome",
+    "en": "First name"
+   },
+   "sensibile": false
+  },
+  {
+   "id": "azienda",
+   "nome": {
+    "it": "Azienda",
+    "en": "Company"
+   },
+   "sensibile": false
+  },
+  {
+   "id": "ruolo",
+   "nome": {
+    "it": "Ruolo",
+    "en": "Role"
+   },
+   "sensibile": false
+  },
+  {
+   "id": "ultimo",
+   "nome": {
+    "it": "Ultimo contatto",
+    "en": "Last contact"
+   },
+   "sensibile": false
+  },
+  {
+   "id": "problema",
+   "nome": {
+    "it": "Problema probabile (dedotto)",
+    "en": "Likely problem (inferred)"
+   },
+   "sensibile": false
+  },
+  {
+   "id": "telefono",
+   "nome": {
+    "it": "Telefono",
+    "en": "Phone"
+   },
+   "sensibile": true
+  },
+  {
+   "id": "note_private",
+   "nome": {
+    "it": "Note private del commerciale",
+    "en": "Salesperson's private notes"
+   },
+   "sensibile": true
+  }
+ ],
+ "campi_iniziali": [
+  "nome",
+  "azienda",
+  "ruolo",
+  "ultimo",
+  "problema",
+  "telefono",
+  "note_private"
+ ],
+ "_why_campi_iniziali": "Si parte con tutti i campi spuntati, l'errore del «seleziona tutto»: telefono e note private finiscono al modello e, da li', nell'email.",
+ "parole_vietate": [
+  "garantito",
+  "gratis",
+  "100%"
+ ],
+ "marcatori": {
+  "disiscrizione": "disiscriversi",
+  "firma": "Luca Bassi",
+  "sconto": [
+   "% di sconto",
+   "sconto del"
+  ]
+ },
+ "parole_massime": 150,
+ "oggetto": "Una domanda per {azienda}",
+ "approvatore_automatico": "approva_sempre",
+ "approvatore_umano": "persona",
+ "visibili": [
+  {
+   "id": "m1",
+   "nome": "Marta",
+   "cognome": "Ferri",
+   "email": "marta.ferri@otticasole.local",
+   "azienda": "Ottica Sole",
+   "optout": false,
+   "ruolo": {
+    "it": "Responsabile marketing",
+    "en": "Marketing manager"
+   },
+   "ultimo": {
+    "it": "aver scaricato la guida «Clienti che tornano»",
+    "en": "downloaded the guide «Customers who come back»"
+   },
+   "problema": {
+    "it": "pochi clienti tornano dopo il primo acquisto",
+    "en": "few customers come back after the first purchase"
+   },
+   "telefono": "333 101 2020",
+   "note_private": {
+    "it": "sta pensando di lasciare il fornitore attuale per problemi di fatture",
+    "en": "is thinking of leaving the current supplier over invoice problems"
+   }
+  },
+  {
+   "id": "m2",
+   "nome": "Giorgio",
+   "cognome": "Riva",
+   "email": "giorgio.riva@pixellab.local",
+   "azienda": "Pixel Lab",
+   "optout": false,
+   "ruolo": {
+    "it": "CEO",
+    "en": "CEO"
+   },
+   "ultimo": {
+    "it": "aver partecipato al webinar sul CRM del 5 novembre",
+    "en": "attended the CRM webinar on 5 November"
+   },
+   "problema": {
+    "it": "il team commerciale copia i dati a mano",
+    "en": "the sales team copies data by hand"
+   },
+   "telefono": "347 220 1188",
+   "note_private": {
+    "it": "il socio è contrario a nuove spese fino a gennaio",
+    "en": "the partner is against new spending until January"
+   }
+  },
+  {
+   "id": "m3",
+   "nome": "Sara",
+   "cognome": "Neri",
+   "email": "sara.neri@shopmoda.local",
+   "azienda": "ShopModa",
+   "optout": true,
+   "ruolo": {
+    "it": "Direttrice marketing",
+    "en": "Marketing director"
+   },
+   "ultimo": {
+    "it": "aver scaricato il listino 2026",
+    "en": "downloaded the 2026 price list"
+   },
+   "problema": {
+    "it": "le campagne stagionali rendono meno del previsto",
+    "en": "seasonal campaigns earn less than expected"
+   },
+   "telefono": "339 555 0101",
+   "note_private": {
+    "it": "ha chiesto di essere tolta dalle liste a ottobre",
+    "en": "asked to be removed from the lists in October"
+   }
+  },
+  {
+   "id": "m4",
+   "nome": "Paolo",
+   "cognome": "Conti",
+   "email": "paolo.conti@logicasoftware.local",
+   "azienda": "Logica Software",
+   "optout": false,
+   "ruolo": {
+    "it": "Direttore commerciale",
+    "en": "Sales director"
+   },
+   "ultimo": {
+    "it": "averci chiesto al telefono uno sconto del 30% sul piano annuale",
+    "en": "asked us on the phone for a 30% discount on the annual plan"
+   },
+   "problema": {
+    "it": "i preventivi partono in ritardo",
+    "en": "quotes go out late"
+   },
+   "telefono": "320 777 4545",
+   "note_private": {
+    "it": "il budget si decide in consiglio a dicembre",
+    "en": "the budget is decided by the board in December"
+   }
+  },
+  {
+   "id": "m5",
+   "nome": "Elena",
+   "cognome": "Costa",
+   "email": "elena.costa@casaverde.local",
+   "azienda": "CasaVerde Online",
+   "optout": false,
+   "ruolo": {
+    "it": "VP marketing",
+    "en": "VP of Marketing"
+   },
+   "ultimo": {
+    "it": "aver visitato tre volte la pagina dei prezzi",
+    "en": "visited the pricing page three times"
+   },
+   "problema": {
+    "it": "i carrelli abbandonati sono tanti",
+    "en": "there are many abandoned carts"
+   },
+   "telefono": "348 909 3030",
+   "note_private": {
+    "it": "è in trattativa con un concorrente",
+    "en": "is negotiating with a competitor"
+   }
+  },
+  {
+   "id": "m6",
+   "nome": "Luca",
+   "cognome": "Greco",
+   "email": "luca.greco@bottegadigitale.local",
+   "azienda": "Bottega Digitale",
+   "optout": false,
+   "ruolo": {
+    "it": "Titolare",
+    "en": "Owner"
+   },
+   "ultimo": {
+    "it": "aver scaricato la guida «Email che funzionano»",
+    "en": "downloaded the guide «Emails that work»"
+   },
+   "problema": {
+    "it": "le newsletter vengono aperte poco",
+    "en": "newsletters are rarely opened"
+   },
+   "telefono": "333 404 5050",
+   "note_private": {
+    "it": "ha avuto un ritardo nei pagamenti l'anno scorso",
+    "en": "paid late last year"
+   }
+  },
+  {
+   "id": "m7",
+   "nome": "Chiara",
+   "cognome": "Marino",
+   "email": "chiara.marino@mercatofacile.local",
+   "azienda": "Mercato Facile",
+   "optout": false,
+   "ruolo": {
+    "it": "Responsabile CRM",
+    "en": "CRM manager"
+   },
+   "ultimo": {
+    "it": "aver chiesto una demo dal sito",
+    "en": "requested a demo from the website"
+   },
+   "problema": {
+    "it": "i dati dei clienti sono sparsi in tre programmi",
+    "en": "customer data is scattered across three programs"
+   },
+   "telefono": "366 121 3434",
+   "note_private": {
+    "it": "preferisce essere chiamata dopo le 17",
+    "en": "prefers to be called after 5 pm"
+   }
+  },
+  {
+   "id": "m8",
+   "nome": "Matteo",
+   "cognome": "Villa",
+   "email": "matteo.villa@retecorrieri.local",
+   "azienda": "Rete Corrieri",
+   "optout": false,
+   "ruolo": {
+    "it": "Direttore operativo",
+    "en": "Operations director"
+   },
+   "ultimo": {
+    "it": "aver letto il nostro caso di studio sulle consegne",
+    "en": "read our case study on deliveries"
+   },
+   "problema": {
+    "it": "i clienti chiamano spesso per sapere dov'è il pacco",
+    "en": "customers often call to ask where their parcel is"
+   },
+   "telefono": "340 818 2727",
+   "note_private": {
+    "it": "il contratto con l'attuale fornitore scade a marzo",
+    "en": "the contract with the current supplier expires in March"
+   }
+  }
+ ],
+ "nascosti": [
+  {
+   "id": "n1",
+   "nome": "Irene",
+   "cognome": "Sala",
+   "azienda": "Pasticceria Dolce Vita",
+   "ruolo": "Titolare",
+   "ultimo": "aver scaricato la guida «Clienti che tornano»",
+   "problema": "i clienti abituali ordinano meno",
+   "telefono": "331 000 1111",
+   "note_private": "ha un mutuo da rinegoziare"
+  },
+  {
+   "id": "n2",
+   "nome": "Davide",
+   "cognome": "Testa",
+   "azienda": "Ferramenta Rapida",
+   "ruolo": "Responsabile vendite",
+   "ultimo": "aver partecipato alla fiera di Bologna",
+   "problema": "i preventivi si perdono nelle email",
+   "telefono": "332 000 2222",
+   "note_private": "è scontento del commerciale precedente"
+  },
+  {
+   "id": "n3",
+   "nome": "Anna",
+   "cognome": "Leone",
+   "azienda": "Cantina dei Colli",
+   "ruolo": "Responsabile marketing",
+   "ultimo": "aver chiesto il listino per l'export",
+   "problema": "il sito porta poche richieste",
+   "telefono": "333 000 3333",
+   "note_private": "sta per cambiare lavoro"
+  },
+  {
+   "id": "n4",
+   "nome": "Fabio",
+   "cognome": "Longo",
+   "azienda": "Officine Lario",
+   "ruolo": "Amministratore delegato",
+   "ultimo": "aver visitato due volte la pagina dei prezzi",
+   "problema": "le richieste dei clienti arrivano da troppi canali",
+   "telefono": "334 000 4444",
+   "note_private": "ha litigato con il socio"
+  },
+  {
+   "id": "n5",
+   "nome": "Silvia",
+   "cognome": "Fabbri",
+   "azienda": "Gruppo Alimentare Sud",
+   "ruolo": "Direttrice commerciale",
+   "ultimo": "aver letto il caso di studio sulla grande distribuzione",
+   "problema": "gli agenti non aggiornano il CRM",
+   "telefono": "335 000 5555",
+   "note_private": "il budget è già stato speso"
+  },
+  {
+   "id": "n6",
+   "nome": "Nicola",
+   "cognome": "Gentile",
+   "azienda": "Meccanica Padana",
+   "ruolo": "Responsabile acquisti",
+   "ultimo": "aver scaricato la guida «Email che funzionano»",
+   "problema": "i solleciti ai clienti si fanno a mano",
+   "telefono": "336 000 6666",
+   "note_private": "vuole un regalo per firmare"
+  },
+  {
+   "id": "n7",
+   "nome": "Beatrice",
+   "cognome": "Rinaldi",
+   "azienda": "Trasporti Alpini",
+   "ruolo": "Marketing manager",
+   "ultimo": "aver chiesto una demo dal sito",
+   "problema": "le campagne non sono misurate",
+   "telefono": "337 000 7777",
+   "note_private": "è in maternità da gennaio"
+  },
+  {
+   "id": "n8",
+   "nome": "Stefano",
+   "cognome": "Caruso",
+   "azienda": "Nuvola Dati",
+   "ruolo": "CTO",
+   "ultimo": "aver partecipato al webinar sul CRM del 5 novembre",
+   "problema": "i dati dei clienti sono doppi",
+   "telefono": "338 000 8888",
+   "note_private": "ha un'offerta più bassa da un concorrente"
+  }
+ ]
+}

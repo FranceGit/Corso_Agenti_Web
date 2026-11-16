@@ -26,6 +26,8 @@ import httpx
 from corso.config import leggi_json
 from corso.errori import ErroreConfigurazione, ErroreDati
 
+from ..finto_llm.simulatori import SIMULATORI
+
 
 def normalizza(testo: str) -> str:
     t = unicodedata.normalize("NFKC", testo).lower()
@@ -56,6 +58,12 @@ class FintoLLM:
         self.compiti = dati["compiti"]
         self.generica = dati["risposta_generica"]
         for nome, c in self.compiti.items():
+            if "simulatore" in c:
+                # compito simulato (esercizi 4-5): la risposta dipende dalle istruzioni, vedi finto_llm/simulatori.py
+                if c["simulatore"] not in SIMULATORI or "parametri" not in c:
+                    raise ErroreDati(f"finto-LLM: il compito '{nome}' ha un simulatore sconosciuto o senza 'parametri'")
+                c["_simula"] = SIMULATORI[c["simulatore"]]
+                continue
             for chiave in ("tabella", "regole", "ripiego"):
                 if chiave not in c:
                     raise ErroreDati(f"finto-LLM: il compito '{nome}' non ha '{chiave}'")
@@ -65,6 +73,9 @@ class FintoLLM:
         compito = self.compiti.get(compito_di(messaggi))
         if compito is None:
             return self.generica
+        if "_simula" in compito:
+            sistema = next((m.get("content", "") for m in messaggi if m.get("role") == "system"), "")
+            return compito["_simula"](sistema, ultimo_utente(messaggi), compito["parametri"])
         testo = normalizza(ultimo_utente(messaggi))
         if testo in compito["_tabella_norm"]:
             return compito["_tabella_norm"][testo]

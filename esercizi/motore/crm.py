@@ -1,7 +1,7 @@
 """CRM didattico su SQLite: un file per studente e per esercizio.
 
 Tabelle dal piano (sezione 3.1): aziende, contatti, attivita, optout (lista di chi ha chiesto di non essere
-contattato), campagne, risposte, impostazioni (le SCELTE dello studente: pesi, soglie, stazione, correzione),
+contattato), campagne, risposte, bozze (email preparate dall'agente, con stato e approvatore), impostazioni (le SCELTE dello studente: pesi, soglie, stazione, correzione),
 registro_audit (ogni azione dello studente, in ordine). Nessun orario nelle tabelle: lo stato e' deterministico.
 """
 from __future__ import annotations
@@ -61,6 +61,16 @@ CREATE TABLE IF NOT EXISTS risposte (
     etichetta_llm TEXT NOT NULL DEFAULT '',
     categoria TEXT NOT NULL DEFAULT '',
     etichetta_studente TEXT NOT NULL DEFAULT ''
+);
+CREATE TABLE IF NOT EXISTS bozze (
+    id INTEGER PRIMARY KEY,
+    contatto_id INTEGER NOT NULL REFERENCES contatti(id),
+    oggetto TEXT NOT NULL,
+    corpo TEXT NOT NULL,
+    stato TEXT NOT NULL DEFAULT 'in_attesa',
+    approvato_da TEXT NOT NULL DEFAULT '',
+    approvazione INTEGER,
+    registro TEXT NOT NULL DEFAULT ''
 );
 CREATE TABLE IF NOT EXISTS impostazioni (
     chiave TEXT PRIMARY KEY,

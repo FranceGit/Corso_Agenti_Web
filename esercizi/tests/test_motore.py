@@ -109,8 +109,8 @@ def test_correggi_e_puro_e_le_impronte_dipendono_dall_ingresso():
 
 
 def test_tutti_gli_esercizi_attivi_rispettano_il_contratto(motore):
-    assert sorted(motore.esercizi) == [1, 2, 3]
-    assert motore.piano == {1: 1, 2: 2, 3: 4}
+    assert sorted(motore.esercizi) == [1, 2, 3, 4, 5, 6]
+    assert motore.piano == {1: 1, 2: 2, 3: 4, 4: 3, 5: 5, 6: 7}
     for es in motore.esercizi.values():
         es.valida()
         assert sum(c.peso for c in es.controlli()) == 100

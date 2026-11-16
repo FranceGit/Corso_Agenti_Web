@@ -94,3 +94,32 @@
 .es-ricorrezione.ok { color: var(--ok); }
 .es-ricorrezione.male { color: var(--male); }
 .voce-esercizi { margin-bottom: 14px; font-weight: 700; color: var(--primario); }
+/* esercizi 4-6 */
+.es-blocchi { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px 16px; }
+.es-gruppo h3 { margin: 8px 0 6px; font-size: .86rem; }
+.es-blocco { display: flex; gap: 8px; align-items: flex-start; padding: 7px 10px; margin-bottom: 6px; border: 1px solid var(--bordo); border-radius: 10px; cursor: pointer; font-size: .86rem; }
+.es-blocco.acceso { border-color: var(--primario); background: var(--primario-chiaro); }
+.es-anteprima { font-family: var(--mono); font-size: .8rem; background: var(--superficie-2); border-radius: 10px; padding: 10px 10px 10px 30px; display: grid; gap: 4px; }
+.es-risposta { max-width: 320px; white-space: pre-wrap; word-break: break-word; }
+.es-bozze { display: grid; gap: 12px; }
+.es-bozza, .es-richiesta { border: 1px solid var(--bordo); border-radius: 12px; padding: 10px 12px; background: var(--superficie); }
+.es-bozza.stato-inviata { border-left: 5px solid var(--ok); }
+.es-bozza.stato-bloccata, .es-bozza.stato-rifiutata { border-left: 5px solid var(--male); }
+.es-bozza.stato-approvata { border-left: 5px solid var(--primario); }
+.es-bozza-testa { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
+.es-corpo { white-space: pre-wrap; font-family: inherit; font-size: .86rem; background: var(--superficie-2); padding: 8px 10px; border-radius: 8px; margin: 6px 0; }
+.es-decidi { display: flex; gap: 8px; }
+.es-decidi [aria-pressed="true"] { outline: 2px solid var(--primario); }
+.es-checklist { font-size: .84rem; background: var(--avviso-chiaro); border-radius: 10px; padding: 8px 12px; margin: 8px 0; }
+.es-checklist ul { margin: 4px 0 0; padding-left: 18px; }
+.es-comandi-invio { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin: 14px 0; }
+.es-interruttore { display: flex; align-items: center; gap: 6px; padding: 6px 10px; border: 2px solid var(--male); border-radius: 10px; font-weight: 700; font-size: .84rem; color: var(--male); }
+.es-interruttore.acceso { background: var(--male); color: #fff; }
+.es-richieste { display: grid; gap: 10px; }
+.es-diario { font-size: .82rem; margin: 6px 0 0; padding-left: 22px; display: grid; gap: 2px; }
+.es-diario .esito-eseguita { color: var(--inchiostro); }
+.es-diario .esito-in_attesa { color: #92400e; }
+.es-diario .esito-rifiutata { color: var(--male); }
+.es-diario .esito-fermata { color: var(--tenue); font-style: italic; }
+.es-tabella tr.perm-libero td:last-child select { border-color: var(--ok); }
+.es-tabella tr.perm-no td:last-child select { border-color: var(--male); }

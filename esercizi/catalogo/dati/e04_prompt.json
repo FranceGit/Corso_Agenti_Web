@@ -1,0 +1,53 @@
+{
+ "_why": "Dati dell'esercizio 4 (piano: esercizio 3, «chiedere all'LLM, ma con una rubrica»). I lead sono quelli dell'esercizio 2 (e02_lead.json), indicati per id: 10 visibili e 10 nascosti con la fascia del direttore vendite. Ogni blocco ha il testo mostrato (IT/EN) e il testo inviato al modello (sempre in italiano, cosi' l'impronta del registro non dipende dalla lingua dell'interfaccia). Il finto-LLM riconosce i blocchi dai segnali in esercizi/strumenti/compiti_finto_e04_e06.json.",
+ "lead_visibili": ["V01", "V02", "V03", "V06", "V08", "V11", "V12", "V13", "V16", "V22"],
+ "lead_nascosti": ["N01", "N02", "N03", "N05", "N08", "N11", "N13", "N16", "N18", "N19"],
+ "gruppi": [
+  {"id": "contesto", "nome": {"it": "Chi è l'agente", "en": "Who the agent is"}},
+  {"id": "rubrica", "nome": {"it": "Rubrica: come si dà il punteggio", "en": "Rubric: how the score is given"}},
+  {"id": "soglie", "nome": {"it": "Fasce", "en": "Bands"}},
+  {"id": "formato", "nome": {"it": "Formato della risposta", "en": "Answer format"}},
+  {"id": "stile", "nome": {"it": "Stile", "en": "Style"}}
+ ],
+ "blocchi": [
+  {"id": "contesto", "gruppo": "contesto",
+   "prompt": "Sei l'assistente commerciale di un'azienda di software B2B: valuti i lead per il team vendite.",
+   "testo": {"it": "Sei l'assistente commerciale di un'azienda di software B2B: valuti i lead per il team vendite.", "en": "You are the sales assistant of a B2B software company: you assess leads for the sales team."}},
+  {"id": "vago", "gruppo": "rubrica",
+   "prompt": "Assegna a ogni lead un punteggio da 0 a 100: alto se ti sembra interessante.",
+   "testo": {"it": "Assegna a ogni lead un punteggio da 0 a 100: alto se ti sembra interessante.", "en": "Give each lead a score from 0 to 100: high if it looks interesting to you."}},
+  {"id": "ruolo", "gruppo": "rubrica",
+   "prompt": "Criterio ruolo (seniority), peso 40%: C-level conta per intero, VP 85%, Director 70%, Manager 50%, specialista 25%, stagista o studente 0.",
+   "testo": {"it": "Criterio ruolo (seniority), peso 40%: C-level conta per intero, VP 85%, Director 70%, Manager 50%, specialista 25%, stagista o studente 0.", "en": "Role criterion (seniority), weight 40%: C-level counts in full, VP 85%, Director 70%, Manager 50%, specialist 25%, intern or student 0."}},
+  {"id": "dimensione", "gruppo": "rubrica",
+   "prompt": "Criterio dimensione aziendale, peso 25%: fino a 10 persone 10%, fino a 50 40%, fino a 500 70%, oltre 500 per intero.",
+   "testo": {"it": "Criterio dimensione aziendale, peso 25%: fino a 10 persone 10%, fino a 50 40%, fino a 500 70%, oltre 500 per intero.", "en": "Company size criterion, weight 25%: up to 10 people 10%, up to 50 40%, up to 500 70%, over 500 in full."}},
+  {"id": "settore", "gruppo": "rubrica",
+   "prompt": "Criterio settore, peso 20%: software ed e-commerce (prioritari) contano per intero, gli altri settori 20%.",
+   "testo": {"it": "Criterio settore, peso 20%: software ed e-commerce (prioritari) contano per intero, gli altri settori 20%.", "en": "Sector criterion, weight 20%: software and e-commerce (priority) count in full, other sectors 20%."}},
+  {"id": "comportamento", "gruppo": "rubrica",
+   "prompt": "Criterio comportamento, peso 15%: visite al sito più 3 per ogni guida scaricata; a 15 conta per intero.",
+   "testo": {"it": "Criterio comportamento, peso 15%: visite al sito più 3 per ogni guida scaricata; a 15 conta per intero.", "en": "Behaviour criterion, weight 15%: website visits plus 3 for each guide downloaded; at 15 it counts in full."}},
+  {"id": "soglie", "gruppo": "soglie", "soglie": {"alta": 65, "media": 40},
+   "prompt": "Fasce: High da 65 punti in su, Medium da 40 in su, sotto 40 Low.",
+   "testo": {"it": "Fasce: High da 65 punti in su, Medium da 40 in su, sotto 40 Low.", "en": "Bands: High from 65 points up, Medium from 40 up, below 40 Low."}},
+  {"id": "json", "gruppo": "formato",
+   "prompt": "Rispondi SOLO con un oggetto JSON con tre campi: \"punteggio\" (intero da 0 a 100), \"fascia\" (High, Medium o Low) e \"motivazione\" (al massimo 40 parole).",
+   "testo": {"it": "Rispondi SOLO con un oggetto JSON con tre campi: «punteggio» (intero da 0 a 100), «fascia» (High, Medium o Low) e «motivazione» (al massimo 40 parole).", "en": "Answer ONLY with a JSON object with three fields: «punteggio» (whole number from 0 to 100), «fascia» (High, Medium or Low) and «motivazione» (at most 40 words)."}},
+  {"id": "ragiona", "gruppo": "formato",
+   "prompt": "Prima di rispondere spiega per esteso il tuo ragionamento, passo per passo.",
+   "testo": {"it": "Prima di rispondere spiega per esteso il tuo ragionamento, passo per passo.", "en": "Before answering, explain your reasoning in full, step by step."}},
+  {"id": "entusiasta", "gruppo": "stile",
+   "prompt": "Scrivi motivazioni ricche ed entusiaste, che facciano venire voglia di chiamare subito il lead.",
+   "testo": {"it": "Scrivi motivazioni ricche ed entusiaste, che facciano venire voglia di chiamare subito il lead.", "en": "Write rich, enthusiastic reasons that make people want to call the lead right away."}}
+ ],
+ "blocchi_iniziali": ["contesto", "vago"],
+ "_why_blocchi_iniziali": "Il prompt di partenza e' quello del repo 11 («assegna un punteggio 0-100»): niente rubrica, niente fasce, niente formato. Risultato: tutti i lead sopra 85, tutti «High», e risposte in prosa che nessun programma sa leggere.",
+ "schema": {"chiavi": ["fascia", "motivazione", "punteggio"], "fasce": ["High", "Medium", "Low"], "punteggio_min": 0, "punteggio_max": 100},
+ "parole_rubrica": {
+  "ruolo": {"parole": ["seniority", "ruolo"], "nome": {"it": "ruolo (seniority)", "en": "role (seniority)"}},
+  "dimensione": {"parole": ["dimensione"], "nome": {"it": "dimensione", "en": "size"}},
+  "settore": {"parole": ["settore"], "nome": {"it": "settore", "en": "sector"}}
+ },
+ "_why_parole_rubrica": "Piano: il correttore controlla per parole chiave che il prompt contenga i criteri della rubrica (seniority, dimensione, settore)."
+}
