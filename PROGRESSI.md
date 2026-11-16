@@ -1,5 +1,9 @@
 # PROGRESSI — Corso Agenti Web
 
+## Stato al 16/11/2026 — DOCUMENTAZIONE di progetto
+- In radice: `README.md` riscritto (che cos'è, avvio rapido, albero commentato, i due repo), nuovi `ARCHITETTURA.md` (pezzi e confini, file generati e file di origine, livello 2, regole del progetto) e `MANUTENZIONE.md` (ricette per domande, testi, lezioni, esercizi, repo studente, collaudo completo a lotti, cosa non fare). Solo documentazione: nessun file di codice, dati o test toccato.
+- Verifica: pytest `tests` a 5 lotti 230 superati e 1 saltato; `prova_animazioni` 750; `prepara_codespaces.py --verifica` allineato; `inserisci_domande.py --verifica` 178/178 (livello 1) e 51/51 (Officina).
+
 ## Stato al 16/11/2026 — cantiere OFFICINA-CONTENUTI (livello 2: 12 lezioni interattive, 51 domande, test estesi, pulizia residua del livello 1)
 Commit `d3f4215` (contenuti dell'Officina), `0a0bdbc` (pulizia del livello 1) e il commit finale di questa sezione. Lavoro diviso in 6 agenti, uno per unità; inserimento delle domande, fusioni nel corso e commit fatti solo dal coordinatore, in sequenza.
 
