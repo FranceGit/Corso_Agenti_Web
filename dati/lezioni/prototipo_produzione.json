@@ -1,0 +1,198 @@
+{
+ "id": "L_prototipo_produzione",
+ "pillola": "P8.1",
+ "componente": "prototipo_produzione",
+ "titolo": {"it": "Dal prototipo alla produzione: l'ultimo miglio", "en": "From prototype to production: the last mile"},
+ "sottotitolo": {"it": "Accendi e spegni le protezioni, scegli l'ambiente, fai passare una modifica dal cancello di valutazione e prova il tasto «annulla».", "en": "Switch the protections on and off, choose the environment, send a change through the evaluation gate and try the «undo» button."},
+ "segmenti": [
+  {
+   "id": "ultimo_miglio",
+   "titolo": {"it": "Facile costruirlo, difficile fidarsi", "en": "Easy to build, hard to trust"},
+   "narrazione": [
+    {"it": "«Costruire un agente è facile. Potersene fidare è difficile»: così si apre la guida di Google sul passaggio in produzione, cioè all'uso vero, con clienti e dati veri.", "en": "«Building an agent is easy. Trusting it is hard»: this is how Google's guide on moving to production opens. Production means real use, with real customers and real data."},
+    {"it": "Google osserva che circa l'80% del lavoro non va nell'intelligenza dell'agente, ma in infrastruttura, sicurezza e verifiche. Senza questo «ultimo miglio» arrivano guasti che sono veri danni per l'azienda.", "en": "Google observes that about 80% of the work does not go into the agent's intelligence, but into infrastructure, security and checks. Without this «last mile», failures arrive that are real damage for the company."}
+   ],
+   "prova": {"it": "Spegni una protezione alla volta e leggi il guasto che compare a destra.", "en": "Switch off one protection at a time and read the failure that appears on the right."},
+   "concetti": ["C69"],
+   "stato_animazione": {"vista": "pipeline", "protezioni": {"guardrail": true, "accessi": true, "monitoraggio": true, "valutazione": false}, "ambiente": "staging", "credenziali_condivise": false, "modifica": "buona", "salta_cancello": false, "annullato": false, "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "ambienti",
+   "titolo": {"it": "Tre ambienti, tre mazzi di chiavi", "en": "Three environments, three sets of keys"},
+   "narrazione": [
+    {"it": "Un agente vive in tre ambienti separati: sviluppo, dove si costruisce; staging, una copia fedele della produzione per le ultime prove; produzione. Ognuno ha i suoi dati e le sue credenziali, cioè le chiavi per usare il CRM e il servizio email.", "en": "An agent lives in three separate environments: development, where it is built; staging, a faithful copy of production for the last tests; and production. Each one has its own data and its own credentials, that is, the keys to use the CRM and the email service."},
+    {"it": "Così la nuova sequenza di email si prova in staging, su contatti finti: se qualcosa va storto, nessun cliente riceve nulla. Le chiavi vere stanno in un servizio dedicato, non nel codice.", "en": "So the new email sequence is tested in staging, on fake contacts: if something goes wrong, no customer receives anything. The real keys live in a dedicated service, not in the code."}
+   ],
+   "prova": {"it": "Scegli un ambiente, poi accendi «Chiavi condivise con la produzione» e guarda dove finiscono le email di prova.", "en": "Choose an environment, then switch on «Keys shared with production» and see where the test emails end up."},
+   "concetti": ["C69"],
+   "stato_animazione": {"vista": "pipeline", "protezioni": {"guardrail": true, "accessi": true, "monitoraggio": true, "valutazione": true}, "ambiente": "staging", "credenziali_condivise": false, "modifica": "buona", "salta_cancello": false, "annullato": false, "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "cancello",
+   "titolo": {"it": "Il cancello con il timbro", "en": "The gate with the stamp"},
+   "narrazione": [
+    {"it": "Ogni modifica percorre una catena in tre fasi: prove automatiche con il set di valutazione, poi staging con i colleghi che usano l'agente, infine il cancello verso la produzione, dove il responsabile di prodotto (Product Owner) firma.", "en": "Every change goes through a three-stage chain: automatic tests with the evaluation set, then staging with colleagues who use the agent, and finally the gate to production, where the product owner signs off."},
+    {"it": "È il «rilascio con cancello di valutazione»: nessuna versione arriva ai clienti senza aver superato le prove di qualità e sicurezza. Così una regressione, cioè un difetto nuovo in qualcosa che prima funzionava, si ferma prima.", "en": "This is «evaluation-gated deployment»: no version reaches customers without passing the quality and safety tests. So a regression, that is, a new defect in something that used to work, is stopped early."}
+   ],
+   "prova": {"it": "Scegli «Con regressione»: 3 prove diventano rosse e il cancello resta chiuso. Poi accendi «Salta il cancello».", "en": "Choose «With a regression»: 3 tests turn red and the gate stays closed. Then switch on «Skip the gate»."},
+   "concetti": ["C69", "C70"],
+   "stato_animazione": {"vista": "pipeline", "protezioni": {"guardrail": true, "accessi": true, "monitoraggio": true, "valutazione": true}, "ambiente": "staging", "credenziali_condivise": false, "modifica": "regressione", "salta_cancello": false, "annullato": false, "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "versioni",
+   "titolo": {"it": "Il tasto «annulla» della produzione", "en": "Production's «undo» button"},
+   "narrazione": [
+    {"it": "In produzione si versiona tutto: codice, istruzioni, modello, strumenti, struttura della memoria e perfino il set di prove. Istruzioni e modello si registrano insieme, perché le stesse istruzioni possono comportarsi in modo diverso su un modello nuovo.", "en": "In production everything is versioned: code, instructions, model, tools, memory structure and even the test set. Instructions and model are recorded together, because the same instructions can behave differently on a new model."},
+    {"it": "Il versionamento è il tasto «annulla»: con il ritorno alla versione precedente (rollback) tutto torna a uno stato noto. Il rilascio, poi, parte da pochissimi utenti, per esempio l'1%. Collegamento: il laboratorio di questa pillola.", "en": "Versioning is the «undo» button: with a return to the previous version (rollback) everything goes back to a known state. Then the release starts with very few users, for example 1%. Link: this pill's lab."}
+   ],
+   "prova": {"it": "La regressione è passata: premi «Annulla» e guarda le sei parti tornare alla versione che funzionava.", "en": "The regression got through: press «Undo» and watch the six parts go back to the version that worked."},
+   "concetti": ["C69", "C70"],
+   "stato_animazione": {"vista": "pipeline", "protezioni": {"guardrail": true, "accessi": true, "monitoraggio": true, "valutazione": true}, "ambiente": "staging", "credenziali_condivise": false, "modifica": "regressione", "salta_cancello": true, "annullato": false, "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "decidi_produzione",
+   "titolo": {"it": "Decidi tu: dove provare, quando passare", "en": "You decide: where to test, when to go through"},
+   "narrazione": [
+    {"it": "Ora decidi tu, in quattro situazioni di un team marketing: dove provare una sequenza di email, se aprire il cancello, che cosa registrare quando cambia il modello, che cosa fare se un rilascio va male.", "en": "Now you decide, in four situations of a marketing team: where to test an email sequence, whether to open the gate, what to record when the model changes, what to do if a release goes wrong."}
+   ],
+   "prova": {"it": "Scegli una risposta per ogni situazione, poi premi «Controlla» e leggi il perché.", "en": "Choose an answer for each situation, then press «Check» and read why."},
+   "concetti": ["C69", "C70"],
+   "stato_animazione": {"vista": "decidi", "protezioni": {"guardrail": true, "accessi": true, "monitoraggio": true, "valutazione": true}, "ambiente": "staging", "credenziali_condivise": false, "modifica": "regressione", "salta_cancello": false, "annullato": false, "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "riassunto",
+   "titolo": {"it": "In tre frasi", "en": "In three sentences"},
+   "narrazione": [
+    {"it": "Portare un agente in produzione richiede soprattutto infrastruttura, sicurezza e verifiche: circa l'80% dello sforzo, secondo Google.", "en": "Taking an agent to production takes above all infrastructure, security and checks: about 80% of the effort, according to Google."},
+    {"it": "Sviluppo, staging e produzione hanno dati e chiavi separati, e ogni modifica arriva ai clienti solo dopo aver superato il cancello di valutazione.", "en": "Development, staging and production have separate data and keys, and every change reaches customers only after passing the evaluation gate."},
+    {"it": "Tutto è versionato, istruzioni e modello insieme, così un rollback riporta il sistema a uno stato noto in un attimo.", "en": "Everything is versioned, instructions and model together, so a rollback brings the system back to a known state in an instant."}
+   ],
+   "concetti": ["C69", "C70"],
+   "stato_animazione": {"vista": "pipeline", "protezioni": {"guardrail": true, "accessi": true, "monitoraggio": true, "valutazione": true}, "ambiente": "staging", "credenziali_condivise": false, "modifica": "regressione", "salta_cancello": false, "annullato": false, "scelte": {}, "verificato": false}
+  }
+ ],
+ "scenario": {
+  "casi_totali": 40,
+  "ambiente_reale": "produzione",
+  "protezioni": [
+   {"id": "guardrail", "nome": {"it": "Controlli sulle azioni", "en": "Checks on actions"}, "breve": {"it": "Controlli", "en": "Checks"},
+    "guasto": {"it": "Un cliente inganna l'agente del customer service e si fa regalare i prodotti: mancavano i controlli che bloccano le azioni vietate (guardrail).", "en": "A customer tricks the customer service agent into giving away products: the checks that block forbidden actions (guardrails) were missing."}},
+   {"id": "accessi", "nome": {"it": "Accessi configurati bene", "en": "Access set up properly"}, "breve": {"it": "Accessi", "en": "Access"},
+    "guasto": {"it": "Un utente entra in un database interno riservato: l'autenticazione era configurata male.", "en": "A user gets into a confidential internal database: authentication was set up badly."}},
+   {"id": "monitoraggio", "nome": {"it": "Monitoraggio", "en": "Monitoring"}, "breve": {"it": "Monitoraggio", "en": "Monitoring"},
+    "guasto": {"it": "Il lunedì arriva una bolletta enorme del fine settimana e nessuno sa perché: nessuno guardava che cosa faceva l'agente.", "en": "On Monday a huge bill for the weekend arrives and nobody knows why: nobody was watching what the agent did."}},
+   {"id": "valutazione", "nome": {"it": "Valutazione continua", "en": "Continuous evaluation"}, "breve": {"it": "Valutazione", "en": "Evaluation"},
+    "guasto": {"it": "Un agente importante smette di funzionare da un giorno all'altro e nessuno se ne accorge: mancava la valutazione continua.", "en": "An important agent stops working overnight and nobody notices: continuous evaluation was missing."}}
+  ],
+  "ambienti": [
+   {"id": "sviluppo", "nome": {"it": "Sviluppo", "en": "Development"}, "dati": {"it": "dati inventati", "en": "made-up data"}, "chiavi": {"it": "chiavi di sviluppo", "en": "development keys"}},
+   {"id": "staging", "nome": {"it": "Staging", "en": "Staging"}, "dati": {"it": "copia fedele, contatti finti", "en": "faithful copy, fake contacts"}, "chiavi": {"it": "chiavi di staging", "en": "staging keys"}},
+   {"id": "produzione", "nome": {"it": "Produzione", "en": "Production"}, "dati": {"it": "clienti veri", "en": "real customers"}, "chiavi": {"it": "chiavi vere, in un servizio dedicato", "en": "real keys, in a dedicated service"}}
+  ],
+  "fasi": [
+   {"id": "ci", "nome": {"it": "1. Prove", "en": "1. Tests"}, "sotto": {"it": "test + set di valutazione", "en": "tests + evaluation set"}},
+   {"id": "staging", "nome": {"it": "2. Staging", "en": "2. Staging"}, "sotto": {"it": "i colleghi lo usano", "en": "colleagues use it"}},
+   {"id": "cancello", "nome": {"it": "3. Cancello", "en": "3. Gate"}, "sotto": {"it": "firma del Product Owner", "en": "product owner sign-off"}},
+   {"id": "produzione", "nome": {"it": "Produzione", "en": "Production"}, "sotto": {"it": "clienti veri", "en": "real customers"}}
+  ],
+  "modifiche": {
+   "buona": {"nome": {"it": "Modifica corretta", "en": "Correct change"}, "casi_rossi": 0, "esempio": {"it": "Tutte le risposte restano giuste.", "en": "All answers stay right."}},
+   "regressione": {"nome": {"it": "Con regressione", "en": "With a regression"}, "casi_rossi": 3, "esempio": {"it": "Il lead senza nome riceve «Gentile ,».", "en": "The lead with no name gets «Dear ,»."}}
+  },
+  "versioni": [
+   {"id": "codice", "nome": {"it": "Codice", "en": "Code"}, "stabile": "v7", "nuova": "v7"},
+   {"id": "istruzioni", "nome": {"it": "Istruzioni", "en": "Instructions"}, "stabile": "v13", "nuova": "v14"},
+   {"id": "modello", "nome": {"it": "Modello", "en": "Model"}, "stabile": "M-2", "nuova": "M-2"},
+   {"id": "strumenti", "nome": {"it": "Strumenti", "en": "Tools"}, "stabile": "v5", "nuova": "v5"},
+   {"id": "memoria", "nome": {"it": "Memoria", "en": "Memory"}, "stabile": "v3", "nuova": "v3"},
+   {"id": "set_prove", "nome": {"it": "Set di prove", "en": "Test set"}, "stabile": "v9", "nuova": "v9"}
+  ],
+  "gioco": [
+   {"id": "g_email", "breve": {"it": "Sequenza di email", "en": "Email sequence"},
+    "domanda": {"it": "La nuova sequenza di email per i lead del webinar è pronta. Dove la provi?", "en": "The new email sequence for the webinar leads is ready. Where do you test it?"},
+    "opzioni": [
+     {"id": "staging", "testo": {"it": "In staging, con contatti finti", "en": "In staging, with fake contacts"}},
+     {"id": "sviluppo_chiavi", "testo": {"it": "In sviluppo, ma con le chiavi vere del CRM", "en": "In development, but with the real CRM keys"}},
+     {"id": "produzione_pochi", "testo": {"it": "In produzione, su 10 clienti veri", "en": "In production, on 10 real customers"}}
+    ], "migliore": "staging", "quasi": [],
+    "spiega": {"it": "Lo staging è una copia fedele con contatti finti: se la sequenza sbaglia, nessun cliente riceve nulla.", "en": "Staging is a faithful copy with fake contacts: if the sequence goes wrong, no customer receives anything."}},
+   {"id": "g_cancello", "breve": {"it": "Prove rosse", "en": "Red tests"},
+    "domanda": {"it": "La valutazione segna rosso su 3 casi limite (lead senza nome). Il lancio è domani.", "en": "The evaluation shows red on 3 edge cases (leads with no name). The launch is tomorrow."},
+    "opzioni": [
+     {"id": "chiuso", "testo": {"it": "Cancello chiuso: si corregge e si rilancia la valutazione", "en": "Gate closed: fix it and run the evaluation again"}},
+     {"id": "salta", "testo": {"it": "Si salta il cancello e si corregge dopo il lancio", "en": "Skip the gate and fix it after the launch"}},
+     {"id": "togli_casi", "testo": {"it": "Si tolgono i 3 casi dal set di prove", "en": "Remove the 3 cases from the test set"}}
+    ], "migliore": "chiuso", "quasi": [],
+    "spiega": {"it": "Nessuna versione passa senza superare le prove; togliere i casi rossi nasconde il difetto, non lo corregge.", "en": "No version goes through without passing the tests; removing the red cases hides the defect, it does not fix it."}},
+   {"id": "g_modello", "breve": {"it": "Nuovo modello", "en": "New model"},
+    "domanda": {"it": "Cambiate il modello ma non le istruzioni. Che cosa registri?", "en": "You change the model but not the instructions. What do you record?"},
+    "opzioni": [
+     {"id": "insieme", "testo": {"it": "Versione del modello e versione delle istruzioni, insieme", "en": "Model version and instructions version, together"}},
+     {"id": "solo_modello", "testo": {"it": "Solo la versione del modello", "en": "Only the model version"}},
+     {"id": "niente", "testo": {"it": "Niente, le istruzioni sono uguali", "en": "Nothing, the instructions are the same"}}
+    ], "migliore": "insieme", "quasi": ["solo_modello"],
+    "spiega": {"it": "Le stesse istruzioni possono comportarsi in modo diverso su un modello nuovo: si registra la coppia.", "en": "The same instructions can behave differently on a new model: you record the pair."}},
+   {"id": "g_rollback", "breve": {"it": "Rilascio andato male", "en": "Bad release"},
+    "domanda": {"it": "Dopo il rilascio, alcuni lead ricevono email con il nome sbagliato.", "en": "After the release, some leads get emails with the wrong name."},
+    "opzioni": [
+     {"id": "rollback", "testo": {"it": "Rollback alla versione precedente, poi si cerca la causa", "en": "Roll back to the previous version, then look for the cause"}},
+     {"id": "spegni_tutto", "testo": {"it": "Si spegne l'agente e si torna al lavoro a mano", "en": "Switch the agent off and go back to manual work"}},
+     {"id": "al_volo", "testo": {"it": "Si corregge al volo direttamente in produzione", "en": "Fix it on the fly directly in production"}},
+     {"id": "aspetta", "testo": {"it": "Si aspetta qualche giorno per vedere se passa", "en": "Wait a few days to see if it goes away"}}
+    ], "migliore": "rollback", "quasi": ["spegni_tutto"],
+    "spiega": {"it": "Il rollback riporta in un attimo a uno stato noto che funzionava; la correzione poi ripassa dal cancello.", "en": "Rollback brings you back in an instant to a known state that worked; the fix then goes through the gate again."}}
+  ],
+  "testi": {
+   "titolo_card": {"it": "Modifica alle istruzioni dell'agente di qualificazione lead", "en": "Change to the lead qualification agent's instructions"},
+   "prove_esito": {"it": "{verdi} verdi · {rossi} rosse", "en": "{verdi} green · {rossi} red"},
+   "stato_firmato": {"it": "Tutte le {totali} prove sono verdi: il Product Owner firma e le istruzioni {istruzioni} arrivano in produzione.", "en": "All {totali} tests are green: the product owner signs off and instructions {istruzioni} reach production."},
+   "stato_chiuso": {"it": "{rossi} prove rosse su {totali}: il cancello resta chiuso e nessun cliente vede la regressione. {esempio}", "en": "{rossi} red tests out of {totali}: the gate stays closed and no customer sees the regression. {esempio}"},
+   "stato_saltato": {"it": "Cancello saltato: la regressione arriva ai clienti. {esempio}", "en": "Gate skipped: the regression reaches customers. {esempio}"},
+   "stato_annullato": {"it": "Rollback fatto: in produzione torna lo stato noto, istruzioni {istruzioni} + modello {modello}.", "en": "Rollback done: production goes back to the known state, instructions {istruzioni} + model {modello}."},
+   "registrati_insieme": {"it": "In produzione: istruzioni {istruzioni} + modello {modello} (registrati insieme)", "en": "In production: instructions {istruzioni} + model {modello} (recorded together)"},
+   "amb_sicuro": {"it": "{ambiente}: {dati}, {chiavi}. Le email di prova arrivano a caselle finte: nessun cliente le vede.", "en": "{ambiente}: {dati}, {chiavi}. The test emails go to fake inboxes: no customer sees them."},
+   "amb_rischio": {"it": "Errore: {ambiente} usa le chiavi della produzione, quindi le email di prova partono verso {clienti} clienti veri (numero illustrativo).", "en": "Mistake: {ambiente} uses the production keys, so the test emails go out to {clienti} real customers (illustrative number)."},
+   "amb_reale": {"it": "{ambiente}: {dati}, {chiavi}. Qui l'agente lavora davvero: ogni email arriva a un cliente.", "en": "{ambiente}: {dati}, {chiavi}. Here the agent really works: every email reaches a customer."},
+   "nessun_guasto": {"it": "Tutte le protezioni sono accese: nessun guasto in vista.", "en": "All protections are on: no failure in sight."},
+   "fonte_guasti": {"it": "«Non sono solo problemi tecnici: sono grandi fallimenti di business» (Google).", "en": "«These aren't just technical problems; they are major business failures» (Google)."},
+   "ver_giusto": {"it": "{situazione}: giusto. {spiega}", "en": "{situazione}: right. {spiega}"},
+   "ver_quasi": {"it": "{situazione}: si può fare, ma è meglio «{migliore}». {spiega}", "en": "{situazione}: acceptable, but «{migliore}» is better. {spiega}"},
+   "ver_sbagliato": {"it": "{situazione}: no, meglio «{migliore}». {spiega}", "en": "{situazione}: no, «{migliore}» is better. {spiega}"},
+   "ver_vuoto": {"it": "{situazione}: non hai ancora scelto. La scelta migliore è «{migliore}». {spiega}", "en": "{situazione}: you have not chosen yet. The best choice is «{migliore}». {spiega}"},
+   "ver_punteggio": {"it": "Scelte migliori: {giuste} su {totali}. Leggi sotto il perché.", "en": "Best choices: {giuste} of {totali}. Read why below."},
+   "ver_tutto_giusto": {"it": "Perfetto: hai protetto i clienti in tutte e quattro le situazioni.", "en": "Perfect: you protected the customers in all four situations."}
+  },
+  "parametri": {"clienti_toccati_per_errore": 1240},
+  "etichette": {
+   "titolo_comandi": {"it": "Prova a cambiare", "en": "Try changing"},
+   "vista": {"it": "Che cosa fai", "en": "What you do"},
+   "vista_pipeline": {"it": "Il sistema", "en": "The system"},
+   "vista_decidi": {"it": "Decidi tu", "en": "You decide"},
+   "protezioni": {"it": "Protezioni dell'ultimo miglio", "en": "Last-mile protections"},
+   "ambiente": {"it": "Ambiente", "en": "Environment"},
+   "credenziali_condivise": {"it": "Chiavi condivise con la produzione", "en": "Keys shared with production"},
+   "modifica": {"it": "La modifica", "en": "The change"},
+   "salta_cancello": {"it": "Salta il cancello", "en": "Skip the gate"},
+   "annulla": {"it": "Annulla (rollback)", "en": "Undo (rollback)"},
+   "ripristina": {"it": "Ripubblica la versione nuova", "en": "Republish the new version"},
+   "scegli": {"it": "— scegli —", "en": "— choose —"},
+   "controlla": {"it": "Controlla", "en": "Check"},
+   "titolo_scena": {"it": "UNA MODIFICA VERSO LA PRODUZIONE", "en": "A CHANGE ON ITS WAY TO PRODUCTION"},
+   "titolo_ambienti": {"it": "AMBIENTI SEPARATI", "en": "SEPARATE ENVIRONMENTS"},
+   "titolo_protezioni": {"it": "PROTEZIONI", "en": "PROTECTIONS"},
+   "titolo_versioni": {"it": "VERSIONI IN PRODUZIONE", "en": "VERSIONS IN PRODUCTION"},
+   "firmato": {"it": "FIRMATO", "en": "SIGNED"},
+   "chiuso": {"it": "CHIUSO", "en": "CLOSED"},
+   "saltato": {"it": "SALTATO", "en": "SKIPPED"},
+   "acceso": {"it": "accesa", "en": "on"},
+   "spento": {"it": "spenta", "en": "off"},
+   "chiave_vera": {"it": "chiavi vere", "en": "real keys"},
+   "titolo_dettaglio": {"it": "Che cosa succede", "en": "What happens"},
+   "guasti": {"it": "Guasti in vista", "en": "Failures in sight"},
+   "titolo_ambiente": {"it": "Le email di prova", "en": "The test emails"},
+   "titolo_versioni_dx": {"it": "Versioni", "en": "Versions"},
+   "descrizione_scena": {"it": "Una catena in quattro stazioni (prove, staging, cancello, produzione) percorsa da una modifica; sotto, tre ambienti separati, quattro protezioni e le sei parti versionate.", "en": "A four-station chain (tests, staging, gate, production) travelled by a change; below, three separate environments, four protections and the six versioned parts."}
+  }
+ },
+ "domande": []
+}
