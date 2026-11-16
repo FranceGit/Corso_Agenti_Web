@@ -23,8 +23,28 @@
      "en": "Emails to customers do not have a single right answer. To assess many of them you use an LLM judge: a language model that reads the request, the replies and a rubric, that is a grid of written criteria."
     },
     {
-     "it": "Qui la rubrica ha quattro voci: correttezza rispetto ai dati del CRM, utilità, tono e conformità. Il giudice confronta due risposte e dice quale vince, con il motivo. Su molte coppie si conta il tasso di vittorie della nuova versione: è più affidabile di un piccolo cambio in un voto da 1 a 5.",
-     "en": "Here the rubric has four items: correctness against the CRM data, helpfulness, tone and compliance. The judge compares two replies and says which one wins, with the reason. Over many pairs you count the new version's win rate: it is more reliable than a small change in a 1-to-5 score."
+     "it": "Qui la rubrica ha quattro voci:",
+     "en": "Here the rubric has four items:"
+    },
+    {
+     "it": "• correttezza rispetto ai dati del CRM;",
+     "en": "• correctness against the CRM data;"
+    },
+    {
+     "it": "• utilità;",
+     "en": "• helpfulness;"
+    },
+    {
+     "it": "• tono;",
+     "en": "• tone;"
+    },
+    {
+     "it": "• conformità.",
+     "en": "• compliance."
+    },
+    {
+     "it": "Il giudice confronta due risposte e dice quale vince, con il motivo. Su molte coppie si conta il tasso di vittorie della nuova versione: è più affidabile di un piccolo cambio in un voto da 1 a 5.",
+     "en": "The judge compares two replies and says which one wins, with the reason. Over many pairs you count the new version's win rate: it is more reliable than a small change in a 1-to-5 score."
     }
    ],
    "prova": {

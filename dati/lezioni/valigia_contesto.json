@@ -9,7 +9,7 @@
    "id": "selezionare",
    "titolo": {"it": "La valigia del modello", "en": "The model's suitcase"},
    "narrazione": [
-    {"it": "Il modello non ricorda nulla da una chiamata all'altra: sa solo quello che trova nella finestra di contesto, il testo che riceve in quel momento. Il whitepaper di Google la paragona a una valigia: lo spazio è limitato.", "en": "The model remembers nothing from one call to the next: it only knows what it finds in the context window, the text it receives at that moment. Google's whitepaper compares it to a suitcase: space is limited."},
+    {"it": "Il modello non ricorda nulla da una chiamata all'altra: sa solo quello che trova nella finestra di contesto, il testo che riceve in quel momento. Una metafora diffusa la paragona a una valigia: lo spazio è limitato.", "en": "The model remembers nothing from one call to the next: it only knows what it finds in the context window, the text it receives at that moment. A common metaphor compares it to a suitcase: space is limited."},
     {"it": "Il context engineering è il lavoro di selezionare, riassumere e inserire le informazioni giuste a ogni turno: né più né meno di quelle che servono. Se dimentichi il passaporto, il viaggio va male.", "en": "Context engineering is the work of selecting, summarising and inserting the right information at every turn: no more and no less than what is needed. If you forget your passport, the trip goes badly."}
    ],
    "prova": {"it": "Metti in valigia il listino e poi la scheda cliente: guarda come cambia la risposta all'Hotel Lago Blu.", "en": "Put the price list in the suitcase, then the customer record: see how the answer to Hotel Lago Blu changes."},
@@ -31,7 +31,10 @@
    "id": "riassumere",
    "titolo": {"it": "Riassumere e togliere", "en": "Summarise and remove"},
    "narrazione": [
-    {"it": "Non serve buttare via tutto: si può riassumere. I 50 messaggi diventano una capsula con i fatti utili; dei vecchi risultati degli strumenti resta solo l'ultimo; degli strumenti si caricano solo quelli che servono al compito.", "en": "You do not need to throw everything away: you can summarise. The 50 messages become a capsule with the useful facts; of the old tool results only the latest stays; of the tools, only those needed for the task are loaded."}
+    {"it": "Non serve buttare via tutto: si può riassumere.", "en": "You do not need to throw everything away: you can summarise."},
+    {"it": "• I 50 messaggi diventano una capsula con i fatti utili.", "en": "• The 50 messages become a capsule with the useful facts."},
+    {"it": "• Dei vecchi risultati degli strumenti resta solo l'ultimo.", "en": "• Of the old tool results only the latest stays."},
+    {"it": "• Degli strumenti si caricano solo quelli che servono al compito.", "en": "• Of the tools, only those needed for the task are loaded."}
    ],
    "prova": {"it": "Accendi uno alla volta i tre aiuti e guarda le quattro lancette.", "en": "Switch on the three helpers one at a time and watch the four gauges."},
    "concetti": ["C44"],

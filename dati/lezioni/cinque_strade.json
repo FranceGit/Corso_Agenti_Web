@@ -31,8 +31,12 @@
    "id": "lenti",
    "titolo": {"it": "Quattro lenti per la qualità", "en": "Four lenses for quality"},
    "narrazione": [
-    {"it": "La qualità di un agente si guarda con quattro lenti. Efficacia: ha raggiunto l'obiettivo vero? Efficienza: quanti passi, quanto tempo, quanta spesa? Robustezza: se qualcosa va storto, riprova o spiega che cosa non ha potuto fare?", "en": "An agent's quality is looked at through four lenses. Effectiveness: did it reach the real goal? Efficiency: how many steps, how much time, how much spending? Robustness: if something goes wrong, does it retry or explain what it could not do?"},
-    {"it": "Sicurezza: ha rispettato i limiti? È il cancello non negoziabile. Il percorso B arriva alla meta in 25 passi, con 5 chiamate fallite e 3 autocorrezioni: funziona, ma è un agente di bassa qualità.", "en": "Safety: did it respect the limits? It is the non-negotiable gate. Road B reaches the goal in 25 steps, with 5 failed calls and 3 self-corrections: it works, but it is a low-quality agent."}
+    {"it": "La qualità di un agente si guarda con quattro lenti:", "en": "An agent's quality is looked at through four lenses:"},
+    {"it": "• efficacia: ha raggiunto l'obiettivo vero?", "en": "• effectiveness: did it reach the real goal?"},
+    {"it": "• efficienza: quanti passi, quanto tempo, quanta spesa?", "en": "• efficiency: how many steps, how much time, how much spending?"},
+    {"it": "• robustezza: se qualcosa va storto, riprova o spiega che cosa non ha potuto fare?", "en": "• robustness: if something goes wrong, does it retry or explain what it could not do?"},
+    {"it": "• sicurezza: ha rispettato i limiti? È il cancello non negoziabile.", "en": "• safety: did it respect the limits? It is the non-negotiable gate."},
+    {"it": "Il percorso B arriva alla meta in 25 passi, con 5 chiamate fallite e 3 autocorrezioni: funziona, ma è un agente di bassa qualità.", "en": "Road B reaches the goal in 25 steps, with 5 failed calls and 3 self-corrections: it works, but it is a low-quality agent."}
    ],
    "prova": {"it": "Accendi le lenti una alla volta e guarda ogni percorso cambiare verdetto.", "en": "Switch the lenses on one at a time and watch each road change its verdict."},
    "concetti": ["C60"],

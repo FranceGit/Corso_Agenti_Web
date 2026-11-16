@@ -10,7 +10,11 @@
    "titolo": {"it": "Che cos'è un set di valutazione", "en": "What an evaluation set is"},
    "narrazione": [
     {"it": "Un set di valutazione (in inglese golden set) è una raccolta curata di casi di prova che rappresentano l'uso reale dell'agente.", "en": "An evaluation set (golden set) is a curated collection of test cases that represent the real use of the agent."},
-    {"it": "Ogni caso ha tre parti: la richiesta, il risultato atteso e gli strumenti che l'agente dovrebbe usare. Qui il set ha 10 casi, tutti lead cortesi e completi.", "en": "Each case has three parts: the request, the expected result and the tools the agent should use. Here the set has 10 cases, all polite and complete leads."}
+    {"it": "Ogni caso ha tre parti:", "en": "Each case has three parts:"},
+    {"it": "• la richiesta;", "en": "• the request;"},
+    {"it": "• il risultato atteso;", "en": "• the expected result;"},
+    {"it": "• gli strumenti che l'agente dovrebbe usare.", "en": "• the tools the agent should use."},
+    {"it": "Qui il set ha 10 casi, tutti lead cortesi e completi.", "en": "Here the set has 10 cases, all polite and complete leads."}
    ],
    "prova": {"it": "Clicca una casella e leggi richiesta, risultato atteso e strumenti attesi. Guarda la copertura a destra.", "en": "Click a box and read the request, the expected result and the expected tools. Look at the coverage on the right."},
    "concetti": ["C63"],
@@ -20,8 +24,11 @@
    "id": "famiglie",
    "titolo": {"it": "Tre famiglie di casi", "en": "Three families of cases"},
    "narrazione": [
-    {"it": "Un buon set copre tre famiglie. Casi tipici: il lavoro di tutti i giorni. Casi limite: situazioni rare o difficili, come un lead senza nome o due clienti omonimi.", "en": "A good set covers three families. Typical cases: everyday work. Edge cases: rare or difficult situations, like a lead without a name or two customers with the same name."},
-    {"it": "Casi avversari: richieste costruite per ingannare l'agente, come istruzioni nascoste nella firma di un'email. Un set di soli casi facili promuove tutto.", "en": "Adversarial cases: requests built to trick the agent, like instructions hidden in an email signature. A set of easy cases only lets everything pass."}
+    {"it": "Un buon set copre tre famiglie:", "en": "A good set covers three families:"},
+    {"it": "• casi tipici: il lavoro di tutti i giorni;", "en": "• typical cases: everyday work;"},
+    {"it": "• casi limite: situazioni rare o difficili, come un lead senza nome o due clienti omonimi;", "en": "• edge cases: rare or difficult situations, like a lead without a name or two customers with the same name;"},
+    {"it": "• casi avversari: richieste costruite per ingannare l'agente, come istruzioni nascoste nella firma di un'email.", "en": "• adversarial cases: requests built to trick the agent, like instructions hidden in an email signature."},
+    {"it": "Un set di soli casi facili promuove tutto.", "en": "A set of easy cases only lets everything pass."}
    ],
    "prova": {"it": "Apri i casi limite e avversari e premi «Aggiungi al set». Poi premi «Controlla il set».", "en": "Open the edge and adversarial cases and press «Add to the set». Then press «Check the set»."},
    "concetti": ["C63"],

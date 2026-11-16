@@ -42,8 +42,15 @@
    "id": "qualita_governance",
    "titolo": {"it": "Valutazione, osservabilità e governance", "en": "Evaluation, observability and governance"},
    "narrazione": [
-    {"it": "Valutazione e osservabilità: un set di prove con casi tipici, limite e avversari, un giudice calibrato dalle persone, tracce e metriche. Senza set di prove nessuna versione può passare il cancello di valutazione.", "en": "Evaluation and observability: a test set with typical, edge and adversarial cases, a judge calibrated by people, traces and metrics. Without a test set no version can pass the evaluation gate."},
-    {"it": "Governance e produzione: rilascio canary dall'1%, interruttore per ogni strumento, registro delle decisioni, budget di costo con allarme e risposta agli incidenti.", "en": "Governance and production: canary release from 1%, a switch for each tool, decision log, cost budget with an alarm and incident response."}
+    {"it": "Valutazione e osservabilità:", "en": "Evaluation and observability:"},
+    {"it": "• un set di prove con casi tipici, limite e avversari;", "en": "• a test set with typical, edge and adversarial cases;"},
+    {"it": "• un giudice calibrato dalle persone;", "en": "• a judge calibrated by people;"},
+    {"it": "• tracce e metriche.", "en": "• traces and metrics."},
+    {"it": "Senza set di prove nessuna versione può passare il cancello di valutazione. Governance e produzione:", "en": "Without a test set no version can pass the evaluation gate. Governance and production:"},
+    {"it": "• rilascio canary dall'1%;", "en": "• canary release from 1%;"},
+    {"it": "• interruttore per ogni strumento;", "en": "• a switch for each tool;"},
+    {"it": "• registro delle decisioni;", "en": "• decision log;"},
+    {"it": "• budget di costo con allarme e risposta agli incidenti.", "en": "• cost budget with an alarm, and incident response."}
    ],
    "prova": {"it": "Leggi gli avvisi del blueprint difettoso, poi correggi una sezione alla volta finché diventano tutte verdi.", "en": "Read the warnings of the faulty blueprint, then fix one section at a time until they all turn green."},
    "concetti": ["C79"],

@@ -149,7 +149,7 @@
    "ruolo_sbagliato": {"it": "Non proprio. {spiega}", "en": "Not quite. {spiega}"},
    "catalogo_di": {"it": "Il catalogo del server «{sistema}»", "en": "The «{sistema}» server's catalog"},
    "diffusione": {"it": "App che lo supportano: {pct}%", "en": "Apps that support it: {pct}%"},
-   "fonte_diffusione": {"it": "Diffusione: circa 79 applicazioni censite al 15/09/2025 (whitepaper Google). Dato destinato a invecchiare.", "en": "Adoption: about 79 applications surveyed on 15/09/2025 (Google whitepaper). This figure will age."},
+   "fonte_diffusione": {"it": "Diffusione: circa 79 applicazioni censite al 15/09/2025 (whitepaper di settore). Dato destinato a invecchiare.", "en": "Adoption: about 79 applications surveyed on 15/09/2025 (industry whitepaper). This figure will age."},
    "standard_non_basta": {"it": "Lo standard non rende affidabile un server.", "en": "The standard does not make a server reliable."},
    "nota_catalogo": {"it": "Strumenti = azioni; risorse = dati da leggere; prompt = modelli di istruzioni scritti da altri.", "en": "Tools = actions; resources = data to read; prompts = instruction templates written by others."},
    "fidato_spiega": {"it": "Le etichette sugli strumenti dicono come si dovrebbero comportare. Ma chi le garantisce?", "en": "The labels on the tools say how they should behave. But who guarantees them?"},

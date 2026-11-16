@@ -20,7 +20,10 @@
    "id": "volume",
    "titolo": {"it": "Dove l'agente fa risparmiare tempo", "en": "Where the agent saves time"},
    "narrazione": [
-    {"it": "Un agente crea valore quando tre cose sono vere insieme: il volume è alto (tanti casi al giorno), i criteri si possono scrivere (sappiamo dire che cosa è un buon lead) e il risultato si misura (risposte, call fissate).", "en": "An agent creates value when three things are true together: the volume is high (many cases a day), the criteria can be written down (we can say what a good lead is) and the result can be measured (replies, calls booked)."},
+    {"it": "Un agente crea valore quando tre cose sono vere insieme:", "en": "An agent creates value when three things are true together:"},
+    {"it": "• il volume è alto (tanti casi al giorno);", "en": "• the volume is high (many cases a day);"},
+    {"it": "• i criteri si possono scrivere (sappiamo dire che cosa è un buon lead);", "en": "• the criteria can be written down (we can say what a good lead is);"},
+    {"it": "• il risultato si misura (risposte, call fissate).", "en": "• the result can be measured (replies, calls booked)."},
     {"it": "Le barre verdi mostrano le ore di lavoro risparmiate ogni giorno, stadio per stadio.", "en": "The green bars show the hours of work saved every day, stage by stage."}
    ],
    "prova": {"it": "Porta il volume giornaliero da 200 a 2000 visite e guarda quali barre crescono di più.", "en": "Move the daily volume from 200 to 2000 visits and see which bars grow the most."},
@@ -42,7 +45,11 @@
    "id": "lucchetti",
    "titolo": {"it": "Dove serve l'occhio di una persona", "en": "Where a person's eye is needed"},
    "narrazione": [
-    {"it": "Alcuni stadi sono delicati: dati personali, reputazione del marchio, rischio di spam (messaggi non voluti), decisioni che spostano soldi come uno sconto.", "en": "Some stages are delicate: personal data, brand reputation, risk of spam (unwanted messages), decisions that move money such as a discount."},
+    {"it": "Alcuni stadi sono delicati:", "en": "Some stages are delicate:"},
+    {"it": "• dati personali;", "en": "• personal data;"},
+    {"it": "• reputazione del marchio;", "en": "• brand reputation;"},
+    {"it": "• rischio di spam (messaggi non voluti);", "en": "• risk of spam (unwanted messages);"},
+    {"it": "• decisioni che spostano soldi, come uno sconto.", "en": "• decisions that move money, such as a discount."},
     {"it": "Lì si mette un lucchetto: l'agente prepara, una persona approva. Il controllo costa qualche minuto, ma evita errori che costano molto di più.", "en": "There you put a padlock: the agent prepares, a person approves. The check costs a few minutes, but it prevents mistakes that cost much more."}
    ],
    "prova": {"it": "Alza piano piano il «costo di un errore»: guarda in quali stadi compaiono i lucchetti e come si accorciano le barre.", "en": "Slowly raise the «cost of a mistake»: see in which stages the padlocks appear and how the bars get shorter."},

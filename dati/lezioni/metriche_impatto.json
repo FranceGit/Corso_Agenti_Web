@@ -124,8 +124,24 @@
    },
    "narrazione": [
     {
-     "it": "Osservare serve se porta a migliorare. Il ciclo ha quattro passi: definire la qualità, rendere visibile il comportamento con log e tracce, valutare il processo, e trasformare ogni errore trovato in produzione in un test permanente.",
-     "en": "Observing is useful if it leads to improvement. The cycle has four steps: define quality, make behaviour visible with logs and traces, evaluate the process, and turn every error found in production into a permanent test."
+     "it": "Osservare serve se porta a migliorare. Il ciclo ha quattro passi:",
+     "en": "Observing is useful if it leads to improvement. The cycle has four steps:"
+    },
+    {
+     "it": "1. definire la qualità;",
+     "en": "1. define quality;"
+    },
+    {
+     "it": "2. rendere visibile il comportamento con log e tracce;",
+     "en": "2. make behaviour visible with logs and traces;"
+    },
+    {
+     "it": "3. valutare il processo;",
+     "en": "3. evaluate the process;"
+    },
+    {
+     "it": "4. trasformare ogni errore trovato in produzione in un test permanente.",
+     "en": "4. turn every error found in production into a permanent test."
     },
     {
      "it": "Così lo stesso tipo di errore non torna più, e il miglioramento si controlla di nuovo sui numeri di business.",

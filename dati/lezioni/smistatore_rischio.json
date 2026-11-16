@@ -9,8 +9,16 @@
    "id": "fattori",
    "titolo": {"it": "Quattro manopole per il rischio", "en": "Four knobs for risk"},
    "narrazione": [
-    {"it": "Ogni azione dell'agente porta un rischio. OpenAI propone di dare a ogni strumento un livello, basso, medio o alto, guardando quattro fattori: legge o scrive, si può annullare, quali permessi chiede, quanto costa se sbaglia.", "en": "Every action of the agent carries a risk. OpenAI suggests giving each tool a level, low, medium or high, by looking at four factors: does it read or write, can it be undone, what permissions does it need, how much does a mistake cost."},
-    {"it": "Il livello decide l'uscita dello smistatore, un motore di regole che sta fuori dal modello: basso esegue e registra, medio chiede conferma, alto si blocca finché una persona approva. Nello schema del benchmark [R15] il medio esegue da solo con regole di controllo: è una variante.", "en": "The level decides the exit of the sorter, a rules engine that sits outside the model: low runs and logs, medium asks for confirmation, high is blocked until a person approves. In the benchmark's scheme [R15] medium runs on its own with policy rules: it is a variant."}
+    {"it": "Ogni azione dell'agente porta un rischio. OpenAI propone di dare a ogni strumento un livello, basso, medio o alto, guardando quattro fattori:", "en": "Every action of the agent carries a risk. OpenAI suggests giving each tool a level, low, medium or high, by looking at four factors:"},
+    {"it": "• legge o scrive?", "en": "• does it read or write?"},
+    {"it": "• si può annullare?", "en": "• can it be undone?"},
+    {"it": "• quali permessi chiede?", "en": "• what permissions does it need?"},
+    {"it": "• quanto costa se sbaglia?", "en": "• how much does a mistake cost?"},
+    {"it": "Il livello decide l'uscita dello smistatore, un motore di regole che sta fuori dal modello:", "en": "The level decides the exit of the sorter, a rules engine that sits outside the model:"},
+    {"it": "• basso esegue e registra;", "en": "• low runs and logs;"},
+    {"it": "• medio chiede conferma;", "en": "• medium asks for confirmation;"},
+    {"it": "• alto si blocca finché una persona approva.", "en": "• high is blocked until a person approves."},
+    {"it": "Nello schema del benchmark [R15] il medio esegue da solo con regole di controllo: è una variante.", "en": "In the benchmark's scheme [R15] medium runs on its own with policy rules: it is a variant."}
    ],
    "prova": {"it": "Seleziona «Cancella contatto» e rendilo reversibile (cestino per 30 giorni): guarda il livello scendere.", "en": "Select «Delete contact» and make it reversible (bin for 30 days): watch the level go down."},
    "concetti": ["C71"],
@@ -20,7 +28,7 @@
    "id": "soglie",
    "titolo": {"it": "Soglie di importo e azioni precedenti", "en": "Amount thresholds and previous actions"},
    "narrazione": [
-    {"it": "Per i soldi le regole diventano numeri. Nell'esempio di Google un acquisto sotto 100 dollari passa, tra 100 e 500 chiede conferma, oltre 500 si blocca. Qui usiamo le stesse soglie per i rimborsi ai clienti.", "en": "For money, the rules become numbers. In Google's example a purchase under 100 dollars goes through, between 100 and 500 it asks for confirmation, above 500 it is blocked. Here we use the same thresholds for customer refunds."},
+    {"it": "Per i soldi le regole diventano numeri. In un esempio di settore un acquisto sotto 100 dollari passa, tra 100 e 500 chiede conferma, oltre 500 si blocca. Qui usiamo le stesse soglie per i rimborsi ai clienti.", "en": "For money, the rules become numbers. In an industry example a purchase under 100 dollars goes through, between 100 and 500 it asks for confirmation, above 500 it is blocked. Here we use the same thresholds for customer refunds."},
     {"it": "Conta anche che cosa è appena successo: se l'agente ha appena letto un'email sospetta, una risposta verso l'esterno non parte più da sola.", "en": "What has just happened counts too: if the agent has just read a suspicious email, a reply going outside no longer goes out on its own."}
    ],
    "prova": {"it": "Sposta l'importo del rimborso oltre 500, poi accendi «Ha appena letto un'email sospetta».", "en": "Move the refund amount above 500, then switch on «Has just read a suspicious email»."},
@@ -122,7 +130,7 @@
    "punteggio": {"it": "Punti di rischio: {punti} → livello {livello}", "en": "Risk points: {punti} → level {livello}"},
    "fattore_riga": {"it": "{fattore}: {valore} (+{punti})", "en": "{fattore}: {valore} (+{punti})"},
    "mot_livello": {"it": "Livello {livello}: uscita «{uscita}».", "en": "Level {livello}: exit «{uscita}»."},
-   "mot_importo": {"it": "Importo {importo}: sotto {soglia1} consenti, fino a {soglia2} conferma, oltre si blocca (soglie dell'esempio di Google). Uscita «{uscita}».", "en": "Amount {importo}: under {soglia1} allow, up to {soglia2} confirm, above that it is blocked (thresholds from Google's example). Exit «{uscita}»."},
+   "mot_importo": {"it": "Importo {importo}: sotto {soglia1} consenti, fino a {soglia2} conferma, oltre si blocca (soglie di un esempio di settore). Uscita «{uscita}».", "en": "Amount {importo}: under {soglia1} allow, up to {soglia2} confirm, above that it is blocked (thresholds from an industry example). Exit «{uscita}»."},
    "mot_sospetta": {"it": "L'agente ha appena letto un'email sospetta: la risposta verso l'esterno sale a «{uscita}».", "en": "The agent has just read a suspicious email: the outgoing reply moves up to «{uscita}»."},
    "mot_fermo": {"it": "Motore di regole spento e fail-closed: l'azione è negata finché il controllo non torna.", "en": "Rules engine off and fail-closed: the action is denied until the check is back."},
    "mot_aperto": {"it": "Motore di regole spento e fail-open: l'azione passa senza alcun controllo.", "en": "Rules engine off and fail-open: the action goes through with no check at all."},

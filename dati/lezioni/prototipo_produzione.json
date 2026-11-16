@@ -9,8 +9,8 @@
    "id": "ultimo_miglio",
    "titolo": {"it": "Facile costruirlo, difficile fidarsi", "en": "Easy to build, hard to trust"},
    "narrazione": [
-    {"it": "«Costruire un agente è facile. Potersene fidare è difficile»: così si apre la guida di Google sul passaggio in produzione, cioè all'uso vero, con clienti e dati veri.", "en": "«Building an agent is easy. Trusting it is hard»: this is how Google's guide on moving to production opens. Production means real use, with real customers and real data."},
-    {"it": "Google osserva che circa l'80% del lavoro non va nell'intelligenza dell'agente, ma in infrastruttura, sicurezza e verifiche. Senza questo «ultimo miglio» arrivano guasti che sono veri danni per l'azienda.", "en": "Google observes that about 80% of the work does not go into the agent's intelligence, but into infrastructure, security and checks. Without this «last mile», failures arrive that are real damage for the company."}
+    {"it": "Chi porta agenti al lavoro vero lo riassume così: «Costruire un agente è facile. Potersene fidare è difficile». Il lavoro vero è la produzione: clienti veri, dati veri.", "en": "People who take agents into real work sum it up like this: «Building an agent is easy. Trusting it is hard». Real work is production: real customers, real data."},
+    {"it": "Alcuni leader del settore osservano che circa l'80% del lavoro non va nell'intelligenza dell'agente, ma in infrastruttura, sicurezza e verifiche. Senza questo «ultimo miglio» arrivano guasti che sono veri danni per l'azienda.", "en": "Some industry leaders observe that about 80% of the work does not go into the agent's intelligence, but into infrastructure, security and checks. Without this «last mile», failures arrive that are real damage for the company."}
    ],
    "prova": {"it": "Spegni una protezione alla volta e leggi il guasto che compare a destra.", "en": "Switch off one protection at a time and read the failure that appears on the right."},
    "concetti": ["C69"],
@@ -20,7 +20,11 @@
    "id": "ambienti",
    "titolo": {"it": "Tre ambienti, tre mazzi di chiavi", "en": "Three environments, three sets of keys"},
    "narrazione": [
-    {"it": "Un agente vive in tre ambienti separati: sviluppo, dove si costruisce; staging, una copia fedele della produzione per le ultime prove; produzione. Ognuno ha i suoi dati e le sue credenziali, cioè le chiavi per usare il CRM e il servizio email.", "en": "An agent lives in three separate environments: development, where it is built; staging, a faithful copy of production for the last tests; and production. Each one has its own data and its own credentials, that is, the keys to use the CRM and the email service."},
+    {"it": "Un agente vive in tre ambienti separati:", "en": "An agent lives in three separate environments:"},
+    {"it": "• sviluppo, dove si costruisce;", "en": "• development, where it is built;"},
+    {"it": "• staging, una copia fedele della produzione per le ultime prove;", "en": "• staging, a faithful copy of production for the last tests;"},
+    {"it": "• produzione.", "en": "• production."},
+    {"it": "Ognuno ha i suoi dati e le sue credenziali, cioè le chiavi per usare il CRM e il servizio email.", "en": "Each one has its own data and its own credentials, that is, the keys to use the CRM and the email service."},
     {"it": "Così la nuova sequenza di email si prova in staging, su contatti finti: se qualcosa va storto, nessun cliente riceve nulla. Le chiavi vere stanno in un servizio dedicato, non nel codice.", "en": "So the new email sequence is tested in staging, on fake contacts: if something goes wrong, no customer receives anything. The real keys live in a dedicated service, not in the code."}
    ],
    "prova": {"it": "Scegli un ambiente, poi accendi «Chiavi condivise con la produzione» e guarda dove finiscono le email di prova.", "en": "Choose an environment, then switch on «Keys shared with production» and see where the test emails end up."},
@@ -31,7 +35,10 @@
    "id": "cancello",
    "titolo": {"it": "Il cancello con il timbro", "en": "The gate with the stamp"},
    "narrazione": [
-    {"it": "Ogni modifica percorre una catena in tre fasi: prove automatiche con il set di valutazione, poi staging con i colleghi che usano l'agente, infine il cancello verso la produzione, dove il responsabile di prodotto (Product Owner) firma.", "en": "Every change goes through a three-stage chain: automatic tests with the evaluation set, then staging with colleagues who use the agent, and finally the gate to production, where the product owner signs off."},
+    {"it": "Ogni modifica percorre una catena in tre fasi:", "en": "Every change goes through a three-stage chain:"},
+    {"it": "1. prove automatiche con il set di valutazione;", "en": "1. automatic tests with the evaluation set;"},
+    {"it": "2. staging con i colleghi che usano l'agente;", "en": "2. staging with colleagues who use the agent;"},
+    {"it": "3. il cancello verso la produzione, dove il responsabile di prodotto (Product Owner) firma.", "en": "3. the gate to production, where the product owner signs off."},
     {"it": "È il «rilascio con cancello di valutazione»: nessuna versione arriva ai clienti senza aver superato le prove di qualità e sicurezza. Così una regressione, cioè un difetto nuovo in qualcosa che prima funzionava, si ferma prima.", "en": "This is «evaluation-gated deployment»: no version reaches customers without passing the quality and safety tests. So a regression, that is, a new defect in something that used to work, is stopped early."}
    ],
    "prova": {"it": "Scegli «Con regressione»: 3 prove diventano rosse e il cancello resta chiuso. Poi accendi «Salta il cancello».", "en": "Choose «With a regression»: 3 tests turn red and the gate stays closed. Then switch on «Skip the gate»."},
@@ -42,7 +49,12 @@
    "id": "versioni",
    "titolo": {"it": "Il tasto «annulla» della produzione", "en": "Production's «undo» button"},
    "narrazione": [
-    {"it": "In produzione si versiona tutto: codice, istruzioni, modello, strumenti, struttura della memoria e perfino il set di prove. Istruzioni e modello si registrano insieme, perché le stesse istruzioni possono comportarsi in modo diverso su un modello nuovo.", "en": "In production everything is versioned: code, instructions, model, tools, memory structure and even the test set. Instructions and model are recorded together, because the same instructions can behave differently on a new model."},
+    {"it": "In produzione si versiona tutto:", "en": "In production everything is versioned:"},
+    {"it": "• codice e istruzioni;", "en": "• code and instructions;"},
+    {"it": "• modello e suoi settaggi (versione, temperatura e altri parametri);", "en": "• the model and its settings (version, temperature and other parameters);"},
+    {"it": "• strumenti e struttura della memoria;", "en": "• tools and memory structure;"},
+    {"it": "• dati: documenti di riferimento, esempi e perfino il set di prove.", "en": "• data: reference documents, examples and even the test set."},
+    {"it": "Istruzioni, modello e settaggi si registrano insieme: le stesse istruzioni possono comportarsi in modo diverso su un modello nuovo.", "en": "Instructions, model and settings are recorded together: the same instructions can behave differently on a new model."},
     {"it": "Il versionamento è il tasto «annulla»: con il ritorno alla versione precedente (rollback) tutto torna a uno stato noto. Il rilascio, poi, parte da pochissimi utenti, per esempio l'1%. Collegamento: il laboratorio di questa pillola.", "en": "Versioning is the «undo» button: with a return to the previous version (rollback) everything goes back to a known state. Then the release starts with very few users, for example 1%. Link: this pill's lab."}
    ],
    "prova": {"it": "La regressione è passata: premi «Annulla» e guarda le sei parti tornare alla versione che funzionava.", "en": "The regression got through: press «Undo» and watch the six parts go back to the version that worked."},
@@ -63,9 +75,9 @@
    "id": "riassunto",
    "titolo": {"it": "In tre frasi", "en": "In three sentences"},
    "narrazione": [
-    {"it": "Portare un agente in produzione richiede soprattutto infrastruttura, sicurezza e verifiche: circa l'80% dello sforzo, secondo Google.", "en": "Taking an agent to production takes above all infrastructure, security and checks: about 80% of the effort, according to Google."},
+    {"it": "Portare un agente in produzione richiede soprattutto infrastruttura, sicurezza e verifiche: circa l'80% dello sforzo, secondo alcuni leader del settore.", "en": "Taking an agent to production takes above all infrastructure, security and checks: about 80% of the effort, according to some industry leaders."},
     {"it": "Sviluppo, staging e produzione hanno dati e chiavi separati, e ogni modifica arriva ai clienti solo dopo aver superato il cancello di valutazione.", "en": "Development, staging and production have separate data and keys, and every change reaches customers only after passing the evaluation gate."},
-    {"it": "Tutto è versionato, istruzioni e modello insieme, così un rollback riporta il sistema a uno stato noto in un attimo.", "en": "Everything is versioned, instructions and model together, so a rollback brings the system back to a known state in an instant."}
+    {"it": "Tutto è versionato, dati compresi, e istruzioni, modello e settaggi si registrano insieme, così un rollback riporta il sistema a uno stato noto in un attimo.", "en": "Everything is versioned, data included, and instructions, model and settings are recorded together, so a rollback brings the system back to a known state in an instant."}
    ],
    "concetti": ["C69", "C70"],
    "stato_animazione": {"vista": "pipeline", "protezioni": {"guardrail": true, "accessi": true, "monitoraggio": true, "valutazione": true}, "ambiente": "staging", "credenziali_condivise": false, "modifica": "regressione", "salta_cancello": false, "annullato": false, "scelte": {}, "verificato": false}
@@ -154,7 +166,7 @@
    "amb_rischio": {"it": "Errore: {ambiente} usa le chiavi della produzione, quindi le email di prova partono verso {clienti} clienti veri (numero illustrativo).", "en": "Mistake: {ambiente} uses the production keys, so the test emails go out to {clienti} real customers (illustrative number)."},
    "amb_reale": {"it": "{ambiente}: {dati}, {chiavi}. Qui l'agente lavora davvero: ogni email arriva a un cliente.", "en": "{ambiente}: {dati}, {chiavi}. Here the agent really works: every email reaches a customer."},
    "nessun_guasto": {"it": "Tutte le protezioni sono accese: nessun guasto in vista.", "en": "All protections are on: no failure in sight."},
-   "fonte_guasti": {"it": "«Non sono solo problemi tecnici: sono grandi fallimenti di business» (Google).", "en": "«These aren't just technical problems; they are major business failures» (Google)."},
+   "fonte_guasti": {"it": "«Non sono solo problemi tecnici: sono grandi fallimenti di business» (guida di settore).", "en": "«These aren't just technical problems; they are major business failures» (industry guide)."},
    "ver_giusto": {"it": "{situazione}: giusto. {spiega}", "en": "{situazione}: right. {spiega}"},
    "ver_quasi": {"it": "{situazione}: si può fare, ma è meglio «{migliore}». {spiega}", "en": "{situazione}: acceptable, but «{migliore}» is better. {spiega}"},
    "ver_sbagliato": {"it": "{situazione}: no, meglio «{migliore}». {spiega}", "en": "{situazione}: no, «{migliore}» is better. {spiega}"},

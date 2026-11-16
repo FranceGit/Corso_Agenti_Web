@@ -21,7 +21,9 @@
    "titolo": {"it": "Il rimpallo infinito", "en": "The endless ping-pong"},
    "narrazione": [
     {"it": "Il cliente scrive: «Passo al piano Pro, ma la fattura di marzo è sbagliata». Vendite gira la fattura ad Assistenza, Assistenza gira il cambio di piano a Vendite, e così via: il grafo dei messaggi cresce e il costo sale senza fine.", "en": "The customer writes: «I'm moving to the Pro plan, but the March invoice is wrong». Sales passes the invoice to Support, Support passes the plan change to Sales, and so on: the message graph grows and the cost rises without end."},
-    {"it": "Servono due difese: un limite globale di passaggi per tutta la richiesta, che poi passa la mano a una persona, e ruoli chiari su chi decide cosa.", "en": "Two defences are needed: a global limit on hand-offs for the whole request, which then hands over to a person, and clear roles on who decides what."}
+    {"it": "Servono due difese:", "en": "Two defences are needed:"},
+    {"it": "• un limite globale di passaggi per tutta la richiesta, che poi passa la mano a una persona;", "en": "• a global limit on hand-offs for the whole request, which then hands over to a person;"},
+    {"it": "• ruoli chiari su chi decide cosa.", "en": "• clear roles on who decides what."}
    ],
    "prova": {"it": "Lascia il limite a «nessuno» e guarda il contatore. Poi metti il limite a 4, e infine accendi «ruoli chiari».", "en": "Leave the limit at «none» and watch the counter. Then set the limit to 4, and finally turn on «clear roles»."},
    "concetti": ["C58"],

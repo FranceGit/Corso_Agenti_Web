@@ -9,7 +9,12 @@
    "id": "categorie",
    "titolo": {"it": "Ogni risposta, un raccoglitore e un'azione", "en": "Every reply, one tray and one action"},
    "narrazione": [
-    {"it": "Dopo una campagna di email arrivano le risposte dei clienti. L'agente le legge e mette ognuna in un raccoglitore: interessato, non interessato, da ricontattare, fuori sede, disiscrizione (chi chiede di non ricevere più email).", "en": "After an email campaign, the customers' replies come in. The agent reads them and puts each one in a tray: interested, not interested, contact later, out of office, unsubscribe (someone asking to stop receiving emails)."},
+    {"it": "Dopo una campagna di email arrivano le risposte dei clienti. L'agente le legge e mette ognuna in un raccoglitore:", "en": "After an email campaign, the customers' replies come in. The agent reads them and puts each one in a tray:"},
+    {"it": "• interessato;", "en": "• interested;"},
+    {"it": "• non interessato;", "en": "• not interested;"},
+    {"it": "• da ricontattare;", "en": "• contact later;"},
+    {"it": "• fuori sede;", "en": "• out of office;"},
+    {"it": "• disiscrizione (chi chiede di non ricevere più email).", "en": "• unsubscribe (someone asking to stop receiving emails)."},
     {"it": "Le categorie sono poche, fisse, e non si sovrappongono. Ognuna fa partire un'azione: «interessato» va al commerciale, «disiscrizione» toglie subito il contatto dalle liste.", "en": "There are few categories, they are fixed, and they do not overlap. Each one starts an action: «interested» goes to the salesperson, «unsubscribe» removes the contact from the lists at once."}
    ],
    "prova": {"it": "Clicca una card in un raccoglitore: leggi la risposta, i 5 tentativi del modello e l'azione che parte.", "en": "Click a card in a tray: read the reply, the model's 5 attempts and the action that starts."},

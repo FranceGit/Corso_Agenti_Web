@@ -19,8 +19,8 @@
    },
    "narrazione": [
     {
-     "it": "Un'agenzia usa lo stesso agente CRM per due clienti concorrenti, Alfa e Beta. Ognuno è un «tenant»: un cliente servito dallo stesso sistema, con dati separati. Per le fonti Google l'isolamento è la regola numero uno: ogni richiesta va autorizzata sul proprietario dei dati.",
-     "en": "An agency uses the same CRM agent for two competing customers, Alfa and Beta. Each one is a «tenant»: a customer served by the same system, with separate data. For the Google sources isolation is rule number one: every request must be authorised against the owner of the data."
+     "it": "Un'agenzia usa lo stesso agente CRM per due clienti concorrenti, Alfa e Beta. Ognuno è un «tenant»: un cliente servito dallo stesso sistema, con dati separati. Per le guide di sicurezza del settore l'isolamento è la regola numero uno: ogni richiesta va autorizzata sul proprietario dei dati.",
+     "en": "An agency uses the same CRM agent for two competing customers, Alfa and Beta. Each one is a «tenant»: a customer served by the same system, with separate data. For the industry's security guides isolation is rule number one: every request must be authorised against the owner of the data."
     },
     {
      "it": "Dove si mette la parete? Se sta solo nell'interfaccia (le pagine mostrano i dati giusti), basta una richiesta scritta male per attraversarla. Se sta nei dati (il database restituisce a ciascuno solo le sue righe), la richiesta rimbalza. Questo confronto viene dal progetto di riferimento [R15].",

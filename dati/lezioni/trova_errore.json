@@ -32,7 +32,12 @@
    "id": "errore_traccia",
    "titolo": {"it": "Dove nasce l'errore?", "en": "Where does the bug start?"},
    "narrazione": [
-    {"it": "Segui una risposta lungo la pipeline (la catena di passi): testo del cliente, etichetta scritta dall'LLM, conversione in una categoria del CRM, scheda nel CRM, report.", "en": "Follow one reply along the pipeline (the chain of steps): the customer's text, the label written by the LLM, the conversion into a CRM category, the CRM record, the report."},
+    {"it": "Segui una risposta lungo la pipeline (la catena di passi):", "en": "Follow one reply along the pipeline (the chain of steps):"},
+    {"it": "1. testo del cliente;", "en": "1. the customer's text;"},
+    {"it": "2. etichetta scritta dall'LLM;", "en": "2. the label written by the LLM;"},
+    {"it": "3. conversione in una categoria del CRM;", "en": "3. the conversion into a CRM category;"},
+    {"it": "4. scheda nel CRM;", "en": "4. the CRM record;"},
+    {"it": "5. report.", "en": "5. the report."},
     {"it": "L'LLM scrive le etichette in inglese, per esempio «Not Interested»: sono le parole che usa il programma. Cerca la prima stazione in cui il dato diventa sbagliato.", "en": "The LLM writes its labels in English, for example «Not Interested»: those are the words the program uses. Look for the first station where the data becomes wrong."}
    ],
    "prova": {"it": "Clicca la stazione in cui, secondo te, nasce l'errore. Poi prova con un'altra risposta dal menu.", "en": "Click the station where you think the bug starts. Then try with another reply from the menu."},

@@ -1,0 +1,576 @@
+{
+ "_why": "Bibliografia del corso (cantiere CONTENUTI-REV, 16/11/2026): le opere da cui vengono i contenuti, con titolo, autori, anno, editore e tipo come si leggono nei documenti studiati (CORSO_CONTENUTI_VERIFICATI.md, sezione 0; frontespizi dei PDF). Nessun URL. Le sigle in 'nota' sono quelle usate nelle citazioni dei contenuti verificati e del documento benchmark. Anno omesso quando il documento non lo dichiara.",
+ "opere": [
+  {
+   "id": "wp1",
+   "titolo": "Introduction to Agents",
+   "autori": [
+    "Alan Blount",
+    "Antonio Gulli",
+    "Shubham Saboo",
+    "Michael Zimmermann",
+    "Vladimir Vuskovic"
+   ],
+   "anno": 2025,
+   "editore": {
+    "it": "Google / Kaggle, corso «5 Days of AI Agents», giorno 1",
+    "en": "Google / Kaggle, «5 Days of AI Agents» course, day 1"
+   },
+   "tipo": {
+    "it": "Whitepaper",
+    "en": "Whitepaper"
+   },
+   "nota": {
+    "it": "Sigla nelle fonti del corso: WP1, [G1]",
+    "en": "Code in the course sources: WP1, [G1]"
+   }
+  },
+  {
+   "id": "wp2",
+   "titolo": "Agent Tools & Interoperability with Model Context Protocol (MCP)",
+   "autori": [
+    "Mike Styer",
+    "Kanchana Patlolla",
+    "Madhuranjan Mohan",
+    "Sal Diaz"
+   ],
+   "anno": 2025,
+   "editore": {
+    "it": "Google / Kaggle, corso «5 Days of AI Agents», giorno 2",
+    "en": "Google / Kaggle, «5 Days of AI Agents» course, day 2"
+   },
+   "tipo": {
+    "it": "Whitepaper",
+    "en": "Whitepaper"
+   },
+   "nota": {
+    "it": "Sigla nelle fonti del corso: WP2, [G2]",
+    "en": "Code in the course sources: WP2, [G2]"
+   }
+  },
+  {
+   "id": "wp3",
+   "titolo": "Context Engineering: Sessions & Memory",
+   "autori": [
+    "Kimberly Milam",
+    "Antonio Gulli"
+   ],
+   "anno": 2025,
+   "editore": {
+    "it": "Google / Kaggle, corso «5 Days of AI Agents», giorno 3",
+    "en": "Google / Kaggle, «5 Days of AI Agents» course, day 3"
+   },
+   "tipo": {
+    "it": "Whitepaper",
+    "en": "Whitepaper"
+   },
+   "nota": {
+    "it": "Sigla nelle fonti del corso: WP3, [G3]",
+    "en": "Code in the course sources: WP3, [G3]"
+   }
+  },
+  {
+   "id": "wp4",
+   "titolo": "Agent Quality",
+   "autori": [
+    "Meltem Subasioglu",
+    "Turan Bulmus",
+    "Wafae Bakkali"
+   ],
+   "anno": 2025,
+   "editore": {
+    "it": "Google / Kaggle, corso «5 Days of AI Agents», giorno 4",
+    "en": "Google / Kaggle, «5 Days of AI Agents» course, day 4"
+   },
+   "tipo": {
+    "it": "Whitepaper",
+    "en": "Whitepaper"
+   },
+   "nota": {
+    "it": "Sigla nelle fonti del corso: WP4, [G4]",
+    "en": "Code in the course sources: WP4, [G4]"
+   }
+  },
+  {
+   "id": "wp5",
+   "titolo": "Prototype to Production",
+   "autori": [
+    "Sokratis Kartakis",
+    "Gabriela Hernandez Larios",
+    "Ran Li",
+    "Elia Secchi",
+    "Huang Xia"
+   ],
+   "anno": 2025,
+   "editore": {
+    "it": "Google / Kaggle, corso «5 Days of AI Agents», giorno 5",
+    "en": "Google / Kaggle, «5 Days of AI Agents» course, day 5"
+   },
+   "tipo": {
+    "it": "Whitepaper",
+    "en": "Whitepaper"
+   },
+   "nota": {
+    "it": "Sigla nelle fonti del corso: WP5, [G5]",
+    "en": "Code in the course sources: WP5, [G5]"
+   }
+  },
+  {
+   "id": "nb",
+   "titolo": {
+    "it": "5 Days of AI Agents: notebook del corso (giorni 1a-5b)",
+    "en": "5 Days of AI Agents: course notebooks (days 1a-5b)"
+   },
+   "autori": [
+    "Google",
+    "Kaggle"
+   ],
+   "anno": 2025,
+   "tipo": {
+    "it": "Notebook di corso online",
+    "en": "Online course notebooks"
+   },
+   "nota": {
+    "it": "Sigla nelle fonti del corso: NB1a-NB5b",
+    "en": "Code in the course sources: NB1a-NB5b"
+   }
+  },
+  {
+   "id": "ag25",
+   "titolo": "Agents",
+   "autori": [
+    "Julia Wiesinger",
+    "Patrick Marlow",
+    "Vladimir Vuskovic"
+   ],
+   "anno": 2025,
+   "editore": "Google / Kaggle",
+   "tipo": {
+    "it": "Whitepaper",
+    "en": "Whitepaper"
+   },
+   "nota": {
+    "it": "Sigla nelle fonti del corso: AG25",
+    "en": "Code in the course sources: AG25"
+   }
+  },
+  {
+   "id": "comp",
+   "titolo": "Agents Companion",
+   "autori": [
+    "Antonio Gulli",
+    "Lavi Nigam",
+    "Julia Wiesinger",
+    "Vladimir Vuskovic",
+    "Irina Sigler",
+    "Ivan Nardini",
+    "Nicolas Stroppa",
+    "Sokratis Kartakis",
+    "Narek Saribekyan",
+    "Anant Nawalgaria",
+    "Alan Bount"
+   ],
+   "anno": 2025,
+   "editore": "Google / Kaggle",
+   "tipo": {
+    "it": "Whitepaper",
+    "en": "Whitepaper"
+   },
+   "nota": {
+    "it": "Sigla nelle fonti del corso: COMP",
+    "en": "Code in the course sources: COMP"
+   }
+  },
+  {
+   "id": "sec",
+   "titolo": "Google's Approach for Secure AI Agents: An Introduction",
+   "autori": [
+    "Santiago Díaz",
+    "Christoph Kern",
+    "Kara Olive"
+   ],
+   "anno": 2025,
+   "editore": "Google",
+   "tipo": {
+    "it": "Whitepaper",
+    "en": "Whitepaper"
+   },
+   "nota": {
+    "it": "Sigla nelle fonti del corso: SEC",
+    "en": "Code in the course sources: SEC"
+   }
+  },
+  {
+   "id": "pe",
+   "titolo": "Prompt Engineering",
+   "autori": [
+    "Lee Boonstra"
+   ],
+   "anno": 2025,
+   "editore": "Google / Kaggle",
+   "tipo": {
+    "it": "Whitepaper",
+    "en": "Whitepaper"
+   },
+   "nota": {
+    "it": "Sigla nelle fonti del corso: PE",
+    "en": "Code in the course sources: PE"
+   }
+  },
+  {
+   "id": "llm",
+   "titolo": "Foundational Large Language Models & Text Generation",
+   "autori": [
+    "Mohammadamin Barektain",
+    "Anant Nawalgaria",
+    "Daniel J. Mankowitz",
+    "Majd Al Merey",
+    "Yaniv Leviathan",
+    "Massimo Mascaro",
+    "Matan Kalman",
+    "Elena Buchatskaya",
+    "Aliaksei Severyn",
+    "Irina Sigler",
+    "Antonio Gulli"
+   ],
+   "anno": 2025,
+   "editore": "Google / Kaggle",
+   "tipo": {
+    "it": "Whitepaper",
+    "en": "Whitepaper"
+   },
+   "nota": {
+    "it": "Sigla nelle fonti del corso: LLM",
+    "en": "Code in the course sources: LLM"
+   }
+  },
+  {
+   "id": "emb",
+   "titolo": "Embeddings & Vector Stores",
+   "autori": [
+    "Anant Nawalgaria",
+    "Xiaoqi Ren",
+    "Charles Sugnet"
+   ],
+   "anno": 2025,
+   "editore": "Google / Kaggle",
+   "tipo": {
+    "it": "Whitepaper",
+    "en": "Whitepaper"
+   },
+   "nota": {
+    "it": "Sigla nelle fonti del corso: EMB",
+    "en": "Code in the course sources: EMB"
+   }
+  },
+  {
+   "id": "dom",
+   "titolo": "Solving Domain-Specific Problems Using LLMs",
+   "autori": [
+    "Christopher Semturs",
+    "Shekoofeh Azizi",
+    "Scott Coull",
+    "Umesh Shankar",
+    "Wieland Holfelder"
+   ],
+   "anno": 2025,
+   "editore": "Google / Kaggle",
+   "tipo": {
+    "it": "Whitepaper",
+    "en": "Whitepaper"
+   },
+   "nota": {
+    "it": "Sigla nelle fonti del corso: DOM",
+    "en": "Code in the course sources: DOM"
+   }
+  },
+  {
+   "id": "ops",
+   "titolo": "Operationalizing Generative AI on Vertex AI using MLOps",
+   "autori": [
+    "Anant Nawalgaria",
+    "Gabriela Hernandez Larios",
+    "Elia Secchi",
+    "Mike Styer",
+    "Christos Aniftos",
+    "Onofrio Petragallo",
+    "Sokratis Kartakis"
+   ],
+   "anno": 2025,
+   "editore": "Google / Kaggle",
+   "tipo": {
+    "it": "Whitepaper",
+    "en": "Whitepaper"
+   },
+   "nota": {
+    "it": "Sigla nelle fonti del corso: OPS",
+    "en": "Code in the course sources: OPS"
+   }
+  },
+  {
+   "id": "mas",
+   "titolo": "An enterprise guide to multi-agent systems",
+   "autori": [
+    "Google Cloud"
+   ],
+   "tipo": {
+    "it": "Guida",
+    "en": "Guide"
+   },
+   "nota": {
+    "it": "Sigla nelle fonti del corso: MAS",
+    "en": "Code in the course sources: MAS"
+   }
+  },
+  {
+   "id": "stg",
+   "titolo": "Startup technical guide: AI agents",
+   "autori": [
+    "Google Cloud"
+   ],
+   "anno": 2025,
+   "tipo": {
+    "it": "Guida",
+    "en": "Guide"
+   },
+   "nota": {
+    "it": "Sigla nelle fonti del corso: STG",
+    "en": "Code in the course sources: STG"
+   }
+  },
+  {
+   "id": "gws",
+   "titolo": "Gemini for Workspace Prompting Guide 101",
+   "autori": [
+    "Google"
+   ],
+   "anno": 2024,
+   "tipo": {
+    "it": "Guida",
+    "en": "Guide"
+   },
+   "nota": {
+    "it": "Sigla nelle fonti del corso: GWS",
+    "en": "Code in the course sources: GWS"
+   }
+  },
+  {
+   "id": "oai",
+   "titolo": "A practical guide to building agents",
+   "autori": [
+    "OpenAI"
+   ],
+   "anno": 2025,
+   "tipo": {
+    "it": "Guida",
+    "en": "Guide"
+   },
+   "nota": {
+    "it": "Sigla nelle fonti del corso: OAI",
+    "en": "Code in the course sources: OAI"
+   }
+  },
+  {
+   "id": "ant",
+   "titolo": "Building trusted AI in the enterprise",
+   "autori": [
+    "Anthropic"
+   ],
+   "anno": 2024,
+   "tipo": {
+    "it": "Ebook",
+    "en": "Ebook"
+   },
+   "nota": {
+    "it": "Sigla nelle fonti del corso: ANT",
+    "en": "Code in the course sources: ANT"
+   }
+  },
+  {
+   "id": "skl",
+   "titolo": "The Complete Guide to Building Skills for Claude",
+   "autori": [
+    "Anthropic"
+   ],
+   "anno": 2026,
+   "tipo": {
+    "it": "Guida",
+    "en": "Guide"
+   },
+   "nota": {
+    "it": "Sigla nelle fonti del corso: SKL",
+    "en": "Code in the course sources: SKL"
+   }
+  },
+  {
+   "id": "sdd",
+   "titolo": "Spec-Driven Development: My Journey Using the GitHub Spec Kit",
+   "autori": [
+    "Michael Hoffman"
+   ],
+   "anno": 2025,
+   "editore": "nvisia",
+   "tipo": {
+    "it": "Whitepaper",
+    "en": "Whitepaper"
+   },
+   "nota": {
+    "it": "Sigla nelle fonti del corso: SDD",
+    "en": "Code in the course sources: SDD"
+   }
+  },
+  {
+   "id": "crmd",
+   "titolo": "Will CRM be replaced by AI in 2026?",
+   "autori": [
+    "Dotsquares"
+   ],
+   "tipo": {
+    "it": "Articolo",
+    "en": "Article"
+   },
+   "nota": {
+    "it": "Sigla nelle fonti del corso: CRMD, [INT]",
+    "en": "Code in the course sources: CRMD, [INT]"
+   }
+  },
+  {
+   "id": "med",
+   "titolo": "Scaling agents with code execution and MCP",
+   "autori": [
+    "M. Prashant"
+   ],
+   "editore": "Medium",
+   "tipo": {
+    "it": "Articolo",
+    "en": "Article"
+   },
+   "nota": {
+    "it": "Sigla nelle fonti del corso: MED",
+    "en": "Code in the course sources: MED"
+   }
+  },
+  {
+   "id": "r10",
+   "titolo": "code_execution_with_mcp",
+   "autori": [
+    "madhurprash"
+   ],
+   "tipo": {
+    "it": "Repository software",
+    "en": "Software repository"
+   },
+   "nota": {
+    "it": "Sigla nelle fonti del corso: [R10]",
+    "en": "Code in the course sources: [R10]"
+   }
+  },
+  {
+   "id": "r11",
+   "titolo": "AI-Enhanced-Sales-Campaign-CRM",
+   "autori": [
+    "patowari"
+   ],
+   "tipo": {
+    "it": "Repository software",
+    "en": "Software repository"
+   },
+   "nota": {
+    "it": "Sigla nelle fonti del corso: [R11]",
+    "en": "Code in the course sources: [R11]"
+   }
+  },
+  {
+   "id": "r12",
+   "titolo": "awesome_ai_agents",
+   "autori": [
+    "jim-schwoebel"
+   ],
+   "tipo": {
+    "it": "Repository software",
+    "en": "Software repository"
+   },
+   "nota": {
+    "it": "Sigla nelle fonti del corso: [R12]. Bibliografia di approfondimento.",
+    "en": "Code in the course sources: [R12]. Further-reading bibliography."
+   }
+  },
+  {
+   "id": "r13",
+   "titolo": "ai-crm-agents",
+   "autori": [
+    "KlementMultiverse"
+   ],
+   "tipo": {
+    "it": "Repository software",
+    "en": "Software repository"
+   },
+   "nota": {
+    "it": "Sigla nelle fonti del corso: [R13]",
+    "en": "Code in the course sources: [R13]"
+   }
+  },
+  {
+   "id": "r14",
+   "titolo": "vyapaar",
+   "autori": [
+    "retrogtx"
+   ],
+   "anno": 2024,
+   "tipo": {
+    "it": "Repository software",
+    "en": "Software repository"
+   },
+   "nota": {
+    "it": "Sigla nelle fonti del corso: [R14]",
+    "en": "Code in the course sources: [R14]"
+   }
+  },
+  {
+   "id": "r15",
+   "titolo": "Multi-Agent-Enterprise-CRM",
+   "autori": [
+    "Mrgig7"
+   ],
+   "tipo": {
+    "it": "Repository software",
+    "en": "Software repository"
+   },
+   "nota": {
+    "it": "Sigla nelle fonti del corso: [R15]",
+    "en": "Code in the course sources: [R15]"
+   }
+  },
+  {
+   "id": "r16",
+   "titolo": "IBM-RevenueX",
+   "autori": [
+    "Samkelo908"
+   ],
+   "tipo": {
+    "it": "Repository software",
+    "en": "Software repository"
+   },
+   "nota": {
+    "it": "Sigla nelle fonti del corso: [R16]",
+    "en": "Code in the course sources: [R16]"
+   }
+  },
+  {
+   "id": "gdpr",
+   "titolo": {
+    "it": "Regolamento (UE) 2016/679 sulla protezione dei dati personali (GDPR)",
+    "en": "Regulation (EU) 2016/679 on the protection of personal data (GDPR)"
+   },
+   "autori": {
+    "it": "Parlamento europeo e Consiglio dell'Unione europea",
+    "en": "European Parliament and Council of the European Union"
+   },
+   "anno": 2016,
+   "tipo": {
+    "it": "Normativa",
+    "en": "Legislation"
+   }
+  }
+ ]
+}

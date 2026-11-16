@@ -59,8 +59,24 @@
    },
    "narrazione": [
     {
-     "it": "Le regole di marca sono le istruzioni dell'azienda su come si parla ai clienti: il tono, le parole vietate (come «garantito» o «100%»), niente sconti decisi dall'agente, la firma e la riga per disiscriversi.",
-     "en": "Brand rules are the company's instructions on how to talk to customers: the tone, the banned words (such as «guaranteed» or «100%»), no discounts decided by the agent, the signature and the line to unsubscribe."
+     "it": "Le regole di marca sono le istruzioni dell'azienda su come si parla ai clienti:",
+     "en": "Brand rules are the company's instructions on how to talk to customers:"
+    },
+    {
+     "it": "• il tono;",
+     "en": "• the tone;"
+    },
+    {
+     "it": "• le parole vietate (come «garantito» o «100%»);",
+     "en": "• the banned words (such as «guaranteed» or «100%»);"
+    },
+    {
+     "it": "• niente sconti decisi dall'agente;",
+     "en": "• no discounts decided by the agent;"
+    },
+    {
+     "it": "• la firma e la riga per disiscriversi.",
+     "en": "• the signature and the line to unsubscribe."
     },
     {
      "it": "Senza regole l'agente scrive come capita. Con le regole il testo resta personale, ma dentro confini chiari.",
@@ -179,8 +195,24 @@
    },
    "narrazione": [
     {
-     "it": "In produzione la busta si ferma a un lucchetto: una persona legge l'email e la approva oppure la rimanda indietro. La checklist l'aiuta: disiscrizione, nessuna promessa di soldi, destinatario giusto, nessuna frase senza dato.",
-     "en": "In production the envelope stops at a padlock: a person reads the email and approves it or sends it back. The checklist helps: unsubscribe line, no money promises, right recipient, no sentence without data."
+     "it": "In produzione la busta si ferma a un lucchetto: una persona legge l'email e la approva oppure la rimanda indietro. La checklist l'aiuta:",
+     "en": "In production the envelope stops at a padlock: a person reads the email and approves it or sends it back. The checklist helps:"
+    },
+    {
+     "it": "• riga di disiscrizione;",
+     "en": "• unsubscribe line;"
+    },
+    {
+     "it": "• nessuna promessa di soldi;",
+     "en": "• no money promises;"
+    },
+    {
+     "it": "• destinatario giusto;",
+     "en": "• right recipient;"
+    },
+    {
+     "it": "• nessuna frase senza dato.",
+     "en": "• no sentence without data."
     },
     {
      "it": "C'è anche l'interruttore «Approva sempre». Sembra comodo, ma toglie l'unico controllo prima del cliente.",

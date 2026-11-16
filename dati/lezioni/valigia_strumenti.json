@@ -31,7 +31,10 @@
    "id": "progressiva",
    "titolo": {"it": "La scoperta progressiva", "en": "Progressive disclosure"},
    "narrazione": [
-    {"it": "La scoperta progressiva carica le cose a ripiani: sempre solo il nome e una riga di descrizione di ogni strumento; il manuale completo quando la richiesta lo chiede; gli allegati solo se servono.", "en": "Progressive disclosure loads things on shelves: always only the name and one line of description of each tool; the full manual when the request calls for it; attachments only if needed."},
+    {"it": "La scoperta progressiva carica le cose a ripiani:", "en": "Progressive disclosure loads things on shelves:"},
+    {"it": "1. sempre: solo il nome e una riga di descrizione di ogni strumento;", "en": "1. always: only the name and one line of description of each tool;"},
+    {"it": "2. il manuale completo, quando la richiesta lo chiede;", "en": "2. the full manual, when the request calls for it;"},
+    {"it": "3. gli allegati, solo se servono.", "en": "3. attachments, only if needed."},
     {"it": "Così anche con cento strumenti la valigia resta quasi uguale.", "en": "This way, even with a hundred tools the suitcase stays almost the same."}
    ],
    "prova": {"it": "Scegli «Scoperta progressiva» e porta il cursore da 5 a 100.", "en": "Choose «Progressive disclosure» and move the slider from 5 to 100."},

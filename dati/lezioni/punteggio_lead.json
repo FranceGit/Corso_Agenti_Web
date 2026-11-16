@@ -19,8 +19,24 @@
    },
    "narrazione": [
     {
-     "it": "Il lead scoring (punteggio dei lead) dice quali contatti chiamare per primi. Con le regole ogni criterio vale dei punti: settore, dimensione dell'azienda, comportamento sul sito, ruolo.",
-     "en": "Lead scoring tells you which contacts to call first. With rules, each criterion is worth points: sector, company size, behaviour on the website, role."
+     "it": "Il lead scoring (punteggio dei lead) dice quali contatti chiamare per primi. Con le regole ogni criterio vale dei punti:",
+     "en": "Lead scoring tells you which contacts to call first. With rules, each criterion is worth points:"
+    },
+    {
+     "it": "• settore;",
+     "en": "• sector;"
+    },
+    {
+     "it": "• dimensione dell'azienda;",
+     "en": "• company size;"
+    },
+    {
+     "it": "• comportamento sul sito;",
+     "en": "• behaviour on the website;"
+    },
+    {
+     "it": "• ruolo.",
+     "en": "• role."
     },
     {
      "it": "Il punteggio va da 0 a 100 e cade in una fascia. Ogni fascia ha un'azione: alta va al commerciale, media riceve email periodiche, bassa per ora si lascia.",

@@ -31,7 +31,11 @@
    "id": "ruoli",
    "titolo": {"it": "Il modello giusto e il falso risparmio", "en": "The right model and the false saving"},
    "narrazione": [
-    {"it": "Il compito ha tre ruoli: classificare la risposta, scrivere l'email, decidere l'offerta. Si parte dal modello grande, poi si scende ruolo per ruolo finché la qualità regge.", "en": "The task has three roles: classifying the reply, writing the email, deciding the offer. You start from the large model, then step down role by role as long as quality holds."},
+    {"it": "Il compito ha tre ruoli:", "en": "The task has three roles:"},
+    {"it": "• classificare la risposta;", "en": "• classifying the reply;"},
+    {"it": "• scrivere l'email;", "en": "• writing the email;"},
+    {"it": "• decidere l'offerta.", "en": "• deciding the offer."},
+    {"it": "Si parte dal modello grande, poi si scende ruolo per ruolo finché la qualità regge.", "en": "You start from the large model, then step down role by role as long as quality holds."},
     {"it": "Attenzione al falso risparmio: il modello piccolo sull'offerta sbaglia più di un'offerta su tre, e ogni errore va rifatto da una persona. La bolletta sale invece di scendere.", "en": "Watch out for the false saving: the small model on the offer gets more than one offer in three wrong, and every mistake must be redone by a person. The bill goes up instead of down."}
    ],
    "prova": {"it": "Metti il piccolo sulla classificazione: resta verde. Poi mettilo sull'offerta e guarda crescere le rilavorazioni.", "en": "Put the small model on classification: it stays green. Then put it on the offer and watch the rework grow."},

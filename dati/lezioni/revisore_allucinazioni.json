@@ -23,8 +23,24 @@
      "en": "The agent enriches the record of the lead Alfa Ltd: it adds sector, location, turnover and other data the CRM (the program with the customer data) does not have."
     },
     {
-     "it": "Ogni dato può essere di tre tipi: verificato (preso da un documento), ipotesi (una deduzione ragionevole, dichiarata come tale) o inventato. Un dato inventato ma credibile si chiama allucinazione.",
-     "en": "Each piece of data can be of three types: verified (taken from a document), guess (a reasonable deduction, declared as such) or made up. Made-up but believable data is called a hallucination."
+     "it": "Ogni dato può essere di tre tipi:",
+     "en": "Each piece of data can be of three types:"
+    },
+    {
+     "it": "• verificato: preso da un documento;",
+     "en": "• verified: taken from a document;"
+    },
+    {
+     "it": "• ipotesi: una deduzione ragionevole, dichiarata come tale;",
+     "en": "• guess: a reasonable deduction, declared as such;"
+    },
+    {
+     "it": "• inventato.",
+     "en": "• made up."
+    },
+    {
+     "it": "Un dato inventato ma credibile si chiama allucinazione.",
+     "en": "Made-up but believable data is called a hallucination."
     }
    ],
    "prova": {
@@ -83,8 +99,24 @@
    },
    "narrazione": [
     {
-     "it": "Grounding (in italiano «ancorare») vuol dire legare ogni risposta a una fonte. Le tecniche sono quattro: dare i documenti all'agente, chiedere che citi da dove prende ogni dato, permettere «non lo so», controllare le risposte con i dati veri.",
-     "en": "Grounding means tying every answer to a source. There are four techniques: give the documents to the agent, ask it to cite where each piece of data comes from, allow «I don't know», check the answers against the real data."
+     "it": "Grounding (in italiano «ancorare») vuol dire legare ogni risposta a una fonte. Le tecniche sono quattro:",
+     "en": "Grounding means tying every answer to a source. There are four techniques:"
+    },
+    {
+     "it": "• dare i documenti all'agente;",
+     "en": "• give the documents to the agent;"
+    },
+    {
+     "it": "• chiedere che citi da dove prende ogni dato;",
+     "en": "• ask it to cite where each piece of data comes from;"
+    },
+    {
+     "it": "• permettere «non lo so»;",
+     "en": "• allow «I don't know»;"
+    },
+    {
+     "it": "• controllare le risposte con i dati veri.",
+     "en": "• check the answers against the real data."
     },
     {
      "it": "La citazione è preziosa: ti dice dove andare a controllare.",
@@ -150,8 +182,24 @@
      "en": "The traffic lights are gone: you see the record as a colleague would. Label each field as verified, guess or made up."
     },
     {
-     "it": "I segnali da cercare: nessuna fonte citata, un numero troppo preciso senza origine, un dettaglio che nessun documento contiene, una deduzione scritta come se fosse certa.",
-     "en": "The signals to look for: no source cited, a number that is too precise with no origin, a detail no document contains, a deduction written as if it were certain."
+     "it": "I segnali da cercare:",
+     "en": "The signals to look for:"
+    },
+    {
+     "it": "• nessuna fonte citata;",
+     "en": "• no source cited;"
+    },
+    {
+     "it": "• un numero troppo preciso senza origine;",
+     "en": "• a number that is too precise with no origin;"
+    },
+    {
+     "it": "• un dettaglio che nessun documento contiene;",
+     "en": "• a detail no document contains;"
+    },
+    {
+     "it": "• una deduzione scritta come se fosse certa.",
+     "en": "• a deduction written as if it were certain."
     }
    ],
    "prova": {

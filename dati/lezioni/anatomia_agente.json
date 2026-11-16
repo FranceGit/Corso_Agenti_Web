@@ -9,8 +9,11 @@
    "id": "esploso",
    "titolo": {"it": "Un agente aperto in quattro pezzi", "en": "An agent opened into four parts"},
    "narrazione": [
-    {"it": "Un agente AI è fatto di quattro pezzi. Il modello è il «cervello» che ragiona e scrive. Gli strumenti sono i collegamenti ai programmi veri, come il CRM (dove l'azienda tiene i dati dei clienti).", "en": "An AI agent is made of four parts. The model is the «brain» that reasons and writes. The tools are the connections to real programs, such as the CRM (where the company keeps its customer data)."},
-    {"it": "L'orchestrazione è il «direttore»: il programma che fa girare i passi, uno dopo l'altro, con le sue regole. La memoria è quello che l'agente sa e ricorda mentre lavora.", "en": "Orchestration is the «conductor»: the program that runs the steps, one after another, with its rules. Memory is what the agent knows and remembers while it works."}
+    {"it": "Un agente AI è fatto di quattro pezzi:", "en": "An AI agent is made of four parts:"},
+    {"it": "• il modello è il «cervello» che ragiona e scrive;", "en": "• the model is the «brain» that reasons and writes;"},
+    {"it": "• gli strumenti sono i collegamenti ai programmi veri, come il CRM (dove l'azienda tiene i dati dei clienti);", "en": "• the tools are the connections to real programs, such as the CRM (where the company keeps its customer data);"},
+    {"it": "• l'orchestrazione è il «direttore»: il programma che fa girare i passi, uno dopo l'altro, con le sue regole;", "en": "• orchestration is the «conductor»: the program that runs the steps, one after another, with its rules;"},
+    {"it": "• la memoria è quello che l'agente sa e ricorda mentre lavora.", "en": "• memory is what the agent knows and remembers while it works."}
    ],
    "prova": {"it": "Premi «Avvia»: l'agente qualifica quattro lead arrivati dal sito. Guarda il diario e le schede in basso.", "en": "Press «Start»: the agent qualifies four leads that came from the website. Watch the diary and the cards at the bottom."},
    "concetti": ["C10", "C11", "C12", "C13"],

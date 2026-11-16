@@ -3327,8 +3327,8 @@
        "en": "It repeats until the goal is reached or a stop condition kicks in (maximum number of steps, budget, request for human intervention)."
       },
       {
-       "it": "Il whitepaper Google del giorno 1 [G1] scompone il ciclo in cinque fasi (\"five fundamental steps\"): \"Get the Mission\" (ricevere la missione), \"Scan the Scene\" (esplorare la scena), \"Think It Through\" (ragionare e pianificare), \"Take Action\" (agire), \"Observe and Iterate\" (osservare e ripetere). Il giro \"repeats, returning to Step 3\": si torna al ragionamento, non alla missione. Le condizioni di arresto non sono in [G1]: vengono da OpenAI (strumento finale, output nel formato atteso, errore, numero massimo di turni) e dalla guida operativa Google (massimo di passi); il budget come limite è [EXP].",
-       "en": "The Google day-1 whitepaper [G1] breaks the loop into five phases (\"five fundamental steps\"): \"Get the Mission\", \"Scan the Scene\", \"Think It Through\" (reason and plan), \"Take Action\", \"Observe and Iterate\". The loop \"repeats, returning to Step 3\": it goes back to reasoning, not to the mission. Stop conditions are not in [G1]: they come from OpenAI (a final tool, an output in the expected format, an error, a maximum number of turns) and from Google's operations guide (maximum number of steps); a budget as a limit is [EXP]."
+       "it": "Una guida di riferimento del settore [G1] scompone il ciclo in cinque fasi (\"five fundamental steps\"): \"Get the Mission\" (ricevere la missione), \"Scan the Scene\" (esplorare la scena), \"Think It Through\" (ragionare e pianificare), \"Take Action\" (agire), \"Observe and Iterate\" (osservare e ripetere). Il giro \"repeats, returning to Step 3\": si torna al ragionamento, non alla missione. Le condizioni di arresto non sono in [G1]: vengono da OpenAI (strumento finale, output nel formato atteso, errore, numero massimo di turni) e da una guida operativa di settore (massimo di passi); il budget come limite è [EXP].",
+       "en": "An industry reference guide [G1] breaks the loop into five phases (\"five fundamental steps\"): \"Get the Mission\", \"Scan the Scene\", \"Think It Through\" (reason and plan), \"Take Action\", \"Observe and Iterate\". The loop \"repeats, returning to Step 3\": it goes back to reasoning, not to the mission. Stop conditions are not in [G1]: they come from OpenAI (a final tool, an output in the expected format, an error, a maximum number of turns) and from an industry operations guide (maximum number of steps); a budget as a limit is [EXP]."
       }
      ],
      "animazione": {
@@ -5688,8 +5688,8 @@
        "en": "Multi-agent: several specialised agents work together."
       },
       {
-       "it": "Il whitepaper Google [G1] classifica i sistemi in livelli di capacità, ciascuno costruito sul precedente: \"Level 0: The Core Reasoning System\" (il modello da solo, senza strumenti né memoria), \"Level 1: The Connected Problem-Solver\" (collegato a strumenti), \"Level 2: The Strategic Problem-Solver\" (pianifica obiettivi in più parti scegliendo le informazioni giuste per ogni passo), \"Level 3: The Collaborative Multi-Agent System\" (squadra di specialisti), \"Level 4: The Self-Evolving System\" (crea da sé nuovi strumenti o agenti). Non è la stessa scala dello spettro: i livelli misurano quanto è capace l'agente, lo spettro chi decide i passi (in [G1] va da \"a sprinkle of AI\" a \"the LM in the driver's seat\"). Regola: più autonomia significa più flessibilità, ma anche meno prevedibilità, più costo e più rischio. Si sceglie il livello minimo che risolve il problema.",
-       "en": "The Google whitepaper [G1] classifies systems into capability levels, each building on the previous one: \"Level 0: The Core Reasoning System\" (the model on its own, without tools or memory), \"Level 1: The Connected Problem-Solver\" (connected to tools), \"Level 2: The Strategic Problem-Solver\" (plans multi-part goals, choosing the right information for each step), \"Level 3: The Collaborative Multi-Agent System\" (a team of specialists), \"Level 4: The Self-Evolving System\" (creates new tools or agents by itself). It is not the same scale as the spectrum: the levels measure how capable the agent is, the spectrum who decides the steps (in [G1] it goes from \"a sprinkle of AI\" to \"the LM in the driver's seat\"). Rule: more autonomy means more flexibility, but also less predictability, more cost and more risk. You choose the minimum level that solves the problem."
+       "it": "Una guida di riferimento del settore [G1] classifica i sistemi in livelli di capacità, ciascuno costruito sul precedente: \"Level 0: The Core Reasoning System\" (il modello da solo, senza strumenti né memoria), \"Level 1: The Connected Problem-Solver\" (collegato a strumenti), \"Level 2: The Strategic Problem-Solver\" (pianifica obiettivi in più parti scegliendo le informazioni giuste per ogni passo), \"Level 3: The Collaborative Multi-Agent System\" (squadra di specialisti), \"Level 4: The Self-Evolving System\" (crea da sé nuovi strumenti o agenti). Non è la stessa scala dello spettro: i livelli misurano quanto è capace l'agente, lo spettro chi decide i passi (in [G1] va da \"a sprinkle of AI\" a \"the LM in the driver's seat\"). Regola: più autonomia significa più flessibilità, ma anche meno prevedibilità, più costo e più rischio. Si sceglie il livello minimo che risolve il problema.",
+       "en": "An industry reference guide [G1] classifies systems into capability levels, each building on the previous one: \"Level 0: The Core Reasoning System\" (the model on its own, without tools or memory), \"Level 1: The Connected Problem-Solver\" (connected to tools), \"Level 2: The Strategic Problem-Solver\" (plans multi-part goals, choosing the right information for each step), \"Level 3: The Collaborative Multi-Agent System\" (a team of specialists), \"Level 4: The Self-Evolving System\" (creates new tools or agents by itself). It is not the same scale as the spectrum: the levels measure how capable the agent is, the spectrum who decides the steps (in [G1] it goes from \"a sprinkle of AI\" to \"the LM in the driver's seat\"). Rule: more autonomy means more flexibility, but also less predictability, more cost and more risk. You choose the minimum level that solves the problem."
       }
      ],
      "animazione": {
@@ -8077,8 +8077,8 @@
        "en": "Vague instructions produce variable behaviour. Contradictory instructions produce unpredictable behaviour."
       },
       {
-       "it": "Le istruzioni sono un artefatto versionato e testato, non un testo scritto una volta.",
-       "en": "Instructions are a versioned and tested artefact, not a text written once."
+       "it": "Le istruzioni sono un artefatto versionato e testato, non un testo scritto una volta. Insieme a loro si versionano i dati che usano (esempi, documenti) e i settaggi del modello (versione, temperatura): ognuno di questi cambia il comportamento.",
+       "en": "Instructions are a versioned and tested artefact, not a text written once. Together with them you version the data they use (examples, documents) and the model settings (version, temperature): each of these changes the behaviour."
       }
      ],
      "animazione": {
@@ -18542,8 +18542,8 @@
        "en": "Keep reading tools separate from writing tools. Make writes idempotent (repeating the same request does not double the effect: no duplicate emails)."
       },
       {
-       "it": "Il notebook Google del giorno 2b tratta le best practice degli strumenti: confrontare con il testo scaricato.",
-       "en": "Google's day 2b notebook covers tool best practices: compare with the downloaded text."
+       "it": "Uno dei notebook di riferimento del corso tratta le best practice degli strumenti: confrontare con il testo scaricato.",
+       "en": "One of the course's reference notebooks covers tool best practices: compare with the downloaded text."
       }
      ],
      "animazione": {
@@ -19845,8 +19845,8 @@
        "en": "An MCP server can expose tools (actions), resources (data to read) and prompts (instruction templates)."
       },
       {
-       "it": "Il whitepaper Google del giorno 2 è dedicato a strumenti e interoperabilità con MCP. Il repo [R10] organizza strumenti GitHub e Slack in un registro MCP.",
-       "en": "Google's day 2 whitepaper is devoted to tools and interoperability with MCP. The repo [R10] organises GitHub and Slack tools in an MCP registry."
+       "it": "Una delle guide di riferimento del corso è dedicata a strumenti e interoperabilità con MCP. Il repo [R10] organizza strumenti GitHub e Slack in un registro MCP.",
+       "en": "One of the course's reference guides is devoted to tools and interoperability with MCP. The repo [R10] organises GitHub and Slack tools in an MCP registry."
       },
       {
        "it": "Limiti: lo standard non rende un server affidabile. Qualità, permessi e sicurezza vanno sempre valutati.",
@@ -23716,8 +23716,8 @@
        "en": "The main techniques: summaries, targeted retrieval (RAG, see P5.4), selective memory, removal of results that are no longer useful."
       },
       {
-       "it": "Il whitepaper Google del giorno 3 è dedicato a context engineering, sessioni e memoria.",
-       "en": "Google's day 3 whitepaper is devoted to context engineering, sessions and memory."
+       "it": "Una delle guide di riferimento del corso è dedicata a context engineering, sessioni e memoria.",
+       "en": "One of the course's reference guides is devoted to context engineering, sessions and memory."
       }
      ],
      "animazione": {
@@ -24583,8 +24583,8 @@
        "en": "When the session ends, whatever is not saved elsewhere (memory) is lost."
       },
       {
-       "it": "Il notebook Google del giorno 3a è dedicato alle sessioni.",
-       "en": "Google's day 3a notebook is devoted to sessions."
+       "it": "Uno dei notebook di riferimento del corso è dedicato alle sessioni.",
+       "en": "One of the course's reference notebooks is devoted to sessions."
       }
      ],
      "animazione": {
@@ -25902,8 +25902,8 @@
        "en": "Memory is not the full log: it is a curated selection."
       },
       {
-       "it": "Il notebook Google del giorno 3b è dedicato alla memoria.",
-       "en": "Google's day 3b notebook is devoted to memory."
+       "it": "Uno dei notebook di riferimento del corso è dedicato alla memoria.",
+       "en": "One of the course's reference notebooks is devoted to memory."
       }
      ],
      "animazione": {
@@ -30690,8 +30690,8 @@
        "en": "Supervisor (or router): a coordinating agent hands out the tasks to the specialists and combines the answers."
       },
       {
-       "it": "Il notebook Google del giorno 1b tratta le architetture di agenti. Il repo [R15] usa un orchestratore di workflow a grafo. Lo schema si sceglie in base a dipendenze, tempi e controllo richiesto.",
-       "en": "Google's day 1b notebook covers agent architectures. The repo [R15] uses a graph-based workflow orchestrator. The pattern is chosen based on dependencies, timing and the control required."
+       "it": "Uno dei notebook di riferimento del corso tratta le architetture di agenti. Il repo [R15] usa un orchestratore di workflow a grafo. Lo schema si sceglie in base a dipendenze, tempi e controllo richiesto.",
+       "en": "One of the course's reference notebooks covers agent architectures. The repo [R15] uses a graph-based workflow orchestrator. The pattern is chosen based on dependencies, timing and the control required."
       }
      ],
      "animazione": {
@@ -32057,8 +32057,8 @@
        "en": "Direct call: one agent calls another as if it were a tool."
       },
       {
-       "it": "A2A (Agent-to-Agent): protocollo per far collaborare agenti anche di sistemi o fornitori diversi. Ogni agente si presenta con una \"scheda\" (agent card) che descrive capacità ed endpoint. È trattato nel notebook Google del giorno 5a.",
-       "en": "A2A (Agent-to-Agent): a protocol that lets agents work together even across different systems or vendors. Each agent introduces itself with a \"card\" (agent card) that describes its capabilities and endpoint. It is covered in Google's day 5a notebook."
+       "it": "A2A (Agent-to-Agent): protocollo per far collaborare agenti anche di sistemi o fornitori diversi. Ogni agente si presenta con una \"scheda\" (agent card) che descrive capacità ed endpoint. È trattato in uno dei notebook di riferimento del corso.",
+       "en": "A2A (Agent-to-Agent): a protocol that lets agents work together even across different systems or vendors. Each agent introduces itself with a \"card\" (agent card) that describes its capabilities and endpoint. It is covered in one of the course's reference notebooks."
       },
       {
        "it": "Differenza chiave: MCP collega un agente a strumenti e dati; A2A collega agenti ad altri agenti.",
@@ -34277,8 +34277,8 @@
        "en": "The quality dimensions are: effectiveness, efficiency (steps, cost, time), robustness (hard cases), safety (respecting the limits)."
       },
       {
-       "it": "Il whitepaper Google del giorno 4 è dedicato alla qualità degli agenti.",
-       "en": "Google's day 4 whitepaper is devoted to agent quality."
+       "it": "Una delle guide di riferimento del corso è dedicata alla qualità degli agenti.",
+       "en": "One of the course's reference guides is devoted to agent quality."
       }
      ],
      "animazione": {
@@ -35630,8 +35630,8 @@
        "en": "Privacy: raw prompts with personal data or secrets do not belong in logs. Redaction and pointers are used (a principle stated in [R15])."
       },
       {
-       "it": "Il notebook Google del giorno 4a è dedicato all'osservabilità.",
-       "en": "Google's day 4a notebook is devoted to observability."
+       "it": "Uno dei notebook di riferimento del corso è dedicato all'osservabilità.",
+       "en": "One of the course's reference notebooks is devoted to observability."
       }
      ],
      "animazione": {
@@ -36944,12 +36944,12 @@
        "en": "You start with a core of well-chosen cases (roughly 20-50: an order of magnitude from experience, the sources give no number [EXP]) and grow by adding every real error found in production."
       },
       {
-       "it": "Regressione: prima di cambiare istruzioni, modello o strumenti si rilancia il set e si confronta con la versione precedente.",
-       "en": "Regression: before changing instructions, model or tools, you rerun the set and compare with the previous version."
+       "it": "Regressione: prima di cambiare istruzioni, modello, settaggi del modello (es. temperatura), strumenti o dati si rilancia il set e si confronta con la versione precedente.",
+       "en": "Regression: before changing instructions, model, model settings (e.g. temperature), tools or data, you rerun the set and compare with the previous version."
       },
       {
-       "it": "Il notebook Google del giorno 4b è dedicato alla valutazione.",
-       "en": "Google's day 4b notebook is devoted to evaluation."
+       "it": "Uno dei notebook di riferimento del corso è dedicato alla valutazione.",
+       "en": "One of the course's reference notebooks is devoted to evaluation."
       }
      ],
      "animazione": {
@@ -38255,8 +38255,8 @@
        "en": "Many outputs (emails, summaries) do not have a single answer. An LLM judge evaluates them with an explicit rubric (relevance, accuracy against the data, tone, compliance)."
       },
       {
-       "it": "I bias dei giudici LLM ([EXP] competenza propria: le fonti del corso non li elencano; solo il bias di posizione è richiamato da uno studio citato da Google):\n- preferenza per le risposte più lunghe;\n- influenza dell'ordine di presentazione (bias di posizione);\n- possibile preferenza per testi simili ai propri.",
-       "en": "Biases of LLM judges ([EXP] own expertise: the course sources do not list them; only position bias is referenced, through a study cited by Google):\n- preference for longer answers;\n- influence of the order of presentation (position bias);\n- possible preference for texts similar to their own."
+       "it": "I bias dei giudici LLM ([EXP] competenza propria: le fonti del corso non li elencano; solo il bias di posizione è richiamato da uno studio citato in una guida di settore):\n- preferenza per le risposte più lunghe;\n- influenza dell'ordine di presentazione (bias di posizione);\n- possibile preferenza per testi simili ai propri.",
+       "en": "Biases of LLM judges ([EXP] own expertise: the course sources do not list them; only position bias is referenced, through a study cited in an industry guide):\n- preference for longer answers;\n- influence of the order of presentation (position bias);\n- possible preference for texts similar to their own."
       },
       {
        "it": "Le mitigazioni:\n- criteri verificabili;\n- doppia valutazione con ordine invertito ([EXP]);\n- calibrazione su un campione giudicato da persone.",
@@ -40936,8 +40936,8 @@
        "en": "Separate environments: development, test, production, each with its own data and credentials."
       },
       {
-       "it": "Versionamento di istruzioni, modello, strumenti e configurazioni. Ogni risultato deve essere riconducibile a una versione.",
-       "en": "Versioning of instructions, model, tools and configurations. Every result must be traceable to a version."
+       "it": "Versionamento di istruzioni, modello e suoi settaggi/parametri (es. temperatura), strumenti, configurazioni e dati (documenti, esempi, set di valutazione). Ogni risultato deve essere riconducibile a una versione.",
+       "en": "Versioning of instructions, the model and its settings/parameters (e.g. temperature), tools, configurations and data (documents, examples, evaluation sets). Every result must be traceable to a version."
       },
       {
        "it": "Rilascio graduale (canary: si parte dall'1% degli utenti e si sale per gradi), monitoraggio, ritorno rapido alla versione precedente (rollback).",
@@ -40948,8 +40948,8 @@
        "en": "Reliability: handling errors and timeouts, rate limits of outside services, queues."
       },
       {
-       "it": "Il whitepaper Google del giorno 5 è dedicato al passaggio dal prototipo alla produzione.",
-       "en": "Google's day 5 whitepaper is devoted to the move from prototype to production."
+       "it": "Una delle guide di riferimento del corso è dedicata al passaggio dal prototipo alla produzione.",
+       "en": "One of the course's reference guides is devoted to the move from prototype to production."
       }
      ],
      "animazione": {
