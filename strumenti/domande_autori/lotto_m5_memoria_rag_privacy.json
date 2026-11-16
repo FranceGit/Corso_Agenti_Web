@@ -1,0 +1,195 @@
+[
+ {
+  "id": "DA5.3-4",
+  "origine": "autori",
+  "pillola": "P5.3",
+  "concetti": ["C47"],
+  "concetto_principale": "C47",
+  "segmento_aiuto": "consolidamento",
+  "striscia": "diagnosi",
+  "livello1": {
+   "domanda": {"it": "Una cliente aveva detto «scrivetemi per email»; un mese dopo ha detto «ora chiamatemi al telefono». Da allora l'agente a volte le scrive e a volte la chiama. Qual è il guasto più probabile?", "en": "A customer had said «write to me by email»; a month later she said «now call me on the phone». Since then the agent sometimes writes and sometimes calls. What is the most likely fault?"},
+   "opzioni": [
+    {"id": "A", "testo": {"it": "Manca il consolidamento: le due card restano attive insieme", "en": "Consolidation is missing: the two cards stay active together"}, "corretta": true, "tipo_distrattore": null, "spiegazione": {"it": "Il fatto nuovo non ha reso «superato» quello vecchio: la memoria si contraddice e l'agente alterna i canali.", "en": "The new fact did not make the old one «outdated»: memory contradicts itself and the agent switches channels."}},
+    {"id": "B", "testo": {"it": "L'estrazione ha perso la frase in cui la cliente chiede il telefono", "en": "Extraction lost the sentence where the customer asks for the phone"}, "corretta": false, "tipo_distrattore": "quasi", "spiegazione": {"it": "Se l'avesse persa, l'agente non la chiamerebbe mai: invece a volte la chiama, quindi il ricordo c'è.", "en": "If it had lost it, the agent would never call her: instead it sometimes does, so the memory is there."}},
+    {"id": "C", "testo": {"it": "Il recupero pesa troppo l'importanza dei ricordi vecchi, mai aggiornati nel tempo", "en": "Retrieval gives too much weight to the importance of old memories, never updated over time"}, "corretta": false, "tipo_distrattore": "quasi", "spiegazione": {"it": "Il recupero sceglie tra ciò che trova: il guasto è a monte, nelle due card entrambe valide.", "en": "Retrieval chooses among what it finds: the fault is upstream, in the two cards that are both valid."}},
+    {"id": "D", "testo": {"it": "Il modello è troppo piccolo per ricordare due canali diversi", "en": "The model is too small to remember two different channels"}, "corretta": false, "tipo_distrattore": "poco", "spiegazione": {"it": "Il modello non ricorda nulla tra una chiamata e l'altra: i ricordi stanno nella memoria, non nel modello.", "en": "The model remembers nothing between calls: memories live in the memory store, not in the model."}},
+    {"id": "E", "testo": {"it": "La cliente ha dato due risposte, quindi è giusto usarle tutte e due", "en": "The customer gave two answers, so it is right to use both"}, "corretta": false, "tipo_distrattore": "errata", "spiegazione": {"it": "La seconda frase cambia la prima: vale la preferenza più recente.", "en": "The second sentence changes the first: the most recent preference counts."}}
+   ],
+   "perche": {"it": "Senza consolidamento un fatto nuovo non sostituisce quello vecchio: la memoria diventa un registro pieno di contraddizioni.", "en": "Without consolidation a new fact does not replace the old one: memory becomes a log full of contradictions."}
+  },
+  "livello2": {
+   "tipo": "diagnosi",
+   "domanda": {"it": "Quale correzione risolve il problema alla radice?", "en": "Which fix solves the problem at the root?"},
+   "opzioni": [
+    {"id": "a", "testo": {"it": "Confrontare ogni fatto nuovo con i ricordi simili e segnare superato il vecchio", "en": "Compare every new fact with similar memories and mark the old one as outdated"}, "corretta": true, "tipo_distrattore": null, "spiegazione": {"it": "È il consolidamento: la card «email» resta, con la data, ma come superata.", "en": "That is consolidation: the «email» card stays, with its date, but as outdated."}},
+    {"id": "b", "testo": {"it": "Cancellare ogni mese tutti i ricordi sul canale di contatto, per sicurezza", "en": "Delete all memories about the contact channel every month, to be safe"}, "corretta": false, "tipo_distrattore": "quasi", "spiegazione": {"it": "Toglie il conflitto per un po', ma butta anche il ricordo giusto e il problema torna.", "en": "It removes the conflict for a while, but also throws away the right memory and the problem comes back."}},
+    {"id": "c", "testo": {"it": "Chiedere alla cliente il canale preferito all'inizio di ogni chiamata, per sempre", "en": "Ask the customer for her preferred channel at the start of every call, forever"}, "corretta": false, "tipo_distrattore": "quasi", "spiegazione": {"it": "Funziona, ma rinuncia alla memoria e annoia la cliente: la memoria serve proprio a non chiedere di nuovo.", "en": "It works, but gives up on memory and annoys the customer: memory exists precisely to avoid asking again."}},
+    {"id": "d", "testo": {"it": "Usare un modello più grande con una finestra di contesto più lunga", "en": "Use a bigger model with a longer context window"}, "corretta": false, "tipo_distrattore": "poco", "spiegazione": {"it": "Due ricordi opposti restano opposti anche in un contesto più grande.", "en": "Two opposite memories stay opposite even in a bigger context."}},
+    {"id": "e", "testo": {"it": "Salvare la trascrizione completa di ogni chiamata al posto dei ricordi", "en": "Save the full transcript of every call instead of memories"}, "corretta": false, "tipo_distrattore": "errata", "spiegazione": {"it": "Un ricordo è un'informazione estratta, non il dialogo grezzo: la trascrizione contiene ancora entrambe le frasi.", "en": "A memory is extracted information, not the raw dialogue: the transcript still contains both sentences."}}
+   ],
+   "perche": {"it": "Il consolidamento confronta il nuovo con l'esistente e aggiorna, crea o invalida: così resta un solo canale valido.", "en": "Consolidation compares the new with what exists and updates, creates or invalidates: so only one valid channel remains."}
+  }
+ },
+ {
+  "id": "DA5.3-5",
+  "origine": "autori",
+  "pillola": "P5.3",
+  "concetti": ["C48"],
+  "concetto_principale": "C48",
+  "segmento_aiuto": "cassetti",
+  "striscia": "diagnosi",
+  "livello1": {
+   "domanda": {"it": "L'agente ricorda bene preferenze e budget di ogni cliente, ma prepara sempre i preventivi saltando l'approvazione del responsabile. Che tipo di memoria gli manca?", "en": "The agent remembers each customer's preferences and budget well, but always prepares quotes skipping the manager's approval. What kind of memory is it missing?"},
+   "opzioni": [
+    {"id": "A", "testo": {"it": "La memoria procedurale", "en": "Procedural memory"}, "corretta": true, "tipo_distrattore": null, "spiegazione": {"it": "Gli manca il «sapere come»: la sequenza approvata dei passi del preventivo.", "en": "It lacks «knowing how»: the approved sequence of steps for a quote."}},
+    {"id": "B", "testo": {"it": "La memoria dichiarativa", "en": "Declarative memory"}, "corretta": false, "tipo_distrattore": "quasi", "spiegazione": {"it": "Quella c'è già: preferenze e budget sono fatti, cioè memoria dichiarativa.", "en": "That is already there: preferences and budget are facts, that is declarative memory."}},
+    {"id": "C", "testo": {"it": "La memoria della sessione", "en": "Session memory"}, "corretta": false, "tipo_distrattore": "quasi", "spiegazione": {"it": "La sessione vale per una sola conversazione: la procedura deve durare oltre.", "en": "A session lasts one conversation only: the procedure has to last beyond it."}},
+    {"id": "D", "testo": {"it": "Una finestra più lunga", "en": "A longer window"}, "corretta": false, "tipo_distrattore": "poco", "spiegazione": {"it": "Più spazio nel contesto non insegna una procedura che nessuno ha conservato.", "en": "More room in the context does not teach a procedure nobody has stored."}},
+    {"id": "E", "testo": {"it": "Il listino aggiornato", "en": "The updated price list"}, "corretta": false, "tipo_distrattore": "poco", "spiegazione": {"it": "Il listino dà i prezzi, non dice chi deve approvare.", "en": "The price list gives prices, it does not say who must approve."}},
+    {"id": "F", "testo": {"it": "La cache delle risposte", "en": "The answer cache"}, "corretta": false, "tipo_distrattore": "errata", "spiegazione": {"it": "La cache riusa risposte già date: non contiene procedure.", "en": "The cache reuses answers already given: it holds no procedures."}},
+    {"id": "G", "testo": {"it": "Nessuna: va riaddestrato", "en": "None: it must be retrained"}, "corretta": false, "tipo_distrattore": "errata", "spiegazione": {"it": "La memoria procedurale serve proprio ad adattarsi senza riaddestrare il modello.", "en": "Procedural memory exists precisely to adapt without retraining the model."}}
+   ],
+   "perche": {"it": "La memoria dichiarativa sa cosa (fatti); quella procedurale sa come (procedure). Qui manca il come.", "en": "Declarative memory knows what (facts); procedural memory knows how (procedures). Here the how is missing."}
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {"it": "Perché proprio quella memoria risolve il problema?", "en": "Why does exactly that memory solve the problem?"},
+   "opzioni": [
+    {"id": "a", "testo": {"it": "Conserva il «come si fa»: i passi approvati di un compito", "en": "It keeps the «how to»: the approved steps of a task"}, "corretta": true, "tipo_distrattore": null, "spiegazione": {"it": "Listino, sconto approvato, firma del responsabile: è una procedura da seguire ogni volta.", "en": "Price list, approved discount, manager's signature: it is a procedure to follow every time."}},
+    {"id": "b", "testo": {"it": "Conserva i fatti sul cliente, come budget e preferenze di contatto", "en": "It keeps facts about the customer, such as budget and contact preferences"}, "corretta": false, "tipo_distrattore": "quasi", "spiegazione": {"it": "Questa è la memoria dichiarativa, che l'agente ha già.", "en": "This is declarative memory, which the agent already has."}},
+    {"id": "c", "testo": {"it": "Riaddestra ogni notte il modello sulle procedure aziendali, in automatico", "en": "It retrains the model on company procedures every night, automatically"}, "corretta": false, "tipo_distrattore": "quasi", "spiegazione": {"it": "La memoria procedurale è un adattamento rapido senza riaddestrare: il fine-tuning è un'altra cosa.", "en": "Procedural memory is fast adaptation without retraining: fine-tuning is something else."}},
+    {"id": "d", "testo": {"it": "Rende le risposte più brevi e quindi più economiche", "en": "It makes answers shorter and therefore cheaper"}, "corretta": false, "tipo_distrattore": "poco", "spiegazione": {"it": "Il problema non è il costo, è un passo saltato.", "en": "The problem is not cost, it is a skipped step."}},
+    {"id": "e", "testo": {"it": "Ricorda tutte le conversazioni parola per parola", "en": "It remembers every conversation word for word"}, "corretta": false, "tipo_distrattore": "errata", "spiegazione": {"it": "Nessuna memoria utile è il log completo: è una selezione curata.", "en": "No useful memory is the full log: it is a curated selection."}}
+   ],
+   "perche": {"it": "La memoria procedurale conserva come svolgere un compito, per esempio la procedura approvata per i preventivi.", "en": "Procedural memory keeps how to carry out a task, for example the approved procedure for quotes."}
+  }
+ },
+ {
+  "id": "DA5.4-4",
+  "origine": "autori",
+  "pillola": "P5.4",
+  "concetti": ["C49", "C50"],
+  "concetto_principale": "C49",
+  "segmento_aiuto": "codici",
+  "striscia": "diagnosi",
+  "livello1": {
+   "domanda": {"it": "Un cliente chiede «quando scade il contratto CT-2025-0147?». Il RAG risponde sicuro con la data del contratto CT-2025-0174, che è di un altro cliente. Perché succede?", "en": "A customer asks «when does contract CT-2025-0147 expire?». RAG confidently answers with the date of contract CT-2025-0174, which belongs to another customer. Why does this happen?"},
+   "opzioni": [
+    {"id": "A", "testo": {"it": "Per gli embedding i due testi sono quasi uguali: il codice pesa poco sul significato e vince la porzione più vicina", "en": "For embeddings the two texts are almost the same: the code weighs little on meaning and the closest piece wins"}, "corretta": true, "tipo_distrattore": null, "spiegazione": {"it": "Gli embedding sono deboli su codici e ID: trovano testi vicini per significato, non per codice.", "en": "Embeddings are weak on codes and IDs: they find texts close in meaning, not in code."}},
+    {"id": "B", "testo": {"it": "Il database vettoriale contiene troppe porzioni e la ricerca approssimata sbaglia più o meno una volta su due", "en": "The vector database holds too many pieces and approximate search gets it wrong about one time in two"}, "corretta": false, "tipo_distrattore": "quasi", "spiegazione": {"it": "La ricerca approssimata ha un piccolo margine d'errore, non uno su due: qui la porzione sbagliata è davvero la più vicina.", "en": "Approximate search has a small error margin, not one in two: here the wrong piece really is the closest."}},
+    {"id": "C", "testo": {"it": "Le porzioni sono troppo grandi: ogni chunk mette insieme molti contratti diversi e il modello ne sceglie uno a caso tra quelli", "en": "The pieces are too big: each chunk puts many different contracts together and the model picks one at random"}, "corretta": false, "tipo_distrattore": "quasi", "spiegazione": {"it": "Qui ogni contratto ha la sua porzione: il problema è il codice simile, non la dimensione.", "en": "Here each contract has its own piece: the problem is the similar code, not the size."}},
+    {"id": "D", "testo": {"it": "Il modello ha inventato la data, perché nei documenti aziendali non c'era nessun contratto", "en": "The model invented the date, because there was no contract in the company documents"}, "corretta": false, "tipo_distrattore": "errata", "spiegazione": {"it": "La data esiste davvero, ma è di un altro contratto: è un recupero sbagliato, non un'invenzione.", "en": "The date really exists, but belongs to another contract: it is a wrong retrieval, not an invention."}}
+   ],
+   "perche": {"it": "La ricerca per significato confonde codici simili: due contratti con lo stesso testo intorno finiscono quasi nello stesso punto.", "en": "Search by meaning confuses similar codes: two contracts with the same surrounding text end up almost in the same spot."}
+  },
+  "livello2": {
+   "tipo": "diagnosi",
+   "domanda": {"it": "Quale rimedio funziona?", "en": "Which remedy works?"},
+   "opzioni": [
+    {"id": "a", "testo": {"it": "Ricerca ibrida: il codice esatto fa da filtro, poi conta il significato", "en": "Hybrid search: the exact code works as a filter, then meaning counts"}, "corretta": true, "tipo_distrattore": null, "spiegazione": {"it": "Unire significato e parola esatta porta in cima il contratto con il codice giusto.", "en": "Combining meaning and the exact word brings the contract with the right code to the top."}},
+    {"id": "b", "testo": {"it": "Alzare k a 20 porzioni, così il contratto giusto entra di sicuro", "en": "Raise k to 20 pieces, so the right contract surely gets in"}, "corretta": false, "tipo_distrattore": "quasi", "spiegazione": {"it": "Entra, ma insieme a molto rumore, e quello sbagliato resta il primo.", "en": "It gets in, but with a lot of noise, and the wrong one is still first."}},
+    {"id": "c", "testo": {"it": "Riordinare i risultati per tema, tenendo solo le porzioni che parlano di contratti", "en": "Re-rank the results by topic, keeping only the pieces about contracts"}, "corretta": false, "tipo_distrattore": "quasi", "spiegazione": {"it": "Entrambi i contratti parlano di contratti: il riordino per tema non li separa.", "en": "Both contracts are about contracts: re-ranking by topic does not separate them."}},
+    {"id": "d", "testo": {"it": "Togliere i contratti dall'indice e farli ricordare al modello", "en": "Remove the contracts from the index and let the model remember them"}, "corretta": false, "tipo_distrattore": "poco", "spiegazione": {"it": "Il modello non impara durante l'uso: senza documenti risponderebbe a caso.", "en": "The model does not learn during use: without documents it would answer at random."}},
+    {"id": "e", "testo": {"it": "Trasformare la domanda con un modello diverso da quello dei documenti", "en": "Turn the question into a vector with a model different from the documents' one"}, "corretta": false, "tipo_distrattore": "errata", "spiegazione": {"it": "Domanda e documenti vanno trasformati con lo stesso modello: embedding di modelli diversi non si confrontano.", "en": "Question and documents must be turned into vectors with the same model: embeddings from different models cannot be compared."}}
+   ],
+   "perche": {"it": "Per codici, SKU e numeri d'ordine serve la ricerca ibrida: significato più parola esatta.", "en": "For codes, SKUs and order numbers you need hybrid search: meaning plus the exact word."}
+  }
+ },
+ {
+  "id": "DA5.4-5",
+  "origine": "autori",
+  "pillola": "P5.4",
+  "concetti": ["C50"],
+  "concetto_principale": "C50",
+  "segmento_aiuto": "non_so",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {"it": "Quale di questi compiti NON è un lavoro per il RAG di un agente commerciale?", "en": "Which of these tasks is NOT a job for a sales agent's RAG?"},
+   "opzioni": [
+    {"id": "A", "testo": {"it": "Ricordare che la cliente Anna Riva ora preferisce il telefono", "en": "Remembering that customer Anna Riva now prefers the phone"}, "corretta": true, "tipo_distrattore": null, "spiegazione": {"it": "È un fatto su una singola cliente, appreso parlando con lei: è un lavoro per la memoria.", "en": "It is a fact about a single customer, learned by talking with her: it is a job for memory."}},
+    {"id": "B", "testo": {"it": "Rispondere su listini e condizioni, citando le porzioni usate", "en": "Answering about price lists and terms, citing the pieces used"}, "corretta": false, "tipo_distrattore": "errata", "spiegazione": {"it": "È l'uso tipico del RAG: fatti dai documenti, con le fonti.", "en": "It is the typical use of RAG: facts from documents, with sources."}},
+    {"id": "C", "testo": {"it": "Trovare nelle FAQ la risposta anche se il cliente usa altre parole", "en": "Finding the answer in the FAQs even if the customer uses other words"}, "corretta": false, "tipo_distrattore": "quasi", "spiegazione": {"it": "La ricerca per significato trova i sinonimi: è proprio il punto forte del RAG.", "en": "Search by meaning finds synonyms: it is precisely RAG's strength."}},
+    {"id": "D", "testo": {"it": "Dire «non lo so» quando nei documenti l'informazione non c'è", "en": "Saying «I don't know» when the information is not in the documents"}, "corretta": false, "tipo_distrattore": "quasi", "spiegazione": {"it": "Sembra un fallimento, ma è il comportamento giusto di un RAG onesto.", "en": "It looks like a failure, but it is the right behaviour of an honest RAG."}},
+    {"id": "E", "testo": {"it": "Recuperare la clausola di disdetta dal contratto prima di rispondere", "en": "Retrieving the cancellation clause from the contract before answering"}, "corretta": false, "tipo_distrattore": "poco", "spiegazione": {"it": "Cercare in un documento e poi rispondere è esattamente il RAG.", "en": "Searching a document and then answering is exactly RAG."}}
+   ],
+   "perche": {"it": "Il RAG rende l'agente esperto dei fatti nei documenti, uguali per tutti; la memoria lo rende esperto del singolo cliente.", "en": "RAG makes the agent an expert on the facts in documents, the same for everyone; memory makes it an expert on the single customer."}
+  },
+  "livello2": {
+   "tipo": "contro-esempio",
+   "domanda": {"it": "Perché quel compito spetta alla memoria e non al RAG?", "en": "Why does that task belong to memory and not to RAG?"},
+   "opzioni": [
+    {"id": "a", "testo": {"it": "È un fatto su una sola cliente, appreso dalle conversazioni", "en": "It is a fact about one customer, learned from conversations"}, "corretta": true, "tipo_distrattore": null, "spiegazione": {"it": "La memoria nasce dal dialogo con l'utente ed è isolata per cliente; il RAG da una base documentale comune.", "en": "Memory comes from dialogue with the user and is isolated per customer; RAG from a shared document base."}},
+    {"id": "b", "testo": {"it": "Il RAG non sa leggere i dati che arrivano dal CRM aziendale", "en": "RAG cannot read data coming from the company CRM"}, "corretta": false, "tipo_distrattore": "quasi", "spiegazione": {"it": "Il RAG può indicizzare documenti di ogni tipo: la differenza è il contenuto, non il formato.", "en": "RAG can index all kinds of documents: the difference is the content, not the format."}},
+    {"id": "c", "testo": {"it": "Le preferenze cambiano, mentre i documenti del RAG non vanno mai aggiornati", "en": "Preferences change, while RAG documents never need updating"}, "corretta": false, "tipo_distrattore": "quasi", "spiegazione": {"it": "Anche i documenti invecchiano: un listino vecchio nell'indice dà prezzi sbagliati.", "en": "Documents age too: an old price list in the index gives wrong prices."}},
+    {"id": "d", "testo": {"it": "Il RAG funziona solo con documenti in formato PDF", "en": "RAG only works with PDF documents"}, "corretta": false, "tipo_distrattore": "poco", "spiegazione": {"it": "Il formato non c'entra: si indicizzano testi di ogni tipo.", "en": "Format has nothing to do with it: texts of any kind are indexed."}},
+    {"id": "e", "testo": {"it": "Memoria e RAG sono la stessa cosa con due nomi diversi", "en": "Memory and RAG are the same thing with two different names"}, "corretta": false, "tipo_distrattore": "errata", "spiegazione": {"it": "La tecnica di recupero può somigliare, ma cambiano contenuto, scrittura e isolamento.", "en": "The retrieval technique may look alike, but content, writing and isolation differ."}}
+   ],
+   "perche": {"it": "RAG: fatti uguali per tutti, da documenti. Memoria: fatti su un utente, dalle interazioni, isolati per cliente.", "en": "RAG: facts that are the same for everyone, from documents. Memory: facts about one user, from interactions, isolated per customer."}
+  }
+ },
+ {
+  "id": "DA5.5-4",
+  "origine": "autori",
+  "pillola": "P5.5",
+  "concetti": ["C51"],
+  "concetto_principale": "C51",
+  "segmento_aiuto": "oblio",
+  "striscia": "diagnosi",
+  "livello1": {
+   "domanda": {"it": "Marco chiede di cancellare i suoi dati. Il team svuota la memoria dell'agente, ma una settimana dopo un collega trova ancora il suo cellulare con una ricerca. Dove sta il problema?", "en": "Marco asks for his data to be deleted. The team empties the agent's memory, but a week later a colleague still finds his mobile number with a search. Where is the problem?"},
+   "opzioni": [
+    {"id": "A", "testo": {"it": "La cancellazione non ha toccato le altre copie: log, cache, indice, riassunti", "en": "The deletion did not touch the other copies: logs, cache, index, summaries"}, "corretta": true, "tipo_distrattore": null, "spiegazione": {"it": "Il dato si era copiato in più posti: la richiesta vale per tutte le copie.", "en": "The data had been copied to several places: the request applies to every copy."}},
+    {"id": "B", "testo": {"it": "Il collega ha cercato nella memoria prima che la cancellazione finisse", "en": "The colleague searched the memory before the deletion finished"}, "corretta": false, "tipo_distrattore": "quasi", "spiegazione": {"it": "È passata una settimana: il numero arriva da un altro contenitore, non dalla memoria.", "en": "A week went by: the number comes from another container, not from the memory."}},
+    {"id": "C", "testo": {"it": "La memoria «ricorda per sempre», quindi una cancellazione non può mai funzionare davvero", "en": "Memory «remembers permanently», so a deletion can never really work"}, "corretta": false, "tipo_distrattore": "quasi", "spiegazione": {"it": "«Ricorda per sempre» è una frase promozionale: i ricordi si possono e si devono cancellare.", "en": "«Remembers permanently» is a promotional phrase: memories can and must be deleted."}},
+    {"id": "D", "testo": {"it": "Il numero era scritto male e il sistema non l'ha riconosciuto come dato", "en": "The number was written wrongly and the system did not recognise it as data"}, "corretta": false, "tipo_distrattore": "poco", "spiegazione": {"it": "Il collega lo ha trovato senza problemi: è stato salvato, e in più posti.", "en": "The colleague found it easily: it was saved, and in several places."}},
+    {"id": "E", "testo": {"it": "È normale: la legge chiede di cancellare solo i dati nella memoria", "en": "It is normal: the law only asks to delete the data in the memory"}, "corretta": false, "tipo_distrattore": "errata", "spiegazione": {"it": "La cancellazione riguarda i dati della persona, ovunque si trovino.", "en": "Deletion concerns the person's data, wherever it is."}}
+   ],
+   "perche": {"it": "Nei sistemi con agenti un dato si moltiplica: cancellarlo solo dalla memoria lascia accese le altre copie.", "en": "In agent systems data multiplies: deleting it only from memory leaves the other copies alive."}
+  },
+  "livello2": {
+   "tipo": "diagnosi",
+   "domanda": {"it": "Cosa avrebbe evitato il problema fin dall'inizio?", "en": "What would have prevented the problem from the start?"},
+   "opzioni": [
+    {"id": "a", "testo": {"it": "Oscurare il cellulare prima di salvarlo e sapere in quali posti finisce ogni dato", "en": "Redact the mobile number before saving it and know where each piece of data ends up"}, "corretta": true, "tipo_distrattore": null, "spiegazione": {"it": "Minimizzazione e mappa delle copie: meno dati salvati, cancellazione completa possibile.", "en": "Minimisation and a map of the copies: less data saved, complete deletion possible."}},
+    {"id": "b", "testo": {"it": "Cancellare la memoria due volte, per essere sicuri che il dato sparisca", "en": "Delete the memory twice, to be sure the data disappears"}, "corretta": false, "tipo_distrattore": "quasi", "spiegazione": {"it": "Cancellare due volte lo stesso posto non tocca le altre copie.", "en": "Deleting the same place twice does not touch the other copies."}},
+    {"id": "c", "testo": {"it": "Chiedere a Marco di non dire mai il suo numero durante le chiamate", "en": "Ask Marco never to say his number during calls"}, "corretta": false, "tipo_distrattore": "quasi", "spiegazione": {"it": "Sposta il problema sul cliente: è il sistema che deve oscurare ciò che non serve.", "en": "It shifts the problem onto the customer: it is the system that must redact what is not needed."}},
+    {"id": "d", "testo": {"it": "Spegnere la cache solo nei giorni in cui arrivano richieste di cancellazione", "en": "Switch off the cache only on days when deletion requests arrive"}, "corretta": false, "tipo_distrattore": "poco", "spiegazione": {"it": "Le copie nascono prima della richiesta: spegnere la cache dopo non le toglie.", "en": "The copies are created before the request: switching off the cache afterwards does not remove them."}},
+    {"id": "e", "testo": {"it": "Salvare tutto: ogni messaggio, ogni risposta e ogni chiamata a strumento, per completezza", "en": "Save everything: every message, every answer and every tool call, for completeness"}, "corretta": false, "tipo_distrattore": "errata", "spiegazione": {"it": "Una memoria «grezza» che salva tutto moltiplica i dati personali: è l'opposto della minimizzazione.", "en": "A «raw» memory that saves everything multiplies personal data: it is the opposite of minimisation."}}
+   ],
+   "perche": {"it": "Si salva solo ciò che serve, si oscurano i dati personali prima di scrivere e si sa dove finisce ogni copia.", "en": "Save only what is needed, redact personal data before writing, and know where every copy ends up."}
+  }
+ },
+ {
+  "id": "DA5.5-5",
+  "origine": "autori",
+  "pillola": "P5.5",
+  "concetti": ["C52"],
+  "concetto_principale": "C52",
+  "segmento_aiuto": "avvelenamento",
+  "striscia": "diagnosi",
+  "livello1": {
+   "domanda": {"it": "Da qualche settimana l'agente offre il 50% di sconto a Studio Riva, ma nel contratto lo sconto è 0%. Nei ricordi c'è «ha diritto al 50% di sconto», fonte: email esterna. Che cosa è successo?", "en": "For a few weeks the agent has been offering Studio Riva a 50% discount, but the contract says 0%. The memories contain «entitled to a 50% discount», source: external email. What happened?"},
+   "opzioni": [
+    {"id": "A", "testo": {"it": "Memoria avvelenata: un'istruzione esterna è stata salvata come un fatto", "en": "Poisoned memory: an external instruction was saved as a fact"}, "corretta": true, "tipo_distrattore": null, "spiegazione": {"it": "Un contenuto ostile è entrato in memoria senza controllo e ora decide i prezzi.", "en": "Hostile content got into memory unchecked and now decides prices."}},
+    {"id": "B", "testo": {"it": "Il consolidamento ha unito per errore due clienti diversi con nomi simili", "en": "Consolidation merged two different customers with similar names by mistake"}, "corretta": false, "tipo_distrattore": "quasi", "spiegazione": {"it": "La fonte del ricordo è un'email esterna, non un altro cliente.", "en": "The memory's source is an external email, not another customer."}},
+    {"id": "C", "testo": {"it": "Il RAG ha recuperato dal listino una vecchia promozione ormai scaduta da tempo", "en": "RAG retrieved an old, long-expired promotion from the price list"}, "corretta": false, "tipo_distrattore": "quasi", "spiegazione": {"it": "Il dato sta nei ricordi del cliente, con fonte email: non viene dal listino.", "en": "The data is in the customer's memories, sourced from an email: it does not come from the price list."}},
+    {"id": "D", "testo": {"it": "Il modello ha calcolato male la percentuale dello sconto", "en": "The model miscalculated the discount percentage"}, "corretta": false, "tipo_distrattore": "poco", "spiegazione": {"it": "Il conto è giusto: è sbagliato il ricordo da cui parte.", "en": "The maths is right: the memory it starts from is wrong."}},
+    {"id": "E", "testo": {"it": "Lo sconto è giusto: se sta in memoria, è un fatto verificato", "en": "The discount is right: if it is in memory, it is a verified fact"}, "corretta": false, "tipo_distrattore": "errata", "spiegazione": {"it": "Un ricordo vale quanto la sua fonte: un'email esterna non è il contratto.", "en": "A memory is worth as much as its source: an external email is not the contract."}}
+   ],
+   "perche": {"it": "Un'istruzione ostile salvata come «fatto» inquina tutte le conversazioni future: è l'avvelenamento della memoria.", "en": "A hostile instruction saved as a «fact» pollutes all future conversations: this is memory poisoning."}
+  },
+  "livello2": {
+   "tipo": "diagnosi",
+   "domanda": {"it": "Quale difesa ferma questo errore?", "en": "Which defence stops this error?"},
+   "opzioni": [
+    {"id": "a", "testo": {"it": "Verificare prima di salvare e registrare la fonte di ogni ricordo", "en": "Check before saving and record the source of every memory"}, "corretta": true, "tipo_distrattore": null, "spiegazione": {"it": "Con verifica e provenienza l'email viene scartata come anomalia e non diventa un fatto.", "en": "With checks and provenance the email is discarded as an anomaly and does not become a fact."}},
+    {"id": "b", "testo": {"it": "Isolare l'archivio di Studio Riva da quello degli altri clienti", "en": "Isolate Studio Riva's archive from the other customers' ones"}, "corretta": false, "tipo_distrattore": "quasi", "spiegazione": {"it": "L'isolamento serve contro le fughe tra clienti; il veleno qui è entrato nell'archivio giusto.", "en": "Isolation protects against leaks between customers; here the poison got into the right archive."}},
+    {"id": "c", "testo": {"it": "Dare più peso ai ricordi più recenti quando l'agente prepara i preventivi", "en": "Give more weight to the most recent memories when the agent prepares quotes"}, "corretta": false, "tipo_distrattore": "quasi", "spiegazione": {"it": "Il ricordo falso è recente: pesarlo di più peggiora le cose.", "en": "The false memory is recent: weighting it more makes things worse."}},
+    {"id": "d", "testo": {"it": "Scrivere nel prompt di non fare mai sconti troppo grandi, per prudenza", "en": "Write in the prompt never to give discounts that are too big, to be careful"}, "corretta": false, "tipo_distrattore": "poco", "spiegazione": {"it": "Un avviso nel prompt non toglie il ricordo falso e non è una difesa affidabile.", "en": "A warning in the prompt does not remove the false memory and is not a reliable defence."}},
+    {"id": "e", "testo": {"it": "Spegnere la memoria per tutti i clienti, per sempre", "en": "Switch off memory for all customers, forever"}, "corretta": false, "tipo_distrattore": "errata", "spiegazione": {"it": "Si perde tutta l'utilità della memoria: basta controllare ciò che entra.", "en": "All the usefulness of memory is lost: it is enough to check what gets in."}}
+   ],
+   "perche": {"it": "Prima di salvare un ricordo si valida l'informazione e se ne traccia la provenienza: così un contenuto ostile non diventa un fatto.", "en": "Before saving a memory the information is validated and its provenance tracked: so hostile content does not become a fact."}
+  }
+ }
+]

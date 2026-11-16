@@ -1,0 +1,90 @@
+[
+ {
+  "id": "DA2.2-1",
+  "origine": "autori",
+  "pillola": "P2.2",
+  "concetti": ["C21"],
+  "concetto_principale": "C21",
+  "segmento_aiuto": "formato",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "L'agente deve registrare nel CRM il canale preferito del lead Ottica Sole. Quale uscita dell'agente si può scrivere nel CRM senza l'aiuto di una persona?",
+    "en": "The agent must record the preferred channel of the lead Ottica Sole in the CRM. Which agent output can be written into the CRM without help from a person?"
+   },
+   "opzioni": [
+    {"id": "A", "testo": {"it": "{\"canale\": \"email\"}, con canale fra email, telefono, visita", "en": "{\"canale\": \"email\"}, with canale among email, phone, visit"}, "corretta": true, "tipo_distrattore": null,
+     "spiegazione": {"it": "Una casella con un nome e un valore preso dall'elenco ammesso: il programma lo legge e lo scrive senza dubbi.", "en": "One field with a name and a value taken from the allowed list: the program reads it and writes it with no doubt."}},
+    {"id": "B", "testo": {"it": "{\"canale\": \"email o forse telefono\"}", "en": "{\"canale\": \"email or maybe phone\"}"}, "corretta": false, "tipo_distrattore": "quasi",
+     "spiegazione": {"it": "Il formato è giusto, ma il valore non è fra quelli ammessi: il cancello di validazione lo blocca.", "en": "The format is right, but the value is not among the allowed ones: the validation gate blocks it."}},
+    {"id": "C", "testo": {"it": "Canale: email (il cliente lo ha detto due volte)", "en": "Channel: email (the customer said it twice)"}, "corretta": false, "tipo_distrattore": "quasi",
+     "spiegazione": {"it": "Una persona la capisce, ma è una frase: il CRM non sa dove finisce il dato e dove comincia il commento.", "en": "A person understands it, but it is a sentence: the CRM does not know where the data ends and the comment begins."}},
+    {"id": "D", "testo": {"it": "Una frase cordiale che riassume tutta la chiamata con il cliente", "en": "A friendly sentence that sums up the whole call with the customer"}, "corretta": false, "tipo_distrattore": "poco",
+     "spiegazione": {"it": "Un riassunto può servire a chi legge, ma non riempie la casella «canale».", "en": "A summary can help the reader, but it does not fill the «channel» field."}},
+    {"id": "E", "testo": {"it": "Nessuna: il CRM capisce da solo le email del cliente", "en": "None: the CRM understands the customer's emails by itself"}, "corretta": false, "tipo_distrattore": "errata",
+     "spiegazione": {"it": "Il CRM non legge le email: ha caselle che aspettano un dato preciso.", "en": "The CRM does not read emails: it has fields waiting for a precise piece of data."}}
+   ],
+   "perche": {"it": "Il CRM accetta solo caselle con un nome e un valore del tipo giusto: per questo l'agente risponde con dati strutturati secondo uno schema.", "en": "The CRM only accepts fields with a name and a value of the right type: that is why the agent answers with structured data that follows a schema."}
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {"it": "Il giorno dopo il CRM aggiunge «WhatsApp» ai canali possibili. Che cosa va cambiato perché l'agente lo possa usare senza essere bloccato?", "en": "The next day the CRM adds «WhatsApp» to the possible channels. What must change so the agent can use it without being blocked?"},
+   "opzioni": [
+    {"id": "a", "testo": {"it": "Lo schema: aggiungere «WhatsApp» ai valori ammessi della casella", "en": "The schema: add «WhatsApp» to the allowed values of the field"}, "corretta": true, "tipo_distrattore": null,
+     "spiegazione": {"it": "Il cancello controlla i valori sullo schema: se lo schema lo prevede, il nuovo valore passa.", "en": "The gate checks values against the schema: if the schema allows it, the new value passes."}},
+    {"id": "b", "testo": {"it": "Solo le istruzioni: basta scrivere all'agente che ora c'è anche WhatsApp", "en": "Only the instructions: just tell the agent that WhatsApp now exists too"}, "corretta": false, "tipo_distrattore": "quasi",
+     "spiegazione": {"it": "L'agente proverebbe a usarlo, ma il cancello, che segue lo schema, lo respingerebbe ogni volta.", "en": "The agent would try to use it, but the gate, which follows the schema, would reject it every time."}},
+    {"id": "c", "testo": {"it": "Il modello: va riaddestrato prima di poter usare la nuova voce", "en": "The model: it must be retrained before it can use the new value"}, "corretta": false, "tipo_distrattore": "poco",
+     "spiegazione": {"it": "Non serve riaddestrare nulla: l'elenco dei valori ammessi sta nello schema, fuori dal modello.", "en": "Nothing needs retraining: the list of allowed values lives in the schema, outside the model."}},
+    {"id": "d", "testo": {"it": "Il formato: meglio tornare a una frase libera, più flessibile", "en": "The format: better go back to a free sentence, which is more flexible"}, "corretta": false, "tipo_distrattore": "poco",
+     "spiegazione": {"it": "La frase libera è flessibile per le persone, ma il CRM torna a non capirla.", "en": "A free sentence is flexible for people, but the CRM goes back to not understanding it."}},
+    {"id": "e", "testo": {"it": "Togliere il cancello, così passa qualunque valore", "en": "Remove the gate, so any value goes through"}, "corretta": false, "tipo_distrattore": "errata",
+     "spiegazione": {"it": "Senza cancello passerebbero anche i valori sbagliati, come «altissima» o «forse».", "en": "Without the gate wrong values would pass too, like «very very high» or «maybe»."}}
+   ],
+   "perche": {"it": "I valori ammessi si decidono nello schema: cambiando lo schema cambia ciò che il cancello lascia passare.", "en": "The allowed values are decided in the schema: changing the schema changes what the gate lets through."}
+  }
+ },
+ {
+  "id": "DA2.2-2",
+  "origine": "autori",
+  "pillola": "P2.2",
+  "concetti": ["C21"],
+  "concetto_principale": "C21",
+  "segmento_aiuto": "cancello",
+  "striscia": "diagnosi",
+  "livello1": {
+   "domanda": {
+    "it": "Ogni mattina nel CRM compaiono lead con il punteggio vuoto, anche se l'agente dice di averli valutati. Nel registro si legge: punteggio = \"settanta\". Qual è la causa più probabile?",
+    "en": "Every morning leads with an empty score show up in the CRM, even though the agent says it scored them. The log reads: score = \"seventy\". What is the most likely cause?"
+   },
+   "opzioni": [
+    {"id": "A", "testo": {"it": "Nessuno controlla prima di scrivere: un valore in lettere arriva al CRM, che non lo accetta come numero", "en": "Nobody checks before writing: a value in words reaches the CRM, which does not accept it as a number"}, "corretta": true, "tipo_distrattore": null,
+     "spiegazione": {"it": "Il dato c'è, ma nel tipo sbagliato. Un cancello di validazione lo avrebbe fermato e rimandato all'agente.", "en": "The data is there, but in the wrong type. A validation gate would have stopped it and sent it back to the agent."}},
+    {"id": "B", "testo": {"it": "Il modello valuta male i lead: serve un modello più grande e molto più preciso nel dare i punteggi ai contatti", "en": "The model scores leads badly: a bigger model is needed, more precise at scoring contacts"}, "corretta": false, "tipo_distrattore": "quasi",
+     "spiegazione": {"it": "Il punteggio, settanta, è stato dato: il problema è come è scritto, non quanto vale.", "en": "The score, seventy, was given: the problem is how it is written, not how much it is worth."}},
+    {"id": "C", "testo": {"it": "Le istruzioni non chiedono il punteggio: basta aggiungere «ricordati di scrivere sempre il punteggio»", "en": "The instructions do not ask for the score: just add «always remember to write the score»"}, "corretta": false, "tipo_distrattore": "quasi",
+     "spiegazione": {"it": "Il registro mostra che il punteggio viene scritto: manca il controllo sul tipo di dato.", "en": "The log shows the score is written: what is missing is the check on the data type."}},
+    {"id": "D", "testo": {"it": "Il CRM è guasto e di notte cancella i punteggi scritti dall'agente il giorno prima", "en": "The CRM is broken and at night it deletes the scores the agent wrote the day before"}, "corretta": false, "tipo_distrattore": "poco",
+     "spiegazione": {"it": "Il registro dice altro: il valore arriva già in lettere, il CRM non lo ha mai accettato.", "en": "The log says otherwise: the value already arrives in words, the CRM never accepted it."}}
+   ],
+   "perche": {"it": "Un valore del tipo sbagliato passa inosservato se nessuno lo confronta con lo schema prima di scriverlo nel CRM.", "en": "A value of the wrong type goes unnoticed if nobody compares it with the schema before writing it into the CRM."}
+  },
+  "livello2": {
+   "tipo": "diagnosi",
+   "domanda": {"it": "Quale correzione evita il problema anche con altri errori di formato, non solo con «settanta»?", "en": "Which fix prevents the problem with other format errors too, not just with «seventy»?"},
+   "opzioni": [
+    {"id": "a", "testo": {"it": "Un cancello che confronta ogni valore con lo schema e rimanda l'errore all'agente", "en": "A gate that compares every value with the schema and sends the error back to the agent"}, "corretta": true, "tipo_distrattore": null,
+     "spiegazione": {"it": "Il cancello ferma qualunque valore fuori schema (lettere, 140, fasce inesistenti) e l'agente corregge.", "en": "The gate stops any value outside the schema (words, 140, non-existent bands) and the agent corrects it."}},
+    {"id": "b", "testo": {"it": "Una frase nelle istruzioni: «scrivi il punteggio solo in cifre, mai in lettere»", "en": "A sentence in the instructions: «write the score in digits only, never in words»"}, "corretta": false, "tipo_distrattore": "quasi",
+     "spiegazione": {"it": "Aiuta, ma non garantisce: il modello può sbagliare lo stesso, e nessuno se ne accorge.", "en": "It helps, but it does not guarantee: the model can still get it wrong, and nobody notices."}},
+    {"id": "c", "testo": {"it": "Un programmino che cambia «settanta» in 70 e lascia passare tutto il resto", "en": "A small program that turns «seventy» into 70 and lets everything else through"}, "corretta": false, "tipo_distrattore": "quasi",
+     "spiegazione": {"it": "Ripara un solo caso: il prossimo errore di formato, per esempio 140, passa lo stesso.", "en": "It fixes one case only: the next format error, for example 140, still goes through."}},
+    {"id": "d", "testo": {"it": "Far rileggere a mano, ogni sera, tutte le schede che l'agente ha scritto nel CRM aziendale", "en": "Have every record the agent wrote in the CRM re-read by hand every evening"}, "corretta": false, "tipo_distrattore": "poco",
+     "spiegazione": {"it": "Scopre gli errori dopo, quando sono già nel CRM, e costa molto lavoro umano.", "en": "It finds the mistakes afterwards, when they are already in the CRM, and it costs a lot of human work."}},
+    {"id": "e", "testo": {"it": "Spegnere i nuovi tentativi, così l'agente smette di scrivere", "en": "Switch off retries, so the agent stops writing"}, "corretta": false, "tipo_distrattore": "errata",
+     "spiegazione": {"it": "Senza cancello i nuovi tentativi non c'entrano: il valore sbagliato verrebbe scritto comunque.", "en": "Without a gate retries make no difference: the wrong value would be written anyway."}}
+   ],
+   "perche": {"it": "La difesa che vale per tutti gli errori di formato è il controllo sullo schema prima di scrivere, con il messaggio d'errore che torna all'agente.", "en": "The defence that works for every format error is the schema check before writing, with the error message going back to the agent."}
+  }
+ }
+]

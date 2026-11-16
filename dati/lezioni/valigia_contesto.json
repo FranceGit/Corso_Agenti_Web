@@ -1,0 +1,168 @@
+{
+ "id": "L_valigia_contesto",
+ "pillola": "P5.1",
+ "componente": "valigia_contesto",
+ "titolo": {"it": "La valigia: scegliere che cosa vede il modello", "en": "The suitcase: choosing what the model sees"},
+ "sottotitolo": {"it": "Prepara la valigia del contesto per rispondere a un cliente: selezionare, riassumere, inserire.", "en": "Pack the context suitcase to answer a customer: select, summarise, insert."},
+ "segmenti": [
+  {
+   "id": "selezionare",
+   "titolo": {"it": "La valigia del modello", "en": "The model's suitcase"},
+   "narrazione": [
+    {"it": "Il modello non ricorda nulla da una chiamata all'altra: sa solo quello che trova nella finestra di contesto, il testo che riceve in quel momento. Il whitepaper di Google la paragona a una valigia: lo spazio è limitato.", "en": "The model remembers nothing from one call to the next: it only knows what it finds in the context window, the text it receives at that moment. Google's whitepaper compares it to a suitcase: space is limited."},
+    {"it": "Il context engineering è il lavoro di selezionare, riassumere e inserire le informazioni giuste a ogni turno: né più né meno di quelle che servono. Se dimentichi il passaporto, il viaggio va male.", "en": "Context engineering is the work of selecting, summarising and inserting the right information at every turn: no more and no less than what is needed. If you forget your passport, the trip goes badly."}
+   ],
+   "prova": {"it": "Metti in valigia il listino e poi la scheda cliente: guarda come cambia la risposta all'Hotel Lago Blu.", "en": "Put the price list in the suitcase, then the customer record: see how the answer to Hotel Lago Blu changes."},
+   "concetti": ["C44"],
+   "stato_animazione": {"oggetti": ["istruzioni", "strumenti", "domanda"], "riassunto": false, "togli_vecchi": false, "strumenti_utili": false, "modo": "contesto", "turno": 1, "obiettivo": false}
+  },
+  {
+   "id": "troppo",
+   "titolo": {"it": "Troppa roba in valigia", "en": "Too much in the suitcase"},
+   "narrazione": [
+    {"it": "Mettere tutto non aiuta. Più testo vuol dire più costo e più attesa; e il modello fa meno attenzione ai dettagli importanti, come se gli oggetti in fondo sbiadissero. Si chiama context rot.", "en": "Putting everything in does not help. More text means more cost and more waiting; and the model pays less attention to the important details, as if the items at the bottom faded. This is called context rot."},
+    {"it": "Oltre il bordo la valigia non si chiude: la chiamata fallisce.", "en": "Past the edge the suitcase will not close: the call fails."}
+   ],
+   "prova": {"it": "Guarda la scheda cliente sbiadita in fondo, poi aggiungi lo storico di 50 messaggi.", "en": "Look at the faded customer record at the bottom, then add the 50-message history."},
+   "concetti": ["C44"],
+   "stato_animazione": {"oggetti": ["istruzioni", "strumenti", "esempi", "scheda", "listino", "ordini", "punteggio", "appunti", "domanda"], "riassunto": false, "togli_vecchi": false, "strumenti_utili": false, "modo": "contesto", "turno": 1, "obiettivo": false}
+  },
+  {
+   "id": "riassumere",
+   "titolo": {"it": "Riassumere e togliere", "en": "Summarise and remove"},
+   "narrazione": [
+    {"it": "Non serve buttare via tutto: si può riassumere. I 50 messaggi diventano una capsula con i fatti utili; dei vecchi risultati degli strumenti resta solo l'ultimo; degli strumenti si caricano solo quelli che servono al compito.", "en": "You do not need to throw everything away: you can summarise. The 50 messages become a capsule with the useful facts; of the old tool results only the latest stays; of the tools, only those needed for the task are loaded."}
+   ],
+   "prova": {"it": "Accendi uno alla volta i tre aiuti e guarda le quattro lancette.", "en": "Switch on the three helpers one at a time and watch the four gauges."},
+   "concetti": ["C44"],
+   "stato_animazione": {"oggetti": ["istruzioni", "strumenti", "esempi", "scheda", "listino", "ordini", "punteggio", "storico", "appunti", "domanda"], "riassunto": false, "togli_vecchi": false, "strumenti_utili": false, "modo": "contesto", "turno": 1, "obiettivo": false}
+  },
+  {
+   "id": "turni",
+   "titolo": {"it": "A ogni turno, una valigia nuova", "en": "A new suitcase at every turn"},
+   "narrazione": [
+    {"it": "Il cliente ora chiede una demo martedì. Con il solo prompt engineering si riscrive il foglio delle istruzioni, ma il resto della valigia resta quello del turno prima: mancano il calendario e lo storico, dove il cliente ha detto che è libero solo il pomeriggio.", "en": "The customer now asks for a demo on Tuesday. With prompt engineering alone you rewrite the instruction sheet, but the rest of the suitcase stays as in the previous turn: the calendar and the history are missing, and in the history the customer said they are free only in the afternoon."},
+    {"it": "Con il context engineering l'orchestrazione rifà la valigia a ogni turno, con quello che serve adesso.", "en": "With context engineering the orchestration repacks the suitcase at every turn, with what is needed now."}
+   ],
+   "prova": {"it": "Passa da «Prompt engineering» a «Context engineering» e confronta la risposta sulla demo.", "en": "Switch from «Prompt engineering» to «Context engineering» and compare the answer about the demo."},
+   "concetti": ["C44"],
+   "stato_animazione": {"oggetti": ["istruzioni", "strumenti", "esempi", "scheda", "listino", "appunti", "domanda"], "riassunto": false, "togli_vecchi": false, "strumenti_utili": true, "modo": "prompt", "turno": 2, "obiettivo": false}
+  },
+  {
+   "id": "decidi",
+   "titolo": {"it": "Decidi tu: prepara la valigia", "en": "You decide: pack the suitcase"},
+   "narrazione": [
+    {"it": "Ora la valigia è vuota e la prepari tu per la domanda sul prezzo. Ogni oggetto occupa spazio: scegli solo quelli che servono davvero.", "en": "Now the suitcase is empty and you pack it for the price question. Every item takes up space: choose only the ones that are really needed."},
+    {"it": "Le famiglie aiutano: la guida dice come lavorare, le prove danno i fatti, la conversazione dice che cosa chiede il cliente adesso.", "en": "The families help: guidance says how to work, evidence gives the facts, the conversation says what the customer is asking now."}
+   ],
+   "prova": {"it": "Ottieni una qualità di almeno 90 usando al massimo il 60% della valigia.", "en": "Get a quality of at least 90 using at most 60% of the suitcase."},
+   "concetti": ["C44"],
+   "stato_animazione": {"oggetti": [], "riassunto": false, "togli_vecchi": false, "strumenti_utili": false, "modo": "contesto", "turno": 1, "obiettivo": true}
+  },
+  {
+   "id": "riassunto",
+   "titolo": {"it": "In tre frasi", "en": "In three sentences"},
+   "narrazione": [
+    {"it": "Il modello sa solo ciò che c'è nella finestra di contesto, che come una valigia ha uno spazio limitato.", "en": "The model only knows what is in the context window, which, like a suitcase, has limited space."},
+    {"it": "Il context engineering seleziona, riassume e inserisce a ogni turno le informazioni giuste: se manca un pezzo la risposta sbaglia, se c'è troppo crescono costo e attesa e l'attenzione cala.", "en": "Context engineering selects, summarises and inserts the right information at every turn: if a piece is missing the answer is wrong, if there is too much, cost and waiting grow and attention drops."},
+    {"it": "Riassunti, risultati vecchi tolti e strumenti caricati solo quando servono tengono la valigia leggera e la risposta giusta.", "en": "Summaries, removing old results and loading tools only when needed keep the suitcase light and the answer right."}
+   ],
+   "concetti": ["C44"],
+   "stato_animazione": {"oggetti": ["istruzioni", "strumenti", "esempi", "scheda", "listino", "appunti", "domanda"], "riassunto": false, "togli_vecchi": false, "strumenti_utili": true, "modo": "contesto", "turno": 1, "obiettivo": false}
+  }
+ ],
+ "scenario": {
+  "capienza": 100,
+  "soglia_rot": 70,
+  "soglia_rumore": 60,
+  "obiettivo": {"qualita_min": 90, "spazio_max": 60},
+  "parametri": {"token_per_unita": 400, "secondi_base": 0.8, "secondi_per_unita": 0.05},
+  "famiglie": {
+   "guida": {"nome": {"it": "GUIDA", "en": "GUIDANCE"}, "colore": "#2563eb"},
+   "prove": {"nome": {"it": "PROVE E DATI", "en": "EVIDENCE"}, "colore": "#16a34a"},
+   "conversazione": {"nome": {"it": "CONVERSAZIONE", "en": "CONVERSATION"}, "colore": "#ea580c"}
+  },
+  "ordine_imballo": ["istruzioni", "strumenti", "esempi", "storico", "appunti", "domanda", "ordini", "punteggio", "listino", "scheda"],
+  "turno2": {"oggetti": ["istruzioni", "strumenti", "esempi", "storico", "appunti", "domanda"]},
+  "oggetti": [
+   {"id": "istruzioni", "famiglia": "guida", "nome": {"it": "Istruzioni", "en": "Instructions"}, "dimensione": 4},
+   {"id": "strumenti", "famiglia": "guida", "nome": {"it": "20 strumenti", "en": "20 tools"}, "dimensione": 30,
+    "ridotto": {"chiave": "strumenti_utili", "dimensione": 3, "nome": {"it": "Solo gli strumenti utili", "en": "Only the useful tools"}}},
+   {"id": "esempi", "famiglia": "guida", "nome": {"it": "2 esempi di risposta", "en": "2 sample answers"}, "dimensione": 6},
+   {"id": "scheda", "famiglia": "prove", "nome": {"it": "Scheda cliente", "en": "Customer record"}, "dimensione": 6},
+   {"id": "listino", "famiglia": "prove", "nome": {"it": "Listino 2026", "en": "2026 price list"}, "dimensione": 8},
+   {"id": "ordini", "famiglia": "prove", "nome": {"it": "Storico ordini", "en": "Order history"}, "dimensione": 18,
+    "ridotto": {"chiave": "togli_vecchi", "dimensione": 4, "nome": {"it": "Solo l'ultimo ordine", "en": "Only the latest order"}}},
+   {"id": "punteggio", "famiglia": "prove", "nome": {"it": "Punteggio del lead", "en": "Lead score"}, "dimensione": 4},
+   {"id": "storico", "famiglia": "conversazione", "nome": {"it": "Storico 50 messaggi", "en": "50-message history"}, "dimensione": 40,
+    "ridotto": {"chiave": "riassunto", "dimensione": 5, "nome": {"it": "Capsula riassunto", "en": "Summary capsule"}}},
+   {"id": "appunti", "famiglia": "conversazione", "nome": {"it": "Blocco appunti", "en": "Scratchpad"}, "dimensione": 3},
+   {"id": "domanda", "famiglia": "conversazione", "nome": {"it": "Domanda del cliente", "en": "Customer's question"}, "nome_turno2": {"it": "Domanda sulla demo", "en": "Question on the demo"}, "dimensione": 2}
+  ],
+  "testi": {
+   "domanda_1": {"it": "Quanto costa il piano annuale per 50 utenti?", "en": "How much is the annual plan for 50 users?"},
+   "domanda_2": {"it": "Possiamo fare una demo martedì?", "en": "Can we do a demo on Tuesday?"},
+   "r_giusta": {"it": "Per 50 utenti il piano annuale costa 12.240 € l'anno: 14.400 € di listino meno lo sconto del 15% previsto dal vostro contratto.", "en": "For 50 users the annual plan costs €12,240 a year: €14,400 list price minus the 15% discount in your contract."},
+   "r_senza_sconto": {"it": "Per 50 utenti il piano annuale costa 14.400 € l'anno.", "en": "For 50 users the annual plan costs €14,400 a year."},
+   "r_non_so": {"it": "Non ho il listino aggiornato: le mando il prezzo esatto entro oggi.", "en": "I do not have the current price list: I will send you the exact price today."},
+   "r_inventato": {"it": "Il piano annuale costa 9.900 € l'anno.", "en": "The annual plan costs €9,900 a year."},
+   "r_senza_domanda": {"it": "Buongiorno! Come posso aiutarla?", "en": "Good morning! How can I help you?"},
+   "r_fallita": {"it": "(Nessuna risposta: la valigia non si chiude e la chiamata al modello fallisce.)", "en": "(No answer: the suitcase will not close and the call to the model fails.)"},
+   "r_demo_giusta": {"it": "Certo! Martedì alle 15 il calendario è libero, e ci aveva detto che il pomeriggio va meglio. Le mando l'invito?", "en": "Of course! On Tuesday at 3 pm the calendar is free, and you told us the afternoon suits you better. Shall I send the invitation?"},
+   "r_demo_mattina": {"it": "Martedì alle 9 c'è posto: le mando l'invito?", "en": "There is a slot on Tuesday at 9 am: shall I send the invitation?"},
+   "r_demo_inventata": {"it": "Le confermo la demo martedì alle 9.", "en": "I confirm the demo on Tuesday at 9 am."},
+   "d_manca_listino": {"it": "Manca il listino: il prezzo non c'è.", "en": "The price list is missing: there is no price."},
+   "d_manca_scheda": {"it": "Manca la scheda cliente: lo sconto del contratto non c'è.", "en": "The customer record is missing: the contract discount is not there."},
+   "d_scheda_sbiadita": {"it": "La scheda cliente è in fondo e sbiadita: lo sconto si perde.", "en": "The customer record is at the bottom and faded: the discount gets lost."},
+   "d_manca_storico": {"it": "Manca lo storico: il cliente aveva detto che è libero solo il pomeriggio.", "en": "The history is missing: the customer had said they are free only in the afternoon."},
+   "d_manca_calendario": {"it": "Manca il calendario: l'agente non controlla l'agenda e inventa l'orario.", "en": "The calendar is missing: the agent does not check the schedule and makes up the time."},
+   "d_manca_istruzioni": {"it": "Senza istruzioni tono e formato vanno a caso.", "en": "Without instructions, tone and format are random."},
+   "d_mancano_esempi": {"it": "Senza esempi la risposta è meno curata.", "en": "Without examples the answer is less polished."},
+   "d_rot": {"it": "Tanto testo: l'attenzione ai dettagli cala (context rot).", "en": "A lot of text: attention to details drops (context rot)."},
+   "d_rumore": {"it": "Molti oggetti inutili: più rumore, costo e attesa.", "en": "Many useless items: more noise, cost and waiting."},
+   "token": {"it": "{n} token", "en": "{n} tokens"},
+   "secondi": {"it": "{n} s", "en": "{n} s"},
+   "spazio_valigia": {"it": "Valigia piena al {p}%", "en": "Suitcase {p}% full"},
+   "metti": {"it": "Metti in valigia: {nome}", "en": "Put in the suitcase: {nome}"},
+   "togli": {"it": "Togli dalla valigia: {nome}", "en": "Take out of the suitcase: {nome}"},
+   "chip_dentro": {"it": "{n} spazi · in valigia", "en": "{n} units · packed"},
+   "chip_fuori": {"it": "{n} spazi", "en": "{n} units"},
+   "nota_clic": {"it": "Clicca un oggetto per metterlo in valigia o toglierlo.", "en": "Click an item to put it in the suitcase or take it out."},
+   "nota_turno1": {"it": "Primo turno: la domanda sul prezzo.", "en": "First turn: the price question."},
+   "nota_prompt": {"it": "Prompt engineering: cambia solo il foglio delle istruzioni, la valigia resta quella del primo turno.", "en": "Prompt engineering: only the instruction sheet changes, the suitcase stays as in the first turn."},
+   "nota_contesto": {"it": "Context engineering: l'orchestrazione rifà la valigia per questo turno.", "en": "Context engineering: the orchestration repacks the suitcase for this turn."},
+   "nota_illustrativi": {"it": "Spazi, token, secondi e qualità sono valori illustrativi.", "en": "Units, tokens, seconds and quality are illustrative values."},
+   "obiettivo_ok": {"it": "Fatto! Qualità alta con una valigia leggera: hai portato solo quello che serve.", "en": "Done! High quality with a light suitcase: you packed only what is needed."},
+   "obiettivo_invito": {"it": "Obiettivo: qualità di almeno {q} con al massimo il {p}% di spazio.", "en": "Goal: quality of at least {q} with at most {p}% of the space."},
+   "obiettivo_turno": {"it": "Torna al primo turno per preparare la valigia.", "en": "Go back to the first turn to pack the suitcase."}
+  },
+  "etichette": {
+   "titolo_comandi": {"it": "Prova a cambiare", "en": "Try changing"},
+   "aiuti": {"it": "Aiuti", "en": "Helpers"},
+   "aiuto_riassunto": {"it": "Riassumi lo storico", "en": "Summarise the history"},
+   "aiuto_togli_vecchi": {"it": "Togli i vecchi risultati", "en": "Remove old results"},
+   "aiuto_strumenti_utili": {"it": "Carica solo gli strumenti utili", "en": "Load only the useful tools"},
+   "turno": {"it": "Turno", "en": "Turn"},
+   "turno_1": {"it": "1 · prezzo", "en": "1 · price"},
+   "turno_2": {"it": "2 · demo", "en": "2 · demo"},
+   "modo": {"it": "Come si prepara il contesto", "en": "How the context is prepared"},
+   "modo_prompt": {"it": "Prompt engineering", "en": "Prompt engineering"},
+   "modo_contesto": {"it": "Context engineering", "en": "Context engineering"},
+   "svuota": {"it": "Svuota la valigia", "en": "Empty the suitcase"},
+   "fuori": {"it": "FUORI DALLA VALIGIA", "en": "OUTSIDE THE SUITCASE"},
+   "valigia": {"it": "LA VALIGIA (FINESTRA DI CONTESTO)", "en": "THE SUITCASE (CONTEXT WINDOW)"},
+   "valigia_rifatta": {"it": "VALIGIA RIFATTA PER IL TURNO 2", "en": "SUITCASE REPACKED FOR TURN 2"},
+   "linea_attenzione": {"it": "l'attenzione cala", "en": "attention drops"},
+   "non_chiude": {"it": "LA VALIGIA NON SI CHIUDE", "en": "THE SUITCASE WILL NOT CLOSE"},
+   "titolo_scheda": {"it": "La risposta", "en": "The answer"},
+   "cliente": {"it": "Hotel Lago Blu", "en": "Hotel Lago Blu"},
+   "agente": {"it": "Agente", "en": "Agent"},
+   "l_spazio": {"it": "Spazio", "en": "Space"},
+   "l_costo": {"it": "Costo", "en": "Cost"},
+   "l_tempo": {"it": "Tempo di risposta", "en": "Response time"},
+   "l_qualita": {"it": "Qualità", "en": "Quality"},
+   "descrizione_scena": {"it": "A sinistra gli oggetti in tre famiglie (guida, prove e dati, conversazione); a destra la valigia con gli oggetti impilati e la linea oltre cui l'attenzione cala.", "en": "On the left the items in three families (guidance, evidence, conversation); on the right the suitcase with the stacked items and the line past which attention drops."}
+  }
+ },
+ "domande": []
+}

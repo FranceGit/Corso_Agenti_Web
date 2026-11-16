@@ -1,0 +1,214 @@
+{
+ "id": "L_linea_sessione",
+ "pillola": "P5.2",
+ "componente": "linea_sessione",
+ "titolo": {"it": "La linea che si arrotola: sessione, stato e compattazione", "en": "The line that rolls up: session, state and compaction"},
+ "sottotitolo": {"it": "Segui la chat di un preventivo: che cosa entra nel contesto, che cosa resta nello stato, che cosa sopravvive alla fine.", "en": "Follow the chat for a quote: what goes into the context, what stays in the state, what survives at the end."},
+ "segmenti": [
+  {
+   "id": "eventi",
+   "titolo": {"it": "Il fascicolo di una conversazione", "en": "The file of a conversation"},
+   "narrazione": [
+    {"it": "Una sessione è il fascicolo di una conversazione con un cliente. Contiene la storia, fatta di eventi in fila (messaggio del cliente, risposta dell'agente, chiamata a uno strumento, risultato), e lo stato: gli appunti di lavoro che si aggiornano, come la fase del preventivo.", "en": "A session is the file of one conversation with a customer. It holds the history, made of events in a row (customer message, agent reply, tool call, result), and the state: the working notes that get updated, such as the stage of the quote."},
+    {"it": "Il modello non ricorda nulla tra un turno e l'altro: è l'orchestrazione che a ogni turno gli rimanda la parte di sessione che serve.", "en": "The model remembers nothing between one turn and the next: it is the orchestration that sends it the needed part of the session at every turn."}
+   ],
+   "prova": {"it": "Sposta il cursore dei turni: guarda crescere la storia e cambiare lo stato.", "en": "Move the turns slider: watch the history grow and the state change."},
+   "concetti": ["C45"],
+   "stato_animazione": {"turni": 6, "strategia": "nessuna", "trigger": "conteggio", "aggressivo": false, "archivio": "database", "evento": "attiva", "memoria": [], "turno_aperto": "t5"}
+  },
+  {
+   "id": "compatta",
+   "titolo": {"it": "Quando la storia è troppo lunga", "en": "When the history is too long"},
+   "narrazione": [
+    {"it": "Una sessione lunga costa, rallenta e confonde il modello. Allora si compatta: si tengono solo gli ultimi 10 turni, oppure si taglia oltre un tetto di 4.000 token, oppure si riassumono i turni vecchi. Sono valori d'esempio della fonte.", "en": "A long session costs money, slows down and confuses the model. So it gets compacted: you keep only the last 10 turns, or you cut beyond a cap of 4,000 tokens, or you summarise the old turns. These are example values from the source."},
+    {"it": "La compattazione cambia solo ciò che entra nel contesto: l'archivio completo resta. Anche lo stato resta intatto: non si compatta.", "en": "Compaction only changes what goes into the context: the full archive stays. The state stays intact too: it is not compacted."}
+   ],
+   "prova": {"it": "Prova le tre strategie e guarda la prossima mossa: chi ricorda che il lunedì la pasticceria è chiusa?", "en": "Try the three strategies and look at the next move: who remembers that the bakery is closed on Mondays?"},
+   "concetti": ["C46", "C45"],
+   "stato_animazione": {"turni": 13, "strategia": "ultimi", "trigger": "conteggio", "aggressivo": false, "archivio": "database", "evento": "attiva", "memoria": [], "turno_aperto": "t3"}
+  },
+  {
+   "id": "aggressivo",
+   "titolo": {"it": "Il riassunto che perde una decisione", "en": "The summary that loses a decision"},
+   "narrazione": [
+    {"it": "Il riassunto deve tenere intatte le decisioni del cliente. Ecco un esempio didattico: un riassunto troppo stringato dimentica «non chiamatemi il lunedì», e l'agente propone proprio una chiamata il lunedì.", "en": "The summary must keep the customer's decisions intact. Here is a teaching example: a summary that is too short forgets «do not call me on Mondays», and the agent proposes a call on Monday."},
+    {"it": "Si può anche scegliere quando compattare: dopo un certo numero di turni, dopo una pausa del cliente o alla fine di un compito.", "en": "You can also choose when to compact: after a number of turns, after a pause by the customer or at the end of a task."}
+   ],
+   "prova": {"it": "Accendi «Riassunto troppo aggressivo», poi cambia il momento della compattazione.", "en": "Switch on «Summary too aggressive», then change when compaction happens."},
+   "concetti": ["C46"],
+   "stato_animazione": {"turni": 13, "strategia": "riassunto", "trigger": "conteggio", "aggressivo": false, "archivio": "database", "evento": "attiva", "memoria": [], "turno_aperto": "t3"}
+  },
+  {
+   "id": "riavvio",
+   "titolo": {"it": "Dove si salva la sessione", "en": "Where the session is saved"},
+   "narrazione": [
+    {"it": "Se la sessione vive solo nella memoria del server, un riavvio la cancella. Salvata in un database, sopravvive e la conversazione riprende dal punto giusto.", "en": "If the session lives only in the server's memory, a restart wipes it out. Saved in a database, it survives and the conversation picks up from the right point."},
+    {"it": "Lo stato salvato a nome del cliente, come il canale preferito, può valere anche nelle sue sessioni future.", "en": "State saved under the customer's name, such as the preferred channel, can also apply to their future sessions."}
+   ],
+   "prova": {"it": "Con l'archivio «In memoria» premi «Riavvia server»; poi passa a «Database» e riprova.", "en": "With the archive «In memory» press «Restart server»; then switch to «Database» and try again."},
+   "concetti": ["C45"],
+   "stato_animazione": {"turni": 13, "strategia": "riassunto", "trigger": "conteggio", "aggressivo": false, "archivio": "memoria", "evento": "attiva", "memoria": [], "turno_aperto": "t9"}
+  },
+  {
+   "id": "chiudi",
+   "titolo": {"it": "Quando la sessione finisce", "en": "When the session ends"},
+   "narrazione": [
+    {"it": "Quando la sessione si chiude, storia e stato spariscono. Resta solo ciò che viene salvato nella memoria a lungo termine: pochi fatti utili, non tutta la conversazione. Sei tu a decidere quali fatti meritano di restare.", "en": "When the session closes, history and state disappear. Only what is saved in long-term memory remains: a few useful facts, not the whole conversation. You decide which facts deserve to stay."}
+   ],
+   "prova": {"it": "Metti nel contenitore memoria le card che vuoi conservare, poi premi «Chiudi sessione».", "en": "Put the cards you want to keep in the memory box, then press «Close session»."},
+   "concetti": ["C45"],
+   "stato_animazione": {"turni": 14, "strategia": "riassunto", "trigger": "conteggio", "aggressivo": false, "archivio": "database", "evento": "attiva", "memoria": [], "turno_aperto": "t14"}
+  },
+  {
+   "id": "riassunto",
+   "titolo": {"it": "In tre frasi", "en": "In three sentences"},
+   "narrazione": [
+    {"it": "Una sessione è il fascicolo di una conversazione: la storia degli eventi più lo stato, cioè gli appunti di lavoro aggiornati.", "en": "A session is the file of a conversation: the history of events plus the state, that is the updated working notes."},
+    {"it": "Il modello non ricorda: l'orchestrazione gli rimanda la sessione a ogni turno e, quando è lunga, la compatta senza perdere le decisioni del cliente.", "en": "The model does not remember: the orchestration sends it the session at every turn and, when it is long, compacts it without losing the customer's decisions."},
+    {"it": "La sessione va salvata fuori dal modello e, quando finisce, sopravvive solo ciò che passa nella memoria a lungo termine.", "en": "The session must be saved outside the model and, when it ends, only what goes into long-term memory survives."}
+   ],
+   "concetti": ["C45", "C46"],
+   "stato_animazione": {"turni": 14, "strategia": "riassunto", "trigger": "conteggio", "aggressivo": false, "archivio": "database", "evento": "chiusa", "memoria": ["lunedi", "canale"], "turno_aperto": "t14"}
+  }
+ ],
+ "scenario": {
+  "turno_domanda": 13,
+  "colori_tipi": {"utente": "#0ea5e9", "agente": "#16a34a", "strumento": "#f59e0b", "risultato": "#8b5cf6"},
+  "campi_stato": ["lead_id", "fase", "bozze_in_attesa", "ultimo_errore", "user:canale_preferito"],
+  "stato_iniziale": {"lead_id": "—", "fase": "—", "bozze_in_attesa": 0, "ultimo_errore": {"it": "nessuno", "en": "none"}, "user:canale_preferito": "—"},
+  "compattazione": {
+   "ultimi_n": 10,
+   "tetto_token": 4000,
+   "recenti_interi": 3,
+   "pausa_dopo_turno": 11,
+   "evento_al_turno": 12,
+   "token_capsula_base": 40,
+   "token_per_fatto": 25,
+   "fatti": [
+    {"turno": 1, "testo": {"it": "Pasticceria Marchi, lead L-207, 3 negozi", "en": "Pasticceria Marchi, lead L-207, 3 shops"}, "anche_aggressivo": true},
+    {"turno": 2, "testo": {"it": "vuole 500 scatole con il logo", "en": "wants 500 boxes with the logo"}, "anche_aggressivo": true},
+    {"turno": 3, "testo": {"it": "NON chiamare il lunedì (chiusura)", "en": "do NOT call on Mondays (closed)"}, "decisione": true, "anche_aggressivo": false},
+    {"turno": 4, "testo": {"it": "budget circa 2.000 €", "en": "budget about €2,000"}, "anche_aggressivo": false},
+    {"turno": 6, "testo": {"it": "scelta: avana con logo oro", "en": "choice: tan with gold logo"}, "anche_aggressivo": false},
+    {"turno": 8, "testo": {"it": "consegna possibile il 6 dicembre", "en": "delivery possible on 6 December"}, "anche_aggressivo": false},
+    {"turno": 9, "testo": {"it": "preventivo via email", "en": "quote by email"}, "anche_aggressivo": false},
+    {"turno": 11, "testo": {"it": "con biglietto: 1.875 €", "en": "with card: €1,875"}, "anche_aggressivo": false}
+   ]
+  },
+  "turni": [
+   {"id": "t1", "token": 380, "utente": {"it": "Buongiorno, siamo la Pasticceria Marchi: vorremmo scatole con il nostro logo per Natale.", "en": "Good morning, we are Pasticceria Marchi: we would like boxes with our logo for Christmas."},
+    "strumento": {"nome": "cerca_contatto", "risultato": {"it": "Lead L-207, 3 punti vendita", "en": "Lead L-207, 3 shops"}},
+    "agente": {"it": "Volentieri! Quante scatole vi servono?", "en": "Gladly! How many boxes do you need?"},
+    "stato": {"lead_id": "L-207", "fase": {"it": "nuovo lead", "en": "new lead"}}},
+   {"id": "t2", "token": 260, "utente": {"it": "Circa 500, per tre negozi.", "en": "About 500, for three shops."}, "strumento": null,
+    "agente": {"it": "Perfetto, le preparo un preventivo.", "en": "Perfect, I will prepare a quote."},
+    "stato": {"fase": {"it": "raccolta esigenze", "en": "gathering needs"}}},
+   {"id": "t3", "token": 280, "decisione": true, "utente": {"it": "Per favore non chiamatemi il lunedì: è il nostro giorno di chiusura.", "en": "Please do not call me on Mondays: it is our closing day."}, "strumento": null,
+    "agente": {"it": "Certo, lo segno: niente chiamate il lunedì.", "en": "Of course, noted: no calls on Mondays."}, "stato": {}},
+   {"id": "t4", "token": 240, "utente": {"it": "Il budget è sui 2.000 euro.", "en": "The budget is around 2,000 euros."}, "strumento": null,
+    "agente": {"it": "Bene, resto dentro quel budget.", "en": "Good, I will stay within that budget."}, "stato": {}},
+   {"id": "t5", "token": 420, "utente": {"it": "Che colori avete?", "en": "What colours do you have?"},
+    "strumento": {"nome": "leggi_listino", "risultato": {"it": "Scatola media 3,40 €; logo oro +0,20 €", "en": "Medium box €3.40; gold logo +€0.20"}},
+    "agente": {"it": "Bianco, avana e rosso; il logo in oro costa 0,20 € in più.", "en": "White, tan and red; the gold logo costs €0.20 more."}, "stato": {}},
+   {"id": "t6", "token": 400, "utente": {"it": "Avana con logo oro.", "en": "Tan with gold logo."},
+    "strumento": {"nome": "calcola_preventivo", "risultato": {"it": "500 × 3,60 € = 1.800 €", "en": "500 × €3.60 = €1,800"}},
+    "agente": {"it": "Ottima scelta: il totale è 1.800 €.", "en": "Great choice: the total is €1,800."},
+    "stato": {"fase": {"it": "preventivo in bozza", "en": "draft quote"}, "bozze_in_attesa": 1}},
+   {"id": "t7", "token": 360, "utente": {"it": "Potete consegnare entro il 10 dicembre?", "en": "Can you deliver by 10 December?"},
+    "strumento": {"nome": "controlla_magazzino", "risultato": {"it": "Errore: magazzino non raggiungibile", "en": "Error: warehouse unreachable"}},
+    "agente": {"it": "Il magazzino non risponde: riprovo tra poco.", "en": "The warehouse is not answering: I will try again shortly."},
+    "stato": {"ultimo_errore": {"it": "magazzino non raggiungibile", "en": "warehouse unreachable"}}},
+   {"id": "t8", "token": 380, "utente": {"it": "Va bene, aspetto.", "en": "All right, I will wait."},
+    "strumento": {"nome": "controlla_magazzino", "risultato": {"it": "Consegna possibile il 6 dicembre", "en": "Delivery possible on 6 December"}},
+    "agente": {"it": "Sì: possiamo consegnare il 6 dicembre.", "en": "Yes: we can deliver on 6 December."},
+    "stato": {"ultimo_errore": {"it": "nessuno", "en": "none"}}},
+   {"id": "t9", "token": 260, "utente": {"it": "Mandatemi il preventivo per email, non su WhatsApp.", "en": "Send me the quote by email, not on WhatsApp."}, "strumento": null,
+    "agente": {"it": "D'accordo: per email.", "en": "Agreed: by email."},
+    "stato": {"user:canale_preferito": "email"}},
+   {"id": "t10", "token": 400, "utente": {"it": "Si può mettere anche un biglietto di auguri dentro?", "en": "Can you also put a greeting card inside?"},
+    "strumento": {"nome": "leggi_listino", "risultato": {"it": "Biglietto di auguri +0,15 €", "en": "Greeting card +€0.15"}},
+    "agente": {"it": "Sì, costa 0,15 € in più a scatola.", "en": "Yes, it costs €0.15 more per box."},
+    "stato": {"bozze_in_attesa": 2}},
+   {"id": "t11", "token": 380, "utente": {"it": "Allora con il biglietto, grazie.", "en": "Then with the card, thanks."},
+    "strumento": {"nome": "calcola_preventivo", "risultato": {"it": "500 × 3,75 € = 1.875 €", "en": "500 × €3.75 = €1,875"}},
+    "agente": {"it": "Aggiorno il preventivo: 1.875 €.", "en": "I am updating the quote: €1,875."},
+    "stato": {"fase": {"it": "preventivo pronto", "en": "quote ready"}}},
+   {"id": "t12", "token": 360, "utente": {"it": "Scusate l'attesa, ero in negozio. Il titolare vuole vederlo.", "en": "Sorry for the wait, I was in the shop. The owner wants to see it."},
+    "strumento": {"nome": "invia_email", "risultato": {"it": "Preventivo inviato a Elena Marchi", "en": "Quote sent to Elena Marchi"}},
+    "agente": {"it": "Glielo ho appena inviato per email.", "en": "I have just sent it to you by email."},
+    "stato": {"fase": {"it": "preventivo inviato", "en": "quote sent"}, "bozze_in_attesa": 0}},
+   {"id": "t13", "token": 300, "utente": {"it": "Quando potete richiamarmi per la conferma?", "en": "When can you call me back for the confirmation?"}, "strumento": null,
+    "agente": {"it": "Controllo il calendario e le propongo un giorno.", "en": "I will check the calendar and suggest a day."}, "stato": {}},
+   {"id": "t14", "token": 200, "utente": {"it": "Perfetto, grazie e a presto.", "en": "Perfect, thanks and see you soon."}, "strumento": null,
+    "agente": {"it": "A presto, buona giornata!", "en": "See you soon, have a nice day!"}, "stato": {}}
+  ],
+  "memoria": [
+   {"id": "lunedi", "turno": 3, "testo": {"it": "Non chiamare il lunedì (chiusura)", "en": "Do not call on Mondays (closed)"}},
+   {"id": "budget", "turno": 4, "testo": {"it": "Budget per le scatole: circa 2.000 €", "en": "Budget for the boxes: about €2,000"}},
+   {"id": "canale", "turno": 9, "testo": {"it": "Preferisce essere contattata via email", "en": "Prefers to be contacted by email"}},
+   {"id": "saluti", "turno": 14, "testo": {"it": "Ha scritto «grazie e a presto»", "en": "She wrote «thanks and see you soon»"}, "inutile": true}
+  ],
+  "testi": {
+   "mossa_ok": {"it": "«La richiamo martedì alle 10 per la conferma: so che il lunedì siete chiusi.»", "en": "«I will call you back on Tuesday at 10 for the confirmation: I know you are closed on Mondays.»"},
+   "mossa_lunedi": {"it": "«La richiamo lunedì alle 10 per la conferma.» Sbagliato: il cliente aveva chiesto di non essere chiamato il lunedì, ma quella frase non è più nel contesto.", "en": "«I will call you back on Monday at 10 for the confirmation.» Wrong: the customer had asked not to be called on Mondays, but that sentence is no longer in the context."},
+   "mossa_attesa": {"it": "Al turno {n} il cliente chiede quando lo si richiama: porta lì il cursore per vedere la prossima mossa dell'agente.", "en": "At turn {n} the customer asks when they will be called back: move the slider there to see the agent's next move."},
+   "rimanda": {"it": "A ogni turno l'orchestrazione rimanda al modello {eventi} eventi, circa {token} token (valori illustrativi).", "en": "At every turn the orchestration sends the model {eventi} events, about {token} tokens (illustrative values)."},
+   "archivio_resta": {"it": "La compattazione è scattata: nel contesto entra l'estratto, ma l'archivio a sinistra resta completo.", "en": "Compaction has kicked in: the extract goes into the context, but the archive on the left stays complete."},
+   "non_ancora_conteggio": {"it": "La compattazione scatterà quando la storia supera la soglia (10 turni, o 4.000 token per il tetto).", "en": "Compaction will kick in when the history passes the threshold (10 turns, or 4,000 tokens for the cap)."},
+   "non_ancora_tempo": {"it": "La compattazione scatterà dopo la pausa di 30 minuti del cliente, tra il turno 11 e il 12.", "en": "Compaction will kick in after the customer's 30-minute pause, between turn 11 and 12."},
+   "non_ancora_evento": {"it": "La compattazione scatterà alla fine del compito: l'invio del preventivo al turno 12.", "en": "Compaction will kick in at the end of the task: sending the quote at turn 12."},
+   "nota_didattica": {"it": "Esempio didattico: la fonte chiede di conservare il contesto importante, il riassunto «troppo aggressivo» mostra che cosa succede se non lo si fa.", "en": "Teaching example: the source asks to keep the important context; the «too aggressive» summary shows what happens if you do not."},
+   "riavvio_perso": {"it": "Il server è ripartito e la sessione era solo nella sua memoria: storia e stato sono persi. Il cliente dovrebbe ricominciare da capo.", "en": "The server restarted and the session was only in its memory: history and state are lost. The customer would have to start over."},
+   "riavvio_salvo": {"it": "Il server è ripartito, ma la sessione era salvata nel database: storia e stato ricompaiono e la conversazione riprende.", "en": "The server restarted, but the session was saved in the database: history and state come back and the conversation resumes."},
+   "fine_memoria": {"it": "Sessione chiusa. Nella prossima conversazione l'agente saprà soltanto: {fatti}.", "en": "Session closed. In the next conversation the agent will only know: {fatti}."},
+   "fine_vuota": {"it": "Sessione chiusa e contenitore memoria vuoto: nella prossima conversazione l'agente non saprà nulla di Elena Marchi.", "en": "Session closed and memory box empty: in the next conversation the agent will know nothing about Elena Marchi."},
+   "mem_inutile": {"it": "Un saluto non serve: la memoria conserva pochi fatti utili, non la conversazione.", "en": "A greeting is not useful: memory keeps a few useful facts, not the conversation."},
+   "token": {"it": "{n} token", "en": "{n} tokens"},
+   "token_compattato": {"it": "{n} token dopo la compattazione", "en": "{n} tokens after compaction"},
+   "capsula": {"it": "CAPSULA RIASSUNTO · {n} fatti", "en": "SUMMARY CAPSULE · {n} facts"},
+   "sigla_turno": {"it": "T{n}", "en": "T{n}"},
+   "apri_turno": {"it": "Apri il turno {n}", "en": "Open turn {n}"},
+   "dettaglio_turno": {"it": "Gli eventi del turno {n}", "en": "The events of turn {n}"},
+   "dettaglio_perso": {"it": "Non c'è più nessun evento da mostrare.", "en": "There are no more events to show."},
+   "metti_memoria": {"it": "Metti in memoria: {testo}", "en": "Put in memory: {testo}"},
+   "togli_memoria": {"it": "Togli dalla memoria: {testo}", "en": "Remove from memory: {testo}"},
+   "formato_turni": {"it": "{n} di {tot}", "en": "{n} of {tot}"}
+  },
+  "etichette": {
+   "titolo_comandi": {"it": "Prova a cambiare", "en": "Try changing"},
+   "turni": {"it": "Turni della conversazione", "en": "Conversation turns"},
+   "strategia": {"it": "Compattazione", "en": "Compaction"},
+   "strategia_nessuna": {"it": "Nessuna (tutto nel contesto)", "en": "None (everything in context)"},
+   "strategia_ultimi": {"it": "Solo gli ultimi 10 turni", "en": "Only the last 10 turns"},
+   "strategia_tetto": {"it": "Tetto di 4.000 token", "en": "Cap of 4,000 tokens"},
+   "strategia_riassunto": {"it": "Riassunto dei turni vecchi", "en": "Summary of old turns"},
+   "trigger": {"it": "Quando compattare", "en": "When to compact"},
+   "trigger_conteggio": {"it": "Soglia", "en": "Threshold"},
+   "trigger_tempo": {"it": "Pausa", "en": "Pause"},
+   "trigger_evento": {"it": "Fine compito", "en": "Task end"},
+   "aggressivo": {"it": "Riassunto troppo aggressivo", "en": "Summary too aggressive"},
+   "archivio": {"it": "Dove si salva la sessione", "en": "Where the session is saved"},
+   "archivio_memoria": {"it": "In memoria", "en": "In memory"},
+   "archivio_database": {"it": "Database", "en": "Database"},
+   "riavvia": {"it": "Riavvia server", "en": "Restart server"},
+   "chiudi": {"it": "Chiudi sessione", "en": "Close session"},
+   "riprendi": {"it": "Riapri la conversazione", "en": "Reopen the conversation"},
+   "col_archivio": {"it": "ARCHIVIO (STORIA COMPLETA)", "en": "ARCHIVE (FULL HISTORY)"},
+   "col_contesto": {"it": "CIÒ CHE ENTRA NEL CONTESTO", "en": "WHAT GOES INTO THE CONTEXT"},
+   "col_stato": {"it": "STATO (APPUNTI DI LAVORO)", "en": "STATE (WORKING NOTES)"},
+   "col_memoria": {"it": "CONTENITORE MEMORIA (clicca le card)", "en": "MEMORY BOX (click the cards)"},
+   "decisione": {"it": "DECISIONE", "en": "DECISION"},
+   "non_ancora": {"it": "(non ancora detto)", "en": "(not said yet)"},
+   "sessione_persa": {"it": "SESSIONE PERSA CON IL RIAVVIO", "en": "SESSION LOST WITH THE RESTART"},
+   "sessione_chiusa": {"it": "SESSIONE CHIUSA", "en": "SESSION CLOSED"},
+   "titolo_scheda": {"it": "Che cosa succede", "en": "What happens"},
+   "prossima_mossa": {"it": "Prossima mossa dell'agente", "en": "The agent's next move"},
+   "tipo_utente": {"it": "cliente", "en": "customer"},
+   "tipo_agente": {"it": "agente", "en": "agent"},
+   "tipo_strumento": {"it": "strumento", "en": "tool"},
+   "tipo_risultato": {"it": "risultato", "en": "result"},
+   "descrizione_scena": {"it": "A sinistra l'archivio con una riga per turno, al centro i turni che entrano nel contesto o la capsula riassunto, a destra lo stato e il contenitore della memoria.", "en": "On the left the archive with one row per turn, in the middle the turns that go into the context or the summary capsule, on the right the state and the memory box."}
+  }
+ },
+ "domande": []
+}

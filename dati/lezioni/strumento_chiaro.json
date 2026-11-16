@@ -1,0 +1,208 @@
+{
+ "id": "L_strumento_chiaro",
+ "pillola": "P4.2",
+ "componente": "strumento_chiaro",
+ "titolo": {"it": "Strumento confuso contro strumento chiaro", "en": "Confusing tool versus clear tool"},
+ "sottotitolo": {"it": "Riscrivi la scheda di uno strumento, scegli il messaggio d'errore, separa letture e azioni e prova il doppio clic.", "en": "Rewrite a tool's card, choose the error message, separate reads from actions and try the double click."},
+ "segmenti": [
+  {
+   "id": "nome",
+   "titolo": {"it": "Il nome e la descrizione", "en": "The name and the description"},
+   "narrazione": [
+    {"it": "Uno strumento è un'azione che l'agente può usare, per esempio cercare lead nel CRM. Il modello non vede il codice: legge solo il nome e la descrizione, come un collega nuovo legge un'etichetta.", "en": "A tool is an action the agent can use, for example searching for leads in the CRM. The model does not see the code: it only reads the name and the description, like a new colleague reads a label."},
+    {"it": "«api_call: chiama l'API» non dice niente. «trova_lead_caldi», con una descrizione che spiega cosa fa e quando usarlo, si sceglie senza esitare.", "en": "«api_call: calls the API» says nothing. «find_hot_leads», with a description that explains what it does and when to use it, is chosen without hesitation."}
+   ],
+   "prova": {"it": "Passa a «trova_lead_caldi» e alla descrizione chiara: guarda salire le scelte corrette su 20 compiti (numeri illustrativi).", "en": "Switch to «find_hot_leads» and to the clear description: watch the correct choices out of 20 tasks go up (illustrative numbers)."},
+   "concetti": ["C36"],
+   "stato_animazione": {"vista": "scheda", "nome": "vago", "descrizione": "vaga", "parametri": "grezzi", "granularita": "api", "strumenti": 8, "sovrapposti": false, "errore": "e500", "idempotenza": false, "clic": 0, "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "parametri",
+   "titolo": {"it": "Pochi parametri, un compito per strumento", "en": "Few parameters, one task per tool"},
+   "narrazione": [
+    {"it": "I parametri sono i dati che lo strumento chiede. Nove campi grezzi confondono il modello; due campi con il tipo dichiarato (una settimana, un segmento scelto da un elenco) si riempiono bene.", "en": "Parameters are the data the tool asks for. Nine raw fields confuse the model; two fields with a declared type (a week, a segment chosen from a list) are filled in well."},
+    {"it": "Uno strumento deve fare un compito di lavoro: non dieci chiamate tecniche in fila, ma nemmeno un mega-strumento che fa tutto e magari invia anche email.", "en": "A tool should do one work task: not ten technical calls in a row, but not a mega-tool that does everything and maybe sends emails too."}
+   ],
+   "prova": {"it": "Prova le tre granularità e i parametri tipizzati: leggi nella traccia che cosa fa l'agente.", "en": "Try the three granularities and the typed parameters: read in the trace what the agent does."},
+   "concetti": ["C36"],
+   "stato_animazione": {"vista": "scheda", "nome": "chiaro", "descrizione": "chiara", "parametri": "grezzi", "granularita": "api", "strumenti": 8, "sovrapposti": false, "errore": "e500", "idempotenza": false, "clic": 0, "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "sovrapposti",
+   "titolo": {"it": "Tanti strumenti o strumenti simili?", "en": "Many tools or similar tools?"},
+   "narrazione": [
+    {"it": "Il problema non è solo quanti strumenti ha l'agente, ma quanto si somigliano. Secondo OpenAI alcuni agenti gestiscono bene più di 15 strumenti distinti, altri si confondono con meno di 10 sovrapposti.", "en": "The problem is not only how many tools the agent has, but how similar they are. According to OpenAI, some agents handle more than 15 distinct tools well, while others get confused with fewer than 10 overlapping ones."},
+    {"it": "Con descrizioni simili il modello sceglie, cambia idea, riprova: gira in tondo.", "en": "With similar descriptions the model chooses, changes its mind, tries again: it goes round in circles."}
+   ],
+   "prova": {"it": "Accendi «Strumenti simili tra loro» e muovi il cursore; poi confronta con 20 strumenti tutti diversi.", "en": "Switch on «Tools similar to each other» and move the slider; then compare with 20 tools that are all different."},
+   "concetti": ["C36"],
+   "stato_animazione": {"vista": "scheda", "nome": "chiaro", "descrizione": "chiara", "parametri": "tipizzati", "granularita": "compito", "strumenti": 15, "sovrapposti": false, "errore": "e500", "idempotenza": false, "clic": 0, "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "errori",
+   "titolo": {"it": "Un errore che dice cosa fare", "en": "An error that says what to do"},
+   "narrazione": [
+    {"it": "Quando qualcosa va storto, il messaggio d'errore torna al modello. È un'occasione: un buon messaggio spiega che cosa è successo e che cosa fare dopo.", "en": "When something goes wrong, the error message goes back to the model. It is an opportunity: a good message explains what happened and what to do next."},
+    {"it": "Il caso peggiore è lo strumento che risponde sempre «successo»: l'agente crede di aver lavorato e nessuno se ne accorge.", "en": "The worst case is the tool that always answers «success»: the agent believes it has done the work and nobody notices."}
+   ],
+   "prova": {"it": "Scegli uno dopo l'altro i 4 messaggi e leggi come reagisce l'agente.", "en": "Choose the 4 messages one after another and read how the agent reacts."},
+   "concetti": ["C36"],
+   "stato_animazione": {"vista": "errore", "nome": "chiaro", "descrizione": "chiara", "parametri": "tipizzati", "granularita": "compito", "strumenti": 8, "sovrapposti": false, "errore": "e500", "idempotenza": false, "clic": 0, "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "azioni",
+   "titolo": {"it": "Leggere, agire, non ripetere", "en": "Read, act, do not repeat"},
+   "narrazione": [
+    {"it": "Gli strumenti di lettura consultano dati; quelli di azione cambiano qualcosa: inviano, scrivono, passano un caso. Le azioni sono più rischiose e vanno trattate con più cura.", "en": "Read tools look up data; action tools change something: they send, write, hand over a case. Actions are riskier and must be handled with more care."},
+    {"it": "Un'azione è idempotente quando ripeterla non raddoppia l'effetto: se l'agente riprova dopo un errore, il cliente riceve comunque una sola email.", "en": "An action is idempotent when repeating it does not double the effect: if the agent tries again after an error, the customer still gets just one email."}
+   ],
+   "prova": {"it": "Metti i 5 strumenti nei cassetti e premi «Controlla»; poi fai il doppio clic su «invia follow-up», con e senza idempotenza.", "en": "Put the 5 tools in the drawers and press «Check»; then do the double click on «send follow-up», with and without idempotency."},
+   "concetti": ["C37"],
+   "stato_animazione": {"vista": "azioni", "nome": "chiaro", "descrizione": "chiara", "parametri": "tipizzati", "granularita": "compito", "strumenti": 8, "sovrapposti": false, "errore": "e500", "idempotenza": false, "clic": 0, "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "riassunto",
+   "titolo": {"it": "In tre frasi", "en": "In three sentences"},
+   "narrazione": [
+    {"it": "Il modello sceglie uno strumento leggendo nome, descrizione e parametri: devono essere chiari, pochi e distinti dagli altri.", "en": "The model chooses a tool by reading its name, description and parameters: they must be clear, few and distinct from the others."},
+    {"it": "Uno strumento fa un compito di lavoro, e i suoi messaggi d'errore dicono al modello che cosa è successo e che cosa fare.", "en": "A tool does one work task, and its error messages tell the model what happened and what to do."},
+    {"it": "Le azioni che cambiano qualcosa vanno separate dalle letture e rese idempotenti, così un nuovo tentativo non duplica l'effetto.", "en": "Actions that change something must be kept apart from reads and made idempotent, so a new attempt does not duplicate the effect."}
+   ],
+   "concetti": ["C36", "C37"],
+   "stato_animazione": {"vista": "scheda", "nome": "chiaro", "descrizione": "chiara", "parametri": "tipizzati", "granularita": "compito", "strumenti": 15, "sovrapposti": false, "errore": "istruzione", "idempotenza": true, "clic": 0, "scelte": {}, "verificato": false}
+  }
+ ],
+ "scenario": {
+  "compito": {"it": "trova i lead caldi della settimana nel segmento hotel", "en": "find this week's hot leads in the hotel segment"},
+  "compiti_totali": 20,
+  "_why_penalita": "Valori illustrativi: nessuna fonte misura le scelte corrette in funzione della qualita' della scheda. Il numero di strumenti distinti non penalizza; i sovrapposti si' (osservazione qualitativa OpenAI).",
+  "penalita": {"nome_vago": 3, "descrizione_vaga": 4, "parametri_grezzi": 3, "granularita_api": 4, "granularita_multi": 3, "sovrapposti_base": 3, "sovrapposti_ogni": 4, "minimo": 2},
+  "strumenti": {"min": 5, "max": 20},
+  "nomi": {
+   "vago": {"it": "api_call", "en": "api_call"},
+   "chiaro": {"it": "trova_lead_caldi", "en": "find_hot_leads"},
+   "chiaro_crm": {"it": "aggiorna_fase_trattativa", "en": "update_deal_stage"}
+  },
+  "descrizioni": {
+   "vaga": {"it": "Chiama l'API. Restituisce i dati.", "en": "Calls the API. Returns the data."},
+   "chiara": {"it": "Trova i lead con punteggio alto della settimana indicata, per un solo segmento. Usalo quando ti chiedono chi contattare per primo. Non invia nulla: solo lettura.", "en": "Finds the high-score leads of the given week, for one segment. Use it when you are asked who to contact first. It sends nothing: read only."}
+  },
+  "parametri": {
+   "grezzi": ["endpoint", "method", "q", "f1", "f2", "fmt", "lim", "off", "tok"],
+   "tipizzati": [{"it": "settimana: data (es. 2026-W46)", "en": "week: date (e.g. 2026-W46)"}, {"it": "segmento: hotel | ristoranti | negozi", "en": "segment: hotels | restaurants | shops"}]
+  },
+  "errori": [
+   {"id": "e500", "nome": {"it": "«Errore 500»", "en": "«Error 500»"}, "esito": "male",
+    "messaggio": {"it": "Error 500", "en": "Error 500"},
+    "reazione": {"it": "Il modello non capisce che cosa è andato storto: ripete la stessa chiamata 3 volte, a vuoto, poi si ferma senza dire niente al commerciale.", "en": "The model does not understand what went wrong: it repeats the same call 3 times, for nothing, then stops without telling the salesperson anything."}},
+   {"id": "nessun_dato", "nome": {"it": "«Nessun contatto con ID 123»", "en": "«No contact with ID 123»"}, "esito": "avviso",
+    "messaggio": {"it": "Nessun contatto trovato con ID 123.", "en": "No contact found with ID 123."},
+    "reazione": {"it": "Capisce che l'ID è sbagliato, ma non sa come rimediare: segnala il problema al commerciale e si ferma.", "en": "It understands that the ID is wrong, but does not know how to fix it: it reports the problem to the salesperson and stops."}},
+   {"id": "istruzione", "nome": {"it": "Errore con istruzione", "en": "Error with an instruction"}, "esito": "ok",
+    "messaggio": {"it": "Nessun contatto trovato con ID 123. Chiedi al commerciale di confermare il nome dell'azienda e cerca l'ID per nome prima di riprovare.", "en": "No contact found with ID 123. Ask the salesperson to confirm the company name and look up the ID by name before trying again."},
+    "reazione": {"it": "Segue l'istruzione: chiede conferma del nome, trova l'ID giusto (321) e aggiorna la trattativa giusta.", "en": "It follows the instruction: it asks to confirm the name, finds the right ID (321) and updates the right deal."}},
+   {"id": "sempre_ok", "nome": {"it": "Risponde sempre «success»", "en": "Always answers «success»"}, "esito": "male",
+    "messaggio": {"it": "{\"status\": \"success\"}", "en": "{\"status\": \"success\"}"},
+    "reazione": {"it": "Crede di aver aggiornato il contatto 123, che non esiste. Scrive al commerciale «fatto!»: nessuno se ne accorge e la trattativa vera resta indietro.", "en": "It believes it has updated contact 123, which does not exist. It tells the salesperson «done!»: nobody notices and the real deal falls behind."}}
+  ],
+  "cassetti": [
+   {"id": "lettura", "nome": {"it": "Lettura (dati)", "en": "Read (data)"}, "colore": "#0ea5e9", "spiega": {"it": "Consulta dati, non cambia niente.", "en": "Looks up data, changes nothing."}},
+   {"id": "azione", "nome": {"it": "Azione", "en": "Action"}, "colore": "#e11d48", "spiega": {"it": "Cambia qualcosa: invia, scrive, passa un caso.", "en": "Changes something: sends, writes, hands over a case."}},
+   {"id": "orchestrazione", "nome": {"it": "Orchestrazione", "en": "Orchestration"}, "colore": "#8b5cf6", "spiega": {"it": "Un altro agente usato come strumento.", "en": "Another agent used as a tool."}}
+  ],
+  "utensili": [
+   {"id": "cerca_lead", "nome": {"it": "cerca_lead", "en": "search_leads"}, "giusto": "lettura", "spiega": {"it": "Legge il CRM e non cambia niente.", "en": "It reads the CRM and changes nothing."}},
+   {"id": "invia_email", "nome": {"it": "invia_email", "en": "send_email"}, "giusto": "azione", "spiega": {"it": "Un'email partita non si ritira: è un'azione.", "en": "An email that has gone cannot be pulled back: it is an action."}},
+   {"id": "aggiorna_record_crm", "nome": {"it": "aggiorna_record_crm", "en": "update_crm_record"}, "giusto": "azione", "spiega": {"it": "Scrive nel CRM: cambia i dati.", "en": "It writes to the CRM: it changes the data."}},
+   {"id": "agente_ricerca", "nome": {"it": "agente_ricerca", "en": "research_agent"}, "giusto": "orchestrazione", "spiega": {"it": "È un altro agente, chiamato come se fosse uno strumento.", "en": "It is another agent, called as if it were a tool."}},
+   {"id": "passa_ticket_a_umano", "nome": {"it": "passa_ticket_a_umano", "en": "hand_ticket_to_human"}, "giusto": "azione", "spiega": {"it": "Passa il caso a una persona: cambia chi se ne occupa, quindi è un'azione.", "en": "It hands the case to a person: it changes who handles it, so it is an action."}}
+  ],
+  "testi": {
+   "tr_dubbio": {"it": "Il modello legge «{nome}» e la sua descrizione: non capisce se serve per i lead caldi. Tira a indovinare.", "en": "The model reads «{nome}» and its description: it cannot tell if it is for hot leads. It guesses."},
+   "tr_capisce": {"it": "Il modello legge «{nome}»: capisce che cosa fa e quando usarlo. Lo sceglie.", "en": "The model reads «{nome}»: it understands what it does and when to use it. It picks it."},
+   "tr_param_grezzi": {"it": "Deve riempire {n} parametri senza spiegazione: ne inventa due.", "en": "It has to fill in {n} unexplained parameters: it makes up two of them."},
+   "tr_param_ok": {"it": "Riempie 2 parametri chiari: la settimana e il segmento «hotel».", "en": "It fills in 2 clear parameters: the week and the «hotels» segment."},
+   "tr_api": {"it": "Servono 10 chiamate tecniche in fila; al passo 6 passa un dato sbagliato e la lista esce vuota.", "en": "It takes 10 technical calls in a row; at step 6 it passes a wrong value and the list comes out empty."},
+   "tr_multi": {"it": "Lo strumento «fa tutto» trova i lead, ma invia anche un'email a ognuno: un effetto che nessuno aveva chiesto.", "en": "The «does everything» tool finds the leads, but also sends each of them an email: an effect nobody asked for."},
+   "tr_compito": {"it": "Una sola chiamata a «{nome}»: 4 lead caldi, pronti per il commerciale.", "en": "One single call to «{nome}»: 4 hot leads, ready for the salesperson."},
+   "tr_ciclo": {"it": "Fra {n} strumenti con descrizioni simili sceglie, cambia idea, riprova: gira in tondo.", "en": "Among {n} tools with similar descriptions it chooses, changes its mind, tries again: it goes round in circles."},
+   "compito": {"it": "Compito: {compito}.", "en": "Task: {compito}."},
+   "su_venti": {"it": "{n} su {tot}", "en": "{n} of {tot}"},
+   "sintesi_punteggio": {"it": "Scelte corrette: {n} su {tot} compiti (numeri illustrativi).", "en": "Correct choices: {n} of {tot} tasks (illustrative numbers)."},
+   "equilibrio": {"it": "Equilibrio: compiti, non chiamate tecniche; ma niente strumento che fa tutto.", "en": "Balance: tasks, not technical calls; but no tool that does everything."},
+   "cassetta": {"it": "La cassetta dell'agente: {n} strumenti", "en": "The agent's toolbox: {n} tools"},
+   "desc_gran_api": {"it": "10 chiamate tecniche in fila (elenco, filtro, visite, punteggio...).", "en": "10 technical calls in a row (list, filter, visits, score...)."},
+   "desc_gran_compito": {"it": "Un compito di lavoro: trovare i lead caldi.", "en": "One work task: finding the hot leads."},
+   "desc_gran_multi": {"it": "Fa tutto: cerca, assegna il punteggio, invia email, aggiorna il CRM.", "en": "Does everything: searches, scores, sends emails, updates the CRM."},
+   "nota_errore": {"it": "Compito: aggiornare la trattativa del contatto 123. Scegli che cosa risponde lo strumento.", "en": "Task: update the deal of contact 123. Choose what the tool answers."},
+   "nota_errore_destra": {"it": "Il messaggio d'errore è testo che il modello legge: può dirgli che cosa fare dopo.", "en": "The error message is text the model reads: it can tell it what to do next."},
+   "chiamata": {"it": "aggiorna_fase_trattativa(contatto=123, fase=\"offerta\")", "en": "update_deal_stage(contact=123, stage=\"proposal\")"},
+   "nota_cassetti": {"it": "Per ogni strumento scegli il cassetto giusto.", "en": "For each tool choose the right drawer."},
+   "nota_cassetti_destra": {"it": "Riempi i cassetti a sinistra, poi premi «Controlla».", "en": "Fill the drawers on the left, then press «Check»."},
+   "cassetto_per": {"it": "Cassetto per {nome}", "en": "Drawer for {nome}"},
+   "cas_giusto": {"it": "{nome}: giusto. {spiega}", "en": "{nome}: right. {spiega}"},
+   "cas_sbagliato": {"it": "{nome}: no, va in «{cassetto}». {spiega}", "en": "{nome}: no, it goes in «{cassetto}». {spiega}"},
+   "cas_vuoto": {"it": "{nome}: non l'hai ancora messo. Va in «{cassetto}». {spiega}", "en": "{nome}: not placed yet. It goes in «{cassetto}». {spiega}"},
+   "cas_punteggio": {"it": "Nel cassetto giusto: {giuste} su {totali}.", "en": "In the right drawer: {giuste} of {totali}."},
+   "cas_tutto_giusto": {"it": "Perfetto: hai separato le letture dalle azioni.", "en": "Perfect: you separated reads from actions."},
+   "casella": {"it": "Casella email del cliente Hotel Lago Blu", "en": "Inbox of the customer Hotel Lago Blu"},
+   "email_arrivate": {"it": "Email arrivate: {n}", "en": "Emails received: {n}"},
+   "chiave_idem": {"it": "Idempotenza: lo strumento controlla «follow-up già inviato a questo lead?» e il secondo clic non parte.", "en": "Idempotency: the tool checks «follow-up already sent to this lead?» and the second click does not go out."},
+   "senza_idem": {"it": "Senza idempotenza ogni clic, o ogni nuovo tentativo dopo un errore, è una nuova email.", "en": "Without idempotency every click, or every new attempt after an error, is a new email."},
+   "clic_fatti": {"it": "Clic su «invia follow-up»: {n}", "en": "Clicks on «send follow-up»: {n}"},
+   "doppione": {"it": "Doppia email: il cliente si infastidisce. Succede anche quando il sistema riprova da solo dopo un errore.", "en": "Double email: the customer gets annoyed. It also happens when the system retries by itself after an error."},
+   "idem_ok": {"it": "Una sola email, anche con due clic: ripetere non raddoppia l'effetto.", "en": "Just one email, even with two clicks: repeating does not double the effect."},
+   "idem_spiega": {"it": "Premi «Doppio clic» per vedere quante email arrivano.", "en": "Press «Double click» to see how many emails arrive."}
+  },
+  "etichette": {
+   "titolo_comandi": {"it": "Prova a cambiare", "en": "Try changing"},
+   "vista": {"it": "Che cosa guardi", "en": "What you look at"},
+   "vista_scheda": {"it": "Scheda", "en": "Card"},
+   "vista_errore": {"it": "Errori", "en": "Errors"},
+   "vista_azioni": {"it": "Lettura e azione", "en": "Read and action"},
+   "grp_vista": {"it": "Che cosa guardi", "en": "What you look at"},
+   "grp_nome": {"it": "Nome", "en": "Name"},
+   "grp_descrizione": {"it": "Descrizione", "en": "Description"},
+   "grp_parametri": {"it": "Parametri", "en": "Parameters"},
+   "grp_granularita": {"it": "Granularità (quanto è grande il compito)", "en": "Granularity (how big the task is)"},
+   "grp_errore": {"it": "Messaggio d'errore", "en": "Error message"},
+   "vaga": {"it": "Vaga", "en": "Vague"},
+   "chiara": {"it": "Chiara", "en": "Clear"},
+   "par_grezzi": {"it": "{n} grezzi", "en": "{n} raw"},
+   "par_tipizzati": {"it": "{n} tipizzati", "en": "{n} typed"},
+   "gran_api": {"it": "10 chiamate tecniche", "en": "10 technical calls"},
+   "gran_compito": {"it": "Un compito", "en": "One task"},
+   "gran_multi": {"it": "Fa tutto", "en": "Does everything"},
+   "strumenti": {"it": "Strumenti dell'agente", "en": "The agent's tools"},
+   "sovrapposti": {"it": "Strumenti simili tra loro", "en": "Tools similar to each other"},
+   "scegli": {"it": "— scegli —", "en": "— choose —"},
+   "controlla": {"it": "Controlla", "en": "Check"},
+   "titolo_idem": {"it": "Idempotenza", "en": "Idempotency"},
+   "idempotenza": {"it": "Invio idempotente", "en": "Idempotent sending"},
+   "doppio_clic": {"it": "Doppio clic su «invia follow-up»", "en": "Double click on «send follow-up»"},
+   "ricomincia": {"it": "Ricomincia", "en": "Start again"},
+   "titolo_scena_scheda": {"it": "LA SCHEDA DELLO STRUMENTO E LE SCELTE DEL MODELLO", "en": "THE TOOL CARD AND THE MODEL'S CHOICES"},
+   "titolo_scena_errore": {"it": "CHE COSA TORNA AL MODELLO QUANDO QUALCOSA VA STORTO", "en": "WHAT GOES BACK TO THE MODEL WHEN SOMETHING GOES WRONG"},
+   "titolo_scena_azioni": {"it": "LETTURA, AZIONE, ORCHESTRAZIONE", "en": "READ, ACTION, ORCHESTRATION"},
+   "lbl_descrizione": {"it": "DESCRIZIONE", "en": "DESCRIPTION"},
+   "lbl_parametri": {"it": "PARAMETRI", "en": "PARAMETERS"},
+   "lbl_granularita": {"it": "CHE COSA FA", "en": "WHAT IT DOES"},
+   "lbl_misuratore": {"it": "SCELTE CORRETTE SU 20 COMPITI", "en": "CORRECT CHOICES OUT OF 20 TASKS"},
+   "illustrativo": {"it": "numeri illustrativi", "en": "illustrative numbers"},
+   "ciclo": {"it": "Gira in tondo", "en": "Going round in circles"},
+   "agente": {"it": "Agente", "en": "Agent"},
+   "agente_sotto": {"it": "il modello decide", "en": "the model decides"},
+   "strumento": {"it": "Strumento", "en": "Tool"},
+   "crm": {"it": "CRM", "en": "CRM"},
+   "crm_sotto": {"it": "i dati veri", "en": "the real data"},
+   "contatto_assente": {"it": "Il contatto 123 non esiste", "en": "Contact 123 does not exist"},
+   "torna_al_modello": {"it": "RISPOSTA DELLO STRUMENTO (TORNA AL MODELLO)", "en": "TOOL ANSWER (GOES BACK TO THE MODEL)"},
+   "cosa_fa": {"it": "CHE COSA FA L'AGENTE", "en": "WHAT THE AGENT DOES"},
+   "titolo_traccia": {"it": "Che cosa fa l'agente", "en": "What the agent does"},
+   "titolo_errore": {"it": "Il messaggio e la reazione", "en": "The message and the reaction"},
+   "titolo_azioni": {"it": "Cassetti e doppio clic", "en": "Drawers and double click"},
+   "descrizione_scena": {"it": "La scheda di uno strumento con nome, descrizione e parametri, accanto a un misuratore delle scelte corrette su 20 compiti; oppure il messaggio d'errore che torna all'agente; oppure tre cassetti e la casella email del cliente.", "en": "A tool card with name, description and parameters, next to a gauge of correct choices out of 20 tasks; or the error message going back to the agent; or three drawers and the customer's inbox."}
+  }
+ },
+ "domande": []
+}

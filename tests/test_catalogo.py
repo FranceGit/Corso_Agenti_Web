@@ -20,10 +20,15 @@ def test_rapporto_erogabilita(catalogo_vero):
     r = catalogo_vero.rapporto()
     assert r["pillole"] == 40 and r["concetti"] == 79 and r["archi"] == 128
     # lezioni interattive: il dimostratore (P1.3, P4.1) + il batch 1 (tutte le altre pillole dei moduli M1 e M2)
-    # + il modulo M3 (tutte tranne P3.3) con il laboratorio "Trova l'errore" in P3.5
-    assert r["lezioni_interattive"] == ["P1.1", "P1.2", "P1.3", "P1.4", "P1.5", "P1.6", "P2.1", "P2.2", "P2.3", "P2.4",
-                                        "P3.1", "P3.2", "P3.4", "P3.5", "P4.1"]
-    assert r["laboratori"] == ["P3.5"]
+    # + il modulo M3 (tutte tranne P3.3) con il laboratorio "Trova l'errore" in P3.5 + i moduli M4 e M5 interi.
+    # Altri moduli ricevono lezioni in cantieri paralleli: qui si controlla il minimo garantito, non un elenco chiuso.
+    minimo = {"P1.1", "P1.2", "P1.3", "P1.4", "P1.5", "P1.6", "P2.1", "P2.2", "P2.3", "P2.4",
+              "P3.1", "P3.2", "P3.4", "P3.5", "P4.1", "P4.2", "P4.3", "P4.4", "P4.5",
+              "P5.1", "P5.2", "P5.3", "P5.4", "P5.5"}
+    assert minimo <= set(r["lezioni_interattive"]), sorted(minimo - set(r["lezioni_interattive"]))
+    assert r["lezioni_interattive"] == sorted(r["lezioni_interattive"], key=lambda p: tuple(map(int, p[1:].split("."))))
+    assert set(r["lezioni_interattive"]) <= {p.id for m in catalogo_vero.corso.moduli for p in m.pillole}
+    assert "P3.5" in r["laboratori"]
     # dall'upgrade del 16/11/2026 anche le 120 domande benchmark sono conformi; poi si aggiungono quelle
     # degli autori (origine "autori"): tutte devono restare erogabili
     per_origine = {}

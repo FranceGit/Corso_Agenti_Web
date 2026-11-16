@@ -1,0 +1,162 @@
+{
+ "id": "L_mappa_significati",
+ "pillola": "P5.4",
+ "componente": "mappa_significati",
+ "titolo": {"it": "La mappa dei significati: il RAG sui documenti aziendali", "en": "The map of meanings: RAG on company documents"},
+ "sottotitolo": {"it": "Scegli la domanda, le fonti e quante porzioni recuperare: guarda le citazioni e quando la risposta sbaglia.", "en": "Choose the question, the sources and how many pieces to retrieve: watch the citations and when the answer goes wrong."},
+ "segmenti": [
+  {
+   "id": "mappa",
+   "titolo": {"it": "Ogni testo diventa un punto sulla mappa", "en": "Every text becomes a point on the map"},
+   "narrazione": [
+    {"it": "Il RAG prima cerca nei documenti aziendali le porzioni giuste, poi le passa al modello, che risponde usando quelle. Listini, FAQ e contratti vengono divisi in porzioni (chunk).", "en": "RAG first searches the company documents for the right pieces, then passes them to the model, which answers using them. Price lists, FAQs and contracts are split into pieces (chunks)."},
+    {"it": "Ogni porzione diventa un embedding: una lista di numeri che rappresenta il significato, come latitudine e longitudine per un indirizzo. Significati simili finiscono vicini. La precisione dice quante porzioni trovate servono; il richiamo quante porzioni utili sono state trovate.", "en": "Every piece becomes an embedding: a list of numbers that represents its meaning, like latitude and longitude for an address. Similar meanings end up close together. Precision says how many retrieved pieces are useful; recall says how many useful pieces were found."}
+   ],
+   "prova": {"it": "Sposta k, le porzioni da recuperare, da 1 a 20 e guarda precisione e richiamo. Poi premi «Recupera e riordina».", "en": "Move k, the pieces to retrieve, from 1 to 20 and watch precision and recall. Then press «Retrieve and re-rank»."},
+   "concetti": ["C49", "C50"],
+   "stato_animazione": {"domanda": "q_prezzo", "fonti": ["l26", "faq", "ctr", "blog"], "k": 3, "modo": "significato", "riordino": false, "non_so": true}
+  },
+  {
+   "id": "significato",
+   "titolo": {"it": "Per significato, non per parola", "en": "By meaning, not by word"},
+   "narrazione": [
+    {"it": "La domanda «piano adatto a team distribuiti» non contiene le parole dei documenti: la ricerca per parole chiave non trova niente.", "en": "The question «plan suited to distributed teams» does not contain the words of the documents: keyword search finds nothing."},
+    {"it": "La ricerca per significato trasforma anche la domanda in un punto, con lo stesso modello usato per i documenti, e prende i vicini: «lavoro da remoto», «più sedi».", "en": "Search by meaning turns the question into a point too, with the same model used for the documents, and takes the neighbours: «remote work», «several offices»."}
+   ],
+   "prova": {"it": "Passa da «Parole chiave» a «Significato» e leggi la risposta con le sue citazioni.", "en": "Switch from «Keywords» to «Meaning» and read the answer with its citations."},
+   "concetti": ["C49"],
+   "stato_animazione": {"domanda": "q_remoto", "fonti": ["l26", "faq", "ctr", "blog"], "k": 3, "modo": "parole", "riordino": false, "non_so": true}
+  },
+  {
+   "id": "codici",
+   "titolo": {"it": "Il punto debole: codici e numeri", "en": "The weak spot: codes and numbers"},
+   "narrazione": [
+    {"it": "Per gli embedding i contratti CT-2025-0147 e CT-2025-0174 sono quasi uguali, perché il testo intorno è identico. Così arriva il contratto di un altro cliente, con la data sbagliata.", "en": "For embeddings, contracts CT-2025-0147 and CT-2025-0174 are almost the same, because the text around them is identical. So another customer's contract comes back, with the wrong date."},
+    {"it": "La ricerca ibrida unisce il significato e la parola esatta: il codice fa da filtro.", "en": "Hybrid search combines meaning and the exact word: the code works as a filter."}
+   ],
+   "prova": {"it": "Con la domanda sul contratto passa da «Significato» a «Ibrida».", "en": "With the contract question switch from «Meaning» to «Hybrid»."},
+   "concetti": ["C49"],
+   "stato_animazione": {"domanda": "q_contratto", "fonti": ["l26", "faq", "ctr", "blog"], "k": 3, "modo": "significato", "riordino": false, "non_so": true}
+  },
+  {
+   "id": "fonti",
+   "titolo": {"it": "Scegli le fonti, controlla le citazioni", "en": "Choose the sources, check the citations"},
+   "narrazione": [
+    {"it": "Il modello risponde con le porzioni recuperate e le cita: [1], [2]. Le citazioni permettono di controllare da dove viene ogni cifra.", "en": "The model answers with the retrieved pieces and cites them: [1], [2]. Citations let you check where every figure comes from."},
+    {"it": "Se nell'indice resta il listino 2024, la sua porzione è la più vicina alla domanda e il prezzo è vecchio. Nemmeno il riordino la scarta: i documenti superati li toglie chi sceglie le fonti.", "en": "If the 2024 price list stays in the index, its piece is the closest to the question and the price is old. Not even re-ranking drops it: outdated documents are removed by whoever chooses the sources."}
+   ],
+   "prova": {"it": "Spegni «Listino 2024 (vecchio)» tra le fonti e guarda cambiare prezzo e citazione.", "en": "Switch off «2024 price list (old)» among the sources and watch the price and the citation change."},
+   "concetti": ["C50"],
+   "stato_animazione": {"domanda": "q_prezzo", "fonti": ["l26", "l24", "faq", "ctr", "blog"], "k": 3, "modo": "significato", "riordino": false, "non_so": true}
+  },
+  {
+   "id": "non_so",
+   "titolo": {"it": "«Non lo so» è una risposta giusta", "en": "«I don't know» is a right answer"},
+   "narrazione": [
+    {"it": "Lo sconto per le associazioni non è in nessun documento. Con l'istruzione «se non sai, di' non lo so» l'agente lo ammette; senza, inventa una cifra. Il RAG riduce le invenzioni, ma non le elimina.", "en": "The discount for non-profits is in no document. With the instruction «if you don't know, say I don't know» the agent admits it; without it, it invents a figure. RAG reduces inventions, but does not eliminate them."},
+    {"it": "Il RAG rende l'agente esperto dei fatti, uguali per tutti, come un bibliotecario. La memoria lo rende esperto del singolo cliente, come un assistente personale.", "en": "RAG makes the agent an expert on facts, the same for everyone, like a librarian. Memory makes it an expert on the single customer, like a personal assistant."}
+   ],
+   "prova": {"it": "Con la domanda sulle associazioni spegni l'istruzione «non lo so» e confronta le due risposte.", "en": "With the non-profit question switch off the «I don't know» instruction and compare the two answers."},
+   "concetti": ["C50"],
+   "stato_animazione": {"domanda": "q_onlus", "fonti": ["l26", "faq", "ctr", "blog"], "k": 3, "modo": "significato", "riordino": false, "non_so": true}
+  },
+  {
+   "id": "riassunto",
+   "titolo": {"it": "In tre frasi", "en": "In three sentences"},
+   "narrazione": [
+    {"it": "Il RAG divide i documenti in porzioni, le trasforma in embedding e, a ogni domanda, recupera le più vicine per significato da passare al modello.", "en": "RAG splits documents into pieces, turns them into embeddings and, for every question, retrieves the closest ones by meaning to pass to the model."},
+    {"it": "La ricerca per significato trova i sinonimi ma confonde codici simili: la ricerca ibrida e la scelta delle fonti aggiornate evitano le risposte sbagliate.", "en": "Search by meaning finds synonyms but confuses similar codes: hybrid search and choosing up-to-date sources prevent wrong answers."},
+    {"it": "Una buona risposta cita le sue fonti e dice «non lo so» quando i documenti tacciono: il RAG riduce le invenzioni, non le elimina.", "en": "A good answer cites its sources and says «I don't know» when the documents are silent: RAG reduces inventions, it does not eliminate them."}
+   ],
+   "concetti": ["C49", "C50"],
+   "stato_animazione": {"domanda": "q_prezzo", "fonti": ["l26", "faq", "ctr", "blog"], "k": 3, "modo": "ibrida", "riordino": false, "non_so": true}
+  }
+ ],
+ "scenario": {
+  "k": {"min": 1, "max": 20},
+  "fonti": [
+   {"id": "l26", "nome": {"it": "Listino 2026", "en": "2026 price list"}, "vecchia": false},
+   {"id": "l24", "nome": {"it": "Listino 2024 (vecchio)", "en": "2024 price list (old)"}, "vecchia": true},
+   {"id": "faq", "nome": {"it": "FAQ e supporto", "en": "FAQ and support"}, "vecchia": false},
+   {"id": "ctr", "nome": {"it": "Contratti", "en": "Contracts"}, "vecchia": false},
+   {"id": "blog", "nome": {"it": "Blog", "en": "Blog"}, "vecchia": false}
+  ],
+  "temi": [
+   {"id": "prezzi", "nome": {"it": "PREZZI", "en": "PRICES"}, "colore": "#2563eb", "x": 140, "y": 72},
+   {"id": "integrazioni", "nome": {"it": "USO E INTEGRAZIONI", "en": "USE AND INTEGRATIONS"}, "colore": "#0d9488", "x": 540, "y": 72},
+   {"id": "contratti", "nome": {"it": "CONTRATTI", "en": "CONTRACTS"}, "colore": "#d97706", "x": 110, "y": 268},
+   {"id": "supporto", "nome": {"it": "SUPPORTO", "en": "SUPPORT"}, "colore": "#7c3aed", "x": 560, "y": 268},
+   {"id": "blog", "nome": {"it": "BLOG", "en": "BLOG"}, "colore": "#94a3b8", "x": 440, "y": 240}
+  ],
+  "domande": [
+   {"id": "q_prezzo", "testo": {"it": "Quanto costa il piano annuale per 50 utenti?", "en": "How much is the annual plan for 50 users?"}, "x": 100, "y": 128, "parole": ["piano annuale", "utenti"], "temi": ["prezzi"], "pertinenti": ["l26_a", "l26_c"], "filtro_esatto": null, "inventata": {"it": "Il piano annuale costa circa 20 € a utente al mese.", "en": "The annual plan costs about €20 per user per month."}},
+   {"id": "q_remoto", "testo": {"it": "Quale piano è adatto a team distribuiti?", "en": "Which plan suits distributed teams?"}, "x": 262, "y": 128, "parole": ["team distribuiti"], "temi": ["prezzi", "integrazioni"], "pertinenti": ["l26_d", "faq_a", "faq_e"], "filtro_esatto": null, "inventata": {"it": "Il piano Premium Remote, a 30 € a utente.", "en": "The Premium Remote plan, at €30 per user."}},
+   {"id": "q_contratto", "testo": {"it": "Quando scade il contratto CT-2025-0147?", "en": "When does contract CT-2025-0147 expire?"}, "x": 100, "y": 300, "parole": ["CT-2025-0147", "contratto", "scadenza"], "temi": ["contratti"], "pertinenti": ["ctr_a"], "filtro_esatto": "CT-2025-0147", "inventata": {"it": "Il contratto scade a fine anno.", "en": "The contract expires at the end of the year."}},
+   {"id": "q_onlus", "testo": {"it": "Che sconto fate alle associazioni no profit?", "en": "What discount do you give non-profits?"}, "x": 440, "y": 180, "parole": ["no profit", "sconto"], "temi": [], "pertinenti": [], "filtro_esatto": null, "inventata": {"it": "Alle associazioni no profit facciamo il 20% di sconto.", "en": "We give non-profits a 20% discount."}}
+  ],
+  "porzioni": [
+   {"id": "l26_a", "fonte": "l26", "tema": "prezzi", "x": 124, "y": 118, "parole": ["piano annuale", "utenti", "prezzo"], "testo": {"it": "Piano annuale: 18 € a utente al mese, fatturato una volta l'anno.", "en": "Annual plan: €18 per user per month, billed once a year."},
+    "risponde": {"q_prezzo": {"testo": {"it": "Il piano annuale costa 18 € a utente al mese: per 50 utenti sono 10.800 € l'anno.", "en": "The annual plan costs €18 per user per month: for 50 users that is €10,800 a year."}, "giusto": true, "nota": {"it": "listino in vigore", "en": "current price list"}}}},
+   {"id": "l26_b", "fonte": "l26", "tema": "prezzi", "x": 152, "y": 95, "parole": ["piano mensile", "utenti", "prezzo"], "testo": {"it": "Piano mensile: 22 € a utente al mese, disdetta quando vuoi.", "en": "Monthly plan: €22 per user per month, cancel any time."}},
+   {"id": "l26_c", "fonte": "l26", "tema": "prezzi", "x": 92, "y": 160, "parole": ["utenti", "sconto"], "testo": {"it": "Sconto volume: dai 100 utenti in su il prezzo scende del 10%.", "en": "Volume discount: from 100 users up the price drops by 10%."}},
+   {"id": "l26_d", "fonte": "l26", "tema": "prezzi", "x": 215, "y": 135, "parole": ["piano business", "sedi"], "testo": {"it": "Piano Business: per aziende con più sedi, utenti condivisi tra le sedi.", "en": "Business plan: for companies with several offices, users shared across offices."},
+    "risponde": {"q_remoto": {"testo": {"it": "Il piano Business, pensato per aziende con più sedi; si usa anche da remoto, da browser e app.", "en": "The Business plan, designed for companies with several offices; it also works remotely, from browser and app."}, "giusto": true, "nota": {"it": "listino in vigore", "en": "current price list"}}}},
+   {"id": "l24_a", "fonte": "l24", "tema": "prezzi", "x": 112, "y": 112, "parole": ["piano annuale", "utenti", "prezzo"], "testo": {"it": "Listino 2024 – Piano annuale: 15 € a utente al mese.", "en": "2024 price list – Annual plan: €15 per user per month."},
+    "risponde": {"q_prezzo": {"testo": {"it": "Il piano annuale costa 15 € a utente al mese: per 50 utenti sono 9.000 € l'anno.", "en": "The annual plan costs €15 per user per month: for 50 users that is €9,000 a year."}, "giusto": false, "nota": {"it": "la cifra viene dal listino 2024, che non vale più", "en": "the figure comes from the 2024 price list, which is no longer valid"}}}},
+   {"id": "l24_b", "fonte": "l24", "tema": "prezzi", "x": 162, "y": 108, "parole": ["piano mensile", "utenti", "prezzo"], "testo": {"it": "Listino 2024 – Piano mensile: 19 € a utente al mese.", "en": "2024 price list – Monthly plan: €19 per user per month."}},
+   {"id": "faq_a", "fonte": "faq", "tema": "integrazioni", "x": 300, "y": 120, "parole": ["remoto"], "testo": {"it": "Lavoro da remoto: chi lavora da casa entra da browser e app, senza VPN.", "en": "Remote work: people working from home log in from browser and app, no VPN."}},
+   {"id": "faq_e", "fonte": "faq", "tema": "integrazioni", "x": 330, "y": 150, "parole": ["sedi"], "testo": {"it": "Più sedi, un solo account: gli amministratori gestiscono tutte le filiali da un pannello.", "en": "Several offices, one account: administrators manage all branches from one panel."}},
+   {"id": "faq_b", "fonte": "faq", "tema": "integrazioni", "x": 520, "y": 100, "parole": ["crm"], "testo": {"it": "Integrazione CRM: contatti e trattative si sincronizzano ogni 15 minuti.", "en": "CRM integration: contacts and deals sync every 15 minutes."}},
+   {"id": "faq_c", "fonte": "faq", "tema": "integrazioni", "x": 568, "y": 128, "parole": ["email"], "testo": {"it": "Integrazione email: si collega la casella aziendale in due clic.", "en": "Email integration: connect the company mailbox in two clicks."}},
+   {"id": "faq_d", "fonte": "faq", "tema": "integrazioni", "x": 606, "y": 96, "parole": ["calendario"], "testo": {"it": "Calendario condiviso: le demo con i lead si fissano dal calendario del team.", "en": "Shared calendar: demos with leads are booked from the team calendar."}},
+   {"id": "sup_a", "fonte": "faq", "tema": "supporto", "x": 520, "y": 300, "parole": ["supporto"], "testo": {"it": "Supporto in chat dalle 9 alle 18, dal lunedì al venerdì.", "en": "Chat support from 9 to 6, Monday to Friday."}},
+   {"id": "sup_b", "fonte": "faq", "tema": "supporto", "x": 566, "y": 330, "parole": ["password"], "testo": {"it": "Password dimenticata: il link via email vale 30 minuti.", "en": "Forgotten password: the email link is valid for 30 minutes."}},
+   {"id": "sup_c", "fonte": "faq", "tema": "supporto", "x": 606, "y": 296, "parole": ["piano business", "supporto"], "testo": {"it": "Piano Business: risposta del supporto entro 4 ore lavorative.", "en": "Business plan: support replies within 4 working hours."}},
+   {"id": "ctr_a", "fonte": "ctr", "tema": "contratti", "x": 136, "y": 300, "parole": ["CT-2025-0147", "contratto", "scadenza"], "testo": {"it": "Contratto CT-2025-0147, Hotel Lago Blu: scade il 31 marzo 2026, rinnovo automatico.", "en": "Contract CT-2025-0147, Hotel Lago Blu: expires on 31 March 2026, automatic renewal."},
+    "risponde": {"q_contratto": {"testo": {"it": "Il contratto CT-2025-0147 scade il 31 marzo 2026.", "en": "Contract CT-2025-0147 expires on 31 March 2026."}, "giusto": true, "nota": {"it": "contratto giusto", "en": "right contract"}}}},
+   {"id": "ctr_b", "fonte": "ctr", "tema": "contratti", "x": 118, "y": 286, "parole": ["CT-2025-0174", "contratto", "scadenza"], "testo": {"it": "Contratto CT-2025-0174, Ottica Sole: scade il 30 settembre 2026, rinnovo automatico.", "en": "Contract CT-2025-0174, Ottica Sole: expires on 30 September 2026, automatic renewal."},
+    "risponde": {"q_contratto": {"testo": {"it": "Il contratto scade il 30 settembre 2026.", "en": "The contract expires on 30 September 2026."}, "giusto": false, "nota": {"it": "è la data del contratto CT-2025-0174, di un altro cliente", "en": "it is the date of contract CT-2025-0174, another customer's"}}}},
+   {"id": "ctr_c", "fonte": "ctr", "tema": "contratti", "x": 160, "y": 334, "parole": ["disdetta", "scadenza"], "testo": {"it": "Disdetta: va inviata per PEC almeno 60 giorni prima della scadenza.", "en": "Cancellation: send it by certified email at least 60 days before expiry."}},
+   {"id": "ctr_d", "fonte": "ctr", "tema": "contratti", "x": 60, "y": 345, "parole": ["CT-2024-0098", "contratto", "scadenza"], "testo": {"it": "Contratto CT-2024-0098, Ferramenta Ferri: scaduto il 31 dicembre 2025.", "en": "Contract CT-2024-0098, Ferri Hardware: expired on 31 December 2025."}},
+   {"id": "blog_a", "fonte": "blog", "tema": "blog", "x": 360, "y": 256, "parole": ["email"], "testo": {"it": "Blog: 5 idee per le email di Natale.", "en": "Blog: 5 ideas for Christmas emails."}},
+   {"id": "blog_b", "fonte": "blog", "tema": "blog", "x": 396, "y": 286, "parole": ["newsletter"], "testo": {"it": "Blog: come scrivere l'oggetto di una newsletter.", "en": "Blog: how to write a newsletter subject line."}},
+   {"id": "blog_c", "fonte": "blog", "tema": "blog", "x": 330, "y": 300, "parole": ["fiera"], "testo": {"it": "Blog: il nostro team alla fiera del turismo.", "en": "Blog: our team at the tourism fair."}},
+   {"id": "blog_d", "fonte": "blog", "tema": "blog", "x": 250, "y": 215, "parole": ["prezzo", "crm"], "testo": {"it": "Blog: perché il prezzo non è tutto nella scelta di un CRM.", "en": "Blog: why price is not everything when choosing a CRM."}}
+  ],
+  "testi": {
+   "non_so": {"it": "Non lo so: nei documenti che ho trovato questa informazione non c'è.", "en": "I don't know: this information is not in the documents I found."},
+   "nota_non_so": {"it": "Risposta onesta: meglio un «non lo so» di una cifra inventata.", "en": "Honest answer: an «I don't know» is better than an invented figure."},
+   "nota_inventata": {"it": "Inventata: nessuna porzione la sostiene e non ha citazioni. Il RAG riduce le invenzioni, non le elimina.", "en": "Invented: no piece supports it and it has no citations. RAG reduces inventions, it does not eliminate them."},
+   "nota_giusta": {"it": "Giusta: ogni cifra ha la sua citazione e si può controllare.", "en": "Right: every figure has its citation and can be checked."},
+   "nota_sbagliata": {"it": "Sbagliata: {perche}. La citazione permette di scoprirlo.", "en": "Wrong: {perche}. The citation lets you find out."},
+   "recuperate": {"it": "Porzioni recuperate: {n}", "en": "Retrieved pieces: {n}"},
+   "nessuna_porzione": {"it": "Nessuna porzione recuperata.", "en": "No piece retrieved."},
+   "k_riordino": {"it": "{n} → {m}", "en": "{n} → {m}"},
+   "nota_misure": {"it": "Esempi della fonte: 10 porzioni trovate, 7 utili → precisione 0,7; 3 utili trovate su 6 esistenti → richiamo 0,5. Con k più alto il richiamo sale e la precisione scende.", "en": "Examples from the source: 10 pieces found, 7 useful → precision 0.7; 3 useful found out of 6 existing → recall 0.5. With a higher k recall goes up and precision goes down."},
+   "confronto_rag": {"it": "RAG: esperto dei fatti, uguali per tutti, come un bibliotecario.", "en": "RAG: an expert on facts, the same for everyone, like a librarian."},
+   "confronto_memoria": {"it": "Memoria: esperta del singolo cliente, come un assistente personale con il suo taccuino.", "en": "Memory: an expert on the single customer, like a personal assistant with a notebook."}
+  },
+  "etichette": {
+   "titolo_comandi": {"it": "Prova a cambiare", "en": "Try changing"},
+   "domanda": {"it": "La domanda del cliente", "en": "The customer's question"},
+   "modo": {"it": "Come cercare", "en": "How to search"},
+   "modo_parole": {"it": "Parole chiave", "en": "Keywords"},
+   "modo_significato": {"it": "Significato", "en": "Meaning"},
+   "modo_ibrida": {"it": "Ibrida", "en": "Hybrid"},
+   "k": {"it": "Porzioni da recuperare (k)", "en": "Pieces to retrieve (k)"},
+   "riordino": {"it": "Recupera e riordina", "en": "Retrieve and re-rank"},
+   "fonti": {"it": "Fonti nell'indice", "en": "Sources in the index"},
+   "non_so": {"it": "Se non sai, di' «non lo so»", "en": "If you don't know, say «I don't know»"},
+   "titolo_scena": {"it": "LA MAPPA DEI SIGNIFICATI: OGNI PUNTINO È UNA PORZIONE DI DOCUMENTO", "en": "THE MAP OF MEANINGS: EVERY DOT IS A PIECE OF A DOCUMENT"},
+   "avviso_dimensioni": {"it": "Qui 2 dimensioni, come latitudine e longitudine; gli embedding veri ne hanno centinaia (es. 768). «!» = listino vecchio.", "en": "Here 2 dimensions, like latitude and longitude; real embeddings have hundreds (e.g. 768). «!» = old price list."},
+   "punto_domanda": {"it": "DOMANDA", "en": "QUESTION"},
+   "titolo_destra": {"it": "Risposta e fonti", "en": "Answer and sources"},
+   "risposta": {"it": "Risposta dell'agente", "en": "Agent's answer"},
+   "precisione": {"it": "Precisione", "en": "Precision"},
+   "richiamo": {"it": "Richiamo", "en": "Recall"},
+   "titolo_confronto": {"it": "RAG o memoria?", "en": "RAG or memory?"},
+   "descrizione_scena": {"it": "Mappa a due dimensioni con le porzioni dei documenti raggruppate per tema e la domanda collegata alle porzioni recuperate.", "en": "Two-dimensional map with the document pieces grouped by topic and the question linked to the retrieved pieces."}
+  }
+ },
+ "domande": []
+}

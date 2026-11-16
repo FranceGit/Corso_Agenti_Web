@@ -36,7 +36,7 @@ def test_il_laboratorio_e_separato_dalla_lezione(catalogo_vero):
     assert catalogo_vero.laboratori["P3.5"].id == "L_trova_errore"
     assert catalogo_vero.lezioni["P3.5"].tipo == "lezione"
     assert all(lez.tipo == "lezione" for lez in catalogo_vero.lezioni.values())
-    assert catalogo_vero.rapporto()["laboratori"] == ["P3.5"]
+    assert "P3.5" in catalogo_vero.rapporto()["laboratori"]  # altri laboratori arrivano dai cantieri paralleli (es. P8.1)
     componenti = [lez.componente for lez in catalogo_vero.tutte_le_lezioni()]
     assert "trova_errore" in componenti and len(componenti) == len(set(componenti))
 

@@ -143,8 +143,9 @@ def test_riferimento_aiuto(catalogo_vero):
     ("fasi", "non ha lezione"),
 ])
 def test_riferimento_aiuto_invalido_ferma_il_caricamento(tmp_path, dati_config, riferimento, messaggio):
-    # P8.6 non ha lezione interattiva (copia_dati copia tutte le lezioni vere, quindi P1.1 ora ne ha una)
-    cfg = copia_dati(tmp_path, dati_config, modifica_corso=lambda c: pillola(c, "P8.6")["domande"][0].update(segmento_aiuto=riferimento))
+    # P3.3 resta senza lezione interattiva per scelta (vedi tests/test_lezioni.py): copia_dati copia tutte le
+    # lezioni vere, e le altre pillole (prima P1.1, poi P8.6) via via ne hanno ricevuta una
+    cfg = copia_dati(tmp_path, dati_config, modifica_corso=lambda c: pillola(c, "P3.3")["domande"][0].update(segmento_aiuto=riferimento))
     with pytest.raises(ErroreDati, match=messaggio):
         Catalogo(cfg)
 

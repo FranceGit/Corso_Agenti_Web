@@ -1,0 +1,1011 @@
+[
+ {
+  "id": "DA4.2-4",
+  "origine": "autori",
+  "pillola": "P4.2",
+  "concetti": [
+   "C36"
+  ],
+  "concetto_principale": "C36",
+  "segmento_aiuto": "errori",
+  "striscia": "diagnosi",
+  "livello1": {
+   "domanda": {
+    "it": "Un agente deve aggiornare la trattativa di un contatto. Lo strumento risponde sempre «success», anche quando il contatto non esiste. Che cosa succederà?",
+    "en": "An agent has to update a contact's deal. The tool always answers «success», even when the contact does not exist. What will happen?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Il modello si accorgerà dell'errore, perché il CRM non cambia",
+      "en": "The model will notice the error, because the CRM does not change"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il modello non guarda il CRM: legge solo la risposta dello strumento, che dice «success».",
+      "en": "The model does not look at the CRM: it only reads the tool's answer, which says «success»."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "L'agente dirà «fatto» anche quando non ha cambiato niente",
+      "en": "The agent will say «done» even when it changed nothing"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Il messaggio torna al modello: se dice sempre «success», l'agente crede di aver lavorato.",
+      "en": "The message goes back to the model: if it always says «success», the agent believes it has done the work."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Un test che controlla solo la risposta dello strumento scoprirà subito il problema",
+      "en": "A test that only checks the tool's answer will find the problem at once"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Proprio no: il test legge «success» e passa lo stesso. È il caso reale dei notebook Google.",
+      "en": "Not at all: the test reads «success» and passes anyway. It is the real case in the Google notebooks."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Il modello aprirà il CRM a mano per controllare",
+      "en": "The model will open the CRM by hand to check"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il modello non ha mani: vede solo ciò che gli strumenti gli restituiscono.",
+      "en": "The model has no hands: it only sees what the tools return to it."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Nessun problema: «success» è il messaggio più chiaro possibile",
+      "en": "No problem: «success» is the clearest message possible"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Un messaggio che dice sempre la stessa cosa non informa: nasconde gli errori.",
+      "en": "A message that always says the same thing does not inform: it hides errors."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Il messaggio dello strumento è ciò che il modello legge: se dice sempre «success», gli errori restano invisibili.",
+    "en": "The tool's message is what the model reads: if it always says «success», errors stay invisible."
+   }
+  },
+  "livello2": {
+   "tipo": "diagnosi",
+   "domanda": {
+    "it": "Che cosa va cambiato nello strumento?",
+    "en": "What must be changed in the tool?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Restituire un errore che dica che il contatto non esiste e che cosa fare",
+      "en": "Return an error that says the contact does not exist and what to do"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Un errore informativo dice al modello cosa è successo e come rimediare.",
+      "en": "A descriptive error tells the model what happened and how to fix it."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Scrivere nel prompt «controlla sempre di aver lavorato bene» all'agente",
+      "en": "Write «always check you did a good job» in the agent's prompt"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il modello non può controllare ciò che lo strumento gli nasconde: va corretto lo strumento.",
+      "en": "The model cannot check what the tool hides from it: the tool must be fixed."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Far ripetere ogni chiamata tre volte, per sicurezza",
+      "en": "Repeat every call three times, to be safe"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Ripetere tre volte dà tre «success» falsi, e senza idempotenza può duplicare gli effetti.",
+      "en": "Repeating three times gives three false «success», and without idempotency it can duplicate effects."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Usare un modello più grande e più costoso",
+      "en": "Use a bigger, more expensive model"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Anche un modello più grande legge lo stesso «success» sbagliato.",
+      "en": "Even a bigger model reads the same wrong «success»."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Togliere del tutto la risposta dello strumento, così il modello non si confonde",
+      "en": "Remove the tool's answer entirely, so the model is not confused"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Senza risposta il modello non sa nemmeno se la chiamata è andata a buon fine.",
+      "en": "Without an answer the model does not even know whether the call worked."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Il messaggio d'errore è un'occasione: deve dire che cosa è successo e che cosa fare dopo.",
+    "en": "The error message is an opportunity: it must say what happened and what to do next."
+   }
+  }
+ },
+ {
+  "id": "DA4.2-5",
+  "origine": "autori",
+  "pillola": "P4.2",
+  "concetti": [
+   "C36"
+  ],
+  "concetto_principale": "C36",
+  "segmento_aiuto": "parametri",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Un collega propone lo strumento «fa_tutto»: cerca i lead, assegna il punteggio, invia le email e aggiorna il CRM. Che cosa non va?",
+    "en": "A colleague proposes the «do_everything» tool: it finds leads, scores them, sends the emails and updates the CRM. What is wrong?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Il nome non dice quando usarlo",
+      "en": "The name does not say when to use it"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Vero, ma il problema principale è che fa troppi compiti insieme.",
+      "en": "True, but the main problem is that it does too many tasks at once."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Fa troppi compiti in uno",
+      "en": "It does too many tasks in one"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Le fonti dicono «niente multi-strumenti»: uno strumento, un compito di lavoro.",
+      "en": "The sources say «don't create multi-tools»: one tool, one work task."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Ha troppi parametri",
+      "en": "It has too many parameters"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Probabile, ma è una conseguenza del fare troppe cose.",
+      "en": "Likely, but it is a consequence of doing too many things."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "È scritto in italiano",
+      "en": "It is written in Italian"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "La lingua del nome non è il problema.",
+      "en": "The language of the name is not the problem."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Invia poche email",
+      "en": "It sends few emails"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il numero di email non c'entra: il rischio è inviarle quando nessuno l'ha chiesto.",
+      "en": "The number of emails is not the point: the risk is sending them when nobody asked."
+     }
+    },
+    {
+     "id": "F",
+     "testo": {
+      "it": "Niente: è più comodo",
+      "en": "Nothing: it is handier"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Comodo per chi lo scrive, rischioso per l'agente: effetti collaterali non voluti.",
+      "en": "Handy for whoever writes it, risky for the agent: unwanted side effects."
+     }
+    },
+    {
+     "id": "G",
+     "testo": {
+      "it": "Usa il CRM",
+      "en": "It uses the CRM"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Usare il CRM è normale: è il suo lavoro.",
+      "en": "Using the CRM is normal: it is its job."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Uno strumento deve fare un compito di lavoro: un mega-strumento confonde il modello e produce effetti non voluti.",
+    "en": "A tool should do one work task: a mega-tool confuses the model and produces unwanted effects."
+   }
+  },
+  "livello2": {
+   "tipo": "contro-esempio",
+   "domanda": {
+    "it": "Qual è invece la scelta migliore?",
+    "en": "What is the better choice instead?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Strumenti separati, uno per compito: trova_lead_caldi, invia_email, aggiorna_record",
+      "en": "Separate tools, one per task: find_hot_leads, send_email, update_record"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Ogni strumento fa una cosa sola, ed è chiaro quando usarlo.",
+      "en": "Each tool does one thing, and it is clear when to use it."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Tenerlo così, ma descriverlo molto bene, perché tanto il flusso di lavoro è sempre lo stesso",
+      "en": "Keep it, but describe it very well, because the flow is always the same"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Le fonti lo ammettono solo per un flusso frequente e documentato benissimo: qui c'è anche un invio di email.",
+      "en": "The sources allow it only for a frequent, very well documented flow: here it also sends emails."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Spezzarlo in dieci chiamate tecniche all'interfaccia del CRM, una per campo",
+      "en": "Split it into ten technical calls to the CRM interface, one per field"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "È l'errore opposto: compiti, non chiamate tecniche.",
+      "en": "It is the opposite mistake: tasks, not technical calls."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Aggiungere un parametro per ogni caso possibile",
+      "en": "Add a parameter for every possible case"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Più parametri confondono ancora di più il modello.",
+      "en": "More parameters confuse the model even more."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Dare al modello il codice sorgente dello strumento da leggere",
+      "en": "Give the model the tool's source code to read"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il modello sceglie dalla descrizione, non dal codice.",
+      "en": "The model chooses from the description, not from the code."
+     }
+    }
+   ],
+   "perche": {
+    "it": "La regola è un equilibrio: compiti, non chiamate tecniche, ma niente strumento che fa tutto.",
+    "en": "The rule is a balance: tasks, not technical calls, but no tool that does everything."
+   }
+  }
+ },
+ {
+  "id": "DA4.3-4",
+  "origine": "autori",
+  "pillola": "P4.3",
+  "concetti": [
+   "C38"
+  ],
+  "concetto_principale": "C38",
+  "segmento_aiuto": "fiducia",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Un collega dice: «Il server MCP del nuovo fornitore è affidabile: segue lo standard e dichiara che i suoi strumenti sono in sola lettura». Che cosa gli rispondi?",
+    "en": "A colleague says: «The new vendor's MCP server is reliable: it follows the standard and states that its tools are read only». What do you answer?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Ha ragione, perché MCP è uno standard aperto presentato da Anthropic nel 2024 e un server che lo segue è affidabile per definizione.",
+      "en": "He is right, because MCP is an open standard introduced by Anthropic in 2024 and a server that follows it is reliable by definition."
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Lo standard dice come parlarsi, non chi è serio: l'affidabilità va verificata.",
+      "en": "The standard says how to talk, not who is trustworthy: reliability must be checked."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Lo standard dice solo come parlarsi: chi lo pubblica, quali permessi chiede e come si comporta vanno controllati.",
+      "en": "The standard only says how to talk: who publishes it, which permissions it asks for and how it behaves must be checked."
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Qualità, permessi e sicurezza restano responsabilità di chi collega il server.",
+      "en": "Quality, permissions and security remain the responsibility of whoever connects the server."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Ha ragione se l'etichetta «sola lettura» compare nel catalogo, perché il protocollo controlla che sia vera prima di ogni chiamata.",
+      "en": "He is right if the «read only» label appears in the catalog, because the protocol checks it is true before every call."
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Le etichette sono solo indicazioni del fornitore: il protocollo non le verifica.",
+      "en": "The labels are only the vendor's hints: the protocol does not verify them."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Basta un primo collegamento di prova: se funziona, si può dare al server l'accesso pieno al CRM.",
+      "en": "One test connection is enough: if it works, the server can get full access to the CRM."
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Funzionare una volta non dice nulla su permessi e comportamento futuro.",
+      "en": "Working once says nothing about permissions and future behaviour."
+     }
+    }
+   ],
+   "perche": {
+    "it": "MCP rende i collegamenti uguali, non affidabili: le etichette dei server sono dichiarazioni, non garanzie.",
+    "en": "MCP makes connections uniform, not reliable: server labels are statements, not guarantees."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché l'etichetta «sola lettura» non basta?",
+    "en": "Why is the «read only» label not enough?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "È una dichiarazione del fornitore, non una garanzia",
+      "en": "It is the vendor's statement, not a guarantee"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Le fonti: le etichette sono «solo indicazioni» e non ci si deve basare su quelle di server non fidati.",
+      "en": "The sources: labels are «only hints» and must not be relied on for untrusted servers."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché MCP non prevede etichette per gli strumenti",
+      "en": "Because MCP has no labels for tools"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Le etichette esistono (sola lettura, idempotente...): il punto è che non sono garantite.",
+      "en": "Labels exist (read only, idempotent...): the point is that they are not guaranteed."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché vale solo per le risorse, non per gli strumenti",
+      "en": "Because it applies only to resources, not to tools"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Le etichette riguardano proprio gli strumenti.",
+      "en": "Labels are precisely about tools."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Perché il modello non sa leggere le etichette",
+      "en": "Because the model cannot read labels"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il problema non è leggerle, è fidarsi.",
+      "en": "The problem is not reading them, it is trusting them."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Perché tutti i server MCP sono pericolosi per definizione",
+      "en": "Because all MCP servers are dangerous by definition"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Non tutti: vanno valutati uno per uno.",
+      "en": "Not all of them: they must be assessed one by one."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Un'etichetta scritta dal fornitore descrive come lo strumento dovrebbe comportarsi; solo i controlli dicono come si comporta davvero.",
+    "en": "A label written by the vendor describes how the tool should behave; only checks say how it really behaves."
+   }
+  }
+ },
+ {
+  "id": "DA4.3-5",
+  "origine": "autori",
+  "pillola": "P4.3",
+  "concetti": [
+   "C38"
+  ],
+  "concetto_principale": "C38",
+  "segmento_aiuto": "ruoli",
+  "striscia": "diagnosi",
+  "livello1": {
+   "domanda": {
+    "it": "L'assistente vendite di un'azienda, collegato via MCP, ha passato dati dei clienti allo strumento di un fornitore sconosciuto. Quale pezzo doveva fermarlo?",
+    "en": "A company's sales assistant, connected through MCP, passed customer data to an unknown vendor's tool. Which piece should have stopped it?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Il client, che tiene la linea con il server",
+      "en": "The client, which keeps the line with the server"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il client tiene solo la linea: le regole le applica l'host.",
+      "en": "The client only keeps the line: the host enforces the rules."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "L'host, che applica le regole di sicurezza",
+      "en": "The host, which enforces the security rules"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "L'host è l'app AI: gestisce i client e applica regole e controlli.",
+      "en": "The host is the AI app: it manages the clients and enforces rules and checks."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Il server del fornitore, che dovrebbe proteggersi da solo",
+      "en": "The vendor's server, which should protect itself"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il server è scritto da altri: non può garantire le tue regole.",
+      "en": "The server is written by others: it cannot guarantee your rules."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Il CRM, che dovrebbe rifiutare ogni lettura",
+      "en": "The CRM, which should refuse every read"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Se il CRM rifiuta ogni lettura, l'assistente non lavora più.",
+      "en": "If the CRM refuses every read, the assistant stops working."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Nessuno: con uno standard i controlli non servono più",
+      "en": "Nobody: with a standard, checks are no longer needed"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Lo standard non toglie la responsabilità dei controlli.",
+      "en": "The standard does not remove responsibility for checks."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Nei ruoli di MCP è l'host, l'applicazione AI, a far rispettare le regole di sicurezza.",
+    "en": "In MCP's roles it is the host, the AI application, that enforces the security rules."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Domani l'azienda collega anche il server del calendario. Che cosa resta compito dell'host?",
+    "en": "Tomorrow the company also connects the calendar server. What remains the host's job?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Decidere quali strumenti usare e applicare le stesse regole di sicurezza",
+      "en": "Decide which tools to use and enforce the same security rules"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Ogni nuovo server passa dallo stesso host e dalle sue regole.",
+      "en": "Every new server goes through the same host and its rules."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Solo aprire la linea: le regole le porta il nuovo server",
+      "en": "Only opening the line: the new server brings the rules"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Aprire la linea è il lavoro del client; le regole non le detta il server.",
+      "en": "Opening the line is the client's job; the server does not set the rules."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Controllare bene il primo collegamento e poi fidarsi del server per sempre",
+      "en": "Check the first connection and then trust the server forever"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Un server può cambiare i suoi strumenti: i controlli continuano.",
+      "en": "A server can change its tools: the checks continue."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Riscrivere da zero il server del calendario",
+      "en": "Rewrite the calendar server from scratch"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il server lo pubblica chi espone il calendario: l'host lo usa.",
+      "en": "The server is published by whoever exposes the calendar: the host uses it."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Costruire tre integrazioni su misura per il calendario",
+      "en": "Build three custom integrations for the calendar"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Con lo standard basta un server nuovo, non tre integrazioni.",
+      "en": "With the standard one new server is enough, not three integrations."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Aggiungere un server non sposta le regole: restano nell'host, che le applica a ogni collegamento.",
+    "en": "Adding a server does not move the rules: they stay in the host, which enforces them on every connection."
+   }
+  }
+ },
+ {
+  "id": "DA4.4-4",
+  "origine": "autori",
+  "pillola": "P4.4",
+  "concetti": [
+   "C40"
+  ],
+  "concetto_principale": "C40",
+  "segmento_aiuto": "conto",
+  "striscia": "diagnosi",
+  "livello1": {
+   "domanda": {
+    "it": "Un agente marketing ha 60 strumenti collegati, tutti caricati a ogni chiamata. Le risposte sono lente, care e a volte usano lo strumento sbagliato. Qual è la causa più probabile?",
+    "en": "A marketing agent has 60 connected tools, all loaded at every call. Answers are slow, expensive and sometimes use the wrong tool. What is the most likely cause?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Il modello è troppo piccolo per i lavori di marketing",
+      "en": "The model is too small for marketing work"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Un modello più grande avrebbe lo stesso contesto pieno di descrizioni.",
+      "en": "A bigger model would have the same context full of descriptions."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Le descrizioni degli strumenti riempiono la finestra di contesto",
+      "en": "The tool descriptions fill the context window"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Ogni descrizione occupa token: più costo, più lentezza, scelte peggiori.",
+      "en": "Every description takes up tokens: more cost, more slowness, worse choices."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Alcuni strumenti hanno nomi poco chiari e descrizioni troppo brevi",
+      "en": "Some tools have unclear names and descriptions that are too short"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Può peggiorare le scelte, ma non spiega lentezza e costo.",
+      "en": "It can worsen the choices, but it does not explain slowness and cost."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Il CRM risponde lentamente nei fine settimana",
+      "en": "The CRM answers slowly at weekends"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Non spiega le scelte sbagliate né il costo per richiesta.",
+      "en": "It does not explain the wrong choices or the cost per request."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Gli strumenti non occupano spazio: è colpa della connessione internet",
+      "en": "Tools take up no space: the internet connection is to blame"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Le definizioni degli strumenti fanno parte del contesto e si pagano a token.",
+      "en": "Tool definitions are part of the context and are paid for in tokens."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Caricare tutte le definizioni a ogni chiamata gonfia il contesto: costo, latenza e qualità delle scelte peggiorano insieme.",
+    "en": "Loading every definition at every call bloats the context: cost, latency and choice quality get worse together."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché peggiora anche la qualità delle scelte, non solo il costo?",
+    "en": "Why does choice quality get worse too, not only cost?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Con troppe descrizioni il modello fatica a scegliere e perde di vista la richiesta",
+      "en": "With too many descriptions the model struggles to choose and loses sight of the request"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Le fonti parlano di qualità del ragionamento che cala e di scelte sbagliate.",
+      "en": "The sources talk about reasoning quality dropping and wrong tool choices."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché oltre il limite della finestra il modello dimentica in silenzio le prime righe del testo",
+      "en": "Because past the limit the model quietly forgets the first lines of text"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Oltre il limite la chiamata fallisce; prima del limite il problema è il rumore.",
+      "en": "Past the limit the call fails; before the limit the problem is noise."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché un costo alto rallenta il ragionamento del modello",
+      "en": "Because a high cost slows down the model's reasoning"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il costo non cambia il ragionamento: sono due effetti della stessa causa.",
+      "en": "Cost does not change reasoning: they are two effects of the same cause."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Perché il modello si stanca dopo molte chiamate di fila",
+      "en": "Because the model gets tired after many calls in a row"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il modello non si stanca: ogni chiamata riparte da zero.",
+      "en": "The model does not get tired: every call starts from scratch."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Non peggiora: più strumenti danno sempre scelte migliori",
+      "en": "It does not get worse: more tools always give better choices"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "È il contrario: un elenco troppo lungo è controproducente.",
+      "en": "It is the opposite: an overly long list is counterproductive."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Più testo inutile nel contesto vuol dire più rumore: il modello sceglie peggio e si allontana dall'obiettivo.",
+    "en": "More useless text in the context means more noise: the model chooses worse and drifts from the goal."
+   }
+  }
+ },
+ {
+  "id": "DA4.4-5",
+  "origine": "autori",
+  "pillola": "P4.4",
+  "concetti": [
+   "C41"
+  ],
+  "concetto_principale": "C41",
+  "segmento_aiuto": "misure",
+  "striscia": "diagnosi",
+  "livello1": {
+   "domanda": {
+    "it": "Un fornitore promette: «Con l'esecuzione di codice risparmi il 98,7% dei token e rispondi più in fretta». Che cosa controlli prima di crederci?",
+    "en": "A vendor promises: «With code execution you save 98.7% of tokens and answer faster». What do you check before believing it?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Se la cifra è stata misurata su casi come i tuoi o solo citata",
+      "en": "Whether the figure was measured on cases like yours or just quoted"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Il 98,7% è una cifra citata; l'unica misura reale disponibile dice 74,8%, su una domanda.",
+      "en": "The 98.7% is a quoted figure; the only real measurement available says 74.8%, on one question."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Solo la velocità, perché il risparmio di token con il codice è sempre garantito",
+      "en": "Only the speed, because the token saving with code is always guaranteed"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il risparmio dipende dal caso, e la velocità misurata è peggiorata.",
+      "en": "The saving depends on the case, and the measured speed got worse."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Se anche i costi scendono esattamente del 98,7%",
+      "en": "Whether costs also fall by exactly 98.7%"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Token e costo non scendono della stessa percentuale; e la cifra di partenza va verificata.",
+      "en": "Tokens and cost do not fall by the same percentage; and the starting figure must be checked."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Quante persone hanno condiviso l'annuncio del fornitore sui social",
+      "en": "How many people shared the vendor's announcement on social media"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "La popolarità di un annuncio non è una misura.",
+      "en": "An announcement's popularity is not a measurement."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Niente: una cifra con un decimale è per forza una misura precisa",
+      "en": "Nothing: a figure with a decimal is necessarily a precise measurement"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Un decimale non rende vera una cifra: conta da dove viene.",
+      "en": "A decimal does not make a figure true: what matters is where it comes from."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Le cifre dichiarate vanno distinte da quelle misurate: il principio funziona, la percentuale dipende dal caso.",
+    "en": "Claimed figures must be told apart from measured ones: the principle works, the percentage depends on the case."
+   }
+  },
+  "livello2": {
+   "tipo": "diagnosi",
+   "domanda": {
+    "it": "Nell'unica prova misurata del repository di esempio, che cosa è successo?",
+    "en": "In the example repository's only measured test, what happened?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Token -74,8% e costo -69,5%, ma risposta più lenta",
+      "en": "Tokens -74.8% and cost -69.5%, but a slower answer"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Da 37,5 a 53,5 secondi: più lenta del 42%, su una sola domanda.",
+      "en": "From 37.5 to 53.5 seconds: 42% slower, on one single question."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Token -98,7% e risposta più veloce",
+      "en": "Tokens -98.7% and a faster answer"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il 98,7% è la cifra citata, non quella misurata; e la risposta è stata più lenta.",
+      "en": "98.7% is the quoted figure, not the measured one; and the answer was slower."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Token -74,8% e risposta più veloce del 42%",
+      "en": "Tokens -74.8% and a 42% faster answer"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il 42% è il rallentamento, non l'accelerazione.",
+      "en": "The 42% is the slowdown, not the speed-up."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Nessun risparmio di token, ma una risposta molto più rapida",
+      "en": "No token saving, but a much faster answer"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "È il contrario: risparmio sì, velocità no.",
+      "en": "It is the opposite: saving yes, speed no."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Sono state provate 60 domande, tutte riuscite al primo colpo",
+      "en": "60 questions were tested, all successful at the first try"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Il dataset dichiarato di 60 domande ne conteneva 10, e la misura riguarda una domanda sola.",
+      "en": "The stated 60-question dataset contained 10, and the measurement covers one question only."
+     }
+    }
+   ],
+   "perche": {
+    "it": "La prova reale mostra un compromesso: meno token e meno costo, ma più tempo di risposta.",
+    "en": "The real test shows a trade-off: fewer tokens and lower cost, but a longer response time."
+   }
+  }
+ }
+]

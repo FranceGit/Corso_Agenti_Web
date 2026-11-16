@@ -1,0 +1,216 @@
+{
+ "id": "L_imbuto_ricordi",
+ "pillola": "P5.3",
+ "componente": "imbuto_ricordi",
+ "titolo": {"it": "L'imbuto dei ricordi: la memoria che ricorda il cliente", "en": "The memory funnel: the memory that remembers the customer"},
+ "sottotitolo": {"it": "Due chiamate con la stessa cliente: scegli cosa ricordare, aggiorna i fatti superati e recupera solo ciò che serve.", "en": "Two calls with the same customer: choose what to remember, update outdated facts and retrieve only what is needed."},
+ "segmenti": [
+  {
+   "id": "estrazione",
+   "titolo": {"it": "Che cosa vale la pena ricordare?", "en": "What is worth remembering?"},
+   "narrazione": [
+    {"it": "Un ricordo è un'istantanea di ciò che conta, estratta da una conversazione: non la registrazione completa. Qui Anna Riva, di Studio Riva, parla con l'agente il 3 marzo.", "en": "A memory is a snapshot of what matters, extracted from a conversation: not the full recording. Here Anna Riva, from Studio Riva, talks with the agent on 3 March."},
+    {"it": "Nell'imbuto passano solo le frasi sugli argomenti scelti: è l'estrazione. Se la chiamata è fatta solo di saluti, non nasce nessun ricordo. Estrarre a ogni turno dà ricordi freschi, ma costa più chiamate al modello.", "en": "Only the sentences about the chosen topics pass through the funnel: this is extraction. If the call is only greetings, no memory is created. Extracting at every turn gives fresh memories, but costs more calls to the model."}
+   ],
+   "prova": {"it": "Accendi «Chiacchiere personali», poi spegni tutti gli argomenti e guarda le card. Infine cambia «Quando estrarre».", "en": "Switch on «Personal small talk», then switch off all the topics and watch the cards. Finally change «When to extract»."},
+   "concetti": ["C47"],
+   "stato_animazione": {"vista": "sessione", "sessione": 1, "argomenti": ["contatto", "budget", "decisore"], "memoria": true, "consolidamento": true, "trigger": "fine", "manopole": {"rilevanza": 1, "recency": 0, "importanza": 0}, "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "tra_sessioni",
+   "titolo": {"it": "Due settimane dopo, l'agente si ricorda di Anna", "en": "Two weeks later, the agent remembers Anna"},
+   "narrazione": [
+    {"it": "Il modello non ricorda nulla da una chiamata all'altra. La memoria a lungo termine conserva i fatti utili oltre la sessione e li riporta nel contesto alla chiamata successiva.", "en": "The model remembers nothing from one call to the next. Long-term memory keeps useful facts beyond the session and brings them back into the context at the next call."},
+    {"it": "Ogni card porta la sua fonte. I dati caricati dal CRM sono affidabili e aiutano con un cliente mai visto; ciò che l'agente deduce dalla chiamata lo è meno.", "en": "Every card carries its source. Data loaded from the CRM is reliable and helps with a customer never seen before; what the agent infers from the call is less so."}
+   ],
+   "prova": {"it": "Nella 2ª chiamata spegni «L'agente ha la memoria» e confronta i due saluti.", "en": "In the 2nd call switch off «The agent has memory» and compare the two greetings."},
+   "concetti": ["C47"],
+   "stato_animazione": {"vista": "sessione", "sessione": 2, "argomenti": ["contatto", "budget", "decisore"], "memoria": true, "consolidamento": true, "trigger": "fine", "manopole": {"rilevanza": 1, "recency": 0, "importanza": 0}, "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "consolidamento",
+   "titolo": {"it": "Quando un ricordo cambia", "en": "When a memory changes"},
+   "narrazione": [
+    {"it": "Nella seconda chiamata Anna dice: «ora chiamatemi al telefono». Il consolidamento confronta il fatto nuovo con i ricordi simili: la card «email» diventa superata, con la data, e vale quella nuova.", "en": "In the second call Anna says: «now call me on the phone». Consolidation compares the new fact with similar memories: the «email» card becomes outdated, with the date, and the new one counts."},
+    {"it": "Senza consolidamento la memoria diventa un registro pieno di contraddizioni: l'agente recupera due card opposte e può scegliere quella vecchia.", "en": "Without consolidation, memory becomes a log full of contradictions: the agent retrieves two opposite cards and may pick the old one."}
+   ],
+   "prova": {"it": "Spegni «Consolida i ricordi» e guarda quale canale usa l'agente per il seguito.", "en": "Switch off «Consolidate memories» and see which channel the agent uses for the follow-up."},
+   "concetti": ["C47"],
+   "stato_animazione": {"vista": "sessione", "sessione": 2, "argomenti": ["contatto", "budget", "decisore"], "memoria": true, "consolidamento": true, "trigger": "fine", "manopole": {"rilevanza": 1, "recency": 0, "importanza": 0}, "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "recupero",
+   "titolo": {"it": "Recuperare solo ciò che serve adesso", "en": "Retrieving only what is needed now"},
+   "narrazione": [
+    {"it": "Mesi dopo l'agente prepara la chiamata per il rinnovo del contratto. Non mette nel contesto tutti i ricordi, ma solo i 3 con il punteggio più alto.", "en": "Months later the agent prepares the call for the contract renewal. It does not put every memory into the context, only the 3 with the highest score."},
+    {"it": "Guardare solo la rilevanza, cioè quanto un ricordo c'entra con l'argomento, è un errore comune: riaffiora una riunione di due anni fa. Servono anche la recency, cioè quanto è recente, e l'importanza.", "en": "Looking only at relevance, meaning how much a memory relates to the topic, is a common mistake: a meeting from two years ago comes back. Recency, meaning how recent it is, and importance are needed too."}
+   ],
+   "prova": {"it": "Alza le manopole «Recency» e «Importanza»: guarda cambiare i ricordi nel contesto e la frase dell'agente.", "en": "Turn up the «Recency» and «Importance» knobs: watch the memories in the context and the agent's words change."},
+   "concetti": ["C47"],
+   "stato_animazione": {"vista": "recupero", "sessione": 2, "argomenti": ["contatto", "budget", "decisore"], "memoria": true, "consolidamento": true, "trigger": "fine", "manopole": {"rilevanza": 1, "recency": 0, "importanza": 0}, "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "cassetti",
+   "titolo": {"it": "Sapere cosa, sapere come", "en": "Knowing what, knowing how"},
+   "narrazione": [
+    {"it": "La memoria dichiarativa conserva fatti: preferenze, budget, chi decide. La memoria procedurale conserva procedure: per esempio come si prepara un preventivo approvato.", "en": "Declarative memory keeps facts: preferences, budget, who decides. Procedural memory keeps procedures: for example how to prepare an approved quote."},
+    {"it": "Molti sistemi in commercio gestiscono bene solo la prima. La seconda aiuta l'agente a migliorare il suo metodo senza riaddestrare il modello.", "en": "Many commercial systems handle only the first one well. The second helps the agent improve its method without retraining the model."}
+   ],
+   "prova": {"it": "Metti ogni ricordo nel cassetto giusto con le tendine, poi premi «Controlla».", "en": "Put each memory in the right drawer with the drop-downs, then press «Check»."},
+   "concetti": ["C48"],
+   "stato_animazione": {"vista": "cassetti", "sessione": 2, "argomenti": ["contatto", "budget", "decisore"], "memoria": true, "consolidamento": true, "trigger": "fine", "manopole": {"rilevanza": 1, "recency": 1, "importanza": 1}, "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "riassunto",
+   "titolo": {"it": "In tre frasi", "en": "In three sentences"},
+   "narrazione": [
+    {"it": "La memoria a lungo termine conserva pochi fatti utili su un cliente, estratti dalle conversazioni e dal CRM, non tutta la registrazione.", "en": "Long-term memory keeps a few useful facts about a customer, extracted from conversations and from the CRM, not the whole recording."},
+    {"it": "Il ciclo è estrazione, consolidamento, archiviazione e recupero: il consolidamento aggiorna i fatti superati e il recupero pesa rilevanza, recency e importanza.", "en": "The cycle is extraction, consolidation, storage and retrieval: consolidation updates outdated facts and retrieval weighs relevance, recency and importance."},
+    {"it": "La memoria dichiarativa sa cosa (i fatti sul cliente), quella procedurale sa come (le procedure approvate).", "en": "Declarative memory knows what (the facts about the customer), procedural memory knows how (the approved procedures)."}
+   ],
+   "concetti": ["C47", "C48"],
+   "stato_animazione": {"vista": "sessione", "sessione": 2, "argomenti": ["contatto", "budget", "decisore"], "memoria": true, "consolidamento": true, "trigger": "ogni5", "manopole": {"rilevanza": 1, "recency": 1, "importanza": 1}, "scelte": {}, "verificato": false}
+  }
+ ],
+ "scenario": {
+  "cliente": {"it": "ANNA RIVA · STUDIO RIVA", "en": "ANNA RIVA · STUDIO RIVA"},
+  "date": {"crm": {"it": "dal CRM", "en": "from the CRM"}, "s1": {"it": "3 marzo", "en": "3 March"}, "s2": {"it": "17 marzo", "en": "17 March"}},
+  "argomenti": [
+   {"id": "contatto", "nome": {"it": "Preferenze di contatto", "en": "Contact preferences"}, "colore": "#2563eb"},
+   {"id": "budget", "nome": {"it": "Budget", "en": "Budget"}, "colore": "#16a34a"},
+   {"id": "decisore", "nome": {"it": "Chi decide", "en": "Who decides"}, "colore": "#d97706"},
+   {"id": "chiacchiere", "nome": {"it": "Chiacchiere personali", "en": "Personal small talk"}, "colore": "#e11d48"}
+  ],
+  "crm": [
+   {"id": "crm1", "testo": {"it": "Cliente dal 2023, piano Base", "en": "Customer since 2023, Basic plan"}, "fonte": "crm", "argomento": null}
+  ],
+  "frasi1": [
+   {"id": "f1", "chi": "agente", "testo": {"it": "Buongiorno Anna, sono l'assistente di Alfa Software.", "en": "Good morning Anna, I am Alfa Software's assistant."}, "argomento": null, "ricordo": null, "fonte": "dedotto"},
+   {"id": "f2", "chi": "cliente", "testo": {"it": "Che caldo! Sabato porto i bambini al mare.", "en": "So hot! On Saturday I'm taking the kids to the beach."}, "argomento": "chiacchiere", "ricordo": {"it": "Sabato va al mare con i figli", "en": "Going to the beach with her kids on Saturday"}, "fonte": "dedotto"},
+   {"id": "f3", "chi": "cliente", "testo": {"it": "Mi scriva per email: al telefono non rispondo mai.", "en": "Write to me by email: I never answer the phone."}, "argomento": "contatto", "ricordo": {"it": "Preferisce essere contattata via email", "en": "Prefers to be contacted by email"}, "fonte": "dedotto", "canale": "email", "somiglianza": 0.82},
+   {"id": "f4", "chi": "cliente", "testo": {"it": "Per il 4° trimestre abbiamo approvato 8.000 euro.", "en": "For Q4 we have approved 8,000 euros."}, "argomento": "budget", "ricordo": {"it": "Budget approvato: 8.000 € per il 4° trimestre", "en": "Approved budget: €8,000 for Q4"}, "fonte": "dedotto"},
+   {"id": "f5", "chi": "cliente", "testo": {"it": "Però decide il direttore acquisti, Paolo Gallo.", "en": "But the purchasing director, Paolo Gallo, decides."}, "argomento": "decisore", "ricordo": {"it": "Decide Paolo Gallo, direttore acquisti", "en": "Paolo Gallo, purchasing director, decides"}, "fonte": "dedotto"},
+   {"id": "f6", "chi": "agente", "testo": {"it": "Perfetto, le preparo un preventivo.", "en": "Perfect, I will prepare a quote for you."}, "argomento": null, "ricordo": null, "fonte": "dedotto"}
+  ],
+  "frasi2": [
+   {"id": "g1", "chi": "agente", "testo": {"it": "Buongiorno Anna, ha visto il riepilogo?", "en": "Good morning Anna, did you see the summary?"}, "argomento": null, "ricordo": null, "fonte": "dedotto"},
+   {"id": "g2", "chi": "cliente", "testo": {"it": "Ho cambiato ufficio: ora chiamatemi al telefono.", "en": "I changed office: now call me on the phone."}, "argomento": "contatto", "ricordo": {"it": "Ora preferisce il telefono", "en": "Now prefers the phone"}, "fonte": "dedotto", "canale": "telefono", "somiglianza": 0.78, "sostituisce": "f3"},
+   {"id": "g3", "chi": "cliente", "testo": {"it": "Grazie, buona giornata!", "en": "Thanks, have a nice day!"}, "argomento": null, "ricordo": null, "fonte": "dedotto"},
+   {"id": "g4", "chi": "agente", "testo": {"it": "Grazie a lei, a presto.", "en": "Thank you, talk soon."}, "argomento": null, "ricordo": null, "fonte": "dedotto"}
+  ],
+  "canale_giusto": "telefono",
+  "canali": {"email": {"it": "email", "en": "email"}, "telefono": {"it": "telefono", "en": "phone"}},
+  "saluto_parti": {
+   "contatto": {"it": "Le ho mandato il riepilogo via email, come preferisce.", "en": "I sent you the summary by email, as you prefer."},
+   "budget": {"it": "Il preventivo resta dentro gli 8.000 € approvati.", "en": "The quote stays within the approved €8,000."},
+   "decisore": {"it": "Se vuole, lo giro anche a Paolo Gallo.", "en": "If you like, I will also forward it to Paolo Gallo."},
+   "chiacchiere": {"it": "Com'è andata al mare con i bambini?", "en": "How was the beach with the kids?"}
+  },
+  "trigger": [
+   {"id": "fine", "nome": {"it": "A fine chiamata", "en": "At the end of the call"}, "chiamate": 1, "ritardo": 20},
+   {"id": "ogni5", "nome": {"it": "Ogni 5 turni", "en": "Every 5 turns"}, "chiamate": 4, "ritardo": 5},
+   {"id": "ogni", "nome": {"it": "A ogni turno", "en": "At every turn"}, "chiamate": 20, "ritardo": 1}
+  ],
+  "ciclo": [{"it": "Estrazione", "en": "Extraction"}, {"it": "Consolidamento", "en": "Consolidation"}, {"it": "Archiviazione", "en": "Storage"}, {"it": "Recupero", "en": "Retrieval"}],
+  "recupero": {
+   "orizzonte_giorni": 365,
+   "quanti": 3,
+   "ricordi": [
+    {"id": "r1", "testo": {"it": "Voleva disdire il contratto", "en": "Wanted to cancel the contract"}, "eta_testo": {"it": "2 anni fa", "en": "2 years ago"}, "eta_giorni": 730, "rilevanza": 0.9, "importanza": 0.5, "fonte": "dedotto", "vecchio": true, "uso": {"it": "So che voleva disdire: le propongo uno sconto per restare.", "en": "I know you wanted to cancel: I am offering you a discount to stay."}},
+    {"id": "r2", "testo": {"it": "Il contratto scade il 31 marzo", "en": "The contract expires on 31 March"}, "eta_testo": {"it": "20 giorni fa", "en": "20 days ago"}, "eta_giorni": 20, "rilevanza": 0.85, "importanza": 0.9, "fonte": "crm", "vecchio": false, "uso": {"it": "Il contratto scade il 31 marzo: rinnoviamo per tempo.", "en": "The contract expires on 31 March: let's renew in time."}},
+    {"id": "r3", "testo": {"it": "Si era lamentata delle consegne", "en": "Had complained about deliveries"}, "eta_testo": {"it": "2 mesi fa", "en": "2 months ago"}, "eta_giorni": 60, "rilevanza": 0.75, "importanza": 0.6, "fonte": "dedotto", "vecchio": false, "uso": {"it": "Le consegne ora sono più rapide.", "en": "Deliveries are faster now."}},
+    {"id": "r4", "testo": {"it": "Decide Paolo Gallo, direttore acquisti", "en": "Paolo Gallo, purchasing director, decides"}, "eta_testo": {"it": "1 mese fa", "en": "1 month ago"}, "eta_giorni": 30, "rilevanza": 0.7, "importanza": 0.8, "fonte": "dedotto", "vecchio": false, "uso": {"it": "Mando la proposta anche a Paolo Gallo.", "en": "I will send the proposal to Paolo Gallo too."}},
+    {"id": "r5", "testo": {"it": "Budget di 8.000 € per il 4° trimestre", "en": "€8,000 budget for Q4"}, "eta_testo": {"it": "1 mese fa", "en": "1 month ago"}, "eta_giorni": 30, "rilevanza": 0.6, "importanza": 0.8, "fonte": "dedotto", "vecchio": false, "uso": {"it": "La proposta resta dentro il budget approvato.", "en": "The proposal stays within the approved budget."}},
+    {"id": "r6", "testo": {"it": "Ora preferisce il telefono", "en": "Now prefers the phone"}, "eta_testo": {"it": "2 settimane fa", "en": "2 weeks ago"}, "eta_giorni": 14, "rilevanza": 0.3, "importanza": 0.7, "fonte": "dedotto", "vecchio": false, "uso": {"it": "La chiamo al telefono, come preferisce.", "en": "I am calling you on the phone, as you prefer."}},
+    {"id": "r7", "testo": {"it": "È andata al mare con i figli", "en": "Went to the beach with her kids"}, "eta_testo": {"it": "1 mese fa", "en": "1 month ago"}, "eta_giorni": 30, "rilevanza": 0.1, "importanza": 0.1, "fonte": "dedotto", "vecchio": false, "uso": {"it": "Com'è andata al mare?", "en": "How was the beach?"}}
+   ]
+  },
+  "nomi_cassetti": {"dichiarativa": {"it": "Dichiarativa: sapere cosa", "en": "Declarative: knowing what"}, "procedurale": {"it": "Procedurale: sapere come", "en": "Procedural: knowing how"}},
+  "cassetti": [
+   {"id": "k1", "breve": {"it": "Preferisce il telefono", "en": "Prefers the phone"}, "giusto": "dichiarativa", "spiega": {"it": "È un fatto sulla cliente.", "en": "It is a fact about the customer."}},
+   {"id": "k2", "breve": {"it": "Budget di 8.000 € approvato", "en": "€8,000 budget approved"}, "giusto": "dichiarativa", "spiega": {"it": "È una cifra: un fatto.", "en": "It is a figure: a fact."}},
+   {"id": "k3", "breve": {"it": "Preventivo: listino → sconto → firma", "en": "Quote: price list → discount → signature"}, "giusto": "procedurale", "spiega": {"it": "È una sequenza di passi: come si fa.", "en": "It is a sequence of steps: how to do it."}},
+   {"id": "k4", "breve": {"it": "Decide Paolo Gallo", "en": "Paolo Gallo decides"}, "giusto": "dichiarativa", "spiega": {"it": "Dice chi è il decisore: un fatto.", "en": "It says who the decision-maker is: a fact."}},
+   {"id": "k5", "breve": {"it": "Rinnovo: prima il riepilogo consumi", "en": "Renewal: usage summary first"}, "giusto": "procedurale", "spiega": {"it": "È un metodo per i rinnovi: come si fa.", "en": "It is a method for renewals: how to do it."}},
+   {"id": "k6", "breve": {"it": "Si era lamentata delle consegne", "en": "Had complained about deliveries"}, "giusto": "dichiarativa", "spiega": {"it": "È un evento accaduto: anche questo è un fatto.", "en": "It is an event that happened: this is a fact too."}}
+  ],
+  "testi": {
+   "saluto_senza": {"it": "Buongiorno, sono l'assistente di Alfa Software. Con chi parlo? Come preferisce essere contattata?", "en": "Good morning, I am Alfa Software's assistant. Who am I speaking with? How do you prefer to be contacted?"},
+   "saluto_con": {"it": "Buongiorno Anna!", "en": "Good morning Anna!"},
+   "azione_senza": {"it": "Senza memoria l'agente non sa come ricontattarla: tutto ciò che Anna ha detto è finito con la chiamata.", "en": "Without memory the agent does not know how to contact her again: everything Anna said ended with the call."},
+   "azione_chiede": {"it": "Nessun ricordo sul canale preferito: l'agente deve chiederlo di nuovo.", "en": "No memory about the preferred channel: the agent has to ask again."},
+   "azione_giusta": {"it": "Seguito: l'agente contatta Anna via {canale}, come preferisce adesso.", "en": "Follow-up: the agent contacts Anna by {canale}, as she prefers now."},
+   "azione_sbagliata": {"it": "Seguito: l'agente contatta Anna via {canale}, ma non è il canale che preferisce adesso.", "en": "Follow-up: the agent contacts Anna by {canale}, but it is not the channel she prefers now."},
+   "azione_conflitto": {"it": "{n} ricordi attivi si contraddicono. Il recupero prende quello più simile alla richiesta e l'agente usa «{canale}»: sbagliato, Anna ora vuole il telefono.", "en": "{n} active memories contradict each other. Retrieval takes the one most similar to the request and the agent uses «{canale}»: wrong, Anna now wants the phone."},
+   "conta_ricordi": {"it": "{n} ricordi attivi estratti dalle chiamate, più {crm} caricato dal CRM.", "en": "{n} active memories extracted from the calls, plus {crm} loaded from the CRM."},
+   "superata_il": {"it": "superata il {data}", "en": "outdated on {data}"},
+   "nota_provenienza": {"it": "Ogni card porta la fonte: i dati caricati dal CRM sono affidabili e aiutano con un cliente mai visto; ciò che l'agente deduce dalla chiamata lo è meno.", "en": "Every card carries its source: data loaded from the CRM is reliable and helps with a customer never seen before; what the agent infers from the call is less so."},
+   "chiamate": {"it": "{n} su 20 turni", "en": "{n} per 20 turns"},
+   "ritardo": {"it": "attesa massima: {n} turni", "en": "maximum wait: {n} turns"},
+   "nota_costi": {"it": "Chiamata di 20 turni, numeri illustrativi. Il lavoro sui ricordi si fa in background: il cliente non aspetta.", "en": "A 20-turn call, illustrative numbers. The work on memories runs in the background: the customer does not wait."},
+   "nota_recupero": {"it": "Ogni manopola dà un peso a un criterio. Entrano nel contesto i 3 ricordi con il punteggio più alto.", "en": "Each knob gives a weight to one criterion. The 3 memories with the highest score enter the context."},
+   "riga_recupero": {"it": "{eta} · {fonte}", "en": "{eta} · {fonte}"},
+   "rinnovo_inizio": {"it": "Buongiorno Anna, la chiamo per il rinnovo.", "en": "Good morning Anna, I am calling about the renewal."},
+   "rinnovo_vuoto": {"it": "Tutte le manopole a zero: nessun ricordo entra nel contesto e l'agente parla ad Anna come a una sconosciuta.", "en": "All knobs at zero: no memory enters the context and the agent talks to Anna as if she were a stranger."},
+   "avviso_vecchio": {"it": "Riaffiora una riunione di due anni fa: l'agente offre uno sconto per restare a una cliente che sta già rinnovando.", "en": "A meeting from two years ago comes back: the agent offers a discount to stay to a customer who is already renewing."},
+   "nota_formula": {"it": "Punteggio = rilevanza (quanto c'entra con il rinnovo) + recency (quanto è recente) + importanza, ognuna col suo peso. Valori illustrativi.", "en": "Score = relevance (how much it relates to the renewal) + recency (how recent it is) + importance, each with its weight. Illustrative values."},
+   "nota_cassetti": {"it": "Per ogni ricordo scegli il cassetto.", "en": "Choose the drawer for each memory."},
+   "scegli_per": {"it": "Cassetto per «{ricordo}»", "en": "Drawer for «{ricordo}»"},
+   "nota_destra_cassetti": {"it": "Un fatto sul cliente va nella memoria dichiarativa; una procedura approvata va nella procedurale.", "en": "A fact about the customer goes into declarative memory; an approved procedure goes into procedural memory."},
+   "cas_giusto": {"it": "«{ricordo}»: giusto, va in «{cassetto}». {spiega}", "en": "«{ricordo}»: right, it goes in «{cassetto}». {spiega}"},
+   "cas_sbagliato": {"it": "«{ricordo}»: no, va in «{cassetto}». {spiega}", "en": "«{ricordo}»: no, it goes in «{cassetto}». {spiega}"},
+   "cas_vuoto": {"it": "«{ricordo}»: non l'hai ancora messo. Va in «{cassetto}». {spiega}", "en": "«{ricordo}»: you have not placed it yet. It goes in «{cassetto}». {spiega}"},
+   "cas_punteggio": {"it": "Giusti: {giuste} su {totali}. Leggi sotto il perché.", "en": "Right: {giuste} of {totali}. Read why below."},
+   "cas_tutto": {"it": "Perfetto: hai separato i fatti dalle procedure.", "en": "Perfect: you separated the facts from the procedures."}
+  },
+  "etichette": {
+   "titolo_comandi": {"it": "Prova a cambiare", "en": "Try changing"},
+   "vista": {"it": "Cosa guardi", "en": "What you look at"},
+   "vista_sessione": {"it": "Le chiamate", "en": "The calls"},
+   "vista_recupero": {"it": "Recupero", "en": "Retrieval"},
+   "vista_cassetti": {"it": "Cassetti", "en": "Drawers"},
+   "sessione": {"it": "Quale chiamata", "en": "Which call"},
+   "sessione_1": {"it": "1ª · 3 marzo", "en": "1st · 3 March"},
+   "sessione_2": {"it": "2ª · 17 marzo", "en": "2nd · 17 March"},
+   "argomenti": {"it": "Argomenti da ricordare", "en": "Topics to remember"},
+   "memoria": {"it": "L'agente ha la memoria", "en": "The agent has memory"},
+   "consolidamento": {"it": "Consolida i ricordi", "en": "Consolidate memories"},
+   "trigger": {"it": "Quando estrarre", "en": "When to extract"},
+   "man_rilevanza": {"it": "Rilevanza", "en": "Relevance"},
+   "man_recency": {"it": "Recency", "en": "Recency"},
+   "man_importanza": {"it": "Importanza", "en": "Importance"},
+   "peso_0": {"it": "spenta", "en": "off"},
+   "peso_1": {"it": "normale", "en": "normal"},
+   "peso_2": {"it": "doppia", "en": "double"},
+   "scegli": {"it": "— scegli —", "en": "— choose —"},
+   "controlla": {"it": "Controlla", "en": "Check"},
+   "agente": {"it": "AGENTE", "en": "AGENT"},
+   "imbuto": {"it": "ESTRAZIONE", "en": "EXTRACTION"},
+   "imbuto_sotto": {"it": "solo gli argomenti scelti", "en": "only the chosen topics"},
+   "archivio": {"it": "ARCHIVIO DEI RICORDI", "en": "MEMORY ARCHIVE"},
+   "nessun_ricordo": {"it": "Nessun ricordo nuovo: niente da conservare", "en": "No new memory: nothing worth keeping"},
+   "fonte_crm": {"it": "CRM · alta fiducia", "en": "CRM · high trust"},
+   "fonte_dedotto": {"it": "dedotto dalla chiamata", "en": "inferred from the call"},
+   "titolo_s1": {"it": "1ª CHIAMATA CON ANNA RIVA · 3 MARZO", "en": "1st CALL WITH ANNA RIVA · 3 MARCH"},
+   "titolo_s2": {"it": "2ª CHIAMATA CON ANNA RIVA · 17 MARZO", "en": "2nd CALL WITH ANNA RIVA · 17 MARCH"},
+   "legenda_sessione": {"it": "Le frasi colorate diventano ricordi; quelle grigie si scartano.", "en": "Coloured sentences become memories; grey ones are discarded."},
+   "titolo_recupero": {"it": "RINNOVO DEL CONTRATTO: QUALI RICORDI ENTRANO NEL CONTESTO?", "en": "CONTRACT RENEWAL: WHICH MEMORIES ENTER THE CONTEXT?"},
+   "legenda_recupero": {"it": "La barra viola è il punteggio: entrano i 3 migliori.", "en": "The purple bar is the score: the best 3 get in."},
+   "contesto": {"it": "CONTESTO DELL'AGENTE", "en": "AGENT'S CONTEXT"},
+   "contesto_vuoto": {"it": "contesto vuoto", "en": "empty context"},
+   "titolo_cassetti": {"it": "DUE CASSETTI DELLA MEMORIA", "en": "TWO MEMORY DRAWERS"},
+   "legenda_cassetti": {"it": "In alto i ricordi da sistemare: scegli il cassetto a sinistra.", "en": "At the top, the memories to sort: choose the drawer on the left."},
+   "titolo_destra": {"it": "Cosa succede", "en": "What happens"},
+   "ricordi_estratti": {"it": "Ricordi", "en": "Memories"},
+   "provenienza": {"it": "Provenienza", "en": "Provenance"},
+   "saluto": {"it": "Saluto all'inizio della 2ª chiamata", "en": "Greeting at the start of the 2nd call"},
+   "dopo": {"it": "Seguito dopo la 2ª chiamata", "en": "Follow-up after the 2nd call"},
+   "costo": {"it": "Costo: chiamate al modello", "en": "Cost: calls to the model"},
+   "freschezza": {"it": "Freschezza del ricordo", "en": "Freshness of the memory"},
+   "ciclo": {"it": "Ciclo della memoria", "en": "Memory cycle"},
+   "risposta_rinnovo": {"it": "Cosa dice l'agente", "en": "What the agent says"},
+   "descrizione_scena": {"it": "Le frasi di una chiamata passano in un imbuto; quelle utili diventano card nell'archivio dei ricordi.", "en": "The sentences of a call pass through a funnel; the useful ones become cards in the memory archive."}
+  }
+ },
+ "domande": []
+}

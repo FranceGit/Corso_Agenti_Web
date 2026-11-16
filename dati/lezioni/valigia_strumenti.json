@@ -1,0 +1,170 @@
+{
+ "id": "L_valigia_strumenti",
+ "pillola": "P4.4",
+ "componente": "valigia_strumenti",
+ "titolo": {"it": "La valigia che scoppia", "en": "The bursting suitcase"},
+ "sottotitolo": {"it": "Riempi la finestra di contesto di strumenti, prova la scoperta progressiva, filtra i dati in una sandbox e confronta risparmi dichiarati e misurati.", "en": "Fill the context window with tools, try progressive disclosure, filter data in a sandbox and compare claimed and measured savings."},
+ "segmenti": [
+  {
+   "id": "conto",
+   "titolo": {"it": "Ogni strumento occupa spazio", "en": "Every tool takes up space"},
+   "narrazione": [
+    {"it": "La finestra di contesto è il testo che il modello legge a ogni chiamata, e ha una capienza limitata. La descrizione di ogni strumento ci entra dentro e occupa token, cioè pezzetti di parola che si pagano.", "en": "The context window is the text the model reads at every call, and it has a limited capacity. Each tool's description goes into it and takes up tokens, that is small pieces of words that you pay for."},
+    {"it": "Con 22 strumenti di CRM, email e calendario, le sole descrizioni riempiono metà della valigia prima ancora di cominciare.", "en": "With 22 CRM, email and calendar tools, the descriptions alone fill half the suitcase before work even starts."}
+   ],
+   "prova": {"it": "Porta il cursore a 60 strumenti: la valigia trabocca e la chiamata fallisce.", "en": "Move the slider to 60 tools: the suitcase overflows and the call fails."},
+   "concetti": ["C40"],
+   "stato_animazione": {"vista": "valigia", "strumenti": 22, "modalita": "tutto", "filtro": true, "tappa": 0}
+  },
+  {
+   "id": "specialista",
+   "titolo": {"it": "Meno strumenti, scelte migliori", "en": "Fewer tools, better choices"},
+   "narrazione": [
+    {"it": "Troppi strumenti non costano solo spazio e tempo: il modello sceglie peggio e può perdere di vista la richiesta del cliente.", "en": "Too many tools do not only cost space and time: the model chooses worse and can lose sight of the customer's request."},
+    {"it": "Una prima soluzione è l'agente specialista, con un elenco breve e curato. Funziona bene, ma solo per i compiti previsti nel suo elenco.", "en": "A first solution is the specialist agent, with a short, curated list. It works well, but only for the tasks in its list."}
+   ],
+   "prova": {"it": "Porta il cursore a 40, poi passa a «Specialista»: guarda spazio, qualità e compiti coperti.", "en": "Move the slider to 40, then switch to «Specialist»: look at space, quality and tasks covered."},
+   "concetti": ["C40"],
+   "stato_animazione": {"vista": "valigia", "strumenti": 30, "modalita": "tutto", "filtro": true, "tappa": 0}
+  },
+  {
+   "id": "progressiva",
+   "titolo": {"it": "La scoperta progressiva", "en": "Progressive disclosure"},
+   "narrazione": [
+    {"it": "La scoperta progressiva carica le cose a ripiani: sempre solo il nome e una riga di descrizione di ogni strumento; il manuale completo quando la richiesta lo chiede; gli allegati solo se servono.", "en": "Progressive disclosure loads things on shelves: always only the name and one line of description of each tool; the full manual when the request calls for it; attachments only if needed."},
+    {"it": "Così anche con cento strumenti la valigia resta quasi uguale.", "en": "This way, even with a hundred tools the suitcase stays almost the same."}
+   ],
+   "prova": {"it": "Scegli «Scoperta progressiva» e porta il cursore da 5 a 100.", "en": "Choose «Progressive disclosure» and move the slider from 5 to 100."},
+   "concetti": ["C41"],
+   "stato_animazione": {"vista": "valigia", "strumenti": 22, "modalita": "tutto", "filtro": true, "tappa": 0}
+  },
+  {
+   "id": "sandbox",
+   "titolo": {"it": "Filtrare prima di leggere", "en": "Filter before reading"},
+   "narrazione": [
+    {"it": "Anche i risultati pesano: 83 trattative restituite da uno strumento ripassano dal contesto a ogni passo successivo.", "en": "Results weigh too: 83 deals returned by a tool go through the context again at every following step."},
+    {"it": "Con l'esecuzione di codice l'agente scrive un piccolo programma che gira in una sandbox, un ambiente isolato dai sistemi veri, e filtra lì: al modello arrivano solo le 5 trattative più grandi del trimestre. Quel codice va trattato come non fidato.", "en": "With code execution the agent writes a small program that runs in a sandbox, an environment isolated from the real systems, and filters there: only the quarter's 5 biggest deals reach the model. That code must be treated as untrusted."}
+   ],
+   "prova": {"it": "Spegni e riaccendi «Filtra nella sandbox» e confronta i token.", "en": "Switch «Filter in the sandbox» off and on again and compare the tokens."},
+   "concetti": ["C41", "C40"],
+   "stato_animazione": {"vista": "sandbox", "strumenti": 22, "modalita": "progressiva", "filtro": true, "tappa": 0}
+  },
+  {
+   "id": "misure",
+   "titolo": {"it": "Dichiarato o misurato?", "en": "Claimed or measured?"},
+   "narrazione": [
+    {"it": "Quanto si risparmia? Il repository di esempio riporta il 98,7%: una cifra di Anthropic che cita, non una sua misura. Rifatto il conto con i suoi stessi numeri, si arriva al 95,7%.", "en": "How much do you save? The example repository reports 98.7%: an Anthropic figure it quotes, not its own measurement. Redoing the sum with its own numbers gives 95.7%."},
+    {"it": "L'unica prova misurata, su una sola domanda: 74,8% di token in meno e 69,5% di costo in meno, ma risposta più lenta, 53,5 secondi invece di 37,5.", "en": "The only measured test, on one single question: 74.8% fewer tokens and 69.5% lower cost, but a slower answer, 53.5 seconds instead of 37.5."}
+   ],
+   "prova": {"it": "Passa le tre tappe e guarda la percentuale scendere e il tempo salire.", "en": "Go through the three stages and watch the percentage go down and the time go up."},
+   "concetti": ["C41"],
+   "stato_animazione": {"vista": "misure", "strumenti": 22, "modalita": "progressiva", "filtro": true, "tappa": 0}
+  },
+  {
+   "id": "riassunto",
+   "titolo": {"it": "In tre frasi", "en": "In three sentences"},
+   "narrazione": [
+    {"it": "Le descrizioni degli strumenti e i risultati intermedi occupano la finestra di contesto: più spazio usato vuol dire più costo, più lentezza e scelte peggiori.", "en": "Tool descriptions and intermediate results take up the context window: more space used means more cost, more slowness and worse choices."},
+    {"it": "La scoperta progressiva carica solo i nomi e apre il resto quando serve; l'esecuzione di codice filtra i dati in una sandbox prima che arrivino al modello.", "en": "Progressive disclosure loads only the names and opens the rest when needed; code execution filters data in a sandbox before it reaches the model."},
+    {"it": "I risparmi dichiarati vanno verificati caso per caso, e la sandbox è un requisito perché il codice generato non è fidato.", "en": "Claimed savings must be checked case by case, and the sandbox is a requirement because generated code is not trusted."}
+   ],
+   "concetti": ["C40", "C41"],
+   "stato_animazione": {"vista": "valigia", "strumenti": 100, "modalita": "progressiva", "filtro": true, "tappa": 2}
+  }
+ ],
+ "scenario": {
+  "strumenti": {"min": 5, "max": 100, "partenza": 22},
+  "_why_parametri": "Valori illustrativi: le fonti non danno il costo in token di una definizione di strumento CRM. 22 x 700 = 15.400 token, vicino alla stima di 15.000 del repository R10 (che altrove dichiara 50.000). Costi e qualita' illustrativi.",
+  "parametri": {
+   "capienza": 32000, "token_base": 2300, "token_strumento": 700, "token_etichetta": 40, "token_allegato": 500,
+   "elenco_specialista": 6, "manuali_aperti": 2, "euro_per_mille": 0.003, "costo_scala": 0.1,
+   "qualita_tutto": 95, "soglia_scelta": 15, "calo_per_strumento": 1, "qualita_minima": 20,
+   "qualita_specialista": 92, "qualita_progressiva": 93, "calo_progressiva_ogni": 25, "soglia_avviso": 20,
+   "righe_risultato": 83, "token_per_riga": 120, "passi_successivi": 3
+  },
+  "righe_filtrate": [
+   {"it": "Hotel Lago Blu — 48.000 €", "en": "Hotel Lago Blu — €48,000"},
+   {"it": "Ottica Sole — 41.500 €", "en": "Ottica Sole — €41,500"},
+   {"it": "Greco Viaggi — 39.000 €", "en": "Greco Travel — €39,000"},
+   {"it": "Costa Arredi — 35.200 €", "en": "Costa Furniture — €35,200"},
+   {"it": "Gallo Imballaggi — 31.800 €", "en": "Gallo Packaging — €31,800"}
+  ],
+  "_why_tappe": "R10 README e MED p.1 (98,7% attribuito ad Anthropic), ricalcolo 650/15.000 = 95,7%, misura reale R10 examples del 12/12/2025 su una sola domanda: token -74,8%, costo -69,5%, tempo 37,5 -> 53,5 s.",
+  "tappe": [
+   {"id": "dichiarato", "nome": {"it": "Dichiarato", "en": "Claimed"}, "pct": 98.7, "colore": "#94a3b8",
+    "spiega": {"it": "98,7% di contesto risparmiato: è una cifra di una ricerca Anthropic, citata nel repository. Non è stata misurata lì.", "en": "98.7% of context saved: it is a figure from Anthropic research, quoted in the repository. It was not measured there."}},
+   {"id": "ricalcolo", "nome": {"it": "Ricalcolo", "en": "Recalculated"}, "pct": 95.7, "colore": "#a78bfa",
+    "spiega": {"it": "Con i numeri dello stesso repository (650 token contro 15.000) il risparmio sarebbe 95,7%. E altrove la base dichiarata è 50.000: le basi non sono coerenti.", "en": "With the same repository's numbers (650 tokens against 15,000) the saving would be 95.7%. And elsewhere the stated base is 50,000: the bases are not consistent."}},
+   {"id": "misurato", "nome": {"it": "Misurato", "en": "Measured"}, "pct": 74.8, "colore": "#16a34a",
+    "spiega": {"it": "Misurato su UNA domanda: 74,8% di token in meno e 69,5% di costo in meno. Ma la risposta è arrivata il 42% più tardi.", "en": "Measured on ONE question: 74.8% fewer tokens and 69.5% lower cost. But the answer arrived 42% later."}}
+  ],
+  "misura_reale": {"tempo_classico": 37.5, "tempo_codice": 53.5, "costo_classico": 0.357, "costo_codice": 0.109},
+  "testi": {
+   "finestra": {"it": "Finestra di contesto: {usati} token su {capienza}", "en": "Context window: {usati} tokens out of {capienza}"},
+   "chiamata_fallita": {"it": "Oltre il bordo: la chiamata fallisce", "en": "Past the edge: the call fails"},
+   "cassetta": {"it": "Strumenti collegati: {n} · descrizioni in valigia: {dentro}", "en": "Connected tools: {n} · descriptions in the suitcase: {dentro}"},
+   "euro": {"it": "{euro} € a richiesta", "en": "€{euro} per request"},
+   "avviso_tanti": {"it": "Oltre 20-50 elementi caricati insieme, le risposte diventano più lente o peggiori.", "en": "Beyond 20-50 items loaded together, answers get slower or worse."},
+   "spiega_fallita": {"it": "La valigia non si chiude: oltre il limite la chiamata fallisce, non «dimentica in silenzio».", "en": "The suitcase will not close: past the limit the call fails, it does not «quietly forget»."},
+   "nota_tutto": {"it": "Tutto caricato: l'agente vede tutto il catalogo, ma paga in spazio, velocità e precisione.", "en": "Everything loaded: the agent sees the whole catalog, but pays in space, speed and accuracy."},
+   "nota_specialista": {"it": "Specialista: 6 strumenti scelti a mano. Un compito fuori elenco non lo sa fare.", "en": "Specialist: 6 hand-picked tools. A task outside the list it cannot do."},
+   "nota_progressiva": {"it": "Scoperta progressiva: sempre le etichette, il manuale solo dei 2 strumenti che servono, un allegato.", "en": "Progressive disclosure: always the labels, the manual only for the 2 tools needed, one attachment."},
+   "nota_sandbox": {"it": "Compito: le 5 trattative più grandi del trimestre fra 83.", "en": "Task: the quarter's 5 biggest deals out of 83."},
+   "dentro_sandbox": {"it": "{n} trattative restituite dallo strumento", "en": "{n} deals returned by the tool"},
+   "righe_arrivano": {"it": "Righe che arrivano al modello: {n}", "en": "Rows that reach the model: {n}"},
+   "token_passi": {"it": "{token} token spesi sul risultato in {passi} passi", "en": "{token} tokens spent on the result over {passi} steps"},
+   "token_in_passi": {"it": "Token del risultato in {passi} passi", "en": "Result tokens over {passi} steps"},
+   "rispetto_capienza": {"it": "La barra è confrontata con una valigia da {capienza} token.", "en": "The bar is compared with a {capienza}-token suitcase."},
+   "filtro_si": {"it": "Il codice filtra nella sandbox: al modello arrivano 5 righe, e solo quelle ripassano nei passi dopo.", "en": "The code filters in the sandbox: 5 rows reach the model, and only those go through the next steps."},
+   "filtro_no": {"it": "Senza filtro le 83 righe intasano il contesto e ripassano a ogni passo: più costo, più lentezza, più rumore.", "en": "Without a filter the 83 rows clog the context and go through it at every step: more cost, more slowness, more noise."},
+   "non_fidato": {"it": "Il codice lo scrive il modello: va trattato come non fidato. La sandbox isolata è un requisito, non un dettaglio.", "en": "The model writes the code: it must be treated as untrusted. The isolated sandbox is a requirement, not a detail."},
+   "principio": {"it": "Il principio funziona; la percentuale dipende dal caso.", "en": "The principle works; the percentage depends on the case."},
+   "compromesso": {"it": "Compromesso: meno token e meno costo, ma più tempo di risposta e una sandbox da preparare.", "en": "Trade-off: fewer tokens and lower cost, but a longer response time and a sandbox to set up."},
+   "fonte_misure": {"it": "Fonte: repository di esempio sull'esecuzione di codice con MCP, prova del 12/12/2025. Campione: una sola domanda.", "en": "Source: example repository on code execution with MCP, test of 12/12/2025. Sample: one single question."}
+  },
+  "etichette": {
+   "titolo_comandi": {"it": "Prova a cambiare", "en": "Try changing"},
+   "vista": {"it": "Che cosa guardi", "en": "What you look at"},
+   "grp_vista": {"it": "Che cosa guardi", "en": "What you look at"},
+   "vista_valigia": {"it": "Valigia", "en": "Suitcase"},
+   "vista_sandbox": {"it": "Sandbox", "en": "Sandbox"},
+   "vista_misure": {"it": "Misure", "en": "Figures"},
+   "strumenti": {"it": "Strumenti collegati", "en": "Connected tools"},
+   "grp_modalita": {"it": "Come si caricano", "en": "How they are loaded"},
+   "modo_tutto": {"it": "Tutto caricato", "en": "Everything loaded"},
+   "modo_specialista": {"it": "Specialista", "en": "Specialist"},
+   "modo_progressiva": {"it": "Scoperta progressiva", "en": "Progressive disclosure"},
+   "filtro": {"it": "Filtra nella sandbox", "en": "Filter in the sandbox"},
+   "grp_tappa": {"it": "Dichiarato o misurato?", "en": "Claimed or measured?"},
+   "titolo_scena_valigia": {"it": "LA FINESTRA DI CONTESTO COME UNA VALIGIA", "en": "THE CONTEXT WINDOW AS A SUITCASE"},
+   "titolo_scena_sandbox": {"it": "FILTRARE I DATI PRIMA CHE ARRIVINO AL MODELLO", "en": "FILTERING DATA BEFORE IT REACHES THE MODEL"},
+   "titolo_scena_misure": {"it": "QUANTO SI RISPARMIA DAVVERO?", "en": "HOW MUCH IS REALLY SAVED?"},
+   "trabocca": {"it": "TRABOCCA", "en": "OVERFLOW"},
+   "leg_base": {"it": "istruzioni e richiesta", "en": "instructions and request"},
+   "leg_strumento": {"it": "descrizione di uno strumento", "en": "one tool description"},
+   "leg_etichette": {"it": "etichette (nomi)", "en": "labels (names)"},
+   "leg_manuale": {"it": "manuale aperto", "en": "open manual"},
+   "leg_allegato": {"it": "allegato", "en": "attachment"},
+   "ripiano_1": {"it": "Ripiano 1 · etichette: sempre caricate", "en": "Shelf 1 · labels: always loaded"},
+   "ripiano_2": {"it": "Ripiano 2 · manuali: aperti quando la richiesta li chiede", "en": "Shelf 2 · manuals: opened when the request calls for them"},
+   "ripiano_3": {"it": "Ripiano 3 · allegati: solo se servono", "en": "Shelf 3 · attachments: only if needed"},
+   "sandbox": {"it": "SANDBOX (ambiente isolato)", "en": "SANDBOX (isolated environment)"},
+   "codice_filtra": {"it": "il codice dell'agente filtra qui dentro", "en": "the agent's code filters in here"},
+   "contesto_modello": {"it": "CONTESTO DEL MODELLO", "en": "THE MODEL'S CONTEXT"},
+   "tempo": {"it": "Tempo di risposta", "en": "Response time"},
+   "costo": {"it": "Costo per richiesta", "en": "Cost per request"},
+   "legenda_misura": {"it": "grigio = approccio classico · azzurro = esecuzione di codice", "en": "grey = classic approach · blue = code execution"},
+   "titolo_lancette": {"it": "Le lancette", "en": "The gauges"},
+   "spazio": {"it": "Spazio occupato", "en": "Space used"},
+   "qualita": {"it": "Qualità delle scelte", "en": "Quality of choices"},
+   "copertura": {"it": "Compiti coperti", "en": "Tasks covered"},
+   "fallita": {"it": "chiamata fallita", "en": "call failed"},
+   "illustrativo": {"it": "Dimensioni, costi e qualità sono illustrativi.", "en": "Sizes, costs and quality are illustrative."},
+   "titolo_sandbox": {"it": "Che cosa arriva al modello", "en": "What reaches the model"},
+   "righe_modello": {"it": "Righe al modello", "en": "Rows to the model"},
+   "titolo_misure": {"it": "La cifra e la sua fonte", "en": "The figure and its source"},
+   "descrizione_scena": {"it": "Una barra orizzontale, la finestra di contesto, che si riempie con le descrizioni degli strumenti; oppure una sandbox tratteggiata che filtra 83 trattative; oppure tre barre con i risparmi dichiarati e misurati.", "en": "A horizontal bar, the context window, filling up with tool descriptions; or a dashed sandbox filtering 83 deals; or three bars with the claimed and measured savings."}
+  }
+ },
+ "domande": []
+}

@@ -1,0 +1,207 @@
+{
+ "id": "L_presa_standard",
+ "pillola": "P4.3",
+ "componente": "presa_standard",
+ "titolo": {"it": "Dal groviglio alla presa standard", "en": "From the tangle to the standard plug"},
+ "sottotitolo": {"it": "Collega app AI e sistemi del CRM con cavi su misura o con MCP, segui una stretta di mano e apri il catalogo di un server.", "en": "Connect AI apps and CRM systems with custom cables or with MCP, follow a handshake and open a server's catalog."},
+ "segmenti": [
+  {
+   "id": "groviglio",
+   "titolo": {"it": "Un cavo per ogni coppia", "en": "One cable for every pair"},
+   "narrazione": [
+    {"it": "Un'azienda ha 3 applicazioni AI (assistente vendite, chatbot del sito, agente campagne) e 4 sistemi: CRM, email, calendario, listini. Senza uno standard, ogni coppia vuole un collegamento costruito su misura.", "en": "A company has 3 AI applications (sales assistant, website chatbot, campaign agent) and 4 systems: CRM, email, calendar, price lists. Without a standard, every pair needs a custom-built connection."},
+    {"it": "3 per 4 fa 12 integrazioni. Le fonti lo chiamano problema N×M: ogni nuova app o nuovo sistema moltiplica il lavoro.", "en": "3 times 4 makes 12 integrations. The sources call it the N×M problem: every new app or new system multiplies the work."}
+   ],
+   "prova": {"it": "Premi «Aggiungi un sistema» e conta quanti cavi nuovi servono.", "en": "Press «Add a system» and count how many new cables are needed."},
+   "concetti": ["C38"],
+   "stato_animazione": {"vista": "groviglio", "standard": false, "app": 3, "sistemi": 4, "passo": 0, "pezzo": null, "risposta_ruolo": null, "server_aperto": "crm", "non_fidato": false}
+  },
+  {
+   "id": "standard",
+   "titolo": {"it": "La presa uguale per tutti", "en": "The same plug for everyone"},
+   "narrazione": [
+    {"it": "MCP (Model Context Protocol) è uno standard aperto, presentato da Anthropic a novembre 2024. Un protocollo è un insieme di regole comuni con cui due programmi si parlano: qui servono a un'app AI per scoprire e usare strumenti e dati esterni.", "en": "MCP (Model Context Protocol) is an open standard, introduced by Anthropic in November 2024. A protocol is a set of shared rules two programs use to talk: here they let an AI app discover and use external tools and data."},
+    {"it": "Ogni app monta una presa uguale (il client), ogni sistema un adattatore uguale (il server). Così bastano 3 + 4 = 7 pezzi: questo conto N+M è la spiegazione del corso.", "en": "Every app gets the same plug (the client), every system the same adapter (the server). So 3 + 4 = 7 pieces are enough: this N+M count is the course's explanation."}
+   ],
+   "prova": {"it": "Accendi «Introduci lo standard», poi aggiungi un sistema: ora basta un solo server nuovo.", "en": "Switch on «Introduce the standard», then add a system: now one single new server is enough."},
+   "concetti": ["C38"],
+   "stato_animazione": {"vista": "groviglio", "standard": false, "app": 3, "sistemi": 4, "passo": 0, "pezzo": null, "risposta_ruolo": null, "server_aperto": "crm", "non_fidato": false}
+  },
+  {
+   "id": "ruoli",
+   "titolo": {"it": "Tre ruoli e una stretta di mano", "en": "Three roles and a handshake"},
+   "narrazione": [
+    {"it": "L'host è l'applicazione AI: gestisce i collegamenti e applica le regole di sicurezza. Il client è il pezzo dentro l'host che tiene la linea con un server. Il server traduce un sistema, per esempio il CRM, e pubblica i suoi strumenti.", "en": "The host is the AI application: it manages the connections and enforces the security rules. The client is the piece inside the host that keeps the line open with a server. The server translates a system, for example the CRM, and publishes its tools."},
+    {"it": "Il collegamento avviene in sei passi, dall'avvio alla risposta.", "en": "The connection happens in six steps, from start-up to the answer."}
+   ],
+   "prova": {"it": "Premi «Passo successivo» fino alla risposta; poi scegli quale pezzo applica le regole di sicurezza.", "en": "Press «Next step» until the answer; then choose which piece enforces the security rules."},
+   "concetti": ["C38"],
+   "stato_animazione": {"vista": "collegamento", "standard": true, "app": 3, "sistemi": 4, "passo": 0, "pezzo": null, "risposta_ruolo": null, "server_aperto": "crm", "non_fidato": false}
+  },
+  {
+   "id": "catalogo",
+   "titolo": {"it": "Che cosa offre un server", "en": "What a server offers"},
+   "narrazione": [
+    {"it": "Un server può offrire strumenti (azioni, come cerca_contatto), risorse (dati da leggere, come la scheda di un'azienda) e prompt (modelli di istruzioni pronti).", "en": "A server can offer tools (actions, like search_contact), resources (data to read, like a company profile) and prompts (ready-made instruction templates)."},
+    {"it": "In pratica quasi tutte le app usano solo gli strumenti: al 15 settembre 2025 il 99%, contro circa un terzo per risorse e prompt. I prompt scritti da altri vanno usati raramente.", "en": "In practice almost all apps use only tools: on 15 September 2025, 99%, against about a third for resources and prompts. Prompts written by others should be used rarely."}
+   ],
+   "prova": {"it": "Apri il catalogo di due server e confronta le barre della diffusione.", "en": "Open the catalog of two servers and compare the adoption bars."},
+   "concetti": ["C39"],
+   "stato_animazione": {"vista": "catalogo", "standard": true, "app": 3, "sistemi": 4, "passo": 6, "pezzo": null, "risposta_ruolo": null, "server_aperto": "crm", "non_fidato": false}
+  },
+  {
+   "id": "fiducia",
+   "titolo": {"it": "Lo standard non basta", "en": "The standard is not enough"},
+   "narrazione": [
+    {"it": "Lo standard dice come parlarsi, non garantisce che il server sia serio. Le etichette «sola lettura» o «non distruttivo» sono solo dichiarazioni di chi ha scritto il server.", "en": "The standard says how to talk, it does not guarantee that the server is trustworthy. The «read only» or «non-destructive» labels are only statements by whoever wrote the server."},
+    {"it": "Prima di collegarlo si controlla chi lo pubblica, quali permessi chiede e se viene aggiornato.", "en": "Before connecting it, you check who publishes it, which permissions it asks for and whether it is kept up to date."}
+   ],
+   "prova": {"it": "Accendi «Server non fidato» e guarda che cosa resta garantito.", "en": "Switch on «Untrusted server» and see what is still guaranteed."},
+   "concetti": ["C38", "C39"],
+   "stato_animazione": {"vista": "catalogo", "standard": true, "app": 3, "sistemi": 4, "passo": 6, "pezzo": null, "risposta_ruolo": null, "server_aperto": "email", "non_fidato": false}
+  },
+  {
+   "id": "riassunto",
+   "titolo": {"it": "In tre frasi", "en": "In three sentences"},
+   "narrazione": [
+    {"it": "Senza standard ogni coppia di app e sistema chiede un'integrazione su misura (N×M); con MCP ognuno costruisce un solo pezzo.", "en": "Without a standard every app-system pair needs a custom integration (N×M); with MCP each one builds a single piece."},
+    {"it": "L'host è l'app AI che applica le regole, il client tiene la linea, il server espone un sistema con strumenti, risorse e prompt.", "en": "The host is the AI app that enforces the rules, the client keeps the line open, the server exposes a system with tools, resources and prompts."},
+    {"it": "Oggi MCP vuol dire soprattutto strumenti, e lo standard non rende affidabile un server: qualità, permessi e sicurezza vanno sempre controllati.", "en": "Today MCP mostly means tools, and the standard does not make a server reliable: quality, permissions and security must always be checked."}
+   ],
+   "concetti": ["C38", "C39"],
+   "stato_animazione": {"vista": "groviglio", "standard": true, "app": 3, "sistemi": 5, "passo": 6, "pezzo": null, "risposta_ruolo": null, "server_aperto": "crm", "non_fidato": false}
+  }
+ ],
+ "scenario": {
+  "app_base": 3,
+  "sistemi_base": 4,
+  "app": [
+   {"id": "vendite", "nome": {"it": "Assistente vendite", "en": "Sales assistant"}},
+   {"id": "chatbot", "nome": {"it": "Chatbot del sito", "en": "Website chatbot"}},
+   {"id": "campagne", "nome": {"it": "Agente campagne", "en": "Campaign agent"}},
+   {"id": "desktop", "nome": {"it": "Assistente desktop", "en": "Desktop assistant"}},
+   {"id": "report", "nome": {"it": "Agente report", "en": "Reporting agent"}}
+  ],
+  "sistemi": [
+   {"id": "crm", "nome": {"it": "CRM", "en": "CRM"}, "catalogo": {
+    "strumenti": [{"nome": {"it": "cerca_contatto", "en": "search_contact"}, "etichetta": "sola_lettura"}, {"nome": {"it": "aggiorna_fase_trattativa", "en": "update_deal_stage"}, "etichetta": "non_distruttivo"}],
+    "risorse": [{"nome": {"it": "scheda_azienda", "en": "company_profile"}, "etichetta": null}],
+    "prompt": [{"nome": {"it": "modello_email_followup", "en": "followup_email_template"}, "etichetta": null}]}},
+   {"id": "email", "nome": {"it": "Email", "en": "Email"}, "catalogo": {
+    "strumenti": [{"nome": {"it": "leggi_risposte", "en": "read_replies"}, "etichetta": "sola_lettura"}, {"nome": {"it": "invia_email", "en": "send_email"}, "etichetta": "non_distruttivo"}],
+    "risorse": [{"nome": {"it": "archivio_campagne", "en": "campaign_archive"}, "etichetta": null}],
+    "prompt": [{"nome": {"it": "risposta_cortese", "en": "polite_reply"}, "etichetta": null}]}},
+   {"id": "calendario", "nome": {"it": "Calendario", "en": "Calendar"}, "catalogo": {
+    "strumenti": [{"nome": {"it": "trova_slot_liberi", "en": "find_free_slots"}, "etichetta": "sola_lettura"}, {"nome": {"it": "crea_appuntamento", "en": "create_meeting"}, "etichetta": "non_distruttivo"}],
+    "risorse": [{"nome": {"it": "calendario_team", "en": "team_calendar"}, "etichetta": null}],
+    "prompt": [{"nome": {"it": "invito_demo", "en": "demo_invite"}, "etichetta": null}]}},
+   {"id": "listini", "nome": {"it": "Listini", "en": "Price lists"}, "catalogo": {
+    "strumenti": [{"nome": {"it": "cerca_prezzo", "en": "find_price"}, "etichetta": "sola_lettura"}],
+    "risorse": [{"nome": {"it": "listino_2026", "en": "price_list_2026"}, "etichetta": null}],
+    "prompt": [{"nome": {"it": "preventivo_standard", "en": "standard_quote"}, "etichetta": null}]}},
+   {"id": "outreach", "nome": {"it": "Outreach", "en": "Outreach"}, "catalogo": null},
+   {"id": "helpdesk", "nome": {"it": "Help desk", "en": "Help desk"}, "catalogo": null}
+  ],
+  "_why_diffusione": "WP2 p.25, Tabella 2: circa 79 applicazioni censite al 15 settembre 2025. Fotografia datata, mostrata a schermo con la data.",
+  "diffusione": {"strumenti": 99, "risorse": 34, "prompt": 32},
+  "strumenti_annunciati": [{"it": "cerca_contatto", "en": "search_contact"}, {"it": "aggiorna_fase_trattativa", "en": "update_deal_stage"}],
+  "passi": [
+   {"breve": {"it": "Avvio del server", "en": "Server start-up"}, "testo": {"it": "Avvio: il server del CRM si accende ed è pronto a parlare.", "en": "Start-up: the CRM server switches on and is ready to talk."}, "messaggio": null, "verso": null},
+   {"breve": {"it": "Stretta di mano", "en": "Handshake"}, "testo": {"it": "Stretta di mano: client e server si presentano e aprono la linea.", "en": "Handshake: client and server introduce themselves and open the line."}, "messaggio": {"it": "stretta di mano", "en": "handshake"}, "verso": "entrambi"},
+   {"breve": {"it": "Ecco i miei strumenti", "en": "Here are my tools"}, "testo": {"it": "Scoperta: il server dice «ecco i miei strumenti: cerca_contatto, aggiorna_fase_trattativa».", "en": "Discovery: the server says «here are my tools: search_contact, update_deal_stage»."}, "messaggio": {"it": "ecco i miei strumenti", "en": "here are my tools"}, "verso": "client"},
+   {"breve": {"it": "Compaiono nell'elenco", "en": "They appear in the list"}, "testo": {"it": "Gli strumenti compaiono nell'elenco dell'agente, che ora può sceglierli.", "en": "The tools appear in the agent's list, and it can now choose them."}, "messaggio": null, "verso": null},
+   {"breve": {"it": "Chiamata", "en": "Call"}, "testo": {"it": "Chiamata: l'agente chiede cerca_contatto(«Hotel Lago Blu») e il client la passa al server.", "en": "Call: the agent asks search_contact(«Hotel Lago Blu») and the client passes it to the server."}, "messaggio": {"it": "cerca_contatto", "en": "search_contact"}, "verso": "server"},
+   {"breve": {"it": "Risposta", "en": "Answer"}, "testo": {"it": "Risposta: il server legge il CRM e restituisce all'agente la scheda del contatto.", "en": "Answer: the server reads the CRM and returns the contact record to the agent."}, "messaggio": {"it": "scheda del contatto", "en": "contact record"}, "verso": "client"}
+  ],
+  "ruoli": {
+   "host": {"it": "l'applicazione AI. Crea e gestisce i client, decide quali strumenti usare e applica le regole di sicurezza.", "en": "the AI application. It creates and manages the clients, decides which tools to use and enforces the security rules."},
+   "client": {"it": "il pezzo dentro l'host che tiene aperta la linea con un solo server.", "en": "the piece inside the host that keeps the line open with one server."},
+   "server": {"it": "il programma che fa da adattatore per un sistema (qui il CRM) e pubblica l'elenco dei suoi strumenti.", "en": "the program that acts as an adapter for a system (here the CRM) and publishes the list of its tools."}
+  },
+  "gioco_ruolo": {
+   "domanda": {"it": "Quale pezzo gestisce i collegamenti e applica le regole di sicurezza?", "en": "Which piece manages the connections and enforces the security rules?"},
+   "giusta": "host",
+   "spiega": {
+    "host": {"it": "L'host è l'applicazione AI: è lei a decidere e a far rispettare le regole.", "en": "The host is the AI application: it decides and makes the rules respected."},
+    "client": {"it": "Il client tiene solo la linea con un server; le regole le applica l'host che lo contiene.", "en": "The client only keeps the line with one server; the rules are enforced by the host that contains it."},
+    "server": {"it": "Il server è scritto da chi espone il sistema, spesso un'altra azienda: non può essere lui a garantire le tue regole.", "en": "The server is written by whoever exposes the system, often another company: it cannot be the one guaranteeing your rules."}
+   }
+  },
+  "_why_controlli_prima": "[EXP] Le fonti non danno una checklist per verificare un server MCP: competenza del progettista.",
+  "controlli_prima": [
+   {"it": "Chi pubblica il server? È il fornitore ufficiale del sistema?", "en": "Who publishes the server? Is it the system's official vendor?"},
+   {"it": "Quali permessi chiede? Bastano quelli di sola lettura?", "en": "Which permissions does it ask for? Is read only enough?"},
+   {"it": "Viene aggiornato? Avvisa se cambia i suoi strumenti?", "en": "Is it kept up to date? Does it warn when it changes its tools?"}
+  ],
+  "testi": {
+   "contatore_groviglio": {"it": "{n} app × {m} sistemi = {pezzi} integrazioni su misura", "en": "{n} apps × {m} systems = {pezzi} custom integrations"},
+   "contatore_standard": {"it": "{n} client + {m} server = {pezzi} componenti", "en": "{n} clients + {m} servers = {pezzi} components"},
+   "conto_senza": {"it": "{n} × {m} = {pezzi}", "en": "{n} × {m} = {pezzi}"},
+   "conto_con": {"it": "{n} + {m} = {pezzi}", "en": "{n} + {m} = {pezzi}"},
+   "costo_sistema": {"it": "Un sistema in più costa {senza} cavi nuovi senza standard, {con} server nuovo con lo standard.", "en": "One more system costs {senza} new cables without a standard, {con} new server with the standard."},
+   "nota_conto": {"it": "N×M è il problema descritto dalle fonti; N+M è il conto che ne segue quando ognuno costruisce un solo pezzo (spiegazione del corso). I numeri dell'azienda sono illustrativi.", "en": "N×M is the problem described by the sources; N+M is the count that follows when each one builds a single piece (the course's explanation). The company's numbers are illustrative."},
+   "server_di": {"it": "Server «{sistema}»", "en": "«{sistema}» server"},
+   "host_nome": {"it": "Host: {app}", "en": "Host: {app}"},
+   "apri_ruolo": {"it": "Che cosa fa il pezzo {ruolo}", "en": "What the {ruolo} piece does"},
+   "passo_di": {"it": "Passo {n} di {tot}", "en": "Step {n} of {tot}"},
+   "clicca_pezzo": {"it": "Clicca l'host, il client o il server nella scena per leggere che cosa fa.", "en": "Click the host, the client or the server in the scene to read what it does."},
+   "ruolo_giusto": {"it": "Giusto. {spiega}", "en": "Right. {spiega}"},
+   "ruolo_sbagliato": {"it": "Non proprio. {spiega}", "en": "Not quite. {spiega}"},
+   "catalogo_di": {"it": "Il catalogo del server «{sistema}»", "en": "The «{sistema}» server's catalog"},
+   "diffusione": {"it": "App che lo supportano: {pct}%", "en": "Apps that support it: {pct}%"},
+   "fonte_diffusione": {"it": "Diffusione: circa 79 applicazioni censite al 15/09/2025 (whitepaper Google). Dato destinato a invecchiare.", "en": "Adoption: about 79 applications surveyed on 15/09/2025 (Google whitepaper). This figure will age."},
+   "standard_non_basta": {"it": "Lo standard non rende affidabile un server.", "en": "The standard does not make a server reliable."},
+   "nota_catalogo": {"it": "Strumenti = azioni; risorse = dati da leggere; prompt = modelli di istruzioni scritti da altri.", "en": "Tools = actions; resources = data to read; prompts = instruction templates written by others."},
+   "fidato_spiega": {"it": "Le etichette sugli strumenti dicono come si dovrebbero comportare. Ma chi le garantisce?", "en": "The labels on the tools say how they should behave. But who guarantees them?"},
+   "non_fidato_spiega": {"it": "Da un server non fidato le etichette sono solo dichiarazioni del fornitore: il client non deve basarsi su di esse. Restano da controllare qualità, permessi e sicurezza.", "en": "From an untrusted server the labels are only the vendor's statements: the client must not rely on them. Quality, permissions and security still need checking."}
+  },
+  "etichette": {
+   "titolo_comandi": {"it": "Prova a cambiare", "en": "Try changing"},
+   "vista": {"it": "Che cosa guardi", "en": "What you look at"},
+   "vista_groviglio": {"it": "Cavi", "en": "Cables"},
+   "vista_collegamento": {"it": "Collegamento", "en": "Connection"},
+   "vista_catalogo": {"it": "Catalogo", "en": "Catalog"},
+   "standard": {"it": "Introduci lo standard", "en": "Introduce the standard"},
+   "aggiungi_sistema": {"it": "Aggiungi un sistema", "en": "Add a system"},
+   "aggiungi_app": {"it": "Aggiungi un'app", "en": "Add an app"},
+   "ricomincia": {"it": "Ricomincia", "en": "Start again"},
+   "passo_successivo": {"it": "Passo successivo", "en": "Next step"},
+   "gioco": {"it": "Mettiti alla prova", "en": "Test yourself"},
+   "ruolo_host": {"it": "Host", "en": "Host"},
+   "ruolo_client": {"it": "Client", "en": "Client"},
+   "ruolo_server": {"it": "Server", "en": "Server"},
+   "apri_server": {"it": "Apri il catalogo", "en": "Open the catalog"},
+   "non_fidato": {"it": "Server non fidato", "en": "Untrusted server"},
+   "titolo_scena_groviglio": {"it": "APP AI E SISTEMI DELL'AZIENDA", "en": "AI APPS AND COMPANY SYSTEMS"},
+   "titolo_scena_collegamento": {"it": "UN COLLEGAMENTO MCP, PASSO DOPO PASSO", "en": "AN MCP CONNECTION, STEP BY STEP"},
+   "titolo_scena_catalogo": {"it": "CHE COSA PUÒ OFFRIRE UN SERVER", "en": "WHAT A SERVER CAN OFFER"},
+   "app_ai": {"it": "APP AI", "en": "AI APPS"},
+   "sistemi": {"it": "SISTEMI", "en": "SYSTEMS"},
+   "presa_comune": {"it": "REGOLE COMUNI (MCP)", "en": "SHARED RULES (MCP)"},
+   "client": {"it": "client", "en": "client"},
+   "server": {"it": "server", "en": "server"},
+   "host_sotto": {"it": "l'applicazione AI (clicca per il ruolo)", "en": "the AI application (click for the role)"},
+   "elenco_agente": {"it": "STRUMENTI DELL'AGENTE", "en": "THE AGENT'S TOOLS"},
+   "elenco_vuoto": {"it": "ancora nessuno", "en": "none yet"},
+   "server_acceso": {"it": "acceso (clicca per il ruolo)", "en": "on (click for the role)"},
+   "server_spento": {"it": "spento", "en": "off"},
+   "cassetto_strumenti": {"it": "Strumenti", "en": "Tools"},
+   "cassetto_strumenti_sotto": {"it": "azioni", "en": "actions"},
+   "cassetto_risorse": {"it": "Risorse", "en": "Resources"},
+   "cassetto_risorse_sotto": {"it": "dati da leggere", "en": "data to read"},
+   "cassetto_prompt": {"it": "Prompt", "en": "Prompts"},
+   "cassetto_prompt_sotto": {"it": "modelli di istruzioni", "en": "instruction templates"},
+   "etichetta_sola_lettura": {"it": "sola lettura", "en": "read only"},
+   "etichetta_non_distruttivo": {"it": "non distruttivo", "en": "non-destructive"},
+   "solo_dichiarazione": {"it": "solo dichiarata", "en": "only declared"},
+   "prompt_raramente": {"it": "Da usare raramente", "en": "Use rarely"},
+   "titolo_conti": {"it": "Il conto dei pezzi", "en": "Counting the pieces"},
+   "senza_standard": {"it": "Senza standard", "en": "Without a standard"},
+   "con_standard": {"it": "Con lo standard", "en": "With the standard"},
+   "titolo_passi": {"it": "I sei passi", "en": "The six steps"},
+   "titolo_catalogo": {"it": "Fidarsi del server?", "en": "Trust the server?"},
+   "descrizione_scena": {"it": "Applicazioni AI a sinistra e sistemi aziendali a destra, collegati da cavi su misura o da prese standard; oppure un host con il suo client collegato al server del CRM; oppure il catalogo di un server con strumenti, risorse e prompt.", "en": "AI applications on the left and company systems on the right, connected by custom cables or standard plugs; or a host with its client connected to the CRM server; or a server's catalog with tools, resources and prompts."}
+  }
+ },
+ "domande": []
+}
