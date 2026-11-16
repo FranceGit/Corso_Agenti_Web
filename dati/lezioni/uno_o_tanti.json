@@ -1,0 +1,184 @@
+{
+ "id": "L_uno_o_tanti",
+ "pillola": "P6.1",
+ "componente": "uno_o_tanti",
+ "titolo": {"it": "Uno o tanti? Quando dividere il lavoro tra agenti", "en": "One or many? When to split the work among agents"},
+ "sottotitolo": {"it": "Un agente CRM con 16 strumenti: complica le istruzioni, rendi simili gli strumenti, poi decidi se chiarire o dividere.", "en": "A CRM agent with 16 tools: complicate the instructions, make the tools similar, then decide whether to clarify or split."},
+ "segmenti": [
+  {
+   "id": "un_agente",
+   "titolo": {"it": "Un solo agente che fa tutto", "en": "A single agent that does everything"},
+   "narrazione": [
+    {"it": "Ecco un agente CRM con 16 strumenti: cerca i lead, aggiorna le schede, scrive le email, fissa gli incontri. A ogni richiesta deve scegliere lo strumento giusto.", "en": "Here is a CRM agent with 16 tools: it searches leads, updates records, writes emails, books meetings. For every request it must choose the right tool."},
+    {"it": "Finché gli strumenti sono ben distinti, sceglie quasi sempre bene. I guai cominciano quando alcuni strumenti si somigliano troppo.", "en": "As long as the tools are clearly distinct, it almost always chooses well. Trouble starts when some tools look too much alike."}
+   ],
+   "prova": {"it": "Sposta «Strumenti sovrapposti» da 0 a 9 e guarda scendere le scelte corrette.", "en": "Move «Overlapping tools» from 0 to 9 and watch correct choices go down."},
+   "concetti": ["C53"],
+   "stato_animazione": {"vista": "uno", "condizioni": 2, "sovrapposti": 0, "nomi_chiari": false, "agente_aperto": "pianificatore", "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "segnali",
+   "titolo": {"it": "I due segnali per dividere", "en": "The two signals for splitting"},
+   "narrazione": [
+    {"it": "OpenAI indica due segnali. Logica complessa: le istruzioni sono piene di «se succede questo, fai quello». Sovraccarico di strumenti: troppi strumenti simili tra loro.", "en": "OpenAI points to two signals. Complex logic: the instructions are full of «if this happens, do that». Tool overload: too many tools that are similar to each other."},
+    {"it": "Conta la somiglianza, non il numero: alcuni agenti gestiscono bene più di 15 strumenti distinti, altri si confondono con meno di 10 sovrapposti. Per questo, prima di dividere, si chiariscono nomi e descrizioni.", "en": "Similarity matters, not the number: some agents handle more than 15 distinct tools well, others get confused with fewer than 10 overlapping ones. So, before splitting, you clarify names and descriptions."}
+   ],
+   "prova": {"it": "Premi «Chiarisci i nomi»: l'indicatore risale senza dividere. Poi alza le condizioni se/allora: lì i nomi non bastano.", "en": "Press «Clarify the names»: the indicator goes back up without splitting. Then raise the if/then conditions: there, names are not enough."},
+   "concetti": ["C53"],
+   "stato_animazione": {"vista": "uno", "condizioni": 2, "sovrapposti": 7, "nomi_chiari": false, "agente_aperto": "pianificatore", "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "squadra",
+   "titolo": {"it": "La squadra di specialisti", "en": "The team of specialists"},
+   "narrazione": [
+    {"it": "Dividere vuol dire creare una squadra: ogni agente ha un solo lavoro, istruzioni brevi e solo gli strumenti del suo ruolo. Così è più facile da provare e da correggere.", "en": "Splitting means creating a team: each agent has one job, short instructions and only the tools of its role. This makes it easier to test and to fix."},
+    {"it": "Ogni agente può usare il modello più leggero che basta. E solo l'agente Vendite scrive nel CRM: se un agente sbaglia o viene attaccato, il danno possibile resta piccolo.", "en": "Each agent can use the lightest model that is enough. And only the Sales agent writes to the CRM: if an agent makes a mistake or is attacked, the possible damage stays small."}
+   ],
+   "prova": {"it": "Clicca ogni agente: guarda i suoi strumenti, il suo modello e chi può scrivere nel CRM.", "en": "Click each agent: look at its tools, its model and who can write to the CRM."},
+   "concetti": ["C53"],
+   "stato_animazione": {"vista": "squadra", "condizioni": 8, "sovrapposti": 5, "nomi_chiari": false, "agente_aperto": "vendite", "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "costi",
+   "titolo": {"it": "Il prezzo della squadra", "en": "The price of the team"},
+   "narrazione": [
+    {"it": "La squadra non è gratis. Gli agenti devono coordinarsi: più chiamate al modello, più attesa per il cliente, più punti in cui qualcosa può rompersi.", "en": "The team is not free. The agents must coordinate: more calls to the model, more waiting for the customer, more points where something can break."},
+    {"it": "Per questo la regola di OpenAI è: prima massimizza un agente, poi dividi. Spesso un agente con i suoi strumenti basta.", "en": "That is why OpenAI's rule is: first maximise one agent, then split. Often a single agent with its tools is enough."}
+   ],
+   "prova": {"it": "Passa da «Un agente» a «Squadra» e confronta chiamate, tempo e messaggi di coordinamento.", "en": "Switch from «One agent» to «Team» and compare calls, time and coordination messages."},
+   "concetti": ["C53"],
+   "stato_animazione": {"vista": "uno", "condizioni": 9, "sovrapposti": 3, "nomi_chiari": true, "agente_aperto": "pianificatore", "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "decidi_uno_tanti",
+   "titolo": {"it": "Decidi tu: uno, chiarire o dividere?", "en": "You decide: one, clarify or split?"},
+   "narrazione": [
+    {"it": "Cinque situazioni di marketing e vendite. Per ognuna scegli: un agente basta, chiarisci prima gli strumenti, oppure dividi in una squadra.", "en": "Five marketing and sales situations. For each one choose: one agent is enough, clarify the tools first, or split into a team."}
+   ],
+   "prova": {"it": "Scegli una risposta per ogni caso, poi premi «Controlla» e leggi il perché.", "en": "Choose an answer for each case, then press «Check» and read why."},
+   "concetti": ["C53"],
+   "stato_animazione": {"vista": "decidi", "condizioni": 2, "sovrapposti": 0, "nomi_chiari": false, "agente_aperto": "pianificatore", "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "riassunto",
+   "titolo": {"it": "In tre frasi", "en": "In three sentences"},
+   "narrazione": [
+    {"it": "Si divide quando le istruzioni diventano piene di «se/allora» o quando troppi strumenti simili fanno sbagliare la scelta.", "en": "You split when the instructions fill up with «if/then» or when too many similar tools cause wrong choices."},
+    {"it": "Una squadra di specialisti ha istruzioni brevi, pochi strumenti, il modello che basta e permessi minimi per ruolo.", "en": "A team of specialists has short instructions, few tools, the model that is enough and minimum permissions for each role."},
+    {"it": "Ma costa coordinamento, chiamate e attesa: prima si massimizza un agente, poi si divide.", "en": "But it costs coordination, calls and waiting: first you maximise one agent, then you split."}
+   ],
+   "concetti": ["C53"],
+   "stato_animazione": {"vista": "squadra", "condizioni": 8, "sovrapposti": 5, "nomi_chiari": false, "agente_aperto": "vendite", "scelte": {}, "verificato": false}
+  }
+ ],
+ "scenario": {
+  "condizioni": {"min": 0, "max": 12, "passo": 1, "etichetta": {"it": "Condizioni se/allora nel prompt", "en": "If/then conditions in the prompt"}},
+  "sovrapposti": {"min": 0, "max": 9, "passo": 1, "etichetta": {"it": "Strumenti sovrapposti", "en": "Overlapping tools"}},
+  "parametri": {"precisione_base": 96, "penalita_condizione": 3, "penalita_sovrapposto": 5, "precisione_minima": 35, "soglia_dividi": 78, "sovrapposti_dopo_chiarimento": 1, "precisione_squadra": 93},
+  "costi": {
+   "uno": {"chiamate": 3, "secondi": 4, "messaggi": 0},
+   "squadra": {"chiamate": 9, "secondi": 11, "messaggi": 6}
+  },
+  "strumenti": [
+   {"id": "s01", "nome": "cerca_lead", "agente": "ricercatore", "simile": {"it": "cerca_contatto", "en": "search_contact"}, "chiaro": {"it": "cerca_lead_per_settore", "en": "search_leads_by_sector"}},
+   {"id": "s02", "nome": "leggi_scheda", "agente": "ricercatore", "simile": {"it": "trova_contatto", "en": "find_contact"}, "chiaro": {"it": "leggi_scheda_lead", "en": "read_lead_record"}},
+   {"id": "s03", "nome": "arricchisci_azienda", "agente": "ricercatore", "simile": {"it": "leggi_contatto", "en": "read_contact"}, "chiaro": {"it": "arricchisci_dati_azienda", "en": "enrich_company_data"}},
+   {"id": "s04", "nome": "cerca_notizie", "agente": "ricercatore", "simile": {"it": "apri_contatto", "en": "open_contact"}, "chiaro": {"it": "cerca_notizie_azienda", "en": "search_company_news"}},
+   {"id": "s05", "nome": "aggiorna_crm", "agente": "vendite", "simile": {"it": "salva_contatto", "en": "save_contact"}, "chiaro": {"it": "aggiorna_stato_lead", "en": "update_lead_status"}},
+   {"id": "s06", "nome": "crea_bozza", "agente": "vendite", "simile": {"it": "scrivi_contatto", "en": "write_contact"}, "chiaro": {"it": "crea_bozza_email", "en": "create_email_draft"}},
+   {"id": "s07", "nome": "invia_email", "agente": "vendite", "simile": {"it": "manda_contatto", "en": "send_contact"}, "chiaro": {"it": "invia_email_approvata", "en": "send_approved_email"}},
+   {"id": "s08", "nome": "fissa_incontro", "agente": "vendite", "simile": {"it": "segna_contatto", "en": "mark_contact"}, "chiaro": {"it": "fissa_incontro_commerciale", "en": "book_sales_meeting"}},
+   {"id": "s09", "nome": "segmenta_lista", "agente": "pianificatore", "simile": {"it": "prendi_contatto", "en": "get_contact"}, "chiaro": {"it": "segmenta_lista_campagna", "en": "segment_campaign_list"}},
+   {"id": "s10", "nome": "calendario_campagne", "agente": "pianificatore", "chiaro": {"it": "calendario_campagne", "en": "campaign_calendar"}, "simile": null},
+   {"id": "s11", "nome": "budget_campagna", "agente": "pianificatore", "chiaro": {"it": "budget_campagna", "en": "campaign_budget"}, "simile": null},
+   {"id": "s12", "nome": "report_risultati", "agente": "pianificatore", "chiaro": {"it": "report_risultati", "en": "results_report"}, "simile": null},
+   {"id": "s13", "nome": "controlla_tono", "agente": "revisore", "chiaro": {"it": "controlla_tono", "en": "check_tone"}, "simile": null},
+   {"id": "s14", "nome": "controlla_privacy", "agente": "revisore", "chiaro": {"it": "controlla_privacy", "en": "check_privacy"}, "simile": null},
+   {"id": "s15", "nome": "verifica_dati", "agente": "revisore", "chiaro": {"it": "verifica_dati", "en": "verify_data"}, "simile": null},
+   {"id": "s16", "nome": "lista_disiscritti", "agente": "revisore", "chiaro": {"it": "lista_disiscritti", "en": "unsubscribed_list"}, "simile": null}
+  ],
+  "agenti": [
+   {"id": "pianificatore", "nome": {"it": "Pianificatore campagna", "en": "Campaign planner"}, "colore": "#8b5cf6", "modello": "potente", "scrive_crm": false,
+    "ruolo": {"it": "Scompone l'obiettivo della campagna e coordina gli altri.", "en": "Breaks down the campaign goal and coordinates the others."}},
+   {"id": "ricercatore", "nome": {"it": "Ricercatore lead", "en": "Lead researcher"}, "colore": "#0ea5e9", "modello": "leggero", "scrive_crm": false,
+    "ruolo": {"it": "Trova i lead e raccoglie i dati: legge, non scrive.", "en": "Finds the leads and gathers data: it reads, it does not write."}},
+   {"id": "vendite", "nome": {"it": "Vendite", "en": "Sales"}, "colore": "#f59e0b", "modello": "leggero", "scrive_crm": true,
+    "ruolo": {"it": "Prepara e invia l'outreach e aggiorna il CRM: l'unico con permesso di scrittura.", "en": "Prepares and sends the outreach and updates the CRM: the only one with write permission."}},
+   {"id": "revisore", "nome": {"it": "Revisore", "en": "Reviewer"}, "colore": "#10b981", "modello": "potente", "scrive_crm": false,
+    "ruolo": {"it": "Controlla tono, privacy e dati prima che qualcosa parta.", "en": "Checks tone, privacy and data before anything goes out."}}
+  ],
+  "modelli": {"leggero": {"it": "modello leggero", "en": "light model"}, "potente": {"it": "modello potente", "en": "powerful model"}},
+  "risposte_gioco": [
+   {"id": "uno", "nome": {"it": "Un agente basta", "en": "One agent is enough"}},
+   {"id": "chiarisci", "nome": {"it": "Chiarisci prima gli strumenti", "en": "Clarify the tools first"}},
+   {"id": "squadra", "nome": {"it": "Dividi in una squadra", "en": "Split into a team"}}
+  ],
+  "casi": [
+   {"id": "k1", "testo": {"it": "Un agente risponde alle domande sui prezzi del listino con 4 strumenti, e risponde bene.", "en": "An agent answers questions about list prices with 4 tools, and answers well."},
+    "migliore": "uno", "quasi": [],
+    "spiega": {"it": "Pochi strumenti, compito unico e risultati buoni: dividere aggiungerebbe solo costi.", "en": "Few tools, one task and good results: splitting would only add costs."}},
+   {"id": "k2", "testo": {"it": "L'agente marketing ha 12 strumenti; tre si chiamano cerca_contatto, trova_contatto e leggi_contatto, e sceglie spesso quello sbagliato.", "en": "The marketing agent has 12 tools; three are called search_contact, find_contact and read_contact, and it often picks the wrong one."},
+    "migliore": "chiarisci", "quasi": ["squadra"],
+    "spiega": {"it": "Il guaio è la somiglianza: prima si chiariscono nomi, parametri e descrizioni. Si divide solo se non basta.", "en": "The problem is similarity: first you clarify names, parameters and descriptions. You split only if that is not enough."}},
+   {"id": "k3", "testo": {"it": "Il prompt dell'agente ha 30 regole «se il lead è di questo paese, canale e segmento, allora…» e l'agente sbaglia ramo.", "en": "The agent's prompt has 30 rules «if the lead is from this country, channel and segment, then…» and the agent takes the wrong branch."},
+    "migliore": "squadra", "quasi": [],
+    "spiega": {"it": "È logica complessa: i nomi degli strumenti non c'entrano. Ogni ramo logico può diventare un agente.", "en": "It is complex logic: tool names have nothing to do with it. Each logical branch can become an agent."}},
+   {"id": "k4", "testo": {"it": "Per un lancio servono: analisi dei prezzi dei concorrenti, tre versioni del comunicato stampa, la pagina prodotto.", "en": "A launch needs: competitor price analysis, three versions of the press release, the product page."},
+    "migliore": "squadra", "quasi": ["uno"],
+    "spiega": {"it": "Compiti davvero distinti per dati e competenze: è l'esempio della squadra coordinata da un project manager.", "en": "Tasks truly distinct in data and skills: it is the example of a team coordinated by a project manager."}},
+   {"id": "k5", "testo": {"it": "Un agente commerciale usa 18 strumenti, tutti con nomi e compiti ben diversi, e sceglie quasi sempre bene.", "en": "A sales agent uses 18 tools, all with clearly different names and jobs, and almost always picks well."},
+    "migliore": "uno", "quasi": [],
+    "spiega": {"it": "Più di 15 strumenti distinti si possono gestire bene: il numero da solo non è un segnale per dividere.", "en": "More than 15 distinct tools can be handled well: the number alone is not a signal to split."}}
+  ],
+  "testi": {
+   "formato_valore": {"it": "{n}", "en": "{n}"},
+   "precisione": {"it": "{n}%", "en": "{n}%"},
+   "consiglio_ok": {"it": "Un agente basta: sceglie bene lo strumento.", "en": "One agent is enough: it picks the tool well."},
+   "consiglio_chiarisci": {"it": "Troppi strumenti simili: prima chiarisci nomi e descrizioni.", "en": "Too many similar tools: first clarify names and descriptions."},
+   "consiglio_dividi_logica": {"it": "Logica complessa: conviene dividere in agenti.", "en": "Complex logic: it pays to split into agents."},
+   "consiglio_dividi_strumenti": {"it": "Nomi già chiari, ma la scelta resta difficile: conviene dividere.", "en": "Names are already clear, but the choice is still hard: it pays to split."},
+   "consiglio_squadra": {"it": "Squadra: ogni specialista sceglie tra pochi strumenti del suo ruolo.", "en": "Team: each specialist picks among a few tools of its role."},
+   "strumenti_agente": {"it": "Strumenti: {elenco}", "en": "Tools: {elenco}"},
+   "modello_agente": {"it": "Usa il {modello}.", "en": "Uses the {modello}."},
+   "crm_si": {"it": "Può scrivere nel CRM.", "en": "Can write to the CRM."},
+   "crm_no": {"it": "Non può scrivere nel CRM: se sbaglia, non tocca le schede.", "en": "Cannot write to the CRM: if it makes a mistake, it does not touch the records."},
+   "nota_costi": {"it": "Numeri illustrativi: le fonti non misurano il costo in più di una squadra.", "en": "Illustrative numbers: the sources do not measure the extra cost of a team."},
+   "nota_indicatore": {"it": "Valori illustrativi, ispirati a «più di 15 strumenti distinti» contro «meno di 10 sovrapposti» (OpenAI).", "en": "Illustrative values, inspired by «more than 15 distinct tools» versus «fewer than 10 overlapping» (OpenAI)."},
+   "secondi": {"it": "{n} s", "en": "{n} s"},
+   "apri_agente": {"it": "Apri la scheda dell'agente {nome}", "en": "Open the card of the agent {nome}"},
+   "scegli_per": {"it": "Risposta per il caso {n}", "en": "Answer for case {n}"},
+   "caso": {"it": "Caso {n}", "en": "Case {n}"},
+   "ver_giusto": {"it": "Caso {n}: giusto. {spiega}", "en": "Case {n}: right. {spiega}"},
+   "ver_quasi": {"it": "Caso {n}: si può fare, ma meglio «{migliore}». {spiega}", "en": "Case {n}: acceptable, but «{migliore}» is better. {spiega}"},
+   "ver_sbagliato": {"it": "Caso {n}: no, meglio «{migliore}». {spiega}", "en": "Case {n}: no, «{migliore}» is better. {spiega}"},
+   "ver_vuoto": {"it": "Caso {n}: non hai scelto. La risposta migliore è «{migliore}». {spiega}", "en": "Case {n}: you did not choose. The best answer is «{migliore}». {spiega}"},
+   "ver_punteggio": {"it": "Risposte migliori: {giuste} su {totali}.", "en": "Best answers: {giuste} of {totali}."},
+   "ver_tutto_giusto": {"it": "Perfetto: hai diviso solo quando serviva davvero.", "en": "Perfect: you split only when it was really needed."}
+  },
+  "etichette": {
+   "titolo_comandi": {"it": "Prova a cambiare", "en": "Try changing"},
+   "vista": {"it": "Vista", "en": "View"},
+   "vista_uno": {"it": "Un agente", "en": "One agent"},
+   "vista_squadra": {"it": "Squadra", "en": "Team"},
+   "vista_decidi": {"it": "Decidi tu", "en": "You decide"},
+   "chiarisci": {"it": "Chiarisci i nomi degli strumenti", "en": "Clarify the tool names"},
+   "scegli": {"it": "— scegli —", "en": "— choose —"},
+   "controlla": {"it": "Controlla", "en": "Check"},
+   "agente_unico": {"it": "Agente CRM", "en": "CRM agent"},
+   "prompt": {"it": "istruzioni", "en": "instructions"},
+   "scelte_corrette": {"it": "Scelte corrette dello strumento", "en": "Correct tool choices"},
+   "chiamate": {"it": "Chiamate al modello per richiesta", "en": "Model calls per request"},
+   "tempo": {"it": "Tempo di risposta", "en": "Response time"},
+   "messaggi": {"it": "Messaggi di coordinamento", "en": "Coordination messages"},
+   "regola": {"it": "Prima massimizza un agente, poi dividi.", "en": "First maximise one agent, then split."},
+   "scrive_crm": {"it": "scrive CRM", "en": "writes CRM"},
+   "titolo_scheda": {"it": "La scheda", "en": "The card"},
+   "titolo_decidi": {"it": "CINQUE CASI: UN AGENTE, CHIARIRE O DIVIDERE?", "en": "FIVE CASES: ONE AGENT, CLARIFY OR SPLIT?"},
+   "titolo_uno": {"it": "UN AGENTE, 16 STRUMENTI", "en": "ONE AGENT, 16 TOOLS"},
+   "titolo_squadra": {"it": "UNA SQUADRA DI 4 SPECIALISTI", "en": "A TEAM OF 4 SPECIALISTS"},
+   "legenda": {"it": "In arancione gli strumenti che si somigliano; in verde quelli con nome chiarito.", "en": "In orange the tools that look alike; in green those with a clarified name."},
+   "descrizione_scena": {"it": "Un agente CRM circondato dai suoi strumenti, oppure una squadra di quattro agenti specialisti con i loro strumenti.", "en": "A CRM agent surrounded by its tools, or a team of four specialist agents with their tools."}
+  }
+ },
+ "domande": []
+}

@@ -1,0 +1,360 @@
+[
+ {
+  "id": "DA6.1-1",
+  "origine": "autori",
+  "pillola": "P6.1",
+  "concetti": [
+   "C53"
+  ],
+  "concetto_principale": "C53",
+  "segmento_aiuto": "segnali",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "L'agente marketing ha 12 strumenti; tre si chiamano cerca_contatto, trova_contatto e leggi_contatto, e spesso usa quello sbagliato. Qual è la prima mossa?",
+    "en": "The marketing agent has 12 tools; three are called search_contact, find_contact and read_contact, and it often uses the wrong one. What is the first move?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Chiarire nomi e descrizioni dei tre strumenti",
+      "en": "Clarify the names and descriptions of the three tools"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Il problema è la somiglianza: prima di dividere si rendono gli strumenti distinti.",
+      "en": "The problem is similarity: before splitting, you make the tools distinct."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Dividere subito l'agente in tre agenti specializzati",
+      "en": "Split the agent right away into three specialised agents"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Si può arrivare a dividere, ma solo se chiarire gli strumenti non basta: dividere costa coordinamento.",
+      "en": "You may end up splitting, but only if clarifying the tools is not enough: splitting costs coordination."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Passare a un modello più potente e più costoso",
+      "en": "Switch to a more powerful and more expensive model"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Un modello più grande non toglie l'ambiguità tra tre nomi quasi uguali.",
+      "en": "A bigger model does not remove the ambiguity between three almost identical names."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Aggiungere altri strumenti per coprire ogni caso",
+      "en": "Add more tools to cover every case"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Più strumenti simili peggiorano proprio il problema della scelta.",
+      "en": "More similar tools make the choice problem even worse."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Tradurre le istruzioni in inglese",
+      "en": "Translate the instructions into English"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "La lingua delle istruzioni non c'entra con la confusione tra strumenti.",
+      "en": "The language of the instructions has nothing to do with the confusion between tools."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Conta la somiglianza tra strumenti, non il loro numero: prima si chiariscono nomi e descrizioni, poi, se serve, si divide.",
+    "en": "The similarity between tools matters, not their number: first you clarify names and descriptions, then, if needed, you split."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché chiarire gli strumenti viene prima di dividere?",
+    "en": "Why does clarifying the tools come before splitting?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché dividere aggiunge chiamate, attesa e coordinamento",
+      "en": "Because splitting adds calls, waiting and coordination"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Una squadra ha un prezzo: se basta un agente con strumenti chiari, conviene.",
+      "en": "A team has a price: if one agent with clear tools is enough, it pays off."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché un sistema con più agenti non si può mai collaudare",
+      "en": "Because a system with several agents can never be tested"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Si collauda eccome, anzi ogni specialista si prova da solo.",
+      "en": "It can certainly be tested; in fact each specialist is tested on its own."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché le fonti vietano più di un agente per azienda",
+      "en": "Because the sources forbid more than one agent per company"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Nessuna fonte lo vieta: consigliano solo di partire da un agente.",
+      "en": "No source forbids it: they only advise starting with one agent."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Perché nomi chiari risolvono anche le istruzioni piene di condizioni",
+      "en": "Because clear names also fix instructions full of conditions"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "No: la logica complessa resta anche con nomi perfetti, e lì dividere serve.",
+      "en": "No: complex logic stays even with perfect names, and there splitting helps."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Perché un agente con 12 strumenti è sempre troppo carico",
+      "en": "Because an agent with 12 tools is always overloaded"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il numero da solo non basta: alcuni agenti gestiscono bene più di 15 strumenti distinti.",
+      "en": "The number alone is not enough: some agents handle more than 15 distinct tools well."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Dividere ha un prezzo in chiamate, attesa e coordinamento: si paga solo quando un agente con strumenti chiari non basta.",
+    "en": "Splitting has a price in calls, waiting and coordination: you pay it only when one agent with clear tools is not enough."
+   }
+  }
+ },
+ {
+  "id": "DA6.1-2",
+  "origine": "autori",
+  "pillola": "P6.1",
+  "concetti": [
+   "C53"
+  ],
+  "concetto_principale": "C53",
+  "segmento_aiuto": "squadra",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Un team divide l'agente commerciale in 4 specialisti e dà a tutti il permesso di scrivere nel CRM, «così nessuno resta bloccato». Che cosa perde?",
+    "en": "A team splits the sales agent into 4 specialists and gives all of them permission to write to the CRM, «so nobody gets stuck». What does it lose?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Danno contenuto",
+      "en": "Contained damage"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Con permessi minimi per ruolo, un agente che sbaglia o viene attaccato fa meno danni.",
+      "en": "With minimum permissions per role, an agent that errs or is attacked does less damage."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Velocità",
+      "en": "Speed"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "La velocità dipende dal coordinamento, non dai permessi di scrittura.",
+      "en": "Speed depends on coordination, not on write permissions."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Prompt brevi",
+      "en": "Short prompts"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Le istruzioni restano brevi anche con permessi larghi: il problema è il rischio.",
+      "en": "The instructions stay short even with broad permissions: the problem is risk."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Niente",
+      "en": "Nothing"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Perde la protezione più importante della specializzazione: i permessi minimi.",
+      "en": "It loses the most important protection of specialisation: minimum permissions."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "La lingua",
+      "en": "The language"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "La lingua delle risposte non dipende dai permessi.",
+      "en": "The language of the answers does not depend on permissions."
+     }
+    },
+    {
+     "id": "F",
+     "testo": {
+      "it": "Più costi di licenza",
+      "en": "Higher licence costs"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "I costi non scendono né salgono per i permessi: cresce il rischio.",
+      "en": "Costs do not go up or down because of permissions: the risk grows."
+     }
+    },
+    {
+     "id": "G",
+     "testo": {
+      "it": "Il logo",
+      "en": "The logo"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il marchio non c'entra con chi può scrivere nel CRM.",
+      "en": "The brand has nothing to do with who can write to the CRM."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Uno dei vantaggi della squadra è dare a ogni agente solo i permessi del suo ruolo: se tutti scrivono, un errore può toccare tutto il CRM.",
+    "en": "One advantage of the team is giving each agent only the permissions of its role: if everyone writes, one mistake can touch the whole CRM."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Nella squadra della campagna, chi dovrebbe poter scrivere nel CRM?",
+    "en": "In the campaign team, who should be able to write to the CRM?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Solo chi aggiorna le schede, come Vendite",
+      "en": "Only the one that updates records, such as Sales"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "È il permesso minimo per ruolo: gli altri leggono o controllano.",
+      "en": "It is the minimum permission per role: the others read or check."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Tutti, ma solo di notte",
+      "en": "Everyone, but only at night"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "L'orario non riduce il danno possibile.",
+      "en": "The time of day does not reduce the possible damage."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Il revisore, perché è il più attento",
+      "en": "The reviewer, because it is the most careful"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il revisore controlla, non aggiorna le schede: scrivere non è il suo ruolo.",
+      "en": "The reviewer checks, it does not update records: writing is not its role."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Nessuno: il CRM si aggiorna solo a mano",
+      "en": "Nobody: the CRM is only updated by hand"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Così si perde il lavoro dell'agente; basta limitare la scrittura a chi serve.",
+      "en": "That wastes the agent's work; it is enough to limit writing to who needs it."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Il pianificatore, perché coordina tutti gli altri agenti della squadra",
+      "en": "The planner, because it coordinates all the other agents in the team"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Coordinare non richiede di scrivere nelle schede: il permesso va a chi aggiorna i lead.",
+      "en": "Coordinating does not require writing to records: the permission goes to whoever updates the leads."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Il permesso di scrittura va solo all'agente il cui ruolo è aggiornare le schede: così un errore altrove non tocca il CRM.",
+    "en": "Write permission goes only to the agent whose role is updating records: that way a mistake elsewhere does not touch the CRM."
+   }
+  }
+ }
+]
