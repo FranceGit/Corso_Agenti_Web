@@ -64,7 +64,10 @@ def test_strisce_per_concetto_nei_limiti_e_variabili(catalogo_vero):
     minimo = cfg.prendi("percorso", "strisce_per_concetto", "minimo")
     massimo = cfg.prendi("percorso", "strisce_per_concetto", "massimo")
     quantita = set()
-    for pid in catalogo_vero.lezioni:
+    # le pillole con lezione interattiva che hanno abbastanza domande (le lezioni del batch 1 non portano domande proprie)
+    pillole = [pid for pid in catalogo_vero.lezioni if genera_strisce(catalogo_vero, pid, SEMI[0], 1).erogabile]
+    assert {"P1.3", "P4.1"} <= set(pillole)
+    for pid in pillole:
         for seme in SEMI:
             for tentativo in (1, 2):
                 s = genera_strisce(catalogo_vero, pid, seme, tentativo)

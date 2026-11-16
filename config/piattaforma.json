@@ -118,6 +118,15 @@
     "_why_prefisso_passo_scaletta": "Il segmento di aiuto di una domanda e' un segmento della lezione interattiva oppure, per le pillole che non hanno ancora la lezione, un passo della scaletta scritto come prefisso + numero del passo contato da 1 (es. scaletta-3). Lo stesso riferimento resta valido anche quando la lezione arriva."
   },
 
+  "regole_lezioni": {
+    "_why": "Regole di France per le lezioni interattive, controllate dai test (tests/test_lezioni.py) e non usate dal server: passi numerati, riassunto finale in 3 frasi, pillola di 5-6 minuti. Le due lezioni del dimostratore (P1.3, P4.1) sono nate prima della regola del riassunto e restano escluse finche' non vengono riviste.",
+    "id_segmento_riassunto": "riassunto",
+    "frasi_riassunto": 3,
+    "parole_massime_lezione": 500,
+    "_why_parole_massime_lezione": "Parole italiane di narrazione + 'Prova tu' di tutta la lezione. A circa 150 parole al minuto sono ~3 minuti di lettura: il resto dei 5-6 minuti e' il tempo per manipolare l'animazione.",
+    "componenti_senza_riassunto": ["ciclo_agente", "strumenti_agente"]
+  },
+
   "record": {
     "_why": "Record personale finale, nessuna classifica: si confronta lo studente solo con se stesso. Criteri in ordine di importanza; il record si aggiorna quando un percorso completo lo migliora.",
     "criteri": ["quota_passaggi_puliti", "salute_finale"]

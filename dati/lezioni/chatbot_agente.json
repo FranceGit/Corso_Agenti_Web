@@ -1,0 +1,173 @@
+{
+ "id": "L_chatbot_agente",
+ "pillola": "P1.1",
+ "componente": "chatbot_agente",
+ "titolo": {"it": "Dal chatbot all'agente: la stessa richiesta, due lavori diversi", "en": "From chatbot to agent: the same request, two different jobs"},
+ "sottotitolo": {"it": "Scegli una richiesta e guarda che cosa fa un chatbot e che cosa fa un agente.", "en": "Pick a request and watch what a chatbot does and what an agent does."},
+ "segmenti": [
+  {
+   "id": "due_corsie",
+   "titolo": {"it": "Due corsie, una sola richiesta", "en": "Two lanes, one request"},
+   "narrazione": [
+    {"it": "Un chatbot (un programma che chatta, come quelli che usi per scrivere testi) riceve una domanda e scrive una risposta. Lì il suo lavoro finisce.", "en": "A chatbot (a program that chats, like the ones you use to write texts) receives a question and writes an answer. Its work ends there."},
+    {"it": "Un agente AI riceve invece un obiettivo, cioè un risultato da raggiungere, e per raggiungerlo usa i programmi dell'azienda: il CRM (dove stanno i dati dei clienti), l'email, il calendario.", "en": "An AI agent instead receives a goal, that is, a result to reach, and to reach it uses the company's programs: the CRM (where customer data lives), email, the calendar."}
+   ],
+   "prova": {"it": "Premi «Avvia»: la stessa richiesta entra nelle due corsie. Guarda dove si fermano.", "en": "Press «Start»: the same request enters both lanes. Watch where each one stops."},
+   "concetti": ["C01", "C02"],
+   "stato_animazione": {"richiesta": "followup", "mostra_passi": false, "strumenti": true}
+  },
+  {
+   "id": "solo_testo",
+   "titolo": {"it": "Quando basta il testo", "en": "When text is enough"},
+   "narrazione": [
+    {"it": "Se chiedi di spiegare che cos'è il lead nurturing (coltivare un contatto con messaggi utili finché è pronto a comprare), basta un buon testo.", "en": "If you ask to explain what lead nurturing is (growing a contact with useful messages until they are ready to buy), a good text is enough."},
+    {"it": "Qui l'agente non tocca nessun programma: scrive e basta, proprio come il chatbot. Per i compiti di solo testo un agente non serve.", "en": "Here the agent touches no program: it just writes, exactly like the chatbot. For text-only tasks you do not need an agent."}
+   ],
+   "prova": {"it": "Accendi «Mostra il conteggio dei passi» e prova le due richieste di solo testo: 1 passo contro 1 passo.", "en": "Switch on «Show the step count» and try the two text-only requests: 1 step against 1 step."},
+   "concetti": ["C01", "C02"],
+   "stato_animazione": {"richiesta": "nurturing", "mostra_passi": true, "strumenti": true}
+  },
+  {
+   "id": "azione",
+   "titolo": {"it": "Quando bisogna agire sui programmi", "en": "When you must act on the programs"},
+   "narrazione": [
+    {"it": "«Aggiorna lo stato dei lead che hanno risposto» non è una domanda: è un lavoro da fare dentro il CRM.", "en": "«Update the status of the leads who replied» is not a question: it is a job to do inside the CRM."},
+    {"it": "Il chatbot può solo spiegarti come farlo a mano. L'agente invece cerca i lead, legge le loro risposte, propone il nuovo stato e aspetta il tuo sì prima di salvarlo.", "en": "The chatbot can only explain how to do it by hand. The agent instead finds the leads, reads their replies, proposes the new status and waits for your yes before saving it."}
+   ],
+   "prova": {"it": "Avvia, poi decidi tu: approva o scarta ogni proposta dell'agente. Una delle proposte nasconde un tranello.", "en": "Start, then you decide: approve or discard each of the agent's proposals. One of the proposals hides a trap."},
+   "concetti": ["C02"],
+   "stato_animazione": {"richiesta": "stato", "mostra_passi": true, "strumenti": true}
+  },
+  {
+   "id": "senza_strumenti",
+   "titolo": {"it": "Un agente senza strumenti è solo un chatbot", "en": "An agent without tools is just a chatbot"},
+   "narrazione": [
+    {"it": "Uno strumento è un collegamento a un programma vero (il CRM, l'email, il calendario). Senza strumenti l'agente non può leggere né cambiare nulla.", "en": "A tool is a connection to a real program (the CRM, email, the calendar). Without tools the agent cannot read or change anything."},
+    {"it": "Per questo diciamo: agente = modello (la parte che scrive e decide) + strumenti + logica di controllo (le regole che guidano i passi). È un sistema, non una frase ben scritta.", "en": "That is why we say: agent = model (the part that writes and decides) + tools + control logic (the rules that guide the steps). It is a system, not a well-written sentence."}
+   ],
+   "prova": {"it": "Spegni «L'agente ha gli strumenti» e avvia: anche l'agente scrive solo un'email generica, come il chatbot.", "en": "Switch off «The agent has its tools» and start: the agent too writes only a generic email, like the chatbot."},
+   "concetti": ["C03", "C02"],
+   "stato_animazione": {"richiesta": "followup", "mostra_passi": true, "strumenti": false}
+  },
+  {
+   "id": "riassunto",
+   "titolo": {"it": "In tre frasi", "en": "In three sentences"},
+   "narrazione": [
+    {"it": "Un chatbot riceve una domanda e restituisce un testo: il lavoro finisce lì.", "en": "A chatbot receives a question and returns a text: the work ends there."},
+    {"it": "Un agente riceve un obiettivo, usa gli strumenti (CRM, email, calendario), guarda i risultati e decide il passo dopo, fino alla fine.", "en": "An agent receives a goal, uses tools (CRM, email, calendar), looks at the results and decides the next step, until the end."},
+    {"it": "Un agente è un sistema (modello + strumenti + logica di controllo): serve quando bisogna agire sui programmi, non quando basta un testo.", "en": "An agent is a system (model + tools + control logic): you need it when you must act on the programs, not when a text is enough."}
+   ],
+   "prova": {"it": "Prova tutte e quattro le richieste, con e senza strumenti, e confronta il conteggio dei passi.", "en": "Try all four requests, with and without tools, and compare the step count."},
+   "concetti": ["C01", "C02", "C03"],
+   "stato_animazione": {"richiesta": "followup", "mostra_passi": true, "strumenti": true}
+  }
+ ],
+ "scenario": {
+  "strumenti": [
+   {"id": "crm", "nome": {"it": "CRM", "en": "CRM"}, "spiega": {"it": "dati dei clienti", "en": "customer data"}},
+   {"id": "email", "nome": {"it": "Email", "en": "Email"}, "spiega": {"it": "messaggi", "en": "messages"}},
+   {"id": "calendario", "nome": {"it": "Calendario", "en": "Calendar"}, "spiega": {"it": "orari liberi", "en": "free slots"}}
+  ],
+  "richieste": [
+   {
+    "id": "nurturing", "tipo": "testo",
+    "nome": {"it": "Spiegami il lead nurturing", "en": "Explain lead nurturing to me"},
+    "testo": {"it": "«Spiegami in due righe che cos'è il lead nurturing.»", "en": "«Explain in two lines what lead nurturing is.»"},
+    "chatbot": {"it": "Il lead nurturing è coltivare un contatto con messaggi utili e regolari finché è pronto a parlare con un commerciale.", "en": "Lead nurturing means growing a contact with useful, regular messages until they are ready to talk to a salesperson."},
+    "agente": {"it": "Il lead nurturing è coltivare un contatto con messaggi utili e regolari finché è pronto a parlare con un commerciale.", "en": "Lead nurturing means growing a contact with useful, regular messages until they are ready to talk to a salesperson."}
+   },
+   {
+    "id": "riassunto_email", "tipo": "testo",
+    "nome": {"it": "Riassumi questa email", "en": "Summarise this email"},
+    "testo": {"it": "«Riassumi questa email di Azienda Alfa in una frase.»", "en": "«Summarise this email from Alfa Ltd in one sentence.»"},
+    "chatbot": {"it": "Azienda Alfa chiede un preventivo per 50 licenze e vorrebbe una demo entro fine mese.", "en": "Alfa Ltd asks for a quote for 50 licences and would like a demo by the end of the month."},
+    "agente": {"it": "Azienda Alfa chiede un preventivo per 50 licenze e vorrebbe una demo entro fine mese.", "en": "Alfa Ltd asks for a quote for 50 licences and would like a demo by the end of the month."}
+   },
+   {
+    "id": "stato", "tipo": "azione",
+    "nome": {"it": "Aggiorna i lead che hanno risposto", "en": "Update the leads who replied"},
+    "testo": {"it": "«Aggiorna lo stato dei lead che hanno risposto alla campagna di ottobre.»", "en": "«Update the status of the leads who replied to the October campaign.»"},
+    "chatbot": {"it": "Per aggiornare lo stato: apri il CRM, filtra i lead della campagna di ottobre, leggi ogni risposta e cambia lo stato a mano.", "en": "To update the status: open the CRM, filter the October campaign leads, read each reply and change the status by hand."},
+    "obiettivo": {"it": "Aggiornare nel CRM lo stato dei lead che hanno risposto a ottobre", "en": "Update in the CRM the status of the leads who replied in October"},
+    "passi": [
+     {"strumento": "crm", "azione": {"it": "Chiedo al CRM: «quali lead della campagna di ottobre hanno risposto?»", "en": "I ask the CRM: «which October campaign leads replied?»"}, "osservazione": {"it": "Il CRM risponde: 3 lead hanno risposto (Rossi, Bianchi, Verdi).", "en": "The CRM answers: 3 leads replied (Rossi, Bianchi, Verdi)."}, "fatto": {"it": "3 lead hanno risposto", "en": "3 leads replied"}},
+     {"strumento": "email", "azione": {"it": "Leggo le tre risposte nella casella email.", "en": "I read the three replies in the mailbox."}, "osservazione": {"it": "Rossi chiede una demo; Bianchi dice «non ci interessa»; Verdi ha mandato una risposta automatica «fuori ufficio».", "en": "Rossi asks for a demo; Bianchi says «not interested»; Verdi sent an automatic «out of office» reply."}, "fatto": {"it": "risposte lette", "en": "replies read"}}
+    ],
+    "proposte": [
+     {"testo": {"it": "Rossi → «Interessato»", "en": "Rossi → «Interested»"}, "giusta": "approva", "spiegazione": {"it": "Giusto: Rossi chiede una demo, è davvero interessato.", "en": "Right: Rossi asks for a demo, they really are interested."}},
+     {"testo": {"it": "Bianchi → «Non interessato»", "en": "Bianchi → «Not interested»"}, "giusta": "approva", "spiegazione": {"it": "Giusto: Bianchi lo ha scritto chiaramente.", "en": "Right: Bianchi said so clearly."}},
+     {"testo": {"it": "Verdi → «Interessato»", "en": "Verdi → «Interested»"}, "giusta": "scarta", "spiegazione": {"it": "Ecco il tranello: «fuori ufficio» è una risposta automatica, non un interesse. Per questo l'agente chiede il tuo sì prima di salvare.", "en": "Here is the trap: «out of office» is an automatic reply, not interest. That is why the agent asks for your yes before saving."}}
+    ],
+    "esito": {"it": "Stati proposti per 3 lead: si salvano solo quelli che approvi.", "en": "Statuses proposed for 3 leads: only the ones you approve get saved."},
+    "senza_strumenti": {"it": "Non posso aprire il CRM né leggere le email. Posso solo dirti come fare: filtra i lead di ottobre e cambia lo stato a mano.", "en": "I cannot open the CRM or read the emails. I can only tell you how: filter the October leads and change the status by hand."}
+   },
+   {
+    "id": "followup", "tipo": "azione",
+    "nome": {"it": "Prepara i follow-up per i lead caldi", "en": "Prepare follow-ups for hot leads"},
+    "testo": {"it": "«Prepara i follow-up per i lead caldi della settimana.»", "en": "«Prepare follow-ups for this week's hot leads.»"},
+    "chatbot": {"it": "Gentile [Nome], grazie per l'interesse verso i nostri prodotti. Saremo felici di fissare una call. Cordiali saluti.", "en": "Dear [Name], thank you for your interest in our products. We would be happy to book a call. Kind regards."},
+    "obiettivo": {"it": "Preparare un follow-up personale per ogni lead caldo della settimana", "en": "Prepare a personal follow-up for each of this week's hot leads"},
+    "passi": [
+     {"strumento": "crm", "azione": {"it": "Chiedo al CRM: «lead caldi di questa settimana?»", "en": "I ask the CRM: «hot leads this week?»"}, "osservazione": {"it": "Il CRM risponde: Alfa (Laura), Beta (Marco), Gamma (Sara).", "en": "The CRM answers: Alfa (Laura), Beta (Marco), Gamma (Sara)."}, "fatto": {"it": "3 lead caldi", "en": "3 hot leads"}},
+     {"strumento": "email", "azione": {"it": "Leggo l'ultima email di ognuno, per sapere che cosa hanno chiesto.", "en": "I read each one's latest email, to know what they asked."}, "osservazione": {"it": "Laura vuole i prezzi, Marco una demo, Sara un caso di studio.", "en": "Laura wants prices, Marco a demo, Sara a case study."}, "fatto": {"it": "richieste note", "en": "requests known"}},
+     {"strumento": "calendario", "azione": {"it": "Chiedo al calendario due orari liberi per la demo di Marco.", "en": "I ask the calendar for two free slots for Marco's demo."}, "osservazione": {"it": "Liberi: martedì 10:00 e giovedì 15:00.", "en": "Free: Tuesday 10:00 and Thursday 15:00."}, "fatto": {"it": "2 orari liberi", "en": "2 free slots"}}
+    ],
+    "proposte": [
+     {"testo": {"it": "Bozza a Laura (Alfa): «Ecco il listino che mi aveva chiesto…»", "en": "Draft to Laura (Alfa): «Here is the price list you asked for…»"}, "giusta": "approva", "spiegazione": {"it": "Giusto: risponde proprio a quello che Laura aveva chiesto.", "en": "Right: it answers exactly what Laura asked for."}},
+     {"testo": {"it": "Bozza a Marco (Beta): «Va bene martedì alle 10:00 o giovedì alle 15:00 per la demo?»", "en": "Draft to Marco (Beta): «Does Tuesday 10:00 or Thursday 15:00 work for the demo?»"}, "giusta": "approva", "spiegazione": {"it": "Giusto: propone orari veri, presi dal calendario.", "en": "Right: it offers real slots, taken from the calendar."}},
+     {"testo": {"it": "Bozza a Sara (Gamma): «…e solo per lei uno sconto del 30%!»", "en": "Draft to Sara (Gamma): «…and just for you a 30% discount!»"}, "giusta": "scarta", "spiegazione": {"it": "Ecco il tranello: nessuno ha deciso uno sconto. Per questo le bozze aspettano l'approvazione di una persona.", "en": "Here is the trap: nobody decided on a discount. That is why drafts wait for a person's approval."}}
+    ],
+    "esito": {"it": "3 bozze personali pronte: partono solo quelle che approvi.", "en": "3 personal drafts ready: only the ones you approve get sent."},
+    "senza_strumenti": {"it": "Gentile [Nome], grazie per l'interesse verso i nostri prodotti. Saremo felici di fissare una call. Cordiali saluti.", "en": "Dear [Name], thank you for your interest in our products. We would be happy to book a call. Kind regards."}
+   }
+  ],
+  "tempi": {"ms_per_fase": 1200, "ms_viaggio": 650, "ms_caduta": 700, "velocita_min": 0.5, "velocita_max": 2.5, "velocita_iniziale": 1},
+  "testi": {
+   "obiettivo_testo": {"it": "Obiettivo: {richiesta}", "en": "Goal: {richiesta}"},
+   "rag_solo_testo": {"it": "Per questa richiesta basta un testo: non devo toccare nessun programma.", "en": "For this request a text is enough: I do not need to touch any program."},
+   "rag_senza_strumenti": {"it": "Non ho strumenti collegati: non posso leggere né cambiare nulla nei programmi. Scrivo solo un testo.", "en": "I have no tools connected: I cannot read or change anything in the programs. I only write a text."},
+   "rag_inizio": {"it": "Mi serve sapere con chi ho a che fare: parto dai dati.", "en": "I need to know who I am dealing with: I start from the data."},
+   "proposte_pronte": {"it": "Ho finito il lavoro sui programmi. Preparo le proposte e chiedo l'approvazione di una persona.", "en": "I have finished the work on the programs. I prepare the proposals and ask a person for approval."},
+   "esito_testo": {"it": "Stesso risultato nelle due corsie: per un compito di solo testo l'agente non serve.", "en": "Same result in both lanes: for a text-only task you do not need an agent."},
+   "esito_senza_strumenti": {"it": "Senza strumenti l'agente fa quello che fa il chatbot: scrive un testo e non cambia nulla nei programmi.", "en": "Without tools the agent does what the chatbot does: it writes a text and changes nothing in the programs."},
+   "chatbot_fine": {"it": "Il chatbot ha risposto. Nel CRM non è cambiato nulla.", "en": "The chatbot has answered. Nothing has changed in the CRM."},
+   "passi_conteggio": {"it": "{n} passi", "en": "{n} steps"},
+   "passo_conteggio": {"it": "1 passo", "en": "1 step"},
+   "decisioni": {"it": "Hai deciso {fatte} su {totale}: {giuste} scelte giuste.", "en": "You decided {fatte} of {totale}: {giuste} right choices."},
+   "tutte_giuste": {"it": "Perfetto: hai fatto da controllo umano e hai fermato il tranello.", "en": "Perfect: you acted as the human check and stopped the trap."},
+   "qualche_errore": {"it": "Rileggi la spiegazione in rosso: è proprio lì che serve il tuo controllo.", "en": "Read the explanation in red again: that is exactly where your check is needed."}
+  },
+  "etichette": {
+   "titolo_comandi": {"it": "Prova a cambiare", "en": "Try changing"},
+   "richiesta": {"it": "La richiesta", "en": "The request"},
+   "opzioni": {"it": "Opzioni", "en": "Options"},
+   "mostra_passi": {"it": "Mostra il conteggio dei passi", "en": "Show the step count"},
+   "strumenti": {"it": "L'agente ha gli strumenti", "en": "The agent has its tools"},
+   "chatbot": {"it": "Chatbot", "en": "Chatbot"},
+   "agente": {"it": "Agente", "en": "Agent"},
+   "chatbot_breve": {"it": "riceve una domanda, scrive un testo", "en": "receives a question, writes a text"},
+   "agente_breve": {"it": "riceve un obiettivo, agisce sui programmi", "en": "receives a goal, acts on the programs"},
+   "avvia": {"it": "Avvia", "en": "Start"},
+   "pausa": {"it": "Pausa", "en": "Pause"},
+   "passo": {"it": "Un passo", "en": "One step"},
+   "ricomincia": {"it": "Da capo", "en": "Restart"},
+   "velocita": {"it": "Velocità", "en": "Speed"},
+   "osservazioni": {"it": "Osservazioni dell'agente", "en": "Agent's observations"},
+   "diario": {"it": "Che cosa fa l'agente", "en": "What the agent does"},
+   "esito": {"it": "Risultato", "en": "Result"},
+   "proposte": {"it": "Da approvare", "en": "To approve"},
+   "approva": {"it": "Approva", "en": "Approve"},
+   "scarta": {"it": "Scarta", "en": "Discard"},
+   "approvata": {"it": "Approvata", "en": "Approved"},
+   "scartata": {"it": "Scartata", "en": "Discarded"},
+   "agente_centro": {"it": "AGENTE", "en": "AGENT"},
+   "nessuno_strumento": {"it": "nessuno strumento", "en": "no tools"},
+   "cambiato": {"it": "Hai cambiato qualcosa: le due corsie ripartono da capo.", "en": "You changed something: both lanes start again."},
+   "vuoto": {"it": "Premi «Avvia»: qui compariranno i passi dell'agente.", "en": "Press «Start»: the agent's steps will appear here."},
+   "nessun_fatto": {"it": "Ancora niente: l'agente osserva strada facendo.", "en": "Nothing yet: the agent observes along the way."},
+   "in_attesa": {"it": "in attesa della richiesta…", "en": "waiting for the request…"},
+   "descrizione_scena": {"it": "Schema animato: a destra l'agente al centro, collegato a CRM, email e calendario; pacchetti di dati viaggiano fra l'agente e gli strumenti.", "en": "Animated diagram: on the right the agent in the middle, connected to CRM, email and calendar; data packets travel between the agent and the tools."}
+  }
+ },
+ "domande": []
+}

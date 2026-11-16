@@ -1,0 +1,163 @@
+{
+ "id": "L_spettro_autonomia",
+ "pillola": "P1.5",
+ "componente": "spettro_autonomia",
+ "titolo": {"it": "Quanta autonomia serve davvero?", "en": "How much autonomy do you really need?"},
+ "sottotitolo": {"it": "Sposta il cursore da «regole fisse» a «più agenti» e scopri il prezzo di ogni passo in più.", "en": "Move the slider from «fixed rules» to «several agents» and discover the price of every extra step."},
+ "segmenti": [
+  {
+   "id": "cinque_modi",
+   "titolo": {"it": "1. Cinque modi di automatizzare lo stesso lavoro", "en": "1. Five ways to automate the same job"},
+   "narrazione": [
+    {"it": "Prendiamo un lavoro di tutti i giorni nel CRM (il programma dove l'azienda tiene i dati dei clienti): arriva un contatto, lo valutiamo, gli rispondiamo, aggiorniamo la scheda.", "en": "Take an everyday job in the CRM (the program where the company keeps its customer data): a contact arrives, we assess them, we reply, we update the record."},
+    {"it": "Questo lavoro si può automatizzare in cinque modi, dal più semplice al più autonomo. Il cursore li mette in fila come le tacche di un righello.", "en": "This job can be automated in five ways, from the simplest to the most autonomous. The slider lines them up like the marks on a ruler."}
+   ],
+   "prova": {"it": "Sposta il cursore dalla tacca 1 alla tacca 5 e guarda il disegno trasformarsi.", "en": "Move the slider from mark 1 to mark 5 and watch the drawing change."},
+   "concetti": ["C14"],
+   "stato_animazione": {"livello": 1, "assegnazioni": {}, "scheda_attiva": null}
+  },
+  {
+   "id": "regole_e_ai",
+   "titolo": {"it": "2. Regole fisse e funzione AI", "en": "2. Fixed rules and an AI function"},
+   "narrazione": [
+    {"it": "Tacca 1, regole fisse: «se il lead apre 3 email, segnalo come caldo». Un lead è una persona che ha mostrato interesse per i nostri prodotti. La regola fa sempre la stessa cosa: è prevedibile e costa pochissimo.", "en": "Mark 1, fixed rules: «if the lead opens 3 emails, mark them as hot». A lead is a person who has shown interest in our products. The rule always does the same thing: it is predictable and very cheap."},
+    {"it": "Tacca 2, funzione AI: un'intelligenza artificiale fa un solo compito in un solo punto, per esempio scrivere la bozza di risposta. Tutto il resto resta a regole.", "en": "Mark 2, AI function: an artificial intelligence does a single task in a single place, for example writing the draft reply. Everything else stays rule-based."}
+   ],
+   "prova": {"it": "Passa dalla tacca 1 alla 2: quale riquadro diventa viola? Guarda anche come si muovono gli indicatori sotto.", "en": "Go from mark 1 to mark 2: which box turns purple? Also watch how the indicators below move."},
+   "concetti": ["C14"],
+   "stato_animazione": {"livello": 2, "assegnazioni": {}, "scheda_attiva": null}
+  },
+  {
+   "id": "workflow_o_agente",
+   "titolo": {"it": "3. Workflow o agente: chi decide i passi?", "en": "3. Workflow or agent: who decides the steps?"},
+   "narrazione": [
+    {"it": "Tacca 3, workflow con LLM. Un workflow è una sequenza di passi decisa da noi; un LLM è il modello di intelligenza artificiale che legge e scrive testo. Qui l'AI lavora in più punti, ma le frecce restano fisse: l'ordine lo abbiamo deciso noi.", "en": "Mark 3, LLM workflow. A workflow is a sequence of steps we decide; an LLM is the artificial intelligence model that reads and writes text. Here the AI works in several places, but the arrows stay fixed: we decided the order."},
+    {"it": "Tacca 4, agente: è il modello a scegliere quali passi fare e in che ordine, mentre lavora. Per questo le frecce diventano tratteggiate e cambiano a ogni giro.", "en": "Mark 4, agent: the model itself chooses which steps to take and in what order, while it works. That is why the arrows become dashed and change every round."}
+   ],
+   "prova": {"it": "Alterna tacca 3 e tacca 4 e guarda le frecce: nella 4 l'agente le disegna ogni volta in un ordine diverso.", "en": "Switch between mark 3 and mark 4 and watch the arrows: on mark 4 the agent draws them in a different order each time."},
+   "concetti": ["C15", "C14"],
+   "stato_animazione": {"livello": 3, "assegnazioni": {}, "scheda_attiva": null}
+  },
+  {
+   "id": "prezzo",
+   "titolo": {"it": "4. Il prezzo dell'autonomia", "en": "4. The price of autonomy"},
+   "narrazione": [
+    {"it": "Tacca 5, multi-agente: più agenti specializzati si passano il lavoro, come una piccola squadra.", "en": "Mark 5, multi-agent: several specialised agents pass the work to each other, like a small team."},
+    {"it": "Più autonomia porta più flessibilità, cioè la capacità di gestire casi diversi. Ma porta anche meno prevedibilità, più costo e più rischio di errori. Autonomia non vuol dire «meglio»: è un compromesso.", "en": "More autonomy brings more flexibility, that is, the ability to handle different cases. But it also brings less predictability, more cost and more risk of mistakes. Autonomy does not mean «better»: it is a trade-off."}
+   ],
+   "prova": {"it": "Sali lentamente fino alla tacca 5 tenendo d'occhio i quattro indicatori: quali salgono e quale scende?", "en": "Slowly move up to mark 5 keeping an eye on the four indicators: which ones go up and which one goes down?"},
+   "concetti": ["C14", "C16"],
+   "stato_animazione": {"livello": 5, "assegnazioni": {}, "scheda_attiva": null}
+  },
+  {
+   "id": "livello_minimo",
+   "titolo": {"it": "5. Scegli il livello minimo che basta", "en": "5. Choose the minimum level that is enough"},
+   "narrazione": [
+    {"it": "La regola d'oro: si sceglie il livello più basso che risolve davvero il problema. Se una regola fissa basta, un agente aggiunge solo costo e sorprese.", "en": "The golden rule: you choose the lowest level that really solves the problem. If a fixed rule is enough, an agent only adds cost and surprises."},
+    {"it": "Se invece ogni caso è diverso, un percorso fisso si rompe: lì serve più autonomia.", "en": "If instead every case is different, a fixed path breaks: that is where more autonomy is needed."}
+   ],
+   "prova": {"it": "Clicca una scheda a destra e poi la tacca che secondo te basta (puoi anche trascinarla). Leggi il riscontro e prova a farle giuste tutte.", "en": "Click a card on the right and then the mark you think is enough (you can also drag it). Read the feedback and try to get them all right."},
+   "concetti": ["C16", "C14"],
+   "stato_animazione": {"livello": 1, "assegnazioni": {}, "scheda_attiva": null}
+  },
+  {
+   "id": "riassunto",
+   "titolo": {"it": "In tre frasi", "en": "In three sentences"},
+   "narrazione": [
+    {"it": "Lo stesso lavoro CRM si può automatizzare con regole fisse, una funzione AI, un workflow, un agente o più agenti.", "en": "The same CRM job can be automated with fixed rules, an AI function, a workflow, an agent or several agents."},
+    {"it": "Ogni tacca in più dà flessibilità ma toglie prevedibilità e aggiunge costo e rischio.", "en": "Each extra mark gives flexibility but takes away predictability and adds cost and risk."},
+    {"it": "Per questo si sceglie sempre il livello minimo che risolve il problema.", "en": "That is why you always choose the minimum level that solves the problem."}
+   ],
+   "concetti": ["C14", "C15", "C16"],
+   "stato_animazione": {"livello": 3, "assegnazioni": {}, "scheda_attiva": null}
+  }
+ ],
+ "scenario": {
+  "processo": [
+   {"nome": {"it": "Arriva un contatto", "en": "A contact arrives"}, "regola": {"it": "modulo sul sito", "en": "website form"}, "con_ai": {"it": "l'AI legge il messaggio", "en": "the AI reads the message"}},
+   {"nome": {"it": "Valuta il lead", "en": "Assess the lead"}, "regola": {"it": "3 email aperte = caldo", "en": "3 emails opened = hot"}, "con_ai": {"it": "l'AI dà un punteggio", "en": "the AI gives a score"}},
+   {"nome": {"it": "Scrive la risposta", "en": "Write the reply"}, "regola": {"it": "email standard", "en": "standard email"}, "con_ai": {"it": "l'AI scrive la bozza", "en": "the AI writes the draft"}},
+   {"nome": {"it": "Aggiorna il CRM", "en": "Update the CRM"}, "regola": {"it": "campo «stato»", "en": "«status» field"}, "con_ai": {"it": "l'AI riassume la nota", "en": "the AI summarises the note"}}
+  ],
+  "livelli": [
+   {"n": 1, "nome": {"it": "Regole fisse", "en": "Fixed rules"}, "breve": {"it": "«Se succede X, fai Y»: sempre uguale, prevedibile, economico.", "en": "«If X happens, do Y»: always the same, predictable, cheap."}, "didascalia": {"it": "Ogni passo segue una regola scritta da noi. Nessuna intelligenza artificiale.", "en": "Every step follows a rule we wrote. No artificial intelligence."}, "nodi_ai": [], "valori": {"flessibilita": 10, "prevedibilita": 95, "costo": 5, "rischio": 5}},
+   {"n": 2, "nome": {"it": "Funzione AI", "en": "AI function"}, "breve": {"it": "L'AI fa un solo compito in un solo punto (per esempio una bozza).", "en": "The AI does a single task in a single place (for example a draft)."}, "didascalia": {"it": "Un solo riquadro viola: l'AI scrive la bozza, il resto è a regole.", "en": "A single purple box: the AI writes the draft, the rest is rule-based."}, "nodi_ai": [2], "valori": {"flessibilita": 30, "prevedibilita": 80, "costo": 20, "rischio": 20}},
+   {"n": 3, "nome": {"it": "Workflow con LLM", "en": "LLM workflow"}, "breve": {"it": "L'AI lavora in più punti, ma l'ordine dei passi lo decidiamo noi.", "en": "The AI works in several places, but we decide the order of the steps."}, "didascalia": {"it": "Più riquadri viola, frecce ancora fisse: il percorso è deciso in anticipo.", "en": "Several purple boxes, arrows still fixed: the path is decided in advance."}, "nodi_ai": [0, 1, 2, 3], "valori": {"flessibilita": 50, "prevedibilita": 65, "costo": 40, "rischio": 35}},
+   {"n": 4, "nome": {"it": "Agente", "en": "Agent"}, "breve": {"it": "Il modello sceglie da solo quali passi fare e in che ordine.", "en": "The model chooses by itself which steps to take and in what order."}, "didascalia": {"it": "L'agente disegna le frecce mentre lavora: ogni caso può seguire un percorso diverso.", "en": "The agent draws the arrows while it works: each case can follow a different path."}, "nodi_ai": [], "valori": {"flessibilita": 80, "prevedibilita": 40, "costo": 65, "rischio": 65}},
+   {"n": 5, "nome": {"it": "Multi-agente", "en": "Multi-agent"}, "breve": {"it": "Più agenti specializzati si passano il lavoro, come una squadra.", "en": "Several specialised agents pass the work to each other, like a team."}, "didascalia": {"it": "Tre agenti si scambiano messaggi: massima flessibilità, ma più cose che possono andare storte.", "en": "Three agents exchange messages: maximum flexibility, but more things that can go wrong."}, "nodi_ai": [], "valori": {"flessibilita": 95, "prevedibilita": 25, "costo": 90, "rischio": 85}}
+  ],
+  "indicatori": [
+   {"id": "flessibilita", "nome": {"it": "Flessibilità", "en": "Flexibility"}, "freccia": "↑"},
+   {"id": "prevedibilita", "nome": {"it": "Prevedibilità", "en": "Predictability"}, "freccia": "↓"},
+   {"id": "costo", "nome": {"it": "Costo", "en": "Cost"}, "freccia": "↑"},
+   {"id": "rischio", "nome": {"it": "Rischio", "en": "Risk"}, "freccia": "↑"}
+  ],
+  "strumenti_agente": [
+   {"id": "crm", "nome": {"it": "CRM", "en": "CRM"}},
+   {"id": "listino", "nome": {"it": "Listino prezzi", "en": "Price list"}},
+   {"id": "calendario", "nome": {"it": "Calendario", "en": "Calendar"}},
+   {"id": "email", "nome": {"it": "Email", "en": "Email"}}
+  ],
+  "percorsi_agente": [["crm", "listino", "email"], ["crm", "calendario", "email"], ["listino", "crm", "calendario", "email"]],
+  "agenti_multi": [
+   {"nome": {"it": "Ricerca", "en": "Research"}, "compito": {"it": "trova i dati del lead", "en": "finds the lead's data"}},
+   {"nome": {"it": "Scrittura", "en": "Writing"}, "compito": {"it": "scrive l'offerta", "en": "writes the offer"}},
+   {"nome": {"it": "Controllo", "en": "Review"}, "compito": {"it": "verifica prezzi e tono", "en": "checks prices and tone"}}
+  ],
+  "messaggi_multi": [
+   {"da": 0, "a": 1, "testo": {"it": "«Ecco i dati di Azienda Alfa»", "en": "«Here is Alfa Ltd's data»"}},
+   {"da": 1, "a": 2, "testo": {"it": "«Bozza pronta, la controlli?»", "en": "«Draft ready, can you check it?»"}},
+   {"da": 2, "a": 1, "testo": {"it": "«Il prezzo è sbagliato, correggi»", "en": "«The price is wrong, fix it»"}},
+   {"da": 1, "a": 0, "testo": {"it": "«Mi serve il listino aggiornato»", "en": "«I need the updated price list»"}}
+  ],
+  "scenari": [
+   {"id": "newsletter", "sigla": {"it": "Newsletter", "en": "Newsletter"}, "nome": {"it": "Newsletter mensile, identica per tutti", "en": "Monthly newsletter, identical for everyone"}, "giusto": 1,
+    "motivo": {"it": "stesso testo, stessa lista, stessa data: una regola fissa basta e non sbaglia mai.", "en": "same text, same list, same date: a fixed rule is enough and never gets it wrong."},
+    "se_troppo": {"it": "il compito non cambia mai, quindi l'AI aggiunge solo costo e il rischio di testi diversi da quelli approvati.", "en": "the task never changes, so the AI only adds cost and the risk of texts different from the approved ones."}},
+   {"id": "caldo", "sigla": {"it": "3 email", "en": "3 emails"}, "nome": {"it": "Segnare «caldo» chi apre 3 email", "en": "Mark as «hot» anyone who opens 3 emails"}, "giusto": 1,
+    "motivo": {"it": "il criterio è chiaro e si misura: è proprio il lavoro di una regola fissa.", "en": "the criterion is clear and measurable: it is exactly the job of a fixed rule."},
+    "se_troppo": {"it": "il criterio è già scritto e misurabile: un'AI potrebbe interpretarlo in modo diverso da lead a lead.", "en": "the criterion is already written and measurable: an AI might interpret it differently from lead to lead."}},
+   {"id": "riassunto_call", "sigla": {"it": "Riassunto", "en": "Summary"}, "nome": {"it": "Riassunto di una call di vendita", "en": "Summary of a sales call"}, "giusto": 2,
+    "motivo": {"it": "serve capire una conversazione, ma è un solo compito sempre uguale: basta una funzione AI.", "en": "it needs to understand a conversation, but it is a single task that is always the same: an AI function is enough."},
+    "se_poco": {"it": "una regola fissa non sa leggere una conversazione e scegliere che cosa conta.", "en": "a fixed rule cannot read a conversation and pick out what matters."},
+    "se_troppo": {"it": "è un solo compito: non servono passi scelti al momento, che costano di più e sono meno prevedibili.", "en": "it is a single task: steps chosen on the fly are not needed, and they cost more and are less predictable."}},
+   {"id": "benvenuto", "sigla": {"it": "Benvenuto", "en": "Welcome"}, "nome": {"it": "Nuovo iscritto: punteggio, email di benvenuto su misura, nota nel CRM", "en": "New sign-up: score, tailored welcome email, note in the CRM"}, "giusto": 3,
+    "motivo": {"it": "l'AI serve in più punti, ma i passi sono sempre gli stessi e nello stesso ordine: un workflow basta ed è facile da controllare.", "en": "the AI is needed in several places, but the steps are always the same and in the same order: a workflow is enough and easy to control."},
+    "se_poco": {"it": "una sola funzione AI non copre punteggio, email su misura e nota: servono più punti con l'AI.", "en": "a single AI function does not cover score, tailored email and note: several AI steps are needed."},
+    "se_troppo": {"it": "l'ordine dei passi non cambia mai: lasciarlo scegliere a un agente toglie prevedibilità senza vantaggi.", "en": "the order of the steps never changes: letting an agent choose it removes predictability with no benefit."}},
+   {"id": "preventivi", "sigla": {"it": "Preventivi", "en": "Quotes"}, "nome": {"it": "Risposte a richieste di preventivo molto diverse tra loro", "en": "Replies to very different quote requests"}, "giusto": 4,
+    "motivo": {"it": "ogni richiesta chiede passi diversi (listino, disponibilità, call): serve qualcuno che scelga i passi caso per caso.", "en": "each request needs different steps (price list, availability, call): someone must choose the steps case by case."},
+    "se_poco": {"it": "con un percorso fisso, le richieste che non seguono lo schema si bloccano o ricevono risposte sbagliate.", "en": "with a fixed path, requests that do not follow the pattern get stuck or receive wrong answers."},
+    "se_troppo": {"it": "più agenti che si parlano aggiungono costo e punti di guasto: un agente solo basta.", "en": "several agents talking to each other add cost and points of failure: a single agent is enough."}}
+  ],
+  "tempi": {"ms_passo": 700, "ms_sosta": 260, "ms_indicatori": 650},
+  "testi": {
+   "fb_giusto": {"it": "Giusto: «{giusto}» è il livello minimo che basta. Perché: {motivo}", "en": "Right: «{giusto}» is the minimum level that is enough. Why: {motivo}"},
+   "fb_troppo": {"it": "Troppa autonomia: hai scelto «{scelto}», ma basta «{giusto}». Perché: {motivo}", "en": "Too much autonomy: you chose «{scelto}», but «{giusto}» is enough. Why: {motivo}"},
+   "fb_poco": {"it": "Troppo poca autonomia: con «{scelto}» il lavoro non regge, serve almeno «{giusto}». Perché: {motivo}", "en": "Too little autonomy: with «{scelto}» the job does not hold up, you need at least «{giusto}». Why: {motivo}"},
+   "gioco_punteggio": {"it": "Schede al posto giusto: {giuste} su {totali}", "en": "Cards in the right place: {giuste} out of {totali}"},
+   "gioco_completo": {"it": "Tutte al posto giusto: hai scelto ogni volta il livello minimo che basta!", "en": "All in the right place: each time you chose the minimum level that is enough!"},
+   "agente_sceglie": {"it": "sceglie il passo {passo}", "en": "chooses step {passo}"}
+  },
+  "etichette": {
+   "titolo_comandi": {"it": "Prova a cambiare", "en": "Try changing"},
+   "cursore": {"it": "Livello di autonomia", "en": "Level of autonomy"},
+   "regola_titolo": {"it": "La regola d'oro", "en": "The golden rule"},
+   "regola": {"it": "Scegli il livello più basso che risolve davvero il problema.", "en": "Choose the lowest level that really solves the problem."},
+   "titolo_gioco": {"it": "Quale tacca basta?", "en": "Which mark is enough?"},
+   "istruzione_gioco": {"it": "Clicca una scheda, poi la tacca sotto il disegno. Puoi anche trascinarla.", "en": "Click a card, then the mark under the drawing. You can also drag it."},
+   "da_posare": {"it": "da posare", "en": "to place"},
+   "scegli_tacca": {"it": "ora scegli la tacca", "en": "now pick the mark"},
+   "esito_giusto": {"it": "giusto", "en": "right"},
+   "esito_troppo": {"it": "troppa", "en": "too much"},
+   "esito_poco": {"it": "troppo poca", "en": "too little"},
+   "ricomincia_gioco": {"it": "Ricomincia il gioco", "en": "Restart the game"},
+   "ai": {"it": "AI", "en": "AI"},
+   "agente_centro": {"it": "AGENTE", "en": "AGENT"},
+   "frecce_fisse": {"it": "frecce fisse: l'ordine dei passi lo decidiamo noi", "en": "fixed arrows: we decide the order of the steps"},
+   "frecce_agente": {"it": "frecce tratteggiate: le sceglie l'agente mentre lavora", "en": "dashed arrows: the agent chooses them while it works"},
+   "descrizione_scena": {"it": "Schema animato dello stesso processo CRM a cinque livelli di autonomia, con quattro indicatori: flessibilità, prevedibilità, costo e rischio.", "en": "Animated diagram of the same CRM process at five levels of autonomy, with four indicators: flexibility, predictability, cost and risk."}
+  }
+ },
+ "domande": []
+}

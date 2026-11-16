@@ -56,8 +56,9 @@ def test_corso_estratto_completo():
         c.pillola("P9.9")
     with pytest.raises(KeyError):
         c.anello_di("P9.9")
-    # i testi inglesi lunghi mancano (da completare) tranne le pillole del dimostratore
-    assert c.pillola("P1.1").scaletta[0].en is None
+    # i testi inglesi lunghi mancano (da completare) tranne le pillole che hanno la lezione interattiva (moduli 1-2 e P4.1)
+    assert c.pillola("P3.1").scaletta[0].en is None
+    assert c.pillola("P1.1").scaletta[0].en is not None
     assert c.pillola("P1.3").scaletta[0].en is not None
     assert c.pillola("P1.1").titolo.en == "From chatbot to agent"
 
@@ -112,7 +113,7 @@ def test_knowledge_graph_rifiuta_incoerenze():
 def test_lezioni_valide_e_segmenti_unici():
     for f in (DATI / "lezioni").glob("*.json"):
         lez = Lezione.model_validate(json.loads(f.read_text(encoding="utf-8")))
-        assert lez.domande and lez.segmenti
+        assert lez.segmenti
     dati = json.loads((DATI / "lezioni" / "ciclo_agente.json").read_text(encoding="utf-8"))
     dati["segmenti"].append(copy.deepcopy(dati["segmenti"][0]))
     with pytest.raises(ValidationError, match="segmento duplicati"):

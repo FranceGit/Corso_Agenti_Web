@@ -20,3 +20,6 @@ desktop.ini
 .DS_Store
 .vscode/
 .idea/
+
+# Appoggio temporaneo degli agenti durante la costruzione delle lezioni
+_lavoro/

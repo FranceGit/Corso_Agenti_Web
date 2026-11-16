@@ -64,11 +64,12 @@ def test_lingue_interfaccia_e_lingua_non_prevista(client, client_dentro):
 
 
 def test_traduzione_mancante_esplicita(client_dentro):
-    r = client_dentro.get("/api/pillole/P1.1?lingua=en")
+    r = client_dentro.get("/api/pillole/P3.1?lingua=en")  # pillola ancora senza testi lunghi in inglese
     assert r.status_code == 409
     corpo = r.json()
     assert corpo["errore"] == "traduzione_mancante" and corpo["lingua"] == "en" and "$.scaletta[0]" in corpo["percorsi"]
-    assert client_dentro.get("/api/pillole/P1.1?lingua=it").status_code == 200
+    assert client_dentro.get("/api/pillole/P3.1?lingua=it").status_code == 200
+    assert client_dentro.get("/api/pillole/P1.1?lingua=en").status_code == 200  # tradotta con la sua lezione (batch 1)
     assert client_dentro.get("/api/pillole/P1.3?lingua=en").status_code == 200
 
 

@@ -1,0 +1,148 @@
+{
+ "id": "L_anatomia_agente",
+ "pillola": "P1.4",
+ "componente": "anatomia_agente",
+ "titolo": {"it": "Anatomia di un agente: quattro pezzi, quattro modi di guastarsi", "en": "Anatomy of an agent: four parts, four ways to break"},
+ "sottotitolo": {"it": "Spegni un pezzo alla volta e guarda che cosa sbaglia l'agente. Poi fai il detective.", "en": "Switch off one part at a time and watch what the agent gets wrong. Then play detective."},
+ "segmenti": [
+  {
+   "id": "esploso",
+   "titolo": {"it": "Un agente aperto in quattro pezzi", "en": "An agent opened into four parts"},
+   "narrazione": [
+    {"it": "Un agente AI è fatto di quattro pezzi. Il modello è il «cervello» che ragiona e scrive. Gli strumenti sono i collegamenti ai programmi veri, come il CRM (dove l'azienda tiene i dati dei clienti).", "en": "An AI agent is made of four parts. The model is the «brain» that reasons and writes. The tools are the connections to real programs, such as the CRM (where the company keeps its customer data)."},
+    {"it": "L'orchestrazione è il «direttore»: il programma che fa girare i passi, uno dopo l'altro, con le sue regole. La memoria è quello che l'agente sa e ricorda mentre lavora.", "en": "Orchestration is the «conductor»: the program that runs the steps, one after another, with its rules. Memory is what the agent knows and remembers while it works."}
+   ],
+   "prova": {"it": "Premi «Avvia»: l'agente qualifica quattro lead arrivati dal sito. Guarda il diario e le schede in basso.", "en": "Press «Start»: the agent qualifies four leads that came from the website. Watch the diary and the cards at the bottom."},
+   "concetti": ["C10", "C11", "C12", "C13"],
+   "stato_animazione": {"modello": true, "strumenti": true, "orchestrazione": true, "memoria": true, "modalita": "prova", "mistero": "memoria"}
+  },
+  {
+   "id": "senza_strumenti",
+   "titolo": {"it": "Senza strumenti: solo ipotesi", "en": "Without tools: only guesses"},
+   "narrazione": [
+    {"it": "Senza strumenti l'agente non può aprire il CRM. Il modello allora scrive quello che immagina: testo che suona bene, ma che non viene da nessun dato.", "en": "Without tools the agent cannot open the CRM. So the model writes what it imagines: text that sounds right but comes from no data."}
+   ],
+   "prova": {"it": "Spegni «Strumenti» (anche cliccando il blocco nello schema) e guarda le schede dei lead diventare «ipotesi».", "en": "Switch off «Tools» (you can also click the block in the diagram) and watch the lead cards turn into «guesses»."},
+   "concetti": ["C11", "C10"],
+   "stato_animazione": {"modello": true, "strumenti": false, "orchestrazione": true, "memoria": true, "modalita": "prova", "mistero": "memoria"}
+  },
+  {
+   "id": "orchestrazione_memoria",
+   "titolo": {"it": "Senza direttore, senza memoria", "en": "Without a conductor, without memory"},
+   "narrazione": [
+    {"it": "Senza orchestrazione nessuno fa ripartire il giro: l'agente si ferma dopo il primo lead e gli altri restano in coda.", "en": "Without orchestration nobody restarts the loop: the agent stops after the first lead and the others stay in the queue."},
+    {"it": "Senza memoria l'agente non ricorda chi ha già trattato: Azienda Alfa arriva due volte e viene contattata due volte. Un brutto biglietto da visita.", "en": "Without memory the agent does not remember who it has already handled: Alfa Ltd arrives twice and gets contacted twice. A poor first impression."}
+   ],
+   "prova": {"it": "Spegni prima «Orchestrazione», poi riaccendila e spegni «Memoria». Confronta i due risultati.", "en": "First switch off «Orchestration», then switch it back on and switch off «Memory». Compare the two results."},
+   "concetti": ["C12", "C13"],
+   "stato_animazione": {"modello": true, "strumenti": true, "orchestrazione": false, "memoria": true, "modalita": "prova", "mistero": "memoria"}
+  },
+  {
+   "id": "senza_modello",
+   "titolo": {"it": "Senza modello nessuno decide", "en": "Without the model nobody decides"},
+   "narrazione": [
+    {"it": "Senza modello i dati arrivano e il giro gira, ma nessuno decide se un lead è caldo o freddo. Ogni pezzo ha il suo compito, e ognuno si guasta in un modo riconoscibile.", "en": "Without the model the data arrive and the loop runs, but nobody decides whether a lead is hot or cold. Each part has its job, and each one breaks in a recognisable way."}
+   ],
+   "prova": {"it": "Spegni «Modello» e avvia. Poi prova a spegnere due pezzi insieme.", "en": "Switch off «Model» and start. Then try switching off two parts together."},
+   "concetti": ["C10"],
+   "stato_animazione": {"modello": false, "strumenti": true, "orchestrazione": true, "memoria": true, "modalita": "prova", "mistero": "memoria"}
+  },
+  {
+   "id": "diagnosi",
+   "titolo": {"it": "Fai il detective: trova il pezzo rotto", "en": "Play detective: find the broken part"},
+   "narrazione": [
+    {"it": "Nel lavoro vero non vedi quale pezzo è spento: vedi solo un sintomo, cioè un comportamento strano. Conoscere i quattro guasti tipici ti fa trovare subito il colpevole.", "en": "In real work you do not see which part is off: you only see a symptom, that is, an odd behaviour. Knowing the four typical faults lets you find the culprit straight away."}
+   ],
+   "prova": {"it": "Avvia, leggi il diario, poi clicca il blocco che secondo te è rotto. Con «Nuovo mistero» cambi caso.", "en": "Start, read the diary, then click the block you think is broken. With «New mystery» you change case."},
+   "concetti": ["C10", "C11", "C12", "C13"],
+   "stato_animazione": {"modello": true, "strumenti": true, "orchestrazione": true, "memoria": true, "modalita": "diagnosi", "mistero": "memoria"}
+  },
+  {
+   "id": "riassunto",
+   "titolo": {"it": "In tre frasi", "en": "In three sentences"},
+   "narrazione": [
+    {"it": "Un agente ha quattro pezzi: modello (decide e scrive), strumenti (agiscono sui programmi), orchestrazione (fa girare i passi con le regole) e memoria (ricorda che cosa è già successo).", "en": "An agent has four parts: model (decides and writes), tools (act on the programs), orchestration (runs the steps with the rules) and memory (remembers what has already happened)."},
+    {"it": "Ogni pezzo ha un guasto tipico: senza strumenti solo ipotesi, senza orchestrazione si ferma subito, senza memoria contatta due volte, senza modello nessuno decide.", "en": "Each part has a typical fault: without tools only guesses, without orchestration it stops at once, without memory it contacts twice, without the model nobody decides."},
+    {"it": "Partire dal sintomo per trovare il pezzo rotto è il modo più rapido per sistemare un agente che sbaglia.", "en": "Starting from the symptom to find the broken part is the quickest way to fix an agent that goes wrong."}
+   ],
+   "prova": {"it": "Risolvi tutti e quattro i misteri della modalità «Trova il guasto».", "en": "Solve all four mysteries in «Find the fault» mode."},
+   "concetti": ["C10", "C11", "C12", "C13"],
+   "stato_animazione": {"modello": true, "strumenti": true, "orchestrazione": true, "memoria": true, "modalita": "diagnosi", "mistero": "strumenti"}
+  }
+ ],
+ "scenario": {
+  "blocchi": [
+   {"id": "modello", "nome": {"it": "Modello", "en": "Model"}, "ruolo": {"it": "ragiona e decide", "en": "reasons and decides"},
+    "spiegazione": {"it": "Era il modello: i dati arrivavano, ma nessuno decideva se il lead era caldo o freddo.", "en": "It was the model: the data arrived, but nobody decided whether the lead was hot or cold."},
+    "indizio": {"it": "Indizio: i dati arrivano davvero, ma manca una decisione.", "en": "Clue: the data really arrive, but a decision is missing."}},
+   {"id": "strumenti", "nome": {"it": "Strumenti", "en": "Tools"}, "ruolo": {"it": "usano i programmi", "en": "use the programs"},
+    "spiegazione": {"it": "Erano gli strumenti: l'agente non poteva aprire il CRM e ha scritto solo ipotesi.", "en": "It was the tools: the agent could not open the CRM and wrote only guesses."},
+    "indizio": {"it": "Indizio: le frasi dicono «immagino», «probabilmente». Da dove arrivano i dati?", "en": "Clue: the sentences say «I imagine», «probably». Where do the data come from?"}},
+   {"id": "orchestrazione", "nome": {"it": "Orchestrazione", "en": "Orchestration"}, "ruolo": {"it": "fa girare i passi", "en": "runs the steps"},
+    "spiegazione": {"it": "Era l'orchestrazione: nessuno faceva ripartire il giro, così l'agente si è fermato dopo il primo lead.", "en": "It was the orchestration: nobody restarted the loop, so the agent stopped after the first lead."},
+    "indizio": {"it": "Indizio: il primo lead va bene. E gli altri?", "en": "Clue: the first lead is fine. And the others?"}},
+   {"id": "memoria", "nome": {"it": "Memoria", "en": "Memory"}, "ruolo": {"it": "ricorda che cosa è successo", "en": "remembers what happened"},
+    "spiegazione": {"it": "Era la memoria: l'agente non ricordava di aver già trattato Azienda Alfa e l'ha contattata due volte.", "en": "It was the memory: the agent did not remember it had already handled Alfa Ltd and contacted it twice."},
+    "indizio": {"it": "Indizio: guarda bene chi riceve un contatto, e quante volte.", "en": "Clue: look carefully at who gets contacted, and how many times."}}
+  ],
+  "lead": [
+   {"id": "alfa", "nome": {"it": "Azienda Alfa", "en": "Alfa Ltd"}, "dato": {"it": "120 dipendenti, 7 visite ai prezzi", "en": "120 employees, 7 pricing-page visits"}, "livello": {"it": "caldo", "en": "hot"}},
+   {"id": "beta", "nome": {"it": "Beta Srl", "en": "Beta Inc"}, "dato": {"it": "8 dipendenti, nessuna visita", "en": "8 employees, no visits"}, "livello": {"it": "freddo", "en": "cold"}},
+   {"id": "gamma", "nome": {"it": "Gamma Spa", "en": "Gamma plc"}, "dato": {"it": "60 dipendenti, 3 visite ai prezzi", "en": "60 employees, 3 pricing-page visits"}, "livello": {"it": "tiepido", "en": "warm"}}
+  ],
+  "arrivi": ["alfa", "beta", "alfa", "gamma"],
+  "tempi": {"ms_per_evento": 900, "ms_esploso": 900, "velocita_min": 0.5, "velocita_max": 2.5, "velocita_iniziale": 1},
+  "testi": {
+   "leggi": {"it": "Leggo nel CRM la scheda di {nome}: {dato}.", "en": "I read {nome}'s record in the CRM: {dato}."},
+   "decide": {"it": "Decido: {nome} è {livello}. Lo scrivo nel CRM e preparo il contatto giusto.", "en": "I decide: {nome} is {livello}. I write it in the CRM and prepare the right contact."},
+   "ipotesi": {"it": "Non posso aprire il CRM: immagino che {nome} sia «probabilmente interessata». È solo un'ipotesi, non salvo nulla.", "en": "I cannot open the CRM: I imagine {nome} is «probably interested». It is only a guess, I save nothing."},
+   "nessuno_decide": {"it": "I dati di {nome} sono arrivati, ma nessuno decide che cosa farne.", "en": "{nome}'s data have arrived, but nobody decides what to do with them."},
+   "memoria_salta": {"it": "Ricordo che {nome} l'ho già qualificata oggi: salto, niente secondo contatto.", "en": "I remember I already qualified {nome} today: I skip it, no second contact."},
+   "memoria_doppio": {"it": "Non ricordo nulla di {nome}: la tratto come nuova e la contatto una seconda volta.", "en": "I remember nothing about {nome}: I treat it as new and contact it a second time."},
+   "stop": {"it": "Nessuno fa ripartire il giro: mi fermo dopo il primo lead. {rimasti} lead restano in coda.", "en": "Nobody restarts the loop: I stop after the first lead. {rimasti} leads stay in the queue."},
+   "fine": {"it": "Lista finita: mi fermo.", "en": "List finished: I stop."},
+   "sintomo_strumenti": {"it": "Le schede contengono solo ipotesi: nessun dato vero, niente salvato nel CRM.", "en": "The records contain only guesses: no real data, nothing saved in the CRM."},
+   "sintomo_orchestrazione": {"it": "Si è fermato dopo un solo lead: gli altri sono rimasti in coda.", "en": "It stopped after a single lead: the others stayed in the queue."},
+   "sintomo_memoria": {"it": "Ha contattato due volte lo stesso lead.", "en": "It contacted the same lead twice."},
+   "sintomo_modello": {"it": "Nessuna decisione: i lead restano senza stato.", "en": "No decision: the leads stay without a status."},
+   "esito_ok": {"it": "Tutti i lead qualificati, nessun doppio contatto: i quattro pezzi lavorano insieme.", "en": "All leads qualified, no double contact: the four parts work together."},
+   "esito_male": {"it": "Qualcosa non va: guarda i sintomi.", "en": "Something is wrong: look at the symptoms."},
+   "diagnosi_istruzioni": {"it": "Un pezzo è rotto, ma non si vede quale. Avvia, leggi il diario e clicca il blocco colpevole.", "en": "One part is broken, but you cannot see which. Start, read the diary and click the guilty block."},
+   "diagnosi_giusta": {"it": "Esatto! {spiegazione}", "en": "Exactly! {spiegazione}"},
+   "diagnosi_sbagliata": {"it": "No, «{blocco}» funziona. {indizio}", "en": "No, «{blocco}» works. {indizio}"},
+   "risolti": {"it": "Misteri risolti: {n} su {totale}", "en": "Mysteries solved: {n} of {totale}"}
+  },
+  "stati_lead": {
+   "in_coda": {"it": "in coda", "en": "queued"},
+   "fatto": {"it": "qualificato", "en": "qualified"},
+   "saltato": {"it": "già fatto: saltato", "en": "already done: skipped"},
+   "doppio": {"it": "contattato di nuovo!", "en": "contacted again!"},
+   "ipotesi": {"it": "solo ipotesi", "en": "only a guess"},
+   "fermo": {"it": "senza decisione", "en": "no decision"}
+  },
+  "etichette": {
+   "titolo_comandi": {"it": "Prova a cambiare", "en": "Try changing"},
+   "modalita": {"it": "Modalità", "en": "Mode"},
+   "prova": {"it": "Spegni i pezzi", "en": "Switch off parts"},
+   "diagnosi": {"it": "Trova il guasto", "en": "Find the fault"},
+   "pezzi": {"it": "I pezzi dell'agente", "en": "The agent's parts"},
+   "nuovo_mistero": {"it": "Nuovo mistero", "en": "New mystery"},
+   "compito": {"it": "Compito: qualifica i nuovi lead", "en": "Task: qualify the new leads"},
+   "avvia": {"it": "Avvia", "en": "Start"},
+   "pausa": {"it": "Pausa", "en": "Pause"},
+   "passo": {"it": "Un passo", "en": "One step"},
+   "ricomincia": {"it": "Da capo", "en": "Restart"},
+   "velocita": {"it": "Velocità", "en": "Speed"},
+   "diario": {"it": "Diario dell'agente", "en": "Agent's diary"},
+   "esito": {"it": "Risultato", "en": "Result"},
+   "sintomi": {"it": "Sintomi", "en": "Symptoms"},
+   "spento": {"it": "SPENTO", "en": "OFF"},
+   "agente_centro": {"it": "AGENTE", "en": "AGENT"},
+   "mistero_centro": {"it": "?", "en": "?"},
+   "cambiato": {"it": "Hai cambiato qualcosa: l'agente rifà il lavoro.", "en": "You changed something: the agent redoes the work."},
+   "vuoto": {"it": "Premi «Avvia»: qui comparirà che cosa fa l'agente, lead per lead.", "en": "Press «Start»: here you will see what the agent does, lead by lead."},
+   "descrizione_scena": {"it": "Schema esploso dell'agente: al centro il nucleo, intorno quattro blocchi (modello, strumenti, orchestrazione, memoria) che si possono spegnere.", "en": "Exploded diagram of the agent: the core in the middle, around it four blocks (model, tools, orchestration, memory) that can be switched off."}
+  }
+ },
+ "domande": []
+}

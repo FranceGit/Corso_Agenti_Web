@@ -1,0 +1,178 @@
+{
+ "id": "L_parola_successiva",
+ "pillola": "P1.2",
+ "componente": "parola_successiva",
+ "titolo": {"it": "Come funziona un LLM, per chi fa marketing", "en": "How an LLM works, for marketing people"},
+ "sottotitolo": {"it": "Completa frasi da CRM, regola la temperatura, stringi la memoria del modello: vedi da dove nascono i suoi errori.", "en": "Complete CRM sentences, set the temperature, shrink the model's memory: see where its mistakes come from."},
+ "segmenti": [
+  {
+   "id": "token",
+   "titolo": {"it": "Il testo, fatto a pezzi", "en": "Text, cut into pieces"},
+   "narrazione": [
+    {"it": "Un LLM (Large Language Model, il «motore» che scrive dentro ChatGPT e simili) non legge parole intere: legge token, cioè pezzi di parola.", "en": "An LLM (Large Language Model, the «engine» that writes inside ChatGPT and similar tools) does not read whole words: it reads tokens, that is, pieces of words."},
+    {"it": "I token contano perché il prezzo e i limiti di un LLM si misurano proprio in token.", "en": "Tokens matter because an LLM's price and limits are measured in tokens."}
+   ],
+   "prova": {"it": "Cambia la frase a sinistra e guarda i pezzi colorati e il contatore dei token.", "en": "Change the sentence on the left and watch the coloured pieces and the token counter."},
+   "concetti": ["C04"],
+   "stato_animazione": {"scena": "parola", "frase": "email", "temperatura": 1, "lancio": 0, "finestra": 82, "nel_contesto": []}
+  },
+  {
+   "id": "previsione",
+   "titolo": {"it": "Indovinare il pezzo successivo", "en": "Guessing the next piece"},
+   "narrazione": [
+    {"it": "Un LLM fa una cosa sola: guarda il testo che ha davanti e calcola quale pezzo è più probabile che venga dopo. Le barre mostrano queste probabilità.", "en": "An LLM does one thing only: it looks at the text in front of it and works out which piece is most likely to come next. The bars show these probabilities."},
+    {"it": "Sceglie un pezzo, lo aggiunge e ricomincia. Così scrive testi plausibili (che suonano giusti), ma non controlla se sono veri.", "en": "It picks a piece, adds it and starts again. That way it writes plausible texts (that sound right), but it does not check whether they are true."}
+   ],
+   "prova": {"it": "Premi «Genera 5 volte»: la stessa frase non finisce sempre allo stesso modo.", "en": "Press «Generate 5 times»: the same sentence does not always end the same way."},
+   "concetti": ["C05", "C07"],
+   "stato_animazione": {"scena": "parola", "frase": "email", "temperatura": 1, "lancio": 0, "finestra": 82, "nel_contesto": []}
+  },
+  {
+   "id": "temperatura",
+   "titolo": {"it": "La temperatura: preciso o creativo", "en": "Temperature: precise or creative"},
+   "narrazione": [
+    {"it": "La temperatura è una manopola: bassa, il modello sceglie quasi sempre il pezzo più probabile; alta, le barre si livellano e le scelte variano di più.", "en": "Temperature is a dial: low, the model almost always picks the most likely piece; high, the bars even out and the choices vary more."},
+    {"it": "Per classificare i lead (caldo, tiepido, freddo) si usa bassa: vuoi sempre la stessa risposta. Per idee di oggetti email si può alzare.", "en": "To classify leads (hot, warm, cold) you use it low: you want the same answer every time. For email subject ideas you can turn it up."}
+   ],
+   "prova": {"it": "Porta la temperatura a 0 e genera: 5 risposte uguali. Poi portala a 2 e genera di nuovo.", "en": "Set the temperature to 0 and generate: 5 identical answers. Then set it to 2 and generate again."},
+   "concetti": ["C05"],
+   "stato_animazione": {"scena": "parola", "frase": "oggetto", "temperatura": 0, "lancio": 0, "finestra": 82, "nel_contesto": []}
+  },
+  {
+   "id": "finestra",
+   "titolo": {"it": "La finestra di contesto: quello che non ci sta, non esiste", "en": "The context window: what does not fit does not exist"},
+   "narrazione": [
+    {"it": "La finestra di contesto è il massimo di testo che il modello guarda in una volta. Se l'email del cliente è più lunga, i pezzi più vecchi restano fuori.", "en": "The context window is the most text the model looks at in one go. If the customer's email is longer, the oldest pieces are left out."},
+    {"it": "Per il modello, quello che resta fuori non esiste: non «se lo dimentica», semplicemente non lo vede.", "en": "For the model, what is left out does not exist: it does not «forget» it, it simply does not see it."}
+   ],
+   "prova": {"it": "Stringi la finestra finché la frase gialla dello sconto esce: poi premi «Chiedi all'agente» e leggi la risposta.", "en": "Shrink the window until the yellow sentence about the discount drops out: then press «Ask the agent» and read the answer."},
+   "concetti": ["C06", "C04"],
+   "stato_animazione": {"scena": "finestra", "frase": "email", "temperatura": 0, "lancio": 0, "finestra": 82, "nel_contesto": []}
+  },
+  {
+   "id": "cutoff",
+   "titolo": {"it": "La data di conoscenza: il modello è fermo nel passato", "en": "The knowledge date: the model is stuck in the past"},
+   "narrazione": [
+    {"it": "Un modello ha studiato testi fino a una certa data, detta cutoff (data di taglio). Di quello che è successo dopo non sa nulla.", "en": "A model studied texts up to a certain date, called the cutoff. It knows nothing about what happened after it."},
+    {"it": "I dati del CRM di oggi vanno quindi messi nel contesto a ogni richiesta: solo così il modello può usarli.", "en": "So today's CRM data must be put into the context with every request: only then can the model use them."}
+   ],
+   "prova": {"it": "Trascina i fatti di oggi dentro il riquadro del contesto (o premi «Metti nel contesto») e guarda la risposta cambiare.", "en": "Drag today's facts into the context box (or press «Put in context») and watch the answer change."},
+   "concetti": ["C06", "C07"],
+   "stato_animazione": {"scena": "cutoff", "frase": "email", "temperatura": 0, "lancio": 0, "finestra": 82, "nel_contesto": []}
+  },
+  {
+   "id": "riassunto",
+   "titolo": {"it": "In tre frasi", "en": "In three sentences"},
+   "narrazione": [
+    {"it": "Un LLM legge e scrive a token (pezzi di parola) e sceglie ogni volta il pezzo probabile successivo, con più o meno variazione secondo la temperatura.", "en": "An LLM reads and writes in tokens (pieces of words) and each time picks the likely next piece, with more or less variation depending on the temperature."},
+    {"it": "Vede solo quello che sta nella finestra di contesto e non sa nulla dopo la sua data di conoscenza: i dati del CRM di oggi vanno sempre forniti.", "en": "It only sees what fits in the context window and knows nothing after its knowledge date: today's CRM data must always be provided."},
+    {"it": "Scrive testo plausibile senza verificarlo: per questo le allucinazioni (contenuti inventati ma credibili) sono un effetto naturale, non un guasto raro.", "en": "It writes plausible text without checking it: that is why hallucinations (made-up but believable content) are a natural effect, not a rare fault."}
+   ],
+   "prova": {"it": "Torna su una qualunque delle tre scene e prova a prevedere che cosa succede prima di toccare i comandi.", "en": "Go back to any of the three scenes and try to predict what will happen before touching the controls."},
+   "concetti": ["C04", "C05", "C06", "C07"],
+   "stato_animazione": {"scena": "parola", "frase": "saluto", "temperatura": 1, "lancio": 0, "finestra": 82, "nel_contesto": []}
+  }
+ ],
+ "scenario": {
+  "scene": [
+   {"id": "parola", "nome": {"it": "1 · La parola dopo", "en": "1 · The next word"}},
+   {"id": "finestra", "nome": {"it": "2 · La finestra", "en": "2 · The window"}},
+   {"id": "cutoff", "nome": {"it": "3 · La data di conoscenza", "en": "3 · The knowledge date"}}
+  ],
+  "frasi": [
+   {"id": "email", "nome": {"it": "Dopo l'email", "en": "After the email"}, "testo": {"it": "Il lead ha aperto l'email e", "en": "The lead opened the email and"},
+    "candidati": [
+     {"parola": {"it": "ha cliccato sul link", "en": "clicked the link"}, "logit": 2.2},
+     {"parola": {"it": "ha risposto", "en": "replied"}, "logit": 1.6},
+     {"parola": {"it": "l'ha ignorata", "en": "ignored it"}, "logit": 1.1},
+     {"parola": {"it": "l'ha inoltrata", "en": "forwarded it"}, "logit": 0.5},
+     {"parola": {"it": "ha chiesto una demo", "en": "asked for a demo"}, "logit": 0.1},
+     {"parola": {"it": "si è disiscritto", "en": "unsubscribed"}, "logit": -0.4}
+    ]},
+   {"id": "saluto", "nome": {"it": "Ringraziamento", "en": "Thank-you"}, "testo": {"it": "Gentile cliente, la ringraziamo per", "en": "Dear customer, thank you for"},
+    "candidati": [
+     {"parola": {"it": "l'interesse", "en": "your interest"}, "logit": 2.5},
+     {"parola": {"it": "la fiducia", "en": "your trust"}, "logit": 1.8},
+     {"parola": {"it": "il suo ordine", "en": "your order"}, "logit": 1.2},
+     {"parola": {"it": "la pazienza", "en": "your patience"}, "logit": 0.6},
+     {"parola": {"it": "averci scelto", "en": "choosing us"}, "logit": 0.4},
+     {"parola": {"it": "la mail", "en": "the email"}, "logit": -0.6}
+    ]},
+   {"id": "oggetto", "nome": {"it": "Oggetto di una campagna", "en": "Campaign subject line"}, "testo": {"it": "Oggetto: un'offerta speciale per", "en": "Subject: a special offer for"},
+    "candidati": [
+     {"parola": {"it": "lei", "en": "you"}, "logit": 1.9},
+     {"parola": {"it": "i nostri clienti", "en": "our customers"}, "logit": 1.7},
+     {"parola": {"it": "il Black Friday", "en": "Black Friday"}, "logit": 1.2},
+     {"parola": {"it": "pochi giorni", "en": "a few days"}, "logit": 0.8},
+     {"parola": {"it": "Azienda Alfa", "en": "Alfa Ltd"}, "logit": 0.4},
+     {"parola": {"it": "la primavera", "en": "spring"}, "logit": -0.2}
+    ]}
+  ],
+  "token": {"lunghezza_pezzo": 5},
+  "temperatura": {"min": 0, "max": 2, "passo": 0.1, "soglia_sempre_prima": 0.05},
+  "generazioni": 5,
+  "finestra": {
+   "min": 30, "max": 82, "passo": 2,
+   "domanda": {"it": "Domanda all'agente: «Che sconto applichiamo all'ordine di Azienda Alfa?»", "en": "Question to the agent: «What discount do we apply to Alfa Ltd's order?»"},
+   "email": [
+    {"testo": {"it": "Buongiorno, come concordato al telefono vorrei lo sconto del 10%.", "en": "Good morning, as agreed on the phone I would like the 10% discount."}, "chiave": true},
+    {"testo": {"it": "Vi scrivo per confermare l'ordine di cinquanta licenze per il nostro ufficio marketing. Il team è cresciuto molto e abbiamo bisogno di tutti gli accessi entro fine mese. Vi chiedo anche la fattura intestata alla sede di Milano. Grazie, a presto.", "en": "I am writing to confirm the order of fifty licences for our marketing office. The team has grown a lot and we need all the accesses by the end of the month. Please also make the invoice out to the Milan office. Thanks, speak soon."}, "chiave": false}
+   ],
+   "risposta_ok": {"it": "«Applichiamo lo sconto del 10% concordato al telefono.» Giusto: la frase dello sconto è dentro la finestra.", "en": "«We apply the 10% discount agreed on the phone.» Right: the discount sentence is inside the window."},
+   "risposta_ko": {"it": "«Applichiamo il listino standard, senza sconti.» Sbagliato: la frase dello sconto è uscita dalla finestra e per il modello non esiste.", "en": "«We apply the standard price list, with no discount.» Wrong: the discount sentence has dropped out of the window and for the model it does not exist."}
+  },
+  "cutoff": {
+   "domanda": {"it": "Domanda all'agente: «Azienda Alfa è già nostra cliente? A chi scrivo?»", "en": "Question to the agent: «Is Alfa Ltd already our customer? Who do I write to?»"},
+   "data_cutoff": {"it": "data di conoscenza: marzo", "en": "knowledge date: March"},
+   "data_oggi": {"it": "oggi: novembre", "en": "today: November"},
+   "zona_nota": {"it": "il modello lo conosce", "en": "the model knows it"},
+   "zona_ignota": {"it": "il modello non lo conosce", "en": "the model does not know it"},
+   "fatto_vecchio": {"it": "A marzo Alfa era solo un contatto: aveva chiesto informazioni.", "en": "In March Alfa was just a contact: it had asked for information."},
+   "fatti": [
+    {"id": "firma", "testo": {"it": "CRM, ieri: Alfa ha firmato il contratto", "en": "CRM, yesterday: Alfa signed the contract"}},
+    {"id": "referente", "testo": {"it": "CRM, oggi: nuova referente è Laura Neri", "en": "CRM, today: new contact person is Laura Neri"}}
+   ],
+   "risposte": [
+    {"fatti": [], "testo": {"it": "«Alfa non è ancora cliente: le mando l'email di presentazione.» Vecchio e sbagliato: il modello usa solo quello che sapeva a marzo.", "en": "«Alfa is not a customer yet: I'll send them the introduction email.» Old and wrong: the model only uses what it knew in March."}, "tipo": "male"},
+    {"fatti": ["firma"], "testo": {"it": "«Alfa è cliente da ieri: niente email di presentazione. Non so a chi scrivere.» Meglio: ha usato il fatto di ieri.", "en": "«Alfa has been a customer since yesterday: no introduction email. I don't know who to write to.» Better: it used yesterday's fact."}, "tipo": "avviso"},
+    {"fatti": ["referente"], "testo": {"it": "«Scrivo a Laura Neri l'email di presentazione.» A metà: conosce la referente ma non sa che Alfa ha già firmato.", "en": "«I'll write the introduction email to Laura Neri.» Halfway: it knows the contact person but not that Alfa has already signed."}, "tipo": "avviso"},
+    {"fatti": ["firma", "referente"], "testo": {"it": "«Alfa è cliente da ieri: scrivo a Laura Neri un benvenuto.» Giusto: con i dati di oggi nel contesto la risposta è aggiornata.", "en": "«Alfa has been a customer since yesterday: I'll write Laura Neri a welcome.» Right: with today's data in the context the answer is up to date."}, "tipo": "ok"}
+   ]
+  },
+  "tempi": {"ms_barre": 600, "ms_generazione": 380, "ms_lettura_token": 18},
+  "testi": {
+   "conta_token": {"it": "Questa frase = {n} token (pezzi di parola)", "en": "This sentence = {n} tokens (pieces of words)"},
+   "diverse": {"it": "{n} finali diversi su {totale}", "en": "{n} different endings out of {totale}"},
+   "spiega_parola": {"it": "Il modello calcola la probabilità di ogni seguito e ne pesca uno. Con temperatura {temperatura} il preferito ha il {percentuale}%.", "en": "The model works out the probability of each continuation and draws one. At temperature {temperatura} the favourite has {percentuale}%."},
+   "spiega_zero": {"it": "Con temperatura 0 il modello sceglie sempre il seguito più probabile: risposte identiche.", "en": "At temperature 0 the model always picks the most likely continuation: identical answers."},
+   "finestra_uso": {"it": "Email: {totale} token · finestra: {finestra} token", "en": "Email: {totale} tokens · window: {finestra} tokens"},
+   "chiave_dentro": {"it": "La frase dello sconto è DENTRO la finestra.", "en": "The discount sentence is INSIDE the window."},
+   "chiave_fuori": {"it": "La frase dello sconto è FUORI dalla finestra.", "en": "The discount sentence is OUTSIDE the window."},
+   "chiave_parziale": {"it": "La frase dello sconto è tagliata a metà: il modello ne vede solo un pezzo.", "en": "The discount sentence is cut in half: the model sees only part of it."},
+   "contesto_vuoto": {"it": "Trascina qui i fatti di oggi", "en": "Drag today's facts here"}
+  },
+  "etichette": {
+   "titolo_comandi": {"it": "Prova a cambiare", "en": "Try changing"},
+   "scena": {"it": "Scena", "en": "Scene"},
+   "frase": {"it": "La frase da completare", "en": "The sentence to complete"},
+   "temperatura": {"it": "Temperatura", "en": "Temperature"},
+   "genera": {"it": "Genera 5 volte", "en": "Generate 5 times"},
+   "finestra": {"it": "Dimensione della finestra (token)", "en": "Window size (tokens)"},
+   "chiedi": {"it": "Chiedi all'agente", "en": "Ask the agent"},
+   "metti": {"it": "Metti nel contesto", "en": "Put in context"},
+   "togli": {"it": "Togli", "en": "Remove"},
+   "probabilita": {"it": "Probabilità del seguito", "en": "Probability of the continuation"},
+   "generazioni": {"it": "Le 5 generazioni", "en": "The 5 generations"},
+   "contesto": {"it": "Contesto della richiesta", "en": "Context of the request"},
+   "fatti_oggi": {"it": "Fatti del CRM di oggi", "en": "Today's CRM facts"},
+   "risposta": {"it": "Risposta dell'agente", "en": "Agent's answer"},
+   "vede": {"it": "Che cosa succede", "en": "What is happening"},
+   "nessuna_generazione": {"it": "Premi «Genera 5 volte».", "en": "Press «Generate 5 times»."},
+   "nessuna_risposta": {"it": "Premi «Chiedi all'agente».", "en": "Press «Ask the agent»."},
+   "cambiato": {"it": "Hai cambiato qualcosa: guarda la scena.", "en": "You changed something: look at the scene."},
+   "descrizione_parola": {"it": "Istogramma: sei possibili seguiti della frase con la loro probabilità.", "en": "Histogram: six possible continuations of the sentence with their probability."},
+   "descrizione_cutoff": {"it": "Linea del tempo con la data di conoscenza del modello e il giorno di oggi.", "en": "Timeline with the model's knowledge date and today."}
+  }
+ },
+ "domande": []
+}

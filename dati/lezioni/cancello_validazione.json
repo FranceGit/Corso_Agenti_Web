@@ -1,0 +1,598 @@
+{
+ "id": "L_cancello_validazione",
+ "pillola": "P2.2",
+ "componente": "cancello_validazione",
+ "titolo": {
+  "it": "Output strutturati: far parlare l'agente con il CRM",
+  "en": "Structured output: making the agent talk to the CRM"
+ },
+ "sottotitolo": {
+  "it": "Imponi il formato e guarda la scheda del CRM compilarsi da sola. Poi rompi i dati e guarda il cancello fermarli.",
+  "en": "Impose the format and watch the CRM record fill itself in. Then break the data and watch the gate stop them."
+ },
+ "segmenti": [
+  {
+   "id": "frase",
+   "titolo": {
+    "it": "Una frase non entra nel CRM",
+    "en": "A sentence does not fit into the CRM"
+   },
+   "narrazione": [
+    {
+     "it": "L'agente ha valutato il lead Azienda Alfa e deve scrivere il risultato nel CRM (il programma dove l'azienda tiene i dati dei clienti).",
+     "en": "The agent has assessed the lead Alfa Ltd and must write the result into the CRM (the program where the company keeps its customer data)."
+    },
+    {
+     "it": "Una persona capisce una frase come «forse 70?». Il CRM no: ha caselle con un nome, e in ogni casella va un solo dato preciso.",
+     "en": "A person understands a sentence like «maybe 70?». The CRM does not: it has boxes with a name, and each box takes one precise piece of data."
+    }
+   ],
+   "prova": {
+    "it": "Premi «Avvia» e guarda la frase arrivare al cancello: si incastra e torna indietro.",
+    "en": "Press «Start» and watch the sentence reach the gate: it gets stuck and bounces back."
+   },
+   "concetti": [
+    "C21"
+   ],
+   "stato_animazione": {
+    "formato": false,
+    "guasto": "nessuno",
+    "ritenta": true,
+    "tentativi_max": 2,
+    "json_grezzo": false
+   }
+  },
+  {
+   "id": "formato",
+   "titolo": {
+    "it": "Imponi il formato: la scheda si compila da sola",
+    "en": "Impose the format: the record fills itself in"
+   },
+   "narrazione": [
+    {
+     "it": "Imporre il formato vuol dire dare all'agente uno schema: l'elenco delle caselle, che tipo di dato va in ognuna (un numero, un testo, una scelta fra poche voci) e quali sono obbligatorie.",
+     "en": "Imposing the format means giving the agent a schema: the list of boxes, what type of data goes in each (a number, a text, a choice among a few options) and which are mandatory."
+    },
+    {
+     "it": "L'agente allora risponde con un blocco di dati in formato JSON (un modo standard di scrivere «nome della casella: valore» che i programmi leggono senza errori). Ogni valore scivola nella sua casella.",
+     "en": "The agent then answers with a block of data in JSON format (a standard way of writing «box name: value» that programs read without mistakes). Each value slides into its box."
+    }
+   ],
+   "prova": {
+    "it": "Accendi «Mostra come lo vede il computer» per vedere lo stesso blocco scritto in JSON.",
+    "en": "Switch on «Show it as the computer sees it» to see the same block written in JSON."
+   },
+   "concetti": [
+    "C21"
+   ],
+   "stato_animazione": {
+    "formato": true,
+    "guasto": "nessuno",
+    "ritenta": true,
+    "tentativi_max": 2,
+    "json_grezzo": false
+   }
+  },
+  {
+   "id": "cancello",
+   "titolo": {
+    "it": "Il cancello controlla prima di scrivere",
+    "en": "The gate checks before writing"
+   },
+   "narrazione": [
+    {
+     "it": "Anche con lo schema l'agente può sbagliare: per esempio scrive la fascia «altissima», che nel CRM non esiste.",
+     "en": "Even with the schema the agent can make mistakes: for example it writes the band «very high», which does not exist in the CRM."
+    },
+    {
+     "it": "Per questo c'è un controllo automatico, il cancello di validazione: confronta ogni valore con lo schema. Se qualcosa non va, si colora di rosso, indica la casella sbagliata e rimanda all'agente il messaggio d'errore. L'agente corregge e riprova.",
+     "en": "That is why there is an automatic check, the validation gate: it compares each value with the schema. If something is wrong, it turns red, points to the wrong box and sends the error message back to the agent. The agent fixes it and tries again."
+    }
+   ],
+   "prova": {
+    "it": "Prova gli altri guasti di «Rompi l'output»: punteggio scritto in lettere e punteggio 140.",
+    "en": "Try the other faults under «Break the output»: score written in words and score 140."
+   },
+   "concetti": [
+    "C21"
+   ],
+   "stato_animazione": {
+    "formato": true,
+    "guasto": "fascia",
+    "ritenta": true,
+    "tentativi_max": 2,
+    "json_grezzo": false
+   }
+  },
+  {
+   "id": "persona",
+   "titolo": {
+    "it": "Senza nuovi tentativi decide una persona",
+    "en": "Without new attempts a person decides"
+   },
+   "narrazione": [
+    {
+     "it": "Se i nuovi tentativi sono spenti, o finiscono, il cancello non scrive niente di sbagliato nel CRM: passa il caso a una persona.",
+     "en": "If new attempts are switched off, or run out, the gate writes nothing wrong into the CRM: it hands the case to a person."
+    },
+    {
+     "it": "Qui manca la motivazione. Non è un dettaglio: è la frase che spiega il punteggio, e permette a chi legge di controllare se la decisione ha senso.",
+     "en": "Here the reason is missing. It is not a detail: it is the sentence that explains the score, and it lets the reader check whether the decision makes sense."
+    }
+   ],
+   "prova": {
+    "it": "Riaccendi «Nuovo tentativo automatico» e guarda l'agente aggiungere la motivazione da solo.",
+    "en": "Switch «Automatic new attempt» back on and watch the agent add the reason by itself."
+   },
+   "concetti": [
+    "C21"
+   ],
+   "stato_animazione": {
+    "formato": true,
+    "guasto": "mancante",
+    "ritenta": false,
+    "tentativi_max": 2,
+    "json_grezzo": false
+   }
+  },
+  {
+   "id": "riassunto",
+   "titolo": {
+    "it": "In tre frasi",
+    "en": "In three sentences"
+   },
+   "narrazione": [
+    {
+     "it": "Una frase va bene per una persona, ma un programma come il CRM ha bisogno di caselle con un nome e un tipo di dato preciso.",
+     "en": "A sentence is fine for a person, but a program like the CRM needs boxes with a name and a precise type of data."
+    },
+    {
+     "it": "Lo schema dice all'agente quali caselle riempire, con che tipo di dato e con quali valori ammessi, e il cancello di validazione controlla tutto prima di scrivere.",
+     "en": "The schema tells the agent which boxes to fill, with what type of data and which allowed values, and the validation gate checks everything before writing."
+    },
+    {
+     "it": "Se il controllo fallisce l'agente riprova con il messaggio d'errore oppure passa il caso a una persona, e la motivazione rende ogni punteggio verificabile.",
+     "en": "If the check fails the agent tries again with the error message or hands the case to a person, and the reason makes every score checkable."
+    }
+   ],
+   "prova": {
+    "it": "Spegni «Imponi il formato» e accendilo di nuovo: confronta frase e scheda.",
+    "en": "Switch «Impose the format» off and on again: compare sentence and record."
+   },
+   "concetti": [
+    "C21"
+   ],
+   "stato_animazione": {
+    "formato": true,
+    "guasto": "nessuno",
+    "ritenta": true,
+    "tentativi_max": 2,
+    "json_grezzo": false
+   }
+  }
+ ],
+ "scenario": {
+  "lead": {
+   "azienda": {
+    "it": "Azienda Alfa",
+    "en": "Alfa Ltd"
+   },
+   "riassunto": {
+    "it": "120 dipendenti · 6 visite ai prezzi · scrive la responsabile acquisti",
+    "en": "120 employees · 6 pricing visits · written by the purchasing manager"
+   }
+  },
+  "schema": [
+   {
+    "id": "punteggio",
+    "chiave": {
+     "it": "punteggio",
+     "en": "score"
+    },
+    "nome": {
+     "it": "Punteggio",
+     "en": "Score"
+    },
+    "tipo": "numero",
+    "min": 0,
+    "max": 100,
+    "obbligatorio": true
+   },
+   {
+    "id": "fascia",
+    "chiave": {
+     "it": "fascia",
+     "en": "band"
+    },
+    "nome": {
+     "it": "Fascia",
+     "en": "Band"
+    },
+    "tipo": "scelta",
+    "ammessi": [
+     {
+      "it": "bassa",
+      "en": "low"
+     },
+     {
+      "it": "media",
+      "en": "medium"
+     },
+     {
+      "it": "alta",
+      "en": "high"
+     }
+    ],
+    "obbligatorio": true
+   },
+   {
+    "id": "motivazione",
+    "chiave": {
+     "it": "motivazione",
+     "en": "reason"
+    },
+    "nome": {
+     "it": "Motivazione",
+     "en": "Reason"
+    },
+    "tipo": "testo",
+    "obbligatorio": true
+   },
+   {
+    "id": "prossimo_passo",
+    "chiave": {
+     "it": "prossimo_passo",
+     "en": "next_step"
+    },
+    "nome": {
+     "it": "Prossimo passo",
+     "en": "Next step"
+    },
+    "tipo": "scelta",
+    "ammessi": [
+     {
+      "it": "chiamare",
+      "en": "call"
+     },
+     {
+      "it": "coltivare",
+      "en": "nurture"
+     },
+     {
+      "it": "scartare",
+      "en": "discard"
+     }
+    ],
+    "obbligatorio": true
+   }
+  ],
+  "output_corretto": {
+   "punteggio": 70,
+   "fascia": {
+    "it": "alta",
+    "en": "high"
+   },
+   "motivazione": {
+    "it": "120 dipendenti, 6 visite ai prezzi in una settimana, scrive chi decide gli acquisti",
+    "en": "120 employees, 6 pricing visits in a week, written by the person who decides on purchases"
+   },
+   "prossimo_passo": {
+    "it": "chiamare",
+    "en": "call"
+   }
+  },
+  "guasti": [
+   {
+    "id": "nessuno",
+    "nome": {
+     "it": "Nessun guasto",
+     "en": "No fault"
+    }
+   },
+   {
+    "id": "fascia",
+    "nome": {
+     "it": "Fascia «altissima» (non ammessa)",
+     "en": "Band «very high» (not allowed)"
+    },
+    "campo": "fascia",
+    "azione": "sostituisci",
+    "valore": {
+     "it": "altissima",
+     "en": "very high"
+    }
+   },
+   {
+    "id": "mancante",
+    "nome": {
+     "it": "Manca la motivazione",
+     "en": "The reason is missing"
+    },
+    "campo": "motivazione",
+    "azione": "togli"
+   },
+   {
+    "id": "testo",
+    "nome": {
+     "it": "Punteggio in lettere («settanta»)",
+     "en": "Score in words («seventy»)"
+    },
+    "campo": "punteggio",
+    "azione": "sostituisci",
+    "valore": {
+     "it": "settanta",
+     "en": "seventy"
+    }
+   },
+   {
+    "id": "fuori_scala",
+    "nome": {
+     "it": "Punteggio 140 (fuori scala)",
+     "en": "Score 140 (off the scale)"
+    },
+    "campo": "punteggio",
+    "azione": "sostituisci",
+    "valore": 140
+   }
+  ],
+  "tentativi": {
+   "min": 1,
+   "max": 3,
+   "etichetta": {
+    "it": "Tentativi al massimo",
+    "en": "Maximum attempts"
+   }
+  },
+  "tipi": {
+   "numero": {
+    "it": "numero",
+    "en": "number"
+   },
+   "testo": {
+    "it": "testo",
+    "en": "text"
+   },
+   "scelta": {
+    "it": "scelta fissa",
+    "en": "fixed choice"
+   }
+  },
+  "tempi": {
+   "ms_per_fase": 1300,
+   "ms_viaggio": 900,
+   "ms_campo": 260,
+   "velocita_min": 0.5,
+   "velocita_max": 2.5,
+   "velocita_iniziale": 1
+  },
+  "testi": {
+   "pensa": {
+    "it": "Leggo la scheda di {azienda} e decido quanto è interessante il lead.",
+    "en": "I read {azienda}'s record and decide how interesting the lead is."
+   },
+   "pensa_schema": {
+    "it": "Ho uno schema: devo rispondere solo con le caselle previste, nel tipo giusto.",
+    "en": "I have a schema: I must answer only with the expected boxes, in the right type."
+   },
+   "frase_1": {
+    "it": "Direi che il lead è abbastanza interessante, forse 70? Io lo chiamerei.",
+    "en": "I'd say the lead is fairly interesting, maybe 70? I would call them."
+   },
+   "frase_2": {
+    "it": "Riprovo: secondo me Alfa è un buon lead, punteggio sui 70, merita una telefonata.",
+    "en": "Trying again: in my view Alfa is a good lead, a score of about 70, worth a phone call."
+   },
+   "frase_3": {
+    "it": "Ancora: lead interessante, 70 circa, da chiamare presto.",
+    "en": "Again: interesting lead, about 70, call soon."
+   },
+   "uscita_frase": {
+    "it": "Tentativo {n}: scrivo una frase.",
+    "en": "Attempt {n}: I write a sentence."
+   },
+   "uscita_dati": {
+    "it": "Tentativo {n}: scrivo un blocco di dati con {quanti} caselle.",
+    "en": "Attempt {n}: I write a data block with {quanti} boxes."
+   },
+   "err_frase": {
+    "it": "È arrivata una frase, non un blocco di caselle: il CRM non sa dove metterla.",
+    "en": "A sentence arrived, not a block of boxes: the CRM does not know where to put it."
+   },
+   "err_mancante": {
+    "it": "Manca la casella obbligatoria «{campo}».",
+    "en": "The mandatory box «{campo}» is missing."
+   },
+   "err_numero": {
+    "it": "«{campo}» deve essere un numero: è arrivato «{valore}».",
+    "en": "«{campo}» must be a number: «{valore}» arrived."
+   },
+   "err_scala": {
+    "it": "«{campo}» deve stare fra {min} e {max}: è arrivato {valore}.",
+    "en": "«{campo}» must be between {min} and {max}: {valore} arrived."
+   },
+   "err_ammessi": {
+    "it": "«{campo}» può valere solo {ammessi}: è arrivato «{valore}».",
+    "en": "«{campo}» can only be {ammessi}: «{valore}» arrived."
+   },
+   "err_testo": {
+    "it": "«{campo}» deve essere un testo non vuoto.",
+    "en": "«{campo}» must be a non-empty text."
+   },
+   "cancello_ok": {
+    "it": "Cancello verde: tutte le caselle rispettano lo schema.",
+    "en": "Green gate: every box respects the schema."
+   },
+   "cancello_ko": {
+    "it": "Cancello rosso: {quanti} problema/i trovato/i.",
+    "en": "Red gate: {quanti} problem(s) found."
+   },
+   "ritorno": {
+    "it": "Rimando all'agente il messaggio d'errore: «{errori}».",
+    "en": "I send the error message back to the agent: «{errori}»."
+   },
+   "ritorno_frase": {
+    "it": "Rimando all'agente l'errore, ma senza schema non sa quali caselle vuole il CRM.",
+    "en": "I send the error back to the agent, but without a schema it does not know which boxes the CRM wants."
+   },
+   "corregge": {
+    "it": "Leggo l'errore e correggo la casella «{campo}».",
+    "en": "I read the error and fix the box «{campo}»."
+   },
+   "compila": {
+    "it": "Ogni valore scivola nella sua casella: la scheda di {azienda} è compilata.",
+    "en": "Each value slides into its box: {azienda}'s record is filled in."
+   },
+   "persona": {
+    "it": "Nessun dato sbagliato entra nel CRM: passo il caso a una persona con il messaggio d'errore.",
+    "en": "No wrong data enters the CRM: I hand the case to a person with the error message."
+   },
+   "esito_ok": {
+    "it": "Scheda compilata al primo colpo: i dati sono nel CRM e la motivazione spiega il punteggio.",
+    "en": "Record filled in at the first go: the data is in the CRM and the reason explains the score."
+   },
+   "esito_ok_ritento": {
+    "it": "Primo tentativo respinto, il secondo passa: il cancello ha evitato di scrivere un dato sbagliato.",
+    "en": "First attempt rejected, the next one passes: the gate prevented a wrong value from being written."
+   },
+   "esito_frase": {
+    "it": "Senza formato nessun tentativo passa: la frase si capisce, ma il CRM non la può usare. Caso passato a una persona.",
+    "en": "Without a format no attempt passes: the sentence is understandable, but the CRM cannot use it. Case handed to a person."
+   },
+   "esito_persona": {
+    "it": "Dati respinti e nessun nuovo tentativo: il CRM resta pulito e una persona controlla il caso.",
+    "en": "Data rejected and no new attempt: the CRM stays clean and a person checks the case."
+   },
+   "vuoto_campo": {
+    "it": "vuoto",
+    "en": "empty"
+   }
+  },
+  "etichette": {
+   "titolo_comandi": {
+    "it": "Prova a cambiare",
+    "en": "Try changing"
+   },
+   "formato": {
+    "it": "Imponi il formato (schema)",
+    "en": "Impose the format (schema)"
+   },
+   "schema": {
+    "it": "Lo schema che l'agente deve rispettare",
+    "en": "The schema the agent must respect"
+   },
+   "obbligatorio": {
+    "it": "obbligatorio",
+    "en": "mandatory"
+   },
+   "da_a": {
+    "it": "da {min} a {max}",
+    "en": "from {min} to {max}"
+   },
+   "senza_schema": {
+    "it": "Nessuno schema: l'agente scrive come gli viene.",
+    "en": "No schema: the agent writes however it likes."
+   },
+   "rompi": {
+    "it": "Rompi l'output",
+    "en": "Break the output"
+   },
+   "controllo": {
+    "it": "Se il cancello respinge",
+    "en": "If the gate rejects"
+   },
+   "ritenta": {
+    "it": "Nuovo tentativo automatico",
+    "en": "Automatic new attempt"
+   },
+   "json_grezzo": {
+    "it": "Mostra come lo vede il computer",
+    "en": "Show it as the computer sees it"
+   },
+   "uscita": {
+    "it": "Che cosa ha scritto l'agente",
+    "en": "What the agent wrote"
+   },
+   "uscita_vuota": {
+    "it": "Premi «Avvia»: qui comparirà la risposta dell'agente.",
+    "en": "Press «Start»: the agent's answer will appear here."
+   },
+   "scheda_crm": {
+    "it": "Scheda del lead nel CRM",
+    "en": "Lead record in the CRM"
+   },
+   "agente": {
+    "it": "Agente",
+    "en": "Agent"
+   },
+   "cancello": {
+    "it": "Cancello",
+    "en": "Gate"
+   },
+   "crm": {
+    "it": "CRM",
+    "en": "CRM"
+   },
+   "tentativo": {
+    "it": "tentativo",
+    "en": "attempt"
+   },
+   "avvia": {
+    "it": "Avvia",
+    "en": "Start"
+   },
+   "pausa": {
+    "it": "Pausa",
+    "en": "Pause"
+   },
+   "passo": {
+    "it": "Un passo",
+    "en": "One step"
+   },
+   "ricomincia": {
+    "it": "Da capo",
+    "en": "Restart"
+   },
+   "velocita": {
+    "it": "Velocità",
+    "en": "Speed"
+   },
+   "diario": {
+    "it": "Che cosa succede",
+    "en": "What happens"
+   },
+   "vuoto": {
+    "it": "Premi «Avvia»: qui comparirà, passo per passo, il viaggio dei dati.",
+    "en": "Press «Start»: here you will see, step by step, the journey of the data."
+   },
+   "esito": {
+    "it": "Risultato",
+    "en": "Result"
+   },
+   "cambiato": {
+    "it": "Hai cambiato qualcosa: l'agente riparte da capo.",
+    "en": "You changed something: the agent starts again."
+   },
+   "chi_agente": {
+    "it": "Agente",
+    "en": "Agent"
+   },
+   "chi_cancello": {
+    "it": "Cancello",
+    "en": "Gate"
+   },
+   "chi_crm": {
+    "it": "CRM",
+    "en": "CRM"
+   },
+   "chi_persona": {
+    "it": "Persona",
+    "en": "Person"
+   },
+   "descrizione_scena": {
+    "it": "Schema animato: a sinistra l'agente, al centro il cancello di validazione, a destra il CRM. I dati viaggiano lungo la linea.",
+    "en": "Animated diagram: the agent on the left, the validation gate in the middle, the CRM on the right. The data travels along the line."
+   }
+  }
+ },
+ "domande": []
+}

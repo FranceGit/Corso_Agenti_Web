@@ -1,5 +1,7 @@
-// Test della logica delle due animazioni del dimostratore (solo Node, nessuna dipendenza).
+// Test della logica delle animazioni delle lezioni (solo Node, nessuna dipendenza).
 // Uso, dalla radice del progetto:  node tests_js/prova_animazioni.mjs
+// Qui sotto le prove delle due lezioni del dimostratore; le prove di ogni altra lezione stanno in
+// tests_js/lezioni/<componente>.mjs (un file per lezione, export default function(ctx)) e vengono eseguite tutte.
 // Verifica, in entrambe le lingue, che ogni segmento e ogni combinazione significativa di comandi produca
 // un piano coerente: nessun segnaposto senza valore, decisioni diverse quando cambiano obiettivo o dati.
 import fs from "node:fs";
@@ -90,5 +92,18 @@ for (const lingua of ["it", "en"]) {
     assert.equal(p.finale, "falso");
     assert.ok(p.spiegazioni.includes("inventato"));
   });
+}
+
+// Prove delle altre lezioni: un file per lezione, eseguito in entrambe le lingue.
+const cartellaLezioni = path.join(radice, "tests_js", "lezioni");
+const fileLezioni = fs.readdirSync(cartellaLezioni).filter((f) => f.endsWith(".mjs")).sort();
+const componentiConLezione = fs.readdirSync(path.join(radice, "dati", "lezioni")).map((f) => JSON.parse(fs.readFileSync(path.join(radice, "dati", "lezioni", f), "utf8")).componente);
+for (const comp of componentiConLezione) {
+  if (["ciclo_agente", "strumenti_agente"].includes(comp)) continue;
+  assert.ok(fileLezioni.includes(`${comp}.mjs`), `la lezione ${comp} non ha le sue prove in tests_js/lezioni/${comp}.mjs`);
+}
+for (const f of fileLezioni) {
+  const mod = await import(new URL(`./lezioni/${f}`, import.meta.url));
+  for (const lingua of ["it", "en"]) mod.default({ prova, risolvi, leggi, lingua, assert });
 }
 console.log(`\n${prove} prove superate`);

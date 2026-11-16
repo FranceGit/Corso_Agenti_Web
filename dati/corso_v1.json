@@ -34,28 +34,28 @@
      ],
      "obiettivo": {
       "it": "distinguere un assistente che genera testo da un agente che persegue un obiettivo agendo su sistemi esterni.",
-      "en": null
+      "en": "tell apart an assistant that generates text from an agent that pursues a goal by acting on external systems."
      },
      "scaletta": [
       {
        "it": "Un LLM conversazionale riceve una domanda e restituisce testo. Il lavoro finisce lì.",
-       "en": null
+       "en": "A conversational LLM receives a question and returns text. The work ends there."
       },
       {
        "it": "Un agente riceve un obiettivo, usa strumenti (CRM, email, calendario), osserva i risultati e decide il passo successivo.",
-       "en": null
+       "en": "An agent receives a goal, uses tools (CRM, email, calendar), observes the results and decides the next step."
       },
       {
        "it": "Definizione operativa: agente = modello + strumenti + logica di controllo, orientati a un obiettivo.",
-       "en": null
+       "en": "Working definition: agent = model + tools + control logic, aimed at a goal."
       },
       {
        "it": "Esempio CRM con la richiesta \"prepara i follow-up per i lead caldi della settimana\":\n- il chatbot scrive un'email generica;\n- l'agente interroga il CRM, filtra i lead, redige bozze personalizzate e chiede l'approvazione.",
-       "en": null
+       "en": "CRM example with the request \"prepare the follow-ups for this week's hot leads\":\n- the chatbot writes a generic email;\n- the agent queries the CRM, filters the leads, drafts personalised emails and asks for approval."
       },
       {
        "it": "Messaggio chiave: gli agenti sono sistemi, non prompt.",
-       "en": null
+       "en": "Key message: agents are systems, not prompts."
       }
      ],
      "animazione": {
@@ -65,7 +65,7 @@
       },
       "progetto": {
        "it": "- Cosa si vede:\n- Lo schermo è diviso in due corsie verticali. La stessa richiesta (una card) entra in entrambe.\n- Corsia sinistra (chatbot): la card si trasforma in un unico fumetto di testo. Fine.\n- Corsia destra (agente): la card diventa un \"obiettivo\" fissato in alto. Poi si attiva un anello di frecce che collega tre icone: database CRM, busta email, calendario. Ogni chiamata a un'icona la illumina e fa tornare un piccolo pacchetto di dati, che si deposita in un pannello \"osservazioni\". Alla fine compare una lista di 4 bozze con un pulsante \"approva\".\n- Interazione:\n- Lo studente sceglie tra tre richieste diverse: \"spiegami cos'è il lead nurturing\", \"riassumi questa email\", \"aggiorna lo stato dei lead che hanno risposto\". Vede che solo la terza attiva la corsia agente in modo completo.\n- Un interruttore \"mostra il conteggio dei passi\" rende visibile la differenza: 1 passo contro N passi.\n- Perché aiuta: rende tangibile che la differenza non sta nella \"intelligenza\" del testo, ma nel ciclo di azione sui sistemi.",
-       "en": null
+       "en": "- What you see:\n- The screen is split into two vertical lanes. The same request (a card) enters both.\n- Left lane (chatbot): the card turns into a single speech bubble of text. The end.\n- Right lane (agent): the card becomes a \"goal\" pinned at the top. Then a ring of arrows lights up, linking three icons: CRM database, email envelope, calendar. Each call to an icon lights it up and sends back a small data packet, which lands in an \"observations\" panel. At the end a list of 4 drafts appears with an \"approve\" button.\n- Interaction:\n- The student chooses between three different requests: \"explain what lead nurturing is\", \"summarise this email\", \"update the status of the leads who replied\". They see that only the third fully activates the agent lane.\n- A \"show the step count\" switch makes the difference visible: 1 step against N steps.\n- Why it helps: it makes tangible that the difference is not in the \"intelligence\" of the text, but in the cycle of action on the systems."
       }
      },
      "domande": [
@@ -507,32 +507,32 @@
      ],
      "obiettivo": {
       "it": "capire i quattro limiti del modello che condizionano ogni agente: token, previsione probabilistica, finestra di contesto, conoscenza \"congelata\".",
-      "en": null
+      "en": "understand the four model limits that shape every agent: tokens, probabilistic prediction, context window, \"frozen\" knowledge."
      },
      "scaletta": [
       {
        "it": "Il testo viene spezzato in token. Costi e limiti si misurano in token.",
-       "en": null
+       "en": "Text is split into tokens. Costs and limits are measured in tokens."
       },
       {
        "it": "Il modello prevede il token successivo in base alla probabilità nel contesto: genera testo plausibile, non verifica fatti.",
-       "en": null
+       "en": "The model predicts the next token based on probability in the context: it generates plausible text, it does not check facts."
       },
       {
        "it": "La finestra di contesto è il massimo testo considerato in una singola chiamata. Ciò che resta fuori, per il modello, non esiste.",
-       "en": null
+       "en": "The context window is the most text considered in a single call. Whatever is left out does not exist for the model."
       },
       {
        "it": "La conoscenza del modello si ferma a una data (cutoff). I dati del CRM di oggi vanno forniti a ogni chiamata.",
-       "en": null
+       "en": "The model's knowledge stops at a date (cutoff). Today's CRM data must be supplied with every call."
       },
       {
        "it": "La temperatura regola quanto il modello varia nella scelta dei token: bassa per classificare, più alta per testi creativi.",
-       "en": null
+       "en": "Temperature sets how much the model varies its choice of tokens: low for classifying, higher for creative texts."
       },
       {
        "it": "Conseguenza: le allucinazioni sono un effetto della natura del modello, non un guasto occasionale.",
-       "en": null
+       "en": "Consequence: hallucinations are an effect of the model's nature, not an occasional fault."
       }
      ],
      "animazione": {
@@ -542,7 +542,7 @@
       },
       "progetto": {
        "it": "- Cosa si vede:\n- Compare la frase incompleta \"Il lead ha aperto l'email e ...\". Sotto, un istogramma mostra i 6 token più probabili (\"cliccato\", \"risposto\", \"ignorato\", ...).\n- Uno slider \"temperatura\" deforma l'istogramma: a valori bassi un token domina, a valori alti le barre si livellano. Premendo \"genera\" 5 volte si vede la variabilità delle continuazioni.\n- Seconda scena: una lunga striscia di testo (email di un cliente) scorre in un riquadro di dimensione fissa (la finestra di contesto). Le parti che escono dal riquadro sbiadiscono. Un contatore token mostra il riempimento.\n- Terza scena: una linea del tempo con la \"data di cutoff\" e il \"giorno di oggi\". I dati del CRM di oggi compaiono a destra del cutoff e restano fuori dalla conoscenza del modello, finché non vengono trascinati nel riquadro di contesto.\n- Perché aiuta: tre concetti astratti (probabilità, contesto, cutoff) diventano tre gesti visibili: deformare, far scorrere, trascinare dentro.",
-       "en": null
+       "en": "- What you see:\n- The incomplete sentence \"The lead opened the email and ...\" appears. Below it, a histogram shows the 6 most likely tokens (\"clicked\", \"replied\", \"ignored\", ...).\n- A \"temperature\" slider reshapes the histogram: at low values one token dominates, at high values the bars even out. Pressing \"generate\" 5 times shows how much the continuations vary.\n- Second scene: a long strip of text (a customer's email) scrolls through a fixed-size box (the context window). The parts that leave the box fade. A token counter shows how full it is.\n- Third scene: a timeline with the \"cutoff date\" and \"today\". Today's CRM data appear to the right of the cutoff and stay outside the model's knowledge until they are dragged into the context box.\n- Why it helps: three abstract concepts (probability, context, cutoff) become three visible gestures: reshape, scroll, drag in."
       }
      },
      "domande": [
@@ -1480,28 +1480,28 @@
      ],
      "obiettivo": {
       "it": "riconoscere i componenti di un agente (modello, strumenti, orchestrazione, memoria/contesto) e la funzione di ciascuno.",
-      "en": null
+      "en": "recognise the components of an agent (model, tools, orchestration, memory/context) and what each one does."
      },
      "scaletta": [
       {
        "it": "Modello: ragiona e genera; è il \"motore decisionale\".",
-       "en": null
+       "en": "Model: it reasons and generates; it is the \"decision engine\"."
       },
       {
        "it": "Strumenti: funzioni e API che permettono di leggere e modificare il mondo esterno (CRM, email, web).",
-       "en": null
+       "en": "Tools: functions and APIs that let it read and change the outside world (CRM, email, web)."
       },
       {
        "it": "Orchestrazione: il codice che gestisce il ciclo, lo stato, le regole, i limiti e i passaggi di controllo.",
-       "en": null
+       "en": "Orchestration: the code that runs the loop, the state, the rules, the limits and the control hand-offs."
       },
       {
        "it": "Memoria/contesto: ciò che l'agente sa in questo momento (sessione) e ciò che conserva nel tempo.",
-       "en": null
+       "en": "Memory/context: what the agent knows right now (session) and what it keeps over time."
       },
       {
        "it": "Ogni componente ha un modo tipico di guastarsi; saperlo aiuta a diagnosticare.",
-       "en": null
+       "en": "Each component has a typical way of breaking; knowing it helps you diagnose."
       }
      ],
      "animazione": {
@@ -1511,7 +1511,7 @@
       },
       "progetto": {
        "it": "- Cosa si vede:\n- Il diagramma di un agente si scompone in 4 blocchi che si separano, con etichette e un'icona ciascuno: chip = modello, chiave inglese = strumenti, direttore d'orchestra stilizzato = orchestrazione, archivio = memoria.\n- Interazione:\n- Lo studente può spegnere un blocco alla volta e lanciare lo stesso compito (\"qualifica i nuovi lead\"):\n- senza strumenti, l'agente produce solo testo ipotetico;\n- senza orchestrazione, si ferma dopo un passo o non rispetta i limiti;\n- senza memoria, ricontatta lo stesso lead due volte;\n- senza modello, nulla decide.\n- Ogni guasto è mostrato con un'icona e una frase.\n- Perché aiuta: il \"cosa succede se manca\" fissa la funzione di ogni componente meglio di una definizione.",
-       "en": null
+       "en": "- What you see:\n- The diagram of an agent breaks into 4 blocks that move apart, each with a label and an icon: chip = model, spanner = tools, stylised orchestra conductor = orchestration, filing cabinet = memory.\n- Interaction:\n- The student can switch off one block at a time and launch the same task (\"qualify the new leads\"):\n- without tools, the agent produces only hypothetical text;\n- without orchestration, it stops after one step or ignores the limits;\n- without memory, it contacts the same lead twice;\n- without the model, nothing decides.\n- Each fault is shown with an icon and a sentence.\n- Why it helps: \"what happens if it is missing\" fixes the function of each component better than a definition."
       }
      },
      "domande": [
@@ -1996,32 +1996,32 @@
      ],
      "obiettivo": {
       "it": "collocare una soluzione sullo spettro regole → funzione AI → workflow con LLM → agente → multi-agente, e scegliere il livello minimo sufficiente.",
-      "en": null
+      "en": "place a solution on the spectrum rules → AI function → LLM workflow → agent → multi-agent, and choose the minimum sufficient level."
      },
      "scaletta": [
       {
        "it": "Regole fisse: \"se il lead apre 3 email, segna come caldo\". È prevedibile ed economico.",
-       "en": null
+       "en": "Fixed rules: \"if the lead opens 3 emails, mark as hot\". It is predictable and cheap."
       },
       {
        "it": "Funzione AI isolata: un LLM svolge un singolo compito (riassunto, suggerimento di testo). Esempio di confronto: il repo vyapaar [R14], una piattaforma CRM con funzioni AI ma poco agentica.",
-       "en": null
+       "en": "Isolated AI function: an LLM performs a single task (summary, text suggestion). Example for comparison: the vyapaar repo [R14], a CRM platform with AI functions but not very agentic."
       },
       {
        "it": "Workflow con LLM: i passi sono decisi dall'uomo, l'LLM li esegue (es. scoring → email).",
-       "en": null
+       "en": "LLM workflow: the steps are decided by a human, the LLM carries them out (e.g. scoring → email)."
       },
       {
        "it": "Agente: il modello sceglie quali passi fare e in che ordine.",
-       "en": null
+       "en": "Agent: the model chooses which steps to take and in what order."
       },
       {
        "it": "Multi-agente: più agenti specializzati collaborano.",
-       "en": null
+       "en": "Multi-agent: several specialised agents work together."
       },
       {
        "it": "Il whitepaper Google [G1] propone una tassonomia di livelli simile, da verificare sul testo. Regola: più autonomia significa più flessibilità, ma anche meno prevedibilità, più costo e più rischio. Si sceglie il livello minimo che risolve il problema.",
-       "en": null
+       "en": "The Google whitepaper [G1] proposes a similar taxonomy of levels, to be checked against the text. Rule: more autonomy means more flexibility, but also less predictability, more cost and more risk. You choose the minimum level that solves the problem."
       }
      ],
      "animazione": {
@@ -2031,7 +2031,7 @@
       },
       "progetto": {
        "it": "- Cosa si vede:\n- Uno slider orizzontale con 5 tacche. Sopra c'è un diagramma di processo che si trasforma:\n- tacca 1: un diagramma di flusso con frecce fisse;\n- tacca 2: un box \"AI\" in un solo nodo;\n- tacca 3: box AI in più nodi, ma frecce ancora fisse;\n- tacca 4: le frecce diventano tratteggiate e vengono \"disegnate\" a runtime dall'agente;\n- tacca 5: più agenti si scambiano messaggi.\n- A lato, quattro indicatori si muovono insieme allo slider: flessibilità ↑, prevedibilità ↓, costo ↑, rischio ↑.\n- Interazione: lo studente trascina tre scenari (es. \"invio newsletter mensile identica a tutti\", \"risposta a richieste di preventivo molto variabili\", \"riassunto di una call\") sulla tacca che ritiene giusta e riceve un feedback motivato.\n- Perché aiuta: mostra visivamente il compromesso. L'autonomia non è \"meglio\" in assoluto.",
-       "en": null
+       "en": "- What you see:\n- A horizontal slider with 5 marks. Above it there is a process diagram that changes:\n- mark 1: a flowchart with fixed arrows;\n- mark 2: an \"AI\" box in a single node;\n- mark 3: AI boxes in several nodes, but arrows still fixed;\n- mark 4: the arrows become dashed and are \"drawn\" at runtime by the agent;\n- mark 5: several agents exchange messages.\n- On the side, four indicators move together with the slider: flexibility ↑, predictability ↓, cost ↑, risk ↑.\n- Interaction: the student drags three scenarios (e.g. \"sending the same monthly newsletter to everyone\", \"replying to very variable quote requests\", \"summarising a call\") onto the mark they think is right and receives reasoned feedback.\n- Why it helps: it shows the trade-off visually. Autonomy is not \"better\" in absolute terms."
       }
      },
      "domande": [
@@ -2493,28 +2493,28 @@
      ],
      "obiettivo": {
       "it": "mappare i compiti CRM/marketing su cui un agente crea valore e quelli che richiedono cautela.",
-      "en": null
+      "en": "map the CRM/marketing tasks where an agent creates value and those that require caution."
      },
      "scaletta": [
       {
        "it": "Il CRM combina dati strutturati (campi, fasi) e non strutturati (email, note, call).",
-       "en": null
+       "en": "The CRM combines structured data (fields, stages) and unstructured data (emails, notes, calls)."
       },
       {
        "it": "Ci sono molti compiti ripetitivi lungo il funnel: qualificazione, arricchimento, outreach, classificazione delle risposte, monitoraggio della pipeline, rischio di abbandono (churn). Esempi di ruoli nei repo [R11] e [R13].",
-       "en": null
+       "en": "There are many repetitive tasks along the funnel: qualification, enrichment, outreach, classification of replies, pipeline monitoring, risk of abandonment (churn). Examples of roles in the repos [R11] and [R13]."
       },
       {
        "it": "Si creano valore quando il volume è alto, i criteri sono esplicitabili e l'esito è misurabile.",
-       "en": null
+       "en": "Value is created when volume is high, criteria can be made explicit and the outcome is measurable."
       },
       {
        "it": "Le cautele riguardano dati personali, reputazione del marchio, rischio spam, decisioni con impatto economico.",
-       "en": null
+       "en": "The cautions concern personal data, brand reputation, spam risk, decisions with economic impact."
       },
       {
        "it": "Servono punti di controllo umano dove l'errore costa di più.",
-       "en": null
+       "en": "Human checkpoints are needed where a mistake costs the most."
       }
      ],
      "animazione": {
@@ -2524,7 +2524,7 @@
       },
       "progetto": {
        "it": "- Cosa si vede:\n- Un funnel verticale (visitatore → lead → lead qualificato marketing → lead qualificato vendite → opportunità → cliente). Pallini colorati (lead fittizi) scendono lungo il funnel.\n- Per ogni stadio, l'icona di un agente si \"aggancia\" a lato. Cliccandola si apre una scheda con compito, input, output e \"punto di controllo umano: sì/no\".\n- Interazione:\n- Lo studente regola il \"volume giornaliero\" e vede in quali stadi l'agente fa risparmiare più tempo (barre del tempo risparmiato).\n- Lo studente regola il \"costo di un errore\" e vede apparire automaticamente i lucchetti di approvazione umana sugli stadi a rischio.\n- Perché aiuta: collega i concetti astratti al processo che il pubblico conosce già.",
-       "en": null
+       "en": "- What you see:\n- A vertical funnel (visitor → lead → marketing qualified lead → sales qualified lead → opportunity → customer). Coloured dots (fictitious leads) move down the funnel.\n- For each stage, an agent icon \"docks\" on the side. Clicking it opens a card with task, input, output and \"human checkpoint: yes/no\".\n- Interaction:\n- The student adjusts the \"daily volume\" and sees in which stages the agent saves the most time (time-saved bars).\n- The student adjusts the \"cost of a mistake\" and sees human approval padlocks appear automatically on the risky stages.\n- Why it helps: it connects abstract concepts to the process the audience already knows."
       }
      },
      "domande": [
@@ -2971,28 +2971,28 @@
      ],
      "obiettivo": {
       "it": "comporre istruzioni di sistema efficaci per un agente CRM.",
-      "en": null
+      "en": "compose effective system instructions for a CRM agent."
      },
      "scaletta": [
       {
        "it": "Le istruzioni di sistema definiscono ruolo, obiettivo, vincoli, formato e comportamento nei casi dubbi.",
-       "en": null
+       "en": "System instructions define role, goal, constraints, format and behaviour in doubtful cases."
       },
       {
        "it": "I vincoli espliciti contano: \"non promettere sconti\", \"non inventare dati\", \"se manca un'informazione, chiedi\".",
-       "en": null
+       "en": "Explicit constraints matter: \"do not promise discounts\", \"do not make up data\", \"if a piece of information is missing, ask\"."
       },
       {
        "it": "Gli esempi (few-shot) mostrano il risultato atteso meglio di molte righe di descrizione.",
-       "en": null
+       "en": "Examples (few-shot) show the expected result better than many lines of description."
       },
       {
        "it": "Le istruzioni vaghe producono comportamenti variabili. Le istruzioni contraddittorie producono comportamenti imprevedibili.",
-       "en": null
+       "en": "Vague instructions produce variable behaviour. Contradictory instructions produce unpredictable behaviour."
       },
       {
        "it": "Le istruzioni sono un artefatto versionato e testato, non un testo scritto una volta.",
-       "en": null
+       "en": "Instructions are a versioned and tested artefact, not a text written once."
       }
      ],
      "animazione": {
@@ -3002,7 +3002,7 @@
       },
       "progetto": {
        "it": "- Cosa si vede:\n- A sinistra, 6 blocchi trascinabili: Ruolo, Obiettivo, Vincoli, Formato, Esempi, \"In caso di dubbio\".\n- A destra, l'anteprima di un'email di outreach generata (pre-calcolata per ogni combinazione di blocchi).\n- Interazione:\n- Togliendo \"Vincoli\", nell'anteprima compare uno sconto inventato, evidenziato in rosso.\n- Togliendo \"Formato\", l'email perde oggetto e firma.\n- Togliendo \"In caso di dubbio\", con un lead privo di nome l'email inizia con \"Gentile [Nome]\".\n- Un contatore \"variabilità\" mostra quante versioni diverse escono su 5 generazioni, con e senza esempi.\n- Perché aiuta: collega ogni blocco delle istruzioni a un difetto visibile e concreto.",
-       "en": null
+       "en": "- What you see:\n- On the left, 6 draggable blocks: Role, Goal, Constraints, Format, Examples, \"If in doubt\".\n- On the right, the preview of a generated outreach email (pre-computed for every combination of blocks).\n- Interaction:\n- Removing \"Constraints\", a made-up discount appears in the preview, highlighted in red.\n- Removing \"Format\", the email loses its subject and signature.\n- Removing \"If in doubt\", with a lead without a name the email starts with \"Dear [Name]\".\n- A \"variability\" counter shows how many different versions come out of 5 generations, with and without examples.\n- Why it helps: it connects each block of the instructions to a visible, concrete defect."
       }
      },
      "domande": [
@@ -3459,28 +3459,28 @@
      ],
      "obiettivo": {
       "it": "capire perché un agente che scrive nel CRM deve produrre output strutturati e validati.",
-      "en": null
+      "en": "understand why an agent that writes into the CRM must produce structured, validated output."
      },
      "scaletta": [
       {
        "it": "Il testo libero è adatto a una persona. Un sistema (CRM, database) ha bisogno di campi.",
-       "en": null
+       "en": "Free text suits a person. A system (CRM, database) needs fields."
       },
       {
        "it": "Lo schema di output (es. JSON) definisce nomi dei campi, tipi, valori ammessi (es. categoria ∈ {interessato, non interessato, da ricontattare}) e campi obbligatori.",
-       "en": null
+       "en": "The output schema (e.g. JSON) defines field names, types, allowed values (e.g. category ∈ {interested, not interested, call back later}) and mandatory fields."
       },
       {
        "it": "La validazione controlla l'output prima di scriverlo. Se non è valido: nuovo tentativo o escalation.",
-       "en": null
+       "en": "Validation checks the output before writing it. If it is not valid: a new attempt or escalation."
       },
       {
        "it": "Un campo \"motivazione\" accanto al punteggio rende la decisione verificabile.",
-       "en": null
+       "en": "A \"reason\" field next to the score makes the decision checkable."
       },
       {
        "it": "Esempio: il repo [R11] usa modelli di dati tipizzati per i passaggi della pipeline.",
-       "en": null
+       "en": "Example: the repo [R11] uses typed data models for the steps of the pipeline."
       }
      ],
      "animazione": {
@@ -3490,7 +3490,7 @@
       },
       "progetto": {
        "it": "- Cosa si vede:\n- Due flussi partono dallo stesso agente. In uno esce una frase (\"Direi che il lead è abbastanza interessante, forse 70?\"); nell'altro esce un piccolo blocco JSON con `score: 70`, `fascia: \"alta\"`, `motivazione: \"...\"`.\n- Entrambi arrivano a un cancello verso una tabella CRM. La frase si incastra e viene respinta. Il JSON si scompone e ogni valore scivola nella sua colonna.\n- Interazione: lo studente può \"rompere\" il JSON (fascia \"altissima\", non ammessa; campo mancante). Il cancello diventa rosso, indica il campo errato e fa ripartire l'agente con il messaggio di errore.\n- Perché aiuta: rende evidente la differenza tra \"comprensibile per un umano\" e \"utilizzabile da un sistema\".",
-       "en": null
+       "en": "- What you see:\n- Two flows leave the same agent. One produces a sentence (\"I'd say the lead is fairly interesting, maybe 70?\"); the other produces a small JSON block with `score: 70`, `band: \"high\"`, `reason: \"...\"`.\n- Both reach a gate leading to a CRM table. The sentence gets stuck and is rejected. The JSON breaks apart and each value slides into its column.\n- Interaction: the student can \"break\" the JSON (band \"very high\", not allowed; missing field). The gate turns red, points to the wrong field and restarts the agent with the error message.\n- Why it helps: it makes the difference between \"understandable for a human\" and \"usable by a system\" obvious."
       }
      },
      "domande": [
@@ -3946,28 +3946,28 @@
      ],
      "obiettivo": {
       "it": "riconoscere due schemi di ragionamento degli agenti (ReAct e pianifica-poi-esegui) e la decomposizione dei compiti.",
-      "en": null
+      "en": "recognise two reasoning patterns of agents (ReAct and plan-then-execute) and task decomposition."
      },
      "scaletta": [
       {
        "it": "Decomposizione: un obiettivo complesso diventa sotto-compiti.",
-       "en": null
+       "en": "Decomposition: a complex goal becomes sub-tasks."
       },
       {
        "it": "ReAct (Ragiona + Agisci) alterna ragionamento → azione → osservazione, un passo alla volta. Il repo [R10] lo usa per esplorare progressivamente gli strumenti.",
-       "en": null
+       "en": "ReAct (Reason + Act) alternates reasoning → action → observation, one step at a time. The repo [R10] uses it to explore the tools progressively."
       },
       {
        "it": "Pianifica-poi-esegui: prima un piano completo, poi l'esecuzione, con ripianificazione se qualcosa fallisce.",
-       "en": null
+       "en": "Plan-then-execute: first a complete plan, then the execution, with replanning if something fails."
       },
       {
        "it": "Confronto: ReAct è più adattivo ma meno prevedibile; il piano esplicito è più controllabile e più facile da approvare.",
-       "en": null
+       "en": "Comparison: ReAct is more adaptive but less predictable; the explicit plan is more controllable and easier to approve."
       },
       {
        "it": "Il ragionamento visibile è utile per il debug, ma non è una garanzia di correttezza.",
-       "en": null
+       "en": "Visible reasoning is useful for debugging, but it is no guarantee of correctness."
       }
      ],
      "animazione": {
@@ -3977,7 +3977,7 @@
       },
       "progetto": {
        "it": "- Cosa si vede: compito \"prepara un report sui lead caldi del trimestre e invialo al responsabile\".\n- Modalità ReAct: una linea del tempo orizzontale dove si alternano card Pensiero (nuvoletta), Azione (ingranaggio) e Osservazione (lente). Le card compaiono una alla volta e ogni Pensiero cita l'Osservazione precedente.\n- Modalità Piano: compare subito una checklist di 5 passi. I passi si spuntano. Al passo 3 lo strumento fallisce: la checklist si riscrive (ripianificazione) e la parte modificata è evidenziata.\n- Interazione: un interruttore passa da una modalità all'altra sullo stesso compito. Due contatori confrontano \"passi totali\" e \"punti in cui un umano può approvare\".\n- Perché aiuta: il confronto affiancato sullo stesso compito rende visibili adattività e controllabilità.",
-       "en": null
+       "en": "- What you see: the task \"prepare a report on this quarter's hot leads and send it to the manager\".\n- ReAct mode: a horizontal timeline where Thought (cloud), Action (gear) and Observation (magnifying glass) cards alternate. The cards appear one at a time and each Thought quotes the previous Observation.\n- Plan mode: a 5-step checklist appears straight away. The steps get ticked. At step 3 the tool fails: the checklist rewrites itself (replanning) and the changed part is highlighted.\n- Interaction: a switch moves from one mode to the other on the same task. Two counters compare \"total steps\" and \"points where a human can approve\".\n- Why it helps: the side-by-side comparison on the same task makes adaptivity and controllability visible."
       }
      },
      "domande": [
@@ -4417,28 +4417,28 @@
      ],
      "obiettivo": {
       "it": "distinguere dato verificato, inferenza e invenzione; conoscere le tecniche per ancorare (grounding) le risposte alle fonti.",
-      "en": null
+      "en": "tell verified data, inference and invention apart; know the techniques to anchor (ground) answers to sources."
      },
      "scaletta": [
       {
        "it": "Un'allucinazione è un contenuto plausibile ma non supportato dai dati.",
-       "en": null
+       "en": "A hallucination is plausible content that the data does not support."
       },
       {
        "it": "Il README del repo [R11] dichiara che l'agente di arricchimento \"hallucinates/infers\" (inventa o inferisce) persona e pain point: è un caso didattico perfetto.",
-       "en": null
+       "en": "The README of the repo [R11] states that the enrichment agent \"hallucinates/infers\" persona and pain points: it is a perfect teaching case."
       },
       {
        "it": "Tre categorie: verificato (da fonte, con riferimento), inferito (ipotesi ragionevole, da etichettare), inventato (da evitare).",
-       "en": null
+       "en": "Three categories: verified (from a source, with a reference), inferred (a reasonable hypothesis, to be labelled), invented (to be avoided)."
       },
       {
        "it": "Le tecniche di grounding sono: fornire le fonti nel contesto, chiedere citazioni, permettere \"non lo so\", validare contro i dati.",
-       "en": null
+       "en": "The grounding techniques are: provide the sources in the context, ask for citations, allow \"I don't know\", validate against the data."
       },
       {
        "it": "Le inferenze vanno etichettate come tali, perché chi le usa deve sapere quanto fidarsi.",
-       "en": null
+       "en": "Inferences must be labelled as such, because whoever uses them needs to know how far to trust them."
       }
      ],
      "animazione": {
@@ -4448,7 +4448,7 @@
       },
       "progetto": {
        "it": "- Cosa si vede:\n- Una scheda lead (Azienda Alfa, 120 dipendenti, ruolo: responsabile acquisti) si arricchisce di nuovi campi. Ogni campo riceve un'icona di origine: ✓ con link per \"da fonte\", ~ con dicitura \"ipotesi\" per \"inferito\", ✗ per \"nessuna base\".\n- Interazione:\n- Lo slider \"fonti disponibili\" (da 0 a 3 documenti) cambia le icone: con 0 fonti molti campi diventano ✗; con 3 fonti diventano ✓.\n- L'interruttore \"consenti 'non lo so'\" trasforma i campi ✗ in \"sconosciuto\".\n- Perché aiuta: separa visivamente i tre tipi di contenuto, che in un testo fluido sembrano identici.",
-       "en": null
+       "en": "- What you see:\n- A lead record (Alfa Ltd, 120 employees, role: purchasing manager) is enriched with new fields. Each field gets an origin icon: ✓ with a link for \"from a source\", ~ with the label \"guess\" for \"inferred\", ✗ for \"no basis\".\n- Interaction:\n- The \"available sources\" slider (from 0 to 3 documents) changes the icons: with 0 sources many fields become ✗; with 3 sources they become ✓.\n- The \"allow 'I don't know'\" switch turns the ✗ fields into \"unknown\".\n- Why it helps: it visually separates the three types of content, which look identical in smooth text."
       }
      },
      "domande": [

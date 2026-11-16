@@ -1,0 +1,171 @@
+{
+ "id": "L_costruttore_istruzioni",
+ "pillola": "P2.1",
+ "componente": "costruttore_istruzioni",
+ "titolo": {"it": "Le istruzioni di sistema: sei blocchi, un'email", "en": "System instructions: six blocks, one email"},
+ "sottotitolo": {"it": "Accendi, spegni e riordina i blocchi di istruzioni: guarda l'email dell'agente migliorare o rompersi.", "en": "Switch on, switch off and reorder the instruction blocks: watch the agent's email improve or break."},
+ "segmenti": [
+  {
+   "id": "sei_blocchi",
+   "titolo": {"it": "1. Che cosa sono le istruzioni di sistema", "en": "1. What system instructions are"},
+   "narrazione": [
+    {"it": "Le istruzioni di sistema sono il testo che diamo all'agente prima di ogni lavoro: gli dicono chi è, che cosa deve ottenere e come deve comportarsi. Il lead (la persona che ha mostrato interesse) non le vede mai.", "en": "System instructions are the text we give the agent before every job: they tell it who it is, what it must achieve and how it must behave. The lead (the person who has shown interest) never sees them."},
+    {"it": "Qui l'agente scrive la prima email a un lead di Azienda Alfa. Le istruzioni sono divise in sei blocchi: tutti accesi, l'email è pulita.", "en": "Here the agent writes the first email to a lead at Alfa Ltd. The instructions are split into six blocks: with all of them on, the email is clean."}
+   ],
+   "prova": {"it": "Spegni un blocco alla volta (la casella accanto al nome) e guarda che cosa si rompe nell'email. Poi riaccendilo.", "en": "Switch off one block at a time (the box next to the name) and see what breaks in the email. Then switch it back on."},
+   "concetti": ["C19"],
+   "stato_animazione": {"attivi": {"ruolo": true, "obiettivo": true, "vincoli": true, "formato": true, "esempi": true, "dubbio": true}, "ordine": ["ruolo", "obiettivo", "vincoli", "formato", "esempi", "dubbio"], "vincoli_testo": "chiaro", "lead": "con_nome"}
+  },
+  {
+   "id": "vincoli",
+   "titolo": {"it": "2. I vincoli fermano le promesse inventate", "en": "2. Constraints stop made-up promises"},
+   "narrazione": [
+    {"it": "Un vincolo è una cosa che l'agente non deve fare, scritta in modo esplicito: «non promettere sconti», «non inventare dati».", "en": "A constraint is something the agent must not do, written explicitly: «do not promise discounts», «do not make up data»."},
+    {"it": "Senza vincoli l'agente cerca di convincere a tutti i costi e promette uno sconto del 30% che nessuno ha autorizzato. Per l'azienda è un problema vero.", "en": "Without constraints the agent tries to convince at all costs and promises a 30% discount nobody authorised. For the company it is a real problem."}
+   ],
+   "prova": {"it": "Guarda la riga rossa con lo sconto. Riaccendi «Vincoli»: lo sconto sparisce.", "en": "Look at the red line with the discount. Switch «Constraints» back on: the discount disappears."},
+   "concetti": ["C19"],
+   "stato_animazione": {"attivi": {"ruolo": true, "obiettivo": true, "vincoli": false, "formato": true, "esempi": true, "dubbio": true}, "ordine": ["ruolo", "obiettivo", "vincoli", "formato", "esempi", "dubbio"], "vincoli_testo": "chiaro", "lead": "con_nome"}
+  },
+  {
+   "id": "dubbio",
+   "titolo": {"it": "3. Il caso dubbio: nel CRM manca il nome", "en": "3. The doubtful case: the name is missing in the CRM"},
+   "narrazione": [
+    {"it": "Nel CRM (il programma dove teniamo i dati dei clienti) a volte un campo è vuoto. Qui manca il nome del contatto.", "en": "In the CRM (the program where we keep customer data) a field is sometimes empty. Here the contact's name is missing."},
+    {"it": "Se nessuno ha detto all'agente che cosa fare, l'email parte con «Gentile [Nome]». Il blocco «In caso di dubbio» gli dice di usare un saluto neutro e di segnalare il dato mancante.", "en": "If nobody told the agent what to do, the email starts with «Dear [Name]». The «If in doubt» block tells it to use a neutral greeting and to flag the missing data."}
+   ],
+   "prova": {"it": "Accendi «In caso di dubbio» e guarda il saluto cambiare. Poi prova a scegliere il lead con il nome.", "en": "Switch on «If in doubt» and watch the greeting change. Then try choosing the lead with a name."},
+   "concetti": ["C19"],
+   "stato_animazione": {"attivi": {"ruolo": true, "obiettivo": true, "vincoli": true, "formato": true, "esempi": true, "dubbio": false}, "ordine": ["ruolo", "obiettivo", "vincoli", "formato", "esempi", "dubbio"], "vincoli_testo": "chiaro", "lead": "senza_nome"}
+  },
+  {
+   "id": "esempi",
+   "titolo": {"it": "4. Gli esempi rendono l'agente costante", "en": "4. Examples make the agent consistent"},
+   "narrazione": [
+    {"it": "L'agente non scrive mai due volte la stessa email: ogni volta che lo facciamo lavorare, il testo può uscire un po' diverso. Ogni tentativo si chiama generazione.", "en": "The agent never writes the same email twice: every time we run it, the text can come out a bit different. Each attempt is called a generation."},
+    {"it": "Un esempio di email riuscita (in gergo «few-shot», cioè «pochi esempi») mostra il risultato atteso meglio di tante righe di spiegazione. Con gli esempi le versioni si somigliano; senza, ognuna va per conto suo.", "en": "An example of a good email (in jargon «few-shot», that is «a few examples») shows the expected result better than many lines of explanation. With examples the versions look alike; without them, each one goes its own way."}
+   ],
+   "prova": {"it": "Premi «Genera 5 volte» e leggi il contatore. Poi riaccendi «Esempi» e rigenera: quante versioni diverse restano?", "en": "Press «Generate 5 times» and read the counter. Then switch «Examples» back on and generate again: how many different versions are left?"},
+   "concetti": ["C20", "C19"],
+   "stato_animazione": {"attivi": {"ruolo": true, "obiettivo": true, "vincoli": true, "formato": true, "esempi": false, "dubbio": true}, "ordine": ["ruolo", "obiettivo", "vincoli", "formato", "esempi", "dubbio"], "vincoli_testo": "chiaro", "lead": "con_nome"}
+  },
+  {
+   "id": "ambiguo",
+   "titolo": {"it": "5. L'errore classico: l'istruzione ambigua", "en": "5. The classic mistake: the ambiguous instruction"},
+   "narrazione": [
+    {"it": "«Sii breve» sembra chiaro, ma breve quanto? Ogni generazione lo interpreta a modo suo: un'email da 22 parole, la successiva da 140. «Massimo 80 parole» invece si può controllare.", "en": "«Be brief» sounds clear, but how brief? Each generation interprets it its own way: one email of 22 words, the next of 140. «Maximum 80 words» instead can be checked."},
+    {"it": "Peggio ancora due istruzioni che si contraddicono, come «massimo 3 righe» e «elenca in dettaglio tutti i vantaggi»: vince quella che viene dopo, e basta spostare un blocco per cambiare l'email. Per questo le istruzioni si scrivono con cura, si provano e si conservano versione per versione.", "en": "Even worse are two instructions that contradict each other, such as «maximum 3 lines» and «list all the benefits in detail»: the one that comes later wins, and just moving a block changes the email. That is why instructions are written carefully, tested and kept version by version."}
+   ],
+   "prova": {"it": "Guarda le 5 lunghezze con «Sii breve». Poi scegli «In contrasto» e sposta «Formato» sopra e sotto «Vincoli» con le frecce: l'email cambia. Con «Chiaro», invece, l'ordine non cambia nulla.", "en": "Look at the 5 lengths with «Be brief». Then choose «Contradictory» and move «Format» above and below «Constraints» with the arrows: the email changes. With «Clear», instead, the order changes nothing."},
+   "concetti": ["C19", "C20"],
+   "stato_animazione": {"attivi": {"ruolo": true, "obiettivo": true, "vincoli": true, "formato": true, "esempi": true, "dubbio": true}, "ordine": ["ruolo", "obiettivo", "vincoli", "formato", "esempi", "dubbio"], "vincoli_testo": "ambiguo", "lead": "con_nome"}
+  },
+  {
+   "id": "riassunto",
+   "titolo": {"it": "In tre frasi", "en": "In three sentences"},
+   "narrazione": [
+    {"it": "Le istruzioni di sistema dicono all'agente ruolo, obiettivo, vincoli, formato e che cosa fare nei casi dubbi.", "en": "System instructions tell the agent its role, goal, constraints, format and what to do in doubtful cases."},
+    {"it": "Ogni blocco che manca produce un difetto preciso, e gli esempi rendono le email più costanti.", "en": "Every missing block produces a specific defect, and examples make the emails more consistent."},
+    {"it": "Le istruzioni vaghe danno risultati variabili, quelle contraddittorie risultati imprevedibili: vanno scritte chiare e provate.", "en": "Vague instructions give variable results, contradictory ones give unpredictable results: they must be written clearly and tested."}
+   ],
+   "concetti": ["C19", "C20"],
+   "stato_animazione": {"attivi": {"ruolo": true, "obiettivo": true, "vincoli": true, "formato": true, "esempi": true, "dubbio": true}, "ordine": ["ruolo", "obiettivo", "vincoli", "formato", "esempi", "dubbio"], "vincoli_testo": "chiaro", "lead": "con_nome"}
+  }
+ ],
+ "scenario": {
+  "azienda": {"it": "Azienda Alfa", "en": "Alfa Ltd"},
+  "blocchi": [
+   {"id": "ruolo", "nome": {"it": "Ruolo", "en": "Role"}, "testo": {"it": "Sei l'assistente marketing di Beta Software. Scrivi in modo professionale e cordiale.", "en": "You are the marketing assistant of Beta Software. Write in a professional, friendly way."}},
+   {"id": "obiettivo", "nome": {"it": "Obiettivo", "en": "Goal"}, "testo": {"it": "Obiettivo: ottenere una call di 20 minuti con il lead.", "en": "Goal: get a 20-minute call with the lead."}},
+   {"id": "vincoli", "nome": {"it": "Vincoli", "en": "Constraints"}, "varianti": {
+     "chiaro": {"it": "Massimo 80 parole. Non promettere sconti. Non inventare dati.", "en": "Maximum 80 words. Do not promise discounts. Do not make up data."},
+     "ambiguo": {"it": "Sii breve. Non promettere sconti. Non inventare dati.", "en": "Be brief. Do not promise discounts. Do not make up data."},
+     "contraddittorio": {"it": "Massimo 3 righe. Non promettere sconti. Non inventare dati.", "en": "Maximum 3 lines. Do not promise discounts. Do not make up data."}}},
+   {"id": "formato", "nome": {"it": "Formato", "en": "Format"}, "testo": {"it": "Formato: oggetto, saluto, testo, invito alla call, firma.", "en": "Format: subject, greeting, text, call invitation, signature."}, "testo_contraddittorio": {"it": "Formato: oggetto, saluto, elenco dettagliato di TUTTI i vantaggi, invito, firma.", "en": "Format: subject, greeting, detailed list of ALL the benefits, invitation, signature."}},
+   {"id": "esempi", "nome": {"it": "Esempi", "en": "Examples"}, "testo": {"it": "Esempio di email riuscita: «Gentile Paolo, ho visto che… Le andrebbe una call…?»", "en": "Example of a good email: «Dear Paolo, I saw that… Would you like a call…?»"}},
+   {"id": "dubbio", "nome": {"it": "In caso di dubbio", "en": "If in doubt"}, "testo": {"it": "Se manca un dato, come il nome, non inventarlo: usa un saluto neutro e segnalalo nel CRM.", "en": "If a piece of data is missing, like the name, do not make it up: use a neutral greeting and flag it in the CRM."}}
+  ],
+  "lead": [
+   {"id": "con_nome", "etichetta": {"it": "Lead con nome (Marta, Azienda Alfa)", "en": "Lead with a name (Marta, Alfa Ltd)"}, "nome": "Marta", "ha_nome": true},
+   {"id": "senza_nome", "etichetta": {"it": "Lead senza nome nel CRM", "en": "Lead with no name in the CRM"}, "nome": "", "ha_nome": false}
+  ],
+  "frasi": {
+   "oggetto": {"it": "{azienda}: rispondere ai nuovi lead in 5 minuti", "en": "{azienda}: answering new leads in 5 minutes"},
+   "manca_oggetto": {"it": "(nessun oggetto)", "en": "(no subject)"},
+   "manca_firma": {"it": "(nessuna firma: chi scrive?)", "en": "(no signature: who is writing?)"},
+   "saluto_formale": {"it": "Gentile {nome},", "en": "Dear {nome},"},
+   "saluto_neutro": {"it": "Buongiorno,", "en": "Good morning,"},
+   "saluto_segnaposto": {"it": "Gentile [Nome],", "en": "Dear [Name],"},
+   "saluto_informale": {"it": "Ciao {nome}!!", "en": "Hey {nome}!!"},
+   "saluto_informale_neutro": {"it": "Ciao!!", "en": "Hey!!"},
+   "saluto_informale_segnaposto": {"it": "Ciao [Nome]!!", "en": "Hey [Name]!!"},
+   "intro": {"it": "ho visto che {azienda} ha scaricato la nostra guida sui tempi di risposta ai lead.", "en": "I saw that {azienda} downloaded our guide on response times to leads."},
+   "intro_informale": {"it": "ho visto che avete scaricato la nostra guida, top!", "en": "saw you grabbed our guide, awesome!"},
+   "valore": {"it": "Con Beta CRM i vostri commerciali rispondono ai nuovi contatti in pochi minuti invece che in ore.", "en": "With Beta CRM your salespeople answer new contacts in a few minutes instead of hours."},
+   "valore_informale": {"it": "Il nostro CRM è una bomba: i tuoi venditori voleranno, fidati!", "en": "Our CRM is a blast: your sales folks will fly, trust me!"},
+   "dettagli": {"it": "Ecco tutti i vantaggi, uno per uno: assegnazione automatica dei lead, promemoria per ogni contatto, report settimanali, collegamento con l'email, app per il telefono, assistenza in italiano, formazione gratuita per tutto il team e aggiornamenti continui.", "en": "Here are all the benefits, one by one: automatic lead assignment, reminders for every contact, weekly reports, email integration, a phone app, local-language support, free training for the whole team and continuous updates."},
+   "divaga": {"it": "Vi raccontiamo anche la nostra storia, i nostri valori e i nostri nuovi uffici in centro.", "en": "Let us also tell you about our history, our values and our new offices downtown."},
+   "sconto": {"it": "Solo per voi, uno sconto del 30% se firmate entro venerdì!", "en": "Just for you, a 30% discount if you sign by Friday!"},
+   "cta": {"it": "Le andrebbe una call di 20 minuti martedì o mercoledì?", "en": "Would you like a 20-minute call on Tuesday or Wednesday?"},
+   "firma": {"it": "Giulia Neri, Marketing, Beta Software", "en": "Giulia Neri, Marketing, Beta Software"},
+   "nota_dubbio": {"it": "Nota per il team: nome del contatto mancante, segnalato nel CRM per completarlo.", "en": "Note for the team: contact name missing, flagged in the CRM to be completed."}
+  },
+  "difetti": [
+   {"id": "sconto", "nome": {"it": "Sconto inventato", "en": "Made-up discount"}, "spiega": {"it": "Senza vincoli l'agente promette uno sconto del 30% che nessuno ha autorizzato.", "en": "Without constraints the agent promises a 30% discount nobody authorised."}},
+   {"id": "segnaposto", "nome": {"it": "«[Nome]» nell'email", "en": "«[Name]» in the email"}, "spiega": {"it": "Il nome manca e nessuno ha detto all'agente che cosa fare: il lead legge un segnaposto, cioè una parola tra parentesi che andava sostituita.", "en": "The name is missing and nobody told the agent what to do: the lead reads a placeholder, that is, a word in brackets that should have been replaced."}},
+   {"id": "tono", "nome": {"it": "Tono sbagliato", "en": "Wrong tone"}, "spiega": {"it": "Senza ruolo l'agente non sa chi è né per chi scrive: il tono è da chat tra amici, non da azienda.", "en": "Without a role the agent does not know who it is or who it writes for: the tone is like a chat between friends, not a company."}},
+   {"id": "senza_cta", "nome": {"it": "Nessuna richiesta chiara", "en": "No clear request"}, "spiega": {"it": "Senza obiettivo l'email non chiede niente di preciso: il lead non sa che cosa fare dopo averla letta.", "en": "Without a goal the email asks for nothing specific: the lead does not know what to do after reading it."}},
+   {"id": "formato", "nome": {"it": "Mancano oggetto e firma", "en": "Subject and signature missing"}, "spiega": {"it": "Senza formato l'email non ha oggetto né firma: nella casella del lead sembra anonima e poco seria.", "en": "Without a format the email has no subject and no signature: in the lead's inbox it looks anonymous and unprofessional."}},
+   {"id": "ambiguo", "nome": {"it": "Istruzione ambigua", "en": "Ambiguous instruction"}, "spiega": {"it": "«Sii breve» non dice quanto: le 5 generazioni vanno da {min} a {max} parole.", "en": "«Be brief» does not say how brief: the 5 generations range from {min} to {max} words."}},
+   {"id": "conflitto", "nome": {"it": "Istruzioni in contrasto", "en": "Conflicting instructions"}, "spiega": {"it": "Vincoli e Formato si contraddicono e vince quella che viene dopo (ora: {vince}). Basta spostare un blocco per cambiare l'email: comportamento imprevedibile.", "en": "Constraints and Format contradict each other and the later one wins (now: {vince}). Moving a block is enough to change the email: unpredictable behaviour."}},
+   {"id": "variabilita", "nome": {"it": "Risultati che cambiano", "en": "Results that keep changing"}, "spiega": {"it": "Senza esempi ogni generazione segue una strada diversa: su 5 email escono {n} versioni diverse.", "en": "Without examples each generation takes a different path: out of 5 emails, {n} different versions come out."}}
+  ],
+  "parametri": {
+   "limite_parole": 80,
+   "lunghezze_ambiguo": [22, 140, 58, 96, 31],
+   "schema_conflitto": ["lunga", "corta", "corta", "lunga", "corta"],
+   "parole_corta": 30,
+   "parole_lunga": 150,
+   "scarto_piccolo": 3,
+   "scarto_grande": 15,
+   "parole_minime": 8,
+   "passo_lunghezza": 25,
+   "varianti_con_esempi": ["A", "A", "A", "A", "A"],
+   "varianti_con_esempi_ambiguo": ["A", "A", "B", "A", "A"],
+   "varianti_senza_esempi": ["A", "B", "C", "A", "D"],
+   "parole_scala": 160,
+   "soglia_variabilita_alta": 3,
+   "ms_riga": 380,
+   "ms_ritardo_riga": 60,
+   "ms_generazione": 220
+  },
+  "etichette": {
+   "titolo_comandi": {"it": "Le istruzioni (6 blocchi)", "en": "The instructions (6 blocks)"},
+   "aiuto_blocchi": {"it": "Casella = acceso/spento. Frecce o trascinamento = cambia l'ordine.", "en": "Box = on/off. Arrows or dragging = change the order."},
+   "blocchi": {"it": "Blocchi delle istruzioni", "en": "Instruction blocks"},
+   "accendi": {"it": "Accendi o spegni il blocco {blocco}", "en": "Switch the {blocco} block on or off"},
+   "su": {"it": "Sposta {blocco} più in alto", "en": "Move {blocco} up"},
+   "giu": {"it": "Sposta {blocco} più in basso", "en": "Move {blocco} down"},
+   "in_conflitto": {"it": "in contrasto", "en": "in conflict"},
+   "testo_vincoli": {"it": "Come sono scritti i vincoli", "en": "How the constraints are written"},
+   "vincoli_chiaro": {"it": "Chiaro: «massimo 80 parole»", "en": "Clear: «maximum 80 words»"},
+   "vincoli_ambiguo": {"it": "Ambiguo: «sii breve»", "en": "Ambiguous: «be brief»"},
+   "vincoli_contraddittorio": {"it": "In contrasto: «massimo 3 righe» + elenco dettagliato", "en": "Contradictory: «maximum 3 lines» + detailed list"},
+   "lead": {"it": "A chi scrive l'agente", "en": "Who the agent writes to"},
+   "anteprima": {"it": "Email scritta dall'agente", "en": "Email written by the agent"},
+   "destinatario": {"it": "a: lead di {azienda}", "en": "to: lead at {azienda}"},
+   "oggetto": {"it": "Oggetto:", "en": "Subject:"},
+   "parole": {"it": "{n} parole", "en": "{n} words"},
+   "parole_breve": {"it": "{n} parole", "en": "{n} words"},
+   "conta_difetti": {"it": "difetti: {n}", "en": "defects: {n}"},
+   "variabilita": {"it": "Variabilità su 5 generazioni:", "en": "Variability over 5 generations:"},
+   "contatore": {"it": "{n} versioni diverse su {totale}", "en": "{n} different versions out of {totale}"},
+   "versione": {"it": "n.{numero} · tipo {lettera}", "en": "no.{numero} · type {lettera}"},
+   "genera": {"it": "Genera 5 volte", "en": "Generate 5 times"},
+   "titolo_difetti": {"it": "Che cosa non va", "en": "What is wrong"},
+   "nessun_difetto": {"it": "Nessun difetto: email pulita, sempre simile a se stessa.", "en": "No defects: a clean email, always similar to itself."},
+   "descrizione_generazioni": {"it": "Cinque barre, una per generazione: l'altezza è la lunghezza dell'email, il colore è il tipo di struttura.", "en": "Five bars, one per generation: the height is the email length, the colour is the type of structure."}
+  }
+ },
+ "domande": []
+}

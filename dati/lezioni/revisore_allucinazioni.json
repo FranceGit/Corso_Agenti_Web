@@ -1,0 +1,666 @@
+{
+ "id": "L_revisore_allucinazioni",
+ "pillola": "P2.4",
+ "componente": "revisore_allucinazioni",
+ "titolo": {
+  "it": "Allucinazioni: fai tu il revisore",
+  "en": "Hallucinations: you be the reviewer"
+ },
+ "sottotitolo": {
+  "it": "Dai più o meno fonti all'agente, scegli l'agente onesto o quello che inventa, poi impara a riconoscere i segnali.",
+  "en": "Give the agent more or fewer sources, choose the honest agent or the one that makes things up, then learn to spot the signals."
+ },
+ "segmenti": [
+  {
+   "id": "tre_tipi",
+   "titolo": {
+    "it": "Verificato, ipotesi, inventato",
+    "en": "Verified, guess, made up"
+   },
+   "narrazione": [
+    {
+     "it": "L'agente arricchisce la scheda del lead Azienda Alfa: aggiunge settore, sede, fatturato e altri dati che il CRM (il programma con i dati dei clienti) non ha.",
+     "en": "The agent enriches the record of the lead Alfa Ltd: it adds sector, location, turnover and other data the CRM (the program with the customer data) does not have."
+    },
+    {
+     "it": "Ogni dato può essere di tre tipi: verificato (preso da un documento), ipotesi (una deduzione ragionevole, dichiarata come tale) o inventato. Un dato inventato ma credibile si chiama allucinazione.",
+     "en": "Each piece of data can be of three types: verified (taken from a document), guess (a reasonable deduction, declared as such) or made up. Made-up but believable data is called a hallucination."
+    }
+   ],
+   "prova": {
+    "it": "Porta il cursore «Fonti disponibili» da 3 a 0 e guarda cambiare i semafori.",
+    "en": "Move the «Available sources» slider from 3 to 0 and watch the traffic lights change."
+   },
+   "concetti": [
+    "C25",
+    "C07"
+   ],
+   "stato_animazione": {
+    "fonti": 3,
+    "non_so": true,
+    "citazioni": true,
+    "agente": "onesto",
+    "revisore": false
+   }
+  },
+  {
+   "id": "non_so",
+   "titolo": {
+    "it": "Senza fonti, il modello riempie comunque",
+    "en": "Without sources, the model fills in anyway"
+   },
+   "narrazione": [
+    {
+     "it": "Il modello scrive il testo più probabile, non controlla i fatti. Se gli chiedi di riempire tutte le caselle e non ha fonti, le riempie con dati plausibili: inventati.",
+     "en": "The model writes the most likely text, it does not check facts. If you ask it to fill every box and it has no sources, it fills them with plausible data: made up."
+    },
+    {
+     "it": "Una regola semplice cambia molto: permettergli di rispondere «non lo so».",
+     "en": "One simple rule changes a lot: allowing it to answer «I don't know»."
+    }
+   ],
+   "prova": {
+    "it": "Accendi «Consenti “non lo so”» e conta quanti campi rossi spariscono.",
+    "en": "Switch on «Allow “I don't know”» and count how many red fields disappear."
+   },
+   "concetti": [
+    "C07",
+    "C24"
+   ],
+   "stato_animazione": {
+    "fonti": 0,
+    "non_so": false,
+    "citazioni": true,
+    "agente": "onesto",
+    "revisore": false
+   }
+  },
+  {
+   "id": "grounding",
+   "titolo": {
+    "it": "Ancorare le risposte alle fonti",
+    "en": "Anchoring answers to sources"
+   },
+   "narrazione": [
+    {
+     "it": "Grounding (in italiano «ancorare») vuol dire legare ogni risposta a una fonte. Le tecniche sono quattro: dare i documenti all'agente, chiedere che citi da dove prende ogni dato, permettere «non lo so», controllare le risposte con i dati veri.",
+     "en": "Grounding means tying every answer to a source. There are four techniques: give the documents to the agent, ask it to cite where each piece of data comes from, allow «I don't know», check the answers against the real data."
+    },
+    {
+     "it": "La citazione è preziosa: ti dice dove andare a controllare.",
+     "en": "The citation is precious: it tells you where to go and check."
+    }
+   ],
+   "prova": {
+    "it": "Spegni «Chiedi le citazioni»: i dati restano uguali, ma non sai più da dove vengono.",
+    "en": "Switch off «Ask for citations»: the data stays the same, but you no longer know where it comes from."
+   },
+   "concetti": [
+    "C24"
+   ],
+   "stato_animazione": {
+    "fonti": 2,
+    "non_so": true,
+    "citazioni": true,
+    "agente": "onesto",
+    "revisore": false
+   }
+  },
+  {
+   "id": "inventa",
+   "titolo": {
+    "it": "L'agente che inventa",
+    "en": "The agent that makes things up"
+   },
+   "narrazione": [
+    {
+     "it": "Un agente fatto male ignora il «non lo so», presenta le ipotesi come fatti e può perfino citare un documento che nessuno gli ha dato.",
+     "en": "A badly built agent ignores «I don't know», presents guesses as facts and can even cite a document nobody gave it."
+    },
+    {
+     "it": "Il testo è fluido e sicuro come quello dell'agente onesto: a colpo d'occhio non vedi la differenza.",
+     "en": "The text is as smooth and confident as the honest agent's: at a glance you cannot see the difference."
+    }
+   ],
+   "prova": {
+    "it": "Passa da «Agente onesto» a «Agente che inventa» e confronta i semafori campo per campo.",
+    "en": "Switch from «Honest agent» to «Agent that makes things up» and compare the traffic lights field by field."
+   },
+   "concetti": [
+    "C07",
+    "C25"
+   ],
+   "stato_animazione": {
+    "fonti": 1,
+    "non_so": true,
+    "citazioni": true,
+    "agente": "inventa",
+    "revisore": false
+   }
+  },
+  {
+   "id": "revisore",
+   "titolo": {
+    "it": "Ora fai tu il revisore",
+    "en": "Now you be the reviewer"
+   },
+   "narrazione": [
+    {
+     "it": "I semafori sono spariti: vedi la scheda come la vedrebbe un collega. Etichetta ogni campo come verificato, ipotesi o inventato.",
+     "en": "The traffic lights are gone: you see the record as a colleague would. Label each field as verified, guess or made up."
+    },
+    {
+     "it": "I segnali da cercare: nessuna fonte citata, un numero troppo preciso senza origine, un dettaglio che nessun documento contiene, una deduzione scritta come se fosse certa.",
+     "en": "The signals to look for: no source cited, a number that is too precise with no origin, a detail no document contains, a deduction written as if it were certain."
+    }
+   ],
+   "prova": {
+    "it": "Etichetta tutti i campi e premi «Controlla». Poi cambia le fonti e riprova.",
+    "en": "Label all the fields and press «Check». Then change the sources and try again."
+   },
+   "concetti": [
+    "C25",
+    "C07",
+    "C24"
+   ],
+   "stato_animazione": {
+    "fonti": 1,
+    "non_so": true,
+    "citazioni": true,
+    "agente": "inventa",
+    "revisore": true
+   }
+  },
+  {
+   "id": "riassunto",
+   "titolo": {
+    "it": "In tre frasi",
+    "en": "In three sentences"
+   },
+   "narrazione": [
+    {
+     "it": "Ogni dato dell'agente è verificato, un'ipotesi o un'invenzione, e in un testo fluido i tre tipi sembrano uguali.",
+     "en": "Every piece of the agent's data is verified, a guess or an invention, and in smooth text the three types look the same."
+    },
+    {
+     "it": "Si riducono le invenzioni ancorando l'agente alle fonti: documenti nel contesto, citazioni, il permesso di dire «non lo so» e il controllo con i dati veri.",
+     "en": "Inventions are reduced by anchoring the agent to sources: documents in the context, citations, permission to say «I don't know» and checks against the real data."
+    },
+    {
+     "it": "Chi rivede il lavoro dell'agente cerca i segnali: niente fonte, numeri troppo precisi, dettagli che nessun documento contiene, ipotesi spacciate per fatti.",
+     "en": "Whoever reviews the agent's work looks for the signals: no source, numbers that are too precise, details no document contains, guesses passed off as facts."
+    }
+   ],
+   "prova": {
+    "it": "Fai il revisore con 0 fonti e l'agente che inventa: è il caso più difficile.",
+    "en": "Be the reviewer with 0 sources and the agent that makes things up: it is the hardest case."
+   },
+   "concetti": [
+    "C07",
+    "C24",
+    "C25"
+   ],
+   "stato_animazione": {
+    "fonti": 0,
+    "non_so": true,
+    "citazioni": true,
+    "agente": "inventa",
+    "revisore": true
+   }
+  }
+ ],
+ "scenario": {
+  "lead": {
+   "azienda": {
+    "it": "Azienda Alfa",
+    "en": "Alfa Ltd"
+   },
+   "base": [
+    {
+     "nome": {
+      "it": "Dipendenti",
+      "en": "Employees"
+     },
+     "valore": {
+      "it": "120",
+      "en": "120"
+     }
+    },
+    {
+     "nome": {
+      "it": "Chi ci ha scritto",
+      "en": "Who wrote to us"
+     },
+     "valore": {
+      "it": "Responsabile acquisti",
+      "en": "Purchasing manager"
+     }
+    }
+   ]
+  },
+  "documenti": [
+   {
+    "id": "d1",
+    "nome": {
+     "it": "Sito web di Alfa",
+     "en": "Alfa's website"
+    }
+   },
+   {
+    "id": "d2",
+    "nome": {
+     "it": "Annunci di lavoro di Alfa",
+     "en": "Alfa's job ads"
+    }
+   },
+   {
+    "id": "d3",
+    "nome": {
+     "it": "Nota del commerciale nel CRM",
+     "en": "Salesperson's note in the CRM"
+    }
+   }
+  ],
+  "fonte_falsa": {
+   "it": "Report di settore 2025",
+   "en": "2025 industry report"
+  },
+  "campi": [
+   {
+    "id": "settore",
+    "nome": {
+     "it": "Settore",
+     "en": "Sector"
+    },
+    "fonte": "d1",
+    "valore_fonte": {
+     "it": "Distribuzione di materiale elettrico",
+     "en": "Electrical supplies distribution"
+    },
+    "ipotesi": null,
+    "ipotesi_fatto": null,
+    "inventato": {
+     "it": "Logistica farmaceutica",
+     "en": "Pharmaceutical logistics"
+    },
+    "segnale": {
+     "it": "Dettaglio che nessun documento contiene.",
+     "en": "A detail no document contains."
+    }
+   },
+   {
+    "id": "sede",
+    "nome": {
+     "it": "Sede",
+     "en": "Location"
+    },
+    "fonte": "d1",
+    "valore_fonte": {
+     "it": "Bergamo",
+     "en": "Bergamo"
+    },
+    "ipotesi": null,
+    "ipotesi_fatto": null,
+    "inventato": {
+     "it": "Via Roma 12, Milano",
+     "en": "12 Via Roma, Milan"
+    },
+    "segnale": {
+     "it": "Indirizzo preciso che nessuna fonte riporta.",
+     "en": "A precise address no source reports."
+    }
+   },
+   {
+    "id": "fatturato",
+    "nome": {
+     "it": "Fatturato annuo",
+     "en": "Annual turnover"
+    },
+    "fonte": null,
+    "valore_fonte": null,
+    "ipotesi": {
+     "it": "Probabilmente fra 15 e 25 milioni di € (stima dai 120 dipendenti)",
+     "en": "Probably between €15m and €25m (estimate from the 120 employees)"
+    },
+    "ipotesi_fatto": {
+     "it": "20 milioni di €",
+     "en": "€20m"
+    },
+    "base": {
+     "it": "il numero dei dipendenti",
+     "en": "the number of employees"
+    },
+    "inventato": {
+     "it": "12,47 milioni di €",
+     "en": "€12.47m"
+    },
+    "segnale": {
+     "it": "Numero troppo preciso senza nessuna origine.",
+     "en": "A number that is too precise, with no origin at all."
+    }
+   },
+   {
+    "id": "crescita",
+    "nome": {
+     "it": "Sta crescendo?",
+     "en": "Is it growing?"
+    },
+    "fonte": "d2",
+    "valore_fonte": {
+     "it": "Sì: cerca 3 venditori",
+     "en": "Yes: it is hiring 3 salespeople"
+    },
+    "ipotesi": null,
+    "ipotesi_fatto": null,
+    "inventato": {
+     "it": "Sì: ha appena aperto 4 filiali",
+     "en": "Yes: it has just opened 4 branches"
+    },
+    "segnale": {
+     "it": "Dettaglio concreto che nessun documento contiene.",
+     "en": "A concrete detail no document contains."
+    }
+   },
+   {
+    "id": "software",
+    "nome": {
+     "it": "Strumento che usa oggi",
+     "en": "Tool it uses today"
+    },
+    "fonte": "d3",
+    "valore_fonte": {
+     "it": "Fogli Excel per seguire i clienti",
+     "en": "Excel sheets to track customers"
+    },
+    "ipotesi": {
+     "it": "Probabilmente fogli di calcolo o un CRM semplice (tipico a 120 dipendenti)",
+     "en": "Probably spreadsheets or a simple CRM (typical at 120 employees)"
+    },
+    "ipotesi_fatto": {
+     "it": "Fogli di calcolo",
+     "en": "Spreadsheets"
+    },
+    "base": {
+     "it": "la dimensione dell'azienda",
+     "en": "the size of the company"
+    },
+    "inventato": {
+     "it": "Il CRM «VendiPro», dal 2019",
+     "en": "The «VendiPro» CRM, since 2019"
+    },
+    "segnale": {
+     "it": "Nome e anno precisi che nessuna fonte riporta.",
+     "en": "A precise name and year no source reports."
+    }
+   },
+   {
+    "id": "problema",
+    "nome": {
+     "it": "Problema principale",
+     "en": "Main problem"
+    },
+    "fonte": "d3",
+    "valore_fonte": {
+     "it": "Perde richieste di preventivo nelle email",
+     "en": "It loses quote requests in its emails"
+    },
+    "ipotesi": {
+     "it": "Probabilmente fatica a seguire tutti i contatti",
+     "en": "Probably struggles to follow up all its contacts"
+    },
+    "ipotesi_fatto": {
+     "it": "Non riesce a seguire tutti i contatti",
+     "en": "It cannot follow up all its contacts"
+    },
+    "base": {
+     "it": "il fatto che ci ha scritto per un CRM",
+     "en": "the fact that it wrote to us about a CRM"
+    },
+    "inventato": {
+     "it": "Ha perso il 18% dei clienti l'anno scorso",
+     "en": "It lost 18% of its customers last year"
+    },
+    "segnale": {
+     "it": "Percentuale precisa senza nessuna origine.",
+     "en": "A precise percentage with no origin at all."
+    }
+   },
+   {
+    "id": "budget",
+    "nome": {
+     "it": "Budget",
+     "en": "Budget"
+    },
+    "fonte": null,
+    "valore_fonte": null,
+    "ipotesi": null,
+    "ipotesi_fatto": null,
+    "inventato": {
+     "it": "40.000 € già approvati",
+     "en": "€40,000 already approved"
+    },
+    "segnale": {
+     "it": "Cifra precisa che nessun documento contiene.",
+     "en": "A precise figure no document contains."
+    }
+   }
+  ],
+  "fonti": {
+   "min": 0,
+   "max": 3,
+   "etichetta": {
+    "it": "Fonti disponibili",
+    "en": "Available sources"
+   }
+  },
+  "agenti": [
+   {
+    "id": "onesto",
+    "nome": {
+     "it": "Agente onesto",
+     "en": "Honest agent"
+    }
+   },
+   {
+    "id": "inventa",
+    "nome": {
+     "it": "Agente che inventa",
+     "en": "Agent that makes things up"
+    }
+   }
+  ],
+  "origini": {
+   "verificato": {
+    "nome": {
+     "it": "verificato",
+     "en": "verified"
+    },
+    "simbolo": "✓"
+   },
+   "ipotesi": {
+    "nome": {
+     "it": "ipotesi",
+     "en": "guess"
+    },
+    "simbolo": "~"
+   },
+   "inventato": {
+    "nome": {
+     "it": "inventato",
+     "en": "made up"
+    },
+    "simbolo": "✗"
+   },
+   "sconosciuto": {
+    "nome": {
+     "it": "non lo so",
+     "en": "I don't know"
+    },
+    "simbolo": "?"
+   }
+  },
+  "tempi": {
+   "ms_campo": 170,
+   "ms_comparsa": 380
+  },
+  "testi": {
+   "sconosciuto": {
+    "it": "Non lo so: nessuna fonte lo dice.",
+    "en": "I don't know: no source says so."
+   },
+   "sig_verificato": {
+    "it": "Si trova nel documento «{doc}»: si può controllare.",
+    "en": "It is in the document «{doc}»: it can be checked."
+   },
+   "sig_verificato_cit": {
+    "it": "Cita «{doc}» e il documento lo contiene davvero.",
+    "en": "It cites «{doc}» and the document really contains it."
+   },
+   "sig_ipotesi_onesta": {
+    "it": "Dice «probabilmente»: è una deduzione, dichiarata come tale (indizio usato: {base}).",
+    "en": "It says «probably»: it is a deduction, declared as such (clue used: {base})."
+   },
+   "sig_ipotesi_fatto": {
+    "it": "Sembra un fatto, ma nessun documento lo dice: è una deduzione presentata come certa (indizio usato: {base}).",
+    "en": "It looks like a fact, but no document says it: it is a deduction presented as certain (clue used: {base})."
+   },
+   "sig_cit_falsa": {
+    "it": "Cita «{falsa}», che non è fra le fonti date.",
+    "en": "It cites «{falsa}», which is not among the sources given."
+   },
+   "sig_senza_cit": {
+    "it": "Nessuna fonte citata.",
+    "en": "No source cited."
+   },
+   "sig_sconosciuto": {
+    "it": "L'agente ha ammesso di non saperlo: nessuna allucinazione.",
+    "en": "The agent admitted it does not know: no hallucination."
+   },
+   "giusto": {
+    "it": "Giusto",
+    "en": "Right"
+   },
+   "sbagliato": {
+    "it": "Era {atteso}",
+    "en": "It was {atteso}"
+   },
+   "esito_bravo": {
+    "it": "Revisione perfetta: {giusti} su {totale}. Hai riconosciuto tutti i segnali.",
+    "en": "Perfect review: {giusti} out of {totale}. You spotted all the signals."
+   },
+   "esito_quasi": {
+    "it": "Revisione: {giusti} su {totale}. Rileggi i segnali dei campi sbagliati.",
+    "en": "Review: {giusti} out of {totale}. Reread the signals of the wrong fields."
+   },
+   "esito_male": {
+    "it": "Revisione: {giusti} su {totale}. Il testo fluido inganna: guarda fonti, citazioni e numeri troppo precisi.",
+    "en": "Review: {giusti} out of {totale}. Smooth text is deceiving: look at sources, citations and numbers that are too precise."
+   },
+   "esito_nulla": {
+    "it": "Nessun campo da controllare: l'agente ha risposto «non lo so» a tutto ciò che non aveva.",
+    "en": "No field to check: the agent answered «I don't know» to everything it did not have."
+   },
+   "riepilogo": {
+    "it": "{verificato} verificati · {ipotesi} ipotesi · {inventato} inventati · {sconosciuto} «non lo so»",
+    "en": "{verificato} verified · {ipotesi} guesses · {inventato} made up · {sconosciuto} «I don't know»"
+   }
+  },
+  "etichette": {
+   "titolo_comandi": {
+    "it": "Prova a cambiare",
+    "en": "Try changing"
+   },
+   "fonti_titolo": {
+    "it": "Fonti date all'agente",
+    "en": "Sources given to the agent"
+   },
+   "regole": {
+    "it": "Regole per l'agente",
+    "en": "Rules for the agent"
+   },
+   "non_so": {
+    "it": "Consenti «non lo so»",
+    "en": "Allow «I don't know»"
+   },
+   "citazioni": {
+    "it": "Chiedi le citazioni",
+    "en": "Ask for citations"
+   },
+   "agente": {
+    "it": "Quale agente",
+    "en": "Which agent"
+   },
+   "revisore": {
+    "it": "Fai tu il revisore",
+    "en": "You be the reviewer"
+   },
+   "scheda": {
+    "it": "Scheda arricchita dall'agente",
+    "en": "Record enriched by the agent"
+   },
+   "dal_crm": {
+    "it": "dal CRM",
+    "en": "from the CRM"
+   },
+   "nessuna_fonte": {
+    "it": "Nessun documento: l'agente lavora solo con quello che sa.",
+    "en": "No documents: the agent works only with what it knows."
+   },
+   "rifai": {
+    "it": "Rifai l'arricchimento",
+    "en": "Redo the enrichment"
+   },
+   "controlla": {
+    "it": "Controlla",
+    "en": "Check"
+   },
+   "etichetta_tutti": {
+    "it": "Etichetta tutti i campi per poter controllare.",
+    "en": "Label all the fields to be able to check."
+   },
+   "legenda": {
+    "it": "Legenda",
+    "en": "Key"
+   },
+   "segnali": {
+    "it": "Segnali da cercare",
+    "en": "Signals to look for"
+   },
+   "esito": {
+    "it": "Risultato",
+    "en": "Result"
+   },
+   "cambiato": {
+    "it": "Hai cambiato qualcosa: l'agente rifà la scheda.",
+    "en": "You changed something: the agent redoes the record."
+   },
+   "descrizione_scena": {
+    "it": "In alto i documenti dati all'agente, sotto la scheda del lead con un semaforo per ogni campo.",
+    "en": "At the top the documents given to the agent, below the lead record with a traffic light for each field."
+   }
+  },
+  "segnali_elenco": [
+   {
+    "it": "Nessuna fonte citata, mentre altri campi ne hanno una.",
+    "en": "No source cited, while other fields have one."
+   },
+   {
+    "it": "Un numero troppo preciso senza nessuna origine.",
+    "en": "A number that is too precise, with no origin at all."
+   },
+   {
+    "it": "Un dettaglio che nessun documento contiene.",
+    "en": "A detail no document contains."
+   },
+   {
+    "it": "Una deduzione scritta come se fosse certa.",
+    "en": "A deduction written as if it were certain."
+   },
+   {
+    "it": "Una citazione di un documento che non è fra le fonti date.",
+    "en": "A citation of a document that is not among the sources given."
+   }
+  ]
+ },
+ "domande": []
+}

@@ -1,5 +1,28 @@
 {
  "_why": "Traduzioni inglesi complete dei testi lunghi di alcune pillole (obiettivo, scaletta, progetto dell'animazione). L'estrattore le applica solo se il numero di voci della scaletta coincide con il documento: se il documento cambia, l'estrazione si ferma con un errore invece di accoppiare testi sbagliati.",
+ "P1.1": {
+  "obiettivo": "tell apart an assistant that generates text from an agent that pursues a goal by acting on external systems.",
+  "scaletta": [
+   "A conversational LLM receives a question and returns text. The work ends there.",
+   "An agent receives a goal, uses tools (CRM, email, calendar), observes the results and decides the next step.",
+   "Working definition: agent = model + tools + control logic, aimed at a goal.",
+   "CRM example with the request \"prepare the follow-ups for this week's hot leads\":\n- the chatbot writes a generic email;\n- the agent queries the CRM, filters the leads, drafts personalised emails and asks for approval.",
+   "Key message: agents are systems, not prompts."
+  ],
+  "animazione": "- What you see:\n- The screen is split into two vertical lanes. The same request (a card) enters both.\n- Left lane (chatbot): the card turns into a single speech bubble of text. The end.\n- Right lane (agent): the card becomes a \"goal\" pinned at the top. Then a ring of arrows lights up, linking three icons: CRM database, email envelope, calendar. Each call to an icon lights it up and sends back a small data packet, which lands in an \"observations\" panel. At the end a list of 4 drafts appears with an \"approve\" button.\n- Interaction:\n- The student chooses between three different requests: \"explain what lead nurturing is\", \"summarise this email\", \"update the status of the leads who replied\". They see that only the third fully activates the agent lane.\n- A \"show the step count\" switch makes the difference visible: 1 step against N steps.\n- Why it helps: it makes tangible that the difference is not in the \"intelligence\" of the text, but in the cycle of action on the systems."
+ },
+ "P1.2": {
+  "obiettivo": "understand the four model limits that shape every agent: tokens, probabilistic prediction, context window, \"frozen\" knowledge.",
+  "scaletta": [
+   "Text is split into tokens. Costs and limits are measured in tokens.",
+   "The model predicts the next token based on probability in the context: it generates plausible text, it does not check facts.",
+   "The context window is the most text considered in a single call. Whatever is left out does not exist for the model.",
+   "The model's knowledge stops at a date (cutoff). Today's CRM data must be supplied with every call.",
+   "Temperature sets how much the model varies its choice of tokens: low for classifying, higher for creative texts.",
+   "Consequence: hallucinations are an effect of the model's nature, not an occasional fault."
+  ],
+  "animazione": "- What you see:\n- The incomplete sentence \"The lead opened the email and ...\" appears. Below it, a histogram shows the 6 most likely tokens (\"clicked\", \"replied\", \"ignored\", ...).\n- A \"temperature\" slider reshapes the histogram: at low values one token dominates, at high values the bars even out. Pressing \"generate\" 5 times shows how much the continuations vary.\n- Second scene: a long strip of text (a customer's email) scrolls through a fixed-size box (the context window). The parts that leave the box fade. A token counter shows how full it is.\n- Third scene: a timeline with the \"cutoff date\" and \"today\". Today's CRM data appear to the right of the cutoff and stay outside the model's knowledge until they are dragged into the context box.\n- Why it helps: three abstract concepts (probability, context, cutoff) become three visible gestures: reshape, scroll, drag in."
+ },
  "P1.3": {
   "obiettivo": "describe the loop goal → reasoning → action → observation and understand why stop conditions are needed.",
   "scaletta": [
@@ -11,6 +34,84 @@
    "The Google day-1 whitepaper describes a similar five-phase loop. Check the exact wording against the downloaded text."
   ],
   "animazione": "- What you see:\n- A circle with four stations: Reason, Act, Observe, Update state. A light indicator travels round the circle.\n- Beside it, a \"state\" panel fills up with lines at each round: \"12 leads found\", \"3 without email\", \"drafts created: 9\".\n- Interaction:\n- The \"break the tool\" button makes the CRM icon return an error (\"contact not found\"). The indicator shows the reaction: a new attempt with different parameters, or a detour to \"ask a human\".\n- The \"maximum number of steps\" slider (from 3 to 20) shows that with a low limit the agent stops before finishing, and with no limit a repeated error creates an endless loop (the cost counter climbs).\n- Why it helps: it shows that observation is what makes the agent adaptive and that the limit is a protection, not a flaw."
+ },
+ "P1.4": {
+  "obiettivo": "recognise the components of an agent (model, tools, orchestration, memory/context) and what each one does.",
+  "scaletta": [
+   "Model: it reasons and generates; it is the \"decision engine\".",
+   "Tools: functions and APIs that let it read and change the outside world (CRM, email, web).",
+   "Orchestration: the code that runs the loop, the state, the rules, the limits and the control hand-offs.",
+   "Memory/context: what the agent knows right now (session) and what it keeps over time.",
+   "Each component has a typical way of breaking; knowing it helps you diagnose."
+  ],
+  "animazione": "- What you see:\n- The diagram of an agent breaks into 4 blocks that move apart, each with a label and an icon: chip = model, spanner = tools, stylised orchestra conductor = orchestration, filing cabinet = memory.\n- Interaction:\n- The student can switch off one block at a time and launch the same task (\"qualify the new leads\"):\n- without tools, the agent produces only hypothetical text;\n- without orchestration, it stops after one step or ignores the limits;\n- without memory, it contacts the same lead twice;\n- without the model, nothing decides.\n- Each fault is shown with an icon and a sentence.\n- Why it helps: \"what happens if it is missing\" fixes the function of each component better than a definition."
+ },
+ "P1.5": {
+  "obiettivo": "place a solution on the spectrum rules → AI function → LLM workflow → agent → multi-agent, and choose the minimum sufficient level.",
+  "scaletta": [
+   "Fixed rules: \"if the lead opens 3 emails, mark as hot\". It is predictable and cheap.",
+   "Isolated AI function: an LLM performs a single task (summary, text suggestion). Example for comparison: the vyapaar repo [R14], a CRM platform with AI functions but not very agentic.",
+   "LLM workflow: the steps are decided by a human, the LLM carries them out (e.g. scoring → email).",
+   "Agent: the model chooses which steps to take and in what order.",
+   "Multi-agent: several specialised agents work together.",
+   "The Google whitepaper [G1] proposes a similar taxonomy of levels, to be checked against the text. Rule: more autonomy means more flexibility, but also less predictability, more cost and more risk. You choose the minimum level that solves the problem."
+  ],
+  "animazione": "- What you see:\n- A horizontal slider with 5 marks. Above it there is a process diagram that changes:\n- mark 1: a flowchart with fixed arrows;\n- mark 2: an \"AI\" box in a single node;\n- mark 3: AI boxes in several nodes, but arrows still fixed;\n- mark 4: the arrows become dashed and are \"drawn\" at runtime by the agent;\n- mark 5: several agents exchange messages.\n- On the side, four indicators move together with the slider: flexibility ↑, predictability ↓, cost ↑, risk ↑.\n- Interaction: the student drags three scenarios (e.g. \"sending the same monthly newsletter to everyone\", \"replying to very variable quote requests\", \"summarising a call\") onto the mark they think is right and receives reasoned feedback.\n- Why it helps: it shows the trade-off visually. Autonomy is not \"better\" in absolute terms."
+ },
+ "P1.6": {
+  "obiettivo": "map the CRM/marketing tasks where an agent creates value and those that require caution.",
+  "scaletta": [
+   "The CRM combines structured data (fields, stages) and unstructured data (emails, notes, calls).",
+   "There are many repetitive tasks along the funnel: qualification, enrichment, outreach, classification of replies, pipeline monitoring, risk of abandonment (churn). Examples of roles in the repos [R11] and [R13].",
+   "Value is created when volume is high, criteria can be made explicit and the outcome is measurable.",
+   "The cautions concern personal data, brand reputation, spam risk, decisions with economic impact.",
+   "Human checkpoints are needed where a mistake costs the most."
+  ],
+  "animazione": "- What you see:\n- A vertical funnel (visitor → lead → marketing qualified lead → sales qualified lead → opportunity → customer). Coloured dots (fictitious leads) move down the funnel.\n- For each stage, an agent icon \"docks\" on the side. Clicking it opens a card with task, input, output and \"human checkpoint: yes/no\".\n- Interaction:\n- The student adjusts the \"daily volume\" and sees in which stages the agent saves the most time (time-saved bars).\n- The student adjusts the \"cost of a mistake\" and sees human approval padlocks appear automatically on the risky stages.\n- Why it helps: it connects abstract concepts to the process the audience already knows."
+ },
+ "P2.1": {
+  "obiettivo": "compose effective system instructions for a CRM agent.",
+  "scaletta": [
+   "System instructions define role, goal, constraints, format and behaviour in doubtful cases.",
+   "Explicit constraints matter: \"do not promise discounts\", \"do not make up data\", \"if a piece of information is missing, ask\".",
+   "Examples (few-shot) show the expected result better than many lines of description.",
+   "Vague instructions produce variable behaviour. Contradictory instructions produce unpredictable behaviour.",
+   "Instructions are a versioned and tested artefact, not a text written once."
+  ],
+  "animazione": "- What you see:\n- On the left, 6 draggable blocks: Role, Goal, Constraints, Format, Examples, \"If in doubt\".\n- On the right, the preview of a generated outreach email (pre-computed for every combination of blocks).\n- Interaction:\n- Removing \"Constraints\", a made-up discount appears in the preview, highlighted in red.\n- Removing \"Format\", the email loses its subject and signature.\n- Removing \"If in doubt\", with a lead without a name the email starts with \"Dear [Name]\".\n- A \"variability\" counter shows how many different versions come out of 5 generations, with and without examples.\n- Why it helps: it connects each block of the instructions to a visible, concrete defect."
+ },
+ "P2.2": {
+  "obiettivo": "understand why an agent that writes into the CRM must produce structured, validated output.",
+  "scaletta": [
+   "Free text suits a person. A system (CRM, database) needs fields.",
+   "The output schema (e.g. JSON) defines field names, types, allowed values (e.g. category ∈ {interested, not interested, call back later}) and mandatory fields.",
+   "Validation checks the output before writing it. If it is not valid: a new attempt or escalation.",
+   "A \"reason\" field next to the score makes the decision checkable.",
+   "Example: the repo [R11] uses typed data models for the steps of the pipeline."
+  ],
+  "animazione": "- What you see:\n- Two flows leave the same agent. One produces a sentence (\"I'd say the lead is fairly interesting, maybe 70?\"); the other produces a small JSON block with `score: 70`, `band: \"high\"`, `reason: \"...\"`.\n- Both reach a gate leading to a CRM table. The sentence gets stuck and is rejected. The JSON breaks apart and each value slides into its column.\n- Interaction: the student can \"break\" the JSON (band \"very high\", not allowed; missing field). The gate turns red, points to the wrong field and restarts the agent with the error message.\n- Why it helps: it makes the difference between \"understandable for a human\" and \"usable by a system\" obvious."
+ },
+ "P2.3": {
+  "obiettivo": "recognise two reasoning patterns of agents (ReAct and plan-then-execute) and task decomposition.",
+  "scaletta": [
+   "Decomposition: a complex goal becomes sub-tasks.",
+   "ReAct (Reason + Act) alternates reasoning → action → observation, one step at a time. The repo [R10] uses it to explore the tools progressively.",
+   "Plan-then-execute: first a complete plan, then the execution, with replanning if something fails.",
+   "Comparison: ReAct is more adaptive but less predictable; the explicit plan is more controllable and easier to approve.",
+   "Visible reasoning is useful for debugging, but it is no guarantee of correctness."
+  ],
+  "animazione": "- What you see: the task \"prepare a report on this quarter's hot leads and send it to the manager\".\n- ReAct mode: a horizontal timeline where Thought (cloud), Action (gear) and Observation (magnifying glass) cards alternate. The cards appear one at a time and each Thought quotes the previous Observation.\n- Plan mode: a 5-step checklist appears straight away. The steps get ticked. At step 3 the tool fails: the checklist rewrites itself (replanning) and the changed part is highlighted.\n- Interaction: a switch moves from one mode to the other on the same task. Two counters compare \"total steps\" and \"points where a human can approve\".\n- Why it helps: the side-by-side comparison on the same task makes adaptivity and controllability visible."
+ },
+ "P2.4": {
+  "obiettivo": "tell verified data, inference and invention apart; know the techniques to anchor (ground) answers to sources.",
+  "scaletta": [
+   "A hallucination is plausible content that the data does not support.",
+   "The README of the repo [R11] states that the enrichment agent \"hallucinates/infers\" persona and pain points: it is a perfect teaching case.",
+   "Three categories: verified (from a source, with a reference), inferred (a reasonable hypothesis, to be labelled), invented (to be avoided).",
+   "The grounding techniques are: provide the sources in the context, ask for citations, allow \"I don't know\", validate against the data.",
+   "Inferences must be labelled as such, because whoever uses them needs to know how far to trust them."
+  ],
+  "animazione": "- What you see:\n- A lead record (Alfa Ltd, 120 employees, role: purchasing manager) is enriched with new fields. Each field gets an origin icon: ✓ with a link for \"from a source\", ~ with the label \"guess\" for \"inferred\", ✗ for \"no basis\".\n- Interaction:\n- The \"available sources\" slider (from 0 to 3 documents) changes the icons: with 0 sources many fields become ✗; with 3 sources they become ✓.\n- The \"allow 'I don't know'\" switch turns the ✗ fields into \"unknown\".\n- Why it helps: it visually separates the three types of content, which look identical in smooth text."
  },
  "P4.1": {
   "obiettivo": "describe the mechanism by which the model requests an action and the system carries it out.",

@@ -19,7 +19,8 @@ DATI = RADICE_PROGETTO / "dati"
 def test_rapporto_erogabilita(catalogo_vero):
     r = catalogo_vero.rapporto()
     assert r["pillole"] == 40 and r["concetti"] == 79 and r["archi"] == 128
-    assert r["lezioni_interattive"] == ["P1.3", "P4.1"]
+    # lezioni interattive: il dimostratore (P1.3, P4.1) + il batch 1 (tutte le altre pillole dei moduli M1 e M2)
+    assert r["lezioni_interattive"] == ["P1.1", "P1.2", "P1.3", "P1.4", "P1.5", "P1.6", "P2.1", "P2.2", "P2.3", "P2.4", "P4.1"]
     assert r["domande_totali"] == 131
     # dall'upgrade del 16/11/2026 anche le 120 domande benchmark sono conformi: tutte erogabili
     assert r["domande_erogabili"] == 131

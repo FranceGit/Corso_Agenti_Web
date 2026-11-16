@@ -1,0 +1,218 @@
+{
+ "id": "L_react_piano",
+ "pillola": "P2.3",
+ "componente": "react_piano",
+ "titolo": {"it": "Ragionare e pianificare: un passo alla volta o tutto il piano prima", "en": "Reasoning and planning: one step at a time or the whole plan first"},
+ "sottotitolo": {"it": "Segui il ragionamento dell'agente, prova a indovinare la sua prossima mossa e mettilo in difficoltà con gli imprevisti.", "en": "Follow the agent's reasoning, try to guess its next move and challenge it with surprises."},
+ "segmenti": [
+  {
+   "id": "react",
+   "titolo": {"it": "Pensa, agisci, osserva", "en": "Think, act, observe"},
+   "narrazione": [
+    {"it": "Il compito è: «prepara un report sui lead caldi del trimestre e invialo al responsabile». Un lead caldo è un contatto pronto per parlare con un commerciale.", "en": "The task is: «prepare a report on this quarter's hot leads and send it to the manager». A hot lead is a contact ready to talk to a salesperson."},
+    {"it": "Qui l'agente lavora in modo ReAct (dall'inglese «ragiona e agisci»): scrive un pensiero, fa un'azione con uno strumento, osserva il risultato. Poi ricomincia. Ogni nuovo pensiero parte da quello che ha appena osservato.", "en": "Here the agent works in ReAct mode (short for «reason and act»): it writes a thought, takes an action with a tool, observes the result. Then it starts again. Each new thought starts from what it has just observed."}
+   ],
+   "prova": {"it": "Premi «Un passo» più volte: guarda ogni Pensiero illuminare l'Osservazione da cui nasce.", "en": "Press «One step» several times: watch each Thought light up the Observation it comes from."},
+   "concetti": ["C22"],
+   "stato_animazione": {"modalita": "react", "imprevisto": "nessuno", "guasto_passo3": false, "indovina": false, "dato_sbagliato": false}
+  },
+  {
+   "id": "indovina",
+   "titolo": {"it": "Indovina la prossima mossa", "en": "Guess the next move"},
+   "narrazione": [
+    {"it": "Il ragionamento visibile serve anche a te: leggendo il pensiero capisci che cosa farà l'agente e perché.", "en": "The visible reasoning is useful to you too: by reading the thought you understand what the agent will do and why."},
+    {"it": "Prima di ogni azione l'animazione si ferma e ti chiede quale sarà la mossa. Rispondi pensando all'obiettivo e all'ultima osservazione.", "en": "Before each action the animation stops and asks you what the move will be. Answer by thinking about the goal and the last observation."}
+   ],
+   "prova": {"it": "Premi «Avvia» e scegli la mossa ogni volta che compare la domanda.", "en": "Press «Start» and choose the move each time the question appears."},
+   "concetti": ["C22"],
+   "stato_animazione": {"modalita": "react", "imprevisto": "nessuno", "guasto_passo3": false, "indovina": true, "dato_sbagliato": false}
+  },
+  {
+   "id": "imprevisti",
+   "titolo": {"it": "Gli imprevisti: ReAct si adatta", "en": "Surprises: ReAct adapts"},
+   "narrazione": [
+    {"it": "Il CRM (il programma dove l'azienda tiene i dati dei clienti) risponde: zero lead caldi. È strano, in tre mesi.", "en": "The CRM (the program where the company keeps its customer data) answers: zero hot leads. That is odd, over three months."},
+    {"it": "Siccome decide un passo alla volta, l'agente ReAct cambia strada subito: prova un'altra ricerca. È il suo punto forte, ma rende anche più difficile sapere in anticipo che cosa farà.", "en": "Because it decides one step at a time, the ReAct agent changes course straight away: it tries another search. That is its strength, but it also makes it harder to know in advance what it will do."}
+   ],
+   "prova": {"it": "Scegli l'imprevisto «Manca l'email del responsabile» e guarda come reagisce.", "en": "Choose the surprise «The manager's email is missing» and watch how it reacts."},
+   "concetti": ["C22"],
+   "stato_animazione": {"modalita": "react", "imprevisto": "zero_lead", "guasto_passo3": false, "indovina": false, "dato_sbagliato": false}
+  },
+  {
+   "id": "piano",
+   "titolo": {"it": "Prima il piano, poi l'esecuzione", "en": "First the plan, then the execution"},
+   "narrazione": [
+    {"it": "L'altro modo è pianifica-poi-esegui: l'agente scompone l'obiettivo in sotto-compiti (decomposizione) e scrive subito una lista di 5 passi. Una persona può approvarla prima che parta.", "en": "The other way is plan-then-execute: the agent breaks the goal down into sub-tasks (decomposition) and writes a list of 5 steps straight away. A person can approve it before it starts."},
+    {"it": "Al passo 3 lo strumento dei grafici si guasta: l'agente riscrive la lista (ripianifica) e la parte cambiata si vede in giallo. Più controllabile, meno agile.", "en": "At step 3 the charts tool breaks: the agent rewrites the list (replans) and the changed part shows in yellow. More controllable, less agile."}
+   ],
+   "prova": {"it": "Confronta i due contatori a destra: passi totali e punti in cui una persona può approvare. Poi spegni il guasto.", "en": "Compare the two counters on the right: total steps and points where a person can approve. Then switch the fault off."},
+   "concetti": ["C23"],
+   "stato_animazione": {"modalita": "piano", "imprevisto": "nessuno", "guasto_passo3": true, "indovina": false, "dato_sbagliato": false}
+  },
+  {
+   "id": "attenzione",
+   "titolo": {"it": "Un pensiero convincente può essere sbagliato", "en": "A convincing thought can be wrong"},
+   "narrazione": [
+    {"it": "Qui l'osservazione dice chiaramente che il valore riguarda l'anno intero, non il trimestre. Il pensiero dopo però suona sicuro: «trimestre record!».", "en": "Here the observation clearly says the value covers the whole year, not the quarter. The next thought, though, sounds confident: «record quarter!»."},
+    {"it": "Vedere il ragionamento ti permette di accorgerti dell'errore. Non garantisce che il ragionamento sia giusto: va sempre letto con occhio critico.", "en": "Seeing the reasoning lets you notice the mistake. It does not guarantee the reasoning is right: it must always be read with a critical eye."}
+   ],
+   "prova": {"it": "Avvia e trova la card segnata in rosso: confrontala con l'osservazione che cita.", "en": "Start and find the card marked in red: compare it with the observation it quotes."},
+   "concetti": ["C22", "C23"],
+   "stato_animazione": {"modalita": "react", "imprevisto": "nessuno", "guasto_passo3": false, "indovina": false, "dato_sbagliato": true}
+  },
+  {
+   "id": "riassunto",
+   "titolo": {"it": "In tre frasi", "en": "In three sentences"},
+   "narrazione": [
+    {"it": "Con ReAct l'agente alterna pensiero, azione e osservazione un passo alla volta, e così si adatta subito agli imprevisti.", "en": "With ReAct the agent alternates thought, action and observation one step at a time, and so it adapts straight away to surprises."},
+    {"it": "Con pianifica-poi-esegui l'agente scompone l'obiettivo in una lista di passi che una persona può approvare, e la riscrive se qualcosa si rompe.", "en": "With plan-then-execute the agent breaks the goal into a list of steps a person can approve, and rewrites it if something breaks."},
+    {"it": "Il ragionamento visibile aiuta a capire e a correggere l'agente, ma non è una garanzia che abbia ragione.", "en": "Visible reasoning helps you understand and correct the agent, but it is no guarantee that it is right."}
+   ],
+   "prova": {"it": "Passa da «ReAct» a «Piano» con lo stesso imprevisto e confronta i contatori.", "en": "Switch from «ReAct» to «Plan» with the same surprise and compare the counters."},
+   "concetti": ["C22", "C23"],
+   "stato_animazione": {"modalita": "react", "imprevisto": "email_mancante", "guasto_passo3": false, "indovina": false, "dato_sbagliato": false}
+  }
+ ],
+ "scenario": {
+  "compito": {"it": "Prepara un report sui lead caldi del trimestre e invialo al responsabile.", "en": "Prepare a report on this quarter's hot leads and send it to the manager."},
+  "modalita": [
+   {"id": "react", "nome": {"it": "ReAct: un passo alla volta", "en": "ReAct: one step at a time"}},
+   {"id": "piano", "nome": {"it": "Piano: prima tutta la lista", "en": "Plan: the whole list first"}}
+  ],
+  "imprevisti": [
+   {"id": "nessuno", "nome": {"it": "Nessun imprevisto", "en": "No surprise"}},
+   {"id": "zero_lead", "nome": {"it": "Il CRM trova 0 lead caldi", "en": "The CRM finds 0 hot leads"}},
+   {"id": "email_mancante", "nome": {"it": "Manca l'email del responsabile", "en": "The manager's email is missing"}}
+  ],
+  "mosse": {
+   "cerca_caldi": {"testo": {"it": "CRM: cerca i lead con stato «caldo» degli ultimi 3 mesi", "en": "CRM: search leads with status «hot» from the last 3 months"}, "strumento": {"it": "CRM", "en": "CRM"}, "approvazione": false,
+    "scelte": [
+     {"id": "a", "giusta": true, "testo": {"it": "Cercare nel CRM i lead caldi", "en": "Search the CRM for hot leads"}, "perche": {"it": "Giusto: senza i lead non c'è report. È il primo dato che serve.", "en": "Right: without the leads there is no report. It is the first data needed."}},
+     {"id": "b", "giusta": false, "testo": {"it": "Scrivere subito il report", "en": "Write the report straight away"}, "perche": {"it": "Non ancora: l'agente non sa ancora quali sono i lead caldi.", "en": "Not yet: the agent does not know yet which leads are hot."}},
+     {"id": "c", "giusta": false, "testo": {"it": "Mandare un'email al responsabile", "en": "Send an email to the manager"}, "perche": {"it": "Troppo presto: non ha ancora niente da mandare.", "en": "Too early: it has nothing to send yet."}}
+    ]},
+   "cerca_punteggio": {"testo": {"it": "CRM: cerca i lead con punteggio da 60 in su, ultimi 3 mesi", "en": "CRM: search leads with a score of 60 or more, last 3 months"}, "strumento": {"it": "CRM", "en": "CRM"}, "approvazione": false,
+    "scelte": [
+     {"id": "a", "giusta": true, "testo": {"it": "Rifare la ricerca in un altro modo", "en": "Redo the search another way"}, "perche": {"it": "Giusto: zero è sospetto, quindi prova un filtro diverso invece di arrendersi.", "en": "Right: zero is suspicious, so it tries a different filter instead of giving up."}},
+     {"id": "b", "giusta": false, "testo": {"it": "Mandare un report con zero lead", "en": "Send a report with zero leads"}, "perche": {"it": "Un report vuoto basato su un dato sospetto non serve a nessuno.", "en": "An empty report based on suspicious data helps nobody."}},
+     {"id": "c", "giusta": false, "testo": {"it": "Inventare una lista di lead plausibili", "en": "Make up a list of plausible leads"}, "perche": {"it": "Mai inventare dati: il report sarebbe falso.", "en": "Never make up data: the report would be false."}}
+    ]},
+   "valore": {"testo": {"it": "CRM: somma il valore delle trattative aperte di questi lead", "en": "CRM: add up the value of these leads' open deals"}, "strumento": {"it": "CRM", "en": "CRM"}, "approvazione": false,
+    "scelte": [
+     {"id": "a", "giusta": true, "testo": {"it": "Chiedere al CRM il valore delle trattative", "en": "Ask the CRM for the deal values"}, "perche": {"it": "Giusto: il pensiero dice che al report manca il valore delle trattative.", "en": "Right: the thought says the report is missing the deal values."}},
+     {"id": "b", "giusta": false, "testo": {"it": "Cercare di nuovo i lead caldi", "en": "Search for the hot leads again"}, "perche": {"it": "Li ha già: l'osservazione precedente li ha trovati.", "en": "It already has them: the previous observation found them."}},
+     {"id": "c", "giusta": false, "testo": {"it": "Stimare il valore a occhio", "en": "Estimate the value by eye"}, "perche": {"it": "Una stima a occhio non è un dato: meglio chiederlo al CRM.", "en": "An estimate by eye is not data: better to ask the CRM."}}
+    ]},
+   "scrivi": {"testo": {"it": "Documenti: scrive la bozza del report", "en": "Documents: writes the report draft"}, "strumento": {"it": "Documenti", "en": "Documents"}, "approvazione": false,
+    "scelte": [
+     {"id": "a", "giusta": true, "testo": {"it": "Scrivere la bozza del report", "en": "Write the report draft"}, "perche": {"it": "Giusto: ha lead e valori, quindi può scrivere.", "en": "Right: it has leads and values, so it can write."}},
+     {"id": "b", "giusta": false, "testo": {"it": "Inviare i dati grezzi al responsabile", "en": "Send the raw data to the manager"}, "perche": {"it": "Il compito chiede un report, non una tabella di numeri.", "en": "The task asks for a report, not a table of numbers."}},
+     {"id": "c", "giusta": false, "testo": {"it": "Ricominciare da capo per sicurezza", "en": "Start again from scratch to be safe"}, "perche": {"it": "Rifare tutto non aggiunge niente: le osservazioni sono già buone.", "en": "Redoing everything adds nothing: the observations are already good."}}
+    ]},
+   "rubrica": {"testo": {"it": "Rubrica: cerca l'email del responsabile", "en": "Address book: look up the manager's email"}, "strumento": {"it": "Rubrica", "en": "Address book"}, "approvazione": false,
+    "scelte": [
+     {"id": "a", "giusta": true, "testo": {"it": "Cercare l'email del responsabile", "en": "Look up the manager's email"}, "perche": {"it": "Giusto: per inviare serve l'indirizzo, e il pensiero lo dice.", "en": "Right: sending needs the address, and the thought says so."}},
+     {"id": "b", "giusta": false, "testo": {"it": "Indovinare l'indirizzo dal nome", "en": "Guess the address from the name"}, "perche": {"it": "Un indirizzo indovinato può finire alla persona sbagliata.", "en": "A guessed address can end up with the wrong person."}},
+     {"id": "c", "giusta": false, "testo": {"it": "Riscrivere il report", "en": "Rewrite the report"}, "perche": {"it": "Il report è già pronto: ora manca solo il destinatario.", "en": "The report is already done: only the recipient is missing now."}}
+    ]},
+   "chiedi": {"testo": {"it": "Chat del team: chiede a una persona l'email del responsabile", "en": "Team chat: asks a person for the manager's email"}, "strumento": {"it": "Team", "en": "Team"}, "approvazione": true,
+    "scelte": [
+     {"id": "a", "giusta": true, "testo": {"it": "Chiedere l'indirizzo a una persona", "en": "Ask a person for the address"}, "perche": {"it": "Giusto: il dato manca e non va inventato. Una persona lo sa.", "en": "Right: the data is missing and must not be made up. A person knows it."}},
+     {"id": "b", "giusta": false, "testo": {"it": "Inventare un indirizzo verosimile", "en": "Make up a believable address"}, "perche": {"it": "Mai inventare: il report potrebbe arrivare a uno sconosciuto.", "en": "Never make things up: the report could reach a stranger."}},
+     {"id": "c", "giusta": false, "testo": {"it": "Rinunciare e cancellare il report", "en": "Give up and delete the report"}, "perche": {"it": "Troppo drastico: basta chiedere il dato che manca.", "en": "Too drastic: it just needs to ask for the missing data."}}
+    ]},
+   "invia": {"testo": {"it": "Email: invia il report, dopo l'approvazione di una persona", "en": "Email: sends the report, after a person's approval"}, "strumento": {"it": "Email", "en": "Email"}, "approvazione": true,
+    "scelte": [
+     {"id": "a", "giusta": true, "testo": {"it": "Inviare, ma solo dopo un'approvazione", "en": "Send, but only after an approval"}, "perche": {"it": "Giusto: scrivere a una persona è delicato, quindi prima qualcuno controlla.", "en": "Right: writing to a person is delicate, so someone checks first."}},
+     {"id": "b", "giusta": false, "testo": {"it": "Inviare subito senza chiedere", "en": "Send straight away without asking"}, "perche": {"it": "Funzionerebbe, ma un errore arriverebbe dritto al responsabile.", "en": "It would work, but a mistake would go straight to the manager."}},
+     {"id": "c", "giusta": false, "testo": {"it": "Cercare altri lead da aggiungere", "en": "Look for more leads to add"}, "perche": {"it": "Il report è completo: il compito ora è consegnarlo.", "en": "The report is complete: the job now is to deliver it."}}
+    ]}
+  },
+  "piano": {
+   "q1": {"it": "Cerca nel CRM i lead caldi del trimestre", "en": "Search the CRM for this quarter's hot leads"},
+   "q1b": {"it": "Cerca i lead con punteggio da 60 in su (al posto dello stato «caldo»)", "en": "Search leads with a score of 60 or more (instead of the «hot» status)"},
+   "q2": {"it": "Somma il valore delle trattative aperte", "en": "Add up the value of the open deals"},
+   "q3": {"it": "Prepara il grafico con lo strumento dei grafici", "en": "Prepare the chart with the charts tool"},
+   "q3a": {"it": "Usa la tabella del CRM al posto del grafico", "en": "Use the CRM table instead of the chart"},
+   "q4": {"it": "Scrivi il report", "en": "Write the report"},
+   "q5": {"it": "Invia il report al responsabile (dopo l'approvazione)", "en": "Send the report to the manager (after approval)"},
+   "q5a": {"it": "Chiedi a una persona l'email del responsabile", "en": "Ask a person for the manager's email"},
+   "q5b": {"it": "Invia il report all'indirizzo ricevuto (dopo l'approvazione)", "en": "Send the report to the address received (after approval)"}
+  },
+  "tempi": {"ms_per_fase": 1100, "ms_comparsa": 420, "velocita_min": 0.5, "velocita_max": 2.5, "velocita_iniziale": 1},
+  "testi": {
+   "r_p1": {"it": "Per il report mi servono prima i lead caldi del trimestre: li chiedo al CRM.", "en": "For the report I first need this quarter's hot leads: I ask the CRM."},
+   "r_o1": {"it": "Trovati 18 lead caldi.", "en": "Found 18 hot leads."},
+   "r_o1_zero": {"it": "Trovati 0 lead caldi.", "en": "Found 0 hot leads."},
+   "r_p1z": {"it": "Zero lead caldi in tre mesi è strano: forse nel CRM lo stato si chiama in un altro modo. Cerco per punteggio.", "en": "Zero hot leads in three months is odd: maybe the status has another name in the CRM. I search by score."},
+   "r_o1z": {"it": "Trovati 18 lead con punteggio da 60 in su: sono i lead caldi.", "en": "Found 18 leads with a score of 60 or more: these are the hot leads."},
+   "r_p2": {"it": "Ho 18 lead caldi. Per il report mi serve anche quanto valgono le loro trattative aperte.", "en": "I have 18 hot leads. For the report I also need how much their open deals are worth."},
+   "r_o2": {"it": "Valore totale delle trattative: 240.000 € (trimestre in corso).", "en": "Total deal value: €240,000 (current quarter)."},
+   "r_o2_sbagliato": {"it": "Valore totale: 310.000 € (attenzione: il filtro ha preso l'anno intero).", "en": "Total value: €310,000 (warning: the filter took the whole year)."},
+   "r_p3": {"it": "Ho nomi e valori: scrivo il report con i lead, il valore e i prossimi passi.", "en": "I have names and values: I write the report with the leads, the value and the next steps."},
+   "r_p3_sbagliato": {"it": "Ottimo: 310.000 €, un trimestre record! Scrivo il report con questo valore.", "en": "Great: €310,000, a record quarter! I write the report with this value."},
+   "r_o3": {"it": "Bozza del report pronta: 2 pagine.", "en": "Report draft ready: 2 pages."},
+   "r_p4": {"it": "Il report è pronto. Ora mi serve l'email del responsabile.", "en": "The report is ready. Now I need the manager's email."},
+   "r_o4": {"it": "Email del responsabile: marco.bianchi@alfa.example", "en": "Manager's email: marco.bianchi@alfa.example"},
+   "r_o4_manca": {"it": "Nessuna email registrata per il responsabile.", "en": "No email recorded for the manager."},
+   "r_p4m": {"it": "Non invento un indirizzo: chiedo a una persona del team.", "en": "I do not make up an address: I ask a person on the team."},
+   "r_o4m": {"it": "Il team risponde: marco.bianchi@alfa.example", "en": "The team answers: marco.bianchi@alfa.example"},
+   "r_p5": {"it": "Ho tutto. Inviare un report a una persona è delicato: chiedo l'approvazione prima di inviare.", "en": "I have everything. Sending a report to a person is delicate: I ask for approval before sending."},
+   "r_o5": {"it": "Approvato e inviato.", "en": "Approved and sent."},
+   "r_fine": {"it": "Obiettivo raggiunto: mi fermo.", "en": "Goal reached: I stop."},
+   "cita": {"it": "nasce da: «{frase}»", "en": "comes from: «{frase}»"},
+   "allarme": {"it": "Il pensiero suona sicuro, ma l'osservazione parlava dell'anno intero: il dato è sbagliato.", "en": "The thought sounds confident, but the observation was about the whole year: the data is wrong."},
+   "p_piano": {"it": "Scompongo il compito in {n} passi e scrivo il piano.", "en": "I break the task into {n} steps and write the plan."},
+   "p_approva": {"it": "Una persona legge il piano e lo approva.", "en": "A person reads the plan and approves it."},
+   "p_ok": {"it": "Passo {n} fatto: {passo}.", "en": "Step {n} done: {passo}."},
+   "p_fallito_q1": {"it": "Passo {n} non riuscito: il CRM trova 0 lead caldi.", "en": "Step {n} failed: the CRM finds 0 hot leads."},
+   "p_fallito_q3": {"it": "Passo {n} non riuscito: lo strumento dei grafici non risponde.", "en": "Step {n} failed: the charts tool does not answer."},
+   "p_fallito_q5": {"it": "Passo {n} non riuscito: manca l'email del responsabile.", "en": "Step {n} failed: the manager's email is missing."},
+   "p_ripiano": {"it": "Riscrivo il piano dal passo {n}: le voci nuove sono in giallo.", "en": "I rewrite the plan from step {n}: the new items are in yellow."},
+   "p_fine": {"it": "Tutti i passi sono fatti: report inviato.", "en": "All steps are done: report sent."},
+   "esito_react": {"it": "Report inviato. L'agente ha deciso ogni passo guardando l'osservazione precedente.", "en": "Report sent. The agent decided each step by looking at the previous observation."},
+   "esito_react_adatta": {"it": "Report inviato nonostante l'imprevisto: ReAct ha cambiato strada al passo successivo.", "en": "Report sent despite the surprise: ReAct changed course at the next step."},
+   "esito_sbagliato": {"it": "Report inviato, ma con un valore sbagliato. Il ragionamento era visibile: bastava leggerlo con attenzione per fermarlo.", "en": "Report sent, but with a wrong value. The reasoning was visible: reading it carefully was enough to stop it."},
+   "esito_piano": {"it": "Report inviato seguendo il piano approvato all'inizio.", "en": "Report sent by following the plan approved at the start."},
+   "esito_piano_ripiano": {"it": "Report inviato: il piano è stato riscritto e approvato di nuovo prima di continuare.", "en": "Report sent: the plan was rewritten and approved again before continuing."},
+   "mossa_giusta": {"it": "Esatto!", "en": "Exactly!"},
+   "mossa_sbagliata": {"it": "Non proprio.", "en": "Not quite."}
+  },
+  "etichette": {
+   "titolo_comandi": {"it": "Prova a cambiare", "en": "Try changing"},
+   "compito": {"it": "Il compito", "en": "The task"},
+   "modalita": {"it": "Come procede l'agente", "en": "How the agent proceeds"},
+   "imprevisto": {"it": "Imprevisto", "en": "Surprise"},
+   "guasto_passo3": {"it": "Guasto allo strumento al passo 3 (piano)", "en": "Tool fault at step 3 (plan)"},
+   "indovina": {"it": "Fammi indovinare la prossima mossa", "en": "Let me guess the next move"},
+   "dato_sbagliato": {"it": "Il CRM restituisce un dato fuorviante", "en": "The CRM returns misleading data"},
+   "pensiero": {"it": "Pensiero", "en": "Thought"},
+   "azione": {"it": "Azione", "en": "Action"},
+   "osservazione": {"it": "Osservazione", "en": "Observation"},
+   "piano_titolo": {"it": "Il piano dell'agente", "en": "The agent's plan"},
+   "nuovo": {"it": "nuovo", "en": "new"},
+   "approvazione": {"it": "approvazione", "en": "approval"},
+   "contatori": {"it": "Confronto", "en": "Comparison"},
+   "passi": {"it": "Passi totali", "en": "Total steps"},
+   "approvazioni": {"it": "Punti in cui una persona può approvare", "en": "Points where a person can approve"},
+   "react_breve": {"it": "ReAct", "en": "ReAct"},
+   "piano_breve": {"it": "Piano", "en": "Plan"},
+   "domanda_mossa": {"it": "Che cosa farà adesso l'agente?", "en": "What will the agent do now?"},
+   "continua": {"it": "Continua", "en": "Continue"},
+   "punteggio_mosse": {"it": "Mosse indovinate: {giuste} su {totali}", "en": "Moves guessed: {giuste} of {totali}"},
+   "avvia": {"it": "Avvia", "en": "Start"},
+   "pausa": {"it": "Pausa", "en": "Pause"},
+   "passo": {"it": "Un passo", "en": "One step"},
+   "ricomincia": {"it": "Da capo", "en": "Restart"},
+   "velocita": {"it": "Velocità", "en": "Speed"},
+   "esito": {"it": "Risultato", "en": "Result"},
+   "vuoto": {"it": "Premi «Avvia» o «Un passo»: qui comparirà il lavoro dell'agente.", "en": "Press «Start» or «One step»: the agent's work will appear here."},
+   "cambiato": {"it": "Hai cambiato qualcosa: l'agente riparte da capo.", "en": "You changed something: the agent starts again."},
+   "giro_pensa": {"it": "Pensa", "en": "Think"},
+   "giro_agisci": {"it": "Agisci", "en": "Act"},
+   "giro_osserva": {"it": "Osserva", "en": "Observe"},
+   "descrizione_scena": {"it": "In alto il giro pensa, agisci, osserva; sotto, le card del lavoro dell'agente oppure la lista del suo piano.", "en": "At the top the think, act, observe loop; below, the cards of the agent's work or the list of its plan."}
+  }
+ },
+ "domande": []
+}

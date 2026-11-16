@@ -1,0 +1,160 @@
+{
+ "id": "L_funnel_crm",
+ "pillola": "P1.6",
+ "componente": "funnel_crm",
+ "titolo": {"it": "Dove un agente rende di più nel CRM (e dove serve una persona)", "en": "Where an agent pays off most in the CRM (and where a person is needed)"},
+ "sottotitolo": {"it": "Regola il volume e il costo di un errore: guarda il tempo risparmiato crescere e i lucchetti comparire.", "en": "Adjust the volume and the cost of a mistake: watch the time saved grow and the padlocks appear."},
+ "segmenti": [
+  {
+   "id": "funnel",
+   "titolo": {"it": "1. Il percorso del cliente, a imbuto", "en": "1. The customer's journey, as a funnel"},
+   "narrazione": [
+    {"it": "Il funnel (imbuto) è il percorso che fa una persona da quando visita il sito a quando diventa cliente. In alto entrano in tanti, in basso arrivano in pochi: per questo è largo sopra e stretto sotto.", "en": "The funnel is the journey a person makes from visiting the website to becoming a customer. Many come in at the top, few reach the bottom: that is why it is wide at the top and narrow at the bottom."},
+    {"it": "Il CRM (il programma dove l'azienda tiene i dati dei clienti) segue ogni passaggio. A ogni stadio c'è un lavoro ripetitivo che un agente può fare: lo vedi agganciato a destra.", "en": "The CRM (the program where the company keeps its customer data) tracks every step. At each stage there is a repetitive job an agent can do: you can see it docked on the right."}
+   ],
+   "prova": {"it": "Clicca l'icona dell'agente accanto a uno stadio e leggi la sua scheda: compito, che cosa riceve, che cosa produce.", "en": "Click the agent icon next to a stage and read its card: task, what it receives, what it produces."},
+   "concetti": ["C17"],
+   "stato_animazione": {"volume": 300, "costo_errore": 3, "dati_puliti": true, "modalita": "auto", "lucchetti": {}, "stadio_aperto": "lead", "verificato": false}
+  },
+  {
+   "id": "volume",
+   "titolo": {"it": "2. Dove l'agente fa risparmiare tempo", "en": "2. Where the agent saves time"},
+   "narrazione": [
+    {"it": "Un agente crea valore quando tre cose sono vere insieme: il volume è alto (tanti casi al giorno), i criteri si possono scrivere (sappiamo dire che cosa è un buon lead) e il risultato si misura (risposte, call fissate).", "en": "An agent creates value when three things are true together: the volume is high (many cases a day), the criteria can be written down (we can say what a good lead is) and the result can be measured (replies, calls booked)."},
+    {"it": "Le barre verdi mostrano le ore di lavoro risparmiate ogni giorno, stadio per stadio.", "en": "The green bars show the hours of work saved every day, stage by stage."}
+   ],
+   "prova": {"it": "Porta il volume giornaliero da 200 a 2000 visite e guarda quali barre crescono di più.", "en": "Move the daily volume from 200 to 2000 visits and see which bars grow the most."},
+   "concetti": ["C17"],
+   "stato_animazione": {"volume": 200, "costo_errore": 3, "dati_puliti": true, "modalita": "auto", "lucchetti": {}, "stadio_aperto": "mql", "verificato": false}
+  },
+  {
+   "id": "dati",
+   "titolo": {"it": "3. Dati in ordine, agente utile", "en": "3. Tidy data, useful agent"},
+   "narrazione": [
+    {"it": "L'agente lavora con i dati del CRM. Se le schede sono doppie, vecchie o con campi vuoti, l'agente sbaglia più spesso e qualcuno deve rifare il lavoro.", "en": "The agent works with the CRM data. If records are duplicated, out of date or have empty fields, the agent makes mistakes more often and someone has to redo the work."},
+    {"it": "Qui i dati sono «sporchi»: il tempo risparmiato si dimezza. Mettere in ordine il CRM è spesso il primo passo, prima ancora dell'agente.", "en": "Here the data is «dirty»: the time saved is cut in half. Tidying up the CRM is often the first step, even before the agent."}
+   ],
+   "prova": {"it": "Accendi «Dati del CRM in ordine» e guarda le barre e il totale cambiare.", "en": "Switch on «CRM data in order» and watch the bars and the total change."},
+   "concetti": ["C18", "C17"],
+   "stato_animazione": {"volume": 1000, "costo_errore": 3, "dati_puliti": false, "modalita": "auto", "lucchetti": {}, "stadio_aperto": "lead", "verificato": false}
+  },
+  {
+   "id": "lucchetti",
+   "titolo": {"it": "4. Dove serve l'occhio di una persona", "en": "4. Where a person's eye is needed"},
+   "narrazione": [
+    {"it": "Alcuni stadi sono delicati: dati personali, reputazione del marchio, rischio di spam (messaggi non voluti), decisioni che spostano soldi come uno sconto.", "en": "Some stages are delicate: personal data, brand reputation, risk of spam (unwanted messages), decisions that move money such as a discount."},
+    {"it": "Lì si mette un lucchetto: l'agente prepara, una persona approva. Il controllo costa qualche minuto, ma evita errori che costano molto di più.", "en": "There you put a padlock: the agent prepares, a person approves. The check costs a few minutes, but it prevents mistakes that cost much more."}
+   ],
+   "prova": {"it": "Alza piano piano il «costo di un errore»: guarda in quali stadi compaiono i lucchetti e come si accorciano le barre.", "en": "Slowly raise the «cost of a mistake»: see in which stages the padlocks appear and how the bars get shorter."},
+   "concetti": ["C17"],
+   "stato_animazione": {"volume": 1000, "costo_errore": 2, "dati_puliti": true, "modalita": "auto", "lucchetti": {}, "stadio_aperto": "opportunita", "verificato": false}
+  },
+  {
+   "id": "decidi",
+   "titolo": {"it": "5. Decidi tu dove mettere i lucchetti", "en": "5. You decide where to put the padlocks"},
+   "narrazione": [
+    {"it": "Ora i lucchetti li metti tu. Pensa a due errori opposti: un lucchetto che manca dove un errore costa caro, e un lucchetto inutile dove rallenta e basta.", "en": "Now you place the padlocks. Think of two opposite mistakes: a missing padlock where a mistake is expensive, and a useless padlock where it only slows things down."}
+   ],
+   "prova": {"it": "Accendi i lucchetti negli stadi che secondo te ne hanno bisogno, poi premi «Controlla» e leggi il riscontro stadio per stadio.", "en": "Switch on the padlocks in the stages you think need them, then press «Check» and read the feedback stage by stage."},
+   "concetti": ["C17", "C18"],
+   "stato_animazione": {"volume": 1000, "costo_errore": 6, "dati_puliti": true, "modalita": "decidi", "lucchetti": {}, "stadio_aperto": "mql", "verificato": false}
+  },
+  {
+   "id": "riassunto",
+   "titolo": {"it": "In tre frasi", "en": "In three sentences"},
+   "narrazione": [
+    {"it": "Lungo il funnel del CRM ci sono tanti lavori ripetitivi che un agente può fare.", "en": "Along the CRM funnel there are many repetitive jobs an agent can do."},
+    {"it": "L'agente rende di più dove il volume è alto, i criteri sono chiari, il risultato si misura e i dati sono in ordine.", "en": "The agent pays off most where volume is high, criteria are clear, the result is measurable and the data is tidy."},
+    {"it": "Dove un errore costa caro si mette un controllo umano, e solo lì.", "en": "Where a mistake is expensive you put a human check, and only there."}
+   ],
+   "concetti": ["C17", "C18"],
+   "stato_animazione": {"volume": 1000, "costo_errore": 6, "dati_puliti": true, "modalita": "auto", "lucchetti": {}, "stadio_aperto": "opportunita", "verificato": false}
+  }
+ ],
+ "scenario": {
+  "volume": {"min": 100, "max": 2000, "passo": 50, "etichetta": {"it": "Volume giornaliero (visite al sito)", "en": "Daily volume (website visits)"}},
+  "costo_errore": {"min": 1, "max": 10, "passo": 1, "etichetta": {"it": "Costo di un errore", "en": "Cost of a mistake"}},
+  "parametri": {
+   "soglia_lucchetto": 15,
+   "minuti_approvazione": 2,
+   "fattore_dati_sporchi": 0.5,
+   "ore_giornata_lavoro": 8,
+   "ore_scala_minima": 2,
+   "punti_minimi": 8,
+   "punti_massimi": 70,
+   "velocita_punti": 55,
+   "ms_barre": 600
+  },
+  "stadi": [
+   {"id": "visitatore", "nome": {"it": "Visitatore", "en": "Visitor"}, "spiega": {"it": "Qualcuno che visita il sito, senza ancora lasciare i suoi dati.", "en": "Someone visiting the website, without leaving their details yet."},
+    "compito": {"it": "Riconosce l'azienda da cui arriva la visita e completa i dati pubblici", "en": "Recognises the company the visit comes from and fills in public data"},
+    "input": {"it": "Visite al sito, dati aziendali pubblici", "en": "Website visits, public company data"}, "output": {"it": "Scheda azienda arricchita nel CRM", "en": "Enriched company record in the CRM"},
+    "quota_volume": 1, "minuti_per_lead": 1, "quota_automatizzabile": 0.9, "rischio": 1,
+    "cautela": {"it": "Si usano solo dati aziendali pubblici: un errore qui costa poco.", "en": "Only public company data is used: a mistake here costs little."}},
+   {"id": "lead", "nome": {"it": "Lead", "en": "Lead"}, "spiega": {"it": "Una persona che ha lasciato i suoi dati, per esempio scaricando una guida.", "en": "A person who has left their details, for example by downloading a guide."},
+    "compito": {"it": "Dà un punteggio al lead e lo assegna", "en": "Scores the lead and assigns it"},
+    "input": {"it": "Modulo compilato, visite, email aperte", "en": "Filled-in form, visits, emails opened"}, "output": {"it": "Punteggio e motivazione nel CRM", "en": "Score and reasoning in the CRM"},
+    "quota_volume": 0.3, "minuti_per_lead": 6, "quota_automatizzabile": 0.8, "rischio": 2,
+    "cautela": {"it": "Un punteggio sbagliato fa perdere tempo, ma si corregge facilmente.", "en": "A wrong score wastes time, but it is easy to correct."}},
+   {"id": "mql", "nome": {"it": "Lead qualificato marketing", "en": "Marketing qualified lead"}, "spiega": {"it": "Detto anche MQL: il marketing lo considera interessato e pronto per un primo contatto.", "en": "Also called MQL: marketing considers them interested and ready for a first contact."},
+    "compito": {"it": "Scrive il primo messaggio personalizzato", "en": "Writes the first personalised message"},
+    "input": {"it": "Scheda del lead, interessi, contenuti visti", "en": "Lead record, interests, content viewed"}, "output": {"it": "Email di primo contatto", "en": "First-contact email"},
+    "quota_volume": 0.12, "minuti_per_lead": 12, "quota_automatizzabile": 0.7, "rischio": 4,
+    "cautela": {"it": "Un messaggio sbagliato parla a nome del marchio e può sembrare spam.", "en": "A wrong message speaks on behalf of the brand and can look like spam."}},
+   {"id": "sql", "nome": {"it": "Lead qualificato vendite", "en": "Sales qualified lead"}, "spiega": {"it": "Detto anche SQL: le vendite lo considerano pronto per parlare con un commerciale.", "en": "Also called SQL: sales considers them ready to talk to a salesperson."},
+    "compito": {"it": "Legge le risposte, le classifica e propone una call", "en": "Reads the replies, classifies them and proposes a call"},
+    "input": {"it": "Risposte alle email, calendario", "en": "Email replies, calendar"}, "output": {"it": "Risposta classificata e invito alla call", "en": "Classified reply and call invitation"},
+    "quota_volume": 0.05, "minuti_per_lead": 10, "quota_automatizzabile": 0.6, "rischio": 3,
+    "cautela": {"it": "Leggere male una risposta può far perdere un cliente pronto a comprare.", "en": "Misreading a reply can lose a customer who is ready to buy."}},
+   {"id": "opportunita", "nome": {"it": "Opportunità", "en": "Opportunity"}, "spiega": {"it": "Una trattativa vera, con un valore in euro e una data prevista di chiusura.", "en": "A real deal, with a value in euros and an expected closing date."},
+    "compito": {"it": "Segue la trattativa e prepara la bozza dell'offerta", "en": "Follows the deal and prepares the draft offer"},
+    "input": {"it": "Note delle call, listino prezzi", "en": "Call notes, price list"}, "output": {"it": "Bozza di offerta con prezzi", "en": "Draft offer with prices"},
+    "quota_volume": 0.02, "minuti_per_lead": 30, "quota_automatizzabile": 0.4, "rischio": 5,
+    "cautela": {"it": "Prezzi e sconti spostano soldi veri: un errore costa caro.", "en": "Prices and discounts move real money: a mistake is expensive."}},
+   {"id": "cliente", "nome": {"it": "Cliente", "en": "Customer"}, "spiega": {"it": "Ha comprato: ora l'obiettivo è che resti soddisfatto e non se ne vada.", "en": "They have bought: now the goal is to keep them happy so they do not leave."},
+    "compito": {"it": "Segnala i clienti a rischio di abbandono (churn)", "en": "Flags customers at risk of leaving (churn)"},
+    "input": {"it": "Uso del prodotto, ticket di assistenza", "en": "Product usage, support tickets"}, "output": {"it": "Avviso al referente con il motivo", "en": "Alert to the account manager with the reason"},
+    "quota_volume": 0.02, "minuti_per_lead": 15, "quota_automatizzabile": 0.5, "rischio": 3,
+    "cautela": {"it": "Si toccano dati personali e rapporti con clienti che pagano già.", "en": "It touches personal data and relationships with customers who already pay."}}
+  ],
+  "testi": {
+   "formato_volume": {"it": "{n} al giorno", "en": "{n} a day"},
+   "formato_costo": {"it": "{n} su {max}", "en": "{n} of {max}"},
+   "lead_al_giorno": {"it": "{n} al giorno", "en": "{n} a day"},
+   "ore_al_giorno": {"it": "{ore} h", "en": "{ore} h"},
+   "totale": {"it": "{ore} ore al giorno, come {persone} persone a tempo pieno", "en": "{ore} hours a day, like {persone} full-time people"},
+   "avviso_dati_sporchi": {"it": "Dati sporchi: l'agente sbaglia più spesso e il risparmio si dimezza.", "en": "Dirty data: the agent makes more mistakes and the saving is halved."},
+   "apri_scheda": {"it": "Apri la scheda dell'agente dello stadio {stadio}", "en": "Open the card of the agent for the {stadio} stage"},
+   "nota_auto": {"it": "Il lucchetto compare da solo dove rischio dello stadio × costo di un errore arriva a {soglia}.", "en": "The padlock appears by itself where stage risk × cost of a mistake reaches {soglia}."},
+   "nota_decidi": {"it": "Ora decidi tu: metti i lucchetti e premi «Controlla».", "en": "Now you decide: place the padlocks and press «Check»."},
+   "ver_giusto_messo": {"it": "{stadio}: giusto il lucchetto. {cautela}", "en": "{stadio}: right to lock it. {cautela}"},
+   "ver_giusto_tolto": {"it": "{stadio}: giusto lasciarlo libero. {cautela}", "en": "{stadio}: right to leave it free. {cautela}"},
+   "ver_manca": {"it": "{stadio}: qui manca il lucchetto! {cautela}", "en": "{stadio}: a padlock is missing here! {cautela}"},
+   "ver_inutile": {"it": "{stadio}: lucchetto inutile, rallenta senza proteggere da danni seri ({minuti} minuti di controllo per ogni lead).", "en": "{stadio}: useless padlock, it slows things down without protecting from serious harm ({minuti} minutes of checking for every lead)."},
+   "ver_punteggio": {"it": "Stadi giusti: {giuste} su {totali}. Leggi sotto che cosa cambiare.", "en": "Right stages: {giuste} out of {totali}. Read below what to change."},
+   "ver_tutto_giusto": {"it": "Perfetto: lucchetti solo dove un errore costa caro.", "en": "Perfect: padlocks only where a mistake is expensive."}
+  },
+  "etichette": {
+   "titolo_comandi": {"it": "Prova a cambiare", "en": "Try changing"},
+   "dati_puliti": {"it": "Dati del CRM in ordine", "en": "CRM data in order"},
+   "modalita": {"it": "Chi mette i lucchetti", "en": "Who places the padlocks"},
+   "auto": {"it": "Automatico", "en": "Automatic"},
+   "decidi": {"it": "Decidi tu", "en": "You decide"},
+   "titolo_lucchetti": {"it": "Approvazione di una persona", "en": "A person's approval"},
+   "controlla": {"it": "Controlla", "en": "Check"},
+   "funnel": {"it": "IL FUNNEL", "en": "THE FUNNEL"},
+   "risparmio": {"it": "TEMPO RISPARMIATO AL GIORNO", "en": "TIME SAVED PER DAY"},
+   "titolo_scheda": {"it": "Scheda dell'agente", "en": "Agent card"},
+   "compito": {"it": "Compito", "en": "Task"},
+   "input": {"it": "Riceve", "en": "Receives"},
+   "output": {"it": "Produce", "en": "Produces"},
+   "controllo_umano": {"it": "Controllo umano", "en": "Human check"},
+   "attenzione": {"it": "Attenzione", "en": "Watch out"},
+   "si": {"it": "sì, una persona approva", "en": "yes, a person approves"},
+   "no": {"it": "no, l'agente procede", "en": "no, the agent goes ahead"},
+   "totale": {"it": "In tutto l'agente fa risparmiare", "en": "In total the agent saves"},
+   "descrizione_scena": {"it": "Funnel animato con sei stadi, un agente agganciato a ogni stadio, lucchetti di approvazione umana e barre del tempo risparmiato.", "en": "Animated funnel with six stages, an agent docked at each stage, human approval padlocks and time-saved bars."}
+  }
+ },
+ "domande": []
+}
