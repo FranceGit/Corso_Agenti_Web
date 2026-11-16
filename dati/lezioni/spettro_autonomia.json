@@ -7,7 +7,7 @@
  "segmenti": [
   {
    "id": "cinque_modi",
-   "titolo": {"it": "1. Cinque modi di automatizzare lo stesso lavoro", "en": "1. Five ways to automate the same job"},
+   "titolo": {"it": "Cinque modi di automatizzare lo stesso lavoro", "en": "Five ways to automate the same job"},
    "narrazione": [
     {"it": "Prendiamo un lavoro di tutti i giorni nel CRM (il programma dove l'azienda tiene i dati dei clienti): arriva un contatto, lo valutiamo, gli rispondiamo, aggiorniamo la scheda.", "en": "Take an everyday job in the CRM (the program where the company keeps its customer data): a contact arrives, we assess them, we reply, we update the record."},
     {"it": "Questo lavoro si può automatizzare in cinque modi, dal più semplice al più autonomo. Il cursore li mette in fila come le tacche di un righello.", "en": "This job can be automated in five ways, from the simplest to the most autonomous. The slider lines them up like the marks on a ruler."}
@@ -18,7 +18,7 @@
   },
   {
    "id": "regole_e_ai",
-   "titolo": {"it": "2. Regole fisse e funzione AI", "en": "2. Fixed rules and an AI function"},
+   "titolo": {"it": "Regole fisse e funzione AI", "en": "Fixed rules and an AI function"},
    "narrazione": [
     {"it": "Tacca 1, regole fisse: «se il lead apre 3 email, segnalo come caldo». Un lead è una persona che ha mostrato interesse per i nostri prodotti. La regola fa sempre la stessa cosa: è prevedibile e costa pochissimo.", "en": "Mark 1, fixed rules: «if the lead opens 3 emails, mark them as hot». A lead is a person who has shown interest in our products. The rule always does the same thing: it is predictable and very cheap."},
     {"it": "Tacca 2, funzione AI: un'intelligenza artificiale fa un solo compito in un solo punto, per esempio scrivere la bozza di risposta. Tutto il resto resta a regole.", "en": "Mark 2, AI function: an artificial intelligence does a single task in a single place, for example writing the draft reply. Everything else stays rule-based."}
@@ -29,7 +29,7 @@
   },
   {
    "id": "workflow_o_agente",
-   "titolo": {"it": "3. Workflow o agente: chi decide i passi?", "en": "3. Workflow or agent: who decides the steps?"},
+   "titolo": {"it": "Workflow o agente: chi decide i passi?", "en": "Workflow or agent: who decides the steps?"},
    "narrazione": [
     {"it": "Tacca 3, workflow con LLM. Un workflow è una sequenza di passi decisa da noi; un LLM è il modello di intelligenza artificiale che legge e scrive testo. Qui l'AI lavora in più punti, ma le frecce restano fisse: l'ordine lo abbiamo deciso noi.", "en": "Mark 3, LLM workflow. A workflow is a sequence of steps we decide; an LLM is the artificial intelligence model that reads and writes text. Here the AI works in several places, but the arrows stay fixed: we decided the order."},
     {"it": "Tacca 4, agente: è il modello a scegliere quali passi fare e in che ordine, mentre lavora. Per questo le frecce diventano tratteggiate e cambiano a ogni giro.", "en": "Mark 4, agent: the model itself chooses which steps to take and in what order, while it works. That is why the arrows become dashed and change every round."}
@@ -40,7 +40,7 @@
   },
   {
    "id": "prezzo",
-   "titolo": {"it": "4. Il prezzo dell'autonomia", "en": "4. The price of autonomy"},
+   "titolo": {"it": "Il prezzo dell'autonomia", "en": "The price of autonomy"},
    "narrazione": [
     {"it": "Tacca 5, multi-agente: più agenti specializzati si passano il lavoro, come una piccola squadra.", "en": "Mark 5, multi-agent: several specialised agents pass the work to each other, like a small team."},
     {"it": "Più autonomia porta più flessibilità, cioè la capacità di gestire casi diversi. Ma porta anche meno prevedibilità, più costo e più rischio di errori. Autonomia non vuol dire «meglio»: è un compromesso.", "en": "More autonomy brings more flexibility, that is, the ability to handle different cases. But it also brings less predictability, more cost and more risk of mistakes. Autonomy does not mean «better»: it is a trade-off."}
@@ -51,7 +51,7 @@
   },
   {
    "id": "livello_minimo",
-   "titolo": {"it": "5. Scegli il livello minimo che basta", "en": "5. Choose the minimum level that is enough"},
+   "titolo": {"it": "Scegli il livello minimo che basta", "en": "Choose the minimum level that is enough"},
    "narrazione": [
     {"it": "La regola d'oro: si sceglie il livello più basso che risolve davvero il problema. Se una regola fissa basta, un agente aggiunge solo costo e sorprese.", "en": "The golden rule: you choose the lowest level that really solves the problem. If a fixed rule is enough, an agent only adds cost and surprises."},
     {"it": "Se invece ogni caso è diverso, un percorso fisso si rompe: lì serve più autonomia.", "en": "If instead every case is different, a fixed path breaks: that is where more autonomy is needed."}

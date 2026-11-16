@@ -7,7 +7,7 @@
  "segmenti": [
   {
    "id": "sei_blocchi",
-   "titolo": {"it": "1. Che cosa sono le istruzioni di sistema", "en": "1. What system instructions are"},
+   "titolo": {"it": "Che cosa sono le istruzioni di sistema", "en": "What system instructions are"},
    "narrazione": [
     {"it": "Le istruzioni di sistema sono il testo che diamo all'agente prima di ogni lavoro: gli dicono chi è, che cosa deve ottenere e come deve comportarsi. Il lead (la persona che ha mostrato interesse) non le vede mai.", "en": "System instructions are the text we give the agent before every job: they tell it who it is, what it must achieve and how it must behave. The lead (the person who has shown interest) never sees them."},
     {"it": "Qui l'agente scrive la prima email a un lead di Azienda Alfa. Le istruzioni sono divise in sei blocchi: tutti accesi, l'email è pulita.", "en": "Here the agent writes the first email to a lead at Alfa Ltd. The instructions are split into six blocks: with all of them on, the email is clean."}
@@ -18,7 +18,7 @@
   },
   {
    "id": "vincoli",
-   "titolo": {"it": "2. I vincoli fermano le promesse inventate", "en": "2. Constraints stop made-up promises"},
+   "titolo": {"it": "I vincoli fermano le promesse inventate", "en": "Constraints stop made-up promises"},
    "narrazione": [
     {"it": "Un vincolo è una cosa che l'agente non deve fare, scritta in modo esplicito: «non promettere sconti», «non inventare dati».", "en": "A constraint is something the agent must not do, written explicitly: «do not promise discounts», «do not make up data»."},
     {"it": "Senza vincoli l'agente cerca di convincere a tutti i costi e promette uno sconto del 30% che nessuno ha autorizzato. Per l'azienda è un problema vero.", "en": "Without constraints the agent tries to convince at all costs and promises a 30% discount nobody authorised. For the company it is a real problem."}
@@ -29,7 +29,7 @@
   },
   {
    "id": "dubbio",
-   "titolo": {"it": "3. Il caso dubbio: nel CRM manca il nome", "en": "3. The doubtful case: the name is missing in the CRM"},
+   "titolo": {"it": "Il caso dubbio: nel CRM manca il nome", "en": "The doubtful case: the name is missing in the CRM"},
    "narrazione": [
     {"it": "Nel CRM (il programma dove teniamo i dati dei clienti) a volte un campo è vuoto. Qui manca il nome del contatto.", "en": "In the CRM (the program where we keep customer data) a field is sometimes empty. Here the contact's name is missing."},
     {"it": "Se nessuno ha detto all'agente che cosa fare, l'email parte con «Gentile [Nome]». Il blocco «In caso di dubbio» gli dice di usare un saluto neutro e di segnalare il dato mancante.", "en": "If nobody told the agent what to do, the email starts with «Dear [Name]». The «If in doubt» block tells it to use a neutral greeting and to flag the missing data."}
@@ -40,7 +40,7 @@
   },
   {
    "id": "esempi",
-   "titolo": {"it": "4. Gli esempi rendono l'agente costante", "en": "4. Examples make the agent consistent"},
+   "titolo": {"it": "Gli esempi rendono l'agente costante", "en": "Examples make the agent consistent"},
    "narrazione": [
     {"it": "L'agente non scrive mai due volte la stessa email: ogni volta che lo facciamo lavorare, il testo può uscire un po' diverso. Ogni tentativo si chiama generazione.", "en": "The agent never writes the same email twice: every time we run it, the text can come out a bit different. Each attempt is called a generation."},
     {"it": "Un esempio di email riuscita (in gergo «few-shot», cioè «pochi esempi») mostra il risultato atteso meglio di tante righe di spiegazione. Con gli esempi le versioni si somigliano; senza, ognuna va per conto suo.", "en": "An example of a good email (in jargon «few-shot», that is «a few examples») shows the expected result better than many lines of explanation. With examples the versions look alike; without them, each one goes its own way."}
@@ -51,7 +51,7 @@
   },
   {
    "id": "ambiguo",
-   "titolo": {"it": "5. L'errore classico: l'istruzione ambigua", "en": "5. The classic mistake: the ambiguous instruction"},
+   "titolo": {"it": "L'errore classico: l'istruzione ambigua", "en": "The classic mistake: the ambiguous instruction"},
    "narrazione": [
     {"it": "«Sii breve» sembra chiaro, ma breve quanto? Ogni generazione lo interpreta a modo suo: un'email da 22 parole, la successiva da 140. «Massimo 80 parole» invece si può controllare.", "en": "«Be brief» sounds clear, but how brief? Each generation interprets it its own way: one email of 22 words, the next of 140. «Maximum 80 words» instead can be checked."},
     {"it": "Peggio ancora due istruzioni che si contraddicono, come «massimo 3 righe» e «elenca in dettaglio tutti i vantaggi»: vince quella che viene dopo, e basta spostare un blocco per cambiare l'email. Per questo le istruzioni si scrivono con cura, si provano e si conservano versione per versione.", "en": "Even worse are two instructions that contradict each other, such as «maximum 3 lines» and «list all the benefits in detail»: the one that comes later wins, and just moving a block changes the email. That is why instructions are written carefully, tested and kept version by version."}

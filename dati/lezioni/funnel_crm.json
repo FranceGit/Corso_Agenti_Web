@@ -7,7 +7,7 @@
  "segmenti": [
   {
    "id": "funnel",
-   "titolo": {"it": "1. Il percorso del cliente, a imbuto", "en": "1. The customer's journey, as a funnel"},
+   "titolo": {"it": "Il percorso del cliente, a imbuto", "en": "The customer's journey, as a funnel"},
    "narrazione": [
     {"it": "Il funnel (imbuto) è il percorso che fa una persona da quando visita il sito a quando diventa cliente. In alto entrano in tanti, in basso arrivano in pochi: per questo è largo sopra e stretto sotto.", "en": "The funnel is the journey a person makes from visiting the website to becoming a customer. Many come in at the top, few reach the bottom: that is why it is wide at the top and narrow at the bottom."},
     {"it": "Il CRM (il programma dove l'azienda tiene i dati dei clienti) segue ogni passaggio. A ogni stadio c'è un lavoro ripetitivo che un agente può fare: lo vedi agganciato a destra.", "en": "The CRM (the program where the company keeps its customer data) tracks every step. At each stage there is a repetitive job an agent can do: you can see it docked on the right."}
@@ -18,7 +18,7 @@
   },
   {
    "id": "volume",
-   "titolo": {"it": "2. Dove l'agente fa risparmiare tempo", "en": "2. Where the agent saves time"},
+   "titolo": {"it": "Dove l'agente fa risparmiare tempo", "en": "Where the agent saves time"},
    "narrazione": [
     {"it": "Un agente crea valore quando tre cose sono vere insieme: il volume è alto (tanti casi al giorno), i criteri si possono scrivere (sappiamo dire che cosa è un buon lead) e il risultato si misura (risposte, call fissate).", "en": "An agent creates value when three things are true together: the volume is high (many cases a day), the criteria can be written down (we can say what a good lead is) and the result can be measured (replies, calls booked)."},
     {"it": "Le barre verdi mostrano le ore di lavoro risparmiate ogni giorno, stadio per stadio.", "en": "The green bars show the hours of work saved every day, stage by stage."}
@@ -29,7 +29,7 @@
   },
   {
    "id": "dati",
-   "titolo": {"it": "3. Dati in ordine, agente utile", "en": "3. Tidy data, useful agent"},
+   "titolo": {"it": "Dati in ordine, agente utile", "en": "Tidy data, useful agent"},
    "narrazione": [
     {"it": "L'agente lavora con i dati del CRM. Se le schede sono doppie, vecchie o con campi vuoti, l'agente sbaglia più spesso e qualcuno deve rifare il lavoro.", "en": "The agent works with the CRM data. If records are duplicated, out of date or have empty fields, the agent makes mistakes more often and someone has to redo the work."},
     {"it": "Qui i dati sono «sporchi»: il tempo risparmiato si dimezza. Mettere in ordine il CRM è spesso il primo passo, prima ancora dell'agente.", "en": "Here the data is «dirty»: the time saved is cut in half. Tidying up the CRM is often the first step, even before the agent."}
@@ -40,7 +40,7 @@
   },
   {
    "id": "lucchetti",
-   "titolo": {"it": "4. Dove serve l'occhio di una persona", "en": "4. Where a person's eye is needed"},
+   "titolo": {"it": "Dove serve l'occhio di una persona", "en": "Where a person's eye is needed"},
    "narrazione": [
     {"it": "Alcuni stadi sono delicati: dati personali, reputazione del marchio, rischio di spam (messaggi non voluti), decisioni che spostano soldi come uno sconto.", "en": "Some stages are delicate: personal data, brand reputation, risk of spam (unwanted messages), decisions that move money such as a discount."},
     {"it": "Lì si mette un lucchetto: l'agente prepara, una persona approva. Il controllo costa qualche minuto, ma evita errori che costano molto di più.", "en": "There you put a padlock: the agent prepares, a person approves. The check costs a few minutes, but it prevents mistakes that cost much more."}
@@ -51,7 +51,7 @@
   },
   {
    "id": "decidi",
-   "titolo": {"it": "5. Decidi tu dove mettere i lucchetti", "en": "5. You decide where to put the padlocks"},
+   "titolo": {"it": "Decidi tu dove mettere i lucchetti", "en": "You decide where to put the padlocks"},
    "narrazione": [
     {"it": "Ora i lucchetti li metti tu. Pensa a due errori opposti: un lucchetto che manca dove un errore costa caro, e un lucchetto inutile dove rallenta e basta.", "en": "Now you place the padlocks. Think of two opposite mistakes: a missing padlock where a mistake is expensive, and a useless padlock where it only slows things down."}
    ],

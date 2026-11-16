@@ -1,5 +1,33 @@
 # PROGRESSI — Corso Agenti Web
 
+## Stato al 16/11/2026 — fase 3: batch 1 di lezioni interattive (moduli M1 e M2)
+
+### Fatto
+1. **9 lezioni interattive nuove**, IT/EN, stessa architettura del dimostratore (un modulo JS per lezione in `webapp/animazioni/`, un JSON in `dati/lezioni/`, registrazione automatica nel catalogo, niente librerie esterne, tutto deterministico). Ogni lezione: 4-5 passi con "Prova tu" + riassunto finale in 3 frasi; 345-444 parole di testo (pillola da 5-6 minuti).
+   - P1.1 `chatbot_agente`: la stessa richiesta entra in due corsie (chatbot / agente); 4 richieste, interruttori "conteggio passi" e "l'agente ha gli strumenti"; lo studente approva o scarta le proposte (una è un tranello).
+   - P1.2 `parola_successiva`: tre scene. Token e istogramma della parola successiva con la temperatura e "Genera 5 volte"; finestra di contesto che taglia l'email del cliente (lo sconto esce e la risposta sbaglia); data di conoscenza con i fatti CRM di oggi da trascinare nel contesto.
+   - P1.4 `anatomia_agente`: esploso in 4 blocchi da spegnere (modello, strumenti, orchestrazione, memoria) con il guasto tipico di ciascuno; modalità "Trova il guasto" (sintomo misterioso, lo studente clicca il blocco rotto).
+   - P1.5 `spettro_autonomia`: cursore a 5 tacche che trasforma il processo CRM, 4 indicatori; gioco con 5 scenari da posare sulla tacca minima che basta.
+   - P1.6 `funnel_crm`: funnel a 6 stadi con schede degli agenti, volume giornaliero → ore risparmiate, dati in ordine, costo dell'errore → lucchetti; modalità "Decidi tu" con controllo stadio per stadio.
+   - P2.1 `costruttore_istruzioni`: 6 blocchi da accendere e riordinare, email che si ricompone con i difetti in rosso, "Genera 5 volte"; l'errore classico dell'istruzione ambigua e di quella contraddittoria (solo lì l'ordine cambia l'esito).
+   - P2.2 `cancello_validazione`: la frase si incastra al cancello; con il formato imposto i dati (schede chiave→valore, JSON grezzo a richiesta) compilano da soli la scheda CRM; "Rompi l'output", nuovi tentativi o passaggio a una persona.
+   - P2.3 `react_piano`: ReAct con card Pensiero/Azione/Osservazione collegate, "Indovina la prossima mossa", imprevisti, dato fuorviante; modalità Piano con ripianificazione evidenziata; contatori passi/approvazioni.
+   - P2.4 `revisore_allucinazioni`: scheda lead arricchita con semafori (verificato/ipotesi/inventato/non lo so), fonti 0-3, "non lo so", citazioni, agente onesto/che inventa; modalità Revisore con verdetto campo per campo e segnale che tradiva il dato.
+2. **Traduzioni EN** dei testi lunghi (obiettivo, scaletta, progetto dell'animazione) delle 9 pillole in `strumenti/traduzioni_en_pillole.json`, applicate con l'estrattore (che conserva le domande): ora le pillole dei moduli 1-2 si aprono anche in inglese.
+3. **Test**: 142 pytest verdi (copertura 98%); nuovo `tests/test_lezioni.py` (ogni pillola di M1-M2 ha la lezione, passi con "Prova tu", riassunto in 3 frasi, durata, concetti della pillola, niente "come già spiegato", apertura IT/EN, moduli autonomi e deterministici, serviti dopo l'accesso); regole in config `regole_lezioni`. Prove Node: 112 (18 del dimostratore + 94 delle nuove lezioni, un file per lezione in `tests_js/lezioni/`). Prova di fumo in DOM simulato (jsdom) di tutte le 11 lezioni in IT e EN, ogni passo e ogni comando toccato: 0 errori.
+4. **Collaudo**: `collaudo.ps1` esegue anche le prove delle nuove lezioni ed elenca le lezioni da provare.
+
+### Da sapere
+- Le nuove lezioni **non portano domande proprie** (`"domande": []`): la verifica di una pillola si apre solo se le domande benchmark bastano (oggi, fra queste 9, solo P2.2). Le altre restano "in preparazione" per la verifica, ma la lezione si apre e si usa.
+- Le domande benchmark di queste pillole hanno l'aiuto su un passo della scaletta (`scaletta-N`): resta valido; si può spostarlo sul segmento giusto della lezione quando si scrivono le domande nuove.
+- Le due lezioni del dimostratore (P1.3, P4.1) non hanno ancora il riassunto in 3 frasi (escluse dalla regola in config `regole_lezioni.componenti_senza_riassunto`).
+- Verifica visiva su browser vero **non fatta** (qui nessun browser disponibile): solo DOM simulato.
+
+### Resta da fare
+- Domande delle 9 pillole (servono almeno 2 per concetto: vedi `dati/fabbisogno_strisce.json`), con `striscia` e aiuto sul segmento della lezione.
+- Riassunto in 3 frasi anche per P1.3 e P4.1.
+- Lezioni dei moduli M3-M8.
+
 ## Stato al 16/11/2026 — fase 2: upgrade delle 120 domande benchmark
 
 ### Fatto
@@ -30,7 +58,7 @@ I test che fotografavano lo stato "domande benchmark non erogabili" sono stati a
 ### Resta da fare
 - Scrivere le 45 domande (poi le altre 69) indicate dal fabbisogno, con punti di vista diversi.
 - Le lezioni nuove in costruzione (altro cantiere) devono dare `striscia` alle loro domande, altrimenti non sono erogabili.
-- Testi lunghi delle pillole (obiettivo, scaletta, progetto animazione) ancora senza inglese tranne P1.3 e P4.1: in inglese l'aiuto "scaletta" di quelle pillole risponde "traduzione mancante".
+- Testi lunghi delle pillole (obiettivo, scaletta, progetto animazione) ancora senza inglese tranne i moduli 1-2 e P4.1 (moduli 1-2 tradotti nella fase 3): in inglese l'aiuto "scaletta" di quelle pillole risponde "traduzione mancante".
 - Revisione umana di France su un campione della classificazione dei distrattori e delle traduzioni.
 
 ## Stato al 16/11/2026 — fase 1: scheletro + dimostratore

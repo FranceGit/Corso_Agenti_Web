@@ -27,14 +27,14 @@ Il browser **non** si apre da solo: il server stampa `Apri nel tuo browser: http
 | `config/interfaccia.json` | testi dell'interfaccia IT/EN |
 | `dati/corso_v1.json` | 8 moduli, 40 pillole, 120 domande (fonte di verità delle domande; origine storica: il documento benchmark). Schema v2: ogni domanda ha la sua striscia |
 | `dati/knowledge_graph.json` | 79 concetti, 128 archi tipizzati (PRE/APP/CON/ES/MIT) con pesi |
-| `dati/lezioni/*.json` | lezioni interattive complete (testi, scenario dell'animazione, domande) |
+| `dati/lezioni/*.json` | lezioni interattive (passi numerati, riassunto in 3 frasi, scenario dell'animazione, eventuali domande): oggi tutte le pillole dei moduli 1 e 2 + P4.1 |
 | `schema/*.schema.json` | schemi JSON generati dal modello (`strumenti/esporta_schema.py`) |
 | `corso/` | modello dati, catalogo, regole delle domande, generatore di percorso, salute, motore, account, server |
 | `webapp/` | shell pubblica (`index.html`, `app.js`, `app.css`) |
-| `webapp/animazioni/` | moduli delle animazioni, serviti solo dopo l'accesso da `/protetto/animazioni/` |
+| `webapp/animazioni/` | un modulo JS per lezione (logica pura esportata + `monta`), servito solo dopo l'accesso da `/protetto/animazioni/` |
 | `strumenti/estrai_corso.py` | estrattore dal documento benchmark (`titoli_en.json`, `traduzioni_en_pillole.json` per l'inglese); conserva le domande già presenti nel JSON |
 | `strumenti/fabbisogno_strisce.py` | calcola quante domande mancano per concetto e quali punti di vista scrivere (`dati/fabbisogno_strisce.json`) |
-| `tests/`, `tests_js/` | test pytest e test Node della logica delle animazioni |
+| `tests/`, `tests_js/` | test pytest (`tests/test_lezioni.py`: regole delle lezioni) e test Node della logica delle animazioni (`tests_js/prova_animazioni.mjs` + un file per lezione in `tests_js/lezioni/`) |
 | `server.py` | avvio del server locale (controlla la porta, stampa l'indirizzo) |
 | `collaudo.ps1` | collaudo in un comando |
 | `PROGRESSI.md` | stato del lavoro |

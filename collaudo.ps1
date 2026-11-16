@@ -4,7 +4,8 @@
 # Cosa fa:
 #   1. crea l'ambiente virtuale .venv nella cartella del progetto (solo la prima volta)
 #   2. installa le dipendenze di requirements.txt (solo librerie gratuite e permissive)
-#   3. esegue TUTTI i test Python (con copertura) e, se Node e' installato, i test delle animazioni;
+#   3. esegue TUTTI i test Python (con copertura) e, se Node e' installato, i test delle animazioni
+#      (tests_js\prova_animazioni.mjs: le 2 lezioni del dimostratore + un file per lezione in tests_js\lezioni);
 #      scrive tutto in collaudo_esito.txt (da passare a Claude se qualcosa e' rosso)
 #   4. chiede se avviare il server: S = avvia, Q = esci. Lo script NON apre nessun browser:
 #      il server stampa la riga "Apri nel tuo browser: http://127.0.0.1:8780" e l'indirizzo lo apri tu.
@@ -60,6 +61,9 @@ if ($t -eq 0 -and $c -eq 0 -and $j -eq 0) {
 } else {
     Write-Host "QUALCOSA E' ROSSO: passa collaudo_esito.txt a Claude." -ForegroundColor Red
 }
+Write-Host ""
+Write-Host "Lezioni interattive da provare (distintivo 'interattiva' nell'elenco a sinistra):" -ForegroundColor Cyan
+& $Py -c "import sys; sys.stdout.reconfigure(encoding='utf-8'); from corso.config import carica_config; from corso.catalogo import Catalogo; c = Catalogo(carica_config()); [print('  ' + pid + '  ' + l.titolo.it) for pid, l in sorted(c.lezioni.items())]"
 $Codice = & $Py -c "import json; print(json.load(open('config/piattaforma.json', encoding='utf-8'))['account']['codici_stub'][0])"
 Write-Host ""
 Write-Host "Per entrare nel corso: email = una qualsiasi (es. prova@esempio.it), codice = $Codice" -ForegroundColor Cyan
