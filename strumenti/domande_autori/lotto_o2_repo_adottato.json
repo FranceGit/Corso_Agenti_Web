@@ -1,0 +1,1710 @@
+[
+ {
+  "id": "DO2.1-1",
+  "origine": "autori",
+  "pillola": "PO2.1",
+  "concetti": [
+   "CO05"
+  ],
+  "concetto_principale": "CO05",
+  "segmento_aiuto": "mappa",
+  "striscia": "definizione",
+  "livello1": {
+   "domanda": {
+    "it": "Hai scaricato un repo sconosciuto con un CRM ad agenti. Qual è l'ordine di lettura più utile prima di eseguirlo?",
+    "en": "You downloaded an unknown repo with an agent CRM. What is the most useful reading order before running it?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Configurazione, ingresso, dipendenze, poi il flusso",
+      "en": "Configuration, entry point, dependencies, then the flow"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Senza l'ingresso non sai quale configurazione viene letta, né quando.",
+      "en": "Without the entry point you do not know which configuration is read, or when."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Ingresso, dipendenze, configurazione, poi il flusso",
+      "en": "Entry point, dependencies, configuration, then the flow"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: main.py dice chi chiama chi, poi si guarda che cosa serve, che cosa si configura e infine il percorso dei dati.",
+      "en": "Right: main.py tells who calls whom, then you look at what is needed, what is configured and finally the data path."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Il README, poi subito l'agente che sembra più importante",
+      "en": "The README, then straight to the agent that looks most important"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il README orienta, ma un agente letto da solo non dice chi lo chiama né con quali dati.",
+      "en": "The README orients you, but an agent read alone does not tell who calls it or with which data."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Prima lo si lancia, poi si leggono i file citati negli errori",
+      "en": "First you launch it, then you read the files named in the errors"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "È il contrario della regola: il materiale scaricato si legge prima di eseguirlo.",
+      "en": "It is the opposite of the rule: downloaded material is read before it is run."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "I file in ordine alfabetico, così non se ne salta nessuno",
+      "en": "The files in alphabetical order, so none is skipped"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "L'ordine alfabetico non ha niente a che fare con il flusso del programma.",
+      "en": "Alphabetical order has nothing to do with the program's flow."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Un repo si capisce partendo dal punto d'ingresso e seguendo dipendenze, configurazione e flusso dei dati.",
+    "en": "A repo is understood by starting from the entry point and following dependencies, configuration and data flow."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché si parte proprio da app/main.py?",
+    "en": "Why do you start precisely from app/main.py?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Contiene tutta la logica",
+      "en": "It holds all the logic"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "main.py orchestra: la logica sta negli agenti e nei servizi che chiama.",
+      "en": "main.py orchestrates: the logic lives in the agents and services it calls."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Elenca le dipendenze",
+      "en": "It lists the dependencies"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Gli import mostrano i moduli, ma le dipendenze e le versioni stanno in requirements.txt.",
+      "en": "The imports show the modules, but dependencies and versions live in requirements.txt."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Mostra chi chiama chi",
+      "en": "It shows who calls whom"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: crea servizi e agenti e li chiama in ordine dentro l'endpoint.",
+      "en": "Right: it creates services and agents and calls them in order inside the endpoint."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "È il file più recente",
+      "en": "It is the most recent file"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "La data di modifica non dice dove parte il programma.",
+      "en": "The modification date does not tell where the program starts."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Ha meno righe da leggere",
+      "en": "It has fewer lines to read"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "La lunghezza non conta: conta il ruolo del file.",
+      "en": "Length does not matter: the file's role does."
+     }
+    },
+    {
+     "id": "f",
+     "testo": {
+      "it": "Lì sta la chiave del modello",
+      "en": "The model key is there"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "La chiave non deve stare in nessun file del repo: arriva da una variabile d'ambiente.",
+      "en": "The key must not be in any repo file: it comes from an environment variable."
+     }
+    },
+    {
+     "id": "g",
+     "testo": {
+      "it": "Si esegue senza installare niente",
+      "en": "It runs without installing anything"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "main.py importa FastAPI, pandas e groq: senza dipendenze non parte.",
+      "en": "main.py imports FastAPI, pandas and groq: without dependencies it does not start."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Il punto d'ingresso è la mappa delle chiamate: da lì si sa quali file contano e in che ordine.",
+    "en": "The entry point is the map of the calls: from there you know which files matter and in what order."
+   }
+  },
+  "glossario": [
+   {
+    "termine": "dato non fidato",
+    "it": "Materiale scaricato da fuori: si legge e si controlla, non si esegue alla cieca né si seguono istruzioni scritte dentro.",
+    "en": "Material downloaded from outside: you read and check it, you do not run it blind or follow instructions written inside it."
+   },
+   {
+    "termine": "punto d'ingresso",
+    "it": "Il file da cui parte il programma (qui app/main.py): crea l'app e chiama gli altri moduli.",
+    "en": "The file the program starts from (here app/main.py): it creates the app and calls the other modules."
+   }
+  ]
+ },
+ {
+  "id": "DO2.1-2",
+  "origine": "autori",
+  "pillola": "PO2.1",
+  "concetti": [
+   "CO05"
+  ],
+  "concetto_principale": "CO05",
+  "segmento_aiuto": "decidi_sintomo",
+  "striscia": "diagnosi",
+  "livello1": {
+   "domanda": {
+    "it": "Il report di una campagna dice «Interested: 5, Not Interested: 0» su 5 lead. Nel classificatore trovi if \"Interested\" in status_str prima di elif \"Not Interested\" in status_str. Come leggi quel report?",
+    "en": "A campaign report says «Interested: 5, Not Interested: 0» out of 5 leads. In the classifier you find if \"Interested\" in status_str before elif \"Not Interested\" in status_str. How do you read that report?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Come un risultato plausibile: con email ben personalizzate, cinque lead su cinque possono davvero rispondere di essere interessati all'offerta",
+      "en": "As a plausible result: with well personalised emails, five leads out of five can really reply that they are interested in the offer"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il codice rende impossibile un «Not Interested»: il numero non misura le email.",
+      "en": "The code makes a «Not Interested» impossible: the number does not measure the emails."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Come un sintomo: «Not Interested» contiene «Interested», quindi il primo controllo cattura anche i no e il secondo ramo non scatta mai",
+      "en": "As a symptom: «Not Interested» contains «Interested», so the first check also catches the noes and the second branch never fires"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: lo zero non dipende dai lead, dipende dall'ordine dei controlli.",
+      "en": "Right: the zero does not depend on the leads, it depends on the order of the checks."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Come un sintomo del modello: Groq tende a rispondere sempre «Interested», e basta cambiare il prompt per ottenere numeri più realistici dalla campagna",
+      "en": "As a symptom of the model: Groq tends to always answer «Interested», and changing the prompt is enough to get more realistic numbers from the campaign"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "È un sintomo, ma del codice: anche se il modello scrivesse «Not Interested», il primo controllo lo trasformerebbe in Interested.",
+      "en": "It is a symptom, but of the code: even if the model wrote «Not Interested», the first check would turn it into Interested."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Come un errore del report: il generatore conta male le etichette dei lead e va riscritto prima ancora di aprire il classificatore delle risposte",
+      "en": "As a report error: the generator miscounts the leads' labels and must be rewritten before even opening the reply classifier"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Il report conta bene ciò che riceve: le etichette arrivano già sbagliate dal classificatore.",
+      "en": "The report correctly counts what it receives: the labels already arrive wrong from the classifier."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Un numero troppo bello va spiegato con il codice: qui l'ordine dei controlli rende lo zero inevitabile.",
+    "en": "A number that is too good must be explained with the code: here the order of the checks makes the zero unavoidable."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Quale prova conferma la diagnosi senza chiamare il modello vero?",
+    "en": "Which test confirms the diagnosis without calling the real model?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Rilanciare la campagna con altri 5 lead e confrontare il report",
+      "en": "Rerunning the campaign with 5 other leads and comparing the report"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Passa di nuovo dal modello vero e dal difetto: il report uscirebbe ancora con zero no.",
+      "en": "It goes through the real model and the defect again: the report would still show zero noes."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Leggere a mano i testi simulati salvati nel CSV di uscita",
+      "en": "Reading by hand the simulated texts saved in the output CSV"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Utile per farsi un'idea, ma non è una prova ripetibile del classificatore.",
+      "en": "Useful to get an idea, but it is not a repeatable test of the classifier."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Chiedere a Groq di spiegare perché ha classificato così",
+      "en": "Asking Groq to explain why it classified that way"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "La classificazione finale la fa il codice, non il modello: la spiegazione del modello non la verifica.",
+      "en": "The final classification is done by the code, not the model: the model's explanation does not check it."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Un test con modello finto che risponde «Not Interested»",
+      "en": "A test with a fake model that answers «Not Interested»"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: risposta fissa, nessuna rete, e se esce Interested il difetto è dimostrato.",
+      "en": "Right: fixed answer, no network, and if Interested comes out the defect is proven."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Portare temperature da 0.5 a 1 per avere risposte più varie",
+      "en": "Raising temperature from 0.5 to 1 to get more varied answers"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Risposte più varie non cambiano l'ordine dei controlli e rendono la prova meno ripetibile.",
+      "en": "More varied answers do not change the order of the checks and make the test less repeatable."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Con un modello finto il caso «Not Interested» entra sempre uguale: l'esito dipende solo dal codice.",
+    "en": "With a fake model the «Not Interested» case always comes in the same: the outcome depends only on the code."
+   }
+  },
+  "glossario": [
+   {
+    "termine": "modello finto",
+    "it": "Sostituto del modello vero nei test: risponde sempre uguale, senza rete e senza costi.",
+    "en": "A stand-in for the real model in tests: it always answers the same, with no network and no cost."
+   },
+   {
+    "termine": "temperature",
+    "it": "Parametro del modello: più è alto, più le risposte alla stessa domanda variano.",
+    "en": "A model parameter: the higher it is, the more the answers to the same question vary."
+   }
+  ]
+ },
+ {
+  "id": "DO2.1-3",
+  "origine": "autori",
+  "pillola": "PO2.1",
+  "concetti": [
+   "CO05"
+  ],
+  "concetto_principale": "CO05",
+  "segmento_aiuto": "leggi_prima",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Un collega scarica il repo e lancia subito docker compose up --build «per vedere se funziona». Quale conseguenza mostra che non è un buon modo di cominciare?",
+    "en": "A colleague downloads the repo and immediately runs docker compose up --build «to see if it works». Which consequence shows it is not a good way to start?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Scarica immagini pesanti, ma per il resto è un buon inizio",
+      "en": "It downloads heavy images, but otherwise it is a good start"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il peso è il problema minore: il codice non letto parte e si ferma senza spiegare.",
+      "en": "Size is the lesser problem: the unread code starts and stops without explaining."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Funziona solo se il README è aggiornato",
+      "en": "It only works if the README is up to date"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il README qui è già disallineato dal codice, e comunque non fornisce la chiave.",
+      "en": "The README here is already out of step with the code, and it does not provide the key anyway."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Docker non si può usare su un repo scaricato",
+      "en": "Docker cannot be used on a downloaded repo"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Si può eccome: il punto è leggere prima che cosa si esegue.",
+      "en": "It certainly can: the point is to read first what you run."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Il container cancella i file del repo alla prima esecuzione",
+      "en": "The container deletes the repo files on the first run"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Non succede: i volumi del compose montano data e reports, non li cancellano.",
+      "en": "It does not happen: the compose volumes mount data and reports, they do not delete them."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Esegue codice non letto e si ferma su un errore poco parlante",
+      "en": "It runs unread code and stops on an unhelpful error"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: codice non fidato lanciato alla cieca, e Settings() si ferma senza GROQ_API_KEY.",
+      "en": "Right: untrusted code launched blind, and Settings() stops without GROQ_API_KEY."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Il materiale scaricato è un dato non fidato: si legge prima, e la lettura avrebbe mostrato la variabile mancante.",
+    "en": "Downloaded material is untrusted data: you read it first, and reading would have shown the missing variable."
+   }
+  },
+  "livello2": {
+   "tipo": "contro-esempio",
+   "domanda": {
+    "it": "Che cosa succede, nel codice, se manca GROQ_API_KEY?",
+    "en": "What happens, in the code, if GROQ_API_KEY is missing?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "LLMService stampa solo un avviso",
+      "en": "LLMService only prints a warning"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Lo fa, ma l'app si ferma prima: config.py crea Settings() all'import.",
+      "en": "It does, but the app stops earlier: config.py creates Settings() at import."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Le email partono vuote",
+      "en": "The emails go out empty"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Succede con una chiave scaduta, per il ripiego silenzioso; senza chiave l'app non parte.",
+      "en": "That happens with an expired key, because of the silent fallback; without a key the app does not start."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Groq risponde 401 e basta",
+      "en": "Groq answers 401 and that is it"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Non si arriva a chiamare Groq: l'errore viene prima, all'import.",
+      "en": "It never gets to call Groq: the error comes earlier, at import."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Settings() fallisce all'import",
+      "en": "Settings() fails at import"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: GROQ_API_KEY è obbligatoria e Settings() parte appena il modulo viene importato.",
+      "en": "Right: GROQ_API_KEY is required and Settings() runs as soon as the module is imported."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Parte un modello locale",
+      "en": "A local model starts"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Nel repo non c'è nessun modello di riserva.",
+      "en": "There is no backup model in the repo."
+     }
+    },
+    {
+     "id": "f",
+     "testo": {
+      "it": "Docker chiede la chiave a video",
+      "en": "Docker asks for the key on screen"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Docker non chiede valori: li legge da env_file o dall'ambiente.",
+      "en": "Docker does not ask for values: it reads them from env_file or the environment."
+     }
+    },
+    {
+     "id": "g",
+     "testo": {
+      "it": "Il repo ne fornisce una di prova",
+      "en": "The repo provides a test key"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Nessuna chiave nel repo, giustamente: e nemmeno un .env.example.",
+      "en": "No key in the repo, rightly: and not even a .env.example."
+     }
+    }
+   ],
+   "perche": {
+    "it": "In config.py GROQ_API_KEY non ha valore predefinito e settings = Settings() gira all'import: senza chiave l'app non parte.",
+    "en": "In config.py GROQ_API_KEY has no default and settings = Settings() runs at import: without a key the app does not start."
+   }
+  },
+  "glossario": [
+   {
+    "termine": "dato non fidato",
+    "it": "Materiale scaricato da fuori: si legge e si controlla, non si esegue alla cieca né si seguono istruzioni scritte dentro.",
+    "en": "Material downloaded from outside: you read and check it, you do not run it blind or follow instructions written inside it."
+   },
+   {
+    "termine": "ripiego silenzioso",
+    "it": "Un guasto trasformato in un valore plausibile (stringa vuota, punteggio medio) senza dire che qualcosa è andato storto.",
+    "en": "A failure turned into a plausible value (empty string, average score) without saying that something went wrong."
+   },
+   {
+    "termine": "variabile d'ambiente",
+    "it": "Valore impostato fuori dal codice, nel terminale o nel codespace, che il programma legge all'avvio.",
+    "en": "A value set outside the code, in the terminal or the codespace, that the program reads at start-up."
+   }
+  ]
+ },
+ {
+  "id": "DO2.2-1",
+  "origine": "autori",
+  "pillola": "PO2.2",
+  "concetti": [
+   "CO06"
+  ],
+  "concetto_principale": "CO06",
+  "segmento_aiuto": "fissate",
+  "striscia": "definizione",
+  "livello1": {
+   "domanda": {
+    "it": "Che cosa rende riproducibili le dipendenze di un progetto Python in un container?",
+    "en": "What makes the dependencies of a Python project in a container reproducible?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Ogni pacchetto con >=versione, così arrivano le correzioni",
+      "en": "Every package with >=version, so the fixes arrive"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Con >= ogni build può prendere una versione diversa: niente riproducibilità.",
+      "en": "With >= every build can take a different version: no reproducibility."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Tutti i pacchetti usati, ma senza versione",
+      "en": "All the packages in use, but without versions"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "L'elenco giusto è metà del lavoro: senza versione cambia da una build all'altra.",
+      "en": "The right list is half the job: without versions it changes from one build to the next."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Ogni pacchetto con ==versione e un'immagine base fissata",
+      "en": "Every package with ==version and a pinned base image"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: stessi pacchetti e stessa base, oggi e fra sei mesi.",
+      "en": "Right: same packages and same base, today and in six months."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Ricostruire l'immagine ogni giorno per restare aggiornati",
+      "en": "Rebuilding the image every day to stay up to date"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Ogni ricostruzione con righe libere può dare un risultato diverso.",
+      "en": "Every rebuild with loose lines can give a different result."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Installare i pacchetti a mano nel container, uno per volta",
+      "en": "Installing the packages by hand in the container, one at a time"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Un'installazione a mano non lascia traccia e non si ripete uguale.",
+      "en": "A manual install leaves no trace and is not repeated identically."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Riproducibile vuol dire che la stessa ricetta dà la stessa installazione: versioni fissate e base fissata.",
+    "en": "Reproducible means the same recipe gives the same install: pinned versions and a pinned base."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché la riga «fastapi» senza versione è un rischio anche se oggi funziona?",
+    "en": "Why is the «fastapi» line without a version a risk even if it works today?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Il rischio è solo di sicurezza",
+      "en": "The risk is only about security"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Non solo: una versione nuova può cambiare l'interfaccia e rompere il codice.",
+      "en": "Not only: a new version can change the interface and break the code."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Cambiano solo i pacchetti piccoli",
+      "en": "Only small packages change"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Qualunque pacchetto senza versione può cambiare alla build successiva.",
+      "en": "Any package without a version can change at the next build."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "pip non installa senza versione",
+      "en": "pip does not install without a version"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Installa eccome: prende l'ultima uscita, ed è proprio questo il rischio.",
+      "en": "It certainly does: it takes the latest release, and that is exactly the risk."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Rallenta la costruzione",
+      "en": "It slows down the build"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "La velocità non cambia: cambia che cosa viene installato.",
+      "en": "Speed does not change: what gets installed does."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "pip prenderà un'altra versione",
+      "en": "pip will take another version"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: fra sei mesi la stessa riga può portare un'interfaccia diversa.",
+      "en": "Right: in six months the same line can bring a different interface."
+     }
+    },
+    {
+     "id": "f",
+     "testo": {
+      "it": "FastAPI si paga a versione",
+      "en": "FastAPI is paid per version"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "FastAPI è gratuito: il problema è la versione che cambia.",
+      "en": "FastAPI is free: the problem is the version that changes."
+     }
+    },
+    {
+     "id": "g",
+     "testo": {
+      "it": "Python 3.9 vieta le versioni",
+      "en": "Python 3.9 forbids versions"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Nessuna versione di Python vieta di fissare le dipendenze.",
+      "en": "No Python version forbids pinning dependencies."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Una riga senza versione dice «l'ultima del giorno della build»: oggi una, fra sei mesi un'altra.",
+    "en": "A line without a version says «the latest of the build day»: one today, another in six months."
+   }
+  },
+  "glossario": [
+   {
+    "termine": "versione fissata",
+    "it": "Una dipendenza scritta con ==versione: ogni installazione prende esattamente quella versione.",
+    "en": "A dependency written with ==version: every install takes exactly that version."
+   },
+   {
+    "termine": "immagine base",
+    "it": "L'immagine da cui parte un Dockerfile (riga FROM), per esempio python:3.12-slim.",
+    "en": "The image a Dockerfile starts from (FROM line), for example python:3.12-slim."
+   },
+   {
+    "termine": "pip freeze",
+    "it": "Comando che elenca i pacchetti installati con la loro versione esatta.",
+    "en": "A command that lists the installed packages with their exact version."
+   }
+  ]
+ },
+ {
+  "id": "DO2.2-2",
+  "origine": "autori",
+  "pillola": "PO2.2",
+  "concetti": [
+   "CO06"
+  ],
+  "concetto_principale": "CO06",
+  "segmento_aiuto": "chiave_finto",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Nel Codespace dell'Officina devi dare la chiave di Groq al CRM adottato. Dove la metti?",
+    "en": "In the Officina Codespace you must give the Groq key to the adopted CRM. Where do you put it?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "In un segreto di Codespaces, che arriva come variabile d'ambiente; nel repo resta .env.example con GROQ_API_KEY vuota",
+      "en": "In a Codespaces secret, which arrives as an environment variable; .env.example with an empty GROQ_API_KEY stays in the repo"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: la chiave non entra mai nel repo né nell'immagine, e chi adotta il repo sa che variabile serve.",
+      "en": "Right: the key never enters the repo or the image, and whoever adopts the repo knows which variable is needed."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "In un .env ignorato da git e, per comodità di chi adotta il repo dopo di te, la stessa chiave anche dentro .env.example",
+      "en": "In a .env ignored by git and, for the convenience of whoever adopts the repo after you, the same key inside .env.example too"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il .env va bene, ma .env.example finisce nel repo: la chiave sarebbe pubblica.",
+      "en": "The .env is fine, but .env.example ends up in the repo: the key would be public."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Nel Dockerfile con un'istruzione ENV, così l'immagine è già pronta per chiunque la scarichi dal registro dei container",
+      "en": "In the Dockerfile with an ENV instruction, so the image is ready for anyone who pulls it from the container registry"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "La chiave resterebbe dentro l'immagine e nel repo: chiunque la scarica la legge.",
+      "en": "The key would stay inside the image and in the repo: anyone who pulls it reads it."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "In config.py come valore predefinito di GROQ_API_KEY, così l'app parte sempre anche quando nessuno ha impostato le variabili",
+      "en": "In config.py as the default value of GROQ_API_KEY, so the app always starts even when nobody has set the variables"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Chiave nel codice, quindi nel repo e nella cronologia: va revocata.",
+      "en": "Key in the code, hence in the repo and the history: it must be revoked."
+     }
+    }
+   ],
+   "perche": {
+    "it": "La chiave arriva dall'ambiente (segreto o .env ignorato); nel repo resta solo il modello delle variabili, vuoto.",
+    "en": "The key comes from the environment (a secret or an ignored .env); only the empty variables template stays in the repo."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Il .gitignore del repo esclude .env.*. Che effetto ha su chi adotta il repo?",
+    "en": "The repo's .gitignore excludes .env.*. What effect does it have on whoever adopts the repo?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Riceve .env.example, ma senza la chiave dentro",
+      "en": "They get .env.example, but without the key inside"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Non lo riceve affatto: .env.* esclude anche .env.example.",
+      "en": "They do not get it at all: .env.* also excludes .env.example."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "La chiave dell'autore resta al sicuro, e nient'altro cambia",
+      "en": "The author's key stays safe, and nothing else changes"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "La chiave è al sicuro, ma sparisce anche il modello delle variabili.",
+      "en": "The key is safe, but the variables template disappears too."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Non riceve .env.example e non sa quali variabili servono",
+      "en": "They do not get .env.example and do not know which variables are needed"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: per questo l'esercizio chiede di creare .env.example a mano.",
+      "en": "Right: that is why the exercise asks you to create .env.example by hand."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "git rifiuta di clonare il repo finché manca .env",
+      "en": "git refuses to clone the repo until .env exists"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "git clona normalmente: ignora solo quei file.",
+      "en": "git clones normally: it just ignores those files."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Docker non riesce più a leggere docker-compose.yml",
+      "en": "Docker can no longer read docker-compose.yml"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Il .gitignore non tocca il compose né il modo in cui Docker lo legge.",
+      "en": "The .gitignore does not touch the compose file or how Docker reads it."
+     }
+    }
+   ],
+   "perche": {
+    "it": "«.env.*» è troppo largo: protegge il .env ma toglie anche il modello che dice quali variabili servono.",
+    "en": "«.env.*» is too broad: it protects the .env but also removes the template that says which variables are needed."
+   }
+  },
+  "glossario": [
+   {
+    "termine": "variabile d'ambiente",
+    "it": "Valore impostato fuori dal codice, nel terminale o nel codespace, che il programma legge all'avvio.",
+    "en": "A value set outside the code, in the terminal or the codespace, that the program reads at start-up."
+   },
+   {
+    "termine": "segreto di Codespaces",
+    "it": "Valore salvato nelle impostazioni del profilo GitHub, abilitato per i repo scelti, che arriva nel codespace come variabile d'ambiente.",
+    "en": "A value saved in the GitHub profile settings, enabled for chosen repos, that reaches the codespace as an environment variable."
+   }
+  ]
+ },
+ {
+  "id": "DO2.2-3",
+  "origine": "autori",
+  "pillola": "PO2.2",
+  "concetti": [
+   "CO06"
+  ],
+  "concetto_principale": "CO06",
+  "segmento_aiuto": "chiave_finto",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Un test del classificatore chiama il modello vero di Groq. Quale osservazione dimostra che non è un buon test di regressione?",
+    "en": "A classifier test calls the real Groq model. Which observation shows it is not a good regression test?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Ci mette qualche secondo in più del modello finto",
+      "en": "It takes a few seconds longer than the fake model"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "È vero, ma il guaio serio è che l'esito cambia da un giro all'altro.",
+      "en": "True, but the serious trouble is that the outcome changes from one run to the next."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Il modello vero classifica meglio di quello finto",
+      "en": "The real model classifies better than the fake one"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Più realistico non vuol dire più affidabile: un test deve dare sempre lo stesso esito.",
+      "en": "More realistic does not mean more reliable: a test must always give the same outcome."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Usa json_mode, che i test non sopportano",
+      "en": "It uses json_mode, which tests cannot handle"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "json_mode non c'entra con i test: il problema è la risposta che varia.",
+      "en": "json_mode has nothing to do with tests: the problem is the answer that varies."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "pytest non può fare chiamate di rete",
+      "en": "pytest cannot make network calls"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Può farle: è proprio per questo che bisogna evitarle nei test.",
+      "en": "It can: that is exactly why you must avoid them in tests."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Lo stesso codice dà verde un giorno e rosso il giorno dopo",
+      "en": "The same code gives green one day and red the next"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: con temperature 0.5 la risposta cambia, e il test non dice più niente sul codice.",
+      "en": "Right: with temperature 0.5 the answer changes, and the test no longer says anything about the code."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Un test di regressione deve cambiare esito solo quando cambia il codice: il modello vero lo fa cambiare anche da solo.",
+    "en": "A regression test must change outcome only when the code changes: the real model makes it change on its own too."
+   }
+  },
+  "livello2": {
+   "tipo": "contro-esempio",
+   "domanda": {
+    "it": "Che cosa deve fare il modello finto per rendere utile il test?",
+    "en": "What must the fake model do to make the test useful?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Rispondere sempre uguale",
+      "en": "Always answer the same"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: risposta fissa, quindi l'esito dipende solo dal classificatore.",
+      "en": "Right: fixed answer, so the outcome depends only on the classifier."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Imitare Groq alla lettera",
+      "en": "Imitate Groq to the letter"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Deve imitare la forma della risposta, non la sua variabilità.",
+      "en": "It must imitate the shape of the answer, not its variability."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Usare temperature 0",
+      "en": "Use temperature 0"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Riduce la variabilità del modello vero, ma restano rete, chiave e costi.",
+      "en": "It reduces the real model's variability, but network, key and costs remain."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Girare in un altro container",
+      "en": "Run in another container"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Dove gira non conta: conta che risponda sempre uguale.",
+      "en": "Where it runs does not matter: what matters is that it always answers the same."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Rispondere a caso",
+      "en": "Answer at random"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Sarebbe peggio del modello vero: nessun esito ripetibile.",
+      "en": "It would be worse than the real model: no repeatable outcome."
+     }
+    },
+    {
+     "id": "f",
+     "testo": {
+      "it": "Chiamare Groq di nascosto",
+      "en": "Call Groq secretly"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Allora non è un modello finto: tornano rete, chiave e costi.",
+      "en": "Then it is not a fake model: network, key and costs come back."
+     }
+    },
+    {
+     "id": "g",
+     "testo": {
+      "it": "Generare la chiave",
+      "en": "Generate the key"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Il modello finto non ha bisogno di nessuna chiave.",
+      "en": "The fake model needs no key at all."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Il modello finto è deterministico, senza rete e senza costi: così un test rosso indica il codice, non il caso.",
+    "en": "The fake model is deterministic, with no network and no cost: so a red test points at the code, not at chance."
+   }
+  },
+  "glossario": [
+   {
+    "termine": "modello finto",
+    "it": "Sostituto del modello vero nei test: risponde sempre uguale, senza rete e senza costi.",
+    "en": "A stand-in for the real model in tests: it always answers the same, with no network and no cost."
+   },
+   {
+    "termine": "temperature",
+    "it": "Parametro del modello: più è alto, più le risposte alla stessa domanda variano.",
+    "en": "A model parameter: the higher it is, the more the answers to the same question vary."
+   },
+   {
+    "termine": "test di regressione",
+    "it": "Test che resta nel repo dopo una correzione e torna rosso se il difetto ricompare.",
+    "en": "A test that stays in the repo after a fix and turns red again if the defect comes back."
+   }
+  ]
+ },
+ {
+  "id": "DO2.2-4",
+  "origine": "autori",
+  "pillola": "PO2.2",
+  "concetti": [
+   "CO07"
+  ],
+  "concetto_principale": "CO07",
+  "segmento_aiuto": "ciclo",
+  "striscia": "definizione",
+  "livello1": {
+   "domanda": {
+    "it": "Che cos'è un buon test di regressione per il difetto del classificatore?",
+    "en": "What is a good regression test for the classifier defect?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Un test che riproduce il caso «Not Interested» con un modello finto, fallisce sul codice del repo, passa dopo la correzione e resta nel repo per segnalare se il difetto torna",
+      "en": "A test that reproduces the «Not Interested» case with a fake model, fails on the repo's code, passes after the fix and stays in the repo to signal if the defect comes back"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: vede il difetto, dimostra la correzione e resta a sorvegliare.",
+      "en": "Right: it sees the defect, proves the fix and stays on watch."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Un test scritto solo dopo la correzione che controlla «Not Interested»: non serve vederlo fallire prima, basta che passi sul codice corretto e che giri in fretta a ogni modifica",
+      "en": "A test written only after the fix that checks «Not Interested»: there is no need to see it fail first, it is enough that it passes on the fixed code and runs quickly at every change"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Senza averlo visto rosso non sai se il test vede davvero il difetto: potrebbe passare comunque.",
+      "en": "Without having seen it red you do not know whether the test really sees the defect: it might pass anyway."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Un controllo a mano del report della campagna dopo ogni rilascio, per vedere se il numero dei «Not Interested» è tornato diverso da zero su un nuovo gruppo di lead veri",
+      "en": "A manual check of the campaign report after every release, to see whether the number of «Not Interested» is back above zero on a new group of real leads"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Dipende dai lead e dal modello vero, non è automatico e arriva dopo il danno.",
+      "en": "It depends on the leads and on the real model, it is not automatic and it comes after the damage."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Il test di regressione nasce rosso sul difetto, diventa verde con la correzione e resta nel repo.",
+    "en": "The regression test is born red on the defect, turns green with the fix and stays in the repo."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché il test va visto fallire prima della correzione?",
+    "en": "Why must the test be seen failing before the fix?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Così si scopre quale riga cambiare senza leggere il codice",
+      "en": "So you find out which line to change without reading the code"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il test segnala il caso sbagliato, ma la riga da cambiare la trovi leggendo.",
+      "en": "The test points to the wrong case, but you find the line to change by reading."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Serve a contare quanti lead reali erano classificati male",
+      "en": "It serves to count how many real leads were misclassified"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il test usa casi finti e fissi: non conta i lead della campagna.",
+      "en": "The test uses fixed fake cases: it does not count the campaign's leads."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Prova che il test vede il difetto e non passa comunque",
+      "en": "It proves the test sees the defect and does not pass anyway"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: un test che passa anche sul codice difettoso non dimostra niente.",
+      "en": "Right: a test that passes even on the faulty code proves nothing."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Rende la correzione più veloce da scrivere",
+      "en": "It makes the fix quicker to write"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "La velocità non c'entra: c'entra la prova.",
+      "en": "Speed has nothing to do with it: proof does."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "pytest rifiuta i test che passano al primo colpo",
+      "en": "pytest rejects tests that pass at the first attempt"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "pytest non ha nessuna regola del genere.",
+      "en": "pytest has no such rule."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Rosso, correzione, verde: solo così il verde finale dimostra che la correzione ha tolto il difetto.",
+    "en": "Red, fix, green: only this way does the final green prove the fix removed the defect."
+   }
+  },
+  "glossario": [
+   {
+    "termine": "test di regressione",
+    "it": "Test che resta nel repo dopo una correzione e torna rosso se il difetto ricompare.",
+    "en": "A test that stays in the repo after a fix and turns red again if the defect comes back."
+   },
+   {
+    "termine": "modello finto",
+    "it": "Sostituto del modello vero nei test: risponde sempre uguale, senza rete e senza costi.",
+    "en": "A stand-in for the real model in tests: it always answers the same, with no network and no cost."
+   }
+  ]
+ },
+ {
+  "id": "DO2.2-5",
+  "origine": "autori",
+  "pillola": "PO2.2",
+  "concetti": [
+   "CO07"
+  ],
+  "concetto_principale": "CO07",
+  "segmento_aiuto": "ordine",
+  "striscia": "diagnosi",
+  "livello1": {
+   "domanda": {
+    "it": "Hai messo «Not Interested» prima di «Interested». Ora gli 8 casi danno 7 verdi: resta rosso «not interested» in minuscolo, classificato Needs Follow-up. Perché?",
+    "en": "You put «Not Interested» before «Interested». Now the 8 cases give 7 green: «not interested» in lower case stays red, classified Needs Follow-up. Why?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "L'ordine è ancora sbagliato",
+      "en": "The order is still wrong"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "L'ordine ora è giusto: è la scrittura dell'etichetta che non coincide.",
+      "en": "The order is right now: it is the spelling of the label that does not match."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Manca la pulizia dei ```",
+      "en": "The ``` cleaning is missing"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "La pulizia c'è già, e questo caso non è recintato.",
+      "en": "The cleaning is already there, and this case is not fenced."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Manca la normalizzazione",
+      "en": "Normalisation is missing"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: «not interested» non contiene «Not Interested» finché non porti tutto in minuscolo.",
+      "en": "Right: «not interested» does not contain «Not Interested» until you put everything in lower case."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Il JSON non è valido",
+      "en": "The JSON is not valid"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il JSON si legge: se no l'esito sarebbe Unknown, non Needs Follow-up.",
+      "en": "The JSON is readable: otherwise the outcome would be Unknown, not Needs Follow-up."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Il modello finto sbaglia",
+      "en": "The fake model is wrong"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il modello finto restituisce sempre la stessa risposta: è il classificatore a non riconoscerla.",
+      "en": "The fake model always returns the same answer: it is the classifier that does not recognise it."
+     }
+    },
+    {
+     "id": "F",
+     "testo": {
+      "it": "Serve un modello più grande",
+      "en": "A bigger model is needed"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Il modello non c'entra: il confronto avviene nel codice.",
+      "en": "The model has nothing to do with it: the comparison happens in the code."
+     }
+    },
+    {
+     "id": "G",
+     "testo": {
+      "it": "Mancano le versioni fissate",
+      "en": "The pinned versions are missing"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Le versioni riguardano l'installazione, non il confronto delle etichette.",
+      "en": "Versions concern the install, not the comparison of labels."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Il controllo distingue maiuscole e minuscole: senza normalizzare, «not interested» non scatta in nessun ramo.",
+    "en": "The check is case-sensitive: without normalising, «not interested» fires no branch."
+   }
+  },
+  "livello2": {
+   "tipo": "diagnosi",
+   "domanda": {
+    "it": "Quale correzione chiude anche questo caso senza rompere gli altri sette?",
+    "en": "Which fix also closes this case without breaking the other seven?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Portare l'etichetta in minuscolo ma lasciare i confronti con «Not Interested» e «Interested» scritti con le iniziali maiuscole",
+      "en": "Putting the label in lower case but leaving the comparisons with «Not Interested» and «Interested» written with capital initials"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Un'etichetta minuscola non contiene mai una parola con le maiuscole: diventerebbero tutti Needs Follow-up.",
+      "en": "A lower-case label never contains a word with capitals: they would all become Needs Follow-up."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Togliere gli spazi e portare in minuscolo l'etichetta prima dei confronti, confrontandola con etichette scritte allo stesso modo",
+      "en": "Trimming the spaces and putting the label in lower case before the comparisons, comparing it with labels written the same way"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: le due parti del confronto hanno la stessa forma, e l'ordine giusto resta.",
+      "en": "Right: both sides of the comparison have the same form, and the right order stays."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Chiedere nel prompt al modello di scrivere sempre le etichette con l'iniziale maiuscola, senza toccare il codice del classificatore",
+      "en": "Asking the model in the prompt to always write the labels with a capital initial, without touching the classifier's code"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il prompt non garantisce niente, e il test col modello finto resterebbe rosso.",
+      "en": "The prompt guarantees nothing, and the test with the fake model would stay red."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Tornare a controllare «Interested» per primo, così il caso in minuscolo finisce almeno fra gli interessati invece che fra i follow-up",
+      "en": "Going back to checking «Interested» first, so the lower-case case at least ends up among the interested instead of the follow-ups"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Riporta il difetto principale: tutti i no tornano interessati.",
+      "en": "It brings back the main defect: all the noes become interested again."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Normalizzare vuol dire dare la stessa forma a entrambe le parti del confronto, prima di confrontarle.",
+    "en": "Normalising means giving both sides of the comparison the same form, before comparing them."
+   }
+  },
+  "glossario": [
+   {
+    "termine": "normalizzare",
+    "it": "Portare un testo a una forma standard prima di confrontarlo, per esempio togliendo gli spazi e mettendo tutto in minuscolo.",
+    "en": "Bringing a text to a standard form before comparing it, for example trimming the spaces and putting everything in lower case."
+   },
+   {
+    "termine": "test di regressione",
+    "it": "Test che resta nel repo dopo una correzione e torna rosso se il difetto ricompare.",
+    "en": "A test that stays in the repo after a fix and turns red again if the defect comes back."
+   }
+  ]
+ },
+ {
+  "id": "DO2.2-6",
+  "origine": "autori",
+  "pillola": "PO2.2",
+  "concetti": [
+   "CO07"
+  ],
+  "concetto_principale": "CO07",
+  "segmento_aiuto": "difetto",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Nel CRM adottato, che cosa succede in pratica a un lead che risponde «No grazie, non ci interessa»?",
+    "en": "In the adopted CRM, what happens in practice to a lead who replies «No thanks, we are not interested»?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Finisce fra i Needs Follow-up e viene ricontattato più avanti",
+      "en": "It ends up among Needs Follow-up and is contacted again later"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Peggio: finisce fra gli interessati, perché «Not Interested» contiene «Interested».",
+      "en": "Worse: it ends up among the interested, because «Not Interested» contains «Interested»."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Viene classificato Unknown perché la risposta è negativa",
+      "en": "It is classified Unknown because the reply is negative"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Unknown arriva solo se la risposta non è JSON, non se è negativa.",
+      "en": "Unknown only comes if the reply is not JSON, not if it is negative."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Esce dal report ma resta nel CSV di uscita",
+      "en": "It leaves the report but stays in the output CSV"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il report conta tutti i lead: il problema è l'etichetta sbagliata.",
+      "en": "The report counts every lead: the problem is the wrong label."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Finisce fra gli interessati e riceve i follow-up commerciali",
+      "en": "It ends up among the interested and gets the sales follow-ups"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: il primo controllo lo cattura come Interested, e il CRM lo tratta da interessato.",
+      "en": "Right: the first check catches it as Interested, and the CRM treats it as interested."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Il CRM lo cancella subito dalla lista dei lead",
+      "en": "The CRM deletes it from the lead list straight away"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Nel codice non c'è nessuna cancellazione dei lead.",
+      "en": "There is no lead deletion in the code."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Il difetto ha una conseguenza commerciale concreta: chi ha detto no viene trattato da interessato.",
+    "en": "The defect has a concrete commercial consequence: whoever said no is treated as interested."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché il ramo NOT_INTERESTED non si raggiunge mai?",
+    "en": "Why is the NOT_INTERESTED branch never reached?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Manca il ramo else",
+      "en": "The else branch is missing"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "L'else c'è e dà Needs Follow-up: il guaio è il primo controllo.",
+      "en": "The else is there and gives Needs Follow-up: the trouble is the first check."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Groq non scrive mai il no",
+      "en": "Groq never writes the no"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Anche quando lo scrive, il primo controllo lo trasforma in Interested.",
+      "en": "Even when it writes it, the first check turns it into Interested."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Il JSON non ha quel campo",
+      "en": "The JSON lacks that field"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il campo classification c'è: è il confronto a sbagliare.",
+      "en": "The classification field is there: it is the comparison that is wrong."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Il primo controllo lo cattura",
+      "en": "The first check catches it"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: «Not Interested» contiene «Interested», quindi il primo if scatta sempre.",
+      "en": "Right: «Not Interested» contains «Interested», so the first if always fires."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "L'enum non ha quel valore",
+      "en": "The enum lacks that value"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "EmailStatus ha NOT_INTERESTED: il problema è l'ordine.",
+      "en": "EmailStatus has NOT_INTERESTED: the problem is the order."
+     }
+    },
+    {
+     "id": "f",
+     "testo": {
+      "it": "Python vieta elif dopo if",
+      "en": "Python forbids elif after if"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "elif dopo if è la forma normale in Python.",
+      "en": "elif after if is the normal form in Python."
+     }
+    },
+    {
+     "id": "g",
+     "testo": {
+      "it": "Il report non lo conta",
+      "en": "The report does not count it"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Il report lo conterebbe: non gli arriva mai.",
+      "en": "The report would count it: it never reaches it."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Con i controlli «contiene» va prima il caso più specifico: «Not Interested» prima di «Interested».",
+    "en": "With «contains» checks the most specific case goes first: «Not Interested» before «Interested»."
+   }
+  },
+  "glossario": [
+   {
+    "termine": "test di regressione",
+    "it": "Test che resta nel repo dopo una correzione e torna rosso se il difetto ricompare.",
+    "en": "A test that stays in the repo after a fix and turns red again if the defect comes back."
+   },
+   {
+    "termine": "normalizzare",
+    "it": "Portare un testo a una forma standard prima di confrontarlo, per esempio togliendo gli spazi e mettendo tutto in minuscolo.",
+    "en": "Bringing a text to a standard form before comparing it, for example trimming the spaces and putting everything in lower case."
+   }
+  ]
+ }
+]

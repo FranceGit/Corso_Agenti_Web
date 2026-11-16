@@ -1,0 +1,1591 @@
+[
+ {
+  "id": "DO3.1-1",
+  "origine": "autori",
+  "pillola": "PO3.1",
+  "concetti": [
+   "CO08"
+  ],
+  "concetto_principale": "CO08",
+  "segmento_aiuto": "pianta",
+  "striscia": "definizione",
+  "livello1": {
+   "domanda": {
+    "it": "Il BLUEPRINT di nebula-insurance-crm si dichiara «unica fonte di verità». Che cosa succede a un requisito che non vi è scritto?",
+    "en": "The nebula-insurance-crm BLUEPRINT declares itself the «single source of truth». What happens to a requirement that is not written in it?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Si implementa se è piccolo",
+      "en": "It is built if it is small"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Anche un requisito piccolo, se non è scritto, è scope creep: prima si scrive, poi si costruisce.",
+      "en": "Even a small requirement, if it is not written, is scope creep: first you write it, then you build it."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Si copia da un CRM simile",
+      "en": "It is copied from a similar CRM"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Un altro prodotto non è la fonte di verità di questo.",
+      "en": "Another product is not the source of truth of this one."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Non si implementa",
+      "en": "It is not implemented"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "È la regola scritta in cima al BLUEPRINT: se non è lì, non si costruisce; se è ambiguo, si fanno domande.",
+      "en": "It is the rule at the top of the BLUEPRINT: if it is not there, it is not built; if it is ambiguous, you ask questions."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Lo decide chi scrive il codice",
+      "en": "The person writing the code decides"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "È proprio ciò che la regola evita: chi implementa non inventa requisiti.",
+      "en": "That is exactly what the rule prevents: whoever implements does not invent requirements."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Si implementa sempre",
+      "en": "It is always implemented"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "È l'opposto della regola: ciò che non è scritto non si costruisce.",
+      "en": "It is the opposite of the rule: what is not written is not built."
+     }
+    },
+    {
+     "id": "F",
+     "testo": {
+      "it": "Si deduce dai test esistenti",
+      "en": "It is inferred from the existing tests"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "I test verificano requisiti già scritti, non ne creano di nuovi.",
+      "en": "Tests check requirements that are already written, they do not create new ones."
+     }
+    },
+    {
+     "id": "G",
+     "testo": {
+      "it": "Vale più del blueprint",
+      "en": "It outweighs the blueprint"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Niente vale più dell'unica fonte di verità: un requisito non scritto non esiste.",
+      "en": "Nothing outweighs the single source of truth: an unwritten requirement does not exist."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Il BLUEPRINT è l'unica fonte di verità: un requisito che non c'è non si implementa, e le ambiguità diventano domande.",
+    "en": "The BLUEPRINT is the single source of truth: a missing requirement is not implemented, and ambiguities become questions."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché il BLUEPRINT pone questa regola?",
+    "en": "Why does the BLUEPRINT set this rule?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Per obbligare gli sviluppatori a scrivere più documenti che codice",
+      "en": "To force developers to write more documents than code"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "La regola non riguarda la quantità di documenti, ma dove sta la verità sul prodotto.",
+      "en": "The rule is not about the amount of documents, but about where the truth on the product lives."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Per avere un solo posto che dice che cosa costruire, senza requisiti inventati",
+      "en": "To have a single place that says what to build, with no invented requirements"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Un solo riferimento evita lo scope creep e le regole di business inventate da chi implementa.",
+      "en": "A single reference prevents scope creep and business rules invented by whoever implements."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Per vietare qualsiasi modifica al progetto dopo che il documento è stato approvato",
+      "en": "To forbid any change to the project once the document has been approved"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il blueprint cambia (fasi, ADR superati): conta che ogni cambio sia scritto lì.",
+      "en": "The blueprint does change (phases, superseded ADRs): what matters is that every change is written there."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Perché gli agenti AI non riescono a leggere più di un documento",
+      "en": "Because AI agents cannot read more than one document"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Non è un limite tecnico: è una regola di governo dello scope.",
+      "en": "It is not a technical limit: it is a scope governance rule."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Per rendere inutile la revisione del codice da parte dei revisori",
+      "en": "To make code review by the reviewers unnecessary"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "La revisione resta: il blueprint dice che cosa costruire, non se è costruito bene.",
+      "en": "Review stays: the blueprint says what to build, not whether it is built well."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Una sola fonte di verità tiene fermo lo scope: chi costruisce non aggiunge regole di business di sua iniziativa.",
+    "en": "A single source of truth keeps the scope fixed: builders do not add business rules on their own initiative."
+   }
+  },
+  "glossario": [
+   {
+    "termine": "BLUEPRINT",
+    "it": "Documento di progetto che dice che cosa si costruisce e perché; in nebula-insurance-crm è l'unica fonte di verità.",
+    "en": "Planning document that says what is built and why; in nebula-insurance-crm it is the single source of truth."
+   }
+  ]
+ },
+ {
+  "id": "DO3.1-2",
+  "origine": "autori",
+  "pillola": "PO3.1",
+  "concetti": [
+   "CO08"
+  ],
+  "concetto_principale": "CO08",
+  "segmento_aiuto": "confini",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Un tester segnala che un BrokerUser esterno vede i contatti di un altro broker. In quale documento di nebula-insurance-crm si trova la regola puntuale che è stata violata?",
+    "en": "A tester reports that an external BrokerUser can see another broker's contacts. In which nebula-insurance-crm document is the precise rule that was violated?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Nell'ADR-007, che decide il meccanismo (scope dal claim broker_tenant_id, accesso negato se manca) e indica la matrice come norma",
+      "en": "In ADR-007, which decides the mechanism (scope from the broker_tenant_id claim, access denied if missing) and names the matrix as the norm"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "L'ADR decide il meccanismo e dichiara normativa la §2.10 della matrice: la regola puntuale sta lì.",
+      "en": "The ADR decides the mechanism and declares §2.10 of the matrix normative: the precise rule lives there."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Nella §1.2 del BLUEPRINT, che elenca gli utenti interni del CRM e indica gli utenti esterni come sviluppo futuro",
+      "en": "In BLUEPRINT §1.2, which lists the CRM's internal users and marks external users as future work"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "La §1.2 dice chi usa il CRM, non che cosa può vedere ciascuno.",
+      "en": "§1.2 says who uses the CRM, not what each one can see."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Nella matrice di autorizzazione, security/authorization-matrix.md §2.10: il BrokerUser vede solo i broker legati alla sua identità",
+      "en": "In the authorisation matrix, security/authorization-matrix.md §2.10: the BrokerUser sees only brokers tied to its identity"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "La §2.10 scrive, azione per azione, che il BrokerUser non ha visibilità sugli altri broker né sui loro contatti.",
+      "en": "§2.10 states, action by action, that the BrokerUser has no visibility of other brokers or their contacts."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Nello schema contact.schema.json, perché è lo schema della risorsa Contact a decidere quali contatti può leggere ciascun utente esterno",
+      "en": "In contact.schema.json, because the Contact resource schema decides which contacts each external user can read"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Lo schema dice com'è fatto un contatto, non chi può leggerlo: l'autorizzazione sta altrove.",
+      "en": "The schema says what a contact looks like, not who can read it: authorisation lives elsewhere."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Principio nel BLUEPRINT §4.4, meccanismo nell'ADR-007, regola puntuale nella matrice §2.10.",
+    "en": "Principle in BLUEPRINT §4.4, mechanism in ADR-007, precise rule in matrix §2.10."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Il difetto è confermato. Dove va corretto, secondo l'ADR-007?",
+    "en": "The defect is confirmed. Where must it be fixed, according to ADR-007?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Nascondendo i contatti degli altri broker nell'interfaccia React",
+      "en": "By hiding the other brokers' contacts in the React interface"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Il controllo è solo lato server: nascondere nell'interfaccia non protegge i dati.",
+      "en": "Enforcement is server-side only: hiding things in the interface does not protect the data."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Nel server, solo nel filtro dei campi della risposta",
+      "en": "On the server, only in the response field filter"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il filtro dei campi è l'ultimo passo; il primo è isolare la query per tenant.",
+      "en": "The field filter is the last step; the first is isolating the query by tenant."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Riscrivendo la §2.10 della matrice per renderla più severa",
+      "en": "By rewriting matrix §2.10 to make it stricter"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "La regola è già giusta: è il codice che non la rispetta.",
+      "en": "The rule is already right: it is the code that does not honour it."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Nel server: isolamento della query, poi Casbin, poi filtro dei campi",
+      "en": "On the server: query isolation, then Casbin, then field filtering"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "L'ADR-007 fissa quest'ordine dei controlli; il difetto sta in uno dei tre passi lato server.",
+      "en": "ADR-007 fixes this order of checks; the defect lies in one of the three server-side steps."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Aggiungendo additionalProperties: false allo schema condiviso dei contatti",
+      "en": "By adding additionalProperties: false to the shared contact schema"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Lo schema lo ha già e non decide chi può leggere i dati.",
+      "en": "The schema already has it and it does not decide who can read the data."
+     }
+    }
+   ],
+   "perche": {
+    "it": "La regola non cambia: si corregge il codice del server, nell'ordine isolamento, Casbin, filtro dei campi.",
+    "en": "The rule does not change: the server code is fixed, in the order isolation, Casbin, field filtering."
+   }
+  },
+  "glossario": [
+   {
+    "termine": "BrokerUser",
+    "it": "Ruolo esterno di un broker che accede al CRM vedendo solo i dati legati alla propria identità.",
+    "en": "External broker role that accesses the CRM seeing only the data tied to its own identity."
+   },
+   {
+    "termine": "ADR",
+    "it": "Architecture Decision Record: file che registra una decisione con contesto, opzioni considerate e scelta.",
+    "en": "Architecture Decision Record: a file that records a decision with context, options considered and choice."
+   },
+   {
+    "termine": "Casbin",
+    "it": "Libreria che valuta le politiche di autorizzazione lato server.",
+    "en": "Library that evaluates authorisation policies on the server side."
+   }
+  ]
+ },
+ {
+  "id": "DO3.1-3",
+  "origine": "autori",
+  "pillola": "PO3.1",
+  "concetti": [
+   "CO08"
+  ],
+  "concetto_principale": "CO08",
+  "segmento_aiuto": "decisioni",
+  "striscia": "diagnosi",
+  "livello1": {
+   "domanda": {
+    "it": "Un collega propone di cancellare il vecchio ADR su Keycloak, «tanto adesso usiamo authentik». Che cosa non va nella proposta?",
+    "en": "A colleague proposes deleting the old Keycloak ADR, «since we use authentik now anyway». What is wrong with the proposal?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Niente: un ADR superato non serve più e confonde chi legge",
+      "en": "Nothing: a superseded ADR is no longer needed and confuses readers"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Superato non vuol dire inutile: il legame «Supersedes» spiega perché si è cambiato.",
+      "en": "Superseded does not mean useless: the «Supersedes» link explains why things changed."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Va cancellato, ma solo dopo aver aggiornato la §2 del BLUEPRINT, che nomina ancora Keycloak",
+      "en": "It should be deleted, but only after updating BLUEPRINT §2, which still names Keycloak"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "La §2 è già aggiornata («per ADR-006»); il vecchio ADR resta come storia della decisione.",
+      "en": "§2 is already updated («per ADR-006»); the old ADR stays as the history of the decision."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Gli ADR sono codice: cancellarli rompe la compilazione",
+      "en": "ADRs are code: deleting them breaks the build"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Gli ADR sono documenti di decisione, non codice.",
+      "en": "ADRs are decision documents, not code."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Si perde il perché: l'ADR-006 dichiara di sostituirlo e la storia resta leggibile",
+      "en": "The why is lost: ADR-006 declares that it replaces it and the history stays readable"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Una decisione superata non si cancella: il nuovo ADR la sostituisce e chi legge ricostruisce la storia.",
+      "en": "A superseded decision is not deleted: the new ADR replaces it and readers can rebuild the history."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Gli ADR può cancellarli solo l'agente di sicurezza",
+      "en": "Only the security agent may delete ADRs"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Nessun ruolo cancella le decisioni superate: si sostituiscono con un ADR nuovo.",
+      "en": "No role deletes superseded decisions: they are replaced by a new ADR."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Le decisioni superate restano: l'ADR nuovo dichiara quale sostituisce, così il perché non si perde.",
+    "en": "Superseded decisions stay: the new ADR states which one it replaces, so the why is not lost."
+   }
+  },
+  "livello2": {
+   "tipo": "contro-esempio",
+   "domanda": {
+    "it": "Quale caso mostra che la §2 del BLUEPRINT, da sola, non basta per capire una scelta?",
+    "en": "Which case shows that BLUEPRINT §2 alone is not enough to understand a choice?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "La §2 elenca React, .NET 10 e PostgreSQL senza la versione di ogni singola libreria: per sapere quale versione installare bisogna leggere direttamente il codice del backend e del frontend.",
+      "en": "§2 lists React, .NET 10 and PostgreSQL without the version of every single library: to know which version to install you have to read the backend and frontend code directly."
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Le versioni delle librerie sono un dettaglio di implementazione, non il perché di una decisione.",
+      "en": "Library versions are an implementation detail, not the why of a decision."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "La §2 dice solo «authentik replaces Keycloak per ADR-006»: che si è cambiato perché non c'erano utenti da migrare, scartando Auth0 e Okta, lo spiega l'ADR-006.",
+      "en": "§2 only says «authentik replaces Keycloak per ADR-006»: that the switch happened because there were no users to migrate, discarding Auth0 and Okta, is explained by ADR-006."
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Il BLUEPRINT registra l'esito; contesto, alternative scartate e motivi stanno nell'ADR.",
+      "en": "The BLUEPRINT records the outcome; context, discarded alternatives and reasons live in the ADR."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "La §2 è scritta in inglese mentre gli ADR sono in italiano, quindi chi non legge l'inglese deve passare dagli ADR per capire le scelte di piattaforma del CRM.",
+      "en": "§2 is written in English while the ADRs are in Italian, so whoever cannot read English must go through the ADRs to understand the CRM platform choices."
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Falso: sono tutti in inglese, e la lingua non c'entra con il perché di una scelta.",
+      "en": "False: they are all in English, and language has nothing to do with the why of a choice."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Il BLUEPRINT dice che cosa si è scelto; il perché, con le alternative scartate, sta negli ADR.",
+    "en": "The BLUEPRINT says what was chosen; the why, with the discarded alternatives, lives in the ADRs."
+   }
+  },
+  "glossario": [
+   {
+    "termine": "ADR",
+    "it": "Architecture Decision Record: file che registra una decisione con contesto, opzioni considerate e scelta.",
+    "en": "Architecture Decision Record: a file that records a decision with context, options considered and choice."
+   },
+   {
+    "termine": "BLUEPRINT",
+    "it": "Documento di progetto che dice che cosa si costruisce e perché; in nebula-insurance-crm è l'unica fonte di verità.",
+    "en": "Planning document that says what is built and why; in nebula-insurance-crm it is the single source of truth."
+   }
+  ]
+ },
+ {
+  "id": "DO3.2-1",
+  "origine": "autori",
+  "pillola": "PO3.2",
+  "concetti": [
+   "CO09"
+  ],
+  "concetto_principale": "CO09",
+  "segmento_aiuto": "contratto",
+  "striscia": "definizione",
+  "livello1": {
+   "domanda": {
+    "it": "In contact-create-request.schema.json c'è «additionalProperties: false». Che cosa significa?",
+    "en": "contact-create-request.schema.json contains «additionalProperties: false». What does it mean?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "I campi in più si ignorano",
+      "en": "Extra fields are ignored"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Ignorare in silenzio è un'altra scelta: qui la richiesta viene respinta.",
+      "en": "Silently ignoring is a different choice: here the request is rejected."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Si accetta qualsiasi campo",
+      "en": "Any field is accepted"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "È l'opposto: false chiude l'elenco dei campi.",
+      "en": "It is the opposite: false closes the list of fields."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Ammessi solo i 4 obbligatori",
+      "en": "Only the 4 required are allowed"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Anche role, facoltativo, è nell'elenco ed è ammesso.",
+      "en": "role too, optional, is in the list and is allowed."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Le proprietà non hanno tipo",
+      "en": "The properties have no type"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il tipo è descritto per ogni campo in properties: non c'entra.",
+      "en": "The type is described for every field in properties: unrelated."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Nessun campo fuori elenco",
+      "en": "No field outside the list"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Un campo che non sta in properties rende la richiesta non valida.",
+      "en": "A field that is not in properties makes the request invalid."
+     }
+    },
+    {
+     "id": "F",
+     "testo": {
+      "it": "Tutti i campi sono facoltativi",
+      "en": "All fields are optional"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Quali campi sono obbligatori lo dice required, non additionalProperties.",
+      "en": "Which fields are required is said by required, not additionalProperties."
+     }
+    },
+    {
+     "id": "G",
+     "testo": {
+      "it": "Lo schema non si può estendere",
+      "en": "The schema cannot be extended"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Lo schema può evolvere con un nuovo contratto: la parola riguarda la richiesta.",
+      "en": "The schema can evolve with a new contract: the keyword is about the request."
+     }
+    }
+   ],
+   "perche": {
+    "it": "additionalProperties: false chiude il contratto: solo i campi elencati in properties sono ammessi.",
+    "en": "additionalProperties: false closes the contract: only the fields listed in properties are allowed."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché tutte le 63 richieste di Nebula sono chiuse così?",
+    "en": "Why are all 63 Nebula requests closed this way?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Per risparmiare spazio nel database eliminando i campi inutili",
+      "en": "To save database space by dropping useless fields"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il punto non è lo spazio: il contratto dice esattamente che cosa entra.",
+      "en": "The point is not space: the contract says exactly what gets in."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Così il client può decidere da sé l'id del nuovo contatto",
+      "en": "So that the client can choose the new contact's id itself"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "È il contrario: id non è nell'elenco, quindi una richiesta con id viene respinta.",
+      "en": "It is the opposite: id is not in the list, so a request with an id is rejected."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Un campo non previsto è un errore da segnalare, non un dato da salvare",
+      "en": "An unexpected field is an error to report, not data to save"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Chiudere il contratto fa emergere subito i campi sbagliati o non concordati.",
+      "en": "Closing the contract brings wrong or unagreed fields to light at once."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Perché NJsonSchema non sa leggere gli schemi aperti",
+      "en": "Because NJsonSchema cannot read open schemas"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Gli schemi aperti si leggono: chiuderli è una scelta di contratto.",
+      "en": "Open schemas can be read: closing them is a contract choice."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Per obbligare il frontend a inviare sempre anche tutti i campi facoltativi",
+      "en": "To force the frontend to always send all the optional fields too"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "I facoltativi restano facoltativi: false vieta solo i campi fuori elenco.",
+      "en": "Optional fields stay optional: false only forbids fields outside the list."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Un contratto chiuso trasforma un campo inatteso in un errore visibile, invece che in un dato salvato di nascosto.",
+    "en": "A closed contract turns an unexpected field into a visible error, instead of data saved behind the scenes."
+   }
+  },
+  "glossario": [
+   {
+    "termine": "additionalProperties",
+    "it": "Parola di JSON Schema: se vale false, un campo non elencato in properties rende l'oggetto non valido.",
+    "en": "JSON Schema keyword: when false, a field not listed in properties makes the object invalid."
+   },
+   {
+    "termine": "JSON Schema",
+    "it": "Formato che descrive i campi ammessi di un oggetto JSON, i loro tipi e quali sono obbligatori.",
+    "en": "Format that describes the allowed fields of a JSON object, their types and which ones are required."
+   }
+  ]
+ },
+ {
+  "id": "DO3.2-2",
+  "origine": "autori",
+  "pillola": "PO3.2",
+  "concetti": [
+   "CO09"
+  ],
+  "concetto_principale": "CO09",
+  "segmento_aiuto": "risorsa",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Uno script invia a POST /contacts una richiesta valida, ma con in più il campo «id» già valorizzato. Che cosa risponde l'API di Nebula?",
+    "en": "A script sends POST /contacts a valid request, but with an extra «id» field already filled in. What does the Nebula API answer?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "201: salva il contatto con l'id scelto dallo script al posto di quello del server",
+      "en": "201: it saves the contact with the id chosen by the script instead of the server's"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Succederebbe solo con un controllo che non rispetta il contratto.",
+      "en": "It would only happen with a check that does not honour the contract."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "409: esiste già un contatto con quell'id",
+      "en": "409: a contact with that id already exists"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il 409 è per i conflitti di stato; qui la richiesta non passa nemmeno la validazione.",
+      "en": "409 is for state conflicts; here the request does not even pass validation."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "201: salva il contatto e ignora l'id ricevuto",
+      "en": "201: it saves the contact and ignores the received id"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Ignorare in silenzio non è ciò che fa additionalProperties: false: la richiesta viene respinta.",
+      "en": "Silently ignoring is not what additionalProperties: false does: the request is rejected."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "403: lo script non ha il permesso contact:create",
+      "en": "403: the script lacks the contact:create permission"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Il permesso non c'entra con la forma della richiesta: il problema è il campo in più.",
+      "en": "Permission has nothing to do with the shape of the request: the problem is the extra field."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "400 ProblemDetails: id non è previsto dallo schema della richiesta",
+      "en": "400 ProblemDetails: id is not allowed by the request schema"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Lo schema di creazione non elenca id e non ammette campi in più: l'API respinge con 400.",
+      "en": "The create schema does not list id and allows no extra fields: the API rejects with 400."
+     }
+    }
+   ],
+   "perche": {
+    "it": "La richiesta di creazione non ammette id: un campo fuori contratto produce un 400 con ProblemDetails.",
+    "en": "The create request does not allow id: a field outside the contract produces a 400 with ProblemDetails."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Perché la richiesta non ammette id, mentre lo schema Contact della risorsa lo rende obbligatorio?",
+    "en": "Why does the request not allow id, while the Contact resource schema makes it required?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché l'id si aggiunge dopo, con una seconda richiesta di aggiornamento",
+      "en": "Because the id is added later, with a second update request"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Nessuna seconda richiesta: il server lo assegna e lo restituisce nella risposta 201.",
+      "en": "No second request: the server assigns it and returns it in the 201 response."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché l'id lo assegna il server: il client non deve poterlo scegliere",
+      "en": "Because the server assigns the id: the client must not be able to choose it"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Richiesta e risorsa hanno ruoli diversi: id, campi mascherati e audit li decide il server.",
+      "en": "Request and resource play different roles: id, masked fields and audit are decided by the server."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché l'id è un dato personale e va mascherato nella richiesta",
+      "en": "Because the id is personal data and must be masked in the request"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Si mascherano email e phone quando il broker è inattivo, non l'id.",
+      "en": "Email and phone are masked when the broker is inactive, not the id."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Perché i due schemi li hanno scritti persone diverse e divergono per errore",
+      "en": "Because two different people wrote the schemas and they differ by mistake"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "La differenza è voluta: richiesta e risorsa servono a cose diverse.",
+      "en": "The difference is intended: request and resource serve different purposes."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Perché nella risorsa l'id serve solo a ordinare i contatti in elenco",
+      "en": "Because in the resource the id only serves to sort contacts in lists"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "L'id identifica il contatto in tutte le chiamate successive, non serve a ordinare.",
+      "en": "The id identifies the contact in all later calls, it is not for sorting."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Richiesta e risorsa sono due contratti diversi: ciò che decide il server, come l'id, non si chiede al client.",
+    "en": "Request and resource are two different contracts: what the server decides, such as the id, is not asked of the client."
+   }
+  },
+  "glossario": [
+   {
+    "termine": "ProblemDetails",
+    "it": "Formato standard (RFC 7807) delle risposte d'errore di un'API.",
+    "en": "Standard format (RFC 7807) for an API's error responses."
+   },
+   {
+    "termine": "additionalProperties",
+    "it": "Parola di JSON Schema: se vale false, un campo non elencato in properties rende l'oggetto non valido.",
+    "en": "JSON Schema keyword: when false, a field not listed in properties makes the object invalid."
+   }
+  ]
+ },
+ {
+  "id": "DO3.2-3",
+  "origine": "autori",
+  "pillola": "PO3.2",
+  "concetti": [
+   "CO09"
+  ],
+  "concetto_principale": "CO09",
+  "segmento_aiuto": "due_parti",
+  "striscia": "diagnosi",
+  "livello1": {
+   "domanda": {
+    "it": "Il modulo web respinge il telefono «02-1234», ma uno script che chiama l'API direttamente lo fa salvare con 201. Qual è la causa più probabile?",
+    "en": "The web form rejects the phone «02-1234», but a script calling the API directly gets it saved with 201. What is the most likely cause?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Lo schema ha un pattern del telefono sbagliato, e il modulo web lo applica in modo più severo di quanto dovrebbe fare il server della stessa applicazione",
+      "en": "The schema has a wrong phone pattern, and the web form applies it more strictly than the server of the same application should"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Lo schema è lo stesso file per entrambi: se fosse sbagliato, sbaglierebbero insieme.",
+      "en": "The schema is the same file for both: if it were wrong, they would be wrong together."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Il database PostgreSQL corregge da solo il formato dei numeri di telefono prima di salvare la riga nella tabella dei contatti",
+      "en": "The PostgreSQL database fixes the phone number format by itself before saving the row in the contacts table"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Il database non corregge i formati: salva quello che il server gli passa.",
+      "en": "The database does not fix formats: it saves whatever the server passes to it."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Il server non applica lo stesso JSON Schema del modulo, ma una copia delle regole scritta a mano che non controlla il pattern del telefono",
+      "en": "The server does not apply the form's JSON Schema, but a hand-written copy of the rules that does not check the phone pattern"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Due copie delle regole divergono: il modulo usa lo schema, il server no, e lo script passa.",
+      "en": "Two copies of the rules drift apart: the form uses the schema, the server does not, and the script gets through."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Lo script usa una chiave con permessi più ampi, che lo autorizza a scavalcare la validazione dei dati in ingresso",
+      "en": "The script uses a key with wider permissions, which lets it skip input data validation"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "I permessi decidono chi può creare, non la forma dei dati: la validazione vale per tutti.",
+      "en": "Permissions decide who may create, not the shape of the data: validation applies to everyone."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Se due parti danno verdetti diversi sulla stessa richiesta, non stanno leggendo lo stesso contratto.",
+    "en": "If two parts give different verdicts on the same request, they are not reading the same contract."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Quale decisione registrata di Nebula evita proprio questo guasto, e come?",
+    "en": "Which recorded Nebula decision prevents exactly this failure, and how?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "L'ADR-008: il server adotta l'enforcer Casbin ufficiale al posto di un parser scritto a mano, così ogni richiesta con dati malformati viene negata con un 403 prima di arrivare al dominio.",
+      "en": "ADR-008: the server adopts the official Casbin enforcer instead of a hand-written parser, so every request with malformed data is denied with a 403 before it reaches the domain."
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "L'ADR-008 riguarda l'autorizzazione: decide chi può fare un'azione, non se i dati rispettano lo schema.",
+      "en": "ADR-008 is about authorisation: it decides who can perform an action, not whether the data honours the schema."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "L'ADR-006: authentik introduce un UserId interno stabile, così il server riconosce lo script come utente esterno e gli applica regole di validazione più severe di quelle del modulo web.",
+      "en": "ADR-006: authentik introduces a stable internal UserId, so the server recognises the script as an external user and applies stricter validation rules than the web form's."
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "L'identità non cambia le regole di forma dei dati: il contratto è uguale per tutti.",
+      "en": "Identity does not change the data shape rules: the contract is the same for everyone."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "L'ADR-001: un solo JSON Schema in planning-mds/schemas/, applicato con AJV nel modulo e con NJsonSchema nell'API, così le due parti non danno verdetti diversi.",
+      "en": "ADR-001: a single JSON Schema in planning-mds/schemas/, applied with AJV in the form and NJsonSchema in the API, so the two parts never give different verdicts."
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "L'ADR-001 scarta la validazione scritta due volte proprio per il rischio di deriva.",
+      "en": "ADR-001 discards validation written twice precisely because of the drift risk."
+     }
+    }
+   ],
+   "perche": {
+    "it": "L'ADR-001 fa leggere a frontend e backend lo stesso file di schema: niente copie, niente deriva.",
+    "en": "ADR-001 has frontend and backend read the same schema file: no copies, no drift."
+   }
+  },
+  "glossario": [
+   {
+    "termine": "JSON Schema",
+    "it": "Formato che descrive i campi ammessi di un oggetto JSON, i loro tipi e quali sono obbligatori.",
+    "en": "Format that describes the allowed fields of a JSON object, their types and which ones are required."
+   },
+   {
+    "termine": "ADR",
+    "it": "Architecture Decision Record: file che registra una decisione con contesto, opzioni considerate e scelta.",
+    "en": "Architecture Decision Record: a file that records a decision with context, options considered and choice."
+   }
+  ]
+ },
+ {
+  "id": "DO3.2-4",
+  "origine": "autori",
+  "pillola": "PO3.2",
+  "concetti": [
+   "CO10"
+  ],
+  "concetto_principale": "CO10",
+  "segmento_aiuto": "squadra",
+  "striscia": "definizione",
+  "livello1": {
+   "domanda": {
+    "it": "In nebula-agents, dove sono scritte le competenze e i limiti di un ruolo come l'architetto?",
+    "en": "In nebula-agents, where are the skills and limits of a role such as the architect written?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "agents/agent-map.yaml",
+      "en": "agents/agent-map.yaml"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "La mappa dice che cosa il ruolo legge e scrive; competenze e limiti stanno nel suo SKILL.md.",
+      "en": "The map says what the role reads and writes; skills and limits live in its SKILL.md."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Nel codice di engine/",
+      "en": "In the engine/ code"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "engine/ è il backend del prodotto, non il posto dei ruoli.",
+      "en": "engine/ is the product backend, not the place for roles."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "planning-mds/BLUEPRINT.md",
+      "en": "planning-mds/BLUEPRINT.md"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il BLUEPRINT è del prodotto: i ruoli generici stanno in nebula-agents.",
+      "en": "The BLUEPRINT belongs to the product: the generic roles live in nebula-agents."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "CONSUMER-CONTRACT.md",
+      "en": "CONSUMER-CONTRACT.md"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "È il contratto fra framework e prodotto, non la descrizione di un ruolo.",
+      "en": "It is the contract between framework and product, not the description of a role."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "lifecycle-stage.yaml",
+      "en": "lifecycle-stage.yaml"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Elenca le verifiche del ciclo di vita, non le competenze dei ruoli.",
+      "en": "It lists the lifecycle checks, not the roles' skills."
+     }
+    },
+    {
+     "id": "F",
+     "testo": {
+      "it": "agents/architect/SKILL.md",
+      "en": "agents/architect/SKILL.md"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Ogni ruolo ha il suo SKILL.md: identità, cosa fa, cosa non fa, con quali strumenti.",
+      "en": "Every role has its SKILL.md: identity, what it does, what it does not do, with which tools."
+     }
+    },
+    {
+     "id": "G",
+     "testo": {
+      "it": "Nel prompt di ogni sessione",
+      "en": "In the prompt of every session"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Le competenze stanno in un file versionato, non vengono riscritte a ogni sessione.",
+      "en": "The skills live in a versioned file, they are not rewritten at every session."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Le competenze di un ruolo stanno in agents/<ruolo>/SKILL.md; agent-map.yaml dice che cosa legge e scrive.",
+    "en": "A role's skills live in agents/<role>/SKILL.md; agent-map.yaml says what it reads and writes."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché quel SKILL.md non contiene esempi sull'underwriting assicurativo?",
+    "en": "Why does that SKILL.md contain no examples about insurance underwriting?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché l'underwriting è un argomento riservato all'agente di sicurezza",
+      "en": "Because underwriting is a topic reserved for the security agent"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Non è questione di ruolo: nessun file in agents/ può contenere termini di dominio.",
+      "en": "It is not about roles: no file in agents/ may contain domain terms."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché agents/ deve valere per qualsiasi progetto: il dominio sta nel prodotto",
+      "en": "Because agents/ must work for any project: the domain lives in the product"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "È la regola 1 della BOUNDARY-POLICY, controllata da validate-genericness.py.",
+      "en": "It is rule 1 of the BOUNDARY-POLICY, checked by validate-genericness.py."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché gli esempi di dominio rendono i file SKILL.md troppo lunghi da leggere per un agente",
+      "en": "Because domain examples make the SKILL.md files too long for an agent to read"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "La lunghezza non c'entra: la BOUNDARY-POLICY vuole agents/ generico.",
+      "en": "Length has nothing to do with it: the BOUNDARY-POLICY wants agents/ generic."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Perché il modello linguistico non conosce il lessico assicurativo",
+      "en": "Because the language model does not know insurance vocabulary"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il motivo è il confine fra i due repo, non la conoscenza del modello.",
+      "en": "The reason is the boundary between the two repos, not the model's knowledge."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Perché nebula-agents è nato prima che esistesse il CRM",
+      "en": "Because nebula-agents was born before the CRM existed"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "È stato estratto dal mono-repo nebula-crm: la separazione è una scelta, non un caso.",
+      "en": "It was extracted from the nebula-crm mono-repo: the separation is a choice, not an accident."
+     }
+    }
+   ],
+   "perche": {
+    "it": "agents/ è generico e riusabile; tutto ciò che è del dominio sta nel planning-mds/ del prodotto.",
+    "en": "agents/ is generic and reusable; everything that belongs to the domain lives in the product's planning-mds/."
+   }
+  },
+  "glossario": [
+   {
+    "termine": "SKILL.md",
+    "it": "File che descrive competenze, perimetro e limiti di un ruolo di agente in nebula-agents.",
+    "en": "File that describes the skills, perimeter and limits of an agent role in nebula-agents."
+   },
+   {
+    "termine": "agent-map.yaml",
+    "it": "File di nebula-agents che dice, per ogni ruolo, che cosa legge e che cosa scrive.",
+    "en": "nebula-agents file that says, for each role, what it reads and what it writes."
+   }
+  ]
+ },
+ {
+  "id": "DO3.2-5",
+  "origine": "autori",
+  "pillola": "PO3.2",
+  "concetti": [
+   "CO10"
+  ],
+  "concetto_principale": "CO10",
+  "segmento_aiuto": "perimetro",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Durante la revisione, il code reviewer trova un difetto in engine/. Che cosa prevedono le regole di agent-map.yaml?",
+    "en": "During review, the code reviewer finds a defect in engine/. What do the agent-map.yaml rules provide for?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Lo corregge lui stesso, se la modifica è di poche righe",
+      "en": "It fixes it itself, if the change is just a few lines"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Gli agenti di revisione producono rapporti, non codice, qualunque sia la dimensione.",
+      "en": "Review agents produce reports, not code, whatever the size."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Lo passa all'architetto, che corregge il codice del backend",
+      "en": "It hands it to the architect, who fixes the backend code"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "L'architetto non scrive codice di implementazione: scrive la §4, gli ADR e gli schemi.",
+      "en": "The architect does not write implementation code: it writes §4, the ADRs and the schemas."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Lo annota nel rapporto e in STATUS.md; corregge il backend developer",
+      "en": "It records it in the report and in STATUS.md; the backend developer fixes it"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Il code reviewer scrive solo in STATUS.md; engine/ è il perimetro del backend developer.",
+      "en": "The code reviewer writes only to STATUS.md; engine/ is the backend developer's perimeter."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Apre un nuovo ADR per decidere se il difetto va corretto",
+      "en": "It opens a new ADR to decide whether the defect should be fixed"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Un difetto non è una decisione di architettura: si annota e si corregge.",
+      "en": "A defect is not an architecture decision: it is recorded and fixed."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Lo segnala all'agente di sicurezza, che ha i permessi di scrittura anche su engine/",
+      "en": "It reports it to the security agent, which also has write access to engine/"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "La sicurezza scrive in security/ e in STATUS.md, non in engine/.",
+      "en": "Security writes to security/ and STATUS.md, not to engine/."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Chi rivede produce rapporti e firma in STATUS.md; chi possiede engine/ corregge il codice.",
+    "en": "Reviewers produce reports and sign off in STATUS.md; whoever owns engine/ fixes the code."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Con la stessa logica: che cosa succede se il product manager prova a cambiare la §4.4 del BLUEPRINT?",
+    "en": "By the same logic: what happens if the product manager tries to change BLUEPRINT §4.4?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Va bene, purché poi il backend developer approvi la modifica",
+      "en": "It is fine, as long as the backend developer approves the change afterwards"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il backend non approva l'architettura: il proprietario della §4 è l'architetto.",
+      "en": "The backend does not approve architecture: the owner of §4 is the architect."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Va bene, perché il product manager possiede l'intero BLUEPRINT",
+      "en": "It is fine, because the product manager owns the whole BLUEPRINT"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "La mappa limita il product manager alle sezioni 3.x.",
+      "en": "The map limits the product manager to sections 3.x."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Lo blocca validate-genericness.py perché la §4.4 contiene termini di dominio",
+      "en": "validate-genericness.py blocks it because §4.4 contains domain terms"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Quello script controlla agents/, non il BLUEPRINT del prodotto.",
+      "en": "That script checks agents/, not the product's BLUEPRINT."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "È fuori dal suo perimetro: scrive solo la §3, la §4 è dell'architetto",
+      "en": "It is outside its perimeter: it writes only §3, §4 belongs to the architect"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "agent-map.yaml assegna al product manager le sezioni 3.x e all'architetto le 4.x.",
+      "en": "agent-map.yaml assigns sections 3.x to the product manager and 4.x to the architect."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Va bene solo se la modifica viene tradotta in una storia utente",
+      "en": "It is fine only if the change is turned into a user story"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Una storia non dà al product manager il diritto di scrivere la §4.",
+      "en": "A story does not give the product manager the right to write §4."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Ogni ruolo scrive solo nel suo perimetro: un compito fuori perimetro si passa al proprietario.",
+    "en": "Every role writes only within its perimeter: a task outside it is handed to the owner."
+   }
+  },
+  "glossario": [
+   {
+    "termine": "agent-map.yaml",
+    "it": "File di nebula-agents che dice, per ogni ruolo, che cosa legge e che cosa scrive.",
+    "en": "nebula-agents file that says, for each role, what it reads and what it writes."
+   },
+   {
+    "termine": "STATUS.md",
+    "it": "File di avanzamento di una feature, in cui ogni ruolo aggiorna solo la propria sezione.",
+    "en": "Progress file of a feature, in which every role updates only its own section."
+   }
+  ]
+ },
+ {
+  "id": "DO3.2-6",
+  "origine": "autori",
+  "pillola": "PO3.2",
+  "concetti": [
+   "CO10"
+  ],
+  "concetto_principale": "CO10",
+  "segmento_aiuto": "perimetro",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Quale di questi contenuti NON può stare in agents/ di nebula-agents, secondo la BOUNDARY-POLICY?",
+    "en": "Which of these contents may NOT live in nebula-agents' agents/, according to the BOUNDARY-POLICY?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Un template generico di ADR con contesto, opzioni e decisione",
+      "en": "A generic ADR template with context, options and decision"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "I template generici (ADR, storie, contratti API) sono ammessi esplicitamente.",
+      "en": "Generic templates (ADR, stories, API contracts) are explicitly allowed."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Esempi presi da e-commerce e sanità per spiegare INVEST",
+      "en": "Examples from e-commerce and healthcare to explain INVEST"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Esempi da più domini sono ammessi: è vietato il dominio specifico del prodotto.",
+      "en": "Examples from several domains are allowed: the product's specific domain is forbidden."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Le definizioni dei ruoli nei rispettivi file SKILL.md",
+      "en": "The role definitions in their SKILL.md files"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Sono proprio il contenuto previsto di agents/.",
+      "en": "They are exactly the intended content of agents/."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Una storia d'esempio sui rinnovi delle polizze di un broker",
+      "en": "An example story about a broker's policy renewals"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Un esempio che cita le entità del prodotto è solution-specific: la regola 1 lo esclude da agents/.",
+      "en": "An example citing the product's entities is solution-specific: rule 1 keeps it out of agents/."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Uno script generico di validazione e formattazione",
+      "en": "A generic validation and formatting script"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Gli script generici sono ammessi esplicitamente.",
+      "en": "Generic scripts are explicitly allowed."
+     }
+    }
+   ],
+   "perche": {
+    "it": "In agents/ sta solo ciò che vale per qualsiasi progetto: ruoli, pratiche, template, esempi da più domini.",
+    "en": "agents/ holds only what works for any project: roles, practices, templates, examples from several domains."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Dove va allora quella storia d'esempio, e chi la scrive?",
+    "en": "Where does that example story go, then, and who writes it?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "In agents/product-manager/references/, purché il nome del file dica chiaramente che si tratta di un esempio preso dal dominio assicurativo",
+      "en": "In agents/product-manager/references/, as long as the file name clearly says it is an example taken from the insurance domain"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il nome del file non sposta il confine: agents/ resta generico.",
+      "en": "The file name does not move the boundary: agents/ stays generic."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "In planning-mds/features/ del prodotto, scritta dal product manager, che nella mappa possiede storie e criteri di accettazione",
+      "en": "In the product's planning-mds/features/, written by the product manager, who owns stories and acceptance criteria in the map"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Il contenuto di dominio sta nel prodotto, nella cartella del ruolo che ne è proprietario.",
+      "en": "Domain content lives in the product, in the folder of the role that owns it."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "In agents/templates/, togliendo la parola «insurance» ma lasciando broker, polizze e rinnovi nel testo della storia",
+      "en": "In agents/templates/, removing the word «insurance» but keeping brokers, policies and renewals in the story text"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Broker, polizze e rinnovi sono entità del prodotto: la regola vieta esempi che le citano.",
+      "en": "Brokers, policies and renewals are product entities: the rule forbids examples that cite them."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Nel file CONSUMER-CONTRACT.md, che raccoglie tutti gli esempi condivisi fra il framework e i prodotti che lo usano",
+      "en": "In CONSUMER-CONTRACT.md, which collects all the examples shared between the framework and the products using it"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Il CONSUMER-CONTRACT definisce l'interfaccia fra i repo, non raccoglie esempi.",
+      "en": "The CONSUMER-CONTRACT defines the interface between repos, it does not collect examples."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Ciò che è del dominio va nel planning-mds/ del prodotto, scritto dal ruolo che possiede quella cartella.",
+    "en": "What belongs to the domain goes into the product's planning-mds/, written by the role that owns that folder."
+   }
+  },
+  "glossario": [
+   {
+    "termine": "SKILL.md",
+    "it": "File che descrive competenze, perimetro e limiti di un ruolo di agente in nebula-agents.",
+    "en": "File that describes the skills, perimeter and limits of an agent role in nebula-agents."
+   },
+   {
+    "termine": "agent-map.yaml",
+    "it": "File di nebula-agents che dice, per ogni ruolo, che cosa legge e che cosa scrive.",
+    "en": "nebula-agents file that says, for each role, what it reads and what it writes."
+   }
+  ]
+ }
+]

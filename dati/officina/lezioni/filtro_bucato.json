@@ -1,0 +1,992 @@
+{
+ "id": "L_filtro_bucato",
+ "pillola": "PO2.2",
+ "componente": "filtro_bucato",
+ "titolo": {
+  "it": "Il filtro bucato",
+  "en": "The leaky filter"
+ },
+ "sottotitolo": {
+  "it": "Il CRM adottato in un container riproducibile, con la chiave fuori dal repo, e un difetto reale dimostrato con un test rosso e poi verde.",
+  "en": "The adopted CRM in a reproducible container, with the key outside the repo, and a real defect proven with a red test and then a green one."
+ },
+ "segmenti": [
+  {
+   "id": "fissate",
+   "titolo": {
+    "it": "Stessa installazione oggi e fra sei mesi",
+    "en": "The same install today and in six months"
+   },
+   "narrazione": [
+    {
+     "it": "Il requirements.txt del repo ha 10 righe e nessuna versione: pip installa l'ultima uscita del giorno della build. Fra sei mesi la stessa riga può portare un'interfaccia diversa, e l'errore sembra tuo.",
+     "en": "The repo's requirements.txt has 10 lines and no versions: pip installs the latest release of the day of the build. In six months the same line can bring a different interface, and the error looks like yours."
+    },
+    {
+     "it": "Riproducibile vuol dire tre cose:",
+     "en": "Reproducible means three things:"
+    },
+    {
+     "it": "• ogni riga con ==versione, letta con pip freeze;",
+     "en": "• every line with ==version, read with pip freeze;"
+    },
+    {
+     "it": "• solo i pacchetti usati: aiofiles, jinja2 e requests non lo sono;",
+     "en": "• only the packages in use: aiofiles, jinja2 and requests are not;"
+    },
+    {
+     "it": "• un'immagine base fissata e supportata: python:3.9-slim non lo è più [DOCKER-DOC].",
+     "en": "• a pinned, supported base image: python:3.9-slim no longer is [DOCKER-DOC]."
+    }
+   ],
+   "prova": {
+    "it": "Scegli «Fra sei mesi», poi accendi «Versioni fissate» e «Solo ciò che serve» e cambia l'immagine base.",
+    "en": "Choose «In six months», then turn on «Pinned versions» and «Only what is needed» and change the base image."
+   },
+   "concetti": [
+    "CO06"
+   ],
+   "stato_animazione": {
+    "vista": "dipendenze",
+    "fissate": false,
+    "pulite": false,
+    "quando": "oggi",
+    "base": "vecchia",
+    "chiave": "ambiente",
+    "modello": "vero",
+    "ordine": "interested_prima",
+    "confronto": "contiene",
+    "normalizza": false,
+    "pulisci": true,
+    "lanciato": false
+   }
+  },
+  {
+   "id": "chiave_finto",
+   "titolo": {
+    "it": "La chiave fuori dal repo, il modello finto nei test",
+    "en": "The key outside the repo, the fake model in tests"
+   },
+   "narrazione": [
+    {
+     "it": "La chiave di Groq arriva da una variabile d'ambiente: un .env ignorato da git, o un segreto di Codespaces. Nel repo resta solo .env.example con GROQ_API_KEY= vuota: una chiave salvata resta nella cronologia.",
+     "en": "The Groq key comes from an environment variable: a .env ignored by git, or a Codespaces secret. Only .env.example stays in the repo, with an empty GROQ_API_KEY=: a saved key stays in the history."
+    },
+    {
+     "it": "I test non chiamano il modello vero: con temperature 0.5 la stessa domanda dà risposte diverse, e ogni giro va in rete. Un modello finto che risponde sempre uguale rende il test deterministico, senza rete né costi.",
+     "en": "Tests do not call the real model: with temperature 0.5 the same question gives different answers, and every run goes over the network. A fake model that always answers the same makes the test deterministic, with no network and no cost."
+    }
+   ],
+   "prova": {
+    "it": "Metti la chiave «Nel repo», poi «Assente»; alterna modello vero e finto e confronta i tre giri.",
+    "en": "Put the key «In the repo», then «Missing»; switch between real and fake model and compare the three runs."
+   },
+   "concetti": [
+    "CO06",
+    "CO07"
+   ],
+   "stato_animazione": {
+    "vista": "ambiente",
+    "fissate": false,
+    "pulite": false,
+    "quando": "oggi",
+    "base": "vecchia",
+    "chiave": "ambiente",
+    "modello": "vero",
+    "ordine": "interested_prima",
+    "confronto": "contiene",
+    "normalizza": false,
+    "pulisci": true,
+    "lanciato": false
+   }
+  },
+  {
+   "id": "difetto",
+   "titolo": {
+    "it": "Il filtro bucato",
+    "en": "The leaky filter"
+   },
+   "narrazione": [
+    {
+     "it": "In response_classifier.py la riga 19 chiede se l'etichetta contiene «Interested», la riga 21 se contiene «Not Interested». Ma «Not Interested» contiene «Interested»: il primo controllo cattura anche i no.",
+     "en": "In response_classifier.py line 19 asks whether the label contains «Interested», line 21 whether it contains «Not Interested». But «Not Interested» contains «Interested»: the first check also catches the noes."
+    },
+    {
+     "it": "Ecco il report «Interested: 5, Not Interested: 0»: chi ha detto no riceve i follow-up.",
+     "en": "Hence the report «Interested: 5, Not Interested: 0»: whoever said no gets the follow-ups."
+    },
+    {
+     "it": "Otto casi tipo, costruiti come il banco del correttore, mettono alla prova il filtro: il difetto, tre varianti di scrittura, quattro casi da non rompere.",
+     "en": "Eight typical cases, built like the grader's bench, put the filter to the test: the defect, three writing variants, four cases not to break."
+    }
+   ],
+   "prova": {
+    "it": "Premi «Lancia gli 8 test»: in quale cesto cade ogni risposta? Quali casi sono rossi?",
+    "en": "Press «Run the 8 tests»: which basket does each reply fall into? Which cases are red?"
+   },
+   "concetti": [
+    "CO07"
+   ],
+   "stato_animazione": {
+    "vista": "filtro",
+    "fissate": false,
+    "pulite": false,
+    "quando": "oggi",
+    "base": "vecchia",
+    "chiave": "ambiente",
+    "modello": "vero",
+    "ordine": "interested_prima",
+    "confronto": "contiene",
+    "normalizza": false,
+    "pulisci": true,
+    "lanciato": false
+   }
+  },
+  {
+   "id": "ordine",
+   "titolo": {
+    "it": "L'ordine dei controlli e la normalizzazione",
+    "en": "The order of the checks and normalisation"
+   },
+   "narrazione": [
+    {
+     "it": "Con i controlli «contiene» si va dal più specifico al più generale: prima «Not Interested», poi «Interested». Ma il modello può anche scrivere «not interested» in minuscolo o aggiungere spazi.",
+     "en": "With «contains» checks you go from the most specific to the most general: first «Not Interested», then «Interested». But the model may also write «not interested» in lower case or add spaces."
+    },
+    {
+     "it": "Per questo si normalizza l'etichetta prima del confronto. In alternativa si confronta l'etichetta intera, ma senza normalizzazione qualche caso resta rosso.",
+     "en": "That is why you normalise the label before the comparison. Alternatively you compare the whole label, but without normalisation some cases stay red."
+    },
+    {
+     "it": "Attenzione alle correzioni che rompono altro: togliere la pulizia dei ``` manda il caso recintato fra gli Unknown.",
+     "en": "Beware of fixes that break something else: removing the cleaning of the ``` sends the fenced case among the Unknown."
+    }
+   ],
+   "prova": {
+    "it": "Cambia ordine, confronto e normalizzazione e rilancia: trova due versioni da 8 su 8 e una che rompe un caso verde.",
+    "en": "Change order, comparison and normalisation and rerun: find two versions scoring 8 out of 8 and one that breaks a green case."
+   },
+   "concetti": [
+    "CO07"
+   ],
+   "stato_animazione": {
+    "vista": "filtro",
+    "fissate": false,
+    "pulite": false,
+    "quando": "oggi",
+    "base": "vecchia",
+    "chiave": "ambiente",
+    "modello": "vero",
+    "ordine": "interested_prima",
+    "confronto": "contiene",
+    "normalizza": false,
+    "pulisci": true,
+    "lanciato": true
+   }
+  },
+  {
+   "id": "ciclo",
+   "titolo": {
+    "it": "Rosso, correzione, verde",
+    "en": "Red, fix, green"
+   },
+   "narrazione": [
+    {
+     "it": "Una correzione si dimostra con un test, in tre tempi:",
+     "en": "A fix is proven with a test, in three beats:"
+    },
+    {
+     "it": "1. il test che fallisce: il difetto c'è e il test lo vede;",
+     "en": "1. the failing test: the defect is there and the test sees it;"
+    },
+    {
+     "it": "2. la correzione, la più piccola che basta;",
+     "en": "2. the fix, the smallest one that is enough;"
+    },
+    {
+     "it": "3. lo stesso test verde, insieme a quelli già verdi.",
+     "en": "3. the same test green, together with those already green."
+    },
+    {
+     "it": "Il test resta nel repo come test di regressione: se qualcuno rimette l'ordine sbagliato, torna rosso. Nel Codespaces: python -m pytest officina/o2 -q.",
+     "en": "The test stays in the repo as a regression test: if someone puts the wrong order back, it turns red again. In the Codespace: python -m pytest officina/o2 -q."
+    }
+   ],
+   "prova": {
+    "it": "Premi «Riparti dal codice del repo», lancia, correggi, rilancia fino al verde e guarda la striscia dei tre tempi.",
+    "en": "Press «Restart from the repo's code», run, fix, rerun until green and watch the three-beat strip."
+   },
+   "concetti": [
+    "CO07"
+   ],
+   "stato_animazione": {
+    "vista": "filtro",
+    "fissate": false,
+    "pulite": false,
+    "quando": "oggi",
+    "base": "vecchia",
+    "chiave": "ambiente",
+    "modello": "vero",
+    "ordine": "interested_prima",
+    "confronto": "contiene",
+    "normalizza": false,
+    "pulisci": true,
+    "lanciato": false
+   }
+  },
+  {
+   "id": "riassunto",
+   "titolo": {
+    "it": "In tre frasi",
+    "en": "In three sentences"
+   },
+   "narrazione": [
+    {
+     "it": "Dipendenze riproducibili: versioni fissate con ==, solo i pacchetti usati, immagine base supportata e fissata.",
+     "en": "Reproducible dependencies: versions pinned with ==, only the packages in use, a supported and pinned base image."
+    },
+    {
+     "it": "La chiave arriva da una variabile d'ambiente e mai dal repo; i test usano un modello finto, deterministico, senza rete né costi.",
+     "en": "The key comes from an environment variable and never from the repo; tests use a fake model, deterministic, with no network and no cost."
+    },
+    {
+     "it": "Un controllo «contiene» nell'ordine sbagliato trasforma ogni «Not Interested» in «Interested»: si dimostra con un test rosso, si corregge, e il test verde resta come regressione.",
+     "en": "A «contains» check in the wrong order turns every «Not Interested» into «Interested»: you prove it with a red test, you fix it, and the green test stays as a regression test."
+    }
+   ],
+   "concetti": [
+    "CO06",
+    "CO07"
+   ],
+   "stato_animazione": {
+    "vista": "filtro",
+    "fissate": true,
+    "pulite": true,
+    "quando": "sei_mesi",
+    "base": "supportata",
+    "chiave": "ambiente",
+    "modello": "finto",
+    "ordine": "not_prima",
+    "confronto": "contiene",
+    "normalizza": true,
+    "pulisci": true,
+    "lanciato": true
+   }
+  }
+ ],
+ "scenario": {
+  "viste": [
+   "dipendenze",
+   "ambiente",
+   "filtro"
+  ],
+  "requisiti": [
+   {
+    "nome": "fastapi",
+    "uso": "codice"
+   },
+   {
+    "nome": "uvicorn",
+    "uso": "avvio"
+   },
+   {
+    "nome": "pandas",
+    "uso": "codice"
+   },
+   {
+    "nome": "pydantic",
+    "uso": "codice"
+   },
+   {
+    "nome": "pydantic-settings",
+    "uso": "codice"
+   },
+   {
+    "nome": "python-dotenv",
+    "uso": "dipendenza"
+   },
+   {
+    "nome": "groq",
+    "uso": "codice"
+   },
+   {
+    "nome": "aiofiles",
+    "uso": "inutile"
+   },
+   {
+    "nome": "jinja2",
+    "uso": "inutile"
+   },
+   {
+    "nome": "requests",
+    "uso": "inutile"
+   }
+  ],
+  "usi": {
+   "codice": {
+    "it": "importato dal codice",
+    "en": "imported by the code"
+   },
+   "avvio": {
+    "it": "lo lancia il Dockerfile",
+    "en": "started by the Dockerfile"
+   },
+   "dipendenza": {
+    "it": "serve a pydantic-settings",
+    "en": "used by pydantic-settings"
+   },
+   "inutile": {
+    "it": "mai importato",
+    "en": "never imported"
+   }
+  },
+  "basi": [
+   {
+    "id": "vecchia",
+    "immagine": "python:3.9-slim",
+    "supportata": false
+   },
+   {
+    "id": "supportata",
+    "immagine": "python:3.12-slim",
+    "supportata": true
+   }
+  ],
+  "python_minimo": "3.10",
+  "temperatura": "0.5",
+  "modello_vero": "llama-3.1-8b-instant",
+  "comando_test": "python -m pytest officina/o2 -q",
+  "giri_modello_vero": [
+   "verde",
+   "rosso",
+   "verde"
+  ],
+  "caso_dei_giri": "not_interested",
+  "classi": {
+   "interested": "Interested",
+   "not_interested": "Not Interested",
+   "follow_up": "Needs Follow-up",
+   "unknown": "Unknown"
+  },
+  "classe_predefinita": "Needs Follow-up",
+  "casi": [
+   {
+    "id": "not_interested",
+    "gruppo": "difetto",
+    "atteso": "Not Interested",
+    "etichetta": {
+     "it": "«Not Interested»",
+     "en": "«Not Interested»"
+    },
+    "risposta": "{\"response_text\": \"No thanks, we already have a tool.\", \"classification\": \"Not Interested\"}"
+   },
+   {
+    "id": "not_interested_minuscolo",
+    "gruppo": "robustezza",
+    "atteso": "Not Interested",
+    "etichetta": {
+     "it": "«not interested»",
+     "en": "«not interested»"
+    },
+    "risposta": "{\"response_text\": \"We will pass for now.\", \"classification\": \"not interested\"}"
+   },
+   {
+    "id": "not_interested_recintato",
+    "gruppo": "robustezza",
+    "atteso": "Not Interested",
+    "etichetta": {
+     "it": "```json «Not Interested»",
+     "en": "```json «Not Interested»"
+    },
+    "risposta": "```json\n{\"response_text\": \"Not this year.\", \"classification\": \"Not Interested\"}\n```"
+   },
+   {
+    "id": "interested",
+    "gruppo": "regressione",
+    "atteso": "Interested",
+    "etichetta": {
+     "it": "«Interested»",
+     "en": "«Interested»"
+    },
+    "risposta": "{\"response_text\": \"Sounds good, call me on Monday.\", \"classification\": \"Interested\"}"
+   },
+   {
+    "id": "interested_spazi",
+    "gruppo": "robustezza",
+    "atteso": "Interested",
+    "etichetta": {
+     "it": "␣␣Interested␣",
+     "en": "␣␣Interested␣"
+    },
+    "risposta": "{\"response_text\": \"Yes, tell me more.\", \"classification\": \"  Interested \"}"
+   },
+   {
+    "id": "follow_up",
+    "gruppo": "regressione",
+    "atteso": "Needs Follow-up",
+    "etichetta": {
+     "it": "«Needs Follow-up»",
+     "en": "«Needs Follow-up»"
+    },
+    "risposta": "{\"response_text\": \"Write again after the summer.\", \"classification\": \"Needs Follow-up\"}"
+   },
+   {
+    "id": "senza_classificazione",
+    "gruppo": "regressione",
+    "atteso": "Needs Follow-up",
+    "etichetta": {
+     "it": "senza classification",
+     "en": "no classification"
+    },
+    "risposta": "{\"response_text\": \"Hmm, maybe.\"}"
+   },
+   {
+    "id": "non_json",
+    "gruppo": "regressione",
+    "atteso": "Unknown",
+    "etichetta": {
+     "it": "testo non JSON",
+     "en": "non-JSON text"
+    },
+    "risposta": "Sorry, I cannot answer in JSON right now."
+   }
+  ],
+  "codice_repo": {
+   "ordine": "interested_prima",
+   "confronto": "contiene",
+   "normalizza": false,
+   "pulisci": true
+  },
+  "righe_repo": [
+   {
+    "n": 18,
+    "codice": "status_str = data.get(\"classification\", \"Needs Follow-up\")"
+   },
+   {
+    "n": 19,
+    "codice": "if \"Interested\" in status_str:"
+   },
+   {
+    "n": 20,
+    "codice": "    status = EmailStatus.INTERESTED"
+   },
+   {
+    "n": 21,
+    "codice": "elif \"Not Interested\" in status_str:"
+   },
+   {
+    "n": 22,
+    "codice": "    status = EmailStatus.NOT_INTERESTED"
+   },
+   {
+    "n": 23,
+    "codice": "else:"
+   },
+   {
+    "n": 24,
+    "codice": "    status = EmailStatus.NEEDS_FOLLOW_UP"
+   }
+  ],
+  "gruppi": [
+   {
+    "id": "difetto",
+    "nome": {
+     "it": "difetto",
+     "en": "defect"
+    }
+   },
+   {
+    "id": "robustezza",
+    "nome": {
+     "it": "robustezza",
+     "en": "robustness"
+    }
+   },
+   {
+    "id": "regressione",
+    "nome": {
+     "it": "regressione",
+     "en": "regression"
+    }
+   }
+  ],
+  "ms": {
+   "riga": 110,
+   "giro": 420,
+   "caso": 300
+  },
+  "testi": {
+   "riga_libera": {
+    "it": "{nome}",
+    "en": "{nome}"
+   },
+   "riga_fissata": {
+    "it": "{nome}==x.y.z",
+    "en": "{nome}==x.y.z"
+   },
+   "nota_versione": {
+    "it": "x.y.z = la versione che pip freeze legge in un container pulito, il giorno in cui fissi.",
+    "en": "x.y.z = the version pip freeze reads in a clean container, on the day you pin."
+   },
+   "cella_libera_oggi": {
+    "it": "l'ultima di oggi",
+    "en": "today's latest"
+   },
+   "cella_libera_poi": {
+    "it": "l'ultima di allora ≠?",
+    "en": "that day's latest ≠?"
+   },
+   "cella_fissata_oggi": {
+    "it": "== quella scelta",
+    "en": "== the one chosen"
+   },
+   "cella_fissata_poi": {
+    "it": "== la stessa ✓",
+    "en": "== the same ✓"
+   },
+   "cella_non_costruita": {
+    "it": "non ancora costruita",
+    "en": "not built yet"
+   },
+   "cella_tolta": {
+    "it": "tolto",
+    "en": "removed"
+   },
+   "garantite": {
+    "it": "Garantite uguali fra sei mesi: {n} su {totale}",
+    "en": "Guaranteed identical in six months: {n} of {totale}"
+   },
+   "esito_libere": {
+    "it": "{n} righe senza versione: fra sei mesi la stessa build può installare altro, e l'errore sembrerà tuo.",
+    "en": "{n} lines without a version: in six months the same build can install something else, and the error will look like yours."
+   },
+   "esito_fissate": {
+    "it": "Tutte le righe con ==: oggi e fra sei mesi la stessa installazione.",
+    "en": "Every line with ==: the same install today and in six months."
+   },
+   "esito_inutili": {
+    "it": "{n} pacchetti mai importati: si installano e si aggiornano per niente.",
+    "en": "{n} packages never imported: installed and updated for nothing."
+   },
+   "esito_pulite": {
+    "it": "Solo ciò che serve: {n} righe.",
+    "en": "Only what is needed: {n} lines."
+   },
+   "esito_base_vecchia": {
+    "it": "{immagine}: Python fuori supporto, niente più correzioni di sicurezza. L'esercizio chiede Python {minimo} o più.",
+    "en": "{immagine}: Python out of support, no more security fixes. The exercise asks for Python {minimo} or later."
+   },
+   "esito_base_ok": {
+    "it": "{immagine}: tag fissato e Python supportato.",
+    "en": "{immagine}: pinned tag and supported Python."
+   },
+   "esito_oggi": {
+    "it": "Oggi le due strade installano le stesse cose: la differenza si vede solo ricostruendo più avanti.",
+    "en": "Today both ways install the same things: the difference only shows when you rebuild later."
+   },
+   "chiave_repo": {
+    "it": "Chiave nel repo: resta nella cronologia di git anche se poi la cancelli. Va revocata e rigenerata.",
+    "en": "Key in the repo: it stays in the git history even if you delete it later. It must be revoked and regenerated."
+   },
+   "chiave_ambiente": {
+    "it": "La chiave arriva da una variabile d'ambiente: segreto di Codespaces o .env ignorato da git.",
+    "en": "The key comes from an environment variable: a Codespaces secret or a .env ignored by git."
+   },
+   "chiave_assente": {
+    "it": "Nessuna chiave: al modello finto non serve; al modello vero sì.",
+    "en": "No key: the fake model does not need one; the real model does."
+   },
+   "modello_vero": {
+    "it": "Modello vero: temperature {t}, la stessa domanda dà risposte diverse; ogni giro va in rete e consuma la quota gratuita.",
+    "en": "Real model: temperature {t}, the same question gives different answers; every run goes over the network and uses the free quota."
+   },
+   "modello_finto": {
+    "it": "Modello finto: risponde sempre uguale. Il test è deterministico, senza rete e senza costi.",
+    "en": "Fake model: it always answers the same. The test is deterministic, with no network and no cost."
+   },
+   "giri_errore": {
+    "it": "Senza chiave il codice che passa da app.main si ferma all'import: Settings() pretende GROQ_API_KEY.",
+    "en": "Without a key the code that goes through app.main stops at import: Settings() requires GROQ_API_KEY."
+   },
+   "giri_variabili": {
+    "it": "Stesso codice, esiti diversi: il test non dice niente sul classificatore.",
+    "en": "Same code, different outcomes: the test says nothing about the classifier."
+   },
+   "giri_stabili_rossi": {
+    "it": "Rosso a ogni giro: un segnale affidabile, il difetto c'è.",
+    "en": "Red at every run: a reliable signal, the defect is there."
+   },
+   "giri_stabili_verdi": {
+    "it": "Verde a ogni giro: il classificatore di adesso tratta bene «Not Interested».",
+    "en": "Green at every run: the current classifier handles «Not Interested» correctly."
+   },
+   "giro": {
+    "it": "Giro {n}",
+    "en": "Run {n}"
+   },
+   "giro_esito": {
+    "verde": {
+     "it": "verde",
+     "en": "green"
+    },
+    "rosso": {
+     "it": "rosso",
+     "en": "red"
+    },
+    "errore": {
+     "it": "errore",
+     "en": "error"
+    }
+   },
+   "box_pulisci": {
+    "it": "Togli i ``` attorno al JSON",
+    "en": "Strip the ``` around the JSON"
+   },
+   "box_json": {
+    "it": "Leggi il JSON (se fallisce: Unknown)",
+    "en": "Read the JSON (if it fails: Unknown)"
+   },
+   "box_normalizza": {
+    "it": "Normalizza: spazi via, minuscole",
+    "en": "Normalise: trim, lower case"
+   },
+   "box_spento": {
+    "it": "(spento)",
+    "en": "(off)"
+   },
+   "box_controllo": {
+    "it": "{n}° controllo: {confronto} «{etichetta}»?",
+    "en": "Check {n}: {confronto} «{etichetta}»?"
+   },
+   "box_altrimenti": {
+    "it": "Altrimenti: Needs Follow-up",
+    "en": "Otherwise: Needs Follow-up"
+   },
+   "confronto_contiene": {
+    "it": "contiene",
+    "en": "contains"
+   },
+   "confronto_uguale": {
+    "it": "è uguale a",
+    "en": "equals"
+   },
+   "atteso": {
+    "it": "atteso: {x}",
+    "en": "expected: {x}"
+   },
+   "uscito": {
+    "it": "uscito: {x}",
+    "en": "got: {x}"
+   },
+   "da_rilanciare": {
+    "it": "da rilanciare",
+    "en": "to rerun"
+   },
+   "non_lanciato": {
+    "it": "non ancora lanciato",
+    "en": "not run yet"
+   },
+   "risultato_lancio": {
+    "it": "Lancio {n}: {verdi} verdi su {totale}.",
+    "en": "Run {n}: {verdi} green out of {totale}."
+   },
+   "perche_contiene": {
+    "it": "{etichetta} → {uscito}: «Not Interested» contiene «Interested», e un controllo «contiene» su «Interested» è venuto prima.",
+    "en": "{etichetta} → {uscito}: «Not Interested» contains «Interested», and a «contains» check on «Interested» came first."
+   },
+   "perche_scrittura": {
+    "it": "{etichetta} → {uscito}: nessun controllo scatta, perché maiuscole o spazi non coincidono.",
+    "en": "{etichetta} → {uscito}: no check fires, because case or spaces do not match."
+   },
+   "perche_json": {
+    "it": "{etichetta} → {uscito}: il JSON non si legge, i ``` sono rimasti attorno.",
+    "en": "{etichetta} → {uscito}: the JSON cannot be read, the ``` are still around it."
+   },
+   "perche_altro": {
+    "it": "{etichetta} → {uscito}: atteso {atteso}.",
+    "en": "{etichetta} → {uscito}: expected {atteso}."
+   },
+   "regressione": {
+    "it": "Regressione: {etichetta} era verde e ora è rosso.",
+    "en": "Regression: {etichetta} was green and is now red."
+   },
+   "gruppo_riga": {
+    "it": "{nome}: {verdi} su {totale}",
+    "en": "{nome}: {verdi} of {totale}"
+   },
+   "ciclo_rosso": {
+    "it": "1. Test rosso",
+    "en": "1. Red test"
+   },
+   "ciclo_correzione": {
+    "it": "2. Correzione",
+    "en": "2. Fix"
+   },
+   "ciclo_verde": {
+    "it": "3. Test verde",
+    "en": "3. Green test"
+   },
+   "ciclo_completo": {
+    "it": "Ciclo completo: il test ha visto il difetto, la correzione l'ha tolto, e gli 8 casi sono verdi. Il test resta come regressione.",
+    "en": "Cycle complete: the test saw the defect, the fix removed it, and the 8 cases are green. The test stays as a regression test."
+   },
+   "ciclo_da_rosso": {
+    "it": "Prima lancia i test sul codice del repo: senza un rosso non sai se il test vede il difetto.",
+    "en": "First run the tests on the repo's code: without a red you do not know whether the test sees the defect."
+   },
+   "ciclo_da_correggere": {
+    "it": "Rosso visto. Ora cambia il codice e rilancia.",
+    "en": "Red seen. Now change the code and rerun."
+   },
+   "ciclo_da_verde": {
+    "it": "Correzione fatta, ma non tutti gli 8 casi sono verdi: rilancia dopo aver sistemato.",
+    "en": "Fix made, but not all 8 cases are green: rerun after sorting it out."
+   },
+   "versione_parole": {
+    "pulisci_si": {
+     "it": "Toglie i ``` attorno al JSON.",
+     "en": "Strips the ``` around the JSON."
+    },
+    "pulisci_no": {
+     "it": "Non toglie i ```: un JSON recintato non si legge.",
+     "en": "Does not strip the ```: a fenced JSON cannot be read."
+    },
+    "normalizza_si": {
+     "it": "Normalizza l'etichetta prima di confrontare.",
+     "en": "Normalises the label before comparing."
+    },
+    "normalizza_no": {
+     "it": "Confronta l'etichetta così com'è arrivata.",
+     "en": "Compares the label as it arrived."
+    }
+   },
+   "nota_banco": {
+    "it": "8 casi tipo costruiti come il banco del correttore: 1 difetto, 3 di robustezza, 4 di regressione.",
+    "en": "8 typical cases built like the grader's bench: 1 defect, 3 robustness, 4 regression."
+   }
+  },
+  "etichette": {
+   "titolo_comandi": {
+    "it": "Prova a cambiare",
+    "en": "Try changing"
+   },
+   "vista": {
+    "it": "Vista",
+    "en": "View"
+   },
+   "vista_dipendenze": {
+    "it": "Dipendenze",
+    "en": "Dependencies"
+   },
+   "vista_ambiente": {
+    "it": "Chiave e test",
+    "en": "Key and tests"
+   },
+   "vista_filtro": {
+    "it": "Il filtro",
+    "en": "The filter"
+   },
+   "fissate": {
+    "it": "Versioni fissate (==)",
+    "en": "Pinned versions (==)"
+   },
+   "pulite": {
+    "it": "Solo ciò che serve",
+    "en": "Only what is needed"
+   },
+   "quando": {
+    "it": "Quando costruisci",
+    "en": "When you build"
+   },
+   "quando_oggi": {
+    "it": "Oggi",
+    "en": "Today"
+   },
+   "quando_sei_mesi": {
+    "it": "Fra sei mesi",
+    "en": "In six months"
+   },
+   "base": {
+    "it": "Immagine base",
+    "en": "Base image"
+   },
+   "chiave": {
+    "it": "Dove sta la chiave",
+    "en": "Where the key is"
+   },
+   "chiave_repo": {
+    "it": "Nel repo",
+    "en": "In the repo"
+   },
+   "chiave_ambiente": {
+    "it": "Variabile d'ambiente",
+    "en": "Environment variable"
+   },
+   "chiave_assente": {
+    "it": "Assente",
+    "en": "Missing"
+   },
+   "modello": {
+    "it": "Modello nei test",
+    "en": "Model in the tests"
+   },
+   "modello_vero": {
+    "it": "Vero (Groq)",
+    "en": "Real (Groq)"
+   },
+   "modello_finto": {
+    "it": "Finto",
+    "en": "Fake"
+   },
+   "ordine": {
+    "it": "Ordine dei controlli",
+    "en": "Order of the checks"
+   },
+   "ordine_interested_prima": {
+    "it": "«Interested» per primo",
+    "en": "«Interested» first"
+   },
+   "ordine_not_prima": {
+    "it": "«Not Interested» per primo",
+    "en": "«Not Interested» first"
+   },
+   "confronto": {
+    "it": "Tipo di confronto",
+    "en": "Kind of comparison"
+   },
+   "confronto_contiene": {
+    "it": "Contiene",
+    "en": "Contains"
+   },
+   "confronto_uguale": {
+    "it": "Uguale",
+    "en": "Equals"
+   },
+   "normalizza": {
+    "it": "Normalizza (spazi, minuscole)",
+    "en": "Normalise (spaces, lower case)"
+   },
+   "pulisci": {
+    "it": "Togli i ``` attorno al JSON",
+    "en": "Strip the ``` around the JSON"
+   },
+   "lancia": {
+    "it": "Lancia gli 8 test",
+    "en": "Run the 8 tests"
+   },
+   "riparti": {
+    "it": "Riparti dal codice del repo",
+    "en": "Restart from the repo's code"
+   },
+   "titolo_dipendenze": {
+    "it": "REQUIREMENTS.TXT: OGGI E FRA SEI MESI",
+    "en": "REQUIREMENTS.TXT: TODAY AND IN SIX MONTHS"
+   },
+   "titolo_ambiente": {
+    "it": "LA CHIAVE, IL MODELLO E TRE GIRI DEL TEST",
+    "en": "THE KEY, THE MODEL AND THREE TEST RUNS"
+   },
+   "titolo_filtro": {
+    "it": "IL CLASSIFICATORE E GLI 8 CASI TIPO",
+    "en": "THE CLASSIFIER AND THE 8 TYPICAL CASES"
+   },
+   "col_riga": {
+    "it": "requirements.txt",
+    "en": "requirements.txt"
+   },
+   "col_uso": {
+    "it": "uso nel codice",
+    "en": "use in the code"
+   },
+   "col_oggi": {
+    "it": "build di oggi",
+    "en": "today's build"
+   },
+   "col_poi": {
+    "it": "build fra sei mesi",
+    "en": "build in six months"
+   },
+   "box_repo": {
+    "it": "Repo (git)",
+    "en": "Repo (git)"
+   },
+   "box_ambiente": {
+    "it": "Ambiente",
+    "en": "Environment"
+   },
+   "box_test": {
+    "it": "Test",
+    "en": "Test"
+   },
+   "riga_esempio": {
+    "it": ".env.example: GROQ_API_KEY=",
+    "en": ".env.example: GROQ_API_KEY="
+   },
+   "riga_env_repo": {
+    "it": ".env: GROQ_API_KEY=<LA_TUA_CHIAVE>",
+    "en": ".env: GROQ_API_KEY=<YOUR_KEY>"
+   },
+   "nella_cronologia": {
+    "it": "salvato nella cronologia",
+    "en": "saved in the history"
+   },
+   "segreto": {
+    "it": "segreto → variabile d'ambiente",
+    "en": "secret → environment variable"
+   },
+   "nessuna_chiave": {
+    "it": "nessuna chiave",
+    "en": "no key"
+   },
+   "test_caso": {
+    "it": "caso «Not Interested» sul classificatore di adesso",
+    "en": "«Not Interested» case on the current classifier"
+   },
+   "modello_vero_box": {
+    "it": "Groq · {m} · temperature {t} · rete",
+    "en": "Groq · {m} · temperature {t} · network"
+   },
+   "modello_finto_box": {
+    "it": "Modello finto · risposta fissa · niente rete",
+    "en": "Fake model · fixed answer · no network"
+   },
+   "esiti": {
+    "it": "Esiti",
+    "en": "Outcomes"
+   },
+   "codice_repo": {
+    "it": "Il codice del repo (response_classifier.py)",
+    "en": "The repo's code (response_classifier.py)"
+   },
+   "versione_parole": {
+    "it": "La tua versione, a parole",
+    "en": "Your version, in words"
+   },
+   "gruppi": {
+    "it": "Esito per gruppo",
+    "en": "Outcome by group"
+   },
+   "ciclo": {
+    "it": "Il ciclo del test",
+    "en": "The test cycle"
+   },
+   "regola": {
+    "it": "Prima il test rosso, poi la correzione, poi lo stesso test verde.",
+    "en": "First the red test, then the fix, then the same test green."
+   },
+   "regola_dipendenze": {
+    "it": "Stessa installazione oggi e fra sei mesi: versioni fissate, solo ciò che serve.",
+    "en": "The same install today and in six months: pinned versions, only what is needed."
+   },
+   "regola_ambiente": {
+    "it": "La chiave dall'ambiente, mai dal repo; nei test il modello finto.",
+    "en": "The key from the environment, never from the repo; the fake model in tests."
+   },
+   "descrizione_scena": {
+    "it": "Tre viste del repo adottato: le dipendenze costruite oggi e fra sei mesi, la chiave e il modello dei test, il filtro che classifica 8 risposte tipo nei loro cesti.",
+    "en": "Three views of the adopted repo: the dependencies built today and in six months, the key and the test model, the filter that sorts 8 typical replies into their baskets."
+   }
+  }
+ },
+ "domande": []
+}

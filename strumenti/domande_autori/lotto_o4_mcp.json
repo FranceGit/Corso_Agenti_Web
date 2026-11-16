@@ -1,0 +1,1081 @@
+[
+ {
+  "id": "DO4.1-1",
+  "origine": "autori",
+  "pillola": "PO4.1",
+  "concetti": [
+   "CO11"
+  ],
+  "concetto_principale": "CO11",
+  "segmento_aiuto": "prese",
+  "striscia": "definizione",
+  "livello1": {
+   "domanda": {
+    "it": "Nel file di configurazione del client, ogni voce sotto «mcpServers» ha i campi command, args ed env. Che cosa contiene «args»?",
+    "en": "In the client's configuration file, every entry under «mcpServers» has the fields command, args and env. What does «args» contain?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Il programma che lancia il server",
+      "en": "The program that launches the server"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Quello è command (npx, uvx, docker): args sono gli argomenti passati a quel programma.",
+      "en": "That is command (npx, uvx, docker): args are the arguments passed to that program."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Le variabili d'ambiente",
+      "en": "The environment variables"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Le variabili stanno in env, per esempio MEMORY_FILE_PATH; args è una lista di argomenti.",
+      "en": "Variables go in env, for example MEMORY_FILE_PATH; args is a list of arguments."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Pacchetto, opzioni e cartelle",
+      "en": "Package, options and folders"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: per il filesystem args contiene il pacchetto, opzioni come --read-only e le cartelle consentite.",
+      "en": "Right: for filesystem args holds the package, options such as --read-only and the allowed folders."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Gli strumenti da esporre",
+      "en": "The tools to expose"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Gli strumenti li dichiara il server stesso; args non è un elenco di strumenti.",
+      "en": "The tools are declared by the server itself; args is not a list of tools."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Il nome del server",
+      "en": "The server's name"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il nome è la chiave della voce (filesystem, fetch, memory), non args.",
+      "en": "The name is the entry's key (filesystem, fetch, memory), not args."
+     }
+    },
+    {
+     "id": "F",
+     "testo": {
+      "it": "La chiave API del modello",
+      "en": "The model's API key"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Nessun server di riferimento chiede la chiave del modello negli args: e una chiave non va mai scritta in chiaro.",
+      "en": "No reference server asks for the model key in args: and a key must never be written in plain text."
+     }
+    },
+    {
+     "id": "G",
+     "testo": {
+      "it": "Il prompt di sistema",
+      "en": "The system prompt"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Il prompt riguarda il modello, non l'avvio di un server MCP.",
+      "en": "The prompt concerns the model, not starting an MCP server."
+     }
+    }
+   ],
+   "perche": {
+    "it": "command dice quale programma parte, args con che cosa (pacchetto, opzioni, cartelle), env con quali variabili.",
+    "en": "command says which program starts, args with what (package, options, folders), env with which variables."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché la cartella consentita del filesystem si scrive proprio in args?",
+    "en": "Why is the filesystem's allowed folder written precisely in args?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Il client legge args e scarta da solo i percorsi fuori cartella prima di chiamare il server",
+      "en": "The client reads args and discards out-of-folder paths by itself before calling the server"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il controllo lo fa il server, non il client: per questo la cartella va nei suoi argomenti di avvio.",
+      "en": "The check is done by the server, not the client: that is why the folder goes into its startup arguments."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Gli args vengono letti dal modello come istruzioni sulle cartelle",
+      "en": "The args are read by the model as instructions about folders"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il modello non vede la configurazione: la legge il client per avviare il server.",
+      "en": "The model does not see the configuration: the client reads it to start the server."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "args è l'unico campo che il client salva su disco",
+      "en": "args is the only field the client saves to disk"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Tutto il file sta su disco; il punto è chi applica il recinto.",
+      "en": "The whole file is on disk; the point is who enforces the fence."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Il server riceve le cartelle consentite dagli argomenti con cui viene avviato",
+      "en": "The server receives the allowed folders from the arguments it is started with"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: la documentazione indica gli argomenti della riga di comando come il metodo che vale con ogni versione del protocollo.",
+      "en": "Right: the documentation names command-line arguments as the method that works with every protocol version."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "In env le cartelle non verrebbero lette perché env accetta solo numeri",
+      "en": "In env the folders would not be read because env accepts only numbers"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "env accetta testi, per esempio MEMORY_FILE_PATH; semplicemente il filesystem prende le cartelle da args.",
+      "en": "env accepts text, for example MEMORY_FILE_PATH; the filesystem simply takes its folders from args."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Il recinto lo applica il server, e il server lo conosce dai suoi argomenti di avvio.",
+    "en": "The fence is enforced by the server, and the server knows it from its startup arguments."
+   }
+  },
+  "glossario": [
+   {
+    "termine": "mcpServers",
+    "it": "La chiave del file di configurazione del client MCP: una voce per ogni server da avviare, con command, args ed env.",
+    "en": "The key of the MCP client's configuration file: one entry per server to start, with command, args and env."
+   },
+   {
+    "termine": "radice consentita",
+    "it": "Una cartella data al server filesystem all'avvio: il server tocca solo i percorsi che, risolti, stanno al suo interno.",
+    "en": "A folder given to the filesystem server at startup: the server touches only paths that, once resolved, are inside it."
+   }
+  ]
+ },
+ {
+  "id": "DO4.1-2",
+  "origine": "autori",
+  "pillola": "PO4.1",
+  "concetti": [
+   "CO11"
+  ],
+  "concetto_principale": "CO11",
+  "segmento_aiuto": "memory",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "L'agente del CRM deve annotare che Rossi, già presente nel grafo del server memory, va richiamato a marzo. Quale strumento chiama?",
+    "en": "The CRM agent must note that Rossi, already in the memory server's graph, must be called back in March. Which tool does it call?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "create_entities",
+      "en": "create_entities"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "create_entities ignora un nome che esiste già: l'osservazione andrebbe persa.",
+      "en": "create_entities ignores a name that already exists: the observation would be lost."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "create_relations",
+      "en": "create_relations"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Una relazione collega due entità; qui c'è un fatto da aggiungere a una sola entità.",
+      "en": "A relation links two entities; here there is one fact to add to a single entity."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "list_allowed_directories",
+      "en": "list_allowed_directories"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "È uno strumento del filesystem: dice quali cartelle si possono toccare, non salva ricordi.",
+      "en": "It is a filesystem tool: it says which folders may be touched, it does not save memories."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "add_observations",
+      "en": "add_observations"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: aggiunge fatti a un'entità che esiste già nel grafo.",
+      "en": "Right: it adds facts to an entity that already exists in the graph."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "write_file",
+      "en": "write_file"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Scriverebbe un file a parte, fuori dal grafo: search_nodes non lo troverebbe.",
+      "en": "It would write a separate file, outside the graph: search_nodes would not find it."
+     }
+    },
+    {
+     "id": "F",
+     "testo": {
+      "it": "fetch",
+      "en": "fetch"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "fetch scarica pagine web: non scrive niente nella memoria.",
+      "en": "fetch downloads web pages: it writes nothing into memory."
+     }
+    },
+    {
+     "id": "G",
+     "testo": {
+      "it": "read_graph",
+      "en": "read_graph"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "read_graph legge tutto il grafo, non lo modifica.",
+      "en": "read_graph reads the whole graph, it does not change it."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Entità nuova → create_entities; fatto nuovo su un'entità esistente → add_observations; legame fra due entità → create_relations.",
+    "en": "New entity → create_entities; new fact on an existing entity → add_observations; link between two entities → create_relations."
+   }
+  },
+  "livello2": {
+   "tipo": "contro-esempio",
+   "domanda": {
+    "it": "Che cosa succede se invece l'agente chiama create_entities con il nome «Rossi» e l'osservazione nuova?",
+    "en": "What happens if the agent instead calls create_entities with the name «Rossi» and the new observation?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Salta Rossi perché il nome esiste già, e l'osservazione non viene aggiunta",
+      "en": "It skips Rossi because the name already exists, and the observation is not added"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: la documentazione dice che i nomi esistenti vengono ignorati e i loro fatti non aggiunti; il risultato elenca i saltati.",
+      "en": "Right: the documentation says existing names are ignored and their facts not added; the result lists the skipped ones."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Unisce le due entità e aggiunge l'osservazione in coda a quelle già salvate di Rossi",
+      "en": "It merges the two entities and appends the observation to Rossi's saved ones"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Non unisce niente: un nome già presente viene saltato, con le sue osservazioni.",
+      "en": "It merges nothing: a name already present is skipped, together with its observations."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Sostituisce le osservazioni di Rossi con quella nuova",
+      "en": "It replaces Rossi's observations with the new one"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Niente viene sovrascritto: l'entità esistente resta com'era.",
+      "en": "Nothing is overwritten: the existing entity stays as it was."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Fallisce con un errore e blocca tutto il grafo",
+      "en": "It fails with an error and locks the whole graph"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Non c'è errore né blocco: Rossi viene semplicemente saltato.",
+      "en": "There is no error or lock: Rossi is simply skipped."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Scrive l'osservazione nel file .env del CRM",
+      "en": "It writes the observation into the CRM's .env file"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "memory scrive solo il suo file .jsonl, mai altri file.",
+      "en": "memory writes only its own .jsonl file, never other files."
+     }
+    }
+   ],
+   "perche": {
+    "it": "create_entities crea solo entità nuove: per arricchirne una esistente serve add_observations.",
+    "en": "create_entities creates only new entities: to enrich an existing one you need add_observations."
+   }
+  },
+  "glossario": [
+   {
+    "termine": "grafo di conoscenza",
+    "it": "Il modo in cui il server memory conserva i ricordi: entità, relazioni fra entità e osservazioni sulle entità.",
+    "en": "The way the memory server keeps memories: entities, relations between entities and observations on entities."
+   }
+  ]
+ },
+ {
+  "id": "DO4.1-3",
+  "origine": "autori",
+  "pillola": "PO4.1",
+  "concetti": [
+   "CO11"
+  ],
+  "concetto_principale": "CO11",
+  "segmento_aiuto": "fetch",
+  "striscia": "diagnosi",
+  "livello1": {
+   "domanda": {
+    "it": "Hai aggiunto fetch alla configurazione con «command»: «npx» e «args»: [«-y», «mcp-server-fetch»]. L'agente dice ancora che non può aprire pagine web e il log del client segnala che il pacchetto non si trova. Qual è la causa?",
+    "en": "You added fetch to the configuration with «command»: «npx» and «args»: [«-y», «mcp-server-fetch»]. The agent still says it cannot open web pages and the client log reports that the package is not found. What is the cause?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Manca --allowed-hosts negli args: senza un elenco di host il server fetch rifiuta di partire e il client non lo vede",
+      "en": "--allowed-hosts is missing from args: without a host list the fetch server refuses to start and the client does not see it"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "--allowed-hosts è facoltativo: senza, fetch può raggiungere ogni host pubblico. Il log parla di pacchetto non trovato.",
+      "en": "--allowed-hosts is optional: without it, fetch can reach any public host. The log talks about a package not found."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "fetch è un pacchetto Python: va avviato con uvx mcp-server-fetch, mentre npx cerca pacchetti Node",
+      "en": "fetch is a Python package: it must be started with uvx mcp-server-fetch, while npx looks for Node packages"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: la documentazione di fetch indica uvx (o pip e python -m); npx non trova il pacchetto.",
+      "en": "Right: the fetch documentation gives uvx (or pip and python -m); npx does not find the package."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Il modello non può usare Internet finché l'utente non accende fetch nel prompt di sistema dell'agente",
+      "en": "The model cannot use the Internet until the user turns fetch on in the agent's system prompt"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il prompt non avvia server: li avvia il client dalla configurazione.",
+      "en": "The prompt does not start servers: the client starts them from the configuration."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "fetch funziona solo dentro il server filesystem: va aggiunto alle sue cartelle consentite come indirizzo",
+      "en": "fetch works only inside the filesystem server: it must be added to its allowed folders as an address"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Sono due server separati, ognuno con la sua voce in mcpServers.",
+      "en": "They are two separate servers, each with its own entry in mcpServers."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Ogni server si avvia con il programma del suo ecosistema: npx per i pacchetti Node, uvx per quelli Python.",
+    "en": "Each server is started with its ecosystem's program: npx for Node packages, uvx for Python ones."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Con lo stesso ragionamento, come si avvia il server memory?",
+    "en": "With the same reasoning, how is the memory server started?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Con uvx, perché tutti i server di riferimento sono in Python",
+      "en": "With uvx, because all reference servers are written in Python"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Solo fetch è in Python; filesystem e memory sono pacchetti Node.",
+      "en": "Only fetch is in Python; filesystem and memory are Node packages."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Con python -m, perché memory salva file .jsonl",
+      "en": "With python -m, because memory saves .jsonl files"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il formato del file non dice in che linguaggio è scritto il server.",
+      "en": "The file format does not say which language the server is written in."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Solo con Docker, perché npx non è supportato",
+      "en": "Only with Docker, because npx is not supported"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "La documentazione dà sia Docker sia npx.",
+      "en": "The documentation gives both Docker and npx."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Non si avvia: memory è già dentro il client",
+      "en": "It is not started: memory is already inside the client"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "memory è un server MCP a parte, con la sua voce in mcpServers.",
+      "en": "memory is a separate MCP server, with its own entry in mcpServers."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Con npx, perché è un pacchetto Node come il filesystem",
+      "en": "With npx, because it is a Node package like filesystem"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: npx -y @modelcontextprotocol/server-memory, oppure l'immagine Docker mcp/memory.",
+      "en": "Right: npx -y @modelcontextprotocol/server-memory, or the Docker image mcp/memory."
+     }
+    }
+   ],
+   "perche": {
+    "it": "memory e filesystem sono pacchetti npm (@modelcontextprotocol/…), fetch è un pacchetto Python.",
+    "en": "memory and filesystem are npm packages (@modelcontextprotocol/…), fetch is a Python package."
+   }
+  },
+  "glossario": [
+   {
+    "termine": "uvx",
+    "it": "Il comando di uv che scarica ed esegue al volo un pacchetto Python, come npx fa con i pacchetti Node.",
+    "en": "The uv command that downloads and runs a Python package on the fly, as npx does with Node packages."
+   },
+   {
+    "termine": "mcpServers",
+    "it": "La chiave del file di configurazione del client MCP: una voce per ogni server da avviare, con command, args ed env.",
+    "en": "The key of the MCP client's configuration file: one entry per server to start, with command, args and env."
+   }
+  ]
+ },
+ {
+  "id": "DO4.2-1",
+  "origine": "autori",
+  "pillola": "PO4.2",
+  "concetti": [
+   "CO12"
+  ],
+  "concetto_principale": "CO12",
+  "segmento_aiuto": "radici",
+  "striscia": "definizione",
+  "livello1": {
+   "domanda": {
+    "it": "Che cos'è una radice consentita del server filesystem MCP?",
+    "en": "What is an allowed root of the MCP filesystem server?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Una cartella data all'avvio, fuori dalla quale il server rifiuta ogni percorso",
+      "en": "A folder given at startup, outside which the server refuses every path"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: il server confronta ogni percorso risolto con le radici e rifiuta quelli fuori.",
+      "en": "Right: the server compares every resolved path with the roots and refuses those outside."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Un elenco di file che il modello è autorizzato a leggere, scritto nel prompt",
+      "en": "A list of files the model is allowed to read, written in the prompt"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il prompt non è un recinto: il confine lo applica il server, sui percorsi.",
+      "en": "The prompt is not a fence: the boundary is enforced by the server, on paths."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "La cartella da cui parte il client, usata dal server come base per i percorsi relativi",
+      "en": "The folder the client starts from, used by the server as the base for relative paths"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Non è una base per i percorsi: è un confine. Fuori dalla radice il server risponde Access denied.",
+      "en": "It is not a base for paths: it is a boundary. Outside the root the server answers Access denied."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "La cartella principale del disco, cioè /, da cui partono tutti i percorsi",
+      "en": "The main folder of the disk, that is /, where all paths start"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "/ è la radice del disco; come radice consentita sarebbe la scelta peggiore.",
+      "en": "/ is the disk root; as an allowed root it would be the worst choice."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Un utente di sistema con i permessi di amministratore sul server",
+      "en": "A system user with administrator rights on the server"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "«Radice» qui è una cartella, non l'utente root.",
+      "en": "«Root» here is a folder, not the root user."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Le radici consentite sono il recinto del server filesystem: si danno negli args e valgono per ogni strumento.",
+    "en": "The allowed roots are the filesystem server's fence: they are given in args and apply to every tool."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché la radice va stretta alla cartella di lavoro e non alla home intera?",
+    "en": "Why should the root be narrowed to the work folder and not the whole home?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Il client non vede la home",
+      "en": "The client cannot see the home"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il client vede quello che il server gli lascia vedere: con la home come radice, vede tutto.",
+      "en": "The client sees what the server lets it see: with the home as root, it sees everything."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "I file nascosti non si leggono",
+      "en": "Hidden files cannot be read"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il punto iniziale non protegge niente: .env e .ssh si leggono se sono nella radice.",
+      "en": "The leading dot protects nothing: .env and .ssh can be read if they are in the root."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "La home rallenta il server",
+      "en": "The home slows the server down"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "La velocità non è il motivo: il motivo è che cosa diventa leggibile.",
+      "en": "Speed is not the reason: the reason is what becomes readable."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "npx rifiuta percorsi lunghi",
+      "en": "npx refuses long paths"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Non c'è un limite del genere; la questione è il minimo privilegio.",
+      "en": "There is no such limit; the issue is least privilege."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Nei container la home non c'è",
+      "en": "There is no home in containers"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Il ragionamento vale con o senza container.",
+      "en": "The reasoning holds with or without containers."
+     }
+    },
+    {
+     "id": "f",
+     "testo": {
+      "it": "Lì ci sono .ssh e .env",
+      "en": "That is where .ssh and .env are"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: nella home stanno chiavi SSH e segreti; la cartella di lavoro contiene solo ciò che serve.",
+      "en": "Right: the home holds SSH keys and secrets; the work folder holds only what is needed."
+     }
+    },
+    {
+     "id": "g",
+     "testo": {
+      "it": "Le radici devono chiamarsi lavoro",
+      "en": "Roots must be called lavoro"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Il nome non conta: conta che cosa contiene la cartella.",
+      "en": "The name does not matter: what matters is what the folder contains."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Minimo privilegio: il server vede solo ciò che serve al compito, così una richiesta sbagliata non trova segreti.",
+    "en": "Least privilege: the server sees only what the task needs, so a wrong request finds no secrets."
+   }
+  },
+  "glossario": [
+   {
+    "termine": "radice consentita",
+    "it": "Una cartella data al server filesystem all'avvio: il server tocca solo i percorsi che, risolti, stanno al suo interno.",
+    "en": "A folder given to the filesystem server at startup: the server touches only paths that, once resolved, are inside it."
+   }
+  ]
+ },
+ {
+  "id": "DO4.2-2",
+  "origine": "autori",
+  "pillola": "PO4.2",
+  "concetti": [
+   "CO12"
+  ],
+  "concetto_principale": "CO12",
+  "segmento_aiuto": "sola_lettura",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Il server filesystem parte con la radice /home/ada/crm/lavoro. Quale di queste richieste viene ACCETTATA, anche se all'agente non dovrebbe servire?",
+    "en": "The filesystem server starts with the root /home/ada/crm/lavoro. Which of these requests is ACCEPTED, even though the agent should not need it?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "read_text_file /home/ada/crm/lavoro/../.env",
+      "en": "read_text_file /home/ada/crm/lavoro/../.env"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il percorso si risolve in /home/ada/crm/.env, fuori dalla radice: respinto.",
+      "en": "The path resolves to /home/ada/crm/.env, outside the root: refused."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "read_text_file /home/ada/crm/lavoro/scorciatoia/id_ed25519",
+      "en": "read_text_file /home/ada/crm/lavoro/scorciatoia/id_ed25519"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "scorciatoia è un link verso /home/ada/.ssh: il server segue il link e respinge.",
+      "en": "scorciatoia is a link to /home/ada/.ssh: the server follows the link and refuses."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "read_text_file /home/ada/crm/lavoro-vecchio/.env",
+      "en": "read_text_file /home/ada/crm/lavoro-vecchio/.env"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "lavoro-vecchio comincia come lavoro ma è un'altra cartella: il confronto è per cartella intera.",
+      "en": "lavoro-vecchio starts like lavoro but it is another folder: the comparison is per whole folder."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "read_text_file /etc/passwd",
+      "en": "read_text_file /etc/passwd"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "/etc è lontanissimo dalla radice: respinto subito.",
+      "en": "/etc is far from the root: refused at once."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "read_text_file /home/ada/crm/lavoro/.env",
+      "en": "read_text_file /home/ada/crm/lavoro/.env"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: il file sta dentro la radice, e il server non guarda il nome. Un .env lì dentro si legge.",
+      "en": "Right: the file is inside the root, and the server does not look at the name. A .env in there can be read."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Il recinto accetta tutto ciò che, risolto, sta nella radice: anche un segreto copiato lì per sbaglio.",
+    "en": "The fence accepts everything that, once resolved, is inside the root: even a secret copied there by mistake."
+   }
+  },
+  "livello2": {
+   "tipo": "contro-esempio",
+   "domanda": {
+    "it": "Che cosa insegna questo caso sul recinto?",
+    "en": "What does this case teach about the fence?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Il server riconosce i file .env e li nasconde solo quando sono fuori dalla radice, quindi dentro vanno protetti con --read-only",
+      "en": "The server recognises .env files and hides them only when they are outside the root, so inside they must be protected with --read-only"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il server non riconosce i .env, e --read-only toglie la scrittura, non la lettura.",
+      "en": "The server does not recognise .env files, and --read-only removes writing, not reading."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "I file nascosti, che iniziano con un punto, sono sempre accessibili perché il server li considera file di configurazione",
+      "en": "Hidden files, starting with a dot, are always accessible because the server treats them as configuration files"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il punto non cambia niente: fuori dalla radice anche un file nascosto è respinto.",
+      "en": "The dot changes nothing: outside the root even a hidden file is refused."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Il recinto guarda il percorso risolto, non il nome del file: un segreto lasciato nella radice si legge come gli altri",
+      "en": "The fence looks at the resolved path, not the file name: a secret left in the root is read like the others"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: i segreti vanno tenuti fuori dalla cartella consentita, non affidati al nome del file.",
+      "en": "Right: secrets must be kept out of the allowed folder, not entrusted to the file name."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Il caso dimostra che le radici consentite non servono e conviene affidarsi alle istruzioni del prompt di sistema",
+      "en": "The case shows that allowed roots are useless and it is better to rely on the system prompt's instructions"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Il recinto ha respinto ../, il link e /etc/passwd: va solo usato bene, insieme a una cartella pulita.",
+      "en": "The fence refused ../, the link and /etc/passwd: it just has to be used well, together with a clean folder."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Radice stretta e cartella pulita lavorano insieme: il recinto decide dove, non che cosa.",
+    "en": "A narrow root and a clean folder work together: the fence decides where, not what."
+   }
+  },
+  "glossario": [
+   {
+    "termine": "radice consentita",
+    "it": "Una cartella data al server filesystem all'avvio: il server tocca solo i percorsi che, risolti, stanno al suo interno.",
+    "en": "A folder given to the filesystem server at startup: the server touches only paths that, once resolved, are inside it."
+   }
+  ]
+ },
+ {
+  "id": "DO4.2-3",
+  "origine": "autori",
+  "pillola": "PO4.2",
+  "concetti": [
+   "CO12"
+  ],
+  "concetto_principale": "CO12",
+  "segmento_aiuto": "memoria",
+  "striscia": "diagnosi",
+  "livello1": {
+   "domanda": {
+    "it": "Il server memory del CRM parte con «npx -y @modelcontextprotocol/server-memory», senza env. Dopo un aggiornamento del pacchetto l'agente non ricorda più nessun cliente. Perché?",
+    "en": "The CRM's memory server starts with «npx -y @modelcontextprotocol/server-memory», without env. After a package update the agent no longer remembers any customer. Why?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Senza MEMORY_FILE_PATH il grafo resta solo nella memoria del processo e si perde a ogni riavvio del client",
+      "en": "Without MEMORY_FILE_PATH the graph stays only in the process memory and is lost at every client restart"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il grafo viene salvato su file anche senza variabile: in memory.jsonl, accanto al codice del server.",
+      "en": "The graph is saved to a file even without the variable: in memory.jsonl, next to the server code."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "L'aggiornamento cambia il formato del file e il grafo vecchio non si legge più",
+      "en": "The update changes the file format and the old graph can no longer be read"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il problema non è il formato: è il posto in cui stava il file.",
+      "en": "The problem is not the format: it is where the file was."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Il grafo stava in memory.jsonl dentro node_modules, e l'aggiornamento l'ha cancellato",
+      "en": "The graph was in memory.jsonl inside node_modules, and the update deleted it"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: il file predefinito sta nella cartella del server, che npm gestisce e può riscrivere.",
+      "en": "Right: the default file is in the server's folder, which npm manages and can rewrite."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Il modello ha superato il limite di contesto e ha dimenticato i clienti",
+      "en": "The model exceeded its context limit and forgot the customers"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "La memoria fra sessioni sta nel file del server, non nel contesto del modello.",
+      "en": "Memory across sessions lives in the server's file, not in the model's context."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "fetch ha sovrascritto il file con una pagina scaricata",
+      "en": "fetch overwrote the file with a downloaded page"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "fetch legge pagine web e non scrive file.",
+      "en": "fetch reads web pages and does not write files."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Senza MEMORY_FILE_PATH il file finisce dentro node_modules, dove un aggiornamento o la pulizia della cache di npx lo possono cancellare.",
+    "en": "Without MEMORY_FILE_PATH the file ends up inside node_modules, where an update or clearing the npx cache can delete it."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Quale configurazione evita il problema e lascia a te la decisione di azzerare la memoria?",
+    "en": "Which configuration avoids the problem and leaves the decision to reset the memory to you?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Docker con un volume con nome sulla cartella dei dati (-v claude-memory:/app/dist): il file regge a riavvii e aggiornamenti e si azzera con docker volume rm",
+      "en": "Docker with a named volume on the data folder (-v claude-memory:/app/dist): the file survives restarts and updates and is reset with docker volume rm"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: il volume non fa parte dell'immagine, e lo cancelli solo tu, a server fermo.",
+      "en": "Right: the volume is not part of the image, and only you delete it, with the server stopped."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "npx con un MEMORY_FILE_PATH relativo, per esempio memoria.jsonl: così il file resta accanto al server e segue il pacchetto in ogni aggiornamento senza bisogno di volumi",
+      "en": "npx with a relative MEMORY_FILE_PATH, for example memoria.jsonl: so the file stays next to the server and follows the package through every update without needing volumes"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Un percorso relativo si risolve nella cartella del server, cioè ancora dentro node_modules: stesso problema.",
+      "en": "A relative path resolves against the server's folder, that is still inside node_modules: same problem."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Docker con --rm e nessun volume: ogni avvio riparte pulito, non c'è mai un file da proteggere, e la memoria dei clienti si ricostruisce da sola dalle conversazioni",
+      "en": "Docker with --rm and no volume: every start begins clean, there is never a file to protect, and the customers' memory rebuilds itself from the conversations"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Senza volume il file sparisce con il container a ogni riavvio, e niente lo ricostruisce.",
+      "en": "Without a volume the file disappears with the container at every restart, and nothing rebuilds it."
+     }
+    }
+   ],
+   "perche": {
+    "it": "La memoria va in un file tuo, con percorso assoluto o in un volume: sopravvive, e l'azzeramento è una scelta.",
+    "en": "Memory goes in a file you own, with an absolute path or on a volume: it survives, and resetting is a choice."
+   }
+  },
+  "glossario": [
+   {
+    "termine": "node_modules",
+    "it": "La cartella dove npm e npx installano i pacchetti Node: la gestiscono loro, e un aggiornamento può riscriverla.",
+    "en": "The folder where npm and npx install Node packages: they manage it, and an update can rewrite it."
+   },
+   {
+    "termine": "volume",
+    "it": "Spazio di dati gestito da Docker, montato in una cartella del container e separato dal suo ciclo di vita.",
+    "en": "Data space managed by Docker, mounted on a container folder and separate from its life cycle."
+   }
+  ]
+ }
+]

@@ -28,7 +28,8 @@ def test_struttura_officina_6_unita():
     c = Corso.model_validate(dati_l2())
     assert c.livello == 2 and [m.id for m in c.moduli] == ["O1", "O2", "O3", "O4", "O5", "O6"]
     assert all(p.id.startswith("PO") for p in c.pillole()) and len(c.pillole()) == 12
-    assert all(p.domande == [] for p in c.pillole())  # le domande le scrive il cantiere contenuti
+    # dal cantiere OFFICINA-CONTENUTI ogni pillola ha le sue domande (origine autori, dai lotti lotto_o*.json)
+    assert all(p.domande and all(d.origine == "autori" for d in p.domande) for p in c.pillole())
     kg = KnowledgeGraph.model_validate(json.loads(FILE_KG_L2.read_text(encoding="utf-8")))
     assert all(n.id.startswith("CO") for n in kg.nodi)
     # testi strutturali completi in IT e EN
@@ -55,7 +56,8 @@ def test_catalogo_officina_si_carica_con_la_config_derivata(dati_config):
     cfg2 = config_officina(config_da(dati_config))
     cat = Catalogo(cfg2)
     r = cat.rapporto()
-    assert r["pillole"] == 12 and r["concetti"] == 17 and r["domande_totali"] == 0 and r["lezioni_interattive"] == []
+    # OFFICINA-CONTENUTI: 51 domande (3 per concetto) e una lezione interattiva per ciascuna delle 12 pillole
+    assert r["pillole"] == 12 and r["concetti"] == 17 and r["domande_totali"] >= 51 and len(r["lezioni_interattive"]) == 12
     # il file del livello 1 non e' toccato dalla config derivata
     assert config_da(dati_config).percorso_file("corso").name == "corso_v1.json"
 
@@ -116,14 +118,15 @@ def test_api_livelli_e_officina_in_alpha(client_dentro):
     assert [l["numero"] for l in r] == [1, 2]
     l2 = r[1]
     assert l2["sbloccato"] and l2["deroga_alpha"] and [u["id"] for u in l2["unita"]] == ["O1", "O2", "O3", "O4", "O5", "O6"]
-    assert [u["esercizio"] for u in l2["unita"]] == [7, 8, 9, 10, 11, 12] and all(u["domande_erogabili"] == 0 for u in l2["unita"])
+    assert [u["esercizio"] for u in l2["unita"]] == [7, 8, 9, 10, 11, 12] and all(u["domande_erogabili"] > 0 for u in l2["unita"])
     p = client_dentro.get("/api/officina/percorso?lingua=en").json()
-    assert len(p["anelli"]) == 6 and all(s["stato"] == "in_preparazione" for a in p["anelli"] for s in a["spicchi"])
+    assert len(p["anelli"]) == 6 and not any(s["stato"] == "in_preparazione" for a in p["anelli"] for s in a["spicchi"])
     assert p["corso"] == "Workshop: agents at the workbench"
     assert client_dentro.get("/api/officina/pillole/PO2.2?lingua=it").json()["titolo"] == "Containerizzare e correggere"
     assert client_dentro.get("/api/officina/stato?lingua=it").json()["salute"] == 100
     # stato separato: la salute dell'Officina non e' quella del livello 1
-    assert client_dentro.post("/api/officina/spicchi/PO1.1/inizia").status_code == 409  # nessuna domanda ancora
+    assert client_dentro.post("/api/officina/spicchi/PO1.1/inizia").status_code == 200  # domande del cantiere contenuti
+    assert client_dentro.get("/api/stato?lingua=it").json()["salute"] == 100  # il livello 1 non e' toccato
     es = client_dentro.get("/api/officina/esercizi?lingua=it").json()["esercizi"]
     assert [e["numero"] for e in es] == [7, 8, 9, 10, 11, 12]
     assert [e["numero"] for e in client_dentro.get("/api/esercizi?lingua=it").json()["esercizi"]] == [1, 2, 3, 4, 5, 6]

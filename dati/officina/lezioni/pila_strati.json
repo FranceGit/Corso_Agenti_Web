@@ -1,0 +1,238 @@
+{
+ "id": "L_pila_strati",
+ "pillola": "PO1.1",
+ "componente": "pila_strati",
+ "titolo": {"it": "La pila degli strati", "en": "The layer stack"},
+ "sottotitolo": {"it": "Il Dockerfile del CRM minimo, riga per riga: che cosa si ricostruisce quando cambi un file, e che cosa resta scritto nell'immagine.", "en": "The minimal CRM's Dockerfile, line by line: what gets rebuilt when you change a file, and what stays written in the image."},
+ "segmenti": [
+  {
+   "id": "immagine",
+   "titolo": {"it": "Immagine e container", "en": "Image and container"},
+   "narrazione": [
+    {"it": "Un'immagine è una ricetta congelata, in sola lettura. Un container è un'esecuzione della ricetta, con sopra un sottile strato scrivibile tutto suo.", "en": "An image is a frozen, read-only recipe. A container is one run of the recipe, with a thin writable layer of its own on top."},
+    {"it": "Da una sola immagine, tanti container:", "en": "One image, many containers:"},
+    {"it": "• «docker run» crea un container nuovo, con lo strato scrivibile vuoto;", "en": "• «docker run» creates a new container, with an empty writable layer;"},
+    {"it": "• ciò che il CRM scrive (/app/dati/lead.json) finisce nello strato del container, non nell'immagine;", "en": "• what the CRM writes (/app/dati/lead.json) ends up in the container's layer, not in the image;"},
+    {"it": "• «docker rm» cancella il container e il suo strato: l'immagine resta identica.", "en": "• «docker rm» deletes the container and its layer: the image stays identical."}
+   ],
+   "prova": {"it": "Avvia c2, scrivi 2 lead in c1, poi «docker rm» su c1: dove finiscono i lead? Che cosa vede c2?", "en": "Start c2, write 2 leads in c1, then «docker rm» on c1: where do the leads go? What does c2 see?"},
+   "concetti": ["CO01"],
+   "stato_animazione": {"vista": "contenitori", "ordine": "dipendenze_prima", "base": "fissa", "modifica": "nessuna", "segreto": false, "utente": "app", "contenitori": [0, null, null], "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "strati",
+   "titolo": {"it": "Ogni riga uno strato, la cache a cascata", "en": "One line, one layer: the cascading cache"},
+   "narrazione": [
+    {"it": "Ogni istruzione del Dockerfile produce uno strato, e lo strato resta in cache.", "en": "Every Dockerfile instruction produces a layer, and the layer stays in the cache."},
+    {"it": "Alla build dopo, uno strato si riusa solo se la sua riga e i file che legge non sono cambiati; appena uno si rifà, si rifanno tutti quelli sopra.", "en": "On the next build, a layer is reused only if its line and the files it reads have not changed; as soon as one is rebuilt, all those above it are rebuilt."},
+    {"it": "Nel Dockerfile di partenza del CRM minimo «COPY . .» viene prima di «RUN pip install»: cambiare una riga di app.py reinstalla anche le dipendenze, 41 secondi invece di 1.", "en": "In the minimal CRM's starting Dockerfile «COPY . .» comes before «RUN pip install»: changing one line of app.py reinstalls the dependencies too, 41 seconds instead of 1."}
+   ],
+   "prova": {"it": "Guarda la pila ricostruirsi dal basso: quale strato arancione non avrebbe motivo di rifarsi?", "en": "Watch the stack rebuild from the bottom: which orange layer has no reason to be rebuilt?"},
+   "concetti": ["CO02"],
+   "stato_animazione": {"vista": "build", "ordine": "codice_prima", "base": "fissa", "modifica": "app_py", "segreto": false, "utente": "app", "contenitori": [null, null, null], "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "ordine",
+   "titolo": {"it": "Prima le dipendenze, poi il codice", "en": "Dependencies first, then the code"},
+   "narrazione": [
+    {"it": "Basta spostare le righe: prima si copia requirements.txt e si installano le dipendenze, poi si copia il codice. Tre casi:", "en": "Moving the lines is enough: first copy requirements.txt and install the dependencies, then copy the code. Three cases:"},
+    {"it": "• cambi app.py: si rifà solo la copia del codice, 1 secondo;", "en": "• you change app.py: only the code copy is rebuilt, 1 second;"},
+    {"it": "• cambi requirements.txt: si rifà l'installazione, 42 secondi, ed è giusto così;", "en": "• you change requirements.txt: the install is rebuilt, 42 seconds, and rightly so;"},
+    {"it": "• non cambi niente: tutto viene dalla cache, 0 secondi.", "en": "• you change nothing: everything comes from the cache, 0 seconds."}
+   ],
+   "prova": {"it": "Prova «Hai cambiato requirements.txt» e «Nessuna modifica», poi torna a «Codice prima» e confronta i secondi.", "en": "Try «You changed requirements.txt» and «No change», then go back to «Code first» and compare the seconds."},
+   "concetti": ["CO02"],
+   "stato_animazione": {"vista": "build", "ordine": "dipendenze_prima", "base": "fissa", "modifica": "app_py", "segreto": false, "utente": "app", "contenitori": [null, null, null], "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "trappole",
+   "titolo": {"it": "Tre trappole che restano nell'immagine", "en": "Three traps that stay in the image"},
+   "narrazione": [
+    {"it": "Un'immagine veloce può essere comunque sbagliata. Tre trappole del Dockerfile di partenza:", "en": "A fast image can still be wrong. Three traps in the starting Dockerfile:"},
+    {"it": "• «FROM python:latest»: latest si sposta da sola, e domani la build parte da un altro Python. Serve un tag fisso, come python:3.12-slim;", "en": "• «FROM python:latest»: latest moves by itself, and tomorrow the build starts from another Python. You need a pinned tag, such as python:3.12-slim;"},
+    {"it": "• nessun USER: il container gira come root, con tutti i poteri al suo interno;", "en": "• no USER: the container runs as root, with every power inside it;"},
+    {"it": "• «ENV GROQ_API_KEY=…»: la chiave resta negli strati e chi ha l'immagine la legge con «docker history» [DOCKER-DOC]. Idem per ARG e per un .env copiato da «COPY . .».", "en": "• «ENV GROQ_API_KEY=…»: the key stays in the layers and anyone with the image reads it with «docker history» [DOCKER-DOC]. Same for ARG and for a .env copied by «COPY . .»."}
+   ],
+   "prova": {"it": "Passa dal tag latest a quello fisso, poi spegni la chiave e guarda «docker history» a destra.", "en": "Switch from the latest tag to the pinned one, then turn off the key and watch «docker history» on the right."},
+   "concetti": ["CO01", "CO02"],
+   "stato_animazione": {"vista": "build", "ordine": "dipendenze_prima", "base": "latest", "modifica": "base_aggiornata", "segreto": true, "utente": "root", "contenitori": [null, null, null], "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "difetto",
+   "titolo": {"it": "Trova il difetto", "en": "Find the flaw"},
+   "narrazione": [
+    {"it": "Il Dockerfile di un collega per lo stesso CRM: alcune righe sono difetti, altre sembrano sospette ma sono giuste.", "en": "A colleague's Dockerfile for the same CRM: some lines are flaws, others look suspicious but are right."},
+    {"it": "Segna solo i difetti veri: anche un falso allarme è un errore.", "en": "Mark only the real flaws: a false alarm is a mistake too."}
+   ],
+   "prova": {"it": "Segna i difetti, premi «Controlla» e leggi il perché.", "en": "Mark the flaws, press «Check» and read why."},
+   "concetti": ["CO01", "CO02"],
+   "stato_animazione": {"vista": "difetto", "ordine": "dipendenze_prima", "base": "fissa", "modifica": "nessuna", "segreto": false, "utente": "app", "contenitori": [null, null, null], "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "riassunto",
+   "titolo": {"it": "In tre frasi", "en": "In three sentences"},
+   "narrazione": [
+    {"it": "Un'immagine è una pila di strati in sola lettura; ogni container ci aggiunge sopra uno strato scrivibile che sparisce con «docker rm».", "en": "An image is a stack of read-only layers; each container adds a writable layer on top, which disappears with «docker rm»."},
+    {"it": "Uno strato si rifà se cambia la sua riga o un file che legge, e con lui tutti quelli sopra: prima requirements.txt e le dipendenze, poi il codice.", "en": "A layer is rebuilt if its line or a file it reads changes, and so are all the layers above it: first requirements.txt and the dependencies, then the code."},
+    {"it": "Tag fisso per l'immagine di base, utente non root e nessuna chiave negli strati: le chiavi arrivano al container da fuori.", "en": "A pinned tag for the base image, a non-root user and no keys in the layers: keys reach the container from outside."}
+   ],
+   "concetti": ["CO01", "CO02"],
+   "stato_animazione": {"vista": "build", "ordine": "dipendenze_prima", "base": "fissa", "modifica": "app_py", "segreto": false, "utente": "app", "contenitori": [null, null, null], "scelte": {}, "verificato": false}
+  }
+ ],
+ "scenario": {
+  "parametri": {"ms_strato": 420, "ms_container": 320, "max_contenitori": 3},
+  "basi": [
+   {"id": "latest", "riga": "FROM python:latest", "nome": {"it": "python:latest", "en": "python:latest"}},
+   {"id": "fissa", "riga": "FROM python:3.12-slim", "nome": {"it": "python:3.12-slim (fisso)", "en": "python:3.12-slim (pinned)"}}
+  ],
+  "istruzioni": [
+   {"id": "from", "riga": "FROM", "breve": "FROM", "legge": ["base"], "secondi": 15},
+   {"id": "workdir", "riga": "WORKDIR /app", "breve": "WORKDIR /app", "legge": [], "secondi": 0},
+   {"id": "useradd", "riga": "RUN useradd -m app", "breve": "RUN useradd -m app", "legge": [], "secondi": 1},
+   {"id": "copy_req", "riga": "COPY requirements.txt .", "breve": "COPY requirements.txt .", "legge": ["requirements.txt"], "secondi": 1},
+   {"id": "pip", "riga": "RUN pip install -r requirements.txt", "breve": "RUN pip install -r ...", "legge": [], "secondi": 40},
+   {"id": "copy_tutto", "riga": "COPY . .", "breve": "COPY . .", "legge": ["app.py", "requirements.txt"], "secondi": 1},
+   {"id": "env_chiave", "riga": "ENV GROQ_API_KEY=<LA_TUA_CHIAVE>", "breve": "ENV GROQ_API_KEY=...", "legge": [], "secondi": 0, "pericolo": true},
+   {"id": "user", "riga": "USER app", "breve": "USER app", "legge": [], "secondi": 0},
+   {"id": "expose", "riga": "EXPOSE 8000", "breve": "EXPOSE 8000", "legge": [], "secondi": 0},
+   {"id": "cmd", "riga": "CMD [\"uvicorn\", \"app:app\", \"--host\", \"0.0.0.0\", \"--port\", \"8000\"]", "breve": "CMD uvicorn app:app", "legge": [], "secondi": 0}
+  ],
+  "composizione": {
+   "codice_prima": ["from", "workdir", "copy_tutto", "pip"],
+   "dipendenze_prima": ["from", "workdir", "copy_req", "pip", "copy_tutto"]
+  },
+  "dopo_workdir_se_utente": {"dopo": "workdir", "righe": ["useradd"]},
+  "righe_segreto": ["env_chiave"],
+  "righe_utente_finale": ["user"],
+  "righe_finali": ["expose", "cmd"],
+  "strato_lento": "pip",
+  "modifiche": [
+   {"id": "prima", "tutto": true, "nome": {"it": "Prima build (cache vuota)", "en": "First build (empty cache)"}},
+   {"id": "nessuna", "cambia": [], "nome": {"it": "Nessuna modifica", "en": "No change"}},
+   {"id": "app_py", "cambia": ["app.py"], "nome": {"it": "Hai cambiato app.py", "en": "You changed app.py"}},
+   {"id": "requirements", "cambia": ["requirements.txt"], "nome": {"it": "Hai cambiato requirements.txt", "en": "You changed requirements.txt"}},
+   {"id": "base_aggiornata", "cambia": ["base"], "solo_con_base": "latest", "nome": {"it": "È uscita una nuova python:latest", "en": "A new python:latest came out"}}
+  ],
+  "difetto": {
+   "righe": [
+    {"id": "r1", "codice": "FROM python:3", "selezionabile": true, "difetto": true,
+     "spiega": {"it": "«python:3» segue l'ultima versione 3.x: quando ne esce una nuova, la stessa build parte da un Python diverso. Serve un tag che dice la versione, come python:3.12-slim.", "en": "«python:3» follows the latest 3.x version: when a new one comes out, the same build starts from a different Python. You need a tag that names the version, such as python:3.12-slim."}},
+    {"id": "r2", "codice": "WORKDIR /app", "selezionabile": true, "difetto": false,
+     "spiega": {"it": "Fissa la cartella di lavoro: nessun problema.", "en": "It sets the working folder: no problem."}},
+    {"id": "r3", "codice": "COPY . .", "selezionabile": true, "difetto": true,
+     "spiega": {"it": "Copia tutto prima di installare: ogni modifica ad app.py rifà pip install. E senza .dockerignore porta nell'immagine anche il file .env con le chiavi.", "en": "It copies everything before installing: every change to app.py redoes pip install. And without a .dockerignore it also brings the .env file with the keys into the image."}},
+    {"id": "r4", "codice": "RUN pip install -r requirements.txt", "selezionabile": true, "difetto": false,
+     "spiega": {"it": "L'istruzione è giusta: il guaio è che viene dopo «COPY . .».", "en": "The instruction is right: the trouble is that it comes after «COPY . .»."}},
+    {"id": "r5", "codice": "ARG GROQ_API_KEY=<LA_TUA_CHIAVE>", "selezionabile": true, "difetto": true,
+     "spiega": {"it": "Un ARG usato dai RUN che seguono finisce nella storia degli strati: «docker history» ne mostra il valore. La chiave si passa al container quando parte.", "en": "An ARG used by the following RUN lines ends up in the layer history: «docker history» shows its value. The key is passed to the container when it starts."}},
+    {"id": "r6", "codice": "RUN useradd -m crm", "selezionabile": true, "difetto": false,
+     "spiega": {"it": "Crea un utente senza privilegi: giusto.", "en": "It creates a user without privileges: right."}},
+    {"id": "r7", "codice": "USER crm", "selezionabile": true, "difetto": false,
+     "spiega": {"it": "Da qui in poi il container gira come crm e non come root: giusto.", "en": "From here on the container runs as crm and not as root: right."}},
+    {"id": "r8", "codice": "EXPOSE 8000", "selezionabile": true, "difetto": false,
+     "spiega": {"it": "Documenta la porta e non apre niente: a pubblicarla pensano «docker run -p» o il compose.", "en": "It documents the port and opens nothing: publishing it is the job of «docker run -p» or compose."}},
+    {"id": "r9", "codice": "CMD [\"uvicorn\", \"app:app\", \"--host\", \"0.0.0.0\", \"--port\", \"8000\"]", "selezionabile": true, "difetto": false,
+     "spiega": {"it": "Dentro il container l'app deve ascoltare su 0.0.0.0, altrimenti la porta pubblicata non la raggiunge. Chi arriva da fuori lo decide la pubblicazione della porta.", "en": "Inside the container the app must listen on 0.0.0.0, otherwise the published port cannot reach it. Who gets in from outside is decided by how the port is published."}}
+   ]
+  },
+  "testi": {
+   "orologio": {"it": "Build: {n} s", "en": "Build: {n} s"},
+   "stato_cache": {"it": "dalla cache · {n} s", "en": "from cache · {n} s"},
+   "stato_rifatto": {"it": "rifatto · {n} s", "en": "rebuilt · {n} s"},
+   "causa_file": {"it": "cambiato {file}", "en": "{file} changed"},
+   "build_prima": {"it": "Prima build: nessuno strato in cache, {n} strati costruiti in {s} s.", "en": "First build: no layer in the cache, {n} layers built in {s} s."},
+   "build_latest": {"it": "python:latest si è spostata: si rifanno tutti gli strati ({n}), {s} s, e la build parte da un Python che non hai scelto tu.", "en": "python:latest has moved: every layer is rebuilt ({n}), {s} s, and the build starts from a Python you did not choose."},
+   "build_fissa_ferma": {"it": "Con il tag fisso la nuova latest non ti tocca: tutto dalla cache, 0 s.", "en": "With the pinned tag the new latest does not touch you: everything from the cache, 0 s."},
+   "build_tutto_cache": {"it": "Tutto dalla cache, 0 s: nessuna riga e nessun file letto è cambiato.", "en": "Everything from the cache, 0 s: no line and no file read has changed."},
+   "build_lento_inutile": {"it": "{n} strati rifatti, {s} s: «RUN pip install» si rifà anche se requirements.txt non è cambiato, perché viene dopo «COPY . .».", "en": "{n} layers rebuilt, {s} s: «RUN pip install» is redone even though requirements.txt has not changed, because it comes after «COPY . .»."},
+   "build_giusto": {"it": "{n} strati rifatti, {s} s: si rifà solo dal primo strato toccato in su.", "en": "{n} layers rebuilt, {s} s: only from the first touched layer upwards."},
+   "trappola_latest": {"it": "Tag latest: la base cambia da sola, e la stessa build domani può rompersi.", "en": "latest tag: the base changes by itself, and the same build may break tomorrow."},
+   "ok_tag": {"it": "Base con tag fisso: {immagine}.", "en": "Base with a pinned tag: {immagine}."},
+   "trappola_root": {"it": "Nessun USER: il container gira come root.", "en": "No USER: the container runs as root."},
+   "ok_utente": {"it": "Il container gira come utente app, non come root.", "en": "The container runs as the app user, not as root."},
+   "trappola_chiave": {"it": "Chiave in un ENV: resta negli strati e «docker history» la mostra a chiunque abbia l'immagine.", "en": "Key in an ENV: it stays in the layers and «docker history» shows it to anyone who has the image."},
+   "ok_chiave": {"it": "Nessuna chiave scritta negli strati.", "en": "No key written in the layers."},
+   "c_nome": {"it": "c{n}", "en": "c{n}"},
+   "lead_n": {"it": "lead.json: {n} lead", "en": "lead.json: {n} leads"},
+   "ct_run": {"it": "docker run: c{n} parte dall'immagine con uno strato scrivibile vuoto.", "en": "docker run: c{n} starts from the image with an empty writable layer."},
+   "ct_scrivi": {"it": "c{n} scrive in /app/dati/lead.json: ora ha {k} lead nel suo strato. L'immagine non cambia e gli altri container non li vedono.", "en": "c{n} writes to /app/dati/lead.json: it now has {k} leads in its layer. The image does not change and the other containers do not see them."},
+   "ct_rm": {"it": "docker rm c{n}: il container e il suo strato spariscono, e con loro {k} lead. L'immagine resta identica.", "en": "docker rm c{n}: the container and its layer disappear, and {k} leads with them. The image stays identical."},
+   "ct_iniziale": {"it": "Container in esecuzione dalla stessa immagine: {n}.", "en": "Containers running from the same image: {n}."},
+   "ct_nessuno": {"it": "Nessun container: l'immagine c'è, ma non gira niente.", "en": "No containers: the image is there, but nothing is running."},
+   "ct_conteggio": {"it": "Una sola immagine, scaricata e costruita una volta; container attivi: {n}, ognuno con il suo strato scrivibile.", "en": "A single image, downloaded and built once; running containers: {n}, each with its own writable layer."},
+   "scrivi_in": {"it": "Scrivi un lead in {c}", "en": "Write a lead in {c}"},
+   "run_per": {"it": "docker run: avvia {c}", "en": "docker run: start {c}"},
+   "rm_per": {"it": "docker rm: cancella {c}", "en": "docker rm: delete {c}"},
+   "riga_ps": {"it": "{c}  crm  Up  · {n} lead nello strato", "en": "{c}  crm  Up  · {n} leads in the layer"},
+   "segna_riga": {"it": "Segna la riga {n} come difetto", "en": "Mark line {n} as a flaw"},
+   "dif_trovato": {"it": "Riga {n}: difetto trovato. {spiega}", "en": "Line {n}: flaw found. {spiega}"},
+   "dif_mancato": {"it": "Riga {n}: difetto non segnato. {spiega}", "en": "Line {n}: flaw not marked. {spiega}"},
+   "dif_falso": {"it": "Riga {n}: falso allarme. {spiega}", "en": "Line {n}: false alarm. {spiega}"},
+   "dif_giusto": {"it": "Riga {n}: giusta, e giustamente non segnata. {spiega}", "en": "Line {n}: right, and rightly not marked. {spiega}"},
+   "dif_perfetto": {"it": "Perfetto: tutti i difetti trovati, nessun falso allarme.", "en": "Perfect: every flaw found, no false alarms."},
+   "dif_sintesi": {"it": "Difetti trovati: {trovati} su {difetti}; falsi allarmi: {falsi}.", "en": "Flaws found: {trovati} of {difetti}; false alarms: {falsi}."},
+   "dif_segnate": {"it": "Righe segnate: {n}. Quando hai finito, premi «Controlla».", "en": "Lines marked: {n}. When you are done, press «Check»."},
+   "spiega_build": {"it": "La pila si legge dal basso: FROM è lo strato 1. Scegli una modifica e guarda la ricostruzione salire strato per strato.", "en": "The stack reads from the bottom: FROM is layer 1. Choose a change and watch the rebuild climb layer by layer."},
+   "spiega_contenitori": {"it": "L'immagine a sinistra non cambia mai. Ogni container ha il suo strato scrivibile: lì finisce tutto quello che il CRM scrive.", "en": "The image on the left never changes. Each container has its own writable layer: everything the CRM writes ends up there."},
+   "spiega_difetto": {"it": "Il Dockerfile di un collega per lo stesso CRM. Segna nei comandi le righe che sono difetti veri, poi premi «Controlla».", "en": "A colleague's Dockerfile for the same CRM. In the controls, mark the lines that are real flaws, then press «Check»."},
+   "nota_tempi": {"it": "Secondi d'esempio, illustrativi: contano le proporzioni, con l'installazione delle dipendenze come passo lungo.", "en": "Example seconds, for illustration only: the proportions matter, with the dependency install as the long step."}
+  },
+  "etichette": {
+   "titolo_comandi": {"it": "Prova a cambiare", "en": "Try changing"},
+   "vista": {"it": "Vista", "en": "View"},
+   "vista_build": {"it": "Build", "en": "Build"},
+   "vista_contenitori": {"it": "Container", "en": "Containers"},
+   "vista_difetto": {"it": "Trova il difetto", "en": "Find the flaw"},
+   "modifica": {"it": "Ricostruisci dopo...", "en": "Rebuild after..."},
+   "ordine": {"it": "Ordine delle righe", "en": "Order of the lines"},
+   "ordine_codice_prima": {"it": "Codice prima", "en": "Code first"},
+   "ordine_dipendenze_prima": {"it": "Dipendenze prima", "en": "Dependencies first"},
+   "base": {"it": "Immagine di base", "en": "Base image"},
+   "trappole": {"it": "Trappole", "en": "Traps"},
+   "segreto": {"it": "Chiave in un ENV", "en": "Key in an ENV"},
+   "utente": {"it": "Utente non root (USER app)", "en": "Non-root user (USER app)"},
+   "ricostruisci": {"it": "Ricostruisci di nuovo", "en": "Rebuild again"},
+   "titolo_comandi_contenitori": {"it": "Container dalla stessa immagine", "en": "Containers from the same image"},
+   "run": {"it": "docker run", "en": "docker run"},
+   "rm": {"it": "docker rm", "en": "docker rm"},
+   "scrivi": {"it": "Scrivi un lead", "en": "Write a lead"},
+   "segna_righe": {"it": "Segna i difetti", "en": "Mark the flaws"},
+   "controlla": {"it": "Controlla", "en": "Check"},
+   "ricomincia": {"it": "Ricomincia", "en": "Start over"},
+   "titolo_build": {"it": "LA PILA: OGNI RIGA DEL DOCKERFILE È UNO STRATO", "en": "THE STACK: EVERY DOCKERFILE LINE IS A LAYER"},
+   "titolo_contenitori": {"it": "UNA IMMAGINE, TANTI CONTAINER", "en": "ONE IMAGE, MANY CONTAINERS"},
+   "titolo_difetto": {"it": "IL DOCKERFILE DI UN COLLEGA", "en": "A COLLEAGUE'S DOCKERFILE"},
+   "titolo_esiti": {"it": "Esito", "en": "Outcome"},
+   "in_attesa": {"it": "in attesa", "en": "waiting"},
+   "causa_pericolo": {"it": "chiave leggibile negli strati", "en": "key readable in the layers"},
+   "causa_nessuna": {"it": "niente è cambiato", "en": "nothing changed"},
+   "causa_prima": {"it": "cache vuota", "en": "empty cache"},
+   "causa_base": {"it": "la base si è spostata", "en": "the base has moved"},
+   "causa_cascata": {"it": "a cascata da sotto", "en": "cascade from below"},
+   "verso_build": {"it": "↑ la build sale dallo strato 1", "en": "↑ the build climbs from layer 1"},
+   "immagine": {"it": "Immagine «crm» · sola lettura", "en": "Image «crm» · read-only"},
+   "posto_libero": {"it": "posto libero: premi docker run", "en": "free slot: press docker run"},
+   "in_esecuzione": {"it": "in esecuzione", "en": "running"},
+   "strato_scrivibile": {"it": "strato scrivibile", "en": "writable layer"},
+   "immagine_condivisa": {"it": "immagine condivisa, sola lettura", "en": "shared image, read-only"},
+   "marca_trovato": {"it": "difetto trovato", "en": "flaw found"},
+   "marca_mancato": {"it": "difetto mancato", "en": "flaw missed"},
+   "marca_falso": {"it": "falso allarme", "en": "false alarm"},
+   "marca_giusto": {"it": "giusta", "en": "right"},
+   "marca_segnata": {"it": "segnata", "en": "marked"},
+   "destra_build": {"it": "Che cosa resta nell'immagine", "en": "What stays in the image"},
+   "destra_contenitori": {"it": "Immagine e container", "en": "Image and containers"},
+   "destra_difetto": {"it": "Trova il difetto", "en": "Find the flaw"},
+   "titolo_storia": {"it": "docker history crm", "en": "docker history crm"},
+   "titolo_ps": {"it": "docker ps", "en": "docker ps"},
+   "intestazione_ps": {"it": "NOME  IMMAGINE  STATO", "en": "NAME  IMAGE  STATUS"},
+   "ps_vuoto": {"it": "(nessun container in esecuzione)", "en": "(no containers running)"},
+   "regola_build": {"it": "Prima ciò che cambia di rado (base, dipendenze), poi ciò che cambia spesso (il codice).", "en": "First what rarely changes (base, dependencies), then what changes often (the code)."},
+   "regola_contenitori": {"it": "L'immagine è la ricetta, il container è il piatto: buttare il piatto non cambia la ricetta.", "en": "The image is the recipe, the container is the dish: throwing the dish away does not change the recipe."},
+   "regola_difetto": {"it": "Un difetto vero rallenta, rompe o espone qualcosa: sospetto non vuol dire sbagliato.", "en": "A real flaw slows down, breaks or exposes something: suspicious does not mean wrong."},
+   "descrizione_scena": {"it": "La pila degli strati del Dockerfile del CRM minimo, dal FROM in basso al CMD in alto, con lo stato di ogni strato nella ricostruzione; oppure l'immagine con i suoi container; oppure il Dockerfile di un collega da correggere.", "en": "The layer stack of the minimal CRM's Dockerfile, from FROM at the bottom to CMD at the top, with the state of each layer in the rebuild; or the image with its containers; or a colleague's Dockerfile to fix."}
+  }
+ },
+ "domande": []
+}

@@ -1,0 +1,270 @@
+{
+ "id": "L_silenzio_costoso",
+ "pillola": "PO5.2",
+ "componente": "silenzio_costoso",
+ "titolo": {"it": "Il silenzio che costa", "en": "The costly silence"},
+ "sottotitolo": {"it": "Dove vive la chiave, che cosa succede quando qualcosa si rompe, e perché un errore chiaro vale più di una campagna che «riesce».", "en": "Where the key lives, what happens when something breaks, and why a clear error is worth more than a campaign that «succeeds»."},
+ "segmenti": [
+  {
+   "id": "dove_chiave",
+   "titolo": {"it": "Dove vive la chiave", "en": "Where the key lives"},
+   "narrazione": [
+    {"it": "GROQ_API_KEY apre il tuo account: chi la legge consuma il tuo piano gratuito a nome tuo. Conta dove la scrivi:", "en": "GROQ_API_KEY opens your account: whoever reads it uses your free plan in your name. Where you write it matters:"},
+    {"it": "• nel codice o in assistente.json: la vede chiunque legga il repo e resta nella cronologia; il validatore dell'assistente la rifiuta;", "en": "• in the code or in assistente.json: anyone who reads the repo sees it and it stays in the history; the assistant's validator rejects it;"},
+    {"it": "• in un .env committato: stessa sorte, anche se poi lo cancelli;", "en": "• in a committed .env: same fate, even if you delete it later;"},
+    {"it": "• in una variabile d'ambiente: solo il tuo terminale;", "en": "• in an environment variable: only your terminal;"},
+    {"it": "• in un segreto di Codespaces: arriva nel codespace come variabile d'ambiente, solo per i repo scelti.", "en": "• in a Codespaces secret: it reaches the codespace as an environment variable, only for the chosen repos."},
+    {"it": "Nel file resta solo il nome: \"variabile_chiave\": \"GROQ_API_KEY\" [ASSISTENTE-OFFICINA].", "en": "Only the name stays in the file: \"variabile_chiave\": \"GROQ_API_KEY\" [ASSISTENTE-OFFICINA]."}
+   ],
+   "prova": {"it": "Sposta la chiave nei quattro posti e guarda chi la vede e che cosa dice il controllo.", "en": "Move the key through the four places and see who can read it and what the check says."},
+   "concetti": ["CO14"],
+   "stato_animazione": {"vista": "chiave", "dove": "codice", "guasto": "nessuno", "pausa": 6, "durata": 0.5, "token_chiamata": 600, "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "chiave_mancante",
+   "titolo": {"it": "Chiave mancante: chi parla e chi no", "en": "Missing key: who speaks and who does not"},
+   "narrazione": [
+    {"it": "Backend groq, variabile vuota. L'assistente si ferma subito, alla creazione del backend: l'errore nomina GROQ_API_KEY, dice come impostarla in Codespaces e sul PC, o come lavorare con il backend finto.", "en": "Groq backend, empty variable. The assistant stops at once, when the backend is created: the error names GROQ_API_KEY, says how to set it in Codespaces and on the PC, or how to work with the fake backend."},
+    {"it": "Il repo adottato non parte: config.Settings pretende GROQ_API_KEY e pydantic risponde «Field required». Almeno non tace, ma non dice come rimediare [REPO-PATOWARI].", "en": "The adopted repo does not start: config.Settings demands GROQ_API_KEY and pydantic answers «Field required». At least it is not silent, but it does not say how to fix it [REPO-PATOWARI]."}
+   ],
+   "prova": {"it": "Confronta le due colonne, poi premi «Rilancia la campagna» e guarda dove si ferma ciascuna.", "en": "Compare the two columns, then press «Run the campaign again» and see where each one stops."},
+   "concetti": ["CO14", "CO15"],
+   "stato_animazione": {"vista": "guasti", "dove": "segreto", "guasto": "chiave_mancante", "pausa": 6, "durata": 0.5, "token_chiamata": 600, "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "campagna_falsa",
+   "titolo": {"it": "La campagna che «riesce»", "en": "The campaign that «succeeds»"},
+   "narrazione": [
+    {"it": "Ora la chiave c'è ma è scaduta: Groq risponde HTTP 401. In LLMService._get_completion ogni eccezione finisce in un print e in return \"\".", "en": "Now the key is there but it has expired: Groq answers HTTP 401. In LLMService._get_completion every exception ends in a print and in return \"\"."},
+    {"it": "Il silenzio si propaga: ogni lead prende punteggio 50 «Medium», persona «Unknown», e un'email vuota parte lo stesso. L'API risponde «Campaign processed successfully» per 5 lead: sembra vero, è falso.", "en": "The silence spreads: every lead gets score 50 «Medium», persona «Unknown», and an empty email is sent anyway. The API answers «Campaign processed successfully» for 5 leads: it looks true, it is false."},
+    {"it": "L'assistente invece esce con codice 2 e dice di rigenerare la chiave.", "en": "The assistant instead exits with code 2 and says to regenerate the key."}
+   ],
+   "prova": {"it": "Prova anche 429, 404 e rete assente: a destra la campagna «riesce» sempre, a sinistra l'errore cambia e spiega.", "en": "Also try 429, 404 and no network: on the right the campaign always «succeeds», on the left the error changes and explains."},
+   "concetti": ["CO15"],
+   "stato_animazione": {"vista": "guasti", "dove": "segreto", "guasto": "chiave_scaduta", "pausa": 6, "durata": 0.5, "token_chiamata": 600, "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "limiti",
+   "titolo": {"it": "I limiti del piano gratuito", "en": "The free plan's limits"},
+   "narrazione": [
+    {"it": "Il piano gratuito ha limiti indicativi di 30 richieste e 6000 token al minuto, da riverificare. Il repo adottato fa 4 chiamate per lead e aspetta 6 secondi prima di ognuno, «per evitare i limiti».", "en": "The free plan has indicative limits of 30 requests and 6000 tokens per minute, to be checked again. The adopted repo makes 4 calls per lead and waits 6 seconds before each one, «to avoid the limits»."},
+    {"it": "Con 600 token per chiamata il limite dei token scatta all'undicesima chiamata, sul terzo lead. Da lì Groq risponde 429: il repo adottato lo trasforma in punteggi 50 ed email vuote, l'assistente si ferma e dice fra quanti secondi riprovare.", "en": "With 600 tokens per call the token limit triggers at the eleventh call, on the third lead. From there Groq answers 429: the adopted repo turns it into scores of 50 and empty emails, the assistant stops and says in how many seconds to retry."}
+   ],
+   "prova": {"it": "Abbassa i token per chiamata a 300, oppure alza la pausa a 24 secondi: trova quando i 429 spariscono.", "en": "Lower the tokens per call to 300, or raise the pause to 24 seconds: find when the 429s disappear."},
+   "concetti": ["CO15"],
+   "stato_animazione": {"vista": "limiti", "dove": "segreto", "guasto": "limite", "pausa": 6, "durata": 0.5, "token_chiamata": 600, "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "trova_difetto",
+   "titolo": {"it": "Trova il difetto", "en": "Find the defect"},
+   "narrazione": [
+    {"it": "Sei frammenti di codice e di abitudini. Per ognuno decidi: va bene, chiave esposta o ripiego silenzioso.", "en": "Six fragments of code and habits. For each one decide: fine, exposed key or silent fallback."}
+   ],
+   "prova": {"it": "Scegli per ogni frammento, poi premi «Controlla» e leggi il perché.", "en": "Choose for each fragment, then press «Check» and read why."},
+   "concetti": ["CO14", "CO15"],
+   "stato_animazione": {"vista": "decidi", "dove": "segreto", "guasto": "nessuno", "pausa": 6, "durata": 0.5, "token_chiamata": 600, "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "riassunto",
+   "titolo": {"it": "In tre frasi", "en": "In three sentences"},
+   "narrazione": [
+    {"it": "La chiave vive in una variabile d'ambiente o in un segreto di Codespaces: nel repo resta solo il suo nome, mai il valore.", "en": "The key lives in an environment variable or in a Codespaces secret: only its name stays in the repo, never the value."},
+    {"it": "Ogni guasto, dalla chiave mancante o scaduta al limite, al modello e alla rete, diventa un errore che dice cosa manca e come rimediare, mai una risposta vuota.", "en": "Every failure, from a missing or expired key to the limit, the model and the network, becomes an error that says what is missing and how to fix it, never an empty answer."},
+    {"it": "Un ripiego silenzioso fa «riuscire» una campagna falsa: punteggi 50, persone «Unknown» ed email vuote inviate a tutti.", "en": "A silent fallback makes a false campaign «succeed»: scores of 50, «Unknown» personas and empty emails sent to everyone."}
+   ],
+   "concetti": ["CO14", "CO15"],
+   "stato_animazione": {"vista": "guasti", "dove": "segreto", "guasto": "chiave_scaduta", "pausa": 6, "durata": 0.5, "token_chiamata": 600, "scelte": {}, "verificato": false}
+  }
+ ],
+ "scenario": {
+  "parametri": {"ms_chiave": 420, "ms_guasti": 520, "ms_limiti": 150},
+  "separatore_decimale": {"it": ",", "en": "."},
+  "config": {"variabile_chiave": "GROQ_API_KEY", "segnaposto": "<LA_TUA_CHIAVE>", "modello": "llama-3.1-8b-instant", "modello_sbagliato": "llama3-8b-8192", "retry_after_esempio": 20},
+  "limiti": {"richieste_al_minuto": 30, "token_al_minuto": 6000, "pausa_repo": 6},
+  "riferimento": {"pausa": 6, "durata": 0.5, "token_chiamata": 600},
+  "cursori": {
+   "pausa": {"min": 0, "max": 30, "passo": 1, "etichetta": {"it": "Pausa prima di ogni lead (secondi)", "en": "Pause before each lead (seconds)"}, "formato": {"it": "{n} s", "en": "{n} s"}},
+   "durata": {"min": 0.5, "max": 4, "passo": 0.5, "etichetta": {"it": "Durata di una chiamata (secondi, ipotesi)", "en": "Duration of a call (seconds, assumption)"}, "formato": {"it": "{n} s", "en": "{n} s"}},
+   "token_chiamata": {"min": 100, "max": 1500, "passo": 100, "etichetta": {"it": "Token per chiamata (ingresso + uscita, stima)", "en": "Tokens per call (input + output, estimate)"}, "formato": {"it": "{n}", "en": "{n}"}}
+  },
+  "lead": [
+   {"nome": "Sarah Chen", "punteggio": "92 · High"},
+   {"nome": "Michael Rodriguez", "punteggio": "92 · High"},
+   {"nome": "Emily Watson", "punteggio": "92 · High"},
+   {"nome": "James Kumar", "punteggio": "92 · High"},
+   {"nome": "Lisa Anderson", "punteggio": "90 · High"}
+  ],
+  "chiamate": [
+   {"id": "punteggio", "nome": {"it": "punteggio", "en": "score"}, "metodo": "analyze_lead_priority"},
+   {"id": "persona", "nome": {"it": "persona", "en": "persona"}, "metodo": "enrich_buyer_persona"},
+   {"id": "email", "nome": {"it": "email", "en": "email"}, "metodo": "generate_email"},
+   {"id": "risposta", "nome": {"it": "risposta", "en": "reply"}, "metodo": "classify_response"}
+  ],
+  "valori": {
+   "persona_ok": {"it": "✓ generata", "en": "✓ generated"},
+   "email_ok": {"it": "✓ scritta", "en": "✓ written"},
+   "risposta_ok": {"it": "✓ etichetta", "en": "✓ labelled"},
+   "punteggio_ripiego": {"it": "50 · Medium", "en": "50 · Medium"},
+   "persona_ripiego": {"it": "Unknown", "en": "Unknown"},
+   "email_ripiego": {"it": "(vuota) inviata", "en": "(empty) sent"},
+   "risposta_ripiego": {"it": "Unknown", "en": "Unknown"},
+   "api": "{\"message\": \"Campaign processed successfully\", \"leads_processed\": 5}",
+   "report_ok": {"it": "reports/campaign_summary.md: 5 lead, punteggi e risposte dal modello.", "en": "reports/campaign_summary.md: 5 leads, scores and replies from the model."},
+   "report_ripiego": {"it": "reports/campaign_summary.md: Interested 0 · Not Interested 0 · Needs Follow-up 0 · Medium Priority 5, su 5 lead.", "en": "reports/campaign_summary.md: Interested 0 · Not Interested 0 · Needs Follow-up 0 · Medium Priority 5, out of 5 leads."},
+   "console": {"it": "console del server, che nessuno legge: Error calling Groq API: … · Error decoding Scoring Agent response", "en": "server console, which nobody reads: Error calling Groq API: … · Error decoding Scoring Agent response"}
+  },
+  "comando": ["$ ASSISTENTE_BACKEND=groq \\", "    python -m assistente \"ciao\""],
+  "codice_ripiego": ["except Exception as e:", "print(f\"Error calling Groq API: …\")", "return \"\""],
+  "file_repo": [
+   {"nome": "assistente.json", "dove": "codice", "normale": "\"variabile_chiave\": \"GROQ_API_KEY\"", "con_chiave": "\"api_key\": \"<LA_TUA_CHIAVE>\""},
+   {"nome": ".env", "dove": "env_committato", "normale": {"it": "non versionato (.gitignore)", "en": "not versioned (.gitignore)"}, "con_chiave": "GROQ_API_KEY=<LA_TUA_CHIAVE>"},
+   {"nome": "assistente/backend.py", "dove": "nessuno", "normale": "self.ambiente.get(self.variabile)", "con_chiave": "self.ambiente.get(self.variabile)"}
+  ],
+  "dove": [
+   {
+    "id": "codice", "posto": "repo", "esito": "male",
+    "nome": {"it": "Nel codice (assistente.json)", "en": "In the code (assistente.json)"},
+    "chi_vede": [{"it": "chi legge o clona il repo", "en": "whoever reads or clones the repo"}, {"it": "ogni fork e ogni copia", "en": "every fork and every copy"}, {"it": "la cronologia git, anche dopo la cancellazione", "en": "the git history, even after deletion"}, {"it": "chiunque, se il repo diventa pubblico", "en": "anyone, if the repo becomes public"}],
+    "perche": {"it": "Chiave esposta: il valore sta in un file versionato, lo legge chiunque abbia il repo.", "en": "Exposed key: the value sits in a versioned file, anyone with the repo reads it."},
+    "controllo": {"it": "Il validatore dell'assistente: 'groq.api_key' contiene una chiave o un valore segreto: le chiavi stanno nelle variabili d'ambiente.", "en": "The assistant's validator: 'groq.api_key' contains a key or a secret value: keys live in environment variables."},
+    "spiega": {"it": "Un campo come api_key accanto a variabile_chiave è il modo più rapido di regalare la chiave. Il validatore controlla i nomi dei campi (KEY, TOKEN, SECRET, PASSWORD, CHIAVE) e le forme tipiche delle chiavi.", "en": "A field like api_key next to variabile_chiave is the quickest way to give the key away. The validator checks field names (KEY, TOKEN, SECRET, PASSWORD, CHIAVE) and the typical shapes of keys."}
+   },
+   {
+    "id": "env_committato", "posto": "repo", "esito": "male",
+    "nome": {"it": "In un .env committato", "en": "In a committed .env"},
+    "chi_vede": [{"it": "chi legge o clona il repo", "en": "whoever reads or clones the repo"}, {"it": "ogni fork e ogni copia", "en": "every fork and every copy"}, {"it": "la cronologia git, anche dopo la cancellazione", "en": "the git history, even after deletion"}],
+    "perche": {"it": "Chiave esposta: il .env committato è un file del repo come gli altri.", "en": "Exposed key: a committed .env is a repo file like any other."},
+    "controllo": {"it": "Il .gitignore del repo adottato esclude .env (riga 39): per committarlo bisogna forzare. Se è successo, la chiave va revocata e rigenerata, non solo cancellata.", "en": "The adopted repo's .gitignore excludes .env (line 39): committing it takes force. If it happened, the key must be revoked and regenerated, not just deleted."},
+    "spiega": {"it": "Il .env serve sul tuo disco, non nel repo. Lo stesso .gitignore ignora anche .env.*, quindi pure .env.example: chi adotta il repo non riceve il modello delle variabili.", "en": "The .env belongs on your disk, not in the repo. The same .gitignore also ignores .env.*, hence .env.example too: whoever adopts the repo does not receive the variables template."}
+   },
+   {
+    "id": "variabile", "posto": "pc", "esito": "ok",
+    "nome": {"it": "In una variabile d'ambiente", "en": "In an environment variable"},
+    "chi_vede": [{"it": "tu, in questo terminale", "en": "you, in this terminal"}, {"it": "i programmi avviati da questo terminale", "en": "the programs started from this terminal"}],
+    "perche": {"it": "Va bene: il valore vive nel terminale, nel repo non c'è niente.", "en": "Fine: the value lives in the terminal, there is nothing in the repo."},
+    "controllo": {"it": "set GROQ_API_KEY=... (Windows) o export GROQ_API_KEY=... (Linux/macOS): sparisce quando chiudi il terminale.", "en": "set GROQ_API_KEY=... (Windows) or export GROQ_API_KEY=... (Linux/macOS): it disappears when you close the terminal."},
+    "spiega": {"it": "BackendGroq legge la chiave dall'ambiente, con il nome scritto in variabile_chiave. Comodo per una prova sul PC.", "en": "BackendGroq reads the key from the environment, with the name written in variabile_chiave. Handy for a test on the PC."}
+   },
+   {
+    "id": "segreto", "posto": "codespace", "esito": "ok",
+    "nome": {"it": "In un segreto di Codespaces", "en": "In a Codespaces secret"},
+    "chi_vede": [{"it": "i tuoi codespace dei repo scelti", "en": "your codespaces of the chosen repos"}, {"it": "il codespace, come variabile d'ambiente", "en": "the codespace, as an environment variable"}],
+    "perche": {"it": "Va bene: il segreto sta nelle impostazioni del tuo profilo, nel repo c'è solo il nome.", "en": "Fine: the secret sits in your profile settings, the repo holds only the name."},
+    "controllo": {"it": "Settings → Codespaces → Secrets, poi riapri il codespace. Nel devcontainer.json si può solo dichiarare che serve (proprietà secrets): il valore non si scrive mai.", "en": "Settings → Codespaces → Secrets, then reopen the codespace. In devcontainer.json you can only declare that it is needed (secrets property): the value is never written."},
+    "spiega": {"it": "Ogni segreto si abilita per i repo scelti e arriva nel codespace come variabile d'ambiente: il codice non cambia rispetto al PC.", "en": "Each secret is enabled for the chosen repos and reaches the codespace as an environment variable: the code does not change compared with the PC."}
+   }
+  ],
+  "guasti": [
+   {"id": "nessuno", "repo": "ok", "nome": {"it": "Nessun guasto", "en": "No failure"}, "spiega": {"it": "Chiave valida, rete presente: entrambi rispondono. I valori a destra sono quelli del report del repo adottato.", "en": "Valid key, network present: both answer. The values on the right are those of the adopted repo's report."}},
+   {"id": "chiave_mancante", "repo": "non_parte", "nome": {"it": "Chiave mancante", "en": "Missing key"}, "spiega": {"it": "GROQ_API_KEY non è impostata. L'assistente se ne accorge quando crea il backend groq, prima di qualunque chiamata; il repo adottato quando importa app.config.", "en": "GROQ_API_KEY is not set. The assistant notices when it creates the groq backend, before any call; the adopted repo when it imports app.config."}},
+   {"id": "chiave_scaduta", "repo": "silenzio", "nome": {"it": "Chiave scaduta (HTTP 401)", "en": "Expired key (HTTP 401)"}, "spiega": {"it": "La chiave c'è ma Groq la rifiuta. Nel repo adottato l'eccezione finisce nella console e il metodo restituisce una stringa vuota.", "en": "The key is there but Groq rejects it. In the adopted repo the exception ends in the console and the method returns an empty string."}},
+   {"id": "limite", "repo": "silenzio", "nome": {"it": "Limite superato (HTTP 429)", "en": "Limit exceeded (HTTP 429)"}, "spiega": {"it": "Troppe richieste o troppi token nel minuto. L'assistente legge l'intestazione retry-after e dice fra quanto riprovare.", "en": "Too many requests or tokens in the minute. The assistant reads the retry-after header and says when to retry."}},
+   {"id": "modello", "repo": "silenzio", "nome": {"it": "Modello sconosciuto (HTTP 404)", "en": "Unknown model (HTTP 404)"}, "spiega": {"it": "Il modello non esiste più nel piano gratuito, per esempio llama3-8b-8192 citato nel README del repo adottato.", "en": "The model no longer exists on the free plan, for example llama3-8b-8192 quoted in the adopted repo's README."}},
+   {"id": "rete", "repo": "silenzio", "nome": {"it": "Rete assente", "en": "No network"}, "spiega": {"it": "Il servizio non è raggiungibile. L'assistente propone di lavorare offline con il backend finto o con ollama.", "en": "The service cannot be reached. The assistant suggests working offline with the fake backend or with ollama."}}
+  ],
+  "risposte_gioco": [
+   {"id": "va_bene", "nome": {"it": "Va bene", "en": "Fine"}, "quando": {"it": "la chiave resta fuori dal repo e ogni guasto si fa sentire.", "en": "the key stays out of the repo and every failure makes itself heard."}},
+   {"id": "chiave_esposta", "nome": {"it": "Chiave esposta", "en": "Exposed key"}, "quando": {"it": "il valore della chiave finisce in un file o in un commit.", "en": "the key's value ends up in a file or a commit."}},
+   {"id": "ripiego", "nome": {"it": "Ripiego silenzioso", "en": "Silent fallback"}, "quando": {"it": "un guasto diventa una risposta vuota o inventata, senza dirlo.", "en": "a failure becomes an empty or invented answer, without saying so."}}
+  ],
+  "casi": [
+   {"id": "api_key_file", "testo": {"it": "In assistente.json: \"api_key\": \"<LA_TUA_CHIAVE>\", «tanto il repo è privato».", "en": "In assistente.json: \"api_key\": \"<LA_TUA_CHIAVE>\", «the repo is private anyway»."}, "giusta": "chiave_esposta", "spiega": {"it": "Privato oggi non vuol dire privato per sempre: collaboratori, fork e cronologia la vedono, e il validatore la rifiuta.", "en": "Private today does not mean private forever: collaborators, forks and history see it, and the validator rejects it."}},
+   {"id": "except_vuoto", "testo": {"it": "Nel servizio del modello: except Exception as e: print(e); return \"\".", "en": "In the model service: except Exception as e: print(e); return \"\"."}, "giusta": "ripiego", "spiega": {"it": "È il ripiego di LLMService._get_completion: la campagna prosegue con punteggi 50 ed email vuote.", "en": "It is the fallback of LLMService._get_completion: the campaign goes on with scores of 50 and empty emails."}},
+   {"id": "segreto_cs", "testo": {"it": "GROQ_API_KEY è un segreto di Codespaces abilitato per il repo; il codice la legge dall'ambiente.", "en": "GROQ_API_KEY is a Codespaces secret enabled for the repo; the code reads it from the environment."}, "giusta": "va_bene", "spiega": {"it": "Il valore non tocca mai il repo e arriva come variabile d'ambiente.", "en": "The value never touches the repo and arrives as an environment variable."}},
+   {"id": "finto_muto", "testo": {"it": "Su HTTP 429 il codice passa al backend finto e restituisce la sua risposta senza dirlo.", "en": "On HTTP 429 the code switches to the fake backend and returns its answer without saying so."}, "giusta": "ripiego", "spiega": {"it": "Chi legge crede a una risposta vera: il limite va detto, con il tempo d'attesa.", "en": "The reader believes a real answer: the limit must be stated, with the waiting time."}},
+   {"id": "env_cancellato", "testo": {"it": "Il .env con la chiave è stato committato una volta e cancellato nel commit successivo.", "en": "The .env with the key was committed once and deleted in the next commit."}, "giusta": "chiave_esposta", "spiega": {"it": "La cronologia la conserva: la chiave va revocata e rigenerata, la cancellazione non basta.", "en": "The history keeps it: the key must be revoked and regenerated, deleting is not enough."}},
+   {"id": "errore_401", "testo": {"it": "Su HTTP 401 l'assistente esce con codice 2 e dice di generare una nuova chiave, mai nel repo.", "en": "On HTTP 401 the assistant exits with code 2 and says to generate a new key, never in the repo."}, "giusta": "va_bene", "spiega": {"it": "È un errore parlante: dice che cosa è successo e come rimediare.", "en": "It is a talking error: it says what happened and how to fix it."}}
+  ],
+  "etichette": {
+   "titolo_comandi": {"it": "Comandi", "en": "Controls"},
+   "vista": {"it": "Vista", "en": "View"},
+   "vista_chiave": {"it": "La chiave", "en": "The key"},
+   "vista_guasti": {"it": "Guasti", "en": "Failures"},
+   "vista_limiti": {"it": "Limiti", "en": "Limits"},
+   "vista_decidi": {"it": "Trova il difetto", "en": "Find the defect"},
+   "dove": {"it": "Dove scrivi la chiave", "en": "Where you write the key"},
+   "guasto": {"it": "Guasto da simulare", "en": "Failure to simulate"},
+   "rilancia": {"it": "Rilancia la campagna", "en": "Run the campaign again"},
+   "come_il_repo": {"it": "Torna ai valori del repo adottato", "en": "Back to the adopted repo's values"},
+   "scegli": {"it": "— scegli —", "en": "— choose —"},
+   "controlla": {"it": "Controlla", "en": "Check"},
+   "descrizione_scena": {"it": "Dove vive la chiave, i guasti affiancati fra assistente e repo adottato, i limiti del piano gratuito", "en": "Where the key lives, failures side by side between assistant and adopted repo, the free plan's limits"},
+   "titolo_esiti": {"it": "Esito", "en": "Outcome"},
+   "titolo_chiave": {"it": "DOVE VIVE LA CHIAVE E CHI LA VEDE", "en": "WHERE THE KEY LIVES AND WHO SEES IT"},
+   "titolo_guasti": {"it": "LO STESSO GUASTO, DUE REAZIONI", "en": "THE SAME FAILURE, TWO REACTIONS"},
+   "titolo_limiti": {"it": "LA CAMPAGNA CONTRO I LIMITI DEL PIANO GRATUITO", "en": "THE CAMPAIGN AGAINST THE FREE PLAN'S LIMITS"},
+   "titolo_decidi": {"it": "TROVA IL DIFETTO", "en": "FIND THE DEFECT"},
+   "posto_repo": {"it": "Repo su GitHub", "en": "Repo on GitHub"},
+   "posto_pc": {"it": "Il tuo PC", "en": "Your PC"},
+   "posto_codespace": {"it": "Codespace", "en": "Codespace"},
+   "chi_vede": {"it": "Chi la vede", "en": "Who sees it"},
+   "colonna_assistente": {"it": "Assistente dell'Officina", "en": "Workshop assistant"},
+   "colonna_repo": {"it": "Repo adottato: la campagna su 5 lead", "en": "Adopted repo: the campaign on 5 leads"},
+   "col_lead": {"it": "Lead", "en": "Lead"},
+   "col_punteggio": {"it": "Punteggio", "en": "Score"},
+   "col_persona": {"it": "Persona", "en": "Persona"},
+   "col_email": {"it": "Email", "en": "Email"},
+   "col_risposta": {"it": "Risposta", "en": "Reply"},
+   "barra_richieste": {"it": "Richieste nel minuto più carico", "en": "Requests in the busiest minute"},
+   "barra_token": {"it": "Token nel minuto più carico", "en": "Tokens in the busiest minute"},
+   "motivo_richieste": {"it": "richieste al minuto", "en": "requests per minute"},
+   "motivo_token": {"it": "token al minuto", "en": "tokens per minute"},
+   "titolo_spiega_limiti": {"it": "Da dove vengono i numeri", "en": "Where the numbers come from"},
+   "regola": {"it": "Un errore che dice che cosa manca vale più di una risposta vuota che sembra un successo.", "en": "An error that says what is missing is worth more than an empty answer that looks like a success."}
+  },
+  "testi": {
+   "risposta_ok": {"it": "Ciao! Come posso aiutarti con l'Officina oggi?", "en": "Hello! How can I help you with the Workshop today?"},
+   "err_chiave": {"it": "backend 'groq' scelto ma la variabile d'ambiente {var} è vuota o assente. Crea una chiave gratuita su console.groq.com, poi: in Codespaces aggiungila come segreto {var} (Settings → Codespaces → Secrets) e riapri il codespace; sul PC: set {var}=... (Windows) o export {var}=... (Linux/macOS). Per lavorare senza rete: ASSISTENTE_BACKEND=finto. La chiave non va MAI scritta nei file del repo.", "en": "backend 'groq' chosen but the environment variable {var} is empty or missing. Create a free key on console.groq.com, then: in Codespaces add it as the secret {var} (Settings → Codespaces → Secrets) and reopen the codespace; on the PC: set {var}=... (Windows) or export {var}=... (Linux/macOS). To work without network: ASSISTENTE_BACKEND=finto. The key must NEVER be written in the repo files."},
+   "err_401": {"it": "Groq ha rifiutato la chiave in {var} (HTTP {stato}): è scaduta, revocata o copiata male. Generane una nuova su console.groq.com e aggiorna la variabile (mai nel repo).", "en": "Groq rejected the key in {var} (HTTP {stato}): it is expired, revoked or copied wrongly. Generate a new one on console.groq.com and update the variable (never in the repo)."},
+   "err_429": {"it": "limite del piano gratuito di Groq raggiunto (richieste o token): riprova fra {attesa} secondi. Nessuna risposta inventata al suo posto.", "en": "Groq free plan limit reached (requests or tokens): retry in {attesa} seconds. No invented answer in its place."},
+   "err_404": {"it": "Groq non conosce il modello '{modello}': controlla l'elenco dei modelli gratuiti e aggiorna assistente.json.", "en": "Groq does not know the model '{modello}': check the list of free models and update assistente.json."},
+   "err_rete": {"it": "Groq non raggiungibile ([Errno -3] Temporary failure in name resolution): sei in rete? Per lavorare offline usa il backend finto o ollama.", "en": "Groq unreachable ([Errno -3] Temporary failure in name resolution): are you online? To work offline use the fake backend or ollama."},
+   "codice_uscita": {"it": "codice di uscita {n}", "en": "exit code {n}"},
+   "sx_ok": {"it": "Risposta vera, codice di uscita 0.", "en": "Real answer, exit code 0."},
+   "sx_fermo": {"it": "Fermo al primo lead: 0 di {n} elaborati, e sai perché.", "en": "Stopped at the first lead: 0 of {n} processed, and you know why."},
+   "in_corso": {"it": "Avvio…", "en": "Starting…"},
+   "non_parte": {"it": "L'app non parte (import di app.config): pydantic_core.ValidationError: 1 validation error for Settings · GROQ_API_KEY · Field required [type=missing]", "en": "The app does not start (import of app.config): pydantic_core.ValidationError: 1 validation error for Settings · GROQ_API_KEY · Field required [type=missing]"},
+   "dx_non_parte": {"it": "Non parte: almeno non tace, ma non dice come rimediare.", "en": "It does not start: at least it is not silent, but it does not say how to fix it."},
+   "dx_silenzio": {"it": "«Successo»: 5 lead elaborati, tutti falsi.", "en": "«Success»: 5 leads processed, all false."},
+   "dx_ok": {"it": "Campagna vera: i valori vengono dal modello.", "en": "Real campaign: the values come from the model."},
+   "dx_in_corso": {"it": "Lead elaborati: {n} di {tot}…", "en": "Leads processed: {n} of {tot}…"},
+   "minuto": {"it": "minuto {n}", "en": "minute {n}"},
+   "secondi_zero": {"it": "0 s", "en": "0 s"},
+   "secondi_fine": {"it": "{n} s", "en": "{n} s"},
+   "etichetta_lead": {"it": "L{n}", "en": "L{n}"},
+   "valore_limite": {"it": "{valore} su un limite di {limite}", "en": "{valore} against a limit of {limite}"},
+   "primo_429": {"it": "Primo HTTP 429 alla chiamata n. {n} (lead {lead}, {chiamata}) al secondo {t}: superato il limite di {motivo}.", "en": "First HTTP 429 at call no. {n} (lead {lead}, {chiamata}) at second {t}: the {motivo} limit is exceeded."},
+   "limiti_assistente": {"it": "Assistente: si ferma alla chiamata rifiutata e scrive «riprova fra {attesa} secondi». Nessuna risposta inventata.", "en": "Assistant: it stops at the rejected call and writes «retry in {attesa} seconds». No invented answer."},
+   "limiti_repo": {"it": "Repo adottato: {rifiutate} chiamate rifiutate diventano stringhe vuote; {lead} lead su {tot} con valori di ripiego, e la campagna «riesce».", "en": "Adopted repo: {rifiutate} rejected calls become empty strings; {lead} leads out of {tot} with fallback values, and the campaign «succeeds»."},
+   "nessun_429": {"it": "Nessun HTTP 429: la campagna resta sotto i limiti, in {minuti} minuti.", "en": "No HTTP 429: the campaign stays under the limits, in {minuti} minutes."},
+   "chiamate_in_corso": {"it": "Chiamate inviate: {n} di {tot}…", "en": "Calls sent: {n} of {tot}…"},
+   "caso": {"it": "Frammento {n}", "en": "Fragment {n}"},
+   "scegli_per": {"it": "Scelta per il frammento {n}", "en": "Choice for fragment {n}"},
+   "ver_vuoto": {"it": "{n}. Nessuna scelta. Risposta: {giusta}. {spiega}", "en": "{n}. No choice. Answer: {giusta}. {spiega}"},
+   "ver_giusto": {"it": "{n}. Giusto: {giusta}. {spiega}", "en": "{n}. Right: {giusta}. {spiega}"},
+   "ver_sbagliato": {"it": "{n}. No: è «{giusta}». {spiega}", "en": "{n}. No: it is «{giusta}». {spiega}"},
+   "ver_tutto_giusto": {"it": "Tutto giusto: riconosci chiavi esposte e silenzi.", "en": "All right: you spot exposed keys and silences."},
+   "ver_punteggio": {"it": "{giuste} risposte giuste su {totali}: leggi il perché di quelle rosse.", "en": "{giuste} right answers out of {totali}: read why for the red ones."},
+   "decidi_istruzioni": {"it": "Per ogni frammento scegli: va bene, chiave esposta o ripiego silenzioso. Poi premi «Controlla».", "en": "For each fragment choose: fine, exposed key or silent fallback. Then press «Check»."},
+   "lancio_n": {"it": "Campagna lanciata {n} volte", "en": "Campaign run {n} times"},
+   "esito_sx_ok": {"it": "Assistente: risposta vera.", "en": "Assistant: real answer."},
+   "esito_sx_errore": {"it": "Assistente: si ferma con un errore che dice che cosa è successo e come rimediare. Nessun dato falso.", "en": "Assistant: it stops with an error that says what happened and how to fix it. No false data."},
+   "esito_dx_silenzio": {"it": "Repo adottato: {email} email vuote inviate, {punteggi} punteggi 50 su {tot}, e l'API dice «successo».", "en": "Adopted repo: {email} empty emails sent, {punteggi} scores of 50 out of {tot}, and the API says «success»."},
+   "esito_dx_non_parte": {"it": "Repo adottato: non parte, con un errore di pydantic che non dice come rimediare.", "en": "Adopted repo: it does not start, with a pydantic error that does not say how to fix it."},
+   "esito_dx_ok": {"it": "Repo adottato: campagna completata con i valori del modello.", "en": "Adopted repo: campaign completed with the model's values."},
+   "riepilogo_limiti": {"it": "Pausa {pausa} s, chiamata {durata} s, {token} token per chiamata: la campagna dura circa {durata_tot} s.", "en": "Pause {pausa} s, call {durata} s, {token} tokens per call: the campaign lasts about {durata_tot} s."},
+   "esito_limiti_repo": {"it": "Repo adottato, {lead} lead con valori di ripiego: {elenco}.", "en": "Adopted repo, {lead} leads with fallback values: {elenco}."},
+   "esito_limiti_assistente": {"it": "Assistente: «limite del piano gratuito di Groq raggiunto (richieste o token): riprova fra {attesa} secondi».", "en": "Assistant: «Groq free plan limit reached (requests or tokens): retry in {attesa} seconds»."},
+   "esito_limiti_ok": {"it": "Nessuna chiamata rifiutata: i valori della campagna vengono tutti dal modello.", "en": "No rejected call: all the campaign's values come from the model."},
+   "nota_nome": {"it": "Nel file versionato resta solo il nome della variabile: \"variabile_chiave\": \"GROQ_API_KEY\".", "en": "Only the variable name stays in the versioned file: \"variabile_chiave\": \"GROQ_API_KEY\"."},
+   "nota_ripiego": {"it": "Poi json.loads(\"\") fallisce e ogni agente mette il suo valore di ripiego: 50 «Medium», «Unknown», email vuota.", "en": "Then json.loads(\"\") fails and every agent puts its fallback value: 50 «Medium», «Unknown», empty email."},
+   "spiega_limiti": {"it": "Il repo adottato fa 4 chiamate per lead (punteggio, persona, email, risposta) e prima di ogni lead aspetta: time.sleep(6) # Avoid rate limits. Qui il conteggio è per minuto, a finestre fisse: è una semplificazione.", "en": "The adopted repo makes 4 calls per lead (score, persona, email, reply) and waits before each lead: time.sleep(6) # Avoid rate limits. Here counting is per minute, in fixed windows: it is a simplification."},
+   "nota_limiti": {"it": "Limiti indicativi da assistente.json (limiti_free_indicativi: 30 richieste e 6000 token al minuto per il modello piccolo), da riverificare prima dell'uso.", "en": "Indicative limits from assistente.json (limiti_free_indicativi: 30 requests and 6000 tokens per minute for the small model), to be checked again before use."},
+   "pc_con_chiave": {"it": "terminale: export GROQ_API_KEY=<LA_TUA_CHIAVE> (finché resta aperto)", "en": "terminal: export GROQ_API_KEY=<LA_TUA_CHIAVE> (while it stays open)"},
+   "pc_senza": {"it": "terminale: nessuna variabile impostata", "en": "terminal: no variable set"},
+   "cs_con_chiave": {"it": "Settings → Codespaces → Secrets: GROQ_API_KEY abilitato per questo repo. Nel codespace arriva come variabile d'ambiente.", "en": "Settings → Codespaces → Secrets: GROQ_API_KEY enabled for this repo. In the codespace it arrives as an environment variable."},
+   "cs_senza": {"it": "Settings → Codespaces → Secrets: nessun segreto per questo repo.", "en": "Settings → Codespaces → Secrets: no secret for this repo."}
+  }
+ },
+ "domande": []
+}

@@ -1,0 +1,1278 @@
+{
+ "id": "L_mappa_repo",
+ "pillola": "PO2.1",
+ "componente": "mappa_repo",
+ "titolo": {
+  "it": "La mappa del repo",
+  "en": "The repo map"
+ },
+ "sottotitolo": {
+  "it": "Un CRM con agenti scaricato da GitHub: prima lo si legge, file per file, seguendo un lead dall'ingresso al report; poi lo si esegue.",
+  "en": "An agent CRM downloaded from GitHub: first you read it, file by file, following a lead from input to report; then you run it."
+ },
+ "segmenti": [
+  {
+   "id": "leggi_prima",
+   "titolo": {
+    "it": "Prima si legge, poi si esegue",
+    "en": "Read first, run later"
+   },
+   "narrazione": [
+    {
+     "it": "Il repo patowari/AI-Enhanced-Sales-Campaign-CRM promette un CRM completo: punteggio dei lead, arricchimento, email e classificazione delle risposte [REPO-PATOWARI]. È materiale scaricato, quindi un dato non fidato: si legge prima di eseguirlo, mai il contrario.",
+     "en": "The patowari/AI-Enhanced-Sales-Campaign-CRM repo promises a complete CRM: lead scoring, enrichment, emails and reply classification [REPO-PATOWARI]. It is downloaded material, so untrusted data: you read it before running it, never the other way round."
+    },
+    {
+     "it": "app/config.py crea Settings() appena viene importato e pretende GROQ_API_KEY: senza chiave l'app si ferma con un errore di validazione che non dice dove intervenire. E nel repo non c'è un .env.example, perché il .gitignore esclude .env.*.",
+     "en": "app/config.py creates Settings() as soon as it is imported and requires GROQ_API_KEY: without a key the app stops with a validation error that does not say where to act. And there is no .env.example in the repo, because the .gitignore excludes .env.*."
+    }
+   ],
+   "prova": {
+    "it": "Premi «Esegui subito» e leggi l'esito nella scena. Poi apri app/config.py e premi di nuovo: l'esito cambia, perché ora sai che cosa manca.",
+    "en": "Press «Run now» and read the outcome in the scene. Then open app/config.py and press again: the outcome changes, because now you know what is missing."
+   },
+   "concetti": [
+    "CO05"
+   ],
+   "stato_animazione": {
+    "vista": "mappa",
+    "aperti": [],
+    "eseguito": false,
+    "lead": false,
+    "scelte": {},
+    "verificato": false
+   }
+  },
+  {
+   "id": "mappa",
+   "titolo": {
+    "it": "Ingresso, dipendenze, configurazione, flusso",
+    "en": "Entry point, dependencies, configuration, flow"
+   },
+   "narrazione": [
+    {
+     "it": "Un repo sconosciuto si legge in quattro tappe, in quest'ordine:",
+     "en": "An unknown repo is read in four steps, in this order:"
+    },
+    {
+     "it": "1. l'ingresso: app/main.py, dove FastAPI crea l'app e l'endpoint /api/process-campaign;",
+     "en": "1. the entry point: app/main.py, where FastAPI creates the app and the /api/process-campaign endpoint;"
+    },
+    {
+     "it": "2. le dipendenze: requirements.txt, Dockerfile e docker-compose.yml;",
+     "en": "2. the dependencies: requirements.txt, Dockerfile and docker-compose.yml;"
+    },
+    {
+     "it": "3. la configurazione: app/config.py e .gitignore, cioè quali variabili servono e che cosa resta fuori dal repo;",
+     "en": "3. the configuration: app/config.py and .gitignore, that is which variables are needed and what stays out of the repo;"
+    },
+    {
+     "it": "4. il flusso: agenti e servizi, nell'ordine in cui main.py li chiama.",
+     "en": "4. the flow: agents and services, in the order main.py calls them."
+    },
+    {
+     "it": "Partire da un agente a caso è aprire un libro a metà: non sai chi lo chiama.",
+     "en": "Starting from a random agent is opening a book in the middle: you do not know who calls it."
+    }
+   ],
+   "prova": {
+    "it": "Apri subito un agente dalla tendina e leggi l'avviso. Poi premi «Ricomincia» e apri i file nell'ordine delle quattro tappe.",
+    "en": "Open an agent from the menu straight away and read the warning. Then press «Start over» and open the files in the order of the four steps."
+   },
+   "concetti": [
+    "CO05"
+   ],
+   "stato_animazione": {
+    "vista": "mappa",
+    "aperti": [],
+    "eseguito": false,
+    "lead": false,
+    "scelte": {},
+    "verificato": false
+   }
+  },
+  {
+   "id": "lead",
+   "titolo": {
+    "it": "Segui un lead dall'ingresso al report",
+    "en": "Follow a lead from input to report"
+   },
+   "narrazione": [
+    {
+     "it": "Il flusso si capisce seguendo un dato: Sarah Chen, prima riga di data/leads.csv. Nel ciclo di process_campaign attraversa:",
+     "en": "You understand the flow by following one piece of data: Sarah Chen, first row of data/leads.csv. In the process_campaign loop she goes through:"
+    },
+    {
+     "it": "1. il punteggio: 92, «High»;",
+     "en": "1. the score: 92, «High»;"
+    },
+    {
+     "it": "2. l'arricchimento: persona, tre problemi, approccio;",
+     "en": "2. the enrichment: persona, three pain points, approach;"
+    },
+    {
+     "it": "3. la bozza dell'email, scritta per tutti, come ammette il commento alla riga 56;",
+     "en": "3. the email draft, written for everyone, as the comment on line 56 admits;"
+    },
+    {
+     "it": "4. la risposta simulata e la sua classificazione;",
+     "en": "4. the simulated reply and its classification;"
+    },
+    {
+     "it": "5. l'invio dell'email e, a fine ciclo, il report.",
+     "en": "5. the sending of the email and, at the end of the loop, the report."
+    },
+    {
+     "it": "Ogni tappa chiama Groq attraverso llm_service.py. Prima di ogni lead, time.sleep(6) in una funzione async ferma il server per 6 secondi.",
+     "en": "Every step calls Groq through llm_service.py. Before every lead, time.sleep(6) in an async function freezes the server for 6 seconds."
+    }
+   ],
+   "prova": {
+    "it": "Premi «Segui un lead» e leggi nella lente, tappa per tappa, il file, la riga e che cosa si aggiunge alla scheda di Sarah.",
+    "en": "Press «Follow a lead» and read in the lens, step by step, the file, the line and what gets added to Sarah's record."
+   },
+   "concetti": [
+    "CO05"
+   ],
+   "stato_animazione": {
+    "vista": "mappa",
+    "aperti": [
+     "main",
+     "requirements",
+     "config"
+    ],
+    "eseguito": false,
+    "lead": false,
+    "scelte": {},
+    "verificato": false
+   }
+  },
+  {
+   "id": "indizi",
+   "titolo": {
+    "it": "Gli indizi nel codice",
+    "en": "The clues in the code"
+   },
+   "narrazione": [
+    {
+     "it": "Il codice racconta più del README. Qui ci sono sei indizi veri:",
+     "en": "The code tells more than the README. There are six real clues here:"
+    },
+    {
+     "it": "• la chiave obbligatoria all'import;",
+     "en": "• the key required at import;"
+    },
+    {
+     "it": "• il ripiego silenzioso sugli errori del modello;",
+     "en": "• the silent fallback on model errors;"
+    },
+    {
+     "it": "• time.sleep(6) dentro un endpoint async;",
+     "en": "• time.sleep(6) inside an async endpoint;"
+    },
+    {
+     "it": "• dieci dipendenze senza versione, tre mai importate;",
+     "en": "• ten dependencies without versions, three never imported;"
+    },
+    {
+     "it": "• il modello del README diverso da quello del codice;",
+     "en": "• the README's model different from the code's;"
+    },
+    {
+     "it": "• «Interested» controllato prima di «Not Interested».",
+     "en": "• «Interested» checked before «Not Interested»."
+    },
+    {
+     "it": "Alcuni stanno in un file solo, altri si vedono solo confrontandone due.",
+     "en": "Some sit in a single file, others only show when you compare two."
+    }
+   ],
+   "prova": {
+    "it": "Apri i file che mancano e guarda crescere il contatore degli indizi. Quali due indizi chiedono due file insieme?",
+    "en": "Open the missing files and watch the clue counter grow. Which two clues need two files together?"
+   },
+   "concetti": [
+    "CO05"
+   ],
+   "stato_animazione": {
+    "vista": "mappa",
+    "aperti": [
+     "main",
+     "requirements",
+     "config"
+    ],
+    "eseguito": false,
+    "lead": true,
+    "scelte": {},
+    "verificato": false
+   }
+  },
+  {
+   "id": "decidi_sintomo",
+   "titolo": {
+    "it": "Decidi tu: risultato o sintomo?",
+    "en": "You decide: result or symptom?"
+   },
+   "narrazione": [
+    {
+     "it": "Il report del repo dice «Interested: 5, Not Interested: 0» su 5 lead. Quel numero poteva uscire diverso?",
+     "en": "The repo's report says «Interested: 5, Not Interested: 0» out of 5 leads. Could that number have come out differently?"
+    },
+    {
+     "it": "Per ognuna di sei osservazioni sul repo decidi se è un difetto da segnalare o un dettaglio innocuo.",
+     "en": "For each of six observations on the repo decide whether it is a defect to report or a harmless detail."
+    }
+   ],
+   "prova": {
+    "it": "Scegli una risposta per ogni osservazione, premi «Controlla» e leggi il perché nella scena.",
+    "en": "Choose an answer for each observation, press «Check» and read why in the scene."
+   },
+   "concetti": [
+    "CO05"
+   ],
+   "stato_animazione": {
+    "vista": "decidi",
+    "aperti": [],
+    "eseguito": false,
+    "lead": false,
+    "scelte": {},
+    "verificato": false
+   }
+  },
+  {
+   "id": "riassunto",
+   "titolo": {
+    "it": "In tre frasi",
+    "en": "In three sentences"
+   },
+   "narrazione": [
+    {
+     "it": "Un repo scaricato è un dato non fidato: si legge prima di eseguirlo, nell'ordine ingresso, dipendenze, configurazione, flusso.",
+     "en": "A downloaded repo is untrusted data: you read it before running it, in the order entry point, dependencies, configuration, flow."
+    },
+    {
+     "it": "Seguire un lead da main.py al report mostra chi chiama chi e in quale punto il dato si può rovinare.",
+     "en": "Following a lead from main.py to the report shows who calls whom and at which point the data can go wrong."
+    },
+    {
+     "it": "Un numero troppo bello, come 5 interessati su 5, è un sintomo da spiegare con il codice, non un risultato da festeggiare.",
+     "en": "A number that is too good, like 5 interested out of 5, is a symptom to explain with the code, not a result to celebrate."
+    }
+   ],
+   "concetti": [
+    "CO05"
+   ],
+   "stato_animazione": {
+    "vista": "mappa",
+    "aperti": [
+     "main",
+     "requirements",
+     "config",
+     "llm",
+     "readme",
+     "classifier",
+     "summary"
+    ],
+    "eseguito": false,
+    "lead": true,
+    "scelte": {},
+    "verificato": false
+   }
+  }
+ ],
+ "scenario": {
+  "tappe": [
+   {
+    "id": "documento",
+    "rango": 0,
+    "colore": "#64748b",
+    "nome": {
+     "it": "documento",
+     "en": "document"
+    }
+   },
+   {
+    "id": "ingresso",
+    "rango": 1,
+    "colore": "#4f46e5",
+    "nome": {
+     "it": "ingresso",
+     "en": "entry point"
+    }
+   },
+   {
+    "id": "dipendenze",
+    "rango": 2,
+    "colore": "#0ea5e9",
+    "nome": {
+     "it": "dipendenze",
+     "en": "dependencies"
+    }
+   },
+   {
+    "id": "configurazione",
+    "rango": 3,
+    "colore": "#d97706",
+    "nome": {
+     "it": "configurazione",
+     "en": "configuration"
+    }
+   },
+   {
+    "id": "flusso",
+    "rango": 4,
+    "colore": "#16a34a",
+    "nome": {
+     "it": "flusso",
+     "en": "flow"
+    }
+   }
+  ],
+  "file": [
+   {
+    "id": "readme",
+    "percorso": "README.md",
+    "tappa": "documento",
+    "righe": [
+     {
+      "n": 19,
+      "codice": "*   **AI/LLM**: Groq API (Llama3-8b-8192)"
+     },
+     {
+      "n": 42,
+      "codice": "docker compose up --build"
+     }
+    ],
+    "nota": {
+     "it": "Il README promette e orienta, ma è il codice a decidere che cosa succede davvero.",
+     "en": "The README promises and orients you, but the code decides what really happens."
+    }
+   },
+   {
+    "id": "main",
+    "percorso": "app/main.py",
+    "tappa": "ingresso",
+    "righe": [
+     {
+      "n": 15,
+      "codice": "app = FastAPI(title=\"AI Sales CRM API\")"
+     },
+     {
+      "n": 33,
+      "codice": "async def process_campaign():"
+     },
+     {
+      "n": 47,
+      "codice": "time.sleep(6) # Avoid rate limits"
+     }
+    ],
+    "nota": {
+     "it": "L'ingresso: crea l'app, i servizi, i quattro agenti e l'endpoint che fa girare la campagna lead per lead.",
+     "en": "The entry point: it creates the app, the services, the four agents and the endpoint that runs the campaign lead by lead."
+    }
+   },
+   {
+    "id": "requirements",
+    "percorso": "requirements.txt",
+    "tappa": "dipendenze",
+    "righe": [
+     {
+      "n": 1,
+      "codice": "fastapi"
+     },
+     {
+      "n": 7,
+      "codice": "groq"
+     },
+     {
+      "n": 8,
+      "codice": "aiofiles"
+     }
+    ],
+    "nota": {
+     "it": "10 righe, nessuna versione: ogni installazione prende l'ultima uscita di quel giorno.",
+     "en": "10 lines, no versions: every install takes the latest release of that day."
+    }
+   },
+   {
+    "id": "dockerfile",
+    "percorso": "Dockerfile",
+    "tappa": "dipendenze",
+    "righe": [
+     {
+      "n": 1,
+      "codice": "FROM python:3.9-slim"
+     },
+     {
+      "n": 14,
+      "codice": "CMD [\"uvicorn\", \"app.main:app\", ...]"
+     }
+    ],
+    "nota": {
+     "it": "L'immagine parte da Python 3.9, fuori supporto, e il container gira come root.",
+     "en": "The image starts from Python 3.9, out of support, and the container runs as root."
+    }
+   },
+   {
+    "id": "compose",
+    "percorso": "docker-compose.yml",
+    "tappa": "dipendenze",
+    "righe": [
+     {
+      "n": 5,
+      "codice": "- \"8000:8000\""
+     },
+     {
+      "n": 11,
+      "codice": "- ./.env:/app/.env"
+     },
+     {
+      "n": 19,
+      "codice": "image: mailhog/mailhog"
+     }
+    ],
+    "nota": {
+     "it": "Due servizi: il CRM e un server di posta finto. Porte aperte su tutte le interfacce, immagine senza tag.",
+     "en": "Two services: the CRM and a fake mail server. Ports open on every interface, image without a tag."
+    }
+   },
+   {
+    "id": "config",
+    "percorso": "app/config.py",
+    "tappa": "configurazione",
+    "righe": [
+     {
+      "n": 4,
+      "codice": "GROQ_API_KEY: str"
+     },
+     {
+      "n": 11,
+      "codice": "env_file = \".env\""
+     },
+     {
+      "n": 13,
+      "codice": "settings = Settings()"
+     }
+    ],
+    "nota": {
+     "it": "Le variabili che servono. Settings() parte appena il modulo viene importato.",
+     "en": "The variables that are needed. Settings() runs as soon as the module is imported."
+    }
+   },
+   {
+    "id": "gitignore",
+    "percorso": ".gitignore",
+    "tappa": "configurazione",
+    "righe": [
+     {
+      "n": 39,
+      "codice": ".env"
+     },
+     {
+      "n": 40,
+      "codice": ".env.*"
+     }
+    ],
+    "nota": {
+     "it": "Il .env resta fuori dal repo, giusto. Ma «.env.*» esclude anche .env.example: chi adotta il repo non riceve il modello.",
+     "en": "The .env stays out of the repo, rightly. But «.env.*» also excludes .env.example: whoever adopts the repo gets no template."
+    }
+   },
+   {
+    "id": "models",
+    "percorso": "app/models.py",
+    "tappa": "flusso",
+    "righe": [
+     {
+      "n": 1,
+      "codice": "from pydantic import BaseModel, EmailStr, Field"
+     },
+     {
+      "n": 20,
+      "codice": "NOT_INTERESTED = \"Not Interested\""
+     }
+    ],
+    "nota": {
+     "it": "I contratti dei dati: il lead in ingresso, il lead arricchito e i quattro stati della risposta.",
+     "en": "The data contracts: the incoming lead, the enriched lead and the four reply states."
+    }
+   },
+   {
+    "id": "scoring",
+    "percorso": "app/agents/scoring_agent.py",
+    "tappa": "flusso",
+    "righe": [
+     {
+      "n": 11,
+      "codice": "response_str = self.llm.analyze_lead_priority(info)"
+     },
+     {
+      "n": 27,
+      "codice": "return {\"score\": 50, \"label\": \"Medium\", ...}"
+     }
+    ],
+    "nota": {
+     "it": "Il punteggio del lead. Se la risposta del modello non è JSON, ripiega su 50 «Medium» senza dirlo a nessuno.",
+     "en": "The lead score. If the model's answer is not JSON, it falls back to 50 «Medium» without telling anyone."
+    }
+   },
+   {
+    "id": "enrichment",
+    "percorso": "app/agents/enrichment_agent.py",
+    "tappa": "flusso",
+    "righe": [
+     {
+      "n": 11,
+      "codice": "response_str = self.llm.enrich_buyer_persona(info)"
+     },
+     {
+      "n": 27,
+      "codice": "return {\"persona\": \"Unknown\", ...}"
+     }
+    ],
+    "nota": {
+     "it": "L'arricchimento: persona, tre problemi, approccio. Anche qui un ripiego muto: persona «Unknown».",
+     "en": "The enrichment: persona, three pain points, approach. Here too a silent fallback: persona «Unknown»."
+    }
+   },
+   {
+    "id": "outreach",
+    "percorso": "app/agents/outreach_agent.py",
+    "tappa": "flusso",
+    "righe": [
+     {
+      "n": 10,
+      "codice": "enrichment_str = json.dumps(enrichment_data)"
+     },
+     {
+      "n": 16,
+      "codice": "import json"
+     }
+    ],
+    "nota": {
+     "it": "La bozza dell'email. L'import di json sta in fondo al file: strano da leggere, ma gira prima della chiamata.",
+     "en": "The email draft. The json import sits at the bottom of the file: odd to read, but it runs before the call."
+    }
+   },
+   {
+    "id": "classifier",
+    "percorso": "app/agents/response_classifier.py",
+    "tappa": "flusso",
+    "righe": [
+     {
+      "n": 19,
+      "codice": "if \"Interested\" in status_str:"
+     },
+     {
+      "n": 21,
+      "codice": "elif \"Not Interested\" in status_str:"
+     }
+    ],
+    "nota": {
+     "it": "Simula la risposta del lead e la classifica. Il primo controllo cerca «Interested» dentro l'etichetta.",
+     "en": "It simulates the lead's reply and classifies it. The first check looks for «Interested» inside the label."
+    }
+   },
+   {
+    "id": "llm",
+    "percorso": "app/services/llm_service.py",
+    "tappa": "flusso",
+    "righe": [
+     {
+      "n": 13,
+      "codice": "self.model = \"llama-3.1-8b-instant\""
+     },
+     {
+      "n": 31,
+      "codice": "except Exception as e:"
+     },
+     {
+      "n": 33,
+      "codice": "return \"\""
+     }
+    ],
+    "nota": {
+     "it": "Ogni agente passa da qui per chiamare Groq. Qualunque errore diventa una stringa vuota.",
+     "en": "Every agent goes through here to call Groq. Any error becomes an empty string."
+    }
+   },
+   {
+    "id": "email",
+    "percorso": "app/services/email_service.py",
+    "tappa": "flusso",
+    "righe": [
+     {
+      "n": 22,
+      "codice": "with smtplib.SMTP(self.host, self.port) as server:"
+     },
+     {
+      "n": 30,
+      "codice": "self._save_to_file(to_email, subject, body)"
+     }
+    ],
+    "nota": {
+     "it": "Invia l'email al server di posta finto; se non risponde, la salva in sent_emails/.",
+     "en": "It sends the email to the fake mail server; if that does not answer, it saves it in sent_emails/."
+    }
+   },
+   {
+    "id": "report",
+    "percorso": "app/utils/report_generator.py",
+    "tappa": "flusso",
+    "righe": [
+     {
+      "n": 29,
+      "codice": "- **Interested**: {status_counts.get(\"Interested\", 0)}"
+     }
+    ],
+    "nota": {
+     "it": "Conta le etichette e scrive il report: conta bene quello che riceve.",
+     "en": "It counts the labels and writes the report: it counts correctly what it receives."
+    }
+   },
+   {
+    "id": "leads",
+    "percorso": "data/leads.csv",
+    "tappa": "flusso",
+    "righe": [
+     {
+      "n": 2,
+      "codice": "Sarah Chen,...,TechVision AI,VP of Engineering,SaaS,201-500"
+     }
+    ],
+    "nota": {
+     "it": "I 5 lead di prova: il dato che entra nel flusso.",
+     "en": "The 5 sample leads: the data that enters the flow."
+    }
+   },
+   {
+    "id": "summary",
+    "percorso": "reports/campaign_summary.md",
+    "tappa": "flusso",
+    "righe": [
+     {
+      "n": 8,
+      "codice": "- **Interested**: 5"
+     },
+     {
+      "n": 9,
+      "codice": "- **Not Interested**: 0"
+     }
+    ],
+    "nota": {
+     "it": "Il report lasciato dall'autore: 5 lead, 5 interessati, 0 no.",
+     "en": "The report left by the author: 5 leads, 5 interested, 0 no."
+    }
+   }
+  ],
+  "albero": [
+   {
+    "nome": "crm_adottato/",
+    "livello": 0
+   },
+   {
+    "nome": "README.md",
+    "livello": 1,
+    "file": "readme"
+   },
+   {
+    "nome": "requirements.txt",
+    "livello": 1,
+    "file": "requirements"
+   },
+   {
+    "nome": "Dockerfile",
+    "livello": 1,
+    "file": "dockerfile"
+   },
+   {
+    "nome": "docker-compose.yml",
+    "livello": 1,
+    "file": "compose"
+   },
+   {
+    "nome": ".gitignore",
+    "livello": 1,
+    "file": "gitignore"
+   },
+   {
+    "nome": "app/",
+    "livello": 1
+   },
+   {
+    "nome": "main.py",
+    "livello": 2,
+    "file": "main"
+   },
+   {
+    "nome": "config.py",
+    "livello": 2,
+    "file": "config"
+   },
+   {
+    "nome": "models.py",
+    "livello": 2,
+    "file": "models"
+   },
+   {
+    "nome": "agents/",
+    "livello": 2
+   },
+   {
+    "nome": "scoring_agent.py",
+    "livello": 3,
+    "file": "scoring"
+   },
+   {
+    "nome": "enrichment_agent.py",
+    "livello": 3,
+    "file": "enrichment"
+   },
+   {
+    "nome": "outreach_agent.py",
+    "livello": 3,
+    "file": "outreach"
+   },
+   {
+    "nome": "response_classifier.py",
+    "livello": 3,
+    "file": "classifier"
+   },
+   {
+    "nome": "services/",
+    "livello": 2
+   },
+   {
+    "nome": "llm_service.py",
+    "livello": 3,
+    "file": "llm"
+   },
+   {
+    "nome": "email_service.py",
+    "livello": 3,
+    "file": "email"
+   },
+   {
+    "nome": "utils/",
+    "livello": 2
+   },
+   {
+    "nome": "report_generator.py",
+    "livello": 3,
+    "file": "report"
+   },
+   {
+    "nome": "data/",
+    "livello": 1
+   },
+   {
+    "nome": "leads.csv",
+    "livello": 2,
+    "file": "leads"
+   },
+   {
+    "nome": "reports/",
+    "livello": 1
+   },
+   {
+    "nome": "campaign_summary.md",
+    "livello": 2,
+    "file": "summary"
+   }
+  ],
+  "indizi": [
+   {
+    "id": "chiave_import",
+    "richiede": [
+     "config"
+    ],
+    "testo": {
+     "it": "Chiave obbligatoria all'import: senza GROQ_API_KEY l'app non parte, con un errore di validazione poco parlante.",
+     "en": "Key required at import: without GROQ_API_KEY the app does not start, with an unhelpful validation error."
+    }
+   },
+   {
+    "id": "ripiego",
+    "richiede": [
+     "llm"
+    ],
+    "testo": {
+     "it": "Ripiego silenzioso: ogni errore del modello diventa \"\" e la campagna gira lo stesso, con email vuote.",
+     "en": "Silent fallback: every model error becomes \"\" and the campaign runs anyway, with empty emails."
+    }
+   },
+   {
+    "id": "sleep",
+    "richiede": [
+     "main"
+    ],
+    "testo": {
+     "it": "time.sleep(6) dentro un endpoint async: il server resta fermo 6 secondi per ogni lead.",
+     "en": "time.sleep(6) inside an async endpoint: the server stays frozen 6 seconds for every lead."
+    }
+   },
+   {
+    "id": "versioni",
+    "richiede": [
+     "requirements"
+    ],
+    "testo": {
+     "it": "10 dipendenze senza versione; aiofiles, jinja2 e requests non sono mai importate.",
+     "en": "10 dependencies without versions; aiofiles, jinja2 and requests are never imported."
+    }
+   },
+   {
+    "id": "modello",
+    "richiede": [
+     "readme",
+     "llm"
+    ],
+    "testo": {
+     "it": "README e codice non concordano: Llama3-8b-8192 contro llama-3.1-8b-instant.",
+     "en": "README and code disagree: Llama3-8b-8192 versus llama-3.1-8b-instant."
+    }
+   },
+   {
+    "id": "ordine",
+    "richiede": [
+     "classifier",
+     "summary"
+    ],
+    "testo": {
+     "it": "«Interested» controllato prima di «Not Interested», e il report dice 0 no su 5: è il sintomo.",
+     "en": "«Interested» checked before «Not Interested», and the report says 0 no out of 5: that is the symptom."
+    }
+   }
+  ],
+  "lead": {
+   "nome": "Sarah Chen",
+   "tappe": [
+    {
+     "file": "leads",
+     "riga": 37,
+     "codice": "raw_leads = csv_service.read_leads()",
+     "campo": {
+      "it": "Lead",
+      "en": "Lead"
+     },
+     "valore": {
+      "it": "Sarah Chen, VP of Engineering, TechVision AI",
+      "en": "Sarah Chen, VP of Engineering, TechVision AI"
+     },
+     "spiega": {
+      "it": "main.py legge data/leads.csv: ogni riga diventa un Lead.",
+      "en": "main.py reads data/leads.csv: every row becomes a Lead."
+     }
+    },
+    {
+     "file": "scoring",
+     "riga": 50,
+     "codice": "score_data = scoring_agent.score_lead(lead)",
+     "campo": {
+      "it": "Punteggio",
+      "en": "Score"
+     },
+     "valore": {
+      "it": "92, High",
+      "en": "92, High"
+     },
+     "spiega": {
+      "it": "Prima chiamata a Groq: punteggio da 0 a 100 ed etichetta.",
+      "en": "First call to Groq: a 0-100 score and a label."
+     }
+    },
+    {
+     "file": "enrichment",
+     "riga": 53,
+     "codice": "enrichment_data = enrichment_agent.enrich_lead(lead)",
+     "campo": {
+      "it": "Arricchimento",
+      "en": "Enrichment"
+     },
+     "valore": {
+      "it": "persona, 3 problemi, approccio",
+      "en": "persona, 3 pain points, approach"
+     },
+     "spiega": {
+      "it": "Seconda chiamata: il profilo dell'acquirente.",
+      "en": "Second call: the buyer profile."
+     }
+    },
+    {
+     "file": "outreach",
+     "riga": 57,
+     "codice": "email_body = outreach_agent.draft_email(lead, enrichment_data)",
+     "campo": {
+      "it": "Email",
+      "en": "Email"
+     },
+     "valore": {
+      "it": "bozza sotto le 150 parole",
+      "en": "draft under 150 words"
+     },
+     "spiega": {
+      "it": "Terza chiamata. Il commento alla riga 56 lo ammette: l'email si scrive per tutti, qualunque punteggio.",
+      "en": "Third call. The comment on line 56 admits it: the email is written for everyone, whatever the score."
+     }
+    },
+    {
+     "file": "classifier",
+     "riga": 60,
+     "codice": "response_data = classifier_agent.simulate_response(lead, email_body)",
+     "campo": {
+      "it": "Risposta simulata",
+      "en": "Simulated reply"
+     },
+     "valore": {
+      "it": "Interested",
+      "en": "Interested"
+     },
+     "spiega": {
+      "it": "Quarta chiamata: il modello inventa la risposta del lead, poi il codice la classifica.",
+      "en": "Fourth call: the model invents the lead's reply, then the code classifies it."
+     }
+    },
+    {
+     "file": "email",
+     "riga": 64,
+     "codice": "email_service.send_email(lead.email, subject, email_body)",
+     "campo": {
+      "it": "Invio",
+      "en": "Sending"
+     },
+     "valore": {
+      "it": "email inviata, senza approvazione",
+      "en": "email sent, without approval"
+     },
+     "spiega": {
+      "it": "L'email parte a ogni lead: nessuna soglia di punteggio, nessuna persona che approva.",
+      "en": "The email goes to every lead: no score threshold, no person who approves."
+     }
+    },
+    {
+     "file": "summary",
+     "riga": 93,
+     "codice": "report_generator.generate_report(enriched_leads, report_path)",
+     "campo": {
+      "it": "Report",
+      "en": "Report"
+     },
+     "valore": {
+      "it": "Interested: 5, Not Interested: 0",
+      "en": "Interested: 5, Not Interested: 0"
+     },
+     "spiega": {
+      "it": "Alla fine del ciclo il report conta le etichette dei 5 lead.",
+      "en": "At the end of the loop the report counts the labels of the 5 leads."
+     }
+    }
+   ]
+  },
+  "attesa_lead_secondi": 6,
+  "numero_lead": 5,
+  "file_configurazione": "config",
+  "errore_avvio": "1 validation error for Settings · GROQ_API_KEY · Field required",
+  "comando_avvio": "docker compose up --build",
+  "risposte_gioco": [
+   {
+    "id": "difetto",
+    "nome": {
+     "it": "Difetto da segnalare",
+     "en": "Defect to report"
+    }
+   },
+   {
+    "id": "innocuo",
+    "nome": {
+     "it": "Dettaglio innocuo",
+     "en": "Harmless detail"
+    }
+   }
+  ],
+  "casi": [
+   {
+    "id": "k1",
+    "testo": {
+     "it": "reports/campaign_summary.md: «Interested: 5, Not Interested: 0» su 5 lead.",
+     "en": "reports/campaign_summary.md: «Interested: 5, Not Interested: 0» out of 5 leads."
+    },
+    "migliore": "difetto",
+    "quasi": [],
+    "spiega": {
+     "it": "È un sintomo: «Not Interested» contiene «Interested» e il primo controllo lo cattura sempre. Il ramo NOT_INTERESTED non si raggiunge mai.",
+     "en": "It is a symptom: «Not Interested» contains «Interested» and the first check always catches it. The NOT_INTERESTED branch is never reached."
+    }
+   },
+   {
+    "id": "k2",
+    "testo": {
+     "it": "outreach_agent.py usa json.dumps alla riga 10, ma «import json» sta in fondo al file, alla riga 16.",
+     "en": "outreach_agent.py uses json.dumps on line 10, but «import json» sits at the bottom of the file, on line 16."
+    },
+    "migliore": "innocuo",
+    "quasi": [],
+    "spiega": {
+     "it": "Strano da leggere ma innocuo: l'import gira quando il modulo viene caricato, prima che draft_email sia chiamata.",
+     "en": "Odd to read but harmless: the import runs when the module is loaded, before draft_email is called."
+    }
+   },
+   {
+    "id": "k3",
+    "testo": {
+     "it": "llm_service.py: ogni eccezione finisce in «except Exception» e la funzione restituisce \"\".",
+     "en": "llm_service.py: every exception ends up in «except Exception» and the function returns \"\"."
+    },
+    "migliore": "difetto",
+    "quasi": [],
+    "spiega": {
+     "it": "Ripiego silenzioso: con una chiave scaduta la campagna gira lo stesso, 50 «Medium» per tutti ed email vuote inviate.",
+     "en": "Silent fallback: with an expired key the campaign runs anyway, 50 «Medium» for everyone and empty emails sent."
+    }
+   },
+   {
+    "id": "k4",
+    "testo": {
+     "it": "main.py: «time.sleep(6)» dentro «async def process_campaign», prima di ogni lead.",
+     "en": "main.py: «time.sleep(6)» inside «async def process_campaign», before every lead."
+    },
+    "migliore": "difetto",
+    "quasi": [],
+    "spiega": {
+     "it": "time.sleep blocca tutto il server: con 5 lead resta sordo a ogni altra richiesta per almeno 30 secondi.",
+     "en": "time.sleep blocks the whole server: with 5 leads it ignores every other request for at least 30 seconds."
+    }
+   },
+   {
+    "id": "k5",
+    "testo": {
+     "it": "models.py importa EmailStr da pydantic e non lo usa mai.",
+     "en": "models.py imports EmailStr from pydantic and never uses it."
+    },
+    "migliore": "innocuo",
+    "quasi": [],
+    "spiega": {
+     "it": "Un import inutile: da pulire, ma non cambia nessun risultato.",
+     "en": "A useless import: worth cleaning up, but it changes no result."
+    }
+   },
+   {
+    "id": "k6",
+    "testo": {
+     "it": "README: «Groq API (Llama3-8b-8192)»; llm_service.py: self.model = \"llama-3.1-8b-instant\".",
+     "en": "README: «Groq API (Llama3-8b-8192)»; llm_service.py: self.model = \"llama-3.1-8b-instant\"."
+    },
+    "migliore": "difetto",
+    "quasi": [],
+    "spiega": {
+     "it": "Documentazione e codice divergono: chi adotta il repo si fida del codice e corregge il README.",
+     "en": "Documentation and code diverge: whoever adopts the repo trusts the code and fixes the README."
+    }
+   }
+  ],
+  "ms": {
+   "apertura": 380,
+   "tappa_lead": 650
+  },
+  "testi": {
+   "apri_ok": {
+    "it": "{percorso}: tappa «{tappa}» nell'ordine giusto.",
+    "en": "{percorso}: «{tappa}» step in the right order."
+   },
+   "apri_documento": {
+    "it": "{percorso}: utile per orientarsi, ma non è codice.",
+    "en": "{percorso}: useful to orient yourself, but it is not code."
+   },
+   "apri_salto": {
+    "it": "{percorso}: salto. Prima manca: {mancanti}.",
+    "en": "{percorso}: skip. Still missing first: {mancanti}."
+   },
+   "esegui_errore": {
+    "it": "Eseguito senza leggere: codice non fidato lanciato alla cieca, e si ferma subito. Nel repo non c'è .env, e config.py lo pretende.",
+    "en": "Run without reading: untrusted code launched blind, and it stops at once. There is no .env in the repo, and config.py requires one."
+   },
+   "esegui_avviso": {
+    "it": "Stesso errore, ma ora sai perché: config.py vuole GROQ_API_KEY. Prima di eseguire si prepara la variabile d'ambiente.",
+    "en": "Same error, but now you know why: config.py wants GROQ_API_KEY. Before running you prepare the environment variable."
+   },
+   "lead_partito": {
+    "it": "Il lead {nome} attraversa il repo in {n} tappe.",
+    "en": "The lead {nome} crosses the repo in {n} steps."
+   },
+   "lead_fine": {
+    "it": "Arrivato al report: «Interested» anche per {nome}. Risultato o sintomo?",
+    "en": "Reached the report: «Interested» for {nome} too. Result or symptom?"
+   },
+   "indizio_nuovo": {
+    "it": "Indizio trovato: {testo}",
+    "en": "Clue found: {testo}"
+   },
+   "indizi_contatore": {
+    "it": "Indizi trovati: {n} su {totale}",
+    "en": "Clues found: {n} of {totale}"
+   },
+   "tappe_contatore": {
+    "it": "Tappe coperte: {n} su {totale}",
+    "en": "Steps covered: {n} of {totale}"
+   },
+   "mappa_completa": {
+    "it": "Mappa completa: ingresso, dipendenze, configurazione e flusso letti in ordine.",
+    "en": "Map complete: entry point, dependencies, configuration and flow read in order."
+   },
+   "riga": {
+    "it": "riga {n}",
+    "en": "line {n}"
+   },
+   "tappa_lead": {
+    "it": "Tappa {n} di {totale} · {percorso}",
+    "en": "Step {n} of {totale} · {percorso}"
+   },
+   "attesa": {
+    "it": "Prima di ogni lead: time.sleep({n}) in un endpoint async, il server è fermo.",
+    "en": "Before every lead: time.sleep({n}) in an async endpoint, the server is frozen."
+   },
+   "salti": {
+    "it": "Salti di tappa: {n}",
+    "en": "Step skips: {n}"
+   },
+   "richiede_due": {
+    "it": "serve confrontare {a} e {b}",
+    "en": "you need to compare {a} and {b}"
+   },
+   "scegli_per": {
+    "it": "Risposta per l'osservazione {n}",
+    "en": "Answer for observation {n}"
+   },
+   "caso": {
+    "it": "Osservazione {n}",
+    "en": "Observation {n}"
+   },
+   "ver_giusto": {
+    "it": "Osservazione {n}: giusto. {spiega}",
+    "en": "Observation {n}: right. {spiega}"
+   },
+   "ver_quasi": {
+    "it": "Osservazione {n}: quasi, meglio «{migliore}». {spiega}",
+    "en": "Observation {n}: almost, «{migliore}» is better. {spiega}"
+   },
+   "ver_sbagliato": {
+    "it": "Osservazione {n}: no, è «{migliore}». {spiega}",
+    "en": "Observation {n}: no, it is «{migliore}». {spiega}"
+   },
+   "ver_vuoto": {
+    "it": "Osservazione {n}: non hai scelto. È «{migliore}». {spiega}",
+    "en": "Observation {n}: you did not choose. It is «{migliore}». {spiega}"
+   },
+   "ver_punteggio": {
+    "it": "Risposte giuste: {giuste} su {totali}.",
+    "en": "Right answers: {giuste} of {totali}."
+   },
+   "ver_tutto_giusto": {
+    "it": "Perfetto: sai separare i difetti veri dai dettagli, e il report 5 su 5 è un sintomo.",
+    "en": "Perfect: you can tell real defects from details, and the 5 out of 5 report is a symptom."
+   },
+   "nessuna_azione": {
+    "it": "Apri un file dalla tendina, premi «Esegui subito» o «Segui un lead»: gli esiti compaiono qui.",
+    "en": "Open a file from the menu, press «Run now» or «Follow a lead»: the outcomes appear here."
+   }
+  },
+  "etichette": {
+   "titolo_comandi": {
+    "it": "Esplora il repo",
+    "en": "Explore the repo"
+   },
+   "vista": {
+    "it": "Vista",
+    "en": "View"
+   },
+   "vista_mappa": {
+    "it": "Mappa",
+    "en": "Map"
+   },
+   "vista_decidi": {
+    "it": "Decidi tu",
+    "en": "You decide"
+   },
+   "apri": {
+    "it": "Apri un file",
+    "en": "Open a file"
+   },
+   "scegli_file": {
+    "it": "— scegli un file —",
+    "en": "— choose a file —"
+   },
+   "esegui": {
+    "it": "Esegui subito",
+    "en": "Run now"
+   },
+   "segui": {
+    "it": "Segui un lead",
+    "en": "Follow a lead"
+   },
+   "ricomincia": {
+    "it": "Ricomincia",
+    "en": "Start over"
+   },
+   "scegli": {
+    "it": "— scegli —",
+    "en": "— choose —"
+   },
+   "controlla": {
+    "it": "Controlla",
+    "en": "Check"
+   },
+   "titolo_mappa": {
+    "it": "CRM ADOTTATO: LA MAPPA DEL REPO",
+    "en": "ADOPTED CRM: THE REPO MAP"
+   },
+   "titolo_decidi": {
+    "it": "SEI OSSERVAZIONI SUL REPO",
+    "en": "SIX OBSERVATIONS ON THE REPO"
+   },
+   "lente": {
+    "it": "Lente",
+    "en": "Lens"
+   },
+   "lente_vuota": {
+    "it": "Apri un file: qui compaiono le sue righe chiave, prese dal repo.",
+    "en": "Open a file: its key lines, taken from the repo, appear here."
+   },
+   "terminale": {
+    "it": "Terminale",
+    "en": "Terminal"
+   },
+   "scheda_lead": {
+    "it": "Scheda del lead",
+    "en": "Lead record"
+   },
+   "esiti": {
+    "it": "Esiti",
+    "en": "Outcomes"
+   },
+   "tappe": {
+    "it": "Le quattro tappe",
+    "en": "The four steps"
+   },
+   "indizi": {
+    "it": "Indizi nel codice",
+    "en": "Clues in the code"
+   },
+   "nessun_indizio": {
+    "it": "Nessun indizio ancora: apri i file e leggi.",
+    "en": "No clues yet: open the files and read."
+   },
+   "regola": {
+    "it": "Leggi prima di eseguire: ingresso, dipendenze, configurazione, flusso.",
+    "en": "Read before running: entry point, dependencies, configuration, flow."
+   },
+   "decidi_intro": {
+    "it": "Per ogni osservazione scegli: difetto da segnalare o dettaglio innocuo.",
+    "en": "For each observation choose: defect to report or harmless detail."
+   },
+   "descrizione_scena": {
+    "it": "L'albero dei file del repo adottato, una lente con le righe chiave del file aperto, le quattro tappe di lettura e la scheda del lead che attraversa il repo.",
+    "en": "The file tree of the adopted repo, a lens with the key lines of the open file, the four reading steps and the record of the lead crossing the repo."
+   }
+  }
+ },
+ "domande": []
+}

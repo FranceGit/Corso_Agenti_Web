@@ -1,0 +1,262 @@
+{
+ "id": "L_pianta_crm",
+ "pillola": "PO3.1",
+ "componente": "pianta_crm",
+ "titolo": {"it": "Il CRM in pianta", "en": "The CRM floor plan"},
+ "sottotitolo": {"it": "La pianta di nebula-insurance-crm: dove stanno entità, confini e decisioni, e dove si cerca una regola prima di aprire il codice.", "en": "The floor plan of nebula-insurance-crm: where entities, boundaries and decisions live, and where to look for a rule before opening the code."},
+ "segmenti": [
+  {
+   "id": "pianta",
+   "titolo": {"it": "Prima la pianta, poi i muri", "en": "First the plan, then the walls"},
+   "narrazione": [
+    {"it": "In nebula-insurance-crm tutto parte da planning-mds/BLUEPRINT.md, 980 righe che si dichiarano «unica fonte di verità»: un requisito che non è scritto lì non si implementa [NEBULA-CRM].", "en": "In nebula-insurance-crm everything starts from planning-mds/BLUEPRINT.md, 980 lines that declare themselves the «single source of truth»: a requirement that is not written there is not implemented [NEBULA-CRM]."},
+    {"it": "Il documento procede in tre fasi:", "en": "The document proceeds in three phases:"},
+    {"it": "1. fase A, il prodotto: che cosa si costruisce, per chi e perché;", "en": "1. phase A, the product: what is built, for whom and why;"},
+    {"it": "2. fase B, l'architettura: come si divide il sistema e con quali regole;", "en": "2. phase B, the architecture: how the system is split and with which rules;"},
+    {"it": "3. fase C, l'implementazione: il codice, a fette verticali, con i test.", "en": "3. phase C, the implementation: the code, in vertical slices, with tests."}
+   ],
+   "prova": {"it": "Apri le stanze della pianta una per una e leggi a destra che cosa contiene ciascuna.", "en": "Open the rooms of the plan one by one and read on the right what each one contains."},
+   "concetti": ["CO08"],
+   "stato_animazione": {"vista": "pianta", "domanda": "", "ipotesi": "", "percorso": false, "modulo_aperto": "dashboard", "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "moduli",
+   "titolo": {"it": "Entità e moduli", "en": "Entities and modules"},
+   "narrazione": [
+    {"it": "La sezione 1.3 elenca 12 entità di base, da Account a UserPreference. La 4.1 fissa la forma: un monolite modulare, cioè un solo eseguibile diviso in moduli con confini netti.", "en": "Section 1.3 lists 12 baseline entities, from Account to UserPreference. Section 4.1 sets the shape: a modular monolith, that is a single deployable split into modules with clean boundaries."},
+    {"it": "Ogni modulo possiede le sue entità e le offre agli altri con API interne. Dashboard non possiede niente: legge da altri cinque moduli e aggrega.", "en": "Every module owns its entities and offers them to the others through internal APIs. Dashboard owns nothing: it reads from five other modules and aggregates."}
+   ],
+   "prova": {"it": "Passa alla vista «Moduli», apri Dashboard e poi TimelineAudit: guarda chi possiede che cosa e chi legge da chi.", "en": "Switch to the «Modules» view, open Dashboard and then TimelineAudit: see who owns what and who reads from whom."},
+   "concetti": ["CO08"],
+   "stato_animazione": {"vista": "moduli", "domanda": "", "ipotesi": "", "percorso": false, "modulo_aperto": "broker", "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "confini",
+   "titolo": {"it": "Dove sta una regola di sicurezza", "en": "Where a security rule lives"},
+   "narrazione": [
+    {"it": "Domanda concreta: dove sta scritto che un broker esterno non vede i contatti di un altro broker? La risposta sta su tre livelli:", "en": "A concrete question: where is it written that an external broker cannot see another broker's contacts? The answer sits on three levels:"},
+    {"it": "• il BLUEPRINT (§4.4) fissa il principio: autorizzazione solo lato server;", "en": "• the BLUEPRINT (§4.4) sets the principle: authorisation on the server side only;"},
+    {"it": "• l'ADR-007 decide il meccanismo: lo scope viene dal claim broker_tenant_id, e senza una corrispondenza unica si nega;", "en": "• ADR-007 decides the mechanism: the scope comes from the broker_tenant_id claim, and without a single match access is denied;"},
+    {"it": "• la matrice di autorizzazione (§2.10) scrive la regola puntuale, ruolo per ruolo.", "en": "• the authorisation matrix (§2.10) writes the precise rule, role by role."}
+   ],
+   "prova": {"it": "Scegli la domanda sul broker, clicca la stanza dove pensi sia la regola, poi premi «Mostra il percorso».", "en": "Choose the broker question, click the room where you think the rule is, then press «Show the path»."},
+   "concetti": ["CO08"],
+   "stato_animazione": {"vista": "pianta", "domanda": "broker", "ipotesi": "", "percorso": false, "modulo_aperto": "identita", "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "decisioni",
+   "titolo": {"it": "Il perché sta negli ADR", "en": "The why lives in the ADRs"},
+   "narrazione": [
+    {"it": "Il BLUEPRINT registra l'esito delle scelte; il perché sta in architecture/decisions/, 39 file ADR con contesto, opzioni considerate e decisione.", "en": "The BLUEPRINT records the outcome of the choices; the why lives in architecture/decisions/, 39 ADR files with context, options considered and decision."},
+    {"it": "Esempio: la §2 dice solo che authentik sostituisce Keycloak. L'ADR-006 spiega perché proprio allora: nessun utente in produzione da migrare, e un UserId interno che rende il CRM indipendente dal fornitore d'identità. La decisione superata resta, e l'ADR nuovo dichiara quale sostituisce.", "en": "Example: §2 only says that authentik replaces Keycloak. ADR-006 explains why right then: no production users to migrate, and an internal UserId that makes the CRM independent of the identity provider. The superseded decision stays, and the new ADR states which one it replaces."}
+   ],
+   "prova": {"it": "Chiedi «perché authentik?», prova prima la stanza §2 e poi le decisioni: confronta i due esiti.", "en": "Ask «why authentik?», try room §2 first and then the decisions: compare the two outcomes."},
+   "concetti": ["CO08"],
+   "stato_animazione": {"vista": "pianta", "domanda": "authentik", "ipotesi": "", "percorso": false, "modulo_aperto": "identita", "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "classifica",
+   "titolo": {"it": "Decidi tu: che cos'è questa frase?", "en": "You decide: what is this sentence?"},
+   "narrazione": [
+    {"it": "Otto frasi sul progetto. Per ognuna decidi se è blueprint (che cosa e perché), architettura (come si divide), decisione registrata (una scelta fra alternative) o codice (come si fa, riga per riga).", "en": "Eight sentences about the project. For each one decide whether it is blueprint (what and why), architecture (how it is split), recorded decision (a choice among alternatives) or code (how it is done, line by line)."}
+   ],
+   "prova": {"it": "Scegli una categoria per ogni frase, poi premi «Controlla» e leggi il perché.", "en": "Choose a category for each sentence, then press «Check» and read why."},
+   "concetti": ["CO08"],
+   "stato_animazione": {"vista": "classifica", "domanda": "", "ipotesi": "", "percorso": false, "modulo_aperto": "dashboard", "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "riassunto",
+   "titolo": {"it": "In tre frasi", "en": "In three sentences"},
+   "narrazione": [
+    {"it": "Il blueprint dice che cosa si costruisce e perché, prima del codice: ciò che non vi è scritto non si implementa.", "en": "The blueprint says what is built and why, before the code: what is not written in it is not implemented."},
+    {"it": "L'architettura divide il sistema in moduli con entità proprie e confini netti; le decisioni, con le alternative scartate, stanno negli ADR.", "en": "The architecture splits the system into modules with their own entities and clean boundaries; the decisions, with the discarded alternatives, live in the ADRs."},
+    {"it": "Per trovare una regola si scende di livello: principio nel blueprint, meccanismo nell'ADR, regola puntuale nella matrice, e solo alla fine il codice.", "en": "To find a rule you go down a level at a time: principle in the blueprint, mechanism in the ADR, precise rule in the matrix, and only at the end the code."}
+   ],
+   "concetti": ["CO08"],
+   "stato_animazione": {"vista": "pianta", "domanda": "broker", "ipotesi": "sicurezza", "percorso": true, "modulo_aperto": "identita", "scelte": {}, "verificato": false}
+  }
+ ],
+ "scenario": {
+  "ms_stanza": 90,
+  "ms_tappa": 750,
+  "a_capo": {"nome_stanza": 44, "nome_modulo": 22, "entita": 24, "frase": 92},
+  "stanze": [
+   {"id": "bp_contesto", "ala": "blueprint", "file": "BLUEPRINT.md §1",
+    "nome": {"it": "§1 Contesto del prodotto", "en": "§1 Product context"},
+    "contiene": {"it": "Che cosa si costruisce e per chi: un CRM per assicurazioni danni commerciali, 5 gruppi di utenti interni, 12 entità di base, i flussi di submission e di rinnovo.", "en": "What is built and for whom: a CRM for commercial P&C insurance, 5 groups of internal users, 12 baseline entities, the submission and renewal workflows."}},
+   {"id": "bp_piattaforma", "ala": "blueprint", "file": "BLUEPRINT.md §2",
+    "nome": {"it": "§2 Tecnologia e piattaforma", "en": "§2 Technology and platform"},
+    "contiene": {"it": "Le scelte di base, «bloccate» salvo cambi espliciti: React, .NET 10, PostgreSQL, authentik, Casbin ABAC lato server, Temporal. Vincoli: Clean Architecture e tabelle di audit in sola aggiunta.", "en": "The baseline choices, «locked» unless explicitly changed: React, .NET 10, PostgreSQL, authentik, server-side Casbin ABAC, Temporal. Constraints: Clean Architecture and append-only audit tables."}},
+   {"id": "bp_moduli", "ala": "blueprint", "file": "BLUEPRINT.md §4.1–4.3",
+    "nome": {"it": "§4.1–4.3 Moduli, dati e flussi", "en": "§4.1–4.3 Modules, data and workflows"},
+    "contiene": {"it": "La forma (monolite modulare), quale modulo possiede quale entità, i campi delle tabelle, le transizioni ammesse e gli errori: 409 invalid_transition, correzioni solo con transizioni di compensazione.", "en": "The shape (modular monolith), which module owns which entity, the table fields, the allowed transitions and the errors: 409 invalid_transition, corrections only through compensating transitions."}},
+   {"id": "bp_autorizzazione", "ala": "blueprint", "file": "BLUEPRINT.md §4.4",
+    "nome": {"it": "§4.4 Autorizzazione (ABAC)", "en": "§4.4 Authorisation (ABAC)"},
+    "contiene": {"it": "Attributi del soggetto e della risorsa, azioni come contact:create, la politica di base. Il controllo si fa solo lato server, con Casbin e guardie applicative.", "en": "Subject and resource attributes, actions such as contact:create, the baseline policy. Enforcement is server-side only, with Casbin and application guards."}},
+   {"id": "bp_api", "ala": "blueprint", "file": "BLUEPRINT.md §4.5",
+    "nome": {"it": "§4.5 Contratti API", "en": "§4.5 API contracts"},
+    "contiene": {"it": "Gli endpoint (GET e POST /contacts, le transizioni…) e il contratto d'errore ProblemDetails, uguale per tutti i servizi. Il dettaglio sta in api/nebula-api.yaml.", "en": "The endpoints (GET and POST /contacts, the transitions…) and the ProblemDetails error contract, the same for every service. The detail lives in api/nebula-api.yaml."}},
+   {"id": "adr", "ala": "cartelle", "file": "architecture/decisions/",
+    "nome": {"it": "Decisioni registrate (ADR)", "en": "Recorded decisions (ADR)"},
+    "contiene": {"it": "39 file: per ogni scelta il contesto, le opzioni considerate e la decisione. Per esempio ADR-001 (JSON Schema condiviso), ADR-006 (authentik), ADR-007 (scope dei broker).", "en": "39 files: for every choice the context, the options considered and the decision. For example ADR-001 (shared JSON Schema), ADR-006 (authentik), ADR-007 (broker scope)."}},
+   {"id": "sicurezza", "ala": "cartelle", "file": "security/authorization-matrix.md",
+    "nome": {"it": "Matrice di autorizzazione", "en": "Authorisation matrix"},
+    "contiene": {"it": "Ruolo per ruolo, azione per azione: ALLOW o DENY con il vincolo e la fonte. La sezione 2.10 riguarda il BrokerUser esterno.", "en": "Role by role, action by action: ALLOW or DENY with the constraint and the source. Section 2.10 is about the external BrokerUser."}},
+   {"id": "schemi", "ala": "cartelle", "file": "schemas/*.schema.json",
+    "nome": {"it": "Schemi JSON condivisi", "en": "Shared JSON schemas"},
+    "contiene": {"it": "182 schemi: il contratto di ogni richiesta e di ogni risposta, letto sia dal frontend sia dal backend.", "en": "182 schemas: the contract of every request and every response, read by both the frontend and the backend."}},
+   {"id": "codice", "ala": "codice", "file": "engine/ · experience/ · neuron/",
+    "nome": {"it": "Codice", "en": "Code"},
+    "contiene": {"it": "Backend C# .NET, frontend React, livello AI in Python: qui si costruisce davvero. Negli estratti del corso non c'è: si studia la pianta, non il cantiere.", "en": "C# .NET backend, React frontend, Python AI layer: this is where things are actually built. It is not in the course excerpts: you study the plan, not the building site."}}
+  ],
+  "domande": [
+   {"id": "broker", "risposta": "sicurezza", "vicine": ["adr", "bp_autorizzazione"],
+    "testo": {"it": "Dove sta la regola che vieta a un broker di vedere i contatti di un altro broker?", "en": "Where is the rule that forbids a broker from seeing another broker's contacts?"},
+    "dove": {"it": "security/authorization-matrix.md, §2.10: «no cross-broker visibility»", "en": "security/authorization-matrix.md, §2.10: «no cross-broker visibility»"},
+    "tappe": [
+     {"stanza": "bp_autorizzazione", "nota": {"it": "il principio: autorizzazione solo lato server, risorse InternalOnly negate agli esterni.", "en": "the principle: server-side authorisation only, InternalOnly resources denied to external users."}},
+     {"stanza": "adr", "nota": {"it": "ADR-007, il meccanismo: scope dal claim broker_tenant_id; claim assente o ambiguo, accesso negato.", "en": "ADR-007, the mechanism: scope from the broker_tenant_id claim; missing or ambiguous claim, access denied."}},
+     {"stanza": "sicurezza", "nota": {"it": "§2.10, la regola puntuale: il BrokerUser legge solo i broker legati alla sua identità e i loro contatti.", "en": "§2.10, the precise rule: the BrokerUser reads only the brokers tied to its identity and their contacts."}}
+    ]},
+   {"id": "authentik", "risposta": "adr", "vicine": ["bp_piattaforma"],
+    "testo": {"it": "Perché l'accesso usa authentik e non Keycloak?", "en": "Why does sign-in use authentik and not Keycloak?"},
+    "dove": {"it": "architecture/decisions/ADR-006-authentik-idp-migration.md", "en": "architecture/decisions/ADR-006-authentik-idp-migration.md"},
+    "tappe": [
+     {"stanza": "bp_piattaforma", "nota": {"it": "registra solo l'esito: authentik sostituisce Keycloak, «per ADR-006».", "en": "records only the outcome: authentik replaces Keycloak, «per ADR-006»."}},
+     {"stanza": "adr", "nota": {"it": "ADR-006: nessun utente in produzione da migrare, un UserId interno indipendente dal fornitore; scartati Auth0 e Okta per costo e dipendenza.", "en": "ADR-006: no production users to migrate, an internal UserId independent of the provider; Auth0 and Okta discarded for cost and dependence."}}
+    ]},
+   {"id": "entita", "risposta": "bp_contesto", "vicine": ["bp_moduli", "schemi"],
+    "testo": {"it": "Quali sono le entità principali del CRM?", "en": "What are the main entities of the CRM?"},
+    "dove": {"it": "BLUEPRINT.md §1.3 «Core entities»", "en": "BLUEPRINT.md §1.3 «Core entities»"},
+    "tappe": [
+     {"stanza": "bp_moduli", "nota": {"it": "§4.1 dice quale modulo possiede ciascuna e §4.2 ne elenca i campi, ma l'elenco di base sta prima.", "en": "§4.1 says which module owns each one and §4.2 lists their fields, but the baseline list comes earlier."}},
+     {"stanza": "bp_contesto", "nota": {"it": "§1.3: 12 entità di base, da Account a UserPreference.", "en": "§1.3: 12 baseline entities, from Account to UserPreference."}}
+    ]},
+   {"id": "correzione", "risposta": "bp_moduli", "vicine": ["bp_piattaforma"],
+    "testo": {"it": "Una transizione di stato sbagliata si può cancellare?", "en": "Can a wrong state transition be deleted?"},
+    "dove": {"it": "BLUEPRINT.md §4.3: «corrections happen via compensating transitions»", "en": "BLUEPRINT.md §4.3: «corrections happen via compensating transitions»"},
+    "tappe": [
+     {"stanza": "bp_piattaforma", "nota": {"it": "il vincolo: audit, timeline e transizioni in sola aggiunta.", "en": "the constraint: audit, timeline and transitions append-only."}},
+     {"stanza": "bp_moduli", "nota": {"it": "§4.3: no, si corregge con una transizione di compensazione.", "en": "§4.3: no, you correct it with a compensating transition."}}
+    ]},
+   {"id": "validazione", "risposta": "schemi", "vicine": ["adr", "bp_api"],
+    "testo": {"it": "Chi decide se una richiesta «crea contatto» è ben formata?", "en": "Who decides whether a «create contact» request is well formed?"},
+    "dove": {"it": "schemas/contact-create-request.schema.json (scelta motivata in ADR-001)", "en": "schemas/contact-create-request.schema.json (choice explained in ADR-001)"},
+    "tappe": [
+     {"stanza": "adr", "nota": {"it": "ADR-001: un solo JSON Schema per frontend (AJV) e backend (NJsonSchema).", "en": "ADR-001: one JSON Schema for the frontend (AJV) and the backend (NJsonSchema)."}},
+     {"stanza": "schemi", "nota": {"it": "contact-create-request: 4 campi obbligatori, nessun campo in più.", "en": "contact-create-request: 4 required fields, no extra field."}}
+    ]},
+   {"id": "codice", "risposta": "codice", "vicine": ["bp_api"],
+    "testo": {"it": "Dove sta il codice che salva un nuovo contatto?", "en": "Where is the code that saves a new contact?"},
+    "dove": {"it": "engine/, il backend .NET (non negli estratti del corso)", "en": "engine/, the .NET backend (not in the course excerpts)"},
+    "tappe": [
+     {"stanza": "bp_api", "nota": {"it": "§4.5 dice che esiste POST /contacts: il cosa, non il come.", "en": "§4.5 says that POST /contacts exists: the what, not the how."}},
+     {"stanza": "codice", "nota": {"it": "il come sta in engine/: il blueprint non contiene codice.", "en": "the how lives in engine/: the blueprint contains no code."}}
+    ]}
+  ],
+  "moduli": [
+   {"id": "broker", "nome": "BrokerRelationship", "entita": ["Broker", "Contact", "MGA", "Program"], "legge": [],
+    "nota": {"it": "Possiede broker e contatti: CRUD, gerarchie, ricerca dei broker.", "en": "Owns brokers and contacts: CRUD, hierarchies, broker search."}},
+   {"id": "submission", "nome": "Submission", "entita": ["Submission"], "legge": [],
+    "nota": {"it": "Possiede la submission e il suo flusso; controlla i requisiti prima di ogni cambio di stato.", "en": "Owns the submission and its workflow; checks the prerequisites before every state change."}},
+   {"id": "renewal", "nome": "Renewal", "entita": ["Renewal"], "legge": [],
+    "nota": {"it": "Possiede il rinnovo, il suo flusso e il contatto con il broker.", "en": "Owns the renewal, its workflow and the outreach."}},
+   {"id": "account", "nome": "Account", "entita": ["Account"], "legge": [],
+    "nota": {"it": "Possiede il profilo del conto e dà il contesto a submission e rinnovi.", "en": "Owns the account profile and gives context to submissions and renewals."}},
+   {"id": "timeline", "nome": "TimelineAudit", "entita": ["ActivityTimelineEvent", "WorkflowTransition"], "legge": [],
+    "nota": {"it": "Possiede eventi e transizioni, scritti solo in aggiunta: nessuno li modifica né li cancella.", "en": "Owns events and transitions, written append-only: nobody modifies or deletes them."}},
+   {"id": "dashboard", "nome": "Dashboard", "entita": [], "legge": ["broker", "submission", "renewal", "task", "timeline"],
+    "nota": {"it": "Nessuna entità propria: legge da cinque moduli e aggrega KPI, pipeline e promemoria.", "en": "No entity of its own: reads from five modules and aggregates KPIs, pipeline and nudges."}},
+   {"id": "task", "nome": "TaskManagement", "entita": ["Task"], "legge": [],
+    "nota": {"it": "Possiede i compiti; ogni modifica genera un evento di timeline.", "en": "Owns the tasks; every change generates a timeline event."}},
+   {"id": "identita", "nome": "IdentityAuthorization", "entita": [], "legge": [],
+    "nota": {"it": "Valida i token di authentik, traduce (iss, sub) in un UserId interno e applica le politiche Casbin ABAC.", "en": "Validates authentik tokens, maps (iss, sub) to an internal UserId and enforces Casbin ABAC policies."}}
+  ],
+  "categorie": [
+   {"id": "blueprint", "nome": {"it": "Blueprint", "en": "Blueprint"}, "spiega": {"it": "che cosa si costruisce, per chi e perché", "en": "what is built, for whom and why"}},
+   {"id": "architettura", "nome": {"it": "Architettura", "en": "Architecture"}, "spiega": {"it": "come si divide il sistema: componenti e confini", "en": "how the system is split: components and boundaries"}},
+   {"id": "decisione", "nome": {"it": "Decisione (ADR)", "en": "Decision (ADR)"}, "spiega": {"it": "una scelta fra alternative, con il suo perché", "en": "a choice among alternatives, with its why"}},
+   {"id": "codice", "nome": {"it": "Codice", "en": "Code"}, "spiega": {"it": "come si fa, riga per riga", "en": "how it is done, line by line"}}
+  ],
+  "frasi": [
+   {"id": "f1", "migliore": "blueprint", "quasi": [],
+    "testo": {"it": "Nebula gestisce i rapporti con broker e MGA, conti, submission e rinnovi per le assicurazioni danni commerciali.", "en": "Nebula manages broker and MGA relationships, accounts, submissions and renewals for commercial P&C insurance."},
+    "spiega": {"it": "È il «che cosa si costruisce» della §1.1: dominio e scopo del prodotto.", "en": "It is the «what we are building» of §1.1: domain and purpose of the product."}},
+   {"id": "f2", "migliore": "architettura", "quasi": ["blueprint"],
+    "testo": {"it": "Un solo eseguibile, diviso in moduli con confini netti che si parlano con API interne.", "en": "A single deployable, split into modules with clean boundaries that talk through internal APIs."},
+    "spiega": {"it": "Descrive come si divide il sistema. Sta nel BLUEPRINT, ma nella fase B: è architettura.", "en": "It describes how the system is split. It is in the BLUEPRINT, but in phase B: it is architecture."}},
+   {"id": "f3", "migliore": "decisione", "quasi": [],
+    "testo": {"it": "Si passa da Keycloak ad authentik adesso, perché non ci sono utenti da migrare; scartati Auth0 e Okta per costo e dipendenza.", "en": "We switch from Keycloak to authentik now, because there are no users to migrate; Auth0 and Okta discarded for cost and dependence."},
+    "spiega": {"it": "Una scelta con le alternative scartate e il perché: è l'ADR-006.", "en": "A choice with the discarded alternatives and the why: it is ADR-006."}},
+   {"id": "f4", "migliore": "codice", "quasi": [],
+    "testo": {"it": "Una classe C# in engine/ che riceve POST /contacts, valida il corpo e salva con EF Core.", "en": "A C# class in engine/ that receives POST /contacts, validates the body and saves with EF Core."},
+    "spiega": {"it": "È il come, riga per riga: sta nel codice, non nei documenti di progetto.", "en": "It is the how, line by line: it lives in the code, not in the planning documents."}},
+   {"id": "f5", "migliore": "blueprint", "quasi": [],
+    "testo": {"it": "Gli utenti principali sono Distribution & Marketing; gli underwriter aggiornano i flussi e collaborano.", "en": "The primary users are Distribution & Marketing; underwriters update workflows and collaborate."},
+    "spiega": {"it": "Per chi si costruisce: sono gli utenti della §1.2.", "en": "Who it is built for: these are the users of §1.2."}},
+   {"id": "f6", "migliore": "architettura", "quasi": ["blueprint"],
+    "testo": {"it": "Il modulo TimelineAudit possiede eventi e transizioni, scritti solo in aggiunta.", "en": "The TimelineAudit module owns events and transitions, written append-only."},
+    "spiega": {"it": "Chi possiede che cosa: è un confine fra moduli della §4.1.", "en": "Who owns what: it is a module boundary from §4.1."}},
+   {"id": "f7", "migliore": "decisione", "quasi": ["architettura"],
+    "testo": {"it": "Un solo JSON Schema per frontend e backend: scartata la validazione scritta due volte, che col tempo diverge.", "en": "One JSON Schema for frontend and backend: validation written twice is discarded, because it drifts over time."},
+    "spiega": {"it": "Opzioni messe a confronto e una scelta motivata: è l'ADR-001. Ha effetti sull'architettura, ma la frase registra la decisione.", "en": "Options compared and a reasoned choice: it is ADR-001. It affects the architecture, but the sentence records the decision."}},
+   {"id": "f8", "migliore": "codice", "quasi": [],
+    "testo": {"it": "Il componente React che mostra l'errore «formato email non valido» sotto il campo.", "en": "The React component that shows the «invalid email format» error under the field."},
+    "spiega": {"it": "Un componente concreto dell'interfaccia: è codice in experience/.", "en": "A concrete interface component: it is code in experience/."}}
+  ],
+  "etichette": {
+   "titolo_comandi": {"it": "Comandi", "en": "Controls"},
+   "vista": {"it": "Vista", "en": "View"},
+   "vista_pianta": {"it": "Pianta", "en": "Plan"},
+   "vista_moduli": {"it": "Moduli", "en": "Modules"},
+   "vista_classifica": {"it": "Decidi tu", "en": "You decide"},
+   "domanda": {"it": "Domanda", "en": "Question"},
+   "nessuna_domanda": {"it": "— esplora liberamente —", "en": "— explore freely —"},
+   "mostra_percorso": {"it": "Mostra il percorso", "en": "Show the path"},
+   "nota_pianta": {"it": "Clicca una stanza della pianta per aprirla o per rispondere alla domanda.", "en": "Click a room of the plan to open it or to answer the question."},
+   "nota_moduli": {"it": "Clicca un modulo per vedere che cosa possiede e da chi legge.", "en": "Click a module to see what it owns and whom it reads from."},
+   "scegli": {"it": "— scegli —", "en": "— choose —"},
+   "controlla": {"it": "Controlla", "en": "Check"},
+   "descrizione_scena": {"it": "Pianta del repo nebula-insurance-crm: le stanze del BLUEPRINT, le cartelle di decisioni, sicurezza e schemi, e il codice.", "en": "Floor plan of the nebula-insurance-crm repo: the BLUEPRINT rooms, the decisions, security and schema folders, and the code."},
+   "titolo_pianta": {"it": "NEBULA-INSURANCE-CRM IN PIANTA", "en": "NEBULA-INSURANCE-CRM FLOOR PLAN"},
+   "titolo_moduli": {"it": "UN SOLO DEPLOYABLE: OTTO DEI SUOI MODULI", "en": "ONE DEPLOYABLE: EIGHT OF ITS MODULES"},
+   "titolo_classifica": {"it": "CHE COS'È QUESTA FRASE?", "en": "WHAT IS THIS SENTENCE?"},
+   "ala_blueprint": {"it": "planning-mds/BLUEPRINT.md", "en": "planning-mds/BLUEPRINT.md"},
+   "ala_cartelle": {"it": "planning-mds/ (accanto al BLUEPRINT)", "en": "planning-mds/ (next to the BLUEPRINT)"},
+   "ala_codice": {"it": "il cantiere", "en": "the building site"},
+   "monolite": {"it": "monolite modulare (BLUEPRINT §4.1)", "en": "modular monolith (BLUEPRINT §4.1)"},
+   "possiede": {"it": "possiede", "en": "owns"},
+   "nessuna_entita": {"it": "nessuna entità", "en": "no entity"},
+   "titolo_destra": {"it": "Che cosa c'è qui", "en": "What is here"},
+   "titolo_esiti": {"it": "Esito", "en": "Outcome"},
+   "titolo_categorie": {"it": "Le quattro categorie", "en": "The four categories"},
+   "regola": {"it": "Prima la pianta: il cosa nel blueprint, il perché negli ADR, la regola puntuale nella sua matrice, il come nel codice.", "en": "Plan first: the what in the blueprint, the why in the ADRs, the precise rule in its matrix, the how in the code."}
+  },
+  "testi": {
+   "apri_stanza": {"it": "Apri la stanza {nome}", "en": "Open the room {nome}"},
+   "apri_modulo": {"it": "Apri il modulo {nome}", "en": "Open the module {nome}"},
+   "nessuna": {"it": "Scegli una domanda e clicca la stanza dove pensi che sia la risposta, oppure apri le stanze per esplorare.", "en": "Choose a question and click the room where you think the answer is, or open the rooms to explore."},
+   "libera": {"it": "Stanza aperta: {stanza}. Scegli una domanda per metterti alla prova.", "en": "Room opened: {stanza}. Choose a question to test yourself."},
+   "in_attesa": {"it": "Clicca la stanza dove pensi che sia la risposta.", "en": "Click the room where you think the answer is."},
+   "ipotesi_giusta": {"it": "Giusto: la risposta sta in «{stanza}».", "en": "Right: the answer is in «{stanza}»."},
+   "ipotesi_vicina": {"it": "Vicino: «{stanza}» ne parla, ma la risposta precisa sta altrove. Premi «Mostra il percorso».", "en": "Close: «{stanza}» touches on it, but the precise answer is elsewhere. Press «Show the path»."},
+   "ipotesi_lontana": {"it": "No: in «{stanza}» la risposta non c'è. Riprova o premi «Mostra il percorso».", "en": "No: the answer is not in «{stanza}». Try again or press «Show the path»."},
+   "tappa": {"it": "{n}. {stanza}: {nota}", "en": "{n}. {stanza}: {nota}"},
+   "dove": {"it": "Risposta: {dove}", "en": "Answer: {dove}"},
+   "modulo_aperto": {"it": "{nome} possiede: {entita}.", "en": "{nome} owns: {entita}."},
+   "modulo_vuoto": {"it": "{nome} non possiede entità.", "en": "{nome} owns no entity."},
+   "modulo_legge": {"it": "Legge da: {moduli}.", "en": "Reads from: {moduli}."},
+   "frase": {"it": "Frase {n}", "en": "Sentence {n}"},
+   "scegli_per": {"it": "Categoria della frase {n}", "en": "Category of sentence {n}"},
+   "non_verificato": {"it": "Scegli le categorie e premi «Controlla».", "en": "Choose the categories and press «Check»."},
+   "scelte_fatte": {"it": "Hai classificato {n} frasi su {tot}.", "en": "You have classified {n} sentences out of {tot}."},
+   "ver_giusto": {"it": "{n}. Giusto ({migliore}): {spiega}", "en": "{n}. Right ({migliore}): {spiega}"},
+   "ver_quasi": {"it": "{n}. Quasi: meglio «{migliore}». {spiega}", "en": "{n}. Almost: «{migliore}» is better. {spiega}"},
+   "ver_sbagliato": {"it": "{n}. No: è «{migliore}». {spiega}", "en": "{n}. No: it is «{migliore}». {spiega}"},
+   "ver_vuoto": {"it": "{n}. Senza risposta: è «{migliore}». {spiega}", "en": "{n}. No answer: it is «{migliore}». {spiega}"},
+   "ver_punteggio": {"it": "{giuste} frasi giuste su {totali}.", "en": "{giuste} sentences right out of {totali}."},
+   "ver_tutto_giusto": {"it": "Tutte giuste: sai dove cercare il cosa, il come e il perché.", "en": "All right: you know where to look for the what, the how and the why."}
+  }
+ },
+ "domande": []
+}

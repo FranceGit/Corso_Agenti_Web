@@ -1,0 +1,282 @@
+{
+ "id": "L_commutatore_backend",
+ "pillola": "PO5.1",
+ "componente": "commutatore_backend",
+ "titolo": {"it": "Il commutatore", "en": "The switch"},
+ "sottotitolo": {"it": "Un assistente, tre motori: il codice che chiede resta uguale, cambia solo la configurazione.", "en": "One assistant, three engines: the code that asks stays the same, only the configuration changes."},
+ "segmenti": [
+  {
+   "id": "una_funzione",
+   "titolo": {"it": "Una sola porta: chiedi", "en": "A single door: chiedi"},
+   "narrazione": [
+    {"it": "Nel pacchetto esercizi/assistente/ chi ha bisogno del modello chiama una sola funzione: assistente.chiedi(domanda). Non sa quale motore risponde. Lo decide crea_assistente(), che legge assistente.json e sceglie fra tre backend [ASSISTENTE-OFFICINA].", "en": "In the esercizi/assistente/ package, whoever needs the model calls a single function: assistente.chiedi(question). It does not know which engine answers. crea_assistente() decides, by reading assistente.json and choosing among three backends [ASSISTENTE-OFFICINA]."},
+    {"it": "I tre backend hanno la stessa forma: un metodo rispondi(messaggi) che restituisce testo. È il contratto. Il chiamante conosce il contratto, non il motore.", "en": "The three backends have the same shape: a rispondi(messages) method that returns text. That is the contract. The caller knows the contract, not the engine."}
+   ],
+   "prova": {"it": "Premi «Chiedi» e segui la richiesta fino al backend finto e ritorno. Poi cambia la domanda.", "en": "Press «Ask» and follow the request to the fake backend and back. Then change the question."},
+   "concetti": ["CO13"],
+   "stato_animazione": {"vista": "commutatore", "file_backend": "finto", "variabile": "", "domanda": "ciao", "ollama_acceso": true, "chiave": true, "rete": true, "ripetizioni": 1, "stile": "interfaccia", "modifica": "cambia_modello", "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "tre_motori",
+   "titolo": {"it": "Tre motori, tre condizioni diverse", "en": "Three engines, three different conditions"},
+   "narrazione": [
+    {"it": "Il chiamante non cambia, il resto sì:", "en": "The caller does not change, the rest does:"},
+    {"it": "• finto: niente rete, niente chiave, risponde sempre uguale; basta per tutti i test e per il correttore;", "en": "• finto (fake): no network, no key, always the same answer; enough for all the tests and for the grader;"},
+    {"it": "• ollama: il modello qwen2.5:3b sul tuo PC, su 127.0.0.1:11434; gratis, ma solo se il servizio è acceso;", "en": "• ollama: the qwen2.5:3b model on your PC, at 127.0.0.1:11434; free, but only if the service is running;"},
+    {"it": "• groq: llama-3.1-8b-instant in rete, sul piano gratuito; serve la chiave GROQ_API_KEY e ci sono limiti indicativi di 30 richieste e 6000 token al minuto.", "en": "• groq: llama-3.1-8b-instant over the network, on the free plan; it needs the GROQ_API_KEY key and has indicative limits of 30 requests and 6000 tokens per minute."},
+    {"it": "Con temperatura 0 i modelli veri sono il più possibile ripetibili, non identici. Per un voto che si ripete serve il finto.", "en": "With temperature 0 the real models are as repeatable as possible, not identical. For a grade that repeats you need the fake one."}
+   ],
+   "prova": {"it": "Imposta ASSISTENTE_BACKEND su finto, ollama e groq e premi «Chiedi due volte». Poi spegni Ollama o la rete.", "en": "Set ASSISTENTE_BACKEND to finto, ollama and groq and press «Ask twice». Then turn off Ollama or the network."},
+   "concetti": ["CO13"],
+   "stato_animazione": {"vista": "commutatore", "file_backend": "finto", "variabile": "ollama", "domanda": "lead", "ollama_acceso": true, "chiave": true, "rete": true, "ripetizioni": 2, "stile": "interfaccia", "modifica": "cambia_modello", "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "configurazione",
+   "titolo": {"it": "Prima la configurazione, con il perché", "en": "Configuration first, with the reason"},
+   "narrazione": [
+    {"it": "La scelta sta in assistente.json, non nel codice. Nel repo il file dice \"backend\": \"finto\" e il suo _why_backend spiega perché: test e correttore devono dare sempre lo stesso esito.", "en": "The choice lives in assistente.json, not in the code. In the repo the file says \"backend\": \"finto\" and its _why_backend explains why: tests and grader must always give the same result."},
+    {"it": "Per un modello vero il file non si tocca: si imposta ASSISTENTE_BACKEND, l'unica sostituzione ammessa da fuori. Un valore fuori elenco ferma tutto con un errore che elenca i backend ammessi.", "en": "For a real model the file is not touched: you set ASSISTENTE_BACKEND, the only override allowed from outside. A value outside the list stops everything with an error that lists the allowed backends."},
+    {"it": "Ogni scelta ha il suo _why: chi rilegge sa perché la temperatura è 0 e max_token è 512.", "en": "Every choice has its _why: whoever rereads it knows why the temperature is 0 and max_token is 512."}
+   ],
+   "prova": {"it": "Metti ASSISTENTE_BACKEND su «openai» e guarda dove si ferma la richiesta. Poi lasciala non impostata e cambia il backend nel file.", "en": "Set ASSISTENTE_BACKEND to «openai» and see where the request stops. Then leave it unset and change the backend in the file."},
+   "concetti": ["CO13"],
+   "stato_animazione": {"vista": "commutatore", "file_backend": "finto", "variabile": "groq", "domanda": "classificatore", "ollama_acceso": true, "chiave": true, "rete": true, "ripetizioni": 1, "stile": "interfaccia", "modifica": "cambia_modello", "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "dettagli_sparsi",
+   "titolo": {"it": "Se il chiamante conosce il motore", "en": "If the caller knows the engine"},
+   "narrazione": [
+    {"it": "Immagina quattro chiamanti, ognuno con il suo if backend == \"groq\": … elif \"ollama\": …, con URL, nome del modello e lettura della risposta.", "en": "Imagine four callers, each with its own if backend == \"groq\": … elif \"ollama\": …, with URL, model name and reading of the answer."},
+    {"it": "Ogni modifica si moltiplica per quattro: basta dimenticare un posto e due parti del programma usano modelli diversi. Nel repo adottato README e codice già non concordano sul modello [REPO-PATOWARI].", "en": "Every change is multiplied by four: forget one place and two parts of the program use different models. In the adopted repo, README and code already disagree on the model [REPO-PATOWARI]."},
+    {"it": "Con l'interfaccia unica la stessa modifica tocca uno o due posti, e nessun chiamante.", "en": "With the single interface the same change touches one or two places, and no caller."}
+   ],
+   "prova": {"it": "Scegli una modifica e passa da «Interfaccia unica» a «Dettagli sparsi»: conta i riquadri rossi.", "en": "Choose a change and switch from «Single interface» to «Scattered details»: count the red boxes."},
+   "concetti": ["CO13"],
+   "stato_animazione": {"vista": "sparso", "file_backend": "finto", "variabile": "", "domanda": "ciao", "ollama_acceso": true, "chiave": true, "rete": true, "ripetizioni": 1, "stile": "sparso", "modifica": "cambia_modello", "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "decidi_commutatore",
+   "titolo": {"it": "Decidi tu: dove si cambia?", "en": "You decide: where does the change go?"},
+   "narrazione": [
+    {"it": "Cinque richieste del team. Per ognuna decidi che cosa va toccato: solo la configurazione, un backend nuovo o il codice del chiamante.", "en": "Five requests from the team. For each one decide what must be touched: only the configuration, a new backend or the caller's code."}
+   ],
+   "prova": {"it": "Scegli una risposta per ogni richiesta, poi premi «Controlla» e leggi il perché.", "en": "Choose an answer for each request, then press «Check» and read why."},
+   "concetti": ["CO13"],
+   "stato_animazione": {"vista": "decidi", "file_backend": "finto", "variabile": "", "domanda": "ciao", "ollama_acceso": true, "chiave": true, "rete": true, "ripetizioni": 1, "stile": "interfaccia", "modifica": "cambia_modello", "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "riassunto",
+   "titolo": {"it": "In tre frasi", "en": "In three sentences"},
+   "narrazione": [
+    {"it": "Chi ha bisogno del modello chiama una sola funzione e i tre backend rispondono con la stessa forma: il chiamante non sa chi risponde.", "en": "Whoever needs the model calls a single function and the three backends answer with the same shape: the caller does not know who answers."},
+    {"it": "Finto, ollama e groq differiscono per rete, chiave, costo e ripetibilità: il finto, sempre uguale e senza rete, è il backend di test e correttore.", "en": "Finto, ollama and groq differ in network, key, cost and repeatability: the fake one, always the same and without network, is the backend of tests and grader."},
+    {"it": "La scelta vive in assistente.json, con il perché di ogni valore, e da fuori si cambia solo con ASSISTENTE_BACKEND.", "en": "The choice lives in assistente.json, with the reason for every value, and from outside it changes only through ASSISTENTE_BACKEND."}
+   ],
+   "concetti": ["CO13"],
+   "stato_animazione": {"vista": "commutatore", "file_backend": "finto", "variabile": "", "domanda": "ciao", "ollama_acceso": true, "chiave": true, "rete": true, "ripetizioni": 1, "stile": "interfaccia", "modifica": "cambia_modello", "scelte": {}, "verificato": false}
+  }
+ ],
+ "scenario": {
+  "parametri": {"ms_fase": 480},
+  "config": {
+   "file": "assistente.json",
+   "variabile_backend": "ASSISTENTE_BACKEND",
+   "ammessi": ["finto", "ollama", "groq"],
+   "variabile_chiave": "GROQ_API_KEY",
+   "url_ollama": "http://127.0.0.1:11434",
+   "temperatura": 0,
+   "max_token": 512,
+   "limiti_groq": {"richieste_al_minuto": 30, "token_al_minuto": 6000}
+  },
+  "valori_variabile": ["", "finto", "ollama", "groq", "openai"],
+  "istruzioni_sistema": {"it": "Sei l'assistente dell'Officina del corso sugli agenti AI. Rispondi in italiano, in modo breve e concreto. Se non sai, dillo.", "en": "You are the assistant of the Workshop of the course on AI agents. Answer briefly and concretely. If you do not know, say so."},
+  "codice_chiamante": ["def aiuto(domanda):", "    return assistente.chiedi(domanda)"],
+  "domande": [
+   {
+    "id": "ciao",
+    "testo": {"it": "ciao", "en": "hello"},
+    "risposta_finto": {"it": "Ciao! Sono l'assistente finto dell'Officina: rispondo sempre uguale, senza rete. Per un modello vero imposta ASSISTENTE_BACKEND=ollama o groq.", "en": "Hello! I am the Workshop's fake assistant: I always answer the same, with no network. For a real model set ASSISTENTE_BACKEND=ollama or groq."},
+    "risposte_modello": {
+     "ollama": [{"it": "Ciao! Sono l'assistente dell'Officina. Che cosa vuoi sapere sul corso?", "en": "Hello! I am the Workshop assistant. What would you like to know about the course?"}, {"it": "Ciao! Dimmi pure: su quale parte dell'Officina ti serve aiuto?", "en": "Hello! Go ahead: which part of the Workshop do you need help with?"}],
+     "groq": [{"it": "Ciao! Come posso aiutarti con l'Officina oggi?", "en": "Hello! How can I help you with the Workshop today?"}, {"it": "Ciao! Sono qui per le tue domande sull'Officina.", "en": "Hello! I am here for your questions about the Workshop."}]
+    }
+   },
+   {
+    "id": "classificatore",
+    "testo": {"it": "che cosa fa il classificatore delle risposte?", "en": "what does the reply classifier do?"},
+    "risposta_finto": {"it": "Legge il JSON del modello e mappa l'etichetta su Interested, Not Interested o Needs Follow-up. Attenzione all'ordine dei controlli: «Not Interested» contiene «Interested».", "en": "It reads the model's JSON and maps the label to Interested, Not Interested or Needs Follow-up. Watch the order of the checks: «Not Interested» contains «Interested»."},
+    "risposte_modello": {
+     "ollama": [{"it": "Classifica la risposta del lead in Interested, Not Interested o Needs Follow-up leggendo il JSON del modello.", "en": "It classifies the lead's reply as Interested, Not Interested or Needs Follow-up by reading the model's JSON."}, {"it": "Prende il JSON restituito dal modello e assegna una delle tre etichette alla risposta del lead.", "en": "It takes the JSON returned by the model and assigns one of the three labels to the lead's reply."}],
+     "groq": [{"it": "Trasforma l'etichetta del modello in uno stato: Interested, Not Interested o Needs Follow-up.", "en": "It turns the model's label into a status: Interested, Not Interested or Needs Follow-up."}, {"it": "Decide lo stato della risposta del lead a partire dal campo classification del JSON.", "en": "It decides the status of the lead's reply from the classification field of the JSON."}]
+    }
+   },
+   {
+    "id": "lead",
+    "testo": {"it": "Classifica: «Non mi interessa, grazie»", "en": "Classify: «Not interested, thanks»"},
+    "risposta_finto": null,
+    "risposte_modello": {
+     "ollama": [{"it": "Not Interested", "en": "Not Interested"}, {"it": "Not Interested: il lead declina con cortesia.", "en": "Not Interested: the lead politely declines."}],
+     "groq": [{"it": "Not Interested", "en": "Not Interested"}, {"it": "La risposta è Not Interested.", "en": "The answer is Not Interested."}]
+    }
+   }
+  ],
+  "backend": [
+   {"id": "finto", "nome": "finto", "modello": {"it": "nessuno: tabella di risposte più eco con impronta", "en": "none: table of answers plus echo with fingerprint"}, "modello_breve": {"it": "nessuno (tabella + eco)", "en": "none (table + echo)"}, "dove": {"it": "nel processo Python, in memoria", "en": "in the Python process, in memory"}, "rete": {"it": "no", "en": "no"}, "chiave": {"it": "no", "en": "no"}, "costo": {"it": "0 €", "en": "€0"}, "ripetibile": {"it": "sempre identico", "en": "always identical"}, "attesa": {"it": "immediata", "en": "immediate"}, "why": {"it": "backend deterministico per test, correttore e lavoro offline; per le domande fuori tabella un'eco riconoscibile, mai una risposta che sembri vera.", "en": "deterministic backend for tests, grader and offline work; for questions outside the table a recognisable echo, never an answer that looks real."}},
+   {"id": "ollama", "nome": "ollama", "modello": {"it": "qwen2.5:3b", "en": "qwen2.5:3b"}, "modello_breve": {"it": "qwen2.5:3b", "en": "qwen2.5:3b"}, "dove": {"it": "sul tuo PC, 127.0.0.1:11434", "en": "on your PC, 127.0.0.1:11434"}, "rete": {"it": "no (solo locale)", "en": "no (local only)"}, "chiave": {"it": "no", "en": "no"}, "costo": {"it": "0 €, gira sul tuo PC", "en": "€0, runs on your PC"}, "ripetibile": {"it": "temperatura 0: il più possibile", "en": "temperature 0: as far as possible"}, "attesa": {"it": "dipende dal tuo PC", "en": "depends on your PC"}, "why": {"it": "modello locale e gratuito sul proprio PC, senza chiave; qwen2.5:3b gira anche senza scheda video.", "en": "local, free model on your own PC, with no key; qwen2.5:3b runs even without a graphics card."}},
+   {"id": "groq", "nome": "groq", "modello": {"it": "llama-3.1-8b-instant", "en": "llama-3.1-8b-instant"}, "modello_breve": {"it": "llama-3.1-8b-instant", "en": "llama-3.1-8b-instant"}, "dove": {"it": "api.groq.com, in rete", "en": "api.groq.com, over the network"}, "rete": {"it": "sì", "en": "yes"}, "chiave": {"it": "GROQ_API_KEY", "en": "GROQ_API_KEY"}, "costo": {"it": "0 € sul piano gratuito, con limiti", "en": "€0 on the free plan, with limits"}, "ripetibile": {"it": "temperatura 0: il più possibile", "en": "temperature 0: as far as possible"}, "attesa": {"it": "rete più coda del servizio", "en": "network plus service queue"}, "why": {"it": "piano gratuito, API compatibile con quella di OpenAI; la chiave arriva solo dalla variabile nominata in variabile_chiave e, se manca, l'assistente si ferma e lo dice.", "en": "free plan, API compatible with OpenAI's; the key comes only from the variable named in variabile_chiave and, if it is missing, the assistant stops and says so."}}
+  ],
+  "chiamanti": [
+   {"id": "punteggio", "nome": {"it": "punteggio del lead", "en": "lead score"}},
+   {"id": "persona", "nome": {"it": "persona d'acquisto", "en": "buyer persona"}},
+   {"id": "email", "nome": {"it": "email di contatto", "en": "outreach email"}},
+   {"id": "classifica", "nome": {"it": "classifica risposta", "en": "reply classifier"}}
+  ],
+  "codice_stile": {
+   "interfaccia": ["prompt = costruisci_prompt(lead)", "testo = assistente.chiedi(prompt)"],
+   "sparso": ["if b == \"groq\": post(GROQ, \"llama-3.1-8b-instant\")", "elif b == \"ollama\": post(OLLAMA, \"qwen2.5:3b\")", "else: testo = finto(prompt)"]
+  },
+  "codice_config": ["\"backend\": \"finto\",", "\"groq\": {\"modello\": \"llama-3.1-8b-instant\",", "         \"variabile_chiave\": \"GROQ_API_KEY\"}"],
+  "modifiche": [
+   {
+    "id": "cambia_modello",
+    "nome": {"it": "Cambia il modello di Groq", "en": "Change the Groq model"},
+    "spiega": {"it": "Il piano gratuito cambia l'elenco dei modelli. Con l'interfaccia unica il nome del modello sta in un solo posto; con i dettagli sparsi è ripetuto in ogni chiamante, e basta dimenticarne uno.", "en": "The free plan changes its list of models. With the single interface the model name lives in one place; with scattered details it is repeated in every caller, and forgetting one is enough."},
+    "interfaccia": [{"bersaglio": "config", "cosa": {"it": "assistente.json: groq.modello, scelto fra i modelli_free", "en": "assistente.json: groq.modello, chosen among modelli_free"}, "cosa_breve": {"it": "groq.modello", "en": "groq.modello"}}],
+    "sparso": [
+     {"bersaglio": "punteggio", "cosa": {"it": "punteggio del lead: la stringa del modello ripetuta", "en": "lead score: the repeated model string"}, "cosa_breve": {"it": "stringa del modello", "en": "model string"}},
+     {"bersaglio": "persona", "cosa": {"it": "persona d'acquisto: la stringa del modello ripetuta", "en": "buyer persona: the repeated model string"}, "cosa_breve": {"it": "stringa del modello", "en": "model string"}},
+     {"bersaglio": "email", "cosa": {"it": "email di contatto: la stringa del modello ripetuta", "en": "outreach email: the repeated model string"}, "cosa_breve": {"it": "stringa del modello", "en": "model string"}},
+     {"bersaglio": "classifica", "cosa": {"it": "classifica risposta: la stringa del modello ripetuta", "en": "reply classifier: the repeated model string"}, "cosa_breve": {"it": "stringa del modello", "en": "model string"}}
+    ]
+   },
+   {
+    "id": "nuovo_backend",
+    "nome": {"it": "Aggiungi un quarto backend", "en": "Add a fourth backend"},
+    "spiega": {"it": "Un servizio nuovo con un'API diversa. Con l'interfaccia unica serve una classe nuova con rispondi(messaggi) e la sua sezione nella configurazione: i chiamanti non se ne accorgono.", "en": "A new service with a different API. With the single interface you need a new class with rispondi(messages) and its section in the configuration: the callers do not notice."},
+    "interfaccia": [
+     {"bersaglio": "modulo", "cosa": {"it": "backend.py: una classe nuova con rispondi(messaggi), più un ramo in crea_assistente", "en": "backend.py: a new class with rispondi(messages), plus one branch in crea_assistente"}, "cosa_breve": {"it": "classe nuova + un ramo", "en": "new class + one branch"}},
+     {"bersaglio": "config", "cosa": {"it": "assistente.json: una sezione nuova con il suo _why e il nome in backend_ammessi", "en": "assistente.json: a new section with its _why and the name in backend_ammessi"}, "cosa_breve": {"it": "sezione nuova con _why", "en": "new section with _why"}}
+    ],
+    "sparso": [
+     {"bersaglio": "punteggio", "cosa": {"it": "punteggio del lead: un elif in più con URL, intestazioni e lettura della risposta", "en": "lead score: one more elif with URL, headers and reading of the answer"}, "cosa_breve": {"it": "un elif in più", "en": "one more elif"}},
+     {"bersaglio": "persona", "cosa": {"it": "persona d'acquisto: un elif in più con URL, intestazioni e lettura della risposta", "en": "buyer persona: one more elif with URL, headers and reading of the answer"}, "cosa_breve": {"it": "un elif in più", "en": "one more elif"}},
+     {"bersaglio": "email", "cosa": {"it": "email di contatto: un elif in più con URL, intestazioni e lettura della risposta", "en": "outreach email: one more elif with URL, headers and reading of the answer"}, "cosa_breve": {"it": "un elif in più", "en": "one more elif"}},
+     {"bersaglio": "classifica", "cosa": {"it": "classifica risposta: un elif in più con URL, intestazioni e lettura della risposta", "en": "reply classifier: one more elif with URL, headers and reading of the answer"}, "cosa_breve": {"it": "un elif in più", "en": "one more elif"}}
+    ]
+   },
+   {
+    "id": "test_offline",
+    "nome": {"it": "Fai girare i test senza rete", "en": "Run the tests without network"},
+    "spiega": {"it": "Test e correttore devono dare sempre lo stesso esito. Con l'interfaccia unica basta il backend finto, già scritto nel file; con i dettagli sparsi ogni chiamante va reso finto a mano, oppure i test chiamano la rete.", "en": "Tests and grader must always give the same result. With the single interface the fake backend, already written in the file, is enough; with scattered details every caller must be faked by hand, or the tests call the network."},
+    "interfaccia": [],
+    "sparso": [
+     {"bersaglio": "punteggio", "cosa": {"it": "punteggio del lead: un ramo finto in più, o la rete nei test", "en": "lead score: one more fake branch, or the network in the tests"}, "cosa_breve": {"it": "ramo finto", "en": "fake branch"}},
+     {"bersaglio": "persona", "cosa": {"it": "persona d'acquisto: un ramo finto in più, o la rete nei test", "en": "buyer persona: one more fake branch, or the network in the tests"}, "cosa_breve": {"it": "ramo finto", "en": "fake branch"}},
+     {"bersaglio": "email", "cosa": {"it": "email di contatto: un ramo finto in più, o la rete nei test", "en": "outreach email: one more fake branch, or the network in the tests"}, "cosa_breve": {"it": "ramo finto", "en": "fake branch"}},
+     {"bersaglio": "classifica", "cosa": {"it": "classifica risposta: un ramo finto in più, o la rete nei test", "en": "reply classifier: one more fake branch, or the network in the tests"}, "cosa_breve": {"it": "ramo finto", "en": "fake branch"}}
+    ]
+   }
+  ],
+  "risposte_gioco": [
+   {"id": "configurazione", "nome": {"it": "Solo la configurazione", "en": "Only the configuration"}, "quando": {"it": "assistente.json o la variabile ASSISTENTE_BACKEND: nessuna riga di codice.", "en": "assistente.json or the ASSISTENTE_BACKEND variable: no line of code."}},
+   {"id": "backend", "nome": {"it": "Un backend nuovo", "en": "A new backend"}, "quando": {"it": "una classe con rispondi(messaggi) e un ramo in crea_assistente: i chiamanti restano uguali.", "en": "a class with rispondi(messages) and one branch in crea_assistente: the callers stay the same."}},
+   {"id": "chiamante", "nome": {"it": "Il codice del chiamante", "en": "The caller's code"}, "quando": {"it": "cambia che cosa si chiede, non chi risponde.", "en": "what is asked changes, not who answers."}}
+  ],
+  "casi": [
+   {"id": "prova_groq", "testo": {"it": "Vuoi provare Groq nel tuo codespace senza cambiare niente nel repo.", "en": "You want to try Groq in your codespace without changing anything in the repo."}, "giusta": "configurazione", "spiega": {"it": "ASSISTENTE_BACKEND=groq più il segreto GROQ_API_KEY: il file resta su finto.", "en": "ASSISTENTE_BACKEND=groq plus the GROQ_API_KEY secret: the file stays on finto."}},
+   {"id": "modello_ritirato", "testo": {"it": "Il piano gratuito ritira il modello che usi oggi con Groq.", "en": "The free plan withdraws the model you use with Groq today."}, "giusta": "configurazione", "spiega": {"it": "Si aggiorna groq.modello in assistente.json, scegliendo fra i modelli_free: nessun chiamante cambia.", "en": "You update groq.modello in assistente.json, choosing among modelli_free: no caller changes."}},
+   {"id": "quarto_servizio", "testo": {"it": "Vuoi aggiungere un quarto servizio, con un'API diversa dalle altre due.", "en": "You want to add a fourth service, with an API different from the other two."}, "giusta": "backend", "spiega": {"it": "Una classe nuova con rispondi(messaggi) e un ramo in crea_assistente: i chiamanti restano uguali.", "en": "A new class with rispondi(messages) and one branch in crea_assistente: the callers stay the same."}},
+   {"id": "json_classificatore", "testo": {"it": "Il classificatore deve chiedere al modello un JSON con il campo classification invece di testo libero.", "en": "The classifier must ask the model for a JSON with the classification field instead of free text."}, "giusta": "chiamante", "spiega": {"it": "È il contenuto della domanda, che appartiene al chiamante: il backend trasporta messaggi, non decide che cosa chiedere.", "en": "It is the content of the question, which belongs to the caller: the backend carries messages, it does not decide what to ask."}},
+   {"id": "voto_ripetibile", "testo": {"it": "Il correttore deve dare lo stesso voto a ogni ricorrezione dello stesso tentativo.", "en": "The grader must give the same grade at every regrading of the same attempt."}, "giusta": "configurazione", "spiega": {"it": "Basta il backend finto, già scritto nel file del repo: nessuna riga di codice.", "en": "The fake backend, already written in the repo file, is enough: no line of code."}}
+  ],
+  "etichette": {
+   "titolo_comandi": {"it": "Comandi", "en": "Controls"},
+   "vista": {"it": "Vista", "en": "View"},
+   "vista_commutatore": {"it": "Commutatore", "en": "Switch"},
+   "vista_sparso": {"it": "Dettagli sparsi", "en": "Scattered details"},
+   "vista_decidi": {"it": "Decidi tu", "en": "You decide"},
+   "domanda": {"it": "Domanda del chiamante", "en": "Caller's question"},
+   "file_backend": {"it": "\"backend\" in assistente.json", "en": "\"backend\" in assistente.json"},
+   "variabile": {"it": "Variabile ASSISTENTE_BACKEND", "en": "ASSISTENTE_BACKEND variable"},
+   "non_impostata": {"it": "(non impostata)", "en": "(not set)"},
+   "ollama_acceso": {"it": "Ollama acceso sul PC", "en": "Ollama running on the PC"},
+   "chiave": {"it": "GROQ_API_KEY impostata", "en": "GROQ_API_KEY set"},
+   "rete": {"it": "Rete disponibile", "en": "Network available"},
+   "chiedi": {"it": "Chiedi", "en": "Ask"},
+   "chiedi_due": {"it": "Chiedi due volte", "en": "Ask twice"},
+   "stile": {"it": "Come chiamano il modello", "en": "How they call the model"},
+   "stile_interfaccia": {"it": "Interfaccia unica", "en": "Single interface"},
+   "stile_sparso": {"it": "Dettagli sparsi", "en": "Scattered details"},
+   "modifica": {"it": "Modifica da fare", "en": "Change to make"},
+   "scegli": {"it": "— scegli —", "en": "— choose —"},
+   "controlla": {"it": "Controlla", "en": "Check"},
+   "descrizione_scena": {"it": "Il chiamante, il commutatore che legge file e variabile, i tre backend e il percorso della richiesta", "en": "The caller, the switch that reads file and variable, the three backends and the path of the request"},
+   "titolo_commutatore": {"it": "UNA FUNZIONE, TRE BACKEND", "en": "ONE FUNCTION, THREE BACKENDS"},
+   "titolo_sparso": {"it": "CHI VA TOCCATO PER UNA MODIFICA", "en": "WHAT MUST BE TOUCHED FOR A CHANGE"},
+   "titolo_decidi": {"it": "DECIDI TU: DOVE SI CAMBIA?", "en": "YOU DECIDE: WHERE DOES THE CHANGE GO?"},
+   "titolo_esiti": {"it": "Esito", "en": "Outcome"},
+   "titolo_spiegazioni": {"it": "Chi risponde e a quali condizioni", "en": "Who answers and on what conditions"},
+   "chiamante": {"it": "Chiamante", "en": "Caller"},
+   "ambiente": {"it": "Ambiente", "en": "Environment"},
+   "commutatore": {"it": "Commutatore", "en": "Switch"},
+   "stato_pronto": {"it": "pronto", "en": "ready"},
+   "stato_spento": {"it": "spento", "en": "off"},
+   "stato_senza_chiave": {"it": "senza chiave", "en": "no key"},
+   "stato_offline": {"it": "senza rete", "en": "offline"},
+   "modulo_interfaccia": {"it": "assistente/ · un solo modulo", "en": "assistente/ · a single module"},
+   "modulo_sparso": {"it": "Nessun modulo comune", "en": "No shared module"},
+   "prop_modello": {"it": "Modello", "en": "Model"},
+   "prop_dove": {"it": "Dove gira", "en": "Where it runs"},
+   "prop_rete": {"it": "Rete", "en": "Network"},
+   "prop_chiave": {"it": "Chiave", "en": "Key"},
+   "prop_costo": {"it": "Costo", "en": "Cost"},
+   "prop_ripetibile": {"it": "Ripetibile", "en": "Repeatable"},
+   "prop_attesa": {"it": "Attesa", "en": "Wait"},
+   "regola": {"it": "Il chiamante conosce la funzione, non il motore: il motore si sceglie nella configurazione.", "en": "The caller knows the function, not the engine: the engine is chosen in the configuration."}
+  },
+  "testi": {
+   "err_variabile": {"it": "{variabile}='{valore}' non ammesso: scegli fra {ammessi}", "en": "{variabile}='{valore}' not allowed: choose among {ammessi}"},
+   "err_chiave": {"it": "backend 'groq' scelto ma la variabile d'ambiente {var} è vuota o assente. Crea una chiave gratuita su console.groq.com, poi: in Codespaces aggiungila come segreto {var} (Settings → Codespaces → Secrets) e riapri il codespace; sul PC: set {var}=... (Windows) o export {var}=... (Linux/macOS). Per lavorare senza rete: ASSISTENTE_BACKEND=finto. La chiave non va MAI scritta nei file del repo.", "en": "backend 'groq' chosen but the environment variable {var} is empty or missing. Create a free key on console.groq.com, then: in Codespaces add it as the secret {var} (Settings → Codespaces → Secrets) and reopen the codespace; on the PC: set {var}=... (Windows) or export {var}=... (Linux/macOS). To work without network: ASSISTENTE_BACKEND=finto. The key must NEVER be written in the repo files."},
+   "err_ollama": {"it": "Ollama non risponde su {url}/api/chat ([Errno 111] Connection refused). È acceso? Avvialo con «ollama serve» e scarica il modello con «ollama pull {modello}», oppure usa il backend finto.", "en": "Ollama does not answer on {url}/api/chat ([Errno 111] Connection refused). Is it running? Start it with «ollama serve» and download the model with «ollama pull {modello}», or use the fake backend."},
+   "err_rete_groq": {"it": "Groq non raggiungibile ([Errno -3] Temporary failure in name resolution): sei in rete? Per lavorare offline usa il backend finto o ollama.", "en": "Groq unreachable ([Errno -3] Temporary failure in name resolution): are you online? To work offline use the fake backend or ollama."},
+   "eco_finto": {"it": "[assistente finto] Ho ricevuto: «{domanda}» (impronta {impronta}). Per una risposta vera usa ASSISTENTE_BACKEND=ollama o groq.", "en": "[fake assistant] I received: «{domanda}» (fingerprint {impronta}). For a real answer use ASSISTENTE_BACKEND=ollama or groq."},
+   "domanda_chiamante": {"it": "domanda: «{domanda}»", "en": "question: «{domanda}»"},
+   "righe_cambiate": {"it": "0 righe cambiate nel chiamante", "en": "0 lines changed in the caller"},
+   "why_backend_breve": {"it": "_why_backend: nel repo resta finto, deterministico, senza rete e senza costi.", "en": "_why_backend: in the repo it stays finto, deterministic, no network and no cost."},
+   "variabile_vuota": {"it": "{variabile} non impostata", "en": "{variabile} not set"},
+   "com_errore": {"it": "✕ si ferma qui", "en": "✕ stops here"},
+   "com_scelto": {"it": "→ {backend}", "en": "→ {backend}"},
+   "riga_modello": {"it": "modello: {modello}", "en": "model: {modello}"},
+   "riga_rete": {"it": "rete: {rete} · chiave: {chiave}", "en": "network: {rete} · key: {chiave}"},
+   "riga_ripetibile": {"it": "ripetibile: {ripetibile}", "en": "repeatable: {ripetibile}"},
+   "riga_costo": {"it": "costo: {costo}", "en": "cost: {costo}"},
+   "modulo_interfaccia": {"it": "backend.py: BackendFinto, BackendOllama e BackendGroq, tutti con rispondi(messaggi). crea_assistente() sceglie quale usare.", "en": "backend.py: BackendFinto, BackendOllama and BackendGroq, all with rispondi(messages). crea_assistente() chooses which one to use."},
+   "modulo_sparso": {"it": "Ogni chiamante parla da sé con il servizio: URL, chiave, nome del modello e lettura della risposta sono copiati in quattro posti.", "en": "Each caller talks to the service on its own: URL, key, model name and reading of the answer are copied in four places."},
+   "conteggio": {"it": "{punti} punti da toccare · {chiamanti} chiamanti", "en": "{punti} places to touch · {chiamanti} callers"},
+   "conteggio_attesa": {"it": "Conto i punti da toccare…", "en": "Counting the places to touch…"},
+   "riga_confronto": {"it": "{stile}: {punti} punti da toccare, {chiamanti} chiamanti", "en": "{stile}: {punti} places to touch, {chiamanti} callers"},
+   "nessun_punto": {"it": "Nessun punto da toccare: il backend finto è già scritto nel file.", "en": "Nothing to touch: the fake backend is already written in the file."},
+   "caso": {"it": "Richiesta {n}", "en": "Request {n}"},
+   "scegli_per": {"it": "Scelta per la richiesta {n}", "en": "Choice for request {n}"},
+   "ver_vuoto": {"it": "{n}. Nessuna scelta. Risposta: {giusta}. {spiega}", "en": "{n}. No choice. Answer: {giusta}. {spiega}"},
+   "ver_giusto": {"it": "{n}. Giusto: {giusta}. {spiega}", "en": "{n}. Right: {giusta}. {spiega}"},
+   "ver_sbagliato": {"it": "{n}. No: la risposta è {giusta}. {spiega}", "en": "{n}. No: the answer is {giusta}. {spiega}"},
+   "ver_tutto_giusto": {"it": "Tutto giusto: sai dove va ogni modifica.", "en": "All right: you know where every change goes."},
+   "ver_punteggio": {"it": "{giuste} risposte giuste su {totali}: leggi il perché di quelle rosse.", "en": "{giuste} right answers out of {totali}: read why for the red ones."},
+   "decidi_istruzioni": {"it": "Per ogni richiesta scegli che cosa va toccato, poi premi «Controlla».", "en": "For each request choose what must be touched, then press «Check»."},
+   "codice_uscita": {"it": "codice di uscita {n}", "en": "exit code {n}"},
+   "in_corso": {"it": "…la richiesta è in viaggio", "en": "…the request is travelling"},
+   "esecuzione_n": {"it": "Esecuzione n. {n}", "en": "Run no. {n}"},
+   "esito_ok": {"it": "Ha risposto il backend {backend}: il chiamante ha ricevuto testo, come sempre.", "en": "The {backend} backend answered: the caller received text, as always."},
+   "esito_fermo_commutatore": {"it": "Fermo nel commutatore, prima di qualunque chiamata: l'errore dice che cosa manca e come rimediare.", "en": "Stopped in the switch, before any call: the error says what is missing and how to fix it."},
+   "esito_fermo_backend": {"it": "Fermo nel backend: il servizio non risponde e l'errore lo dice, senza inventare una risposta.", "en": "Stopped in the backend: the service does not answer and the error says so, without inventing an answer."},
+   "confronto_uguali": {"it": "Le due risposte sono identiche: un test può confrontarle carattere per carattere.", "en": "The two answers are identical: a test can compare them character by character."},
+   "confronto_diversi": {"it": "Le due risposte sono diverse nella forma: un modello vero non è un testimone ripetibile per un test.", "en": "The two answers differ in form: a real model is not a repeatable witness for a test."},
+   "scelto_da_file": {"it": "Sceglie il file: {variabile} non è impostata, quindi vale \"backend\": \"{backend}\" di assistente.json.", "en": "The file chooses: {variabile} is not set, so \"backend\": \"{backend}\" in assistente.json applies."},
+   "scelto_da_variabile": {"it": "Sceglie la variabile: {variabile}={backend} vince sul file, che resta com'è nel repo.", "en": "The variable chooses: {variabile}={backend} wins over the file, which stays as it is in the repo."},
+   "scelto_errore": {"it": "{variabile}={backend} non è fra i backend ammessi: l'assistente non parte e non ripiega su un altro backend.", "en": "{variabile}={backend} is not among the allowed backends: the assistant does not start and does not fall back to another backend."},
+   "why_sezione": {"it": "Il _why della sezione: {why}", "en": "The section's _why: {why}"}
+  }
+ },
+ "domande": []
+}

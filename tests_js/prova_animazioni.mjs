@@ -12,7 +12,15 @@ import { pianifica as pianificaCiclo, calcolaPunteggio } from "../webapp/animazi
 import { pianifica as pianificaStrumenti } from "../webapp/animazioni/strumenti_agente.js";
 
 const radice = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const leggi = (nome) => JSON.parse(fs.readFileSync(path.join(radice, "dati", "lezioni", nome), "utf8"));
+// Le lezioni stanno in due cartelle: livello 1 (percorsi_file.cartella_lezioni) e Officina (officina.cartella_lezioni),
+// entrambe lette dalla config: leggi() cerca il file nell'una e poi nell'altra (i nomi dei componenti sono unici).
+const configPiattaforma = JSON.parse(fs.readFileSync(path.join(radice, "config", "piattaforma.json"), "utf8"));
+const CARTELLE_LEZIONI = [configPiattaforma.percorsi_file.cartella_lezioni, configPiattaforma.officina.cartella_lezioni].map((c) => path.join(radice, c));
+function leggi(nome) {
+  const dove = CARTELLE_LEZIONI.map((c) => path.join(c, nome)).filter((f) => fs.existsSync(f));
+  assert.equal(dove.length, 1, `lezione ${nome}: attesa in una sola cartella fra ${CARTELLE_LEZIONI.join(", ")}, trovata in ${dove.length}`);
+  return JSON.parse(fs.readFileSync(dove[0], "utf8"));
+}
 function risolvi(x, l) {
   if (x && typeof x === "object" && !Array.isArray(x) && Object.keys(x).sort().join() === "en,it") {
     assert.ok(x[l], `testo mancante in ${l}: ${JSON.stringify(x)}`);
@@ -97,7 +105,7 @@ for (const lingua of ["it", "en"]) {
 // Prove delle altre lezioni: un file per lezione, eseguito in entrambe le lingue.
 const cartellaLezioni = path.join(radice, "tests_js", "lezioni");
 const fileLezioni = fs.readdirSync(cartellaLezioni).filter((f) => f.endsWith(".mjs")).sort();
-const componentiConLezione = fs.readdirSync(path.join(radice, "dati", "lezioni")).map((f) => JSON.parse(fs.readFileSync(path.join(radice, "dati", "lezioni", f), "utf8")).componente);
+const componentiConLezione = CARTELLE_LEZIONI.flatMap((c) => fs.existsSync(c) ? fs.readdirSync(c).filter((f) => f.endsWith(".json")).map((f) => JSON.parse(fs.readFileSync(path.join(c, f), "utf8")).componente) : []);
 for (const comp of componentiConLezione) {
   if (["ciclo_agente", "strumenti_agente"].includes(comp)) continue;
   assert.ok(fileLezioni.includes(`${comp}.mjs`), `la lezione ${comp} non ha le sue prove in tests_js/lezioni/${comp}.mjs`);

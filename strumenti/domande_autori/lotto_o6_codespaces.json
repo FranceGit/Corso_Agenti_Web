@@ -1,0 +1,1121 @@
+[
+ {
+  "id": "DO6.1-1",
+  "origine": "autori",
+  "pillola": "PO6.1",
+  "concetti": [
+   "CO16"
+  ],
+  "concetto_principale": "CO16",
+  "segmento_aiuto": "file",
+  "striscia": "definizione",
+  "livello1": {
+   "domanda": {
+    "it": "Nel devcontainer.json, quale proprietà esegue un comando una volta sola, appena il codespace è creato?",
+    "en": "In the devcontainer.json, which property runs a command only once, as soon as the codespace is created?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "features",
+      "en": "features"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Aggiunge pezzi all'immagine, come Docker, ma non esegue un tuo comando.",
+      "en": "It adds pieces to the image, such as Docker, but it does not run a command of yours."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "image",
+      "en": "image"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Sceglie il sistema di partenza: non lancia comandi dopo la creazione.",
+      "en": "It chooses the starting system: it launches no commands after creation."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "containerEnv",
+      "en": "containerEnv"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Imposta variabili d'ambiente, non comandi; e non va usata per i segreti.",
+      "en": "It sets environment variables, not commands; and it must not be used for secrets."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "postCreateCommand",
+      "en": "postCreateCommand"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Gira una volta dopo la creazione: è lì che si installa requirements.txt.",
+      "en": "It runs once after creation: that is where requirements.txt gets installed."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "hostRequirements",
+      "en": "hostRequirements"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Dice quanti core chiede la macchina, non che cosa eseguire.",
+      "en": "It says how many cores the machine asks for, not what to run."
+     }
+    },
+    {
+     "id": "F",
+     "testo": {
+      "it": "secrets",
+      "en": "secrets"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Dichiara i segreti richiesti con una descrizione: non esegue nulla.",
+      "en": "It declares the required secrets with a description: it runs nothing."
+     }
+    },
+    {
+     "id": "G",
+     "testo": {
+      "it": "forwardPorts",
+      "en": "forwardPorts"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Elenca le porte da inoltrare all'apertura: non esegue comandi.",
+      "en": "It lists the ports to forward on opening: it runs no commands."
+     }
+    }
+   ],
+   "perche": {
+    "it": "postCreateCommand gira una volta, appena il codespace è creato: così chi lo apre trova tutto pronto.",
+    "en": "postCreateCommand runs once, as soon as the codespace is created: so whoever opens it finds everything ready."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché nel laboratorio dell'Officina quel comando è pip install --user -r requirements.txt?",
+    "en": "Why, in the Officina lab, is that command pip install --user -r requirements.txt?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Chi apre il codespace trova già installate le versioni fissate nel repo",
+      "en": "Whoever opens the codespace finds the versions pinned in the repo already installed"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "requirements.txt fissa pytest==8.3.4: stesse versioni per tutti, senza passaggi a mano.",
+      "en": "requirements.txt pins pytest==8.3.4: the same versions for everyone, with no manual steps."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Così a ogni apertura pip aggiorna i pacchetti all'ultima versione disponibile",
+      "en": "So that at every opening pip updates the packages to the latest available version"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il comando gira una volta sola e installa le versioni fissate, non le ultime.",
+      "en": "The command runs only once and installs the pinned versions, not the latest ones."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Così requirements.txt entra nell'immagine e si può togliere dal repo",
+      "en": "So that requirements.txt goes into the image and can be removed from the repo"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il file resta nel repo: è proprio da lì che il comando legge le versioni.",
+      "en": "The file stays in the repo: that is exactly where the command reads the versions from."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Così il codespace consuma meno ore-core durante il mese",
+      "en": "So that the codespace uses fewer core-hours during the month"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Installare i requisiti non cambia le ore-core: quelle dipendono da core e ore accese.",
+      "en": "Installing the requirements does not change core-hours: they depend on cores and hours running."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Così la chiave di Groq viene letta da requirements.txt",
+      "en": "So that the Groq key is read from requirements.txt"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "requirements.txt elenca dipendenze; la chiave arriva dai segreti di Codespaces.",
+      "en": "requirements.txt lists dependencies; the key comes from the Codespaces secrets."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Un comando unico alla creazione, letto da un file versionato, dà a tutti lo stesso laboratorio.",
+    "en": "A single command on creation, read from a versioned file, gives everyone the same lab."
+   }
+  },
+  "glossario": [
+   {
+    "termine": "devcontainer",
+    "it": "File .devcontainer/devcontainer.json che descrive l'ambiente di lavoro: immagine, aggiunte, comandi, porte, segreti richiesti.",
+    "en": "The .devcontainer/devcontainer.json file that describes the working environment: image, add-ons, commands, ports, required secrets."
+   },
+   {
+    "termine": "codespace",
+    "it": "Macchina nel cloud creata da un repo GitHub secondo il suo devcontainer.json.",
+    "en": "A cloud machine created from a GitHub repo according to its devcontainer.json."
+   },
+   {
+    "termine": "postCreateCommand",
+    "it": "Comando che gira una volta sola, appena il codespace è creato.",
+    "en": "A command that runs only once, as soon as the codespace is created."
+   }
+  ]
+ },
+ {
+  "id": "DO6.1-2",
+  "origine": "autori",
+  "pillola": "PO6.1",
+  "concetti": [
+   "CO16"
+  ],
+  "concetto_principale": "CO16",
+  "segmento_aiuto": "docker",
+  "striscia": "diagnosi",
+  "livello1": {
+   "domanda": {
+    "it": "Hai aperto il repo dell'Officina in Codespaces: pytest è verde, ma in O1 docker compose up -d --build risponde «docker: command not found». Che cosa manca nel devcontainer.json?",
+    "en": "You opened the Officina repo in Codespaces: pytest is green, but in O1 docker compose up -d --build answers «docker: command not found». What is missing from the devcontainer.json?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Un postCreateCommand con pip install docker, così il comando docker si installa alla creazione insieme ai requisiti del repo",
+      "en": "A postCreateCommand with pip install docker, so the docker command is installed on creation together with the repo requirements"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "pip installa librerie Python, non il motore Docker: il comando docker resterebbe assente.",
+      "en": "pip installs Python libraries, not the Docker engine: the docker command would still be missing."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "La porta 8000 in forwardPorts: senza la porta inoltrata il comando docker non trova il servizio del CRM e risponde con quell'errore",
+      "en": "Port 8000 in forwardPorts: without the forwarded port the docker command cannot find the CRM service and answers with that error"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "«command not found» vuol dire che il programma non c'è; le porte servono dopo, per aprire il CRM.",
+      "en": "«command not found» means the program is not there; ports matter later, to open the CRM."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "La feature ghcr.io/devcontainers/features/docker-in-docker:2 sotto «features», che porta i comandi docker nel codespace",
+      "en": "The ghcr.io/devcontainers/features/docker-in-docker:2 feature under «features», which brings the docker commands into the codespace"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "L'immagine Python non contiene Docker: lo aggiunge questa feature, e O1 e O2 tornano a girare.",
+      "en": "The Python image does not contain Docker: this feature adds it, and O1 and O2 run again."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Un'immagine con tag latest al posto di 1-3.12-bookworm, perché soltanto le immagini Python più recenti contengono già Docker al loro interno",
+      "en": "An image tagged latest instead of 1-3.12-bookworm, because only the newest Python images already contain Docker inside them"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Nessuna immagine Python porta Docker con sé, e latest renderebbe il laboratorio diverso nel tempo.",
+      "en": "No Python image brings Docker along, and latest would make the lab change over time."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Docker nel codespace arriva da una feature: docker-in-docker:2 sotto «features».",
+    "en": "Docker in the codespace comes from a feature: docker-in-docker:2 under «features»."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Aggiunta la feature, il CRM di O1 gira sulla porta 8000. Che cosa la fa trovare pronta appena il codespace si apre?",
+    "en": "With the feature added, the O1 CRM runs on port 8000. What makes it ready as soon as the codespace opens?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Solo l'etichetta della porta in portsAttributes, senza forwardPorts",
+      "en": "Only the port label in portsAttributes, without forwardPorts"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "portsAttributes dà un nome alla porta; a dichiararla da inoltrare è forwardPorts.",
+      "en": "portsAttributes gives the port a name; forwardPorts is what declares it to be forwarded."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "EXPOSE 8000 nel Dockerfile del CRM, senza toccare il devcontainer.json",
+      "en": "EXPOSE 8000 in the CRM Dockerfile, without touching the devcontainer.json"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Riguarda l'immagine del CRM, non le porte che il codespace prepara all'apertura.",
+      "en": "It concerns the CRM image, not the ports the codespace prepares on opening."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Un postCreateCommand che apra il browser sulla porta 8000",
+      "en": "A postCreateCommand that opens the browser on port 8000"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il comando gira una volta alla creazione, prima che il CRM sia avviato, e non apre porte.",
+      "en": "The command runs once on creation, before the CRM is started, and opens no ports."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "hostRequirements con 8 core, così il CRM risponde prima",
+      "en": "hostRequirements with 8 cores, so the CRM answers sooner"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "I core non c'entrano con le porte, e 8 core fanno durare le ore gratuite solo 15 ore.",
+      "en": "Cores have nothing to do with ports, and 8 cores make the free hours last only 15 hours."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "8000 nell'elenco forwardPorts del devcontainer.json",
+      "en": "8000 in the forwardPorts list of the devcontainer.json"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "forwardPorts dichiara le porte da inoltrare all'apertura, per tutti.",
+      "en": "forwardPorts declares the ports to forward on opening, for everyone."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Ciò che il laboratorio deve avere pronto si dichiara nel file: anche le porte.",
+    "en": "What the lab must have ready is declared in the file: ports too."
+   }
+  },
+  "glossario": [
+   {
+    "termine": "devcontainer",
+    "it": "File .devcontainer/devcontainer.json che descrive l'ambiente di lavoro: immagine, aggiunte, comandi, porte, segreti richiesti.",
+    "en": "The .devcontainer/devcontainer.json file that describes the working environment: image, add-ons, commands, ports, required secrets."
+   },
+   {
+    "termine": "feature",
+    "it": "Pezzo aggiunto all'immagine del devcontainer, per esempio Docker con docker-in-docker.",
+    "en": "A piece added to the devcontainer image, for example Docker with docker-in-docker."
+   },
+   {
+    "termine": "forwardPorts",
+    "it": "Elenco delle porte che il codespace inoltra già all'apertura.",
+    "en": "The list of ports the codespace forwards right on opening."
+   }
+  ]
+ },
+ {
+  "id": "DO6.1-3",
+  "origine": "autori",
+  "pillola": "PO6.1",
+  "concetti": [
+   "CO16"
+  ],
+  "concetto_principale": "CO16",
+  "segmento_aiuto": "segreti",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Quale di queste scelte NON rispetta la regola «i segreti si dichiarano, non si scrivono»?",
+    "en": "Which of these choices does NOT follow the rule «secrets are declared, not written»?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "secrets con GROQ_API_KEY e la descrizione «Chiave gratuita di Groq»",
+      "en": "secrets with GROQ_API_KEY and the description «Free Groq key»"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "È proprio la dichiarazione giusta: nome e scopo, nessun valore.",
+      "en": "This is exactly the right declaration: name and purpose, no value."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "containerEnv con GROQ_API_KEY e la chiave vera al posto del segnaposto",
+      "en": "containerEnv with GROQ_API_KEY and the real key instead of the placeholder"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Il valore finisce nel repo e nella sua cronologia: chiunque legga il file lo vede.",
+      "en": "The value ends up in the repo and in its history: anyone reading the file sees it."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Nessuna voce sulla chiave: l'assistente resta sul backend finto",
+      "en": "No entry about the key: the assistant stays on the fake backend"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Manca la dichiarazione, ma nessun segreto è scritto nel file: non viola la regola.",
+      "en": "The declaration is missing, but no secret is written in the file: it does not break the rule."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Valore impostato in Settings → Codespaces → Secrets e abilitato per il repo",
+      "en": "Value set in Settings → Codespaces → Secrets and enabled for the repo"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "È il posto giusto per il valore: arriva come variabile d'ambiente, fuori dal repo.",
+      "en": "It is the right place for the value: it arrives as an environment variable, outside the repo."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "postCreateCommand con pip install --user -r requirements.txt",
+      "en": "postCreateCommand with pip install --user -r requirements.txt"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Installa i requisiti: non contiene alcun segreto.",
+      "en": "It installs the requirements: it contains no secret."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Un valore segreto scritto in containerEnv entra nel repo: è il caso bloccante.",
+    "en": "A secret value written in containerEnv enters the repo: it is the blocking case."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "La chiave è già stata spinta sul repo. Qual è la prima cosa da fare?",
+    "en": "The key has already been pushed to the repo. What is the first thing to do?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Cancellare solo la riga",
+      "en": "Delete just the line"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "La riga sparisce dal file, ma la chiave resta nella cronologia del repo.",
+      "en": "The line disappears from the file, but the key stays in the repo history."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Spostarla in remoteEnv",
+      "en": "Move it to remoteEnv"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "È ancora un valore scritto nel file: stesso problema di containerEnv.",
+      "en": "It is still a value written in the file: the same problem as containerEnv."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Rendere privato il repo",
+      "en": "Make the repo private"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Chi l'ha già letta la conosce ancora, e la chiave resta nella cronologia.",
+      "en": "Whoever already read it still knows it, and the key stays in the history."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Rinominare la variabile",
+      "en": "Rename the variable"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il nome cambia, il valore esposto resta valido.",
+      "en": "The name changes, the exposed value stays valid."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Passare a 2 core",
+      "en": "Switch to 2 cores"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "I core riguardano le ore gratuite, non la sicurezza della chiave.",
+      "en": "Cores concern the free hours, not the security of the key."
+     }
+    },
+    {
+     "id": "f",
+     "testo": {
+      "it": "Revocare la chiave",
+      "en": "Revoke the key"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Chi ha letto il repo o la cronologia la conosce: va resa inutile, poi sostituita.",
+      "en": "Whoever read the repo or its history knows it: it must be made useless, then replaced."
+     }
+    },
+    {
+     "id": "g",
+     "testo": {
+      "it": "Aggiungere forwardPorts",
+      "en": "Add forwardPorts"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Le porte non c'entrano con una chiave esposta.",
+      "en": "Ports have nothing to do with an exposed key."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Una chiave finita nel repo è compromessa: si revoca, poi si dichiara sotto «secrets».",
+    "en": "A key that ended up in the repo is compromised: revoke it, then declare it under «secrets»."
+   }
+  },
+  "glossario": [
+   {
+    "termine": "devcontainer",
+    "it": "File .devcontainer/devcontainer.json che descrive l'ambiente di lavoro: immagine, aggiunte, comandi, porte, segreti richiesti.",
+    "en": "The .devcontainer/devcontainer.json file that describes the working environment: image, add-ons, commands, ports, required secrets."
+   },
+   {
+    "termine": "segreto di Codespaces",
+    "it": "Valore salvato nelle impostazioni del profilo GitHub, abilitato per i repo scelti, che arriva nel codespace come variabile d'ambiente.",
+    "en": "A value saved in the GitHub profile settings, enabled for chosen repos, that reaches the codespace as an environment variable."
+   }
+  ]
+ },
+ {
+  "id": "DO6.2-1",
+  "origine": "autori",
+  "pillola": "PO6.2",
+  "concetti": [
+   "CO17"
+  ],
+  "concetto_principale": "CO17",
+  "segmento_aiuto": "ore_core",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Piano gratuito: 120 ore-core al mese. Quante ore di lavoro hai su una macchina da 4 core?",
+    "en": "Free plan: 120 core-hours a month. How many working hours do you get on a 4-core machine?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "60 ore",
+      "en": "60 hours"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "60 ore sono quelle su 2 core, non su 4.",
+      "en": "60 hours are those on 2 cores, not on 4."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "15 ore",
+      "en": "15 hours"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "15 ore sono quelle su 8 core.",
+      "en": "15 hours are those on 8 cores."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "120 ore",
+      "en": "120 hours"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Varrebbe solo con 1 core: le ore-core vanno divise per i core.",
+      "en": "It would hold only with 1 core: core-hours must be divided by the cores."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "480 ore",
+      "en": "480 hours"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "I core non moltiplicano le ore gratuite: le consumano più in fretta.",
+      "en": "Cores do not multiply the free hours: they use them up faster."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "30 ore",
+      "en": "30 hours"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "120 ore-core ÷ 4 core = 30 ore.",
+      "en": "120 core-hours ÷ 4 cores = 30 hours."
+     }
+    },
+    {
+     "id": "F",
+     "testo": {
+      "it": "Senza limite se lo fermi",
+      "en": "Unlimited if you stop it"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Fermarlo smette di consumare ore, ma non crea ore in più: la quota resta 120.",
+      "en": "Stopping it stops using hours, but it creates no extra hours: the quota stays 120."
+     }
+    },
+    {
+     "id": "G",
+     "testo": {
+      "it": "Dipende dai GB occupati",
+      "en": "It depends on the GB used"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Lo spazio ha la sua quota separata (15 GB-mese): non cambia le ore.",
+      "en": "Storage has its own separate quota (15 GB-months): it does not change the hours."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Ore di lavoro = ore-core ÷ core: 120 ÷ 4 = 30.",
+    "en": "Working hours = core-hours ÷ cores: 120 ÷ 4 = 30."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Che cosa spiega quel numero?",
+    "en": "What explains that number?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Ogni core ha una quota sua di 120 ore e le quote si sommano",
+      "en": "Each core has its own 120-hour quota and the quotas add up"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "La quota è una sola per l'account: i core la consumano, non la moltiplicano.",
+      "en": "There is a single quota per account: cores use it up, they do not multiply it."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Su 4 core si consuma come su 2, ma il lavoro finisce prima",
+      "en": "On 4 cores you use as much as on 2, but the work finishes sooner"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il consumo raddoppia con i core: per gli esercizi la velocità in più non serve.",
+      "en": "Consumption doubles with the cores: the extra speed is not needed for the exercises."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Ogni ora su 4 core consuma 4 ore-core: 120 ÷ 4 = 30",
+      "en": "Every hour on 4 cores uses 4 core-hours: 120 ÷ 4 = 30"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "La quota si conta in ore-core: più core, meno ore di lavoro.",
+      "en": "The quota is counted in core-hours: more cores, fewer working hours."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Il piano dà 30 ore fisse, qualunque macchina si scelga",
+      "en": "The plan gives a fixed 30 hours, whatever machine you choose"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Con 2 core le ore sono 60, con 8 sono 15: dipende dalla macchina.",
+      "en": "With 2 cores the hours are 60, with 8 they are 15: it depends on the machine."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Le ore si contano solo mentre il codespace è fermo",
+      "en": "Hours are counted only while the codespace is stopped"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "È il contrario: da fermo non consuma ore, consuma solo spazio.",
+      "en": "It is the opposite: when stopped it uses no hours, only storage."
+     }
+    }
+   ],
+   "perche": {
+    "it": "La quota gratuita è in ore-core: ore × core.",
+    "en": "The free quota is in core-hours: hours × cores."
+   }
+  },
+  "glossario": [
+   {
+    "termine": "ora-core",
+    "it": "Un'ora di macchina per ogni core: 1 ora su 4 core = 4 ore-core.",
+    "en": "One machine hour for each core: 1 hour on 4 cores = 4 core-hours."
+   },
+   {
+    "termine": "GB-mese",
+    "it": "Unità dello spazio: 1 GB tenuto per un mese intero.",
+    "en": "Storage unit: 1 GB kept for a whole month."
+   }
+  ]
+ },
+ {
+  "id": "DO6.2-2",
+  "origine": "autori",
+  "pillola": "PO6.2",
+  "concetti": [
+   "CO17"
+  ],
+  "concetto_principale": "CO17",
+  "segmento_aiuto": "spazio",
+  "striscia": "diagnosi",
+  "livello1": {
+   "domanda": {
+    "it": "Lavori poco e le ore-core sono a metà, ma lo spazio è quasi a 15 GB-mese. Nella lista hai quattro codespace fermi di prove vecchie. Che cosa sta succedendo?",
+    "en": "You work little and the core-hours are at half, but storage is almost at 15 GB-months. In the list you have four stopped codespaces from old tests. What is happening?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Un codespace fermo consuma ore-core come uno acceso, solo più lentamente",
+      "en": "A stopped codespace uses core-hours like a running one, only more slowly"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Da fermo non consuma ore: le ore sono a metà proprio per questo.",
+      "en": "When stopped it uses no hours: that is exactly why the hours are at half."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Lo spazio lo occupa solo il codespace acceso: il contatore sbaglia",
+      "en": "Storage is used only by the running codespace: the meter is wrong"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il disco dei codespace fermi resta e si conta: il contatore è giusto.",
+      "en": "The disk of stopped codespaces stays and is counted: the meter is right."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Lo spazio cresce perché l'arresto per inattività è a 30 minuti",
+      "en": "Storage grows because the idle stop is at 30 minutes"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "L'arresto per inattività riguarda le ore di calcolo, non il disco.",
+      "en": "The idle stop concerns compute hours, not the disk."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "I codespace fermi non consumano ore, ma il loro disco conta nello spazio",
+      "en": "Stopped codespaces use no hours, but their disk counts in storage"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Finché esiste, un codespace occupa GB-mese anche da fermo.",
+      "en": "As long as it exists, a codespace takes up GB-months even when stopped."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Lo spazio dipende dai core della macchina scelta",
+      "en": "Storage depends on the cores of the chosen machine"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "I core decidono le ore-core; lo spazio dipende dai codespace che esistono e da quanto pesano.",
+      "en": "Cores decide the core-hours; storage depends on which codespaces exist and how much they weigh."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Lo spazio si conta in GB-mese finché il codespace esiste, anche da fermo.",
+    "en": "Storage is counted in GB-months as long as the codespace exists, even when stopped."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Quale mossa libera spazio senza perdere lavoro?",
+    "en": "Which move frees storage without losing work?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Fermarli tutti con l'arresto per inattività a 5 minuti, perché un codespace fermo non occupa più spazio su disco",
+      "en": "Stop them all with the idle stop at 5 minutes, because a stopped codespace no longer takes up disk storage"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Sono già fermi: da fermi non consumano ore, ma il disco resta e si conta.",
+      "en": "They are already stopped: stopped they use no hours, but the disk stays and is counted."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Fare commit e push di ciò che serve dai codespace fermi, poi cancellarli dalla lista: lo spazio torna libero",
+      "en": "Commit and push what you need from the stopped codespaces, then delete them from the list: the storage is freed"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Il lavoro è salvo sul repo e i GB-mese dei codespace cancellati non si contano più.",
+      "en": "The work is safe on the repo and the GB-months of the deleted codespaces no longer count."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Aspettare i 30 giorni di conservazione senza fare push: li cancella da sola e il lavoro intanto resta salvato sul repo",
+      "en": "Wait for the 30-day retention without pushing: it deletes them by itself and meanwhile the work stays saved on the repo"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Senza push il lavoro non è sul repo: con la cancellazione andrebbe perso.",
+      "en": "Without a push the work is not on the repo: with the deletion it would be lost."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Passare a una macchina da 2 core, perché con meno core anche il disco di ogni codespace si riduce della metà",
+      "en": "Switch to a 2-core machine, because with fewer cores the disk of each codespace also shrinks by half"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "I core cambiano le ore-core, non lo spazio occupato dai codespace.",
+      "en": "Cores change the core-hours, not the storage taken by the codespaces."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Prima si salva sul repo, poi si cancella: così spazio e lavoro sono al sicuro.",
+    "en": "First save to the repo, then delete: so both storage and work are safe."
+   }
+  },
+  "glossario": [
+   {
+    "termine": "GB-mese",
+    "it": "Unità dello spazio: 1 GB tenuto per un mese intero.",
+    "en": "Storage unit: 1 GB kept for a whole month."
+   },
+   {
+    "termine": "conservazione",
+    "it": "Periodo dopo cui un codespace fermo e inutilizzato viene cancellato (predefinito 30 giorni).",
+    "en": "The period after which a stopped, unused codespace is deleted (default 30 days)."
+   },
+   {
+    "termine": "arresto per inattività",
+    "it": "Spegnimento automatico del codespace dopo un periodo senza attività (predefinito 30 minuti).",
+    "en": "Automatic stop of the codespace after a period without activity (default 30 minutes)."
+   }
+  ]
+ },
+ {
+  "id": "DO6.2-3",
+  "origine": "autori",
+  "pillola": "PO6.2",
+  "concetti": [
+   "CO17"
+  ],
+  "concetto_principale": "CO17",
+  "segmento_aiuto": "limite",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Account personale senza metodo di pagamento, limite di spesa a 0. Quale affermazione è FALSA?",
+    "en": "Personal account without a payment method, spending limit at 0. Which statement is FALSE?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Finite le 120 ore-core il codespace continua a funzionare e a fine mese arriva l'addebito delle ore in più, perché il limite a zero vale per lo spazio su disco ma non per il calcolo",
+      "en": "Once the 120 core-hours are used up the codespace keeps working and at the end of the month the extra hours are charged, because the zero limit applies to disk storage but not to compute"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "È falsa: con il limite a 0, finita la quota, i codespace non si avviano più e non c'è alcun addebito.",
+      "en": "It is false: with the limit at 0, once the quota is used up, codespaces no longer start and there is no charge."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Finita la quota, i codespace non si avviano più fino al mese successivo, senza addebito, mentre il lavoro non spinto resta nel codespace fermo finché la conservazione di 30 giorni non lo cancella",
+      "en": "Once the quota is used up, codespaces do not start until the next month, with no charge, while unpushed work stays in the stopped codespace until the 30-day retention deletes it"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "È vera: ci si ferma senza pagare; il rischio è la conservazione, per questo si fa commit e push.",
+      "en": "It is true: you stop without paying; the risk is the retention, which is why you commit and push."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Per non fermarsi a metà mese conviene usare 2 core, lasciare lavorare l'arresto per inattività e cancellare i codespace che non servono: così le stesse 120 ore-core e i 15 GB-mese durano di più",
+      "en": "To avoid stopping halfway through the month it pays to use 2 cores, let the idle stop work and delete the codespaces you do not need: so the same 120 core-hours and 15 GB-months last longer"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "È vera: sono le tre leve per far bastare il piano gratuito.",
+      "en": "It is true: these are the three levers to make the free plan last."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Con il limite di spesa a 0 la quota finita ferma i codespace: nessun addebito.",
+    "en": "With the spending limit at 0 a used-up quota stops the codespaces: no charge."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Che cosa rende impossibile l'addebito in quel caso?",
+    "en": "What makes a charge impossible in that case?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "La macchina da 2 core, che resta sempre dentro la quota gratuita",
+      "en": "The 2-core machine, which always stays within the free quota"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Anche su 2 core le 60 ore possono finire: allunga il mese, non impedisce l'addebito.",
+      "en": "Even on 2 cores the 60 hours can run out: it stretches the month, it does not prevent a charge."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "L'arresto per inattività, che spegne il codespace prima della fine della quota",
+      "en": "The idle stop, which turns off the codespace before the quota ends"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Riduce le ore sprecate, ma non conosce la quota: a fermare la spesa è il limite.",
+      "en": "It reduces wasted hours, but it knows nothing about the quota: the limit is what stops spending."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Il fatto che lo spazio non si paga mai, neanche oltre i 15 GB-mese",
+      "en": "The fact that storage is never paid for, not even beyond 15 GB-months"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Anche lo spazio ha una quota; con il limite a 0 oltre la quota ci si ferma, non si paga.",
+      "en": "Storage has a quota too; with the limit at 0, beyond the quota you stop, you do not pay."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Il limite di spesa a 0: oltre la quota non si spende nulla, ci si ferma",
+      "en": "The spending limit at 0: beyond the quota nothing is spent, you stop"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "È il tetto alla spesa a decidere: a 0, finita la quota, i codespace non si avviano.",
+      "en": "The spending cap decides: at 0, once the quota is used up, codespaces do not start."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Il segreto GROQ_API_KEY dichiarato nel devcontainer.json",
+      "en": "The GROQ_API_KEY secret declared in the devcontainer.json"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "I segreti riguardano le chiavi, non la fatturazione di Codespaces.",
+      "en": "Secrets concern keys, not Codespaces billing."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Il limite di spesa a 0 trasforma la fine della quota in uno stop, non in un costo.",
+    "en": "The spending limit at 0 turns the end of the quota into a stop, not a cost."
+   }
+  },
+  "glossario": [
+   {
+    "termine": "limite di spesa",
+    "it": "Tetto alla spesa oltre la quota gratuita; a 0, finita la quota, ci si ferma senza addebito.",
+    "en": "A cap on spending beyond the free quota; at 0, once the quota is used up, you stop with no charge."
+   },
+   {
+    "termine": "ora-core",
+    "it": "Un'ora di macchina per ogni core: 1 ora su 4 core = 4 ore-core.",
+    "en": "One machine hour for each core: 1 hour on 4 cores = 4 core-hours."
+   },
+   {
+    "termine": "GB-mese",
+    "it": "Unità dello spazio: 1 GB tenuto per un mese intero.",
+    "en": "Storage unit: 1 GB kept for a whole month."
+   },
+   {
+    "termine": "conservazione",
+    "it": "Periodo dopo cui un codespace fermo e inutilizzato viene cancellato (predefinito 30 giorni).",
+    "en": "The period after which a stopped, unused codespace is deleted (default 30 days)."
+   }
+  ]
+ }
+]

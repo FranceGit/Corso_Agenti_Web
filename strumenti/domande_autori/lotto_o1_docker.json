@@ -1,0 +1,2153 @@
+[
+ {
+  "id": "DO1.1-1",
+  "origine": "autori",
+  "pillola": "PO1.1",
+  "concetti": [
+   "CO01"
+  ],
+  "concetto_principale": "CO01",
+  "segmento_aiuto": "immagine",
+  "striscia": "definizione",
+  "livello1": {
+   "domanda": {
+    "it": "Nel CRM dell'Officina, che differenza c'è fra l'immagine «crm» e un container avviato da lei?",
+    "en": "In the Officina CRM, what is the difference between the «crm» image and a container started from it?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "L'immagine è il container fermo; avviarlo la trasforma in container",
+      "en": "The image is the stopped container; starting it turns it into a container"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Confonde immagine e container fermo: un container fermo esiste ancora, con il suo strato; l'immagine resta separata.",
+      "en": "It confuses the image with a stopped container: a stopped container still exists, with its layer; the image stays separate."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "L'immagine contiene solo il codice, il container anche Python e le dipendenze",
+      "en": "The image contains only the code, the container also Python and the dependencies"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Python e le dipendenze stanno già negli strati dell'immagine (FROM, pip install): il container non aggiunge niente di suo, salvo ciò che scrive.",
+      "en": "Python and the dependencies are already in the image layers (FROM, pip install): the container adds nothing of its own, except what it writes."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "L'immagine è la ricetta in sola lettura; il container è una sua esecuzione",
+      "en": "The image is the read-only recipe; the container is one run of it"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: la pila di strati non cambia, e ogni container ci aggiunge sopra il suo strato scrivibile.",
+      "en": "Right: the layer stack does not change, and each container adds its own writable layer on top."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Sono la stessa cosa: «immagine» è solo il nome del file sul disco",
+      "en": "They are the same thing: «image» is just the name of the file on disk"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Da una sola immagine partono più container, ognuno con uno stato diverso: non possono essere la stessa cosa.",
+      "en": "Several containers start from one image, each with a different state: they cannot be the same thing."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Il container è una copia completa dell'immagine, da cui si stacca",
+      "en": "The container is a full copy of the image, which it breaks away from"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il container non copia gli strati: li usa in sola lettura e scrive solo nel suo strato sopra.",
+      "en": "The container does not copy the layers: it uses them read-only and writes only in its own layer on top."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Un'immagine è una pila di strati che non cambia; ogni container parte da lei con uno strato scrivibile suo.",
+    "en": "An image is a stack of layers that does not change; each container starts from it with a writable layer of its own."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché da una sola immagine si possono avviare tre container insieme?",
+    "en": "Why can three containers be started at once from a single image?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché Docker copia l'immagine intera tre volte, una per ciascun container avviato",
+      "en": "Because Docker copies the whole image three times, one for each container started"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Gli strati non si copiano: si condividono. Per questo avviare un container è quasi istantaneo.",
+      "en": "The layers are not copied: they are shared. That is why starting a container is almost instant."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché i tre container si dividono a turno lo stesso strato scrivibile",
+      "en": "Because the three containers take turns on the same writable layer"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Ogni container ha il suo strato scrivibile: quello che scrive c1 non lo vede c2.",
+      "en": "Each container has its own writable layer: what c1 writes, c2 does not see."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché l'immagine si costruisce di nuovo a ogni docker run",
+      "en": "Because the image is built again at every docker run"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "docker run non costruisce niente: usa l'immagine già fatta. La build è un passo separato.",
+      "en": "docker run builds nothing: it uses the image already made. The build is a separate step."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Perché l'immagine non si modifica: ogni container scrive solo nel suo strato",
+      "en": "Because the image is never modified: each container writes only in its own layer"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: gli strati sono condivisi in sola lettura, le scritture restano separate.",
+      "en": "Right: the layers are shared read-only, the writes stay separate."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Perché ogni container usa una parte diversa degli strati dell'immagine",
+      "en": "Because each container uses a different part of the image layers"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Ogni container usa tutti gli strati dell'immagine, non una parte.",
+      "en": "Each container uses all the image layers, not a part of them."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Sola lettura vuol dire condivisibile: le differenze fra container stanno solo nei loro strati scrivibili.",
+    "en": "Read-only means shareable: the differences between containers live only in their writable layers."
+   }
+  },
+  "glossario": [
+   {
+    "termine": "immagine",
+    "it": "Pacchetto in sola lettura, costruito dal Dockerfile, da cui partono i container.",
+    "en": "Read-only package, built from the Dockerfile, from which containers start."
+   },
+   {
+    "termine": "container",
+    "it": "Un'esecuzione di un'immagine, con sopra un suo strato scrivibile.",
+    "en": "A run of an image, with its own writable layer on top."
+   },
+   {
+    "termine": "strato scrivibile",
+    "it": "Lo strato sottile in cima a un container dove finiscono i file che scrive; sparisce con il container.",
+    "en": "The thin layer on top of a container where the files it writes end up; it disappears with the container."
+   }
+  ]
+ },
+ {
+  "id": "DO1.1-2",
+  "origine": "autori",
+  "pillola": "PO1.1",
+  "concetti": [
+   "CO01"
+  ],
+  "concetto_principale": "CO01",
+  "segmento_aiuto": "immagine",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Dalla stessa immagine avvii c1 e c2; il CRM in c1 salva 2 lead in /app/dati/lead.json. Dove stanno quei lead?",
+    "en": "From the same image you start c1 and c2; the CRM in c1 saves 2 leads in /app/dati/lead.json. Where are those leads?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Nell'immagine e in c1",
+      "en": "In the image and in c1"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "L'immagine è in sola lettura: il CRM non può scriverci.",
+      "en": "The image is read-only: the CRM cannot write to it."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Solo nello strato di c1",
+      "en": "Only in c1's layer"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: la scrittura finisce nello strato scrivibile di c1, e solo lì.",
+      "en": "Right: the write ends up in c1's writable layer, and only there."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Nel Dockerfile",
+      "en": "In the Dockerfile"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Il Dockerfile è la ricetta della build: a runtime nessuno lo modifica.",
+      "en": "The Dockerfile is the build recipe: nobody modifies it at runtime."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "In c1 e in c2",
+      "en": "In c1 and in c2"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "c2 ha il suo strato scrivibile, vuoto: non vede ciò che scrive c1.",
+      "en": "c2 has its own empty writable layer: it does not see what c1 writes."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Nella cache di build",
+      "en": "In the build cache"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "La cache contiene gli strati della build, non i dati scritti da un container.",
+      "en": "The cache holds the build layers, not the data written by a container."
+     }
+    },
+    {
+     "id": "F",
+     "testo": {
+      "it": "In requirements.txt",
+      "en": "In requirements.txt"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "requirements.txt elenca le dipendenze: non c'entra con i dati del CRM.",
+      "en": "requirements.txt lists the dependencies: it has nothing to do with the CRM data."
+     }
+    },
+    {
+     "id": "G",
+     "testo": {
+      "it": "In un volume creato da solo",
+      "en": "In a volume created by itself"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Senza una riga che lo chieda non c'è nessun volume: il file resta nel container.",
+      "en": "Without a line asking for it there is no volume: the file stays in the container."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Ciò che un container scrive va nel suo strato scrivibile: l'immagine e gli altri container non lo vedono.",
+    "en": "What a container writes goes into its writable layer: the image and the other containers do not see it."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Poi esegui «docker rm c1» e avvii c3 dalla stessa immagine. Che cosa trova c3 in /app/dati?",
+    "en": "Then you run «docker rm c1» and start c3 from the same image. What does c3 find in /app/dati?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Niente: parte dall'immagine, che non ha mai contenuto i lead",
+      "en": "Nothing: it starts from the image, which never contained the leads"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: lo strato di c1 è sparito con lui, l'immagine è quella di prima.",
+      "en": "Right: c1's layer disappeared with it, the image is the same as before."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "I 2 lead, perché c3 eredita lo strato dell'ultimo container rimosso",
+      "en": "The 2 leads, because c3 inherits the layer of the last removed container"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Uno strato scrivibile non passa a nessuno: docker rm lo cancella.",
+      "en": "A writable layer is not passed on to anyone: docker rm deletes it."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "I lead di c2, perché c3 si aggancia al container più recente",
+      "en": "c2's leads, because c3 attaches to the most recent container"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "I container non si agganciano fra loro: ognuno parte dall'immagine con uno strato vuoto.",
+      "en": "Containers do not attach to each other: each starts from the image with an empty layer."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Un errore: l'immagine è stata cancellata insieme a c1",
+      "en": "An error: the image was deleted together with c1"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "docker rm cancella il container, non l'immagine (per quella serve docker rmi).",
+      "en": "docker rm deletes the container, not the image (that needs docker rmi)."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "I 2 lead solo se c3 usa lo stesso nome di c1",
+      "en": "The 2 leads only if c3 uses the same name as c1"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il nome non conta: i dati di c1 se ne sono andati con il suo strato.",
+      "en": "The name does not matter: c1's data went away with its layer."
+     }
+    }
+   ],
+   "perche": {
+    "it": "docker rm cancella lo strato scrivibile del container; un nuovo container parte dall'immagine pulita.",
+    "en": "docker rm deletes the container's writable layer; a new container starts from the clean image."
+   }
+  },
+  "glossario": [
+   {
+    "termine": "strato scrivibile",
+    "it": "Lo strato sottile in cima a un container dove finiscono i file che scrive; sparisce con il container.",
+    "en": "The thin layer on top of a container where the files it writes end up; it disappears with the container."
+   },
+   {
+    "termine": "immagine",
+    "it": "Pacchetto in sola lettura, costruito dal Dockerfile, da cui partono i container.",
+    "en": "Read-only package, built from the Dockerfile, from which containers start."
+   }
+  ]
+ },
+ {
+  "id": "DO1.1-3",
+  "origine": "autori",
+  "pillola": "PO1.1",
+  "concetti": [
+   "CO01"
+  ],
+  "concetto_principale": "CO01",
+  "segmento_aiuto": "immagine",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Un collega entra nel container con «docker exec», installa a mano un pacchetto che mancava e dice: «ora l'immagine è sistemata, al prossimo avvio c'è». Perché si sbaglia?",
+    "en": "A colleague enters the container with «docker exec», installs a missing package by hand and says: «now the image is fixed, it will be there at the next start». Why is he wrong?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Ha cambiato solo lo strato scrivibile di quel container: l'immagine resta com'era, e il prossimo container parte senza pacchetto.",
+      "en": "He changed only that container's writable layer: the image stays as it was, and the next container starts without the package."
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: l'immagine è in sola lettura, e ogni nuovo container parte da lei.",
+      "en": "Right: the image is read-only, and every new container starts from it."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Ha ragione solo fino alla prossima build: ricostruendo dal Dockerfile, il pacchetto installato a mano sparisce dall'immagine aggiornata.",
+      "en": "He is right only until the next build: rebuilding from the Dockerfile, the package installed by hand disappears from the updated image."
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il pacchetto non è mai entrato nell'immagine, nemmeno prima della build: stava solo nello strato di quel container.",
+      "en": "The package never entered the image, not even before the build: it was only in that container's layer."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Si sbaglia perché i pacchetti installati a mano finiscono nella cache di build, e i nuovi container non leggono mai quella cache.",
+      "en": "He is wrong because packages installed by hand end up in the build cache, and new containers never read that cache."
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "La cache di build contiene gli strati costruiti dal Dockerfile, non ciò che si fa dentro un container in esecuzione.",
+      "en": "The build cache holds the layers built from the Dockerfile, not what is done inside a running container."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Si sbaglia solo nei tempi: Docker copia le modifiche nell'immagine quando il container viene fermato con docker stop.",
+      "en": "He is wrong only about timing: Docker copies the changes into the image when the container is stopped with docker stop."
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Fermare un container non tocca l'immagine: le modifiche restano nello strato del container finché lo cancelli.",
+      "en": "Stopping a container does not touch the image: the changes stay in the container's layer until you delete it."
+     }
+    }
+   ],
+   "perche": {
+    "it": "L'immagine è in sola lettura: per cambiarla si cambia la ricetta (Dockerfile, requirements.txt) e si ricostruisce.",
+    "en": "The image is read-only: to change it you change the recipe (Dockerfile, requirements.txt) and rebuild."
+   }
+  },
+  "livello2": {
+   "tipo": "contro-esempio",
+   "domanda": {
+    "it": "Qual è il modo giusto per avere il pacchetto in ogni nuovo container?",
+    "en": "What is the right way to have the package in every new container?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Ripetere l'installazione con docker exec in ogni nuovo container",
+      "en": "Repeat the install with docker exec in every new container"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Funziona finché qualcuno se ne ricorda: non è riproducibile e sparisce a ogni docker rm.",
+      "en": "It works as long as someone remembers: it is not reproducible and disappears at every docker rm."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Copiare il pacchetto nello strato scrivibile con docker cp",
+      "en": "Copy the package into the writable layer with docker cp"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "È lo stesso errore con un altro comando: lo strato scrivibile muore con il container.",
+      "en": "It is the same mistake with another command: the writable layer dies with the container."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Aggiungerlo a requirements.txt e ricostruire l'immagine",
+      "en": "Add it to requirements.txt and rebuild the image"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: entra in uno strato dell'immagine, e ogni container lo trova.",
+      "en": "Right: it goes into an image layer, and every container finds it."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Fermare il container con docker stop invece di cancellarlo",
+      "en": "Stop the container with docker stop instead of deleting it"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Salva quel container, ma i nuovi partono comunque dall'immagine senza il pacchetto.",
+      "en": "It saves that container, but the new ones still start from the image without the package."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Riavviare il container con docker compose restart",
+      "en": "Restart the container with docker compose restart"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il riavvio non cambia l'immagine: il prossimo container nuovo non avrà il pacchetto.",
+      "en": "Restarting does not change the image: the next new container will not have the package."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Ciò che deve esserci in ogni container va nella ricetta: requirements.txt e una nuova build.",
+    "en": "What must be in every container goes into the recipe: requirements.txt and a new build."
+   }
+  },
+  "glossario": [
+   {
+    "termine": "docker exec",
+    "it": "Comando che esegue un programma dentro un container già in esecuzione.",
+    "en": "Command that runs a program inside an already running container."
+   },
+   {
+    "termine": "strato scrivibile",
+    "it": "Lo strato sottile in cima a un container dove finiscono i file che scrive; sparisce con il container.",
+    "en": "The thin layer on top of a container where the files it writes end up; it disappears with the container."
+   },
+   {
+    "termine": "immagine",
+    "it": "Pacchetto in sola lettura, costruito dal Dockerfile, da cui partono i container.",
+    "en": "Read-only package, built from the Dockerfile, from which containers start."
+   }
+  ]
+ },
+ {
+  "id": "DO1.1-4",
+  "origine": "autori",
+  "pillola": "PO1.1",
+  "concetti": [
+   "CO02"
+  ],
+  "concetto_principale": "CO02",
+  "segmento_aiuto": "strati",
+  "striscia": "definizione",
+  "livello1": {
+   "domanda": {
+    "it": "Alla seconda build, quando Docker riusa uno strato dalla cache?",
+    "en": "On the second build, when does Docker reuse a layer from the cache?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Quando la sua riga del Dockerfile è identica, anche se i file copiati sono cambiati",
+      "en": "When its Dockerfile line is identical, even if the copied files have changed"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Per COPY contano anche i file: se app.py cambia, «COPY . .» si rifà anche con la riga identica.",
+      "en": "For COPY the files count too: if app.py changes, «COPY . .» is rebuilt even with an identical line."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Quando la sua riga, i file che legge e gli strati sotto non sono cambiati",
+      "en": "When its line, the files it reads and the layers below have not changed"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: tre condizioni, e basta che una cada perché lo strato si rifaccia.",
+      "en": "Right: three conditions, and if any one fails the layer is rebuilt."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Quando l'ultima build è stata fatta meno di 24 ore prima",
+      "en": "When the last build was done less than 24 hours earlier"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "La cache non scade a tempo: dipende da righe e file, non dall'orologio.",
+      "en": "The cache does not expire with time: it depends on lines and files, not on the clock."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Quando lo strato è piccolo: gli strati grandi si rifanno sempre",
+      "en": "When the layer is small: large layers are always rebuilt"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "La dimensione non conta: anche lo strato di pip install, il più grande, resta in cache se niente cambia.",
+      "en": "Size does not matter: even the pip install layer, the largest, stays cached if nothing changes."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Mai: la cache serve solo a scaricare più in fretta l'immagine di base",
+      "en": "Never: the cache only serves to download the base image faster"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "La cache vale per ogni strato della build, non solo per l'immagine di base.",
+      "en": "The cache applies to every build layer, not only to the base image."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Uno strato si riusa se non cambia niente di ciò che lo produce; se uno strato sotto si rifà, si rifà anche lui.",
+    "en": "A layer is reused if nothing that produces it changes; if a layer below is rebuilt, it is rebuilt too."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché, se si rifà lo strato 3, si rifanno anche il 4 e il 5?",
+    "en": "Why, if layer 3 is rebuilt, are layers 4 and 5 rebuilt too?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché Docker non sa quali file leggono il 4 e il 5, e per prudenza li rifà tutti",
+      "en": "Because Docker does not know which files layers 4 and 5 read, and rebuilds them all to be safe"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Docker sa bene che cosa legge ogni riga: li rifà perché stanno sopra uno strato cambiato.",
+      "en": "Docker knows exactly what each line reads: it rebuilds them because they sit on a changed layer."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché la cache si svuota appena uno strato fallisce",
+      "en": "Because the cache empties as soon as a layer fails"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Qui nessuno strato fallisce: il 3 si rifà perché è cambiato, e la cascata è la regola normale.",
+      "en": "No layer fails here: layer 3 is rebuilt because it changed, and the cascade is the normal rule."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché il 4 e il 5 contengono una copia dello strato 3",
+      "en": "Because layers 4 and 5 contain a copy of layer 3"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Gli strati non si copiano l'un l'altro: ognuno aggiunge solo le sue differenze.",
+      "en": "Layers do not copy one another: each adds only its own differences."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Perché ogni strato è costruito sopra il precedente: cambiato quello, va rifatto",
+      "en": "Because each layer is built on top of the previous one: once that changes, it must be redone"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: uno strato registra le differenze rispetto a quello sotto; se la base cambia, le differenze vanno ricalcolate.",
+      "en": "Right: a layer records the differences from the one below; if the base changes, the differences must be recomputed."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Perché il Dockerfile si rilegge da capo appena una riga cambia",
+      "en": "Because the Dockerfile is reread from the start as soon as a line changes"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Si rilegge, sì, ma gli strati 1 e 2 restano in cache: la cascata parte dal primo strato cambiato.",
+      "en": "It is reread, yes, but layers 1 and 2 stay cached: the cascade starts from the first changed layer."
+     }
+    }
+   ],
+   "perche": {
+    "it": "La cache vale per strato, nell'ordine del Dockerfile: dal primo strato rifatto in su si ricostruisce tutto.",
+    "en": "The cache works per layer, in Dockerfile order: from the first rebuilt layer upwards everything is rebuilt."
+   }
+  },
+  "glossario": [
+   {
+    "termine": "strato",
+    "it": "Il risultato di un'istruzione del Dockerfile, salvato in sola lettura dentro l'immagine.",
+    "en": "The result of one Dockerfile instruction, saved read-only inside the image."
+   },
+   {
+    "termine": "cache di build",
+    "it": "Gli strati già costruiti che Docker riusa se la riga e i file letti non sono cambiati.",
+    "en": "The layers already built that Docker reuses if the line and the files read have not changed."
+   }
+  ]
+ },
+ {
+  "id": "DO1.1-5",
+  "origine": "autori",
+  "pillola": "PO1.1",
+  "concetti": [
+   "CO02"
+  ],
+  "concetto_principale": "CO02",
+  "segmento_aiuto": "ordine",
+  "striscia": "diagnosi",
+  "livello1": {
+   "domanda": {
+    "it": "Ogni volta che cambi una riga di app.py la build impiega 41 secondi invece di 1. Il Dockerfile fa: FROM, WORKDIR, «COPY . .», «RUN pip install -r requirements.txt», CMD. Qual è la causa?",
+    "en": "Every time you change a line of app.py the build takes 41 seconds instead of 1. The Dockerfile does: FROM, WORKDIR, «COPY . .», «RUN pip install -r requirements.txt», CMD. What is the cause?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "«COPY . .» viene prima dell'installazione: app.py invalida pip install",
+      "en": "«COPY . .» comes before the install: app.py invalidates pip install"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: il primo strato che legge app.py è la copia, e l'installazione sopra si rifà a cascata.",
+      "en": "Right: the first layer that reads app.py is the copy, and the install above it is rebuilt in cascade."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Manca --no-cache-dir in pip install, quindi la cache si perde",
+      "en": "--no-cache-dir is missing in pip install, so the cache is lost"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "--no-cache-dir riguarda la cache di pip dentro l'immagine (ne riduce il peso), non la cache degli strati.",
+      "en": "--no-cache-dir concerns pip's cache inside the image (it reduces its size), not the layer cache."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "L'immagine python è troppo grande e si riscarica a ogni build",
+      "en": "The python image is too big and is downloaded again at every build"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "La base resta in cache finché il tag non si sposta: i 40 secondi sono l'installazione delle dipendenze.",
+      "en": "The base stays cached as long as the tag does not move: the 40 seconds are the dependency install."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "app.py è troppo lungo e Docker lo copia lentamente",
+      "en": "app.py is too long and Docker copies it slowly"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Copiare un file costa un secondo: il tempo se ne va nello strato dopo, pip install.",
+      "en": "Copying a file costs a second: the time goes into the next layer, pip install."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "requirements.txt non ha le versioni fissate, quindi si reinstalla sempre",
+      "en": "requirements.txt has no pinned versions, so it is always reinstalled"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Le versioni fisse sono buona pratica, ma la cache non le guarda: guarda se il file è cambiato e che cosa c'è sotto.",
+      "en": "Pinned versions are good practice, but the cache does not look at them: it looks at whether the file changed and what lies below."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Il primo strato che legge app.py è «COPY . .»: si rifà lui e, a cascata, l'installazione che viene dopo.",
+    "en": "The first layer that reads app.py is «COPY . .»: it is rebuilt and, in cascade, so is the install that comes after."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Quale ordine delle righe risolve, senza cambiare altro?",
+    "en": "Which order of the lines fixes it, without changing anything else?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "RUN pip install prima di qualunque COPY",
+      "en": "RUN pip install before any COPY"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "pip install ha bisogno di requirements.txt: senza una copia prima, il file non c'è.",
+      "en": "pip install needs requirements.txt: without a copy before it, the file is not there."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "COPY . . due volte, prima e dopo pip install",
+      "en": "COPY . . twice, before and after pip install"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "La prima copia legge ancora app.py: pip install si rifà come prima.",
+      "en": "The first copy still reads app.py: pip install is rebuilt as before."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "COPY requirements.txt, RUN pip install, poi COPY . .",
+      "en": "COPY requirements.txt, RUN pip install, then COPY . ."
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: cambiare app.py tocca solo l'ultima copia, 1 secondo.",
+      "en": "Right: changing app.py touches only the last copy, 1 second."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Mettere CMD prima di COPY . .",
+      "en": "Put CMD before COPY . ."
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "CMD dice solo come partire, non cambia la cascata della cache.",
+      "en": "CMD only says how to start, it does not change the cache cascade."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "COPY app.py per primo, poi pip install e infine tutto il resto",
+      "en": "COPY app.py first, then pip install and finally everything else"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "È l'ordine al contrario: il file che cambia spesso sta sotto l'installazione e la invalida.",
+      "en": "It is the opposite order: the file that changes often sits below the install and invalidates it."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Prima le dipendenze, che cambiano di rado, poi il codice, che cambia spesso.",
+    "en": "First the dependencies, which rarely change, then the code, which changes often."
+   }
+  },
+  "glossario": [
+   {
+    "termine": "cache di build",
+    "it": "Gli strati già costruiti che Docker riusa se la riga e i file letti non sono cambiati.",
+    "en": "The layers already built that Docker reuses if the line and the files read have not changed."
+   },
+   {
+    "termine": "strato",
+    "it": "Il risultato di un'istruzione del Dockerfile, salvato in sola lettura dentro l'immagine.",
+    "en": "The result of one Dockerfile instruction, saved read-only inside the image."
+   }
+  ]
+ },
+ {
+  "id": "DO1.1-6",
+  "origine": "autori",
+  "pillola": "PO1.1",
+  "concetti": [
+   "CO02"
+  ],
+  "concetto_principale": "CO02",
+  "segmento_aiuto": "trappole",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Il Dockerfile fa «COPY . .» (nella cartella c'è un .env con la chiave Groq) e alla fine «RUN rm .env». Il collega dice: «nell'immagine finale il .env non c'è più, quindi la chiave è al sicuro». Che cosa rispondi?",
+    "en": "The Dockerfile does «COPY . .» (the folder holds a .env with the Groq key) and at the end «RUN rm .env». The colleague says: «the .env is no longer in the final image, so the key is safe». What do you answer?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Sì, purché l'immagine venga poi ricostruita con --no-cache: la nuova build rifà tutti gli strati da zero e il file cancellato alla fine non compare più in nessuno strato dell'immagine.",
+      "en": "Yes, as long as the image is then rebuilt with --no-cache: the new build redoes every layer from scratch and the file deleted at the end no longer appears in any layer of the image."
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "--no-cache rifà gli strati, ma con lo stesso Dockerfile: «COPY . .» copia di nuovo il .env nel suo strato.",
+      "en": "--no-cache redoes the layers, but with the same Dockerfile: «COPY . .» copies the .env into its layer again."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "No: «COPY . .» ha già scritto il .env in uno strato, e RUN rm lo nasconde solo negli strati sopra. Chi ha l'immagine può estrarre lo strato della copia e leggerci la chiave.",
+      "en": "No: «COPY . .» already wrote the .env into a layer, and RUN rm only hides it in the layers above. Anyone with the image can extract the copy layer and read the key in it."
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: ogni strato resta nell'immagine, e cancellare in uno strato successivo non toglie il file da quello precedente.",
+      "en": "Right: every layer stays in the image, and deleting in a later layer does not remove the file from the earlier one."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Sì: RUN rm cancella il file da tutti gli strati precedenti, perché alla fine della build Docker fonde gli strati in uno solo e tiene soltanto lo stato finale di ogni file presente.",
+      "en": "Yes: RUN rm deletes the file from all earlier layers, because at the end of the build Docker merges the layers into one and keeps only the final state of each file present."
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Gli strati non si fondono: l'immagine li conserva tutti, ed è proprio così che funziona la cache.",
+      "en": "The layers are not merged: the image keeps them all, which is exactly how the cache works."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Ogni strato resta nell'immagine: cancellare un file più tardi non lo toglie dallo strato in cui è stato copiato.",
+    "en": "Every layer stays in the image: deleting a file later does not remove it from the layer it was copied into."
+   }
+  },
+  "livello2": {
+   "tipo": "contro-esempio",
+   "domanda": {
+    "it": "Quale soluzione tiene davvero la chiave fuori dall'immagine?",
+    "en": "Which solution really keeps the key out of the image?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Spostare «RUN rm .env» subito dopo «COPY . .», così lo strato con il file dura una sola istruzione",
+      "en": "Move «RUN rm .env» right after «COPY . .», so the layer with the file lasts a single instruction"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Lo strato della copia esiste comunque, con il file dentro: la posizione del rm non conta.",
+      "en": "The copy layer exists anyway, with the file inside: the position of the rm does not matter."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Un .dockerignore che esclude .env, e la chiave passata al container quando parte (env_file o variabile)",
+      "en": "A .dockerignore excluding .env, and the key passed to the container when it starts (env_file or variable)"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: il file non entra mai in uno strato, e la chiave arriva da fuori a runtime.",
+      "en": "Right: the file never enters a layer, and the key arrives from outside at runtime."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Rinominare il file in .env.bak prima della build, così Docker non lo riconosce come file di chiavi",
+      "en": "Rename the file to .env.bak before the build, so Docker does not recognise it as a key file"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Docker non riconosce i file di chiavi: «COPY . .» copia anche .env.bak, con la chiave dentro.",
+      "en": "Docker does not recognise key files: «COPY . .» copies .env.bak too, with the key inside."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Scrivere la chiave in un ARG invece che in un file: gli ARG spariscono a fine build",
+      "en": "Write the key in an ARG instead of a file: ARGs disappear at the end of the build"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Un ARG usato dai RUN resta nella storia degli strati: «docker history» ne mostra il valore.",
+      "en": "An ARG used by RUN lines stays in the layer history: «docker history» shows its value."
+     }
+    }
+   ],
+   "perche": {
+    "it": "La chiave non deve mai toccare una build: .dockerignore per i file, e valori passati al container all'avvio.",
+    "en": "The key must never touch a build: .dockerignore for the files, and values passed to the container at start-up."
+   }
+  },
+  "glossario": [
+   {
+    "termine": "strato",
+    "it": "Il risultato di un'istruzione del Dockerfile, salvato in sola lettura dentro l'immagine.",
+    "en": "The result of one Dockerfile instruction, saved read-only inside the image."
+   },
+   {
+    "termine": ".dockerignore",
+    "it": "File che elenca ciò che COPY non deve portare nell'immagine (per esempio .env).",
+    "en": "File listing what COPY must not bring into the image (for example .env)."
+   }
+  ]
+ },
+ {
+  "id": "DO1.2-1",
+  "origine": "autori",
+  "pillola": "PO1.2",
+  "concetti": [
+   "CO03"
+  ],
+  "concetto_principale": "CO03",
+  "segmento_aiuto": "smemorato",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Senza volume aggiungi 3 lead, poi lanci «docker compose restart». Quanti lead restituisce GET /lead?",
+    "en": "Without a volume you add 3 leads, then run «docker compose restart». How many leads does GET /lead return?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "0: restart ricrea il container",
+      "en": "0: restart recreates the container"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "restart ferma e riavvia lo stesso container: non lo ricrea.",
+      "en": "restart stops and restarts the same container: it does not recreate it."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "1: resta solo l'ultimo",
+      "en": "1: only the last one stays"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il file lead.json resta intero: non c'è motivo di perdere una parte dei lead.",
+      "en": "The lead.json file stays whole: there is no reason to lose part of the leads."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "3, ma solo se c'è un volume",
+      "en": "3, but only if there is a volume"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il volume serve contro down o rm; per un restart basta lo strato del container.",
+      "en": "The volume is needed against down or rm; for a restart the container's layer is enough."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "3: è lo stesso container",
+      "en": "3: it is the same container"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: lo strato scrivibile resta finché il container esiste.",
+      "en": "Right: the writable layer stays as long as the container exists."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Dipende dal tag dell'immagine",
+      "en": "It depends on the image tag"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il tag decide da quale immagine si parte, non che fine fanno i dati di un container.",
+      "en": "The tag decides which image you start from, not what happens to a container's data."
+     }
+    },
+    {
+     "id": "F",
+     "testo": {
+      "it": "Errore: lead.json bloccato",
+      "en": "Error: lead.json locked"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Un riavvio non blocca i file: il CRM rilegge lead.json come prima.",
+      "en": "A restart does not lock files: the CRM rereads lead.json as before."
+     }
+    },
+    {
+     "id": "G",
+     "testo": {
+      "it": "6: restart li duplica",
+      "en": "6: restart duplicates them"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Un riavvio non riscrive i dati: li ritrova come li aveva lasciati.",
+      "en": "A restart does not rewrite the data: it finds it as it left it."
+     }
+    }
+   ],
+   "perche": {
+    "it": "restart ferma e riavvia lo stesso container: il suo strato scrivibile resta, e con lui lead.json.",
+    "en": "restart stops and restarts the same container: its writable layer stays, and lead.json with it."
+   }
+  },
+  "livello2": {
+   "tipo": "contro-esempio",
+   "domanda": {
+    "it": "Quale comando, invece, farebbe sparire i 3 lead?",
+    "en": "Which command, instead, would make the 3 leads disappear?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "docker compose down e poi up -d: cancella e ricrea il container",
+      "en": "docker compose down and then up -d: it deletes and recreates the container"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: down cancella il container e il suo strato, up -d ne crea uno nuovo e vuoto.",
+      "en": "Right: down deletes the container and its layer, up -d creates a new, empty one."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "docker compose stop e poi start, aspettando qualche minuto fra i due",
+      "en": "docker compose stop and then start, waiting a few minutes in between"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Fermo o acceso, il container esiste ancora: il tempo non cancella lo strato.",
+      "en": "Stopped or running, the container still exists: time does not delete the layer."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "docker compose logs: rilegge il container da capo",
+      "en": "docker compose logs: it rereads the container from scratch"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "logs mostra l'output del container e non tocca i suoi file.",
+      "en": "logs shows the container's output and does not touch its files."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "curl localhost:8000/lead: leggere i lead li consuma",
+      "en": "curl localhost:8000/lead: reading the leads consumes them"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "GET /lead legge lead.json senza modificarlo.",
+      "en": "GET /lead reads lead.json without modifying it."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "docker compose up -d una seconda volta, senza modifiche",
+      "en": "docker compose up -d a second time, with no changes"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Senza modifiche compose lascia il container com'è: i lead restano.",
+      "en": "With no changes compose leaves the container as it is: the leads stay."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Solo cancellare il container (down, rm) cancella il suo strato; fermarlo o riavviarlo no.",
+    "en": "Only deleting the container (down, rm) deletes its layer; stopping or restarting it does not."
+   }
+  },
+  "glossario": [
+   {
+    "termine": "strato scrivibile",
+    "it": "Lo strato sottile in cima a un container dove finiscono i file che scrive; sparisce con il container.",
+    "en": "The thin layer on top of a container where the files it writes end up; it disappears with the container."
+   },
+   {
+    "termine": "compose",
+    "it": "Strumento che descrive e accende più servizi da un file docker-compose.yml.",
+    "en": "Tool that describes and starts several services from a docker-compose.yml file."
+   }
+  ]
+ },
+ {
+  "id": "DO1.2-2",
+  "origine": "autori",
+  "pillola": "PO1.2",
+  "concetti": [
+   "CO03"
+  ],
+  "concetto_principale": "CO03",
+  "segmento_aiuto": "volume",
+  "striscia": "definizione",
+  "livello1": {
+   "domanda": {
+    "it": "Che cosa fa la riga «- dati_crm:/app/dati» nel servizio crm, con «dati_crm:» dichiarato sotto «volumes:»?",
+    "en": "What does the line «- dati_crm:/app/dati» do in the crm service, with «dati_crm:» declared under «volumes:»?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Copia /app/dati nel volume dati_crm una sola volta, quando l'immagine viene costruita",
+      "en": "It copies /app/dati into the dati_crm volume just once, when the image is built"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il volume non c'entra con la build: viene montato quando il container parte, e ogni scrittura va lì.",
+      "en": "The volume has nothing to do with the build: it is mounted when the container starts, and every write goes there."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Crea una cartella dati_crm sul tuo Desktop, visibile da Esplora file",
+      "en": "It creates a dati_crm folder on your Desktop, visible from the file explorer"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Un volume nominato lo gestisce Docker nella sua area, non in una cartella scelta da te (quello è un bind mount).",
+      "en": "A named volume is managed by Docker in its own area, not in a folder you choose (that is a bind mount)."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Monta il volume nominato dati_crm sulla cartella /app/dati del container",
+      "en": "It mounts the named volume dati_crm on the container's /app/dati folder"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: chi scrive in /app/dati scrive nel volume, che vive fuori dal container.",
+      "en": "Right: whoever writes to /app/dati writes into the volume, which lives outside the container."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Dà al container il nome dati_crm, così si ritrova dopo il riavvio",
+      "en": "It gives the container the name dati_crm, so it can be found after the restart"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "La riga sta sotto volumes: del servizio e riguarda i dati, non il nome del container.",
+      "en": "The line is under the service's volumes: and concerns the data, not the container's name."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Crea un volume nuovo e vuoto a ogni docker compose up",
+      "en": "It creates a new, empty volume at every docker compose up"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "È il comportamento di un volume anonimo dopo down: quello nominato si ritrova uguale.",
+      "en": "That is how an anonymous volume behaves after down: the named one is found again unchanged."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Il volume nominato vive fuori dal container: ogni nuovo container lo monta e ritrova gli stessi dati.",
+    "en": "The named volume lives outside the container: every new container mounts it and finds the same data."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché i lead sopravvivono a «docker compose down» e «up -d»?",
+    "en": "Why do the leads survive «docker compose down» and «up -d»?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché down salva lo strato scrivibile dentro il volume prima di cancellare",
+      "en": "Because down saves the writable layer into the volume before deleting"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "down non salva niente: i lead erano già nel volume, perché il CRM ci scriveva direttamente.",
+      "en": "down saves nothing: the leads were already in the volume, because the CRM wrote straight into it."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché down cancella i container, non i volumi nominati (a meno di -v)",
+      "en": "Because down deletes the containers, not the named volumes (unless -v)"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: il volume ha una vita sua, e il nuovo container lo rimonta.",
+      "en": "Right: the volume has a life of its own, and the new container mounts it again."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché il volume nominato fa una copia di backup dell'immagine",
+      "en": "Because the named volume makes a backup copy of the image"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il volume contiene i dati scritti in /app/dati, non l'immagine.",
+      "en": "The volume holds the data written to /app/dati, not the image."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Perché compose rilegge i lead dal Dockerfile a ogni avvio",
+      "en": "Because compose rereads the leads from the Dockerfile at every start"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Il Dockerfile non contiene dati del CRM: è la ricetta dell'immagine.",
+      "en": "The Dockerfile holds no CRM data: it is the image recipe."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Perché il nuovo container ha lo stesso nome del vecchio e ne eredita i file",
+      "en": "Because the new container has the same name as the old one and inherits its files"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il nome non porta con sé i file: li ritrova perché monta lo stesso volume.",
+      "en": "The name does not carry the files: it finds them because it mounts the same volume."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Il volume lo cancella solo un comando esplicito, come down -v o docker volume rm.",
+    "en": "Only an explicit command deletes the volume, such as down -v or docker volume rm."
+   }
+  },
+  "glossario": [
+   {
+    "termine": "volume nominato",
+    "it": "Volume con un nome dichiarato nel compose: ogni nuovo container lo ritrova.",
+    "en": "Volume with a name declared in compose: every new container finds it again."
+   },
+   {
+    "termine": "volume",
+    "it": "Spazio di dati gestito da Docker, montato in una cartella del container e separato dal suo ciclo di vita.",
+    "en": "Data space managed by Docker, mounted on a container folder and separate from its life cycle."
+   }
+  ]
+ },
+ {
+  "id": "DO1.2-3",
+  "origine": "autori",
+  "pillola": "PO1.2",
+  "concetti": [
+   "CO03"
+  ],
+  "concetto_principale": "CO03",
+  "segmento_aiuto": "volume",
+  "striscia": "diagnosi",
+  "livello1": {
+   "domanda": {
+    "it": "Nel servizio crm c'è «volumes: [\"/app/dati\"]». Dopo «docker compose down» e «up -d» GET /lead restituisce una lista vuota, ma «docker volume ls» mostra un volume in più a ogni giro. Che cosa succede?",
+    "en": "The crm service has «volumes: [\"/app/dati\"]». After «docker compose down» and «up -d» GET /lead returns an empty list, but «docker volume ls» shows one more volume at every round. What is happening?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "È un volume anonimo: il nuovo container ne riceve uno nuovo e vuoto, mentre quello con i lead resta sul disco, orfano.",
+      "en": "It is an anonymous volume: the new container gets a new, empty one, while the one with the leads stays on the disk, orphaned."
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: senza nome il volume è legato al container, e un container nuovo ne riceve un altro.",
+      "en": "Right: without a name the volume is tied to the container, and a new container gets another one."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "È un volume nominato con un nome generato: compose lo ritrova a ogni giro, ma lo svuota all'avvio per partire con dati puliti.",
+      "en": "It is a named volume with a generated name: compose finds it at every round, but empties it at start-up to begin with clean data."
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Compose non svuota mai un volume: qui ne crea uno nuovo, ed è per questo che il conto sale.",
+      "en": "Compose never empties a volume: here it creates a new one, which is why the count goes up."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Il volume funziona, ma l'app scrive in /app/data invece che in /app/dati, quindi i lead finiscono in una cartella che non viene salvata.",
+      "en": "The volume works, but the app writes to /app/data instead of /app/dati, so the leads end up in a folder that is not saved."
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "app.py scrive proprio in /app/dati/lead.json: il percorso è giusto, è il volume che cambia a ogni giro.",
+      "en": "app.py writes exactly to /app/dati/lead.json: the path is right, it is the volume that changes at every round."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Docker crea un volume per ogni lead salvato, e GET /lead legge soltanto dall'ultimo volume creato, che all'inizio è vuoto.",
+      "en": "Docker creates a volume for every saved lead, and GET /lead reads only from the last volume created, which is empty at first."
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "I volumi non si creano per lead: uno per container, e il CRM legge un solo file.",
+      "en": "Volumes are not created per lead: one per container, and the CRM reads a single file."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Un volume senza nome appartiene a un container: un container nuovo ne riceve un altro. Con un nome lo si ritrova.",
+    "en": "A nameless volume belongs to one container: a new container gets another one. With a name it is found again."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Come sistemi il compose perché i lead tornino dopo down + up -d?",
+    "en": "How do you fix the compose so that the leads come back after down + up -d?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Usare «docker compose down -v» così compose riusa il volume vecchio con i lead",
+      "en": "Use «docker compose down -v» so compose reuses the old volume with the leads"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "-v fa il contrario: cancella i volumi, lead compresi.",
+      "en": "-v does the opposite: it deletes the volumes, leads included."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Aggiungere «restart: always» al servizio crm",
+      "en": "Add «restart: always» to the crm service"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "restart riavvia il container se si ferma, ma down lo cancella comunque.",
+      "en": "restart restarts the container if it stops, but down deletes it anyway."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Spostare lead.json nel Dockerfile con un COPY",
+      "en": "Move lead.json into the Dockerfile with a COPY"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Finirebbe nell'immagine, in sola lettura: i lead nuovi si perderebbero di nuovo.",
+      "en": "It would end up in the image, read-only: the new leads would be lost again."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Dare un nome al volume (dati_crm:/app/dati) e dichiararlo sotto volumes:",
+      "en": "Give the volume a name (dati_crm:/app/dati) and declare it under volumes:"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: lo stesso volume a ogni avvio, che down non cancella.",
+      "en": "Right: the same volume at every start, which down does not delete."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Scrivere il nome del volume solo sotto volumes: in fondo al file",
+      "en": "Write the volume name only under volumes: at the bottom of the file"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "La dichiarazione serve, ma il servizio deve montarlo: «dati_crm:/app/dati».",
+      "en": "The declaration is needed, but the service must mount it: «dati_crm:/app/dati»."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Volume nominato nel servizio e dichiarato in fondo: è lo stesso a ogni avvio.",
+    "en": "Named volume in the service and declared at the bottom: it is the same at every start."
+   }
+  },
+  "glossario": [
+   {
+    "termine": "volume anonimo",
+    "it": "Volume senza nome, creato per un container: un container nuovo ne riceve un altro.",
+    "en": "Nameless volume, created for one container: a new container gets another one."
+   },
+   {
+    "termine": "volume nominato",
+    "it": "Volume con un nome dichiarato nel compose: ogni nuovo container lo ritrova.",
+    "en": "Volume with a name declared in compose: every new container finds it again."
+   }
+  ]
+ },
+ {
+  "id": "DO1.2-4",
+  "origine": "autori",
+  "pillola": "PO1.2",
+  "concetti": [
+   "CO04"
+  ],
+  "concetto_principale": "CO04",
+  "segmento_aiuto": "salute",
+  "striscia": "diagnosi",
+  "livello1": {
+   "domanda": {
+    "it": "All'avvio il CRM si ferma con «connection refused» verso db:5432; un minuto dopo il database risponde. Il compose ha «depends_on: [db]». Qual è la causa?",
+    "en": "At start-up the CRM stops with «connection refused» towards db:5432; a minute later the database answers. The compose has «depends_on: [db]». What is the cause?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "depends_on aspetta solo che il container db parta, non che sia pronto",
+      "en": "depends_on waits only for the db container to start, not for it to be ready"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: Postgres accetta connessioni qualche secondo dopo l'avvio del container, e il CRM ci prova troppo presto.",
+      "en": "Right: Postgres accepts connections a few seconds after the container starts, and the CRM tries too early."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "depends_on manca: senza, compose avvia i servizi in ordine casuale",
+      "en": "depends_on is missing: without it, compose starts the services in random order"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "depends_on c'è ed è rispettato: db parte prima. Il guaio è che non aspetta che sia pronto.",
+      "en": "depends_on is there and respected: db starts first. The trouble is that it does not wait for it to be ready."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Il CRM deve usare localhost:5432, perché db non è un nome valido in compose",
+      "en": "The CRM must use localhost:5432, because db is not a valid name in compose"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Nella rete del compose il nome del servizio è un indirizzo valido; localhost, dentro il container del CRM, è il CRM stesso.",
+      "en": "On the compose network the service name is a valid address; localhost, inside the CRM container, is the CRM itself."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Postgres rifiuta le connessioni dei container che non sono root",
+      "en": "Postgres refuses connections from containers that are not root"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "L'utente del container non c'entra: un minuto dopo la stessa connessione funziona.",
+      "en": "The container user has nothing to do with it: a minute later the same connection works."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Manca «ports: 5432:5432» sul db, quindi il CRM non lo raggiunge",
+      "en": "«ports: 5432:5432» is missing on db, so the CRM cannot reach it"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il CRM raggiunge db per nome senza porte pubblicate: lo dimostra il fatto che un minuto dopo funziona.",
+      "en": "The CRM reaches db by name without published ports: the fact that it works a minute later proves it."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Senza condizione il CRM parte appena il container db è avviato, ma Postgres accetta connessioni solo qualche secondo dopo.",
+    "en": "Without a condition the CRM starts as soon as the db container is up, but Postgres accepts connections only a few seconds later."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Che cosa aggiungi perché il CRM parta solo a database pronto?",
+    "en": "What do you add so that the CRM starts only once the database is ready?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Solo condition: service_healthy nel CRM, senza nessun healthcheck sul db",
+      "en": "Only condition: service_healthy in the CRM, with no healthcheck on db"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Senza healthcheck il db non può risultare healthy, e compose non avvia il CRM.",
+      "en": "Without a healthcheck db can never be healthy, and compose does not start the CRM."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Un «sleep 10» prima di avviare il CRM",
+      "en": "A «sleep 10» before starting the CRM"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Funziona finché il db ci mette meno di 10 secondi: è un tempo indovinato, non una verifica.",
+      "en": "It works as long as db takes less than 10 seconds: it is a guessed time, not a check."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Un healthcheck sul db e condition: service_healthy nel depends_on del CRM",
+      "en": "A healthcheck on db and condition: service_healthy in the CRM's depends_on"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: l'healthcheck dice quando il db è pronto, la condizione fa aspettare il CRM.",
+      "en": "Right: the healthcheck says when db is ready, the condition makes the CRM wait."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "La porta 5432 pubblicata su 0.0.0.0",
+      "en": "Port 5432 published on 0.0.0.0"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Pubblicare la porta espone il db e non cambia l'ordine di avvio.",
+      "en": "Publishing the port exposes db and does not change the start order."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "restart: no sul servizio db",
+      "en": "restart: no on the db service"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Riguarda che cosa fare se il db si ferma, non quando il CRM può partire.",
+      "en": "It concerns what to do if db stops, not when the CRM may start."
+     }
+    }
+   ],
+   "perche": {
+    "it": "L'healthcheck dice quando il db è pronto; condition: service_healthy fa aspettare il CRM fino a quel momento.",
+    "en": "The healthcheck says when db is ready; condition: service_healthy makes the CRM wait until then."
+   }
+  },
+  "glossario": [
+   {
+    "termine": "depends_on",
+    "it": "Voce del compose che stabilisce l'ordine di avvio fra servizi; con condition: service_healthy aspetta anche la salute.",
+    "en": "Compose entry that sets the start order between services; with condition: service_healthy it also waits for health."
+   },
+   {
+    "termine": "healthcheck",
+    "it": "Comando che Docker ripete a intervalli per sapere se un servizio è pronto (healthy).",
+    "en": "Command Docker repeats at intervals to know whether a service is ready (healthy)."
+   }
+  ]
+ },
+ {
+  "id": "DO1.2-5",
+  "origine": "autori",
+  "pillola": "PO1.2",
+  "concetti": [
+   "CO04"
+  ],
+  "concetto_principale": "CO04",
+  "segmento_aiuto": "porte",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Il CRM deve rispondere solo a te, dal tuo computer, su localhost:8000. Quale riga scrivi sotto «ports:»?",
+    "en": "The CRM must answer only you, from your computer, on localhost:8000. Which line do you write under «ports:»?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "\"8000:8000\"",
+      "en": "\"8000:8000\""
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Senza indirizzo la porta ascolta su 0.0.0.0: risponde a tutta la rete.",
+      "en": "Without an address the port listens on 0.0.0.0: it answers the whole network."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "\"127.0.0.1:8000:8000\"",
+      "en": "\"127.0.0.1:8000:8000\""
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: la porta ascolta solo sull'indirizzo del tuo computer.",
+      "en": "Right: the port listens only on your computer's address."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "\"0.0.0.0:8000:8000\"",
+      "en": "\"0.0.0.0:8000:8000\""
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "È la stessa cosa di «8000:8000» scritta per esteso: tutte le interfacce.",
+      "en": "It is the same as «8000:8000» written in full: every interface."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "\"8000\"",
+      "en": "\"8000\""
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Pubblica la porta 8000 del container su una porta a caso del computer, e su tutte le interfacce.",
+      "en": "It publishes the container's port 8000 on a random port of the computer, on every interface."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "\"8000:8000/local\"",
+      "en": "\"8000:8000/local\""
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Dopo la barra va il protocollo (tcp o udp): «local» non esiste.",
+      "en": "After the slash comes the protocol (tcp or udp): «local» does not exist."
+     }
+    },
+    {
+     "id": "F",
+     "testo": {
+      "it": "Nessuna: basta EXPOSE 8000",
+      "en": "None: EXPOSE 8000 is enough"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "EXPOSE documenta la porta, non la pubblica: senza «ports:» non arrivi al CRM.",
+      "en": "EXPOSE documents the port, it does not publish it: without «ports:» you cannot reach the CRM."
+     }
+    },
+    {
+     "id": "G",
+     "testo": {
+      "it": "\"8000:8000:privata\"",
+      "en": "\"8000:8000:private\""
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Non esiste un terzo campo «privata»: l'indirizzo si scrive davanti, non in fondo.",
+      "en": "There is no third «private» field: the address goes in front, not at the end."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Con l'indirizzo davanti la porta ascolta solo su 127.0.0.1; senza, ascolta su 0.0.0.0, cioè su tutta la rete.",
+    "en": "With the address in front the port listens only on 127.0.0.1; without it, it listens on 0.0.0.0, that is on the whole network."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché «8000:8000» non basta, se il CRM serve solo a te?",
+    "en": "Why is «8000:8000» not enough, if the CRM is only for you?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché «8000:8000» apre la porta solo dentro la rete del compose",
+      "en": "Because «8000:8000» opens the port only inside the compose network"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Dentro la rete del compose i servizi si parlano senza porte pubblicate: «ports:» serve a chi sta fuori.",
+      "en": "Inside the compose network services talk without published ports: «ports:» is for whoever is outside."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché senza indirizzo Docker sceglie una porta a caso sul computer",
+      "en": "Because without an address Docker picks a random port on the computer"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "La porta del computer è quella scritta, 8000: a mancare è solo l'indirizzo.",
+      "en": "The computer's port is the one written, 8000: only the address is missing."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché «8000:8000» pubblica il CRM direttamente su Internet, con un nome pubblico",
+      "en": "Because «8000:8000» publishes the CRM straight onto the Internet, with a public name"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Docker non crea nomi pubblici: apre la porta su tutte le interfacce del tuo computer, rete locale compresa.",
+      "en": "Docker creates no public names: it opens the port on every interface of your computer, local network included."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Perché senza indirizzo la porta ascolta su 0.0.0.0, cioè su tutte le interfacce",
+      "en": "Because without an address the port listens on 0.0.0.0, that is on every interface"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: anche un collega sullo stesso Wi-Fi arriva al CRM.",
+      "en": "Right: even a colleague on the same Wi-Fi can reach the CRM."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Perché il CRM dentro il container ascolta già su 127.0.0.1",
+      "en": "Because the CRM inside the container already listens on 127.0.0.1"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Dentro il container il CRM ascolta su 0.0.0.0 (lo dice il CMD), ed è giusto così: chi arriva da fuori lo decide «ports:».",
+      "en": "Inside the container the CRM listens on 0.0.0.0 (the CMD says so), and rightly: who gets in from outside is decided by «ports:»."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Pubblicare su 0.0.0.0 vuol dire accettare connessioni da ogni rete del computer.",
+    "en": "Publishing on 0.0.0.0 means accepting connections from every network of the computer."
+   }
+  },
+  "glossario": [
+   {
+    "termine": "0.0.0.0",
+    "it": "Indirizzo che significa «tutte le interfacce di rete»: chi è sulla rete può collegarsi.",
+    "en": "Address meaning «every network interface»: anyone on the network can connect."
+   },
+   {
+    "termine": "127.0.0.1",
+    "it": "Indirizzo del computer stesso (localhost): solo chi sta su quel computer può collegarsi.",
+    "en": "Address of the computer itself (localhost): only whoever is on that computer can connect."
+   }
+  ]
+ },
+ {
+  "id": "DO1.2-6",
+  "origine": "autori",
+  "pillola": "PO1.2",
+  "concetti": [
+   "CO04"
+  ],
+  "concetto_principale": "CO04",
+  "segmento_aiuto": "porte",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Un collega aggiunge «ports: [\"5432:5432\"]» al servizio db: «altrimenti il CRM non riesce a parlare con il database». Perché la sua ragione non regge?",
+    "en": "A colleague adds «ports: [\"5432:5432\"]» to the db service: «otherwise the CRM cannot talk to the database». Why does his reason not hold?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Il CRM raggiunge il database solo tramite localhost:5432, quindi la porta va pubblicata comunque, ma su 127.0.0.1 e non su tutte le interfacce.",
+      "en": "The CRM reaches the database only via localhost:5432, so the port must be published anyway, but on 127.0.0.1 and not on every interface."
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Dentro il container del CRM localhost è il CRM stesso: il database si raggiunge per nome, db:5432.",
+      "en": "Inside the CRM container localhost is the CRM itself: the database is reached by name, db:5432."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "La porta serve, ma va scritta «5432:5432/tcp»: senza il protocollo esplicito il CRM prova in UDP e la connessione non parte.",
+      "en": "The port is needed, but it must be written «5432:5432/tcp»: without the explicit protocol the CRM tries UDP and the connection fails."
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il protocollo predefinito è già tcp; e comunque il CRM non passa dalla porta pubblicata.",
+      "en": "The default protocol is already tcp; and anyway the CRM does not go through the published port."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Nella rete del compose il CRM arriva al database per nome (db:5432): la porta pubblicata serve a chi sta fuori, e qui espone il db.",
+      "en": "On the compose network the CRM reaches the database by name (db:5432): the published port is for outsiders, and here it exposes db."
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: i servizi di un compose si parlano sulla rete comune; pubblicare apre il database alla rete del computer.",
+      "en": "Right: compose services talk on the shared network; publishing opens the database to the computer's network."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Il database non usa porte: compose collega i servizi con file condivisi, quindi la porta pubblicata viene ignorata del tutto.",
+      "en": "The database uses no ports: compose connects services through shared files, so the published port is ignored entirely."
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "I servizi si parlano in rete, con porte vere (5432 per Postgres): solo che non serve pubblicarle.",
+      "en": "Services talk over the network, with real ports (5432 for Postgres): they just do not need publishing."
+     }
+    }
+   ],
+   "perche": {
+    "it": "I servizi di un compose si parlano sulla rete comune usando il nome del servizio; le porte pubblicate servono a raggiungerli da fuori.",
+    "en": "Compose services talk on the shared network using the service name; published ports are for reaching them from outside."
+   }
+  },
+  "livello2": {
+   "tipo": "contro-esempio",
+   "domanda": {
+    "it": "Quando ha senso, invece, pubblicare la porta del database?",
+    "en": "When does it make sense, instead, to publish the database port?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Quando vuoi aprirlo dal tuo PC con un client SQL, e allora su 127.0.0.1",
+      "en": "When you want to open it from your PC with an SQL client, and then on 127.0.0.1"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: serve a te, da fuori, e solo dal tuo computer.",
+      "en": "Right: it is for you, from outside, and only from your computer."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Sempre, perché i backup del database passano dalla porta pubblicata",
+      "en": "Always, because database backups go through the published port"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Un backup si fa anche dentro la rete del compose o con docker exec: non serve aprire la porta a tutti.",
+      "en": "A backup can be done inside the compose network or with docker exec: there is no need to open the port to everyone."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Quando il CRM e il database usano due versioni diverse di Python",
+      "en": "When the CRM and the database use two different versions of Python"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Le versioni di Python non c'entrano con la rete: il database parla il suo protocollo sulla 5432.",
+      "en": "Python versions have nothing to do with the network: the database speaks its protocol on 5432."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Quando il database ha un volume nominato, che altrimenti non si monta",
+      "en": "When the database has a named volume, which otherwise is not mounted"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Volumi e porte sono indipendenti: il volume si monta anche senza porte pubblicate.",
+      "en": "Volumes and ports are independent: the volume is mounted even without published ports."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Quando il CRM gira in un altro compose, pubblicandola su 0.0.0.0 senza limiti",
+      "en": "When the CRM runs in another compose, publishing it on 0.0.0.0 with no limits"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Due compose si collegano con una rete condivisa; pubblicare su 0.0.0.0 espone il database a tutta la rete.",
+      "en": "Two composes connect through a shared network; publishing on 0.0.0.0 exposes the database to the whole network."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Si pubblica solo ciò che serve a qualcuno fuori dalla rete del compose, e su 127.0.0.1 se quel qualcuno sei tu.",
+    "en": "You publish only what someone outside the compose network needs, and on 127.0.0.1 if that someone is you."
+   }
+  },
+  "glossario": [
+   {
+    "termine": "compose",
+    "it": "Strumento che descrive e accende più servizi da un file docker-compose.yml.",
+    "en": "Tool that describes and starts several services from a docker-compose.yml file."
+   },
+   {
+    "termine": "127.0.0.1",
+    "it": "Indirizzo del computer stesso (localhost): solo chi sta su quel computer può collegarsi.",
+    "en": "Address of the computer itself (localhost): only whoever is on that computer can connect."
+   },
+   {
+    "termine": "0.0.0.0",
+    "it": "Indirizzo che significa «tutte le interfacce di rete»: chi è sulla rete può collegarsi.",
+    "en": "Address meaning «every network interface»: anyone on the network can connect."
+   }
+  ]
+ }
+]

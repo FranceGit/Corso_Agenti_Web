@@ -14,9 +14,14 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import assert from "node:assert/strict";
+import { createRequire } from "node:module";
 
 const radice = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const leggi = (nome) => JSON.parse(fs.readFileSync(path.join(radice, "dati", "lezioni", nome), "utf8"));
+// lezioni del livello 1 e dell'Officina: cartelle lette dalla config (percorsi_file e officina)
+const configPiattaforma = JSON.parse(fs.readFileSync(path.join(radice, "config", "piattaforma.json"), "utf8"));
+const CARTELLE_LEZIONI = [configPiattaforma.percorsi_file.cartella_lezioni, configPiattaforma.officina.cartella_lezioni].map((c) => path.join(radice, c));
+const fileLezione = (nome) => CARTELLE_LEZIONI.map((c) => path.join(c, nome)).find((f) => fs.existsSync(f));
+const leggi = (nome) => JSON.parse(fs.readFileSync(fileLezione(nome), "utf8"));
 function risolvi(x, l) {
   if (x && typeof x === "object" && !Array.isArray(x) && Object.keys(x).sort().join() === "en,it") return x[l];
   if (Array.isArray(x)) return x.map((v) => risolvi(v, l));
@@ -102,7 +107,11 @@ await prova("CSS: cura generale del testo (overflow-wrap, min-width dei figli di
 // ------------------------------------------------------------------ 3. DOM simulato con app.css (jsdom)
 
 let JSDOM = null;
-try { ({ JSDOM } = await import("jsdom")); } catch (e) { console.log("jsdom non installato: parte 3 (DOM simulato) saltata"); }
+// JSDOM_DIR = cartella (su disco locale) che contiene node_modules/jsdom: dal disco di rete il caricamento e' lentissimo
+try {
+  if (process.env.JSDOM_DIR) ({ JSDOM } = createRequire(path.join(process.env.JSDOM_DIR, "/"))("jsdom"));
+  else ({ JSDOM } = await import("jsdom"));
+} catch (e) { console.log("jsdom non installato: parte 3 (DOM simulato) saltata"); }
 if (JSDOM) {
   const cssTesto = fs.readFileSync(path.join(radice, "webapp", "app.css"), "utf8");
   const dom = new JSDOM(`<!doctype html><html><head><style>${cssTesto}</style></head><body><div id="radice"><div id="banco"></div></div><div id="avvisi" class="avvisi"></div></body></html>`, { pretendToBeVisual: true });
@@ -119,7 +128,7 @@ if (JSDOM) {
     else if (w[k] !== undefined) globalThis[k] = typeof w[k] === "function" && /^[a-z]/.test(k) ? w[k].bind(w) : w[k];
   }
   const contenitore = w.document.getElementById("banco");
-  const fileLezioni = fs.readdirSync(path.join(radice, "dati", "lezioni")).filter((f) => f.endsWith(".json")).sort();
+  const fileLezioni = CARTELLE_LEZIONI.flatMap((c) => fs.existsSync(c) ? fs.readdirSync(c).filter((f) => f.endsWith(".json")).sort() : []);
   for (const f of fileLezioni) {
     const grezza = leggi(f);
     const mod = await import(pathToFileURL(path.join(cartellaAnim, `${grezza.componente}.js`)).href);

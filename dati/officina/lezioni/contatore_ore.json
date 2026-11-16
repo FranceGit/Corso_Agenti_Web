@@ -1,0 +1,948 @@
+{
+ "id": "L_contatore_ore",
+ "pillola": "PO6.2",
+ "componente": "contatore_ore",
+ "titolo": {
+  "it": "Il contatore delle ore",
+  "en": "The hour meter"
+ },
+ "sottotitolo": {
+  "it": "Un mese di Codespaces sul piano gratuito: scegli macchina, ore, arresto per inattività e pulizia, e guarda il giorno in cui il gratuito finisce, o scopri che basta.",
+  "en": "A month of Codespaces on the free plan: choose machine, hours, idle stop and clean-up, and see the day the free quota ends, or find out that it is enough."
+ },
+ "segmenti": [
+  {
+   "id": "ore_core",
+   "titolo": {
+    "it": "Il contatore conta ore-core",
+    "en": "The meter counts core-hours"
+   },
+   "narrazione": [
+    {
+     "it": "Il piano gratuito di un account personale dà ogni mese 120 ore-core di calcolo e 15 GB-mese di spazio [CODESPACES-DOC]. Sono numeri di una sintesi del novembre 2026, da riverificare sulla pagina ufficiale.",
+     "en": "The free plan of a personal account gives 120 core-hours of compute and 15 GB-months of storage every month [CODESPACES-DOC]. These numbers come from a November 2026 summary and must be checked again on the official page."
+    },
+    {
+     "it": "Un'ora-core è un'ora di macchina per ogni core, e agli esercizi bastano 2 core:",
+     "en": "A core-hour is one machine hour for each core, and 2 cores are enough for the exercises:"
+    },
+    {
+     "it": "• 2 core: 120 ÷ 2 = 60 ore di lavoro;",
+     "en": "• 2 cores: 120 ÷ 2 = 60 working hours;"
+    },
+    {
+     "it": "• 4 core: 30 ore;",
+     "en": "• 4 cores: 30 hours;"
+    },
+    {
+     "it": "• 8 core: 15 ore.",
+     "en": "• 8 cores: 15 hours."
+    }
+   ],
+   "prova": {
+    "it": "Passa da 2 a 4 e poi a 8 core: guarda in che giorno finisce il gratuito.",
+    "en": "Switch from 2 to 4 and then to 8 cores: see on which day the free quota ends."
+   },
+   "concetti": [
+    "CO17"
+   ],
+   "stato_animazione": {
+    "vista": "contatore",
+    "core": 2,
+    "ore_giorno": 2,
+    "giorni": 16,
+    "inattivita": 30,
+    "ferma_a_mano": false,
+    "tenuti": 0,
+    "gb": 3,
+    "limite": "zero",
+    "push": true,
+    "assenza": 10,
+    "scelte": {},
+    "verificato": false
+   }
+  },
+  {
+   "id": "spazio",
+   "titolo": {
+    "it": "Lo spazio conta anche da fermo",
+    "en": "Storage counts even when stopped"
+   },
+   "narrazione": [
+    {
+     "it": "Un codespace fermo non consuma ore, ma il suo disco resta: lo spazio si conta in GB-mese finché il codespace esiste. Tre codespace dimenticati occupano spazio come tre accesi.",
+     "en": "A stopped codespace uses no hours, but its disk stays: storage is counted in GB-months as long as the codespace exists. Three forgotten codespaces take up storage like three running ones."
+    },
+    {
+     "it": "Il peso di ogni codespace dipende da repo e immagine: qui è un'ipotesi da regolare. La pulizia è una sola: cancellare i codespace che non servono.",
+     "en": "The weight of each codespace depends on the repo and the image: here it is an assumption to adjust. The clean-up is just one: delete the codespaces you do not need."
+    }
+   ],
+   "prova": {
+    "it": "Porta a 5 i codespace fermi, poi cambia lo spazio di ognuno: guarda la barra dei GB-mese.",
+    "en": "Raise the stopped codespaces to 5, then change the storage of each one: watch the GB-month bar."
+   },
+   "concetti": [
+    "CO17"
+   ],
+   "stato_animazione": {
+    "vista": "contatore",
+    "core": 2,
+    "ore_giorno": 2,
+    "giorni": 16,
+    "inattivita": 30,
+    "ferma_a_mano": false,
+    "tenuti": 0,
+    "gb": 3,
+    "limite": "zero",
+    "push": true,
+    "assenza": 10,
+    "scelte": {},
+    "verificato": false
+   }
+  },
+  {
+   "id": "inattivita",
+   "titolo": {
+    "it": "L'arresto per inattività",
+    "en": "The idle stop"
+   },
+   "narrazione": [
+    {
+     "it": "Se smetti senza fermarlo, il codespace resta acceso e consuma ore. Dopo 30 minuti senza attività (valore predefinito, modificabile nelle impostazioni) si ferma da solo.",
+     "en": "If you stop working without stopping it, the codespace stays on and uses hours. After 30 minutes without activity (default value, changeable in the settings) it stops by itself."
+    },
+    {
+     "it": "Il contatore ipotizza due pause al giorno lasciate aperte: con l'arresto a 240 minuti sono 8 ore a vuoto per ogni giorno di lavoro. Fermarlo a mano azzera lo spreco.",
+     "en": "The meter assumes two breaks a day left open: with the stop at 240 minutes that is 8 idle hours for every working day. Stopping it by hand removes the waste."
+    }
+   ],
+   "prova": {
+    "it": "Alza l'arresto a 240 minuti, poi attiva «Lo fermo a mano»: confronta le ore-core del mese.",
+    "en": "Raise the stop to 240 minutes, then turn on «I stop it by hand»: compare the core-hours of the month."
+   },
+   "concetti": [
+    "CO17"
+   ],
+   "stato_animazione": {
+    "vista": "contatore",
+    "core": 2,
+    "ore_giorno": 2,
+    "giorni": 16,
+    "inattivita": 30,
+    "ferma_a_mano": false,
+    "tenuti": 0,
+    "gb": 3,
+    "limite": "zero",
+    "push": true,
+    "assenza": 10,
+    "scelte": {},
+    "verificato": false
+   }
+  },
+  {
+   "id": "limite",
+   "titolo": {
+    "it": "Limite di spesa a zero",
+    "en": "Spending limit at zero"
+   },
+   "narrazione": [
+    {
+     "it": "Un account personale senza metodo di pagamento ha il limite di spesa a 0. Finita la quota, i codespace non si avviano più fino al mese successivo: nessun addebito.",
+     "en": "A personal account without a payment method has the spending limit at 0. Once the quota is used up, codespaces no longer start until the next month: no charge."
+    },
+    {
+     "it": "Con un limite sopra zero, oltre la quota si paga fino al limite scelto. I prezzi non sono nel materiale: il contatore segna solo da quale giorno si pagherebbe.",
+     "en": "With a limit above zero, beyond the quota you pay up to the chosen limit. The prices are not in the material: the meter only marks from which day you would pay."
+    }
+   ],
+   "prova": {
+    "it": "Passa il limite a «sopra zero» e poi di nuovo a «zero»: guarda i giorni dopo la fine della quota.",
+    "en": "Switch the limit to «above zero» and back to «zero»: watch the days after the end of the quota."
+   },
+   "concetti": [
+    "CO17"
+   ],
+   "stato_animazione": {
+    "vista": "contatore",
+    "core": 8,
+    "ore_giorno": 2,
+    "giorni": 16,
+    "inattivita": 30,
+    "ferma_a_mano": false,
+    "tenuti": 0,
+    "gb": 3,
+    "limite": "zero",
+    "push": true,
+    "assenza": 10,
+    "scelte": {},
+    "verificato": false
+   }
+  },
+  {
+   "id": "trasloco",
+   "titolo": {
+    "it": "O1-O5 nel codespace",
+    "en": "O1-O5 in the codespace"
+   },
+   "narrazione": [
+    {
+     "it": "Il codespace è lo stesso repo dell'Officina, con le cartelle officina/o1…o5 e gli stessi comandi: python -m pytest officina/o2 -q, python strumenti/pacchetto.py o2. Cambiano solo i percorsi assoluti, che cominciano da /workspaces/<nome-del-repo>.",
+     "en": "The codespace is the same Officina repo, with the folders officina/o1…o5 and the same commands: python -m pytest officina/o2 -q, python strumenti/pacchetto.py o2. Only absolute paths change, and start from /workspaces/<repo-name>."
+    },
+    {
+     "it": "Prima di lasciarlo: commit e push. Un codespace fermo e inutilizzato viene cancellato dopo 30 giorni (valore predefinito), e con lui il lavoro non spinto.",
+     "en": "Before leaving it: commit and push. A stopped, unused codespace is deleted after 30 days (default value), and with it the work that was not pushed."
+    }
+   ],
+   "prova": {
+    "it": "Porta l'assenza oltre 30 giorni con e senza «commit e push» e leggi l'esito.",
+    "en": "Take the absence beyond 30 days with and without «commit and push» and read the outcome."
+   },
+   "concetti": [
+    "CO17"
+   ],
+   "stato_animazione": {
+    "vista": "trasloco",
+    "core": 2,
+    "ore_giorno": 2,
+    "giorni": 16,
+    "inattivita": 30,
+    "ferma_a_mano": false,
+    "tenuti": 0,
+    "gb": 3,
+    "limite": "zero",
+    "push": true,
+    "assenza": 10,
+    "scelte": {},
+    "verificato": false
+   }
+  },
+  {
+   "id": "decidi_ore",
+   "titolo": {
+    "it": "Decidi tu: che cosa conviene fare?",
+    "en": "You decide: what is the best move?"
+   },
+   "narrazione": [
+    {
+     "it": "Cinque situazioni di un mese di Codespaces: per ognuna scegli la mossa che salva ore, spazio o lavoro.",
+     "en": "Five situations from a month of Codespaces: for each one choose the move that saves hours, storage or work."
+    }
+   ],
+   "prova": {
+    "it": "Scegli una mossa per ogni situazione, poi premi «Controlla» e leggi il perché.",
+    "en": "Choose a move for each situation, then press «Check» and read why."
+   },
+   "concetti": [
+    "CO17"
+   ],
+   "stato_animazione": {
+    "vista": "decidi",
+    "core": 2,
+    "ore_giorno": 2,
+    "giorni": 16,
+    "inattivita": 30,
+    "ferma_a_mano": false,
+    "tenuti": 0,
+    "gb": 3,
+    "limite": "zero",
+    "push": true,
+    "assenza": 10,
+    "scelte": {},
+    "verificato": false
+   }
+  },
+  {
+   "id": "riassunto",
+   "titolo": {
+    "it": "In tre frasi",
+    "en": "In three sentences"
+   },
+   "narrazione": [
+    {
+     "it": "Il piano gratuito conta 120 ore-core e 15 GB-mese al mese: su 2 core sono 60 ore di lavoro, su 8 soltanto 15.",
+     "en": "The free plan counts 120 core-hours and 15 GB-months a month: on 2 cores that is 60 working hours, on 8 only 15."
+    },
+    {
+     "it": "Lo spazio si consuma anche a codespace fermo: cancella quelli che non servono e lascia lavorare l'arresto per inattività, o fermalo a mano.",
+     "en": "Storage is used even by a stopped codespace: delete the ones you do not need and let the idle stop work, or stop it by hand."
+    },
+    {
+     "it": "Con il limite di spesa a 0 la quota finita ferma i codespace senza addebito; il lavoro si salva con commit e push, perché i codespace fermi si cancellano dopo 30 giorni.",
+     "en": "With the spending limit at 0 a used-up quota stops the codespaces with no charge; work is saved with commit and push, because stopped codespaces are deleted after 30 days."
+    }
+   ],
+   "concetti": [
+    "CO17"
+   ],
+   "stato_animazione": {
+    "vista": "contatore",
+    "core": 2,
+    "ore_giorno": 2,
+    "giorni": 16,
+    "inattivita": 30,
+    "ferma_a_mano": false,
+    "tenuti": 0,
+    "gb": 3,
+    "limite": "zero",
+    "push": true,
+    "assenza": 10,
+    "scelte": {},
+    "verificato": false
+   }
+  }
+ ],
+ "scenario": {
+  "quota_ore_core": 120,
+  "quota_gb_mese": 15,
+  "inattivita_predefinita": 30,
+  "conservazione_giorni": 30,
+  "giorni_mese": 30,
+  "pause_al_giorno": 2,
+  "macchine": [
+   2,
+   4,
+   8
+  ],
+  "ms_giorno": 55,
+  "ms_assenza": 25,
+  "a_capo_nota": 118,
+  "a_capo_codespace": 19,
+  "a_capo_unita": 64,
+  "a_capo_situazione": 92,
+  "ore_giorno": {
+   "min": 0.5,
+   "max": 10,
+   "passo": 0.5,
+   "etichetta": {
+    "it": "Ore di lavoro al giorno",
+    "en": "Working hours per day"
+   }
+  },
+  "giorni": {
+   "min": 1,
+   "max": 30,
+   "passo": 1,
+   "etichetta": {
+    "it": "Giorni di lavoro nel mese",
+    "en": "Working days in the month"
+   }
+  },
+  "inattivita": {
+   "min": 5,
+   "max": 240,
+   "passo": 5,
+   "etichetta": {
+    "it": "Arresto per inattività (minuti)",
+    "en": "Idle stop (minutes)"
+   }
+  },
+  "tenuti": {
+   "min": 0,
+   "max": 5,
+   "passo": 1,
+   "etichetta": {
+    "it": "Codespace fermi ma non cancellati",
+    "en": "Codespaces stopped but not deleted"
+   }
+  },
+  "gb": {
+   "min": 1,
+   "max": 10,
+   "passo": 1,
+   "etichetta": {
+    "it": "Spazio di ogni codespace (GB, ipotesi)",
+    "en": "Storage of each codespace (GB, assumption)"
+   }
+  },
+  "assenza": {
+   "min": 0,
+   "max": 60,
+   "passo": 1,
+   "etichetta": {
+    "it": "Giorni senza aprire il codespace",
+    "en": "Days without opening the codespace"
+   }
+  },
+  "riferimento": {
+   "core": 2,
+   "ore_giorno": 2,
+   "giorni": 16,
+   "inattivita": 30,
+   "ferma_a_mano": false,
+   "tenuti": 0,
+   "gb": 3,
+   "limite": "zero",
+   "push": true,
+   "assenza": 10
+  },
+  "unita": [
+   {
+    "id": "O1",
+    "cartella": "officina/o1",
+    "comando": "docker compose up -d --build",
+    "nota": {
+     "it": "Serve Docker nel codespace: la feature docker-in-docker del devcontainer.json.",
+     "en": "Docker is needed in the codespace: the docker-in-docker feature of the devcontainer.json."
+    }
+   },
+   {
+    "id": "O2",
+    "cartella": "officina/o2",
+    "comando": "python -m pytest officina/o2 -q",
+    "nota": {
+     "it": "Fallisce finché il difetto del classificatore c'è: identico sul PC e nel codespace.",
+     "en": "It fails while the classifier defect is there: identical on the PC and in the codespace."
+    }
+   },
+   {
+    "id": "O3",
+    "cartella": "officina/o3",
+    "comando": "python strumenti/pacchetto.py o3",
+    "nota": {
+     "it": "Si leggono gli estratti e si scrive lo schema: nessun servizio da avviare.",
+     "en": "You read the extracts and write the schema: no service to start."
+    }
+   },
+   {
+    "id": "O4",
+    "cartella": {
+     "it": "/workspaces/<nome-del-repo>/officina/o4/dati",
+     "en": "/workspaces/<repo-name>/officina/o4/dati"
+    },
+    "comando": "python strumenti/pacchetto.py o4",
+    "nota": {
+     "it": "Il percorso assoluto del recinto cambia: nel codespace comincia da /workspaces.",
+     "en": "The absolute path of the fence changes: in the codespace it starts from /workspaces."
+    }
+   },
+   {
+    "id": "O5",
+    "cartella": "officina/o5",
+    "comando": "python -m assistente \"ciao\"",
+    "nota": {
+     "it": "Backend finto senza rete; per Groq serve il segreto GROQ_API_KEY di Codespaces.",
+     "en": "Fake backend with no network; Groq needs the GROQ_API_KEY Codespaces secret."
+    }
+   }
+  ],
+  "azioni": [
+   {
+    "id": "due_core",
+    "nome": {
+     "it": "Passa a 2 core",
+     "en": "Switch to 2 cores"
+    }
+   },
+   {
+    "id": "cancella",
+    "nome": {
+     "it": "Cancella i codespace fermi",
+     "en": "Delete the stopped codespaces"
+    }
+   },
+   {
+    "id": "push",
+    "nome": {
+     "it": "Fai commit e push",
+     "en": "Commit and push"
+    }
+   },
+   {
+    "id": "limite_zero",
+    "nome": {
+     "it": "Lascia il limite di spesa a 0",
+     "en": "Keep the spending limit at 0"
+    }
+   },
+   {
+    "id": "arresto",
+    "nome": {
+     "it": "Abbassa l'arresto per inattività",
+     "en": "Lower the idle stop"
+    }
+   }
+  ],
+  "casi": [
+   {
+    "id": "k1",
+    "testo": {
+     "it": "A metà mese hai già usato 100 delle 120 ore-core: lavori su una macchina da 8 core.",
+     "en": "Halfway through the month you have already used 100 of the 120 core-hours: you work on an 8-core machine."
+    },
+    "migliore": "due_core",
+    "quasi": [
+     "arresto"
+    ],
+    "spiega": {
+     "it": "Su 8 core ogni ora costa 8 ore-core: con 2 core le 20 ore-core rimaste diventano 10 ore di lavoro invece di 2 ore e mezza.",
+     "en": "On 8 cores every hour costs 8 core-hours: with 2 cores the 20 remaining core-hours become 10 working hours instead of two and a half."
+    }
+   },
+   {
+    "id": "k2",
+    "testo": {
+     "it": "Lo spazio è a 14 GB-mese su 15 e lavori su un solo repo, ma tieni 4 codespace fermi di prove vecchie.",
+     "en": "Storage is at 14 of 15 GB-months and you work on a single repo, but you keep 4 stopped codespaces from old tests."
+    },
+    "migliore": "cancella",
+    "quasi": [],
+    "spiega": {
+     "it": "I codespace fermi non consumano ore ma occupano spazio: cancellarli libera i GB-mese.",
+     "en": "Stopped codespaces use no hours but take up storage: deleting them frees the GB-months."
+    }
+   },
+   {
+    "id": "k3",
+    "testo": {
+     "it": "Parti per cinque settimane e lasci il codespace fermo con modifiche non ancora spinte sul repo.",
+     "en": "You leave for five weeks and leave the codespace stopped with changes not yet pushed to the repo."
+    },
+    "migliore": "push",
+    "quasi": [],
+    "spiega": {
+     "it": "Dopo 30 giorni fermo e inutilizzato il codespace viene cancellato: solo ciò che è sul repo si salva.",
+     "en": "After 30 days stopped and unused the codespace is deleted: only what is on the repo is saved."
+    }
+   },
+   {
+    "id": "k4",
+    "testo": {
+     "it": "Temi un addebito a sorpresa se un mese superi la quota gratuita.",
+     "en": "You fear a surprise charge if one month you exceed the free quota."
+    },
+    "migliore": "limite_zero",
+    "quasi": [
+     "due_core"
+    ],
+    "spiega": {
+     "it": "Con il limite a 0 la quota finita ferma i codespace fino al mese dopo: nessun addebito.",
+     "en": "With the limit at 0 a used-up quota stops the codespaces until next month: no charge."
+    }
+   },
+   {
+    "id": "k5",
+    "testo": {
+     "it": "Lasci spesso il codespace aperto durante le pause, con l'arresto per inattività a 240 minuti.",
+     "en": "You often leave the codespace open during breaks, with the idle stop at 240 minutes."
+    },
+    "migliore": "arresto",
+    "quasi": [
+     "due_core"
+    ],
+    "spiega": {
+     "it": "Ogni pausa lasciata aperta brucia fino a 4 ore di macchina: con l'arresto a 30 minuti, o fermandolo a mano, lo spreco quasi sparisce.",
+     "en": "Every break left open burns up to 4 machine hours: with the stop at 30 minutes, or stopping it by hand, the waste almost disappears."
+    }
+   }
+  ],
+  "testi": {
+   "valore_ore": {
+    "it": "{n} h",
+    "en": "{n} h"
+   },
+   "valore_min": {
+    "it": "{n} min",
+    "en": "{n} min"
+   },
+   "valore_n": {
+    "it": "{n}",
+    "en": "{n}"
+   },
+   "valore_gb": {
+    "it": "{n} GB",
+    "en": "{n} GB"
+   },
+   "barra_ore": {
+    "it": "{usate} / {quota} ore-core",
+    "en": "{usate} / {quota} core-hours"
+   },
+   "barra_gb": {
+    "it": "{usati} / {quota} GB-mese",
+    "en": "{usati} / {quota} GB-months"
+   },
+   "giorno_tipo": {
+    "it": "Ogni giorno di lavoro: {ore} h di lavoro + {vuoto} h accese a vuoto = {acceso} h × {core} core = {totale} ore-core",
+    "en": "Every working day: {ore} h of work + {vuoto} h running idle = {acceso} h × {core} cores = {totale} core-hours"
+   },
+   "fine_ore": {
+    "it": "Le ore-core finiscono il giorno {g}",
+    "en": "The core-hours run out on day {g}"
+   },
+   "fine_spazio": {
+    "it": "I GB-mese finiscono il giorno {g}",
+    "en": "The GB-months run out on day {g}"
+   },
+   "basta": {
+    "it": "Il gratuito basta per tutto il mese: avanzano {avanzo} ore-core ({ore} ore su {core} core)",
+    "en": "The free quota lasts the whole month: {avanzo} core-hours left ({ore} hours on {core} cores)"
+   },
+   "dopo_fermo": {
+    "it": "poi i codespace non si avviano fino al mese dopo, nessun addebito",
+    "en": "then codespaces do not start until next month, no charge"
+   },
+   "dopo_paga": {
+    "it": "poi si paga, fino al limite di spesa scelto",
+    "en": "then you pay, up to the chosen spending limit"
+   },
+   "cs_attivo": {
+    "it": "in uso: ore + {gb} GB",
+    "en": "in use: hours + {gb} GB"
+   },
+   "cs_fermo": {
+    "it": "fermo: niente ore, ma {gb} GB",
+    "en": "stopped: no hours, but {gb} GB"
+   },
+   "nota_numeri": {
+    "it": "120 ore-core, 15 GB-mese, arresto a 30 minuti, conservazione di 30 giorni: numeri dalla sintesi del corso (novembre 2026) della documentazione di Codespaces, da riverificare sulla pagina ufficiale [CODESPACES-DOC].",
+    "en": "120 core-hours, 15 GB-months, 30-minute idle stop, 30-day retention: numbers from the course summary (November 2026) of the Codespaces documentation, to be checked again on the official page [CODESPACES-DOC]."
+   },
+   "nota_ipotesi": {
+    "it": "Ipotesi del contatore, non dati del piano: 2 pause al giorno lasciate aperte, spazio di ogni codespace da misurare sul tuo, mese di 30 giorni, ogni codespace tenuto conta per tutto il mese.",
+    "en": "Assumptions of the meter, not plan data: 2 breaks a day left open, storage of each codespace to be measured on yours, 30-day month, every kept codespace counts for the whole month."
+   },
+   "es_macchina_ok": {
+    "it": "Macchina da {core} core: {ore} ore di lavoro gratuite al mese, abbastanza per gli esercizi.",
+    "en": "{core}-core machine: {ore} free working hours a month, enough for the exercises."
+   },
+   "es_macchina_grande": {
+    "it": "Macchina da {core} core: solo {ore} ore di lavoro gratuite al mese; con 2 core sarebbero {ore2}.",
+    "en": "{core}-core machine: only {ore} free working hours a month; with 2 cores they would be {ore2}."
+   },
+   "es_ore_ok": {
+    "it": "Ore-core: ne usi {usate} su {quota}, ne avanzano {avanzo}.",
+    "en": "Core-hours: you use {usate} of {quota}, {avanzo} are left."
+   },
+   "es_ore_finite": {
+    "it": "Ore-core: ne servirebbero {usate} su {quota}; finiscono il giorno {g}.",
+    "en": "Core-hours: {usate} of {quota} would be needed; they run out on day {g}."
+   },
+   "es_spazio_ok": {
+    "it": "Spazio: {usati} GB-mese su {quota}, nessun codespace fermo a occupare disco.",
+    "en": "Storage: {usati} GB-months of {quota}, no stopped codespace taking up disk."
+   },
+   "es_spazio_fermi": {
+    "it": "Spazio: {usati} GB-mese su {quota}; {n} codespace fermi ne occupano {fermi} senza lavorare: cancella quelli che non servono.",
+    "en": "Storage: {usati} GB-months of {quota}; {n} stopped codespaces take {fermi} without working: delete the ones you do not need."
+   },
+   "es_spazio_finito": {
+    "it": "Spazio: {usati} GB-mese su {quota}; il disco dei codespace tenuti esaurisce la quota il giorno {g}.",
+    "en": "Storage: {usati} GB-months of {quota}; the disk of the kept codespaces uses up the quota on day {g}."
+   },
+   "es_mano": {
+    "it": "Lo fermi a mano quando smetti: nessuna ora accesa a vuoto.",
+    "en": "You stop it by hand when you finish: no hours running idle."
+   },
+   "es_inattivita_ok": {
+    "it": "Arresto dopo {min} minuti: {vuoto} ore-core al mese accese a vuoto.",
+    "en": "Stop after {min} minutes: {vuoto} core-hours a month running idle."
+   },
+   "es_inattivita_alta": {
+    "it": "Arresto dopo {min} minuti: {vuoto} ore-core al mese bruciate a vuoto; il predefinito è {pred}.",
+    "en": "Stop after {min} minutes: {vuoto} core-hours a month burnt idle; the default is {pred}."
+   },
+   "es_limite_zero": {
+    "it": "Limite di spesa 0: finita la quota i codespace non si avviano fino al mese dopo. Nessun addebito.",
+    "en": "Spending limit 0: once the quota is used up codespaces do not start until next month. No charge."
+   },
+   "es_limite_sopra": {
+    "it": "Limite sopra zero: oltre la quota si paga fino al limite. I prezzi non sono nel materiale, il contatore non li calcola.",
+    "en": "Limit above zero: beyond the quota you pay up to the limit. The prices are not in the material, the meter does not compute them."
+   },
+   "verdetto_basta": {
+    "it": "Il gratuito basta per tutto il mese.",
+    "en": "The free quota lasts the whole month."
+   },
+   "verdetto_fermo": {
+    "it": "Il gratuito finisce il giorno {g}: poi ti fermi fino al mese dopo, senza pagare.",
+    "en": "The free quota ends on day {g}: then you stop until next month, without paying."
+   },
+   "verdetto_paga": {
+    "it": "Il gratuito finisce il giorno {g}: da lì in poi si paga.",
+    "en": "The free quota ends on day {g}: from then on you pay."
+   },
+   "tr_salvo": {
+    "it": "Il lavoro è sul repo: anche se il codespace viene cancellato, uno nuovo lo riprende con gli stessi comandi.",
+    "en": "The work is on the repo: even if the codespace is deleted, a new one picks it up with the same commands."
+   },
+   "tr_perso": {
+    "it": "Dopo {g} giorni il codespace fermo è stato cancellato (conservazione di {c} giorni): il lavoro non spinto è perso.",
+    "en": "After {g} days the stopped codespace has been deleted ({c}-day retention): the work that was not pushed is lost."
+   },
+   "tr_rischio": {
+    "it": "Il codespace fermo c'è ancora, ma occupa spazio e fra {r} giorni viene cancellato: fai commit e push.",
+    "en": "The stopped codespace is still there, but it takes up storage and will be deleted in {r} days: commit and push."
+   },
+   "tr_assenza": {
+    "it": "Torni dopo {g} giorni",
+    "en": "You come back after {g} days"
+   },
+   "tr_soglia": {
+    "it": "cancellato dopo {c} giorni",
+    "en": "deleted after {c} days"
+   },
+   "situazione": {
+    "it": "Situazione {n}",
+    "en": "Situation {n}"
+   },
+   "scegli_per": {
+    "it": "Mossa per la situazione {n}",
+    "en": "Move for situation {n}"
+   },
+   "ver_giusto": {
+    "it": "Situazione {n}: giusto. {spiega}",
+    "en": "Situation {n}: right. {spiega}"
+   },
+   "ver_quasi": {
+    "it": "Situazione {n}: aiuta, ma la mossa migliore è «{migliore}». {spiega}",
+    "en": "Situation {n}: it helps, but the best move is «{migliore}». {spiega}"
+   },
+   "ver_sbagliato": {
+    "it": "Situazione {n}: no, la mossa migliore è «{migliore}». {spiega}",
+    "en": "Situation {n}: no, the best move is «{migliore}». {spiega}"
+   },
+   "ver_vuoto": {
+    "it": "Situazione {n}: non hai scelto. La mossa migliore è «{migliore}». {spiega}",
+    "en": "Situation {n}: you did not choose. The best move is «{migliore}». {spiega}"
+   },
+   "ver_punteggio": {
+    "it": "Mosse migliori: {giuste} su {totali}.",
+    "en": "Best moves: {giuste} of {totali}."
+   },
+   "ver_tutto_giusto": {
+    "it": "Perfetto: sai far bastare ore, spazio e lavoro sul piano gratuito.",
+    "en": "Perfect: you can make hours, storage and work last on the free plan."
+   },
+   "nota_decidi": {
+    "it": "Scegli nel pannello a sinistra, poi premi «Controlla».",
+    "en": "Choose in the left panel, then press «Check»."
+   },
+   "prompt": {
+    "it": "$ {c}",
+    "en": "$ {c}"
+   },
+   "riga_unita": {
+    "it": "{id} · {comando} — {nota}",
+    "en": "{id} · {comando} — {nota}"
+   },
+   "fine_e_dopo": {
+    "it": "{fine}: {dopo}",
+    "en": "{fine}: {dopo}"
+   }
+  },
+  "etichette": {
+   "titolo_comandi": {
+    "it": "Il tuo mese",
+    "en": "Your month"
+   },
+   "vista": {
+    "it": "Vista",
+    "en": "View"
+   },
+   "vista_contatore": {
+    "it": "Contatore",
+    "en": "Meter"
+   },
+   "vista_trasloco": {
+    "it": "O1-O5 nel codespace",
+    "en": "O1-O5 in the codespace"
+   },
+   "vista_decidi": {
+    "it": "Decidi tu",
+    "en": "You decide"
+   },
+   "macchina": {
+    "it": "Macchina",
+    "en": "Machine"
+   },
+   "core": {
+    "it": "{n} core",
+    "en": "{n} cores"
+   },
+   "ferma_a_mano": {
+    "it": "Lo fermo a mano quando smetto",
+    "en": "I stop it by hand when I finish"
+   },
+   "limite": {
+    "it": "Limite di spesa",
+    "en": "Spending limit"
+   },
+   "limite_zero": {
+    "it": "zero",
+    "en": "zero"
+   },
+   "limite_sopra": {
+    "it": "sopra zero",
+    "en": "above zero"
+   },
+   "push": {
+    "it": "Commit e push prima di lasciarlo",
+    "en": "Commit and push before leaving it"
+   },
+   "rifai": {
+    "it": "Rifai il mese",
+    "en": "Replay the month"
+   },
+   "scegli": {
+    "it": "— scegli —",
+    "en": "— choose —"
+   },
+   "controlla": {
+    "it": "Controlla",
+    "en": "Check"
+   },
+   "titolo_contatore": {
+    "it": "IL CONTATORE DEL MESE",
+    "en": "THE MONTH'S METER"
+   },
+   "titolo_trasloco": {
+    "it": "STESSO REPO, STESSI COMANDI",
+    "en": "SAME REPO, SAME COMMANDS"
+   },
+   "titolo_decidi": {
+    "it": "CINQUE SITUAZIONI, UNA MOSSA",
+    "en": "FIVE SITUATIONS, ONE MOVE"
+   },
+   "barra_ore": {
+    "it": "Ore-core",
+    "en": "Core-hours"
+   },
+   "barra_gb": {
+    "it": "Spazio",
+    "en": "Storage"
+   },
+   "gratis_fino": {
+    "it": "quota gratuita",
+    "en": "free quota"
+   },
+   "i_tuoi_codespace": {
+    "it": "I tuoi codespace",
+    "en": "Your codespaces"
+   },
+   "legenda_lavoro": {
+    "it": "lavoro",
+    "en": "work"
+   },
+   "legenda_riposo": {
+    "it": "riposo",
+    "en": "rest"
+   },
+   "legenda_fermo": {
+    "it": "fermo (limite 0)",
+    "en": "stopped (limit 0)"
+   },
+   "legenda_paga": {
+    "it": "a pagamento",
+    "en": "paid"
+   },
+   "segno_fermo": {
+    "it": "✕",
+    "en": "✕"
+   },
+   "segno_paga": {
+    "it": "€",
+    "en": "$"
+   },
+   "codespace": {
+    "it": "Codespace",
+    "en": "Codespace"
+   },
+   "repo": {
+    "it": "Repo",
+    "en": "Repo"
+   },
+   "cs_esiste": {
+    "it": "ancora lì, fermo",
+    "en": "still there, stopped"
+   },
+   "cs_cancellato": {
+    "it": "cancellato",
+    "en": "deleted"
+   },
+   "repo_spinto": {
+    "it": "lavoro spinto",
+    "en": "work pushed"
+   },
+   "repo_non_spinto": {
+    "it": "lavoro non spinto",
+    "en": "work not pushed"
+   },
+   "timeline": {
+    "it": "Il codespace fermo, giorno dopo giorno",
+    "en": "The stopped codespace, day after day"
+   },
+   "titolo_conto": {
+    "it": "Il conto del mese",
+    "en": "The month's account"
+   },
+   "riga_usate": {
+    "it": "Ore-core richieste",
+    "en": "Core-hours needed"
+   },
+   "riga_vuoto": {
+    "it": "di cui accese a vuoto",
+    "en": "of which running idle"
+   },
+   "riga_lavoro": {
+    "it": "Ore di lavoro gratis su questa macchina",
+    "en": "Free working hours on this machine"
+   },
+   "riga_gb": {
+    "it": "Spazio (GB-mese)",
+    "en": "Storage (GB-months)"
+   },
+   "riga_fine": {
+    "it": "Fine del gratuito",
+    "en": "End of the free quota"
+   },
+   "mai": {
+    "it": "mai, basta",
+    "en": "never, it lasts"
+   },
+   "giorno": {
+    "it": "giorno {g}",
+    "en": "day {g}"
+   },
+   "titolo_trasloco_destra": {
+    "it": "Prima di lasciare il codespace",
+    "en": "Before leaving the codespace"
+   },
+   "passi_trasloco": [
+    {
+     "it": "1. git add e git commit delle modifiche;",
+     "en": "1. git add and git commit the changes;"
+    },
+    {
+     "it": "2. git push sul repo;",
+     "en": "2. git push to the repo;"
+    },
+    {
+     "it": "3. ferma il codespace, o lascia che lo fermi l'arresto per inattività;",
+     "en": "3. stop the codespace, or let the idle stop do it;"
+    },
+    {
+     "it": "4. cancella quelli che non ti servono più.",
+     "en": "4. delete the ones you no longer need."
+    }
+   ],
+   "titolo_verifica": {
+    "it": "Il controllo",
+    "en": "The check"
+   },
+   "titolo_esiti": {
+    "it": "Che cosa succede nel mese",
+    "en": "What happens in the month"
+   },
+   "regola": {
+    "it": "2 core, arresto per inattività, cancella ciò che non serve, limite a 0, commit e push: il mese gratuito dura.",
+    "en": "2 cores, idle stop, delete what you do not need, limit at 0, commit and push: the free month lasts."
+   },
+   "descrizione_scena": {
+    "it": "Due barre (ore-core e GB-mese) che si riempiono giorno per giorno sopra un calendario di 30 giorni, e sotto i codespace tenuti, in uso o fermi.",
+    "en": "Two bars (core-hours and GB-months) filling day by day above a 30-day calendar, and below the kept codespaces, in use or stopped."
+   }
+  }
+ },
+ "domande": []
+}

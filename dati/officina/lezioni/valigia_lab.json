@@ -1,0 +1,1050 @@
+{
+ "id": "L_valigia_lab",
+ "pillola": "PO6.1",
+ "componente": "valigia_lab",
+ "titolo": {
+  "it": "La valigia del laboratorio",
+  "en": "The lab suitcase"
+ },
+ "sottotitolo": {
+  "it": "Un devcontainer.json si prepara come una valigia: metti e togli gli oggetti, apri il codespace e guarda che cosa trovi, o che cosa manca.",
+  "en": "A devcontainer.json is packed like a suitcase: put objects in and take them out, open the codespace and see what you find, or what is missing."
+ },
+ "segmenti": [
+  {
+   "id": "file",
+   "titolo": {
+    "it": "Il laboratorio in un file",
+    "en": "The lab in one file"
+   },
+   "narrazione": [
+    {
+     "it": "Un codespace è una macchina nel cloud creata dal repo. Come crearla lo dice un file solo, .devcontainer/devcontainer.json, che viaggia con il codice: chi apre il repo trova lo stesso laboratorio [CODESPACES-DOC].",
+     "en": "A codespace is a cloud machine created from the repo. How to create it is said by one file, .devcontainer/devcontainer.json, which travels with the code: whoever opens the repo finds the same lab [CODESPACES-DOC]."
+    },
+    {
+     "it": "Nella valigia ci sono sette oggetti:",
+     "en": "There are seven objects in the suitcase:"
+    },
+    {
+     "it": "• image: il sistema di partenza, con Python;",
+     "en": "• image: the starting system, with Python;"
+    },
+    {
+     "it": "• features: pezzi aggiunti, come Docker;",
+     "en": "• features: added pieces, such as Docker;"
+    },
+    {
+     "it": "• hostRequirements: quanti core chiede la macchina;",
+     "en": "• hostRequirements: how many cores the machine asks for;"
+    },
+    {
+     "it": "• postCreateCommand: il comando che gira una volta, dopo la creazione;",
+     "en": "• postCreateCommand: the command that runs once, after creation;"
+    },
+    {
+     "it": "• forwardPorts: le porte da aprire, 8000 (CRM) e 8025 (posta finta);",
+     "en": "• forwardPorts: the ports to open, 8000 (CRM) and 8025 (fake mail);"
+    },
+    {
+     "it": "• secrets: i segreti che servono, solo per nome;",
+     "en": "• secrets: the secrets that are needed, by name only;"
+    },
+    {
+     "it": "• customizations: le estensioni dell'editor.",
+     "en": "• customizations: the editor extensions."
+    }
+   ],
+   "prova": {
+    "it": "Togli e rimetti un oggetto alla volta: a destra cambia il file, al centro il codespace si riapre.",
+    "en": "Take out and put back one object at a time: on the right the file changes, in the centre the codespace reopens."
+   },
+   "concetti": [
+    "CO16"
+   ],
+   "stato_animazione": {
+    "vista": "valigia",
+    "immagine": "fissata",
+    "docker": "si",
+    "macchina": "2",
+    "post_create": "requisiti",
+    "porte": "si",
+    "segreto": "dichiarato",
+    "estensioni": "si",
+    "scelte": {},
+    "verificato": false
+   }
+  },
+  {
+   "id": "immagine_requisiti",
+   "titolo": {
+    "it": "Immagine fissa, requisiti pronti",
+    "en": "Pinned image, requirements ready"
+   },
+   "narrazione": [
+    {
+     "it": "Il tag dell'immagine decide se il laboratorio resta uguale: python:1-3.12-bookworm è Python 3.12 su Debian bookworm oggi e fra sei mesi, python:latest segue l'ultima versione e fra sei mesi può essere un'altra.",
+     "en": "The image tag decides whether the lab stays the same: python:1-3.12-bookworm is Python 3.12 on Debian bookworm today and in six months, python:latest follows the newest version and in six months may be another one."
+    },
+    {
+     "it": "postCreateCommand installa i requisiti una volta sola: pip install --user -r requirements.txt. Il file fissa pytest==8.3.4, quindi tutti hanno la stessa versione. Senza quel comando, python -m pytest -q si ferma subito.",
+     "en": "postCreateCommand installs the requirements once: pip install --user -r requirements.txt. The file pins pytest==8.3.4, so everyone has the same version. Without that command, python -m pytest -q stops at once."
+    }
+   ],
+   "prova": {
+    "it": "Metti l'immagine su «latest», poi porta postCreateCommand su «nessuno» e su «solo pytest»: confronta le righe del terminale.",
+    "en": "Set the image to «latest», then set postCreateCommand to «none» and to «pytest only»: compare the terminal lines."
+   },
+   "concetti": [
+    "CO16"
+   ],
+   "stato_animazione": {
+    "vista": "valigia",
+    "immagine": "fissata",
+    "docker": "si",
+    "macchina": "2",
+    "post_create": "requisiti",
+    "porte": "si",
+    "segreto": "dichiarato",
+    "estensioni": "si",
+    "scelte": {},
+    "verificato": false
+   }
+  },
+  {
+   "id": "docker",
+   "titolo": {
+    "it": "Docker dentro il codespace",
+    "en": "Docker inside the codespace"
+   },
+   "narrazione": [
+    {
+     "it": "Gli esercizi O1 e O2 costruiscono immagini e avviano il CRM con compose: servono i comandi docker dentro il codespace. Li porta la feature ghcr.io/devcontainers/features/docker-in-docker:2, una riga sotto «features».",
+     "en": "Exercises O1 and O2 build images and start the CRM with compose: the docker commands are needed inside the codespace. The feature ghcr.io/devcontainers/features/docker-in-docker:2 brings them, one line under «features»."
+    },
+    {
+     "it": "Senza la feature il codespace si apre lo stesso, ma docker compose up risponde «command not found». Con forwardPorts il CRM sulla porta 8000 è pronto appena il codespace si apre.",
+     "en": "Without the feature the codespace opens anyway, but docker compose up answers «command not found». With forwardPorts the CRM on port 8000 is ready as soon as the codespace opens."
+    }
+   ],
+   "prova": {
+    "it": "Togli Docker e guarda quali righe diventano rosse; poi togli le porte e leggi la differenza fra errore e avviso.",
+    "en": "Remove Docker and see which lines turn red; then remove the ports and read the difference between error and warning."
+   },
+   "concetti": [
+    "CO16"
+   ],
+   "stato_animazione": {
+    "vista": "valigia",
+    "immagine": "fissata",
+    "docker": "si",
+    "macchina": "2",
+    "post_create": "requisiti",
+    "porte": "si",
+    "segreto": "dichiarato",
+    "estensioni": "si",
+    "scelte": {},
+    "verificato": false
+   }
+  },
+  {
+   "id": "segreti",
+   "titolo": {
+    "it": "I segreti si dichiarano, non si scrivono",
+    "en": "Secrets are declared, not written"
+   },
+   "narrazione": [
+    {
+     "it": "La chiave di Groq non entra mai nel file. Si imposta in Settings → Codespaces → Secrets, si abilita per il repo e arriva nel codespace come variabile d'ambiente.",
+     "en": "The Groq key never goes into the file. It is set in Settings → Codespaces → Secrets, enabled for the repo, and it reaches the codespace as an environment variable."
+    },
+    {
+     "it": "Nel file resta solo la dichiarazione: «secrets» con il nome GROQ_API_KEY e una descrizione, così Codespaces la chiede all'apertura.",
+     "en": "Only the declaration stays in the file: «secrets» with the name GROQ_API_KEY and a description, so Codespaces asks for it on opening."
+    },
+    {
+     "it": "Scritta in containerEnv, invece, la chiave finisce nel repo e nella sua cronologia: chiunque legga il file la vede. È bloccante.",
+     "en": "Written in containerEnv, instead, the key ends up in the repo and in its history: anyone reading the file sees it. It is blocking."
+    }
+   ],
+   "prova": {
+    "it": "Passa il segreto da «dichiarato» a «in chiaro» e ad «assente»: confronta l'esito sotto il terminale.",
+    "en": "Switch the secret from «declared» to «in clear» and to «missing»: compare the outcome under the terminal."
+   },
+   "concetti": [
+    "CO16"
+   ],
+   "stato_animazione": {
+    "vista": "valigia",
+    "immagine": "fissata",
+    "docker": "si",
+    "macchina": "2",
+    "post_create": "requisiti",
+    "porte": "si",
+    "segreto": "dichiarato",
+    "estensioni": "si",
+    "scelte": {},
+    "verificato": false
+   }
+  },
+  {
+   "id": "decidi_valigia",
+   "titolo": {
+    "it": "Trova il difetto",
+    "en": "Find the defect"
+   },
+   "narrazione": [
+    {
+     "it": "Cinque sintomi di codespace che non funzionano come dovrebbero. Per ognuno scegli l'oggetto della valigia da sistemare.",
+     "en": "Five symptoms of codespaces that do not work as they should. For each one choose the suitcase object to fix."
+    }
+   ],
+   "prova": {
+    "it": "Scegli un oggetto per ogni sintomo, poi premi «Controlla» e leggi il perché.",
+    "en": "Choose an object for each symptom, then press «Check» and read why."
+   },
+   "concetti": [
+    "CO16"
+   ],
+   "stato_animazione": {
+    "vista": "decidi",
+    "immagine": "fissata",
+    "docker": "si",
+    "macchina": "2",
+    "post_create": "requisiti",
+    "porte": "si",
+    "segreto": "dichiarato",
+    "estensioni": "si",
+    "scelte": {},
+    "verificato": false
+   }
+  },
+  {
+   "id": "riassunto",
+   "titolo": {
+    "it": "In tre frasi",
+    "en": "In three sentences"
+   },
+   "narrazione": [
+    {
+     "it": "devcontainer.json descrive il laboratorio in un file che viaggia con il repo: stesso file, stesso ambiente per chiunque lo apra.",
+     "en": "devcontainer.json describes the lab in a file that travels with the repo: same file, same environment for whoever opens it."
+    },
+    {
+     "it": "Immagine con tag fisso, Docker con la feature docker-in-docker, requisiti installati da postCreateCommand e porte dichiarate rendono il codespace pronto all'apertura.",
+     "en": "An image with a pinned tag, Docker through the docker-in-docker feature, requirements installed by postCreateCommand and declared ports make the codespace ready on opening."
+    },
+    {
+     "it": "Il segreto si dichiara sotto «secrets» con una descrizione e si imposta nei segreti di Codespaces: il valore non va mai nel file.",
+     "en": "The secret is declared under «secrets» with a description and set in the Codespaces secrets: the value never goes into the file."
+    }
+   ],
+   "concetti": [
+    "CO16"
+   ],
+   "stato_animazione": {
+    "vista": "valigia",
+    "immagine": "fissata",
+    "docker": "si",
+    "macchina": "2",
+    "post_create": "requisiti",
+    "porte": "si",
+    "segreto": "dichiarato",
+    "estensioni": "si",
+    "scelte": {},
+    "verificato": false
+   }
+  }
+ ],
+ "scenario": {
+  "quota_ore_core": 120,
+  "nome_file": "Officina - corso agenti AI",
+  "a_capo_frammento": 52,
+  "a_capo_terminale": 54,
+  "a_capo_sintomo": 92,
+  "ms_riga": 260,
+  "riferimento": {
+   "immagine": "fissata",
+   "docker": "si",
+   "macchina": "2",
+   "post_create": "requisiti",
+   "porte": "si",
+   "segreto": "dichiarato",
+   "estensioni": "si"
+  },
+  "preset": {
+   "da_sistemare": {
+    "immagine": "latest",
+    "docker": "no",
+    "macchina": "8",
+    "post_create": "nessuno",
+    "porte": "solo_8000",
+    "segreto": "in_chiaro",
+    "estensioni": "no"
+   },
+   "vuota": {
+    "immagine": "latest",
+    "docker": "no",
+    "macchina": "2",
+    "post_create": "nessuno",
+    "porte": "no",
+    "segreto": "assente",
+    "estensioni": "no"
+   }
+  },
+  "oggetti": [
+   {
+    "id": "immagine",
+    "chiave": "image",
+    "nome": {
+     "it": "Immagine",
+     "en": "Image"
+    },
+    "comando": {
+     "it": "Anna oggi, Luca fra sei mesi: stessa immagine?",
+     "en": "Anna today, Luca in six months: same image?"
+    },
+    "spiega": {
+     "it": "«image» è il sistema di partenza del codespace. Con un tag fisso (1-3.12-bookworm) chi apre il repo oggi e chi lo apre fra sei mesi parte dallo stesso Python sullo stesso Debian.",
+     "en": "«image» is the codespace's starting system. With a pinned tag (1-3.12-bookworm) whoever opens the repo today and whoever opens it in six months start from the same Python on the same Debian."
+    },
+    "valori": [
+     {
+      "id": "fissata",
+      "nome": {
+       "it": "Tag fisso",
+       "en": "Pinned tag"
+      },
+      "frammento": "\"image\": \"…/python:1-3.12-bookworm\"",
+      "json": {
+       "image": "mcr.microsoft.com/devcontainers/python:1-3.12-bookworm"
+      },
+      "livello": "ok",
+      "terminale": {
+       "it": "Sì: Python 3.12 su Debian bookworm per tutti, oggi e fra sei mesi.",
+       "en": "Yes: Python 3.12 on Debian bookworm for everyone, today and in six months."
+      },
+      "perche": {
+       "it": "Il tag fisso tiene fermo l'ambiente: stesso file, stesso laboratorio.",
+       "en": "The pinned tag keeps the environment still: same file, same lab."
+      }
+     },
+     {
+      "id": "latest",
+      "nome": {
+       "it": "latest",
+       "en": "latest"
+      },
+      "frammento": "\"image\": \"…/python:latest\"",
+      "json": {
+       "image": "mcr.microsoft.com/devcontainers/python:latest"
+      },
+      "livello": "avviso",
+      "terminale": {
+       "it": "Forse no: «latest» si sposta, fra sei mesi l'immagine può essere un'altra.",
+       "en": "Maybe not: «latest» moves, in six months the image may be another one."
+      },
+      "perche": {
+       "it": "Con «latest» il codespace di domani non è quello di oggi: lo stesso file non garantisce più lo stesso laboratorio.",
+       "en": "With «latest» tomorrow's codespace is not today's: the same file no longer guarantees the same lab."
+      }
+     }
+    ]
+   },
+   {
+    "id": "docker",
+    "chiave": "features",
+    "nome": {
+     "it": "Docker (feature)",
+     "en": "Docker (feature)"
+    },
+    "comando": {
+     "it": "$ docker compose up -d --build",
+     "en": "$ docker compose up -d --build"
+    },
+    "spiega": {
+     "it": "«features» aggiunge pezzi all'immagine. ghcr.io/devcontainers/features/docker-in-docker:2 porta i comandi docker dentro il codespace: servono a O1 (Dockerfile e compose) e a O2 (il CRM adottato in container).",
+     "en": "«features» adds pieces to the image. ghcr.io/devcontainers/features/docker-in-docker:2 brings the docker commands inside the codespace: O1 (Dockerfile and compose) and O2 (the adopted CRM in a container) need them."
+    },
+    "valori": [
+     {
+      "id": "si",
+      "nome": {
+       "it": "Dentro",
+       "en": "In"
+      },
+      "frammento": "\"features\": { \"…/docker-in-docker:2\": {} }",
+      "json": {
+       "features": {
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+       }
+      },
+      "livello": "ok",
+      "terminale": {
+       "it": "Il CRM di O1/O2 si costruisce e parte nel codespace.",
+       "en": "The O1/O2 CRM builds and starts in the codespace."
+      },
+      "perche": {
+       "it": "Con la feature docker-in-docker gli esercizi O1 e O2 girano come sul PC.",
+       "en": "With the docker-in-docker feature exercises O1 and O2 run as on the PC."
+      }
+     },
+     {
+      "id": "no",
+      "nome": {
+       "it": "Fuori",
+       "en": "Out"
+      },
+      "frammento": "",
+      "json": null,
+      "livello": "errore",
+      "terminale": {
+       "it": "docker: command not found → O1 e O2 non girano.",
+       "en": "docker: command not found → O1 and O2 do not run."
+      },
+      "perche": {
+       "it": "Senza la feature non c'è Docker nel codespace: niente immagini, niente compose, niente CRM di O1 e O2.",
+       "en": "Without the feature there is no Docker in the codespace: no images, no compose, no O1 and O2 CRM."
+      }
+     }
+    ]
+   },
+   {
+    "id": "macchina",
+    "chiave": "hostRequirements",
+    "nome": {
+     "it": "Macchina (core)",
+     "en": "Machine (cores)"
+    },
+    "comando": {
+     "it": "Macchina da {cpus} core",
+     "en": "{cpus}-core machine"
+    },
+    "spiega": {
+     "it": "«hostRequirements» dice quanti core chiede il codespace. Il piano gratuito conta ore-core: con {quota} ore-core al mese, più core vuol dire meno ore di lavoro.",
+     "en": "«hostRequirements» says how many cores the codespace asks for. The free plan counts core-hours: with {quota} core-hours a month, more cores means fewer working hours."
+    },
+    "valori": [
+     {
+      "id": "2",
+      "cpus": 2,
+      "nome": {
+       "it": "2 core",
+       "en": "2 cores"
+      },
+      "frammento": "\"hostRequirements\": { \"cpus\": 2 }",
+      "json": {
+       "hostRequirements": {
+        "cpus": 2
+       }
+      },
+      "livello": "ok",
+      "terminale": {
+       "it": "{quota} ore-core ÷ {cpus} = {ore} ore di lavoro gratuite al mese.",
+       "en": "{quota} core-hours ÷ {cpus} = {ore} free working hours a month."
+      },
+      "perche": {
+       "it": "2 core bastano agli esercizi dell'Officina e fanno durare di più le ore gratuite.",
+       "en": "2 cores are enough for the Officina exercises and make the free hours last longer."
+      }
+     },
+     {
+      "id": "4",
+      "cpus": 4,
+      "nome": {
+       "it": "4 core",
+       "en": "4 cores"
+      },
+      "frammento": "\"hostRequirements\": { \"cpus\": 4 }",
+      "json": {
+       "hostRequirements": {
+        "cpus": 4
+       }
+      },
+      "livello": "avviso",
+      "terminale": {
+       "it": "{quota} ore-core ÷ {cpus} = solo {ore} ore di lavoro al mese.",
+       "en": "{quota} core-hours ÷ {cpus} = only {ore} working hours a month."
+      },
+      "perche": {
+       "it": "Ogni ora su 4 core consuma il doppio delle ore-core: il mese gratuito finisce a metà.",
+       "en": "Every hour on 4 cores uses twice the core-hours: the free month ends halfway."
+      }
+     },
+     {
+      "id": "8",
+      "cpus": 8,
+      "nome": {
+       "it": "8 core",
+       "en": "8 cores"
+      },
+      "frammento": "\"hostRequirements\": { \"cpus\": 8 }",
+      "json": {
+       "hostRequirements": {
+        "cpus": 8
+       }
+      },
+      "livello": "avviso",
+      "terminale": {
+       "it": "{quota} ore-core ÷ {cpus} = solo {ore} ore di lavoro al mese.",
+       "en": "{quota} core-hours ÷ {cpus} = only {ore} working hours a month."
+      },
+      "perche": {
+       "it": "Su 8 core le ore gratuite durano un quarto che su 2: per gli esercizi non serve tanta potenza.",
+       "en": "On 8 cores the free hours last a quarter of those on 2: the exercises do not need that much power."
+      }
+     }
+    ]
+   },
+   {
+    "id": "post_create",
+    "chiave": "postCreateCommand",
+    "nome": {
+     "it": "postCreateCommand",
+     "en": "postCreateCommand"
+    },
+    "comando": {
+     "it": "$ python -m pytest -q",
+     "en": "$ python -m pytest -q"
+    },
+    "spiega": {
+     "it": "«postCreateCommand» gira una volta, appena il codespace è creato. Con pip install --user -r requirements.txt installa le versioni fissate nel repo (pytest==8.3.4): chi apre il codespace trova tutto pronto.",
+     "en": "«postCreateCommand» runs once, as soon as the codespace is created. With pip install --user -r requirements.txt it installs the versions pinned in the repo (pytest==8.3.4): whoever opens the codespace finds everything ready."
+    },
+    "valori": [
+     {
+      "id": "requisiti",
+      "nome": {
+       "it": "requirements.txt",
+       "en": "requirements.txt"
+      },
+      "frammento": "\"postCreateCommand\": \"pip install --user -r requirements.txt\"",
+      "json": {
+       "postCreateCommand": "pip install --user -r requirements.txt"
+      },
+      "livello": "ok",
+      "terminale": {
+       "it": "pytest==8.3.4 installato all'apertura: i test girano.",
+       "en": "pytest==8.3.4 installed on opening: the tests run."
+      },
+      "perche": {
+       "it": "I requisiti del repo si installano da soli, nelle versioni fissate: stessi test per tutti.",
+       "en": "The repo requirements install by themselves, in the pinned versions: the same tests for everyone."
+      }
+     },
+     {
+      "id": "solo_pytest",
+      "nome": {
+       "it": "solo pytest",
+       "en": "pytest only"
+      },
+      "frammento": "\"postCreateCommand\": \"pip install pytest\"",
+      "json": {
+       "postCreateCommand": "pip install pytest"
+      },
+      "livello": "avviso",
+      "terminale": {
+       "it": "I test girano, ma con un pytest senza versione, non quello di requirements.txt.",
+       "en": "The tests run, but with an unversioned pytest, not the one in requirements.txt."
+      },
+      "perche": {
+       "it": "Il comando ignora requirements.txt: la versione cambia nel tempo e una dipendenza aggiunta domani non verrà installata.",
+       "en": "The command ignores requirements.txt: the version changes over time and a dependency added tomorrow will not be installed."
+      }
+     },
+     {
+      "id": "nessuno",
+      "nome": {
+       "it": "nessuno",
+       "en": "none"
+      },
+      "frammento": "",
+      "json": null,
+      "livello": "errore",
+      "terminale": {
+       "it": "No module named pytest: requirements.txt non è mai stato installato.",
+       "en": "No module named pytest: requirements.txt was never installed."
+      },
+      "perche": {
+       "it": "Senza postCreateCommand nessuno installa i requisiti: pytest resta rosso finché ognuno non li installa a mano.",
+       "en": "Without postCreateCommand nobody installs the requirements: pytest stays red until everyone installs them by hand."
+      }
+     }
+    ]
+   },
+   {
+    "id": "porte",
+    "chiave": "forwardPorts",
+    "nome": {
+     "it": "Porte",
+     "en": "Ports"
+    },
+    "comando": {
+     "it": "Pannello delle porte",
+     "en": "Ports panel"
+    },
+    "spiega": {
+     "it": "«forwardPorts» elenca le porte da inoltrare all'apertura: 8000 per il CRM degli esercizi O1/O2, 8025 per l'interfaccia della posta finta (Mailpit).",
+     "en": "«forwardPorts» lists the ports to forward on opening: 8000 for the CRM of exercises O1/O2, 8025 for the fake mail interface (Mailpit)."
+    },
+    "valori": [
+     {
+      "id": "si",
+      "nome": {
+       "it": "8000, 8025",
+       "en": "8000, 8025"
+      },
+      "frammento": "\"forwardPorts\": [8000, 8025]",
+      "json": {
+       "forwardPorts": [
+        8000,
+        8025
+       ]
+      },
+      "livello": "ok",
+      "terminale": {
+       "it": "8000 (CRM) e 8025 (posta finta) pronte appena il codespace si apre.",
+       "en": "8000 (CRM) and 8025 (fake mail) ready as soon as the codespace opens."
+      },
+      "perche": {
+       "it": "Le porte dichiarate compaiono da sole: il CRM si apre nel browser senza passaggi a mano.",
+       "en": "Declared ports appear by themselves: the CRM opens in the browser with no manual steps."
+      }
+     },
+     {
+      "id": "solo_8000",
+      "nome": {
+       "it": "solo 8000",
+       "en": "8000 only"
+      },
+      "frammento": "\"forwardPorts\": [8000]",
+      "json": {
+       "forwardPorts": [
+        8000
+       ]
+      },
+      "livello": "avviso",
+      "terminale": {
+       "it": "8000 (CRM) pronta; 8025 (posta finta) va aperta a mano.",
+       "en": "8000 (CRM) ready; 8025 (fake mail) must be opened by hand."
+      },
+      "perche": {
+       "it": "Il CRM si apre, ma l'interfaccia della posta finta sulla 8025 no: manca una porta nella lista.",
+       "en": "The CRM opens, but the fake mail interface on 8025 does not: one port is missing from the list."
+      }
+     },
+     {
+      "id": "no",
+      "nome": {
+       "it": "Nessuna",
+       "en": "None"
+      },
+      "frammento": "",
+      "json": null,
+      "livello": "avviso",
+      "terminale": {
+       "it": "Nessuna porta dichiarata: il CRM gira, ma la porta va aperta a mano.",
+       "en": "No port declared: the CRM runs, but the port must be opened by hand."
+      },
+      "perche": {
+       "it": "Non blocca nulla, ma ognuno deve aggiungere la porta dal pannello: il laboratorio non è pronto all'apertura.",
+       "en": "It blocks nothing, but everyone must add the port from the panel: the lab is not ready on opening."
+      }
+     }
+    ]
+   },
+   {
+    "id": "segreto",
+    "chiave": "secrets",
+    "nome": {
+     "it": "Segreto GROQ_API_KEY",
+     "en": "GROQ_API_KEY secret"
+    },
+    "comando": {
+     "it": "GROQ_API_KEY nel codespace",
+     "en": "GROQ_API_KEY in the codespace"
+    },
+    "spiega": {
+     "it": "«secrets» dichiara che un segreto serve, con una descrizione. Il valore si imposta in Settings → Codespaces → Secrets e arriva come variabile d'ambiente: nel repo non entra mai.",
+     "en": "«secrets» declares that a secret is needed, with a description. The value is set in Settings → Codespaces → Secrets and arrives as an environment variable: it never enters the repo."
+    },
+    "valori": [
+     {
+      "id": "dichiarato",
+      "nome": {
+       "it": "dichiarato",
+       "en": "declared"
+      },
+      "frammento": "\"secrets\": { \"GROQ_API_KEY\": { \"description\": … } }",
+      "json": {
+       "secrets": {
+        "GROQ_API_KEY": {
+         "description": {
+          "it": "Chiave gratuita di Groq: serve solo con ASSISTENTE_BACKEND=groq, senza l'assistente usa il backend finto.",
+          "en": "Free Groq key: needed only with ASSISTENTE_BACKEND=groq, without it the assistant uses the fake backend."
+         }
+        }
+       }
+      },
+      "livello": "ok",
+      "terminale": {
+       "it": "Arriva dai segreti di Codespaces come variabile d'ambiente; il file dice solo che serve.",
+       "en": "It comes from the Codespaces secrets as an environment variable; the file only says it is needed."
+      },
+      "perche": {
+       "it": "Il file dichiara il nome e lo scopo, il valore resta nei segreti del profilo.",
+       "en": "The file declares the name and the purpose, the value stays in the profile secrets."
+      }
+     },
+     {
+      "id": "in_chiaro",
+      "nome": {
+       "it": "in chiaro",
+       "en": "in clear"
+      },
+      "frammento": "\"containerEnv\": { \"GROQ_API_KEY\": \"<LA_TUA_CHIAVE>\" }",
+      "json": {
+       "containerEnv": {
+        "GROQ_API_KEY": "<LA_TUA_CHIAVE>"
+       }
+      },
+      "livello": "bloccante",
+      "terminale": {
+       "it": "La chiave è scritta nel repo: chiunque legga il file la vede.",
+       "en": "The key is written in the repo: anyone reading the file sees it."
+      },
+      "perche": {
+       "it": "Un valore in containerEnv finisce nel repo e nella sua cronologia: la chiave va revocata e sostituita da una dichiarazione sotto «secrets».",
+       "en": "A value in containerEnv ends up in the repo and in its history: the key must be revoked and replaced by a declaration under «secrets»."
+      }
+     },
+     {
+      "id": "assente",
+      "nome": {
+       "it": "assente",
+       "en": "missing"
+      },
+      "frammento": "",
+      "json": null,
+      "livello": "avviso",
+      "terminale": {
+       "it": "Nessuno sa che serve: senza segreto l'assistente resta sul backend finto.",
+       "en": "Nobody knows it is needed: without the secret the assistant stays on the fake backend."
+      },
+      "perche": {
+       "it": "Non c'è niente di pericoloso, ma Codespaces non chiede il segreto all'apertura: chi vuole usare Groq deve scoprirlo da solo.",
+       "en": "There is nothing dangerous, but Codespaces does not ask for the secret on opening: whoever wants to use Groq must find out alone."
+      }
+     }
+    ]
+   },
+   {
+    "id": "estensioni",
+    "chiave": "customizations",
+    "nome": {
+     "it": "Estensioni",
+     "en": "Extensions"
+    },
+    "comando": {
+     "it": "Editor all'apertura",
+     "en": "Editor on opening"
+    },
+    "spiega": {
+     "it": "«customizations.vscode.extensions» installa le estensioni dell'editor per tutti: ms-python.python per Python, ms-azuretools.vscode-docker per Docker.",
+     "en": "«customizations.vscode.extensions» installs the editor extensions for everyone: ms-python.python for Python, ms-azuretools.vscode-docker for Docker."
+    },
+    "valori": [
+     {
+      "id": "si",
+      "nome": {
+       "it": "Python + Docker",
+       "en": "Python + Docker"
+      },
+      "frammento": "\"extensions\": [\"ms-python.python\", \"ms-azuretools.vscode-docker\"]",
+      "json": {
+       "customizations": {
+        "vscode": {
+         "extensions": [
+          "ms-python.python",
+          "ms-azuretools.vscode-docker"
+         ]
+        }
+       }
+      },
+      "livello": "ok",
+      "terminale": {
+       "it": "Estensioni Python e Docker installate per tutti.",
+       "en": "Python and Docker extensions installed for everyone."
+      },
+      "perche": {
+       "it": "Lo stesso editor per tutti: stessi aiuti, stessa esperienza.",
+       "en": "The same editor for everyone: same help, same experience."
+      }
+     },
+     {
+      "id": "no",
+      "nome": {
+       "it": "Nessuna",
+       "en": "None"
+      },
+      "frammento": "",
+      "json": null,
+      "livello": "avviso",
+      "terminale": {
+       "it": "Editor nudo: ognuno installa le sue estensioni a mano.",
+       "en": "Bare editor: everyone installs their own extensions by hand."
+      },
+      "perche": {
+       "it": "I test girano lo stesso, ma ognuno lavora con un editor diverso.",
+       "en": "The tests run anyway, but everyone works with a different editor."
+      }
+     }
+    ]
+   }
+  ],
+  "casi": [
+   {
+    "id": "k1",
+    "testo": {
+     "it": "All'apertura del codespace python -m pytest -q risponde «No module named pytest».",
+     "en": "On opening the codespace python -m pytest -q answers «No module named pytest»."
+    },
+    "migliore": "post_create",
+    "quasi": [],
+    "spiega": {
+     "it": "Nessuno ha installato requirements.txt: lo fa postCreateCommand, una volta, alla creazione.",
+     "en": "Nobody installed requirements.txt: postCreateCommand does it, once, on creation."
+    }
+   },
+   {
+    "id": "k2",
+    "testo": {
+     "it": "Nell'esercizio O2 docker compose up dà «docker: command not found».",
+     "en": "In exercise O2 docker compose up gives «docker: command not found»."
+    },
+    "migliore": "docker",
+    "quasi": [
+     "immagine"
+    ],
+    "spiega": {
+     "it": "L'immagine Python non contiene Docker: lo porta la feature docker-in-docker sotto «features».",
+     "en": "The Python image does not contain Docker: the docker-in-docker feature under «features» brings it."
+    }
+   },
+   {
+    "id": "k3",
+    "testo": {
+     "it": "Un collega apre lo stesso repo sei mesi dopo e si trova una versione di Python diversa dalla tua.",
+     "en": "A colleague opens the same repo six months later and finds a Python version different from yours."
+    },
+    "migliore": "immagine",
+    "quasi": [
+     "post_create"
+    ],
+    "spiega": {
+     "it": "L'immagine usa «latest», che si sposta nel tempo: un tag fisso tiene uguale il laboratorio.",
+     "en": "The image uses «latest», which moves over time: a pinned tag keeps the lab the same."
+    }
+   },
+   {
+    "id": "k4",
+    "testo": {
+     "it": "Le ore gratuite del mese finiscono dopo appena 15 ore di lavoro.",
+     "en": "The free hours of the month run out after just 15 working hours."
+    },
+    "migliore": "macchina",
+    "quasi": [],
+    "spiega": {
+     "it": "120 ore-core ÷ 15 ore = 8 core: con hostRequirements a 2 core diventano 60 ore.",
+     "en": "120 core-hours ÷ 15 hours = 8 cores: with hostRequirements at 2 cores they become 60 hours."
+    }
+   },
+   {
+    "id": "k5",
+    "testo": {
+     "it": "Chi legge il repo trova la chiave di Groq scritta nel devcontainer.json.",
+     "en": "Whoever reads the repo finds the Groq key written in the devcontainer.json."
+    },
+    "migliore": "segreto",
+    "quasi": [],
+    "spiega": {
+     "it": "Il valore era in containerEnv: va revocato, tolto e dichiarato sotto «secrets» con una descrizione.",
+     "en": "The value was in containerEnv: it must be revoked, removed and declared under «secrets» with a description."
+    }
+   }
+  ],
+  "testi": {
+   "verdetto_bloccante": {
+    "it": "Bloccante: il codespace si apre, ma il file mette un segreto nel repo.",
+    "en": "Blocking: the codespace opens, but the file puts a secret in the repo."
+   },
+   "verdetto_errore": {
+    "it": "Il codespace si apre, ma il laboratorio è incompleto: qualche esercizio non gira.",
+    "en": "The codespace opens, but the lab is incomplete: some exercise does not run."
+   },
+   "verdetto_avviso": {
+    "it": "Funziona, con avvisi: non tutti troveranno lo stesso laboratorio pronto.",
+    "en": "It works, with warnings: not everyone will find the same lab ready."
+   },
+   "verdetto_ok": {
+    "it": "Stesso file, stesso laboratorio per tutti: tutto pronto all'apertura.",
+    "en": "Same file, same lab for everyone: everything ready on opening."
+   },
+   "conta": {
+    "it": "{ok} ok · {avvisi} avvisi · {errori} errori · {bloccanti} bloccanti",
+    "en": "{ok} ok · {avvisi} warnings · {errori} errors · {bloccanti} blocking"
+   },
+   "riga_esito": {
+    "it": "{livello} · {nome}: {perche}",
+    "en": "{livello} · {nome}: {perche}"
+   },
+   "nota_file": {
+    "it": "Nel repo il file ha anche i commenti che spiegano ogni scelta: qui si vede solo il JSON.",
+    "en": "In the repo the file also has comments explaining each choice: here you only see the JSON."
+   },
+   "sintomo": {
+    "it": "Sintomo {n}",
+    "en": "Symptom {n}"
+   },
+   "scegli_per": {
+    "it": "Oggetto da sistemare per il sintomo {n}",
+    "en": "Object to fix for symptom {n}"
+   },
+   "ver_giusto": {
+    "it": "Sintomo {n}: giusto. {spiega}",
+    "en": "Symptom {n}: right. {spiega}"
+   },
+   "ver_quasi": {
+    "it": "Sintomo {n}: vicino, ma l'oggetto da sistemare è «{migliore}». {spiega}",
+    "en": "Symptom {n}: close, but the object to fix is «{migliore}». {spiega}"
+   },
+   "ver_sbagliato": {
+    "it": "Sintomo {n}: no, l'oggetto da sistemare è «{migliore}». {spiega}",
+    "en": "Symptom {n}: no, the object to fix is «{migliore}». {spiega}"
+   },
+   "ver_vuoto": {
+    "it": "Sintomo {n}: non hai scelto. L'oggetto da sistemare è «{migliore}». {spiega}",
+    "en": "Symptom {n}: you did not choose. The object to fix is «{migliore}». {spiega}"
+   },
+   "ver_punteggio": {
+    "it": "Oggetti giusti: {giuste} su {totali}.",
+    "en": "Right objects: {giuste} of {totali}."
+   },
+   "ver_tutto_giusto": {
+    "it": "Perfetto: da ogni sintomo sai risalire alla riga del devcontainer.json da sistemare.",
+    "en": "Perfect: from every symptom you can trace back the devcontainer.json line to fix."
+   },
+   "nota_decidi": {
+    "it": "Scegli nel pannello a sinistra, poi premi «Controlla».",
+    "en": "Choose in the left panel, then press «Check»."
+   },
+   "titolo_riga": {
+    "it": "{oggetto} · {valore}",
+    "en": "{oggetto} · {valore}"
+   }
+  },
+  "etichette": {
+   "titolo_comandi": {
+    "it": "Prepara la valigia",
+    "en": "Pack the suitcase"
+   },
+   "vista": {
+    "it": "Vista",
+    "en": "View"
+   },
+   "vista_valigia": {
+    "it": "Valigia",
+    "en": "Suitcase"
+   },
+   "vista_decidi": {
+    "it": "Trova il difetto",
+    "en": "Find the defect"
+   },
+   "preset": {
+    "it": "File pronti",
+    "en": "Ready files"
+   },
+   "da_sistemare": {
+    "it": "File di partenza dell'esercizio 12",
+    "en": "Starting file of exercise 12"
+   },
+   "vuota": {
+    "it": "Svuota la valigia",
+    "en": "Empty the suitcase"
+   },
+   "riapri": {
+    "it": "Riapri il codespace",
+    "en": "Reopen the codespace"
+   },
+   "titolo_valigia": {
+    "it": "LA VALIGIA: devcontainer.json",
+    "en": "THE SUITCASE: devcontainer.json"
+   },
+   "titolo_terminale": {
+    "it": "IL CODESPACE SI APRE",
+    "en": "THE CODESPACE OPENS"
+   },
+   "titolo_decidi": {
+    "it": "CINQUE SINTOMI, UN OGGETTO DA SISTEMARE",
+    "en": "FIVE SYMPTOMS, ONE OBJECT TO FIX"
+   },
+   "titolo_file": {
+    "it": "Il tuo devcontainer.json",
+    "en": "Your devcontainer.json"
+   },
+   "titolo_spiega": {
+    "it": "Che cosa fa «{nome}»",
+    "en": "What «{nome}» does"
+   },
+   "titolo_esiti": {
+    "it": "Che cosa trovi all'apertura",
+    "en": "What you find on opening"
+   },
+   "titolo_verifica": {
+    "it": "Il controllo",
+    "en": "The check"
+   },
+   "vuoto": {
+    "it": "— manca —",
+    "en": "— missing —"
+   },
+   "in_apertura": {
+    "it": "…",
+    "en": "…"
+   },
+   "livello_ok": {
+    "it": "OK",
+    "en": "OK"
+   },
+   "livello_avviso": {
+    "it": "Avviso",
+    "en": "Warning"
+   },
+   "livello_errore": {
+    "it": "Errore",
+    "en": "Error"
+   },
+   "livello_bloccante": {
+    "it": "Bloccante",
+    "en": "Blocking"
+   },
+   "scegli": {
+    "it": "— scegli —",
+    "en": "— choose —"
+   },
+   "controlla": {
+    "it": "Controlla",
+    "en": "Check"
+   },
+   "regola": {
+    "it": "Nella valigia va tutto ciò che serve al laboratorio, tranne i valori segreti: quelli si dichiarano.",
+    "en": "Everything the lab needs goes in the suitcase, except secret values: those are declared."
+   },
+   "descrizione_scena": {
+    "it": "A sinistra la valigia con i sette oggetti del devcontainer.json, a destra il terminale del codespace che si apre e mostra, riga per riga, che cosa funziona e che cosa manca.",
+    "en": "On the left the suitcase with the seven objects of the devcontainer.json, on the right the terminal of the opening codespace showing, line by line, what works and what is missing."
+   }
+  }
+ },
+ "domande": []
+}

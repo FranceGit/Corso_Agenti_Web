@@ -1,0 +1,221 @@
+{
+ "id": "L_tre_prese",
+ "pillola": "PO4.1",
+ "componente": "tre_prese",
+ "titolo": {"it": "Tre prese, tre strumenti", "en": "Three sockets, three tools"},
+ "sottotitolo": {"it": "Il client dell'agente CRM ha tre prese: filesystem, fetch e memory. Colleghi i server, guardi la configurazione comporsi e scopri quale strumento risponde a ogni richiesta.", "en": "The CRM agent's client has three sockets: filesystem, fetch and memory. You connect the servers, watch the configuration build up and find out which tool answers each request."},
+ "segmenti": [
+  {
+   "id": "prese",
+   "titolo": {"it": "Tre prese, un file di configurazione", "en": "Three sockets, one configuration file"},
+   "narrazione": [
+    {"it": "Il client MCP, l'app dove gira l'agente del CRM, avvia ogni server come programma a parte, leggendo un file JSON con la chiave «mcpServers»: una voce per server, tre campi.", "en": "The MCP client, the app where the CRM agent runs, starts each server as a separate program, by reading a JSON file with the key «mcpServers»: one entry per server, three fields."},
+    {"it": "• command: il programma che lancia il server (npx per filesystem e memory, uvx per fetch);", "en": "• command: the program that launches the server (npx for filesystem and memory, uvx for fetch);"},
+    {"it": "• args: gli argomenti, cioè il pacchetto e le sue opzioni;", "en": "• args: the arguments, that is the package and its options;"},
+    {"it": "• env: le variabili d'ambiente, per esempio dove salvare la memoria.", "en": "• env: the environment variables, for example where to save the memory."},
+    {"it": "Ogni server collegato aggiunge i suoi strumenti a quelli che il modello vede: 15 dal filesystem, 1 da fetch, 9 da memory [MCP-SERVERS].", "en": "Each connected server adds its tools to the ones the model sees: 15 from filesystem, 1 from fetch, 9 from memory [MCP-SERVERS]."}
+   ],
+   "prova": {"it": "Scollega fetch: la sua voce sparisce dal JSON e il contatore degli strumenti scende da 25 a 24.", "en": "Unplug fetch: its entry disappears from the JSON and the tool counter drops from 25 to 24."},
+   "concetti": ["CO11"],
+   "stato_animazione": {"vista": "banco", "collegati": {"filesystem": true, "fetch": true, "memory": true}, "sola_lettura": false, "memoria_file": true, "richiesta": "listino", "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "filesystem",
+   "titolo": {"it": "filesystem: file veri, cartelle contate", "en": "filesystem: real files, counted folders"},
+   "narrazione": [
+    {"it": "Il server filesystem lavora solo nelle cartelle consentite, scritte in fondo agli args. Qui ce n'è una sola: /home/ada/crm/lavoro.", "en": "The filesystem server works only in the allowed folders, written at the end of the args. Here there is just one: /home/ada/crm/lavoro."},
+    {"it": "Per leggere il listino il modello chiama read_text_file con il percorso del file; per salvare un riepilogo chiama write_file.", "en": "To read the price list the model calls read_text_file with the file path; to save a summary it calls write_file."},
+    {"it": "Con --read-only il server registra solo i 9 strumenti che leggono ed elencano: write_file sparisce e chiamarlo dà «strumento sconosciuto».", "en": "With --read-only the server registers only the 9 tools that read and list: write_file disappears and calling it gives «unknown tool»."}
+   ],
+   "prova": {"it": "Manda «Salva il riepilogo», poi accendi la sola lettura e rimandala: guarda --read-only comparire negli args.", "en": "Send «Save the summary», then turn on read-only and send it again: watch --read-only appear in the args."},
+   "concetti": ["CO11"],
+   "stato_animazione": {"vista": "banco", "collegati": {"filesystem": true, "fetch": true, "memory": true}, "sola_lettura": false, "memoria_file": true, "richiesta": "listino", "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "fetch",
+   "titolo": {"it": "fetch: una pagina diventa testo", "en": "fetch: a page becomes text"},
+   "narrazione": [
+    {"it": "fetch ha un solo strumento, anch'esso chiamato fetch: scarica un URL e converte l'HTML in markdown, comodo per il modello.", "en": "fetch has a single tool, also called fetch: it downloads a URL and converts the HTML into markdown, handy for the model."},
+    {"it": "Restituisce al massimo 5000 caratteri per volta (max_length); con start_index il modello legge il pezzo successivo di una pagina lunga.", "en": "It returns at most 5000 characters at a time (max_length); with start_index the model reads the next chunk of a long page."},
+    {"it": "Parte con uvx perché è un pacchetto Python; filesystem e memory sono pacchetti Node, lanciati con npx.", "en": "It starts with uvx because it is a Python package; filesystem and memory are Node packages, launched with npx."}
+   ],
+   "prova": {"it": "Manda «Scarica la pagina prodotti» e segui la richiesta fino allo strumento; poi scollega fetch e riprova.", "en": "Send «Download the products page» and follow the request to the tool; then unplug fetch and try again."},
+   "concetti": ["CO11"],
+   "stato_animazione": {"vista": "banco", "collegati": {"filesystem": true, "fetch": true, "memory": true}, "sola_lettura": false, "memoria_file": true, "richiesta": "pagina", "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "memory",
+   "titolo": {"it": "memory: un grafo che resta", "en": "memory: a graph that stays"},
+   "narrazione": [
+    {"it": "memory conserva fra le sessioni ciò che l'agente deve ricordare, in un grafo di conoscenza:", "en": "memory keeps what the agent must remember across sessions, in a knowledge graph:"},
+    {"it": "• entità, con nome e tipo (Rossi, persona);", "en": "• entities, with a name and a type (Rossi, person);"},
+    {"it": "• relazioni, sempre in forma attiva (Rossi lavora presso Visione Tech);", "en": "• relations, always in active voice (Rossi works at Visione Tech);"},
+    {"it": "• osservazioni, un fatto per voce («preferisce la mail»).", "en": "• observations, one fact per entry («prefers email»)."},
+    {"it": "Il grafo vive nel file .jsonl indicato da MEMORY_FILE_PATH in env; senza, finisce dentro node_modules, accanto al codice del server, e un aggiornamento può cancellarlo.", "en": "The graph lives in the .jsonl file named by MEMORY_FILE_PATH in env; without it, the graph ends up inside node_modules, next to the server code, and an update can delete it."}
+   ],
+   "prova": {"it": "Manda «Ricorda che Rossi preferisce la mail», poi spegni MEMORY_FILE_PATH e leggi l'avviso nella scena.", "en": "Send «Remember that Rossi prefers email», then turn off MEMORY_FILE_PATH and read the warning in the scene."},
+   "concetti": ["CO11"],
+   "stato_animazione": {"vista": "banco", "collegati": {"filesystem": true, "fetch": true, "memory": true}, "sola_lettura": false, "memoria_file": true, "richiesta": "ricorda", "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "decidi_prese",
+   "titolo": {"it": "Decidi tu: quale presa, quale strumento?", "en": "You decide: which socket, which tool?"},
+   "narrazione": [
+    {"it": "Cinque richieste del CRM: per ognuna scegli server e strumento che rispondono, oppure «nessuno dei tre».", "en": "Five CRM requests: for each one choose the server and tool that answer, or «none of the three»."},
+    {"it": "Leggi bene i nomi: create_entities ignora un'entità che esiste già, e search_files cerca per nome, non dentro i file.", "en": "Read the names carefully: create_entities ignores an entity that already exists, and search_files searches by name, not inside the files."}
+   ],
+   "prova": {"it": "Scegli una risposta per ogni richiesta, poi premi «Controlla» e leggi il perché.", "en": "Choose an answer for each request, then press «Check» and read why."},
+   "concetti": ["CO11"],
+   "stato_animazione": {"vista": "decidi", "collegati": {"filesystem": true, "fetch": true, "memory": true}, "sola_lettura": false, "memoria_file": true, "richiesta": "mail", "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "riassunto",
+   "titolo": {"it": "In tre frasi", "en": "In three sentences"},
+   "narrazione": [
+    {"it": "Un client MCP avvia ogni server da una voce di «mcpServers»: command, args ed env decidono che cosa parte, con quali cartelle e opzioni, e dove finiscono i dati.", "en": "An MCP client starts each server from an entry in «mcpServers»: command, args and env decide what starts, with which folders and options, and where the data ends up."},
+    {"it": "filesystem legge e scrive file solo nelle cartelle consentite, fetch trasforma pagine web in markdown, memory tiene un grafo di entità, relazioni e osservazioni in un file .jsonl.", "en": "filesystem reads and writes files only in the allowed folders, fetch turns web pages into markdown, memory keeps a graph of entities, relations and observations in a .jsonl file."},
+    {"it": "Una richiesta trova risposta solo se una presa collegata offre lo strumento giusto: altrimenti serve un altro server, non un giro di parole.", "en": "A request gets an answer only if a connected socket offers the right tool: otherwise you need another server, not a roundabout prompt."}
+   ],
+   "concetti": ["CO11"],
+   "stato_animazione": {"vista": "banco", "collegati": {"filesystem": true, "fetch": true, "memory": true}, "sola_lettura": true, "memoria_file": true, "richiesta": "chi", "scelte": {}, "verificato": false}
+  }
+ ],
+ "scenario": {
+  "chiave_config": "mcpServers",
+  "cartella_lavoro": "/home/ada/crm/lavoro",
+  "file_memoria": "/home/ada/crm/memoria/memoria.jsonl",
+  "variabile_memoria": "MEMORY_FILE_PATH",
+  "opzione_sola_lettura": "--read-only",
+  "max_length_fetch": 5000,
+  "server": [
+   {"id": "filesystem", "nome": "filesystem", "comando": "npx", "args": ["-y", "@modelcontextprotocol/server-filesystem"], "colore": "#0284c7",
+    "ruolo": {"it": "Legge e scrive file, solo nelle cartelle consentite scritte in fondo agli args.", "en": "Reads and writes files, only in the allowed folders written at the end of the args."},
+    "vetrina": ["read_text_file", "write_file", "search_files", "list_allowed_directories"],
+    "strumenti": [
+     {"nome": "read_text_file", "scrive": false}, {"nome": "read_media_file", "scrive": false}, {"nome": "read_multiple_files", "scrive": false},
+     {"nome": "write_file", "scrive": true}, {"nome": "append_file", "scrive": true}, {"nome": "edit_file", "scrive": true},
+     {"nome": "create_directory", "scrive": true}, {"nome": "list_directory", "scrive": false}, {"nome": "list_directory_with_sizes", "scrive": false},
+     {"nome": "move_file", "scrive": true}, {"nome": "copy_file", "scrive": true}, {"nome": "search_files", "scrive": false},
+     {"nome": "directory_tree", "scrive": false}, {"nome": "get_file_info", "scrive": false}, {"nome": "list_allowed_directories", "scrive": false}
+    ]},
+   {"id": "fetch", "nome": "fetch", "comando": "uvx", "args": ["mcp-server-fetch"], "colore": "#7c3aed",
+    "ruolo": {"it": "Scarica un URL e lo converte in markdown, al massimo 5000 caratteri per volta.", "en": "Downloads a URL and converts it into markdown, at most 5000 characters at a time."},
+    "vetrina": ["fetch"],
+    "nota": {"it": "Argomenti: url, max_length (5000), start_index, raw. Restituisce markdown.", "en": "Arguments: url, max_length (5000), start_index, raw. Returns markdown."},
+    "strumenti": [{"nome": "fetch", "scrive": false}]},
+   {"id": "memory", "nome": "memory", "comando": "npx", "args": ["-y", "@modelcontextprotocol/server-memory"], "colore": "#059669",
+    "ruolo": {"it": "Tiene un grafo di entità, relazioni e osservazioni in un file .jsonl che dura fra le sessioni.", "en": "Keeps a graph of entities, relations and observations in a .jsonl file that lasts across sessions."},
+    "vetrina": ["create_entities", "add_observations", "search_nodes", "read_graph"],
+    "strumenti": [
+     {"nome": "create_entities", "scrive": true}, {"nome": "create_relations", "scrive": true}, {"nome": "add_observations", "scrive": true},
+     {"nome": "delete_entities", "scrive": true}, {"nome": "delete_observations", "scrive": true}, {"nome": "delete_relations", "scrive": true},
+     {"nome": "read_graph", "scrive": false}, {"nome": "search_nodes", "scrive": false}, {"nome": "open_nodes", "scrive": false}
+    ]}
+  ],
+  "richieste": [
+   {"id": "listino", "testo": {"it": "Leggi il listino nella cartella lavoro", "en": "Read the price list in the lavoro folder"},
+    "server": "filesystem", "strumento": "read_text_file", "argomenti": {"path": "/home/ada/crm/lavoro/listino.csv"},
+    "risposta": {"it": "torna il contenuto di listino.csv come testo UTF-8.", "en": "the content of listino.csv comes back as UTF-8 text."}},
+   {"id": "riepilogo", "testo": {"it": "Salva il riepilogo della call nella cartella lavoro", "en": "Save the call summary in the lavoro folder"},
+    "server": "filesystem", "strumento": "write_file", "argomenti": {"path": "/home/ada/crm/lavoro/riepilogo_call.md", "content": "…"},
+    "risposta": {"it": "il file riepilogo_call.md è scritto nella cartella consentita.", "en": "the file riepilogo_call.md is written in the allowed folder."}},
+   {"id": "pagina", "testo": {"it": "Scarica la pagina prodotti del sito", "en": "Download the products page of the website"},
+    "server": "fetch", "strumento": "fetch", "argomenti": {"url": "https://www.example.com/prodotti", "max_length": 5000},
+    "risposta": {"it": "la pagina arriva come markdown, al massimo 5000 caratteri; il resto con start_index.", "en": "the page arrives as markdown, at most 5000 characters; the rest with start_index."}},
+   {"id": "ricorda", "testo": {"it": "Ricorda che Rossi preferisce la mail", "en": "Remember that Rossi prefers email"},
+    "server": "memory", "strumento": "create_entities", "argomenti": {"entities": [{"name": "Rossi", "entityType": "person", "observations": ["preferisce la mail"]}]},
+    "risposta": {"it": "nel grafo nasce l'entità Rossi con un'osservazione.", "en": "the entity Rossi appears in the graph with one observation."}},
+   {"id": "chi", "testo": {"it": "Che cosa sappiamo di Rossi?", "en": "What do we know about Rossi?"},
+    "server": "memory", "strumento": "search_nodes", "argomenti": {"query": "Rossi"},
+    "risposta": {"it": "torna l'entità Rossi con le sue osservazioni e relazioni.", "en": "the entity Rossi comes back with its observations and relations."}},
+   {"id": "mail", "testo": {"it": "Manda la mail di follow-up a Rossi", "en": "Send the follow-up email to Rossi"},
+    "server": null, "strumento": null, "argomenti": {},
+    "risposta": {"it": "nessuna.", "en": "none."}}
+  ],
+  "risposte_gioco": [
+   {"id": "fs_read", "nome": "filesystem · read_text_file"},
+   {"id": "fs_search", "nome": "filesystem · search_files"},
+   {"id": "fs_tree", "nome": "filesystem · directory_tree"},
+   {"id": "fetch", "nome": "fetch · fetch"},
+   {"id": "mem_create", "nome": "memory · create_entities"},
+   {"id": "mem_rel", "nome": "memory · create_relations"},
+   {"id": "mem_obs", "nome": "memory · add_observations"},
+   {"id": "nessuno", "nome": {"it": "Nessuno dei tre", "en": "None of the three"}}
+  ],
+  "casi": [
+   {"id": "k1", "testo": {"it": "«Trova tutti i file .csv dentro la cartella lavoro, anche nelle sottocartelle.»", "en": "«Find all the .csv files inside the lavoro folder, subfolders included.»"},
+    "migliore": "fs_search", "quasi": ["fs_tree"],
+    "spiega": {"it": "search_files cerca per nome con un glob (**/*.csv) a ogni profondità. directory_tree elenca tutto l'albero, ma poi il filtro tocca al modello.", "en": "search_files searches by name with a glob (**/*.csv) at any depth. directory_tree lists the whole tree, but then the model must filter it."}},
+   {"id": "k2", "testo": {"it": "«Segna che Rossi lavora presso Visione Tech.» Le due entità esistono già.", "en": "«Note that Rossi works at Visione Tech.» Both entities already exist."},
+    "migliore": "mem_rel", "quasi": ["mem_obs"],
+    "spiega": {"it": "Un legame fra due entità è una relazione, in forma attiva: from Rossi, to Visione_Tech, relationType lavora_presso. Un'osservazione su Rossi direbbe il fatto, ma non collegherebbe l'azienda.", "en": "A link between two entities is a relation, in active voice: from Rossi, to Visione_Tech, relationType works_at. An observation on Rossi would state the fact, but would not link the company."}},
+   {"id": "k3", "testo": {"it": "«Leggi il seguito della pagina prodotti: la prima risposta si è fermata a 5000 caratteri.»", "en": "«Read the rest of the products page: the first answer stopped at 5000 characters.»"},
+    "migliore": "fetch", "quasi": [],
+    "spiega": {"it": "Si richiama fetch con start_index 5000: il server tronca le risposte e il modello legge la pagina a pezzi.", "en": "You call fetch again with start_index 5000: the server truncates answers and the model reads the page in chunks."}},
+   {"id": "k4", "testo": {"it": "«Aggiungi a Rossi: richiamare a marzo.» Rossi è già nel grafo.", "en": "«Add to Rossi: call back in March.» Rossi is already in the graph."},
+    "migliore": "mem_obs", "quasi": [],
+    "spiega": {"it": "add_observations aggiunge fatti a un'entità che esiste. create_entities ignorerebbe Rossi perché il nome c'è già, e l'osservazione andrebbe persa.", "en": "add_observations adds facts to an existing entity. create_entities would ignore Rossi because the name already exists, and the observation would be lost."}},
+   {"id": "k5", "testo": {"it": "«Prenota una call con Rossi per giovedì alle 10.»", "en": "«Book a call with Rossi for Thursday at 10.»"},
+    "migliore": "nessuno", "quasi": [],
+    "spiega": {"it": "Nessuno dei tre tocca un calendario: serve un altro server. Scrivere l'appuntamento in un file o nel grafo non lo prenota.", "en": "None of the three touches a calendar: you need another server. Writing the appointment in a file or in the graph does not book it."}}
+  ],
+  "etichette": {
+   "titolo_comandi": {"it": "Comandi", "en": "Controls"},
+   "vista": {"it": "Vista", "en": "View"},
+   "vista_banco": {"it": "Prese e richieste", "en": "Sockets and requests"},
+   "vista_decidi": {"it": "Decidi tu", "en": "You decide"},
+   "prese": {"it": "Prese del client", "en": "Client sockets"},
+   "opzioni": {"it": "Opzioni dei server", "en": "Server options"},
+   "sola_lettura": {"it": "filesystem in sola lettura (--read-only)", "en": "filesystem read-only (--read-only)"},
+   "memoria_file": {"it": "memory con MEMORY_FILE_PATH in env", "en": "memory with MEMORY_FILE_PATH in env"},
+   "richiesta": {"it": "Richiesta del CRM", "en": "CRM request"},
+   "rimanda": {"it": "Rimanda la richiesta", "en": "Send the request again"},
+   "client": {"it": "Client MCP", "en": "MCP client"},
+   "client_sotto": {"it": "agente del CRM", "en": "CRM agent"},
+   "richiesta_in_corso": {"it": "Richiesta:", "en": "Request:"},
+   "config_titolo": {"it": "Configurazione del client: si compone mentre colleghi", "en": "Client configuration: it builds up as you connect"},
+   "esito_titolo": {"it": "Esito della richiesta", "en": "Request outcome"},
+   "chiamata": {"it": "Chiamata", "en": "Call"},
+   "titolo_destra": {"it": "Che cosa succede", "en": "What happens"},
+   "titolo_server": {"it": "Che cosa offre ogni presa", "en": "What each socket offers"},
+   "diario": {"it": "Ultime richieste", "en": "Latest requests"},
+   "diario_vuoto": {"it": "Ancora nessuna richiesta mandata da te.", "en": "No request sent by you yet."},
+   "titolo_scena_banco": {"it": "TRE PRESE, TRE STRUMENTI", "en": "THREE SOCKETS, THREE TOOLS"},
+   "titolo_scena_decidi": {"it": "QUALE PRESA RISPONDE?", "en": "WHICH SOCKET ANSWERS?"},
+   "descrizione_scena": {"it": "Un client MCP con tre prese collegate ai server filesystem, fetch e memory; una richiesta viaggia verso il server e lo strumento che rispondono.", "en": "An MCP client with three sockets connected to the filesystem, fetch and memory servers; a request travels to the server and tool that answer."},
+   "titolo_decidi": {"it": "Decidi tu", "en": "You decide"},
+   "scegli": {"it": "— scegli —", "en": "— choose —"},
+   "controlla": {"it": "Controlla", "en": "Check"},
+   "consegna_decidi": {"it": "Scegli a sinistra una risposta per ogni richiesta, poi premi «Controlla».", "en": "Choose an answer for each request on the left, then press «Check»."},
+   "vedi_sotto": {"it": "Il perché di ogni richiesta è sotto la scena.", "en": "The reason for each request is below the scene."},
+   "regola": {"it": "Ogni presa collegata dà al modello nuovi strumenti: collega solo i server che servono, e configurali con cartelle, opzioni e file precisi.", "en": "Every connected socket gives the model new tools: connect only the servers you need, and configure them with precise folders, options and files."}
+  },
+  "testi": {
+   "collega": {"it": "Collega {nome}", "en": "Connect {nome}"},
+   "n_strumenti": {"it": "{n} strumenti", "en": "{n} tools"},
+   "n_strumento": {"it": "1 strumento", "en": "1 tool"},
+   "n_strumenti_lettura": {"it": "{n} strumenti: sola lettura", "en": "{n} tools: read-only"},
+   "n_scollegato": {"it": "scollegato: 0 strumenti", "en": "unplugged: 0 tools"},
+   "strumenti_visti": {"it": "Il modello vede {n} strumenti", "en": "The model sees {n} tools"},
+   "esito_ok": {"it": "{server} → {strumento}: {risposta}", "en": "{server} → {strumento}: {risposta}"},
+   "esito_avviso_memoria": {"it": "{server} → {strumento}: {risposta} Ma senza MEMORY_FILE_PATH il grafo finisce in memory.jsonl dentro node_modules: un aggiornamento del pacchetto può cancellarlo.", "en": "{server} → {strumento}: {risposta} But without MEMORY_FILE_PATH the graph ends up in memory.jsonl inside node_modules: a package update can delete it."},
+   "esito_scollegato": {"it": "Nessuna risposta: la presa {server} è scollegata, quindi il client non vede {strumento}. Ricollegala.", "en": "No answer: the {server} socket is unplugged, so the client does not see {strumento}. Plug it back in."},
+   "esito_sconosciuto": {"it": "Rifiutata: con --read-only il server non registra {strumento}, e la chiamata fallisce come strumento sconosciuto.", "en": "Refused: with --read-only the server does not register {strumento}, and the call fails as an unknown tool."},
+   "esito_nessuno": {"it": "Nessuna presa può farlo: filesystem, fetch e memory non inviano email. Serve un altro server, con un'approvazione umana prima di scrivere a un cliente.", "en": "No socket can do it: filesystem, fetch and memory do not send email. You need another server, with human approval before writing to a customer."},
+   "breve_ok": {"it": "risponde {strumento}", "en": "{strumento} answers"},
+   "breve_avviso_memoria": {"it": "risponde, ma il file è a rischio", "en": "answers, but the file is at risk"},
+   "breve_scollegato": {"it": "presa vuota", "en": "empty socket"},
+   "breve_sconosciuto": {"it": "strumento sconosciuto", "en": "unknown tool"},
+   "breve_nessuno": {"it": "nessuna presa adatta", "en": "no suitable socket"},
+   "caso": {"it": "Richiesta {n}", "en": "Request {n}"},
+   "scegli_per": {"it": "Risposta per la richiesta {n}", "en": "Answer for request {n}"},
+   "ver_giusto": {"it": "{n}. Giusto. {spiega}", "en": "{n}. Right. {spiega}"},
+   "ver_quasi": {"it": "{n}. Quasi: la migliore è «{migliore}». {spiega}", "en": "{n}. Almost: the best is «{migliore}». {spiega}"},
+   "ver_sbagliato": {"it": "{n}. No: la migliore è «{migliore}». {spiega}", "en": "{n}. No: the best is «{migliore}». {spiega}"},
+   "ver_vuoto": {"it": "{n}. Senza risposta: la migliore è «{migliore}». {spiega}", "en": "{n}. No answer: the best is «{migliore}». {spiega}"},
+   "ver_tutto_giusto": {"it": "Tutte giuste: sai già quale presa risponde a che cosa.", "en": "All right: you already know which socket answers what."},
+   "ver_punteggio": {"it": "{giuste} su {totali} giuste. Leggi il perché di ciascuna.", "en": "{giuste} out of {totali} right. Read the reason for each."}
+  }
+ },
+ "domande": []
+}

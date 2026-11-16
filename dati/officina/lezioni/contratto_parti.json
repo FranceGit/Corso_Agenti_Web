@@ -1,0 +1,273 @@
+{
+ "id": "L_contratto_parti",
+ "pillola": "PO3.2",
+ "componente": "contratto_parti",
+ "titolo": {"it": "Il contratto fra le parti", "en": "The contract between the parts"},
+ "sottotitolo": {"it": "Uno schema JSON di nebula-insurance-crm come contratto fra modulo web, API e database, e la squadra di agenti di nebula-agents con i suoi perimetri.", "en": "A nebula-insurance-crm JSON schema as the contract between web form, API and database, and the nebula-agents team with its perimeters."},
+ "segmenti": [
+  {
+   "id": "contratto",
+   "titolo": {"it": "Lo schema è il contratto", "en": "The schema is the contract"},
+   "narrazione": [
+    {"it": "In nebula-insurance-crm ogni richiesta ha il suo JSON Schema in planning-mds/schemas/. Quello per creare un contatto, contact-create-request.schema.json, stabilisce:", "en": "In nebula-insurance-crm every request has its JSON Schema in planning-mds/schemas/. The one for creating a contact, contact-create-request.schema.json, establishes:"},
+    {"it": "• quattro campi obbligatori: brokerId, fullName, email, phone (role è facoltativo);", "en": "• four required fields: brokerId, fullName, email, phone (role is optional);"},
+    {"it": "• tipo e forma di ciascuno: brokerId è un uuid, email ha formato email, fullName va da 1 a 255 caratteri, phone segue un pattern;", "en": "• type and shape of each: brokerId is a uuid, email has the email format, fullName goes from 1 to 255 characters, phone follows a pattern;"},
+    {"it": "• additionalProperties: false, cioè nessun campo fuori elenco. Le 63 richieste di Nebula sono tutte chiuse così [NEBULA-CRM].", "en": "• additionalProperties: false, that is no field outside the list. All 63 Nebula requests are closed this way [NEBULA-CRM]."}
+   ],
+   "prova": {"it": "Rendi l'email malformata, poi aggiungi il campo «notes»: guarda dove si ferma la richiesta e perché.", "en": "Make the email malformed, then add the «notes» field: see where the request stops and why."},
+   "concetti": ["CO09"],
+   "stato_animazione": {"vista": "contratto", "richiesta": {"brokerId": "valido", "fullName": "valido", "email": "valida", "phone": "valido", "role": "assente", "extra": "nessuno"}, "canale": "modulo", "copia_a_mano": false, "broker_inattivo": false, "assegnazioni": {}, "compito_aperto": "c_schema"}
+  },
+  {
+   "id": "due_parti",
+   "titolo": {"it": "Due parti, un solo contratto", "en": "Two parts, one contract"},
+   "narrazione": [
+    {"it": "Lo stesso file lo applicano due parti: il modulo web con AJV e l'API .NET con NJsonSchema, prima di qualunque logica di dominio. Se l'API lo respinge risponde 400 con un ProblemDetails. È la scelta dell'ADR-001.", "en": "The same file is applied by two parts: the web form with AJV and the .NET API with NJsonSchema, before any domain logic. If the API rejects it, it answers 400 with a ProblemDetails. It is the choice of ADR-001."},
+    {"it": "Il server valida sempre: una richiesta può arrivare da uno script, senza modulo. E una copia delle regole scritta a mano prima o poi diverge.", "en": "The server always validates: a request can arrive from a script, with no form. And a hand-written copy of the rules sooner or later drifts."}
+   ],
+   "prova": {"it": "Passa alla chiamata diretta, accendi la copia a mano e lascia il campo in più: guarda che cosa finisce nel database.", "en": "Switch to the direct call, turn on the hand-written copy and keep the extra field: see what ends up in the database."},
+   "concetti": ["CO09"],
+   "stato_animazione": {"vista": "contratto", "richiesta": {"brokerId": "valido", "fullName": "valido", "email": "valida", "phone": "valido", "role": "assente", "extra": "notes"}, "canale": "modulo", "copia_a_mano": false, "broker_inattivo": false, "assegnazioni": {}, "compito_aperto": "c_schema"}
+  },
+  {
+   "id": "risorsa",
+   "titolo": {"it": "Richiesta e risorsa non coincidono", "en": "Request and resource do not match"},
+   "narrazione": [
+    {"it": "La risposta 201 restituisce un Contact, con un altro schema:", "en": "The 201 response returns a Contact, with a different schema:"},
+    {"it": "• id è obbligatorio e lo decide il server: per questo la richiesta non lo ammette;", "en": "• id is required and the server decides it: that is why the request does not allow it;"},
+    {"it": "• email e phone possono valere null: se il broker è inattivo vengono mascherati;", "en": "• email and phone can be null: if the broker is inactive they are masked;"},
+    {"it": "• nel database la riga ha anche CreatedAt, CreatedBy, UpdatedAt, UpdatedBy e IsDeleted, che la risposta non espone, e la scrittura aggiunge un evento alla timeline.", "en": "• in the database the row also has CreatedAt, CreatedBy, UpdatedAt, UpdatedBy and IsDeleted, which the response does not expose, and the write appends an event to the timeline."}
+   ],
+   "prova": {"it": "Prova a mandare tu il campo «id», poi torna a una richiesta valida e segna il broker come inattivo.", "en": "Try sending the «id» field yourself, then go back to a valid request and mark the broker as inactive."},
+   "concetti": ["CO09"],
+   "stato_animazione": {"vista": "contratto", "richiesta": {"brokerId": "valido", "fullName": "valido", "email": "valida", "phone": "valido", "role": "valido", "extra": "nessuno"}, "canale": "modulo", "copia_a_mano": false, "broker_inattivo": false, "assegnazioni": {}, "compito_aperto": "c_schema"}
+  },
+  {
+   "id": "squadra",
+   "titolo": {"it": "La squadra che ha pianificato il CRM", "en": "The team that planned the CRM"},
+   "narrazione": [
+    {"it": "Il CRM lo pianificano gli agenti di nebula-agents, un repo separato: competenze in agents/<ruolo>/SKILL.md, letture e scritture in agents/agent-map.yaml [NEBULA-AGENTS]:", "en": "The CRM is planned by the agents of nebula-agents, a separate repo: skills in agents/<role>/SKILL.md, reads and writes in agents/agent-map.yaml [NEBULA-AGENTS]:"},
+    {"it": "• il product manager scrive la §3 del BLUEPRINT e le storie;", "en": "• the product manager writes §3 of the BLUEPRINT and the stories;"},
+    {"it": "• l'architetto la §4, gli ADR e gli schemi;", "en": "• the architect writes §4, the ADRs and the schemas;"},
+    {"it": "• il backend developer solo engine/ e la sua parte di STATUS.md.", "en": "• the backend developer only engine/ and its part of STATUS.md."},
+    {"it": "Il patto fra i due repo è CONSUMER-CONTRACT.md: gli agenti scrivono nel repo prodotto accanto, indicato dalla variabile NEBULA_PRODUCT_ROOT.", "en": "The pact between the two repos is CONSUMER-CONTRACT.md: the agents write into the product repo next door, given by the NEBULA_PRODUCT_ROOT variable."}
+   ],
+   "prova": {"it": "Nella vista «Squadra» assegna ogni compito a un ruolo e guarda se la freccia entra nel suo perimetro.", "en": "In the «Team» view assign each task to a role and see whether the arrow enters its perimeter."},
+   "concetti": ["CO10"],
+   "stato_animazione": {"vista": "squadra", "richiesta": {"brokerId": "valido", "fullName": "valido", "email": "valida", "phone": "valido", "role": "assente", "extra": "nessuno"}, "canale": "modulo", "copia_a_mano": false, "broker_inattivo": false, "assegnazioni": {}, "compito_aperto": "c_schema"}
+  },
+  {
+   "id": "perimetro",
+   "titolo": {"it": "Fuori dal perimetro", "en": "Outside the perimeter"},
+   "narrazione": [
+    {"it": "Le regole della mappa sono nette: gli agenti di revisione producono rapporti, non codice; nessuno inventa requisiti né cambia l'architettura al posto dell'architetto.", "en": "The map's rules are clear-cut: review agents produce reports, not code; nobody invents requirements or changes the architecture instead of the architect."},
+    {"it": "C'è anche un confine fra i due repo: in agents/ niente termini di dominio come «underwriting». Lo controlla validate-genericness.py, e l'esempio assicurativo va in planning-mds/ del prodotto.", "en": "There is also a boundary between the two repos: no domain terms such as «underwriting» in agents/. validate-genericness.py checks it, and the insurance example goes into the product's planning-mds/."}
+   ],
+   "prova": {"it": "Affida la correzione del difetto al code reviewer, poi metti «underwriting» in agents/: leggi i due esiti.", "en": "Give the defect fix to the code reviewer, then put «underwriting» in agents/: read the two outcomes."},
+   "concetti": ["CO10"],
+   "stato_animazione": {"vista": "squadra", "richiesta": {"brokerId": "valido", "fullName": "valido", "email": "valida", "phone": "valido", "role": "assente", "extra": "nessuno"}, "canale": "modulo", "copia_a_mano": false, "broker_inattivo": false, "assegnazioni": {"c_schema": "architect", "c_endpoint": "backend-developer", "c_storia": "product-manager", "c_regola": "architect"}, "compito_aperto": "c_difetto"}
+  },
+  {
+   "id": "riassunto",
+   "titolo": {"it": "In tre frasi", "en": "In three sentences"},
+   "narrazione": [
+    {"it": "Uno schema JSON è il contratto di una richiesta: campi obbligatori, tipi, formati e nessun campo in più, applicato uguale da tutte le parti.", "en": "A JSON schema is the contract of a request: required fields, types, formats and no extra field, applied in the same way by every part."},
+    {"it": "Richiesta e risorsa salvata hanno schemi diversi, perché id, campi mascherati e dati di audit li decide il server.", "en": "Request and stored resource have different schemas, because id, masked fields and audit data are decided by the server."},
+    {"it": "Gli agenti costruttori hanno competenze scritte in SKILL.md e perimetri di scrittura in agent-map.yaml: un compito fuori perimetro va al ruolo che ne è proprietario.", "en": "Builder agents have skills written in SKILL.md and write perimeters in agent-map.yaml: a task outside the perimeter goes to the role that owns it."}
+   ],
+   "concetti": ["CO09", "CO10"],
+   "stato_animazione": {"vista": "contratto", "richiesta": {"brokerId": "valido", "fullName": "valido", "email": "valida", "phone": "valido", "role": "valido", "extra": "nessuno"}, "canale": "modulo", "copia_a_mano": false, "broker_inattivo": false, "assegnazioni": {}, "compito_aperto": "c_schema"}
+  }
+ ],
+ "scenario": {
+  "ms_tappa": 420,
+  "ms_freccia": 320,
+  "schema_richiesta": {
+   "title": "ContactCreateRequest",
+   "type": "object",
+   "required": ["brokerId", "fullName", "email", "phone"],
+   "properties": {
+    "brokerId": {"type": "string", "format": "uuid"},
+    "fullName": {"type": "string", "minLength": 1, "maxLength": 255},
+    "email": {"type": "string", "format": "email"},
+    "phone": {"type": "string", "pattern": "^\\+?[1-9]\\d{7,14}$"},
+    "role": {"type": "string", "maxLength": 100}
+   },
+   "additionalProperties": false
+  },
+  "schema_risorsa": {
+   "title": "Contact",
+   "type": "object",
+   "required": ["id", "fullName", "email", "phone"],
+   "properties": {
+    "id": {"type": "string", "format": "uuid"},
+    "brokerId": {"type": "string", "format": "uuid"},
+    "accountId": {"type": ["string", "null"], "format": "uuid"},
+    "fullName": {"type": "string"},
+    "email": {"type": ["string", "null"], "format": "email"},
+    "phone": {"type": ["string", "null"], "pattern": "^\\+?[1-9]\\d{7,14}$"},
+    "role": {"type": "string"}
+   },
+   "additionalProperties": false
+  },
+  "campi_richiesta": [
+   {"campo": "brokerId", "varianti": [
+    {"id": "valido", "valore": "7c9e6679-7425-40de-944b-e07fc1f90ae7", "nome": {"it": "uuid valido", "en": "valid uuid"}},
+    {"id": "non_uuid", "valore": "broker-42", "nome": {"it": "«broker-42» (non è un uuid)", "en": "«broker-42» (not a uuid)"}},
+    {"id": "assente", "valore": null, "nome": {"it": "assente", "en": "missing"}}]},
+   {"campo": "fullName", "varianti": [
+    {"id": "valido", "valore": "Giulia Neri", "nome": {"it": "«Giulia Neri»", "en": "«Giulia Neri»"}},
+    {"id": "vuoto", "valore": "", "nome": {"it": "stringa vuota", "en": "empty string"}},
+    {"id": "troppo_lungo", "valore": {"ripeti": "a", "volte": 256}, "nome": {"it": "256 caratteri", "en": "256 characters"}},
+    {"id": "assente", "valore": null, "nome": {"it": "assente", "en": "missing"}}]},
+   {"campo": "email", "varianti": [
+    {"id": "valida", "valore": "giulia.neri@broker-esempio.it", "nome": {"it": "email valida", "en": "valid email"}},
+    {"id": "malformata", "valore": "giulia.neri-at-broker", "nome": {"it": "«giulia.neri-at-broker»", "en": "«giulia.neri-at-broker»"}},
+    {"id": "assente", "valore": null, "nome": {"it": "assente", "en": "missing"}}]},
+   {"campo": "phone", "varianti": [
+    {"id": "valido", "valore": "+390212345678", "nome": {"it": "«+390212345678»", "en": "«+390212345678»"}},
+    {"id": "malformato", "valore": "02-1234", "nome": {"it": "«02-1234» (fuori pattern)", "en": "«02-1234» (outside the pattern)"}},
+    {"id": "assente", "valore": null, "nome": {"it": "assente", "en": "missing"}}]},
+   {"campo": "role", "varianti": [
+    {"id": "assente", "valore": null, "nome": {"it": "assente (è facoltativo)", "en": "missing (it is optional)"}},
+    {"id": "valido", "valore": "Account executive", "nome": {"it": "«Account executive»", "en": "«Account executive»"}},
+    {"id": "troppo_lungo", "valore": {"ripeti": "r", "volte": 101}, "nome": {"it": "101 caratteri", "en": "101 characters"}}]}
+  ],
+  "extra": [
+   {"id": "nessuno", "campo": "", "valore": null, "nome": {"it": "nessuno", "en": "none"}},
+   {"id": "notes", "campo": "notes", "valore": {"it": "richiamare lunedì", "en": "call back on Monday"}, "nome": {"it": "«notes» (non previsto)", "en": "«notes» (not in the contract)"}},
+   {"id": "id", "campo": "id", "valore": "11111111-2222-4333-8444-555555555555", "nome": {"it": "«id» scelto dal client", "en": "«id» chosen by the client"}}
+  ],
+  "id_server": "3f2b8c1e-5d4a-4b7e-9c6f-0a1b2c3d4e5f",
+  "solo_database": ["CreatedAt", "CreatedBy", "UpdatedAt", "UpdatedBy", "IsDeleted"],
+  "copia_a_mano": {"obbligatori": ["fullName", "email"], "contiene": {"email": "@"}},
+  "max_valore": 40,
+  "ruoli": [
+   {"id": "product-manager", "nome": {"it": "Product manager", "en": "Product manager"}, "scrive": ["bp3", "features", "status"],
+    "non_fa": {"it": "Definisce che cosa costruire, non come: niente architettura, API, schema del database o implementazione.", "en": "Defines what to build, not how: no architecture, API, database schema or implementation."}},
+   {"id": "architect", "nome": {"it": "Architetto", "en": "Architect"}, "scrive": ["bp4", "adr", "schemas", "status"],
+    "non_fa": {"it": "Definisce come costruire: non decide lo scope del prodotto, non scrive codice di implementazione né esegue test di sicurezza.", "en": "Defines how to build: does not decide product scope, does not write implementation code or run security tests."}},
+   {"id": "backend-developer", "nome": {"it": "Backend developer", "en": "Backend developer"}, "scrive": ["engine", "status"],
+    "non_fa": {"it": "Non cambia lo scope, non modifica i contratti API senza l'approvazione dell'architetto, non tocca frontend né infrastruttura.", "en": "Does not change scope, does not modify API contracts without the architect's approval, does not touch frontend or infrastructure."}},
+   {"id": "code-reviewer", "nome": {"it": "Code reviewer", "en": "Code reviewer"}, "scrive": ["status"],
+    "non_fa": {"it": "Trova i problemi e li classifica: non scrive codice di produzione né test, non cerca vulnerabilità.", "en": "Finds and ranks issues: does not write production code or tests, does not hunt for vulnerabilities."}},
+   {"id": "security", "nome": {"it": "Sicurezza", "en": "Security"}, "scrive": ["security", "status"],
+    "non_fa": {"it": "Modelli di minaccia e revisioni OWASP: non riscrive il codice, non crea requisiti, non possiede l'architettura.", "en": "Threat models and OWASP reviews: does not rewrite code, does not create requirements, does not own the architecture."}}
+  ],
+  "zone": [
+   {"id": "bp3", "repo": "prodotto", "nome": {"it": "BLUEPRINT §3 · prodotto", "en": "BLUEPRINT §3 · product"}},
+   {"id": "features", "repo": "prodotto", "nome": {"it": "features/ · storie", "en": "features/ · stories"}},
+   {"id": "bp4", "repo": "prodotto", "nome": {"it": "BLUEPRINT §4 · architettura", "en": "BLUEPRINT §4 · architecture"}},
+   {"id": "adr", "repo": "prodotto", "nome": {"it": "architecture/ · ADR", "en": "architecture/ · ADRs"}},
+   {"id": "schemas", "repo": "prodotto", "nome": {"it": "schemas/*.json", "en": "schemas/*.json"}},
+   {"id": "engine", "repo": "prodotto", "nome": {"it": "engine/ · backend", "en": "engine/ · backend"}},
+   {"id": "security", "repo": "prodotto", "nome": {"it": "security/ · minacce", "en": "security/ · threats"}},
+   {"id": "status", "repo": "prodotto", "nome": {"it": "STATUS.md · avanzamento", "en": "STATUS.md · progress"}},
+   {"id": "agents", "repo": "framework", "nome": {"it": "agents/ · ruoli generici", "en": "agents/ · generic roles"}}
+  ],
+  "compiti": [
+   {"id": "c_schema", "zona": "schemas", "proprietario": "architect",
+    "testo": {"it": "Aggiungere un campo obbligatorio a contact-create-request", "en": "Add a required field to contact-create-request"},
+    "note": {"backend-developer": {"it": "Il backend legge gli schemi ma non li scrive: cambiare un contratto senza l'architetto è fuori dal suo perimetro.", "en": "The backend reads the schemas but does not write them: changing a contract without the architect is outside its perimeter."}}},
+   {"id": "c_endpoint", "zona": "engine", "proprietario": "backend-developer",
+    "testo": {"it": "Scrivere l'endpoint POST /contacts", "en": "Write the POST /contacts endpoint"},
+    "note": {"architect": {"it": "L'architetto definisce il contratto dell'endpoint, ma non scrive il codice di implementazione.", "en": "The architect defines the endpoint contract, but does not write the implementation code."}}},
+   {"id": "c_storia", "zona": "features", "proprietario": "product-manager",
+    "testo": {"it": "Scrivere la storia «crea contatto» con i criteri di accettazione", "en": "Write the «create contact» story with acceptance criteria"},
+    "note": {}},
+   {"id": "c_regola", "zona": "bp4", "proprietario": "architect",
+    "testo": {"it": "Cambiare la politica di base della §4.4 del BLUEPRINT", "en": "Change the baseline policy in BLUEPRINT §4.4"},
+    "note": {"product-manager": {"it": "Il product manager scrive solo la §3 del BLUEPRINT: la §4 è dell'architetto.", "en": "The product manager writes only BLUEPRINT §3: §4 belongs to the architect."}, "security": {"it": "La sicurezza ricava le sue verifiche dalle decisioni già prese: non possiede l'architettura.", "en": "Security derives its checks from decisions already made: it does not own the architecture."}}},
+   {"id": "c_minacce", "zona": "security", "proprietario": "security",
+    "testo": {"it": "Aggiornare il modello delle minacce dopo la regola sui broker", "en": "Update the threat model after the broker rule"},
+    "note": {}},
+   {"id": "c_difetto", "zona": "engine", "proprietario": "backend-developer",
+    "testo": {"it": "Correggere il difetto trovato in revisione in engine/", "en": "Fix the defect found in review in engine/"},
+    "note": {"code-reviewer": {"it": "Gli agenti di revisione producono rapporti, non codice: il code reviewer annota in STATUS.md, il backend developer corregge.", "en": "Review agents produce reports, not code: the code reviewer notes it in STATUS.md, the backend developer fixes it."}}},
+   {"id": "c_termine", "zona": "agents", "proprietario": null,
+    "testo": {"it": "Aggiungere un esempio con «underwriting» in agents/architect/references/", "en": "Add an example with «underwriting» in agents/architect/references/"},
+    "note": {}}
+  ],
+  "etichette": {
+   "titolo_comandi": {"it": "Comandi", "en": "Controls"},
+   "vista": {"it": "Vista", "en": "View"},
+   "vista_contratto": {"it": "Contratto", "en": "Contract"},
+   "vista_squadra": {"it": "Squadra", "en": "Team"},
+   "titolo_richiesta": {"it": "La richiesta POST /contacts", "en": "The POST /contacts request"},
+   "campo_extra": {"it": "Campo in più", "en": "Extra field"},
+   "canale": {"it": "Da dove arriva", "en": "Where it comes from"},
+   "canale_modulo": {"it": "Dal modulo web", "en": "From the web form"},
+   "canale_diretta": {"it": "Chiamata diretta", "en": "Direct call"},
+   "copia_a_mano": {"it": "Il server usa una copia delle regole scritta a mano", "en": "The server uses a hand-written copy of the rules"},
+   "broker_inattivo": {"it": "Il broker del contatto è inattivo", "en": "The contact's broker is inactive"},
+   "invia": {"it": "Invia di nuovo", "en": "Send again"},
+   "titolo_compiti": {"it": "Chi fa questo compito?", "en": "Who does this task?"},
+   "nessun_ruolo": {"it": "— da assegnare —", "en": "— to assign —"},
+   "azzera": {"it": "Azzera le assegnazioni", "en": "Clear the assignments"},
+   "descrizione_scena": {"it": "Una richiesta di creazione contatto attraversa modulo web, API e database; nella vista squadra i ruoli di nebula-agents e le zone dei due repo.", "en": "A create-contact request crosses web form, API and database; in the team view the nebula-agents roles and the zones of the two repos."},
+   "titolo_scena_contratto": {"it": "UNA RICHIESTA ATTRAVERSA LE PARTI", "en": "A REQUEST CROSSES THE PARTS"},
+   "titolo_scena_squadra": {"it": "RUOLI E PERIMETRI DI SCRITTURA", "en": "ROLES AND WRITE PERIMETERS"},
+   "parte_client": {"it": "Chi invia", "en": "Sender"},
+   "parte_modulo": {"it": "Modulo web", "en": "Web form"},
+   "parte_api": {"it": "API .NET", "en": ".NET API"},
+   "parte_database": {"it": "Database", "en": "Database"},
+   "strumento_client": {"it": "utente o script", "en": "user or script"},
+   "strumento_modulo": {"it": "AJV + schema", "en": "AJV + schema"},
+   "strumento_api": {"it": "NJsonSchema + schema", "en": "NJsonSchema + schema"},
+   "strumento_api_copia": {"it": "copia a mano", "en": "hand-written copy"},
+   "strumento_database": {"it": "PostgreSQL + timeline", "en": "PostgreSQL + timeline"},
+   "stato_ok": {"it": "✓ accettata", "en": "✓ accepted"},
+   "stato_respinta": {"it": "✗ respinta", "en": "✗ rejected"},
+   "stato_saltata": {"it": "— saltata", "en": "— skipped"},
+   "stato_salvata": {"it": "✓ salvata", "en": "✓ saved"},
+   "stato_attesa": {"it": "…", "en": "…"},
+   "scheda_richiesta": {"it": "Richiesta inviata", "en": "Request sent"},
+   "scheda_risorsa": {"it": "Risorsa salvata · 201 Contact", "en": "Stored resource · 201 Contact"},
+   "nessuna_risorsa": {"it": "Nessuna risorsa: non è stato salvato niente.", "en": "No resource: nothing was saved."},
+   "solo_database": {"it": "Solo nel database:", "en": "Only in the database:"},
+   "timeline": {"it": "+1 ActivityTimelineEvent", "en": "+1 ActivityTimelineEvent"},
+   "repo_prodotto": {"it": "nebula-insurance-crm (NEBULA_PRODUCT_ROOT)", "en": "nebula-insurance-crm (NEBULA_PRODUCT_ROOT)"},
+   "repo_framework": {"it": "nebula-agents", "en": "nebula-agents"},
+   "titolo_esiti": {"it": "Esito", "en": "Outcome"},
+   "titolo_destra_contratto": {"it": "Il contratto: contact-create-request", "en": "The contract: contact-create-request"},
+   "titolo_destra_squadra": {"it": "Il ruolo nel suo SKILL.md", "en": "The role in its SKILL.md"},
+   "scrive": {"it": "Scrive in:", "en": "Writes to:"},
+   "regola_contratto": {"it": "Un contratto vale se tutte le parti leggono lo stesso file: chi riscrive le regole a mano crea una seconda verità.", "en": "A contract holds only if every part reads the same file: whoever rewrites the rules by hand creates a second truth."},
+   "regola_squadra": {"it": "Ogni ruolo scrive solo nel suo perimetro; quello che sta fuori si passa al proprietario, non si fa al posto suo.", "en": "Every role writes only within its perimeter; what lies outside is handed to the owner, not done in its place."}
+  },
+  "testi": {
+   "assente": {"it": "(assente)", "en": "(missing)"},
+   "lunga": {"it": "«{inizio}…» ({n} caratteri)", "en": "«{inizio}…» ({n} characters)"},
+   "err_required": {"it": "manca «{campo}», obbligatorio (required)", "en": "«{campo}» is missing and required (required)"},
+   "err_type": {"it": "«{campo}» non è di tipo {tipo} (type)", "en": "«{campo}» is not of type {tipo} (type)"},
+   "err_format": {"it": "«{campo}» non rispetta il formato {formato} (format)", "en": "«{campo}» does not match the {formato} format (format)"},
+   "err_minLength": {"it": "«{campo}» ha meno di {n} caratteri (minLength)", "en": "«{campo}» has fewer than {n} characters (minLength)"},
+   "err_maxLength": {"it": "«{campo}» supera {n} caratteri (maxLength)", "en": "«{campo}» exceeds {n} characters (maxLength)"},
+   "err_pattern": {"it": "«{campo}» non segue il pattern dello schema (pattern)", "en": "«{campo}» does not follow the schema pattern (pattern)"},
+   "err_additional": {"it": "«{campo}» non è nel contratto: additionalProperties è false", "en": "«{campo}» is not in the contract: additionalProperties is false"},
+   "err_contiene": {"it": "«{campo}» non contiene «{segno}»", "en": "«{campo}» does not contain «{segno}»"},
+   "esito_salvata": {"it": "201 Created: la richiesta rispetta il contratto e il server salva il contatto.", "en": "201 Created: the request honours the contract and the server saves the contact."},
+   "esito_respinta_modulo": {"it": "Fermata dal modulo web prima dell'invio: {n} violazioni del contratto da correggere.", "en": "Stopped by the web form before sending: {n} contract violations to fix."},
+   "esito_respinta_api": {"it": "400 ProblemDetails: l'API respinge la richiesta ({n} violazioni) e non salva niente.", "en": "400 ProblemDetails: the API rejects the request ({n} violations) and saves nothing."},
+   "esito_fuori_contratto": {"it": "201, ma è un guaio: la copia a mano ha lasciato passare {n} violazioni del contratto, ora nel database.", "en": "201, but it is a problem: the hand-written copy let {n} contract violations through, now in the database."},
+   "nota_deriva": {"it": "Lo schema e la copia a mano non sono d'accordo su questa richiesta: è la deriva che l'ADR-001 voleva evitare.", "en": "The schema and the hand-written copy disagree on this request: it is the drift ADR-001 wanted to avoid."},
+   "nota_id_client": {"it": "L'id l'ha scelto il client: nessuno garantisce più che sia unico.", "en": "The id was chosen by the client: nobody guarantees any more that it is unique."},
+   "nota_risorsa_rotta": {"it": "La risorsa salvata viola il suo schema Contact: {errori}.", "en": "The stored resource violates its Contact schema: {errori}."},
+   "nota_mascherati": {"it": "Broker inattivo: email e phone tornano null, come prevede lo schema Contact.", "en": "Inactive broker: email and phone come back null, as the Contact schema provides."},
+   "nota_id_server": {"it": "L'id l'ha assegnato il server: nella richiesta non era ammesso.", "en": "The id was assigned by the server: it was not allowed in the request."},
+   "regola_required": {"it": "obbligatori: {campi}", "en": "required: {campi}"},
+   "regola_campo": {"it": "{campo}: {vincoli}", "en": "{campo}: {vincoli}"},
+   "regola_chiuso": {"it": "additionalProperties: false", "en": "additionalProperties: false"},
+   "da_assegnare": {"it": "{n}. {compito}: da assegnare.", "en": "{n}. {compito}: to assign."},
+   "esito_ok": {"it": "{n}. Dentro il perimetro: {ruolo} scrive in {zona}.", "en": "{n}. Inside the perimeter: {ruolo} writes to {zona}."},
+   "esito_fuori": {"it": "{n}. Fuori perimetro: {ruolo} non scrive in {zona}. Spetta a: {proprietario}. {nota}", "en": "{n}. Outside the perimeter: {ruolo} does not write to {zona}. It belongs to: {proprietario}. {nota}"},
+   "esito_posto": {"it": "{n}. Posto sbagliato, chiunque lo faccia: agents/ deve valere per qualsiasi progetto e validate-genericness.py blocca il termine di dominio. L'esempio va in planning-mds/ del prodotto.", "en": "{n}. Wrong place, whoever does it: agents/ must work for any project and validate-genericness.py blocks the domain term. The example goes into the product's planning-mds/."},
+   "punteggio": {"it": "{n} compiti su {tot} nel perimetro giusto.", "en": "{n} tasks out of {tot} within the right perimeter."},
+   "skill_path": {"it": "agents/{ruolo}/SKILL.md", "en": "agents/{ruolo}/SKILL.md"},
+   "compito_n": {"it": "Compito {n}", "en": "Task {n}"},
+   "scegli_ruolo": {"it": "Ruolo per il compito {n}", "en": "Role for task {n}"},
+   "nessuno_scelto": {"it": "Scegli un ruolo per un compito: la freccia parte dal ruolo verso la zona da scrivere.", "en": "Choose a role for a task: the arrow goes from the role to the zone to write."}
+  }
+ },
+ "domande": []
+}

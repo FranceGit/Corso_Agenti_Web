@@ -1,5 +1,5 @@
 {
- "_why": "Bibliografia del corso (cantiere CONTENUTI-REV, 16/11/2026): le opere da cui vengono i contenuti, con titolo, autori, anno, editore e tipo come si leggono nei documenti studiati (CORSO_CONTENUTI_VERIFICATI.md, sezione 0; frontespizi dei PDF). Nessun URL. Le sigle in 'nota' sono quelle usate nelle citazioni dei contenuti verificati e del documento benchmark. Anno omesso quando il documento non lo dichiara.",
+ "_why": "Bibliografia del corso (cantiere CONTENUTI-REV, 16/11/2026): le opere da cui vengono i contenuti, con titolo, autori, anno, editore e tipo come si leggono nei documenti studiati (CORSO_CONTENUTI_VERIFICATI.md, sezione 0; frontespizi dei PDF). Nessun URL. Le sigle in 'nota' sono quelle usate nelle citazioni dei contenuti verificati e del documento benchmark. Anno omesso quando il documento non lo dichiara. Dal cantiere OFFICINA-CONTENUTI anche le 8 fonti del livello 2 (sigle DOCKER-DOC, LAB-L1, REPO-PATOWARI, NEBULA-CRM, NEBULA-AGENTS, MCP-SERVERS, ASSISTENTE-OFFICINA, CODESPACES-DOC, le stesse del campo 'fonti' delle pillole dell'Officina).",
  "opere": [
   {
    "id": "wp1",
@@ -570,6 +570,162 @@
    "tipo": {
     "it": "Normativa",
     "en": "Legislation"
+   }
+  },
+  {
+   "id": "docker_doc",
+   "titolo": {
+    "it": "Documentazione di Docker (Dockerfile, build cache, volumi, Compose)",
+    "en": "Docker documentation (Dockerfile, build cache, volumes, Compose)"
+   },
+   "autori": {
+    "it": "Docker Inc.",
+    "en": "Docker Inc."
+   },
+   "tipo": {
+    "it": "Documentazione tecnica",
+    "en": "Technical documentation"
+   },
+   "nota": {
+    "it": "Sigla nelle fonti del corso: DOCKER-DOC (livello 2, unità O1 e O2)",
+    "en": "Code in the course sources: DOCKER-DOC (level 2, units O1 and O2)"
+   }
+  },
+  {
+   "id": "repo_patowari",
+   "titolo": {
+    "it": "AI-Enhanced-Sales-Campaign-CRM (commit 49959e3)",
+    "en": "AI-Enhanced-Sales-Campaign-CRM (commit 49959e3)"
+   },
+   "autori": {
+    "it": "patowari",
+    "en": "patowari"
+   },
+   "tipo": {
+    "it": "Repository di codice, senza licenza dichiarata: solo studio",
+    "en": "Code repository, no declared licence: study only"
+   },
+   "nota": {
+    "it": "Sigla nelle fonti del corso: REPO-PATOWARI (livello 2, unità O2 e O5)",
+    "en": "Code in the course sources: REPO-PATOWARI (level 2, units O2 and O5)"
+   }
+  },
+  {
+   "id": "nebula_crm",
+   "titolo": {
+    "it": "nebula-insurance-crm (blueprint, architettura, schemi)",
+    "en": "nebula-insurance-crm (blueprint, architecture, schemas)"
+   },
+   "autori": {
+    "it": "build.err",
+    "en": "build.err"
+   },
+   "anno": 2026,
+   "tipo": {
+    "it": "Repository di codice, licenza MIT",
+    "en": "Code repository, MIT licence"
+   },
+   "nota": {
+    "it": "Sigla nelle fonti del corso: NEBULA-CRM (livello 2, unità O3)",
+    "en": "Code in the course sources: NEBULA-CRM (level 2, unit O3)"
+   }
+  },
+  {
+   "id": "nebula_agents",
+   "titolo": {
+    "it": "nebula-agents (ruoli e competenze degli agenti costruttori)",
+    "en": "nebula-agents (roles and skills of the builder agents)"
+   },
+   "autori": {
+    "it": "build.err",
+    "en": "build.err"
+   },
+   "anno": 2026,
+   "tipo": {
+    "it": "Repository di codice, licenza MIT",
+    "en": "Code repository, MIT licence"
+   },
+   "nota": {
+    "it": "Sigla nelle fonti del corso: NEBULA-AGENTS (livello 2, unità O3)",
+    "en": "Code in the course sources: NEBULA-AGENTS (level 2, unit O3)"
+   }
+  },
+  {
+   "id": "mcp_servers",
+   "titolo": {
+    "it": "Model Context Protocol servers: server di riferimento filesystem, fetch e memory",
+    "en": "Model Context Protocol servers: filesystem, fetch and memory reference servers"
+   },
+   "autori": {
+    "it": "Contributori del progetto Model Context Protocol",
+    "en": "Model Context Protocol project contributors"
+   },
+   "tipo": {
+    "it": "Documentazione e codice (documentazione CC-BY-4.0)",
+    "en": "Documentation and code (documentation CC-BY-4.0)"
+   },
+   "nota": {
+    "it": "Sigla nelle fonti del corso: MCP-SERVERS (livello 2, unità O4)",
+    "en": "Code in the course sources: MCP-SERVERS (level 2, unit O4)"
+   }
+  },
+  {
+   "id": "codespaces_doc",
+   "titolo": {
+    "it": "Documentazione di GitHub Codespaces e della specifica Dev Containers (configurazione, fatturazione, piano gratuito)",
+    "en": "GitHub Codespaces and Dev Containers specification documentation (configuration, billing, free plan)"
+   },
+   "autori": {
+    "it": "GitHub",
+    "en": "GitHub"
+   },
+   "tipo": {
+    "it": "Documentazione tecnica (numeri del piano gratuito da riverificare)",
+    "en": "Technical documentation (free plan figures to be rechecked)"
+   },
+   "nota": {
+    "it": "Sigla nelle fonti del corso: CODESPACES-DOC (livello 2, unità O6)",
+    "en": "Code in the course sources: CODESPACES-DOC (level 2, unit O6)"
+   }
+  },
+  {
+   "id": "assistente_officina",
+   "titolo": {
+    "it": "L'assistente libero dell'Officina (codice e configurazione del corso)",
+    "en": "The Workshop's free assistant (course code and configuration)"
+   },
+   "autori": {
+    "it": "Corso Agenti Web",
+    "en": "Corso Agenti Web"
+   },
+   "anno": 2026,
+   "tipo": {
+    "it": "Codice del corso",
+    "en": "Course code"
+   },
+   "nota": {
+    "it": "Sigla nelle fonti del corso: ASSISTENTE-OFFICINA (livello 2, unità O5)",
+    "en": "Code in the course sources: ASSISTENTE-OFFICINA (level 2, unit O5)"
+   }
+  },
+  {
+   "id": "lab_l1",
+   "titolo": {
+    "it": "Laboratorio ed esercizi pratici del livello 1",
+    "en": "Level 1 lab and practical exercises"
+   },
+   "autori": {
+    "it": "Corso Agenti Web",
+    "en": "Corso Agenti Web"
+   },
+   "anno": 2026,
+   "tipo": {
+    "it": "Materiale del corso",
+    "en": "Course material"
+   },
+   "nota": {
+    "it": "Sigla nelle fonti del corso: LAB-L1 (livello 2, unità O1)",
+    "en": "Code in the course sources: LAB-L1 (level 2, unit O1)"
    }
   }
  ]
