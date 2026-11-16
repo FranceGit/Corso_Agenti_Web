@@ -109,27 +109,27 @@
     {
      "id": "b",
      "testo": {
-      "it": "Il CRM ha troppi campi per A2A",
-      "en": "The CRM has too many fields for A2A"
+      "it": "I due agenti usano modelli diversi",
+      "en": "The two agents use different models"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "Il numero di campi del CRM non decide il collegamento tra agenti.",
-      "en": "The number of CRM fields does not decide the connection between agents."
+      "it": "A2A collega agenti con qualsiasi modello: il problema qui è l'attesa di rete.",
+      "en": "A2A connects agents running any model: the problem here is network waiting."
      }
     },
     {
      "id": "c",
      "testo": {
-      "it": "I due agenti parlano lingue diverse",
-      "en": "The two agents speak different languages"
+      "it": "A2A non protegge i dati dei clienti",
+      "en": "A2A does not protect customer data"
      },
      "corretta": false,
      "tipo_distrattore": "errata",
      "spiegazione": {
-      "it": "Sono della stessa app e dello stesso team: questo spingerebbe semmai verso A2A, non contro.",
-      "en": "They belong to the same app and team: that would push towards A2A if anything, not against it."
+      "it": "A2A prevede autenticazione: il punto qui è la latenza inutile, non la sicurezza.",
+      "en": "A2A includes authentication: the point here is the needless latency, not security."
      }
     },
     {
@@ -163,7 +163,24 @@
     "it": "Stesso team, stessa app e risposta immediata: tutti i fattori indicano il sotto-agente locale.",
     "en": "Same team, same app and an immediate answer: every factor points to the local sub-agent."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "A2A",
+    "it": "Agent-to-Agent: protocollo per far collaborare agenti, anche di sistemi o fornitori diversi.",
+    "en": "Agent-to-Agent: a protocol that lets agents work together, even across systems or suppliers."
+   },
+   {
+    "termine": "sotto-agente locale",
+    "it": "Agente che gira dentro la stessa applicazione e viene chiamato direttamente, senza passare dalla rete.",
+    "en": "An agent running inside the same application that is called directly, without going over the network."
+   },
+   {
+    "termine": "MCP",
+    "it": "Model Context Protocol: standard per collegare un agente a strumenti e fonti di dati.",
+    "en": "Model Context Protocol: a standard for connecting an agent to tools and data sources."
+   }
+  ]
  },
  {
   "id": "DA6.3-5",
@@ -250,27 +267,27 @@
     {
      "id": "F",
      "testo": {
-      "it": "Più strumenti",
-      "en": "More tools"
+      "it": "Solo un log dell'errore",
+      "en": "Just an error log"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "Aggiungere strumenti non ripara il collegamento con l'agente remoto.",
-      "en": "Adding tools does not repair the connection to the remote agent."
+      "it": "Registrare l'errore aiuta a capire dopo, ma il cliente riceve comunque l'errore.",
+      "en": "Logging the error helps you understand later, but the customer still gets the error."
      }
     },
     {
      "id": "G",
      "testo": {
-      "it": "Un nuovo logo",
-      "en": "A new logo"
+      "it": "Un limite di passi",
+      "en": "A step limit"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "La grafica non c'entra con un errore di rete.",
-      "en": "Graphics have nothing to do with a network error."
+      "it": "Il limite di passi ferma i rimpalli infiniti, non gestisce una chiamata fallita.",
+      "en": "A step limit stops endless ping-pong; it does not handle a failed call."
      }
     }
    ],
@@ -302,14 +319,14 @@
     {
      "id": "b",
      "testo": {
-      "it": "Un'email al fornitore ogni volta che il cliente scrive",
-      "en": "An email to the supplier every time the customer writes"
+      "it": "Un log separato in ciascun agente",
+      "en": "A separate log in each agent"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "Non aiuta a capire dove si è fermata la richiesta.",
-      "en": "It does not help to understand where the request stopped."
+      "it": "Log separati senza un identificativo comune non si collegano tra loro.",
+      "en": "Separate logs without a shared ID cannot be linked to each other."
      }
     },
     {
@@ -341,14 +358,14 @@
     {
      "id": "e",
      "testo": {
-      "it": "Togliere la scheda dell'agente dal sito",
-      "en": "Removing the agent card from the website"
+      "it": "Riprovare all'infinito finché il fornitore risponde",
+      "en": "Retrying forever until the supplier answers"
      },
      "corretta": false,
      "tipo_distrattore": "errata",
      "spiegazione": {
-      "it": "Senza scheda gli altri agenti non saprebbero più come contattarlo.",
-      "en": "Without the card other agents would no longer know how to contact it."
+      "it": "Ritentare senza limite blocca il cliente e non dice dove si è fermata la richiesta.",
+      "en": "Retrying without a limit leaves the customer stuck and does not show where the request stopped."
      }
     }
    ],
@@ -356,6 +373,23 @@
     "it": "In produzione ogni richiesta A2A porta un identificativo unico: serve per il debug e per un registro coerente tra agenti.",
     "en": "In production every A2A request carries a unique ID: it is needed for debugging and for a consistent record across agents."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "A2A",
+    "it": "Agent-to-Agent: protocollo per far collaborare agenti, anche di sistemi o fornitori diversi.",
+    "en": "Agent-to-Agent: a protocol that lets agents work together, even across systems or suppliers."
+   },
+   {
+    "termine": "ritentativi",
+    "it": "Nuovi tentativi automatici di una chiamata fallita, di solito pochi e distanziati.",
+    "en": "Automatic new attempts at a failed call, usually few and spaced out."
+   },
+   {
+    "termine": "lavagna comune",
+    "it": "Spazio di dati condiviso che gli agenti della stessa applicazione leggono e scrivono.",
+    "en": "A shared data space that agents of the same application read and write."
+   }
+  ]
  }
 ]

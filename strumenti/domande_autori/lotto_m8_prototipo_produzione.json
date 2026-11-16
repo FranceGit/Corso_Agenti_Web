@@ -70,14 +70,14 @@
     {
      "id": "E",
      "testo": {
-      "it": "Che il modello diventi più lento a rispondere ai lead",
-      "en": "That the model becomes slower at answering leads"
+      "it": "Che le chiavi scadano prima per il doppio uso",
+      "en": "That the keys expire sooner because of the double use"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "Le chiavi non cambiano la velocità del modello.",
-      "en": "The keys do not change the model's speed."
+      "it": "Il rischio non è la scadenza delle chiavi: con le chiavi vere le prove raggiungono clienti veri.",
+      "en": "The risk is not the keys expiring: with the real keys the tests reach real customers."
      }
     }
    ],
@@ -122,14 +122,14 @@
     {
      "id": "c",
      "testo": {
-      "it": "Perché il modello funziona solo se riceve chiavi diverse",
-      "en": "Because the model only works if it gets different keys"
+      "it": "Non è necessario: basta fare attenzione durante le prove",
+      "en": "It is not necessary: being careful during tests is enough"
      },
      "corretta": false,
      "tipo_distrattore": "errata",
      "spiegazione": {
-      "it": "Il modello non dipende da quante chiavi ci sono.",
-      "en": "The model does not depend on how many keys there are."
+      "it": "L'attenzione non basta: un errore di configurazione capita, e con chiavi vere tocca clienti veri.",
+      "en": "Care is not enough: configuration mistakes happen, and with real keys they reach real customers."
      }
     },
     {
@@ -148,14 +148,14 @@
     {
      "id": "e",
      "testo": {
-      "it": "Per rendere più veloci le prove automatiche",
-      "en": "To make the automatic tests faster"
+      "it": "Per poter pagare a parte le chiamate di prova",
+      "en": "So that test calls can be paid for separately"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "Le chiavi separate servono alla sicurezza, non alla velocità.",
-      "en": "Separate keys are for safety, not speed."
+      "it": "Separare i costi è un effetto secondario: lo scopo è che una prova sbagliata non tocchi clienti veri.",
+      "en": "Separating costs is a side effect: the point is that a failed test cannot touch real customers."
      }
     }
    ],
@@ -163,7 +163,14 @@
     "it": "È lo scopo della separazione: gli errori restano dentro l'ambiente di prova.",
     "en": "That is the point of separation: mistakes stay inside the test environment."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "chiavi",
+    "it": "Credenziali segrete che aprono un servizio (CRM, email) a nome dell'azienda.",
+    "en": "Secret credentials that open a service (CRM, email) on the company's behalf."
+   }
+  ]
  },
  {
   "id": "DA8.1-5",
@@ -269,8 +276,8 @@
      "corretta": true,
      "tipo_distrattore": null,
      "spiegazione": {
-      "it": "Codice, istruzioni, modello, strumenti, memoria e set di prove hanno una versione: tornare indietro è un'operazione sola.",
-      "en": "Code, instructions, model, tools, memory and test set have a version: going back is a single operation."
+      "it": "Codice, istruzioni, modello e suoi settaggi, strumenti, memoria, dati e set di prove hanno una versione: tornare indietro è un'operazione sola.",
+      "en": "Code, instructions, the model and its settings, tools, memory, data and test set have a version: going back is a single operation."
      }
     },
     {
@@ -327,9 +334,16 @@
     }
    ],
    "perche": {
-    "it": "Codice, istruzioni, modello, strumenti, memoria e set di prove hanno una versione: tornare indietro è un'operazione sola.",
-    "en": "Code, instructions, model, tools, memory and test set have a version: going back is a single operation."
+    "it": "Codice, istruzioni, modello e suoi settaggi, strumenti, memoria, dati e set di prove hanno una versione: tornare indietro è un'operazione sola.",
+    "en": "Code, instructions, the model and its settings, tools, memory, data and test set have a version: going back is a single operation."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "rollback",
+    "it": "Ritorno rapido alla versione precedente dell'agente, già nota e funzionante.",
+    "en": "A quick return to the previous, known-good version of the agent."
+   }
+  ]
  }
 ]

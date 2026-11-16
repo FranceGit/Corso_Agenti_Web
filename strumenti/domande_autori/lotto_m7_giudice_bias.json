@@ -163,7 +163,19 @@
     "it": "Votare in tutti e due gli ordini e mandare a una persona i casi in disaccordo evita che sia l'ordine a decidere.",
     "en": "Voting in both orders and sending the disagreeing cases to a person stops the order from deciding."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "LLM giudice",
+    "it": "Modello linguistico usato per valutare le risposte di un altro sistema secondo dei criteri.",
+    "en": "A language model used to score another system's answers against criteria."
+   },
+   {
+    "termine": "bias di posizione",
+    "it": "Tendenza del giudice a preferire una risposta per il posto in cui compare (prima o seconda).",
+    "en": "The judge's tendency to prefer an answer because of where it appears (first or second)."
+   }
+  ]
  },
  {
   "id": "DA7.4-5",
@@ -329,6 +341,18 @@
     "it": "Un criterio scritto nella rubrica dice al giudice di ignorare la lunghezza e di guardare solo il contenuto.",
     "en": "A criterion written in the rubric tells the judge to ignore length and look only at the content."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "giudice LLM",
+    "it": "Modello linguistico usato per valutare le risposte di un altro sistema secondo dei criteri.",
+    "en": "A language model used to score another system's answers against criteria."
+   },
+   {
+    "termine": "rubrica",
+    "it": "Griglia di criteri espliciti con cui si giudica una risposta.",
+    "en": "A grid of explicit criteria used to judge an answer."
+   }
+  ]
  }
 ]

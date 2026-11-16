@@ -109,14 +109,14 @@
     {
      "id": "b",
      "testo": {
-      "it": "Perché il segnale di uscita funziona solo il lunedì",
-      "en": "Because the exit signal only works on Mondays"
+      "it": "Perché il critico potrebbe approvare troppo presto",
+      "en": "Because the critic might approve too early"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "Il giorno non c'entra con il funzionamento del ciclo.",
-      "en": "The day has nothing to do with how the loop works."
+      "it": "Contro un'approvazione troppo facile serve un critico migliore: il limite ferma i giri infiniti.",
+      "en": "Against approval that comes too easily you need a better critic: the limit stops endless rounds."
      }
     },
     {
@@ -148,14 +148,14 @@
     {
      "id": "e",
      "testo": {
-      "it": "Perché senza limite il critico smette di leggere",
-      "en": "Because without a limit the critic stops reading"
+      "it": "Perché il generatore deve sapere quanti giri restano",
+      "en": "Because the generator must know how many rounds are left"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "Il critico legge a ogni giro; il rischio è il giro infinito, non la stanchezza.",
-      "en": "The critic reads every round; the risk is the endless loop, not tiredness."
+      "it": "Il generatore lavora sulle critiche, non sul conteggio: il limite protegge dal giro infinito.",
+      "en": "The generator works on the criticism, not on the count: the limit protects against the endless loop."
      }
     }
    ],
@@ -163,7 +163,14 @@
     "it": "Il limite di giri è la rete di sicurezza: impedisce un ciclo infinito quando l'approvazione non arriva.",
     "en": "The round limit is the safety net: it prevents an endless loop when approval does not come."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "outreach",
+    "it": "Contatto attivo di potenziali clienti (email, messaggi, chiamate) per avviare una relazione.",
+    "en": "Actively reaching out to potential customers (emails, messages, calls) to start a relationship."
+   }
+  ]
  },
  {
   "id": "DA6.2-5",
@@ -249,14 +256,14 @@
     {
      "id": "F",
      "testo": {
-      "it": "Nessun agente",
-      "en": "No agent"
+      "it": "Router che smista",
+      "en": "A routing agent"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "La richiesta è chiara e si può soddisfare con un coordinatore.",
-      "en": "The request is clear and can be met with a coordinator."
+      "it": "Un router smista e basta: poi risponde lo specialista, non l'assistente principale.",
+      "en": "A router only routes: then the specialist answers, not the main assistant."
      }
     },
     {
@@ -355,6 +362,18 @@
     "it": "Con il passaggio di consegne il Triage cede il controllo: risponde lo specialista Ordini.",
     "en": "With a handoff the Triage agent gives up control: the Orders specialist answers."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "Handoff",
+    "it": "Passaggio di consegne: un agente cede la conversazione a un altro, che da lì risponde lui.",
+    "en": "A handover: one agent passes the conversation to another, which answers from then on."
+   },
+   {
+    "termine": "Manager",
+    "it": "Variante in cui un agente centrale usa gli specialisti come strumenti e resta lui a parlare con l'utente.",
+    "en": "A variant where a central agent uses the specialists as tools and stays the one talking to the user."
+   }
+  ]
  }
 ]

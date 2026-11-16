@@ -123,14 +123,14 @@
     {
      "id": "c",
      "testo": {
-      "it": "Un caso fuori ambito qualsiasi, giusto per fare numero",
-      "en": "Any out-of-scope case, just to make up the number"
+      "it": "Un caso avversario con istruzioni nascoste",
+      "en": "An adversarial case with hidden instructions"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "Serve il caso che ha fallito, non un caso a caso.",
-      "en": "You need the case that failed, not a random one."
+      "it": "I casi avversari servono, ma non coprono il lead senza nome che ha fallito.",
+      "en": "Adversarial cases are useful, but they do not cover the no-name lead that failed."
      }
     },
     {
@@ -164,7 +164,19 @@
     "it": "L'errore trovato in produzione entra nel set come caso permanente, così non torna.",
     "en": "The error found in production enters the set as a permanent case, so it does not come back."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "set di valutazione",
+    "it": "Raccolta di casi di prova con il risultato atteso, usata per misurare l'agente.",
+    "en": "A collection of test cases with expected results, used to measure the agent."
+   },
+   {
+    "termine": "caso limite",
+    "it": "Caso raro o al confine delle regole, dove è più facile sbagliare.",
+    "en": "A rare case or one at the edge of the rules, where mistakes are more likely."
+   }
+  ]
  },
  {
   "id": "DA7.3-5",
@@ -236,8 +248,8 @@
     }
    ],
    "perche": {
-    "it": "A ogni cambio di istruzioni, modello o strumenti si rilancia il set e si confronta con la versione in uso.",
-    "en": "At every change of instructions, model or tools you run the set again and compare with the version in use."
+    "it": "A ogni cambio di istruzioni, modello, parametri del modello, strumenti o dati si rilancia il set e si confronta con la versione in uso.",
+    "en": "At every change of instructions, model, model settings, tools or data you run the set again and compare with the version in use."
    }
   },
   "livello2": {
@@ -276,14 +288,14 @@
     {
      "id": "c",
      "testo": {
-      "it": "Perché il set di valutazione scade ogni tre mesi",
-      "en": "Because the evaluation set expires every three months"
+      "it": "Perché il set va riscritto per ogni nuovo modello",
+      "en": "Because the set must be rewritten for each new model"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "Il set non scade: cresce con gli errori trovati.",
-      "en": "The set does not expire: it grows with the errors found."
+      "it": "Il set descrive il comportamento atteso: vale per qualunque modello e si tiene sotto versione.",
+      "en": "The set describes the expected behaviour: it is valid for any model and is kept under version control."
      }
     },
     {
@@ -317,6 +329,18 @@
     "it": "Lo stesso prompt su un modello diverso può dare risultati diversi: si rilancia il set.",
     "en": "The same prompt on a different model can give different results: you run the set again."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "set di valutazione",
+    "it": "Raccolta di casi di prova con il risultato atteso, usata per misurare l'agente.",
+    "en": "A collection of test cases with expected results, used to measure the agent."
+   },
+   {
+    "termine": "test di regressione",
+    "it": "Rilancio del set di valutazione dopo una modifica, per verificare che ciò che funzionava funzioni ancora.",
+    "en": "Rerunning the evaluation set after a change, to check that what worked still works."
+   }
+  ]
  }
 ]

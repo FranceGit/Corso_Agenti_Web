@@ -109,14 +109,14 @@
     {
      "id": "b",
      "testo": {
-      "it": "Perché la scheda del CRM ha un numero massimo di campi",
-      "en": "Because the CRM record has a maximum number of fields"
+      "it": "Perché i dati dedotti vanno in un sistema diverso dal CRM",
+      "en": "Because inferred data must go in a system other than the CRM"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "Lo spazio non c'entra: conta da dove viene il dato.",
-      "en": "Space has nothing to do with it: what matters is where the data comes from."
+      "it": "Il posto non c'entra: conta che un'ipotesi non sia scritta come un fatto.",
+      "en": "The place has nothing to do with it: what matters is that a guess is not written as a fact."
      }
     },
     {
@@ -163,7 +163,14 @@
     "it": "Un dato nella scheda viene preso per vero da chi lo legge. Un'ipotesi senza fonte va segnata come tale o lasciata fuori.",
     "en": "Data in the record is taken as true by whoever reads it. A guess with no source must be marked as such or left out."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "confidenza",
+    "it": "Quanto il modello o il dato è sicuro, per esempio alta, media o bassa.",
+    "en": "How sure the model or the data is, for example high, medium or low."
+   }
+  ]
  },
  {
   "id": "DA3.3-2",
@@ -329,6 +336,13 @@
     "it": "Data e scadenza su ogni campo arricchito dicono quando un dato è troppo vecchio per fidarsi: a quel punto si riverifica.",
     "en": "A date and an expiry on every enriched field tell you when data is too old to trust: at that point it is checked again."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "arricchita",
+    "it": "Completata con dati presi da altre fonti o dedotti dal modello.",
+    "en": "Completed with data taken from other sources or inferred by the model."
+   }
+  ]
  }
 ]

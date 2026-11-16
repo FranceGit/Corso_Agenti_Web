@@ -148,14 +148,14 @@
     {
      "id": "e",
      "testo": {
-      "it": "Spegnere e riaccendere la cache ogni giorno",
-      "en": "Turning the cache off and on every day"
+      "it": "Mettere in cache anche le risposte del modello",
+      "en": "Also cache the model's answers"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "Non cambia niente: il problema è il testo, non l'interruttore.",
-      "en": "It changes nothing: the problem is the text, not the switch."
+      "it": "È un'altra cache: qui il risparmio si perde perché l'inizio del prompt cambia sempre.",
+      "en": "That is a different cache: here the saving is lost because the start of the prompt always changes."
      }
     }
    ],
@@ -163,7 +163,19 @@
     "it": "Prima ciò che non cambia mai, poi ciò che cambia: è la regola che fa lavorare la cache.",
     "en": "First what never changes, then what changes: that is the rule that makes the cache work."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "cache",
+    "it": "Memoria che riusa la parte iniziale identica del prompt già elaborata, facendola pagare molto meno.",
+    "en": "A memory that reuses the identical, already processed start of the prompt, charging much less for it."
+   },
+   {
+    "termine": "prompt",
+    "it": "Testo completo inviato al modello a ogni chiamata.",
+    "en": "The full text sent to the model at each call."
+   }
+  ]
  },
  {
   "id": "DA8.5-5",
@@ -236,14 +248,14 @@
     {
      "id": "E",
      "testo": {
-      "it": "Si decide in base al nome del fornitore",
-      "en": "You decide based on the vendor's name"
+      "it": "Si guarda solo la qualità, ignorando la spesa",
+      "en": "You look only at quality, ignoring the spend"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "Il nome non dice niente su errori e costi del vostro compito.",
-      "en": "The name says nothing about the mistakes and costs of your task."
+      "it": "Anche la sola qualità è mezza misura: conta il totale tra token e correzioni.",
+      "en": "Quality alone is half the measure too: what counts is the total of tokens and corrections."
      }
     }
    ],
@@ -288,14 +300,14 @@
     {
      "id": "c",
      "testo": {
-      "it": "Perché la classificazione si fa di notte e gli sconti di giorno",
-      "en": "Because classification is done at night and discounts during the day"
+      "it": "Perché classificare consuma meno token che decidere",
+      "en": "Because classifying uses fewer tokens than deciding"
      },
      "corretta": false,
      "tipo_distrattore": "quasi",
      "spiegazione": {
-      "it": "L'orario conta per la latenza, non per la qualità della decisione.",
-      "en": "The time of day matters for latency, not for the quality of the decision."
+      "it": "La differenza di token è piccola: conta quanto è difficile la decisione e quanto costa sbagliarla.",
+      "en": "The token difference is small: what counts is how hard the decision is and how much a mistake costs."
      }
     },
     {
@@ -329,6 +341,13 @@
     "it": "Instradamento per difficoltà: piccolo dove il compito è semplice e l'errore costa poco, più capace dove l'errore pesa.",
     "en": "Routing by difficulty: small where the task is simple and the mistake is cheap, more capable where the mistake weighs."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "rilavorazioni",
+    "it": "Lavoro delle persone per correggere gli errori dell'agente.",
+    "en": "People's work to correct the agent's mistakes."
+   }
+  ]
  }
 ]

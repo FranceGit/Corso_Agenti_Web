@@ -57,14 +57,14 @@
     {
      "id": "D",
      "testo": {
-      "it": "Il modello ha scritto email troppo lunghe e il servizio si è bloccato",
-      "en": "The model wrote emails that were too long and the service froze"
+      "it": "Il manager aveva fermato il cliente sbagliato",
+      "en": "The manager had stopped the wrong customer"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "La lunghezza delle email non c'entra con la regola da seguire quando il controllo non risponde.",
-      "en": "Email length has nothing to do with the rule to follow when the check does not answer."
+      "it": "Il cliente fermato era quello giusto: il problema è che l'arresto non è stato letto.",
+      "en": "The stopped customer was the right one: the problem is that the stop was not read."
      }
     },
     {
@@ -148,14 +148,14 @@
     {
      "id": "e",
      "testo": {
-      "it": "Spegnere il registro delle decisioni durante il guasto",
-      "en": "Turn off the decision log during the outage"
+      "it": "Proseguire, ma scrivere nel registro che il controllo era giù",
+      "en": "Carry on, but write in the log that the check was down"
      },
      "corretta": false,
      "tipo_distrattore": "errata",
      "spiegazione": {
-      "it": "Il registro serve proprio a ricostruire che cosa è successo.",
-      "en": "The log is exactly what helps rebuild what happened."
+      "it": "Il registro racconta il danno dopo: non ferma le 300 email.",
+      "en": "The log tells the story of the harm afterwards: it does not stop the 300 emails."
      }
     }
    ],
@@ -163,7 +163,19 @@
     "it": "Fail-closed nega le azioni con effetti quando il controllo non risponde: l'arresto del manager resta valido anche durante il guasto.",
     "en": "Fail-closed denies actions with effects when the check does not answer: the manager's stop stays valid during the outage too."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "fail-open",
+    "it": "Regola opposta: se il controllo non risponde, l'azione viene lasciata passare.",
+    "en": "The opposite rule: if the check does not answer, the action is let through."
+   },
+   {
+    "termine": "fail-closed",
+    "it": "Regola di sicurezza: se il controllo non risponde, l'azione viene negata.",
+    "en": "Safety rule: if the check does not answer, the action is denied."
+   }
+  ]
  },
  {
   "id": "DA8.3-5",
@@ -301,14 +313,14 @@
     {
      "id": "d",
      "testo": {
-      "it": "Perché lo strumento costa più degli altri",
-      "en": "Because the tool costs more than the others"
+      "it": "Perché spegnere tutto cancellerebbe i registri",
+      "en": "Because switching everything off would delete the logs"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "Il costo non c'entra con la scelta del livello a cui fermarsi.",
-      "en": "Cost has nothing to do with choosing the level at which to stop."
+      "it": "Un arresto non cancella i registri: fermare tutto bloccherebbe però anche il lavoro sicuro.",
+      "en": "A stop does not delete the logs: but stopping everything would also block safe work."
      }
     },
     {
@@ -329,7 +341,24 @@
     "it": "Si ferma il meno possibile, ma tutto quello che serve: lo strumento colpito si spegne, il lavoro sicuro continua.",
     "en": "Stop as little as possible, but everything needed: the affected tool goes off, safe work goes on."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "prospect",
+    "it": "Potenziale cliente già contattato o interessato, non ancora cliente.",
+    "en": "A potential customer already contacted or interested, not yet a customer."
+   },
+   {
+    "termine": "istruzioni nascoste",
+    "it": "Ordini nascosti in un testo letto dall'agente per fargli fare cose non previste (prompt injection).",
+    "en": "Orders hidden in a text the agent reads, to make it do unplanned things (prompt injection)."
+   },
+   {
+    "termine": "circuit breaker",
+    "it": "Interruttore che spegne all'istante un singolo strumento, lasciando funzionare il resto.",
+    "en": "A switch that instantly turns off a single tool, leaving the rest running."
+   }
+  ]
  },
  {
   "id": "DA8.3-6",
@@ -467,14 +496,14 @@
     {
      "id": "d",
      "testo": {
-      "it": "Il registro va scritto in inglese",
-      "en": "The log must be written in English"
+      "it": "Basta togliere dal registro i ragionamenti dell'agente",
+      "en": "Just remove the agent's reasoning from the log"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "La lingua non c'entra con la protezione.",
-      "en": "Language has nothing to do with protection."
+      "it": "Il ragionamento serve a spiegare: il rischio sono i dati personali e l'accesso libero.",
+      "en": "The reasoning is needed to explain: the risk is the personal data and the open access."
      }
     },
     {
@@ -495,6 +524,18 @@
     "it": "Il registro va protetto: dati personali mascherati [SEC p.13; WP4 p.42] e accesso per ruolo, separato per cliente (schema del progetto di riferimento [R15]).",
     "en": "The log must be protected: personal data masked [SEC p.13; WP4 p.42] and access by role, separate per customer (scheme of the reference project [R15])."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "accesso per ruolo",
+    "it": "Regola per cui ognuno vede solo ciò che serve al suo ruolo.",
+    "en": "A rule by which everyone sees only what their role needs."
+   },
+   {
+    "termine": "mascherati",
+    "it": "Dati in cui le parti personali sono sostituite da asterischi o codici.",
+    "en": "Data in which the personal parts are replaced by asterisks or codes."
+   }
+  ]
  }
 ]

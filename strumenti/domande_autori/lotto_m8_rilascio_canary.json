@@ -70,14 +70,14 @@
     {
      "id": "E",
      "testo": {
-      "it": "Dipende solo dall'orario",
-      "en": "It only depends on the time of day"
+      "it": "Circa 200 invece di 20.000",
+      "en": "About 200 instead of 20,000"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "Nel caso descritto il numero dipende dalla quota di traffico, non dall'orario.",
-      "en": "In the case described the number depends on the traffic share, not the time of day."
+      "it": "200 sono le richieste che arrivano alla v2 all'1%, non gli errori: il 2% di 200 è 4.",
+      "en": "200 is the number of requests reaching v2 at 1%, not the errors: 2% of 200 is 4."
      }
     },
     {
@@ -340,14 +340,14 @@
     {
      "id": "e",
      "testo": {
-      "it": "Ricevono email più brevi del solito",
-      "en": "They get shorter emails than usual"
+      "it": "Il danno resta uguale: la percentuale di errori non cambia",
+      "en": "The damage stays the same: the error rate does not change"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "La lunghezza delle email non c'entra con il difetto descritto.",
-      "en": "Email length has nothing to do with the defect described."
+      "it": "La percentuale di errori resta uguale, ma si applica a più clienti: le persone colpite aumentano.",
+      "en": "The error rate stays the same, but it applies to more customers: more people are hit."
      }
     }
    ],
@@ -355,6 +355,18 @@
     "it": "Il difetto è lo stesso, ma raddoppiando il traffico raddoppiano i clienti colpiti.",
     "en": "The defect is the same, but doubling the traffic doubles the customers hit."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "canary",
+    "it": "Rilascio di una nuova versione prima a una piccola quota di utenti, allargato per gradi se va bene.",
+    "en": "Releasing a new version first to a small share of users, widened step by step if it goes well."
+   },
+   {
+    "termine": "istruzioni nascoste",
+    "it": "Ordini nascosti in un testo letto dall'agente per fargli fare cose non previste (prompt injection).",
+    "en": "Orders hidden in a text the agent reads, to make it do unplanned things (prompt injection)."
+   }
+  ]
  }
 ]

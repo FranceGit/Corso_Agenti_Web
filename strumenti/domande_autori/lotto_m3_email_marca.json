@@ -97,14 +97,14 @@
     {
      "id": "a",
      "testo": {
-      "it": "Perché le email di prova costano più di quelle vere",
-      "en": "Because test emails cost more than real ones"
+      "it": "Perché in prova si può usare un modello più economico",
+      "en": "Because a cheaper model can be used in testing"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "Il costo non c'entra: il punto è non raggiungere persone vere.",
-      "en": "Cost has nothing to do with it: the point is not to reach real people."
+      "it": "Il modello può essere lo stesso: il punto è non raggiungere persone vere.",
+      "en": "The model can be the same: the point is not to reach real people."
      }
     },
     {
@@ -164,7 +164,14 @@
     "it": "Un'email partita è nella casella del cliente per sempre: per questo gli errori si trovano in prova.",
     "en": "An email that has gone out stays in the customer's inbox forever: that is why mistakes are found in testing."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "sequenza",
+    "it": "Serie di email programmate che partono una dopo l'altra.",
+    "en": "A series of scheduled emails that go out one after another."
+   }
+  ]
  },
  {
   "id": "DA3.4-2",
@@ -277,14 +284,14 @@
     {
      "id": "b",
      "testo": {
-      "it": "Un oggetto delle email più breve",
-      "en": "A shorter email subject line"
+      "it": "Un pulsante di invio bloccato",
+      "en": "A locked send button"
      },
      "corretta": false,
-     "tipo_distrattore": "poco",
+     "tipo_distrattore": "quasi",
      "spiegazione": {
-      "it": "L'oggetto non decide dove arriva l'email.",
-      "en": "The subject line does not decide where the email lands."
+      "it": "Un blocco si può togliere per errore: i contatti restano veri.",
+      "en": "A lock can be removed by mistake: the contacts are still real."
      }
     },
     {
@@ -316,14 +323,14 @@
     {
      "id": "e",
      "testo": {
-      "it": "La firma in fondo alle email",
-      "en": "The signature at the bottom of the emails"
+      "it": "Niente: non spedita vuol dire già di prova",
+      "en": "Nothing: not sent already means test"
      },
      "corretta": false,
      "tipo_distrattore": "errata",
      "spiegazione": {
-      "it": "La firma è una regola di marca, non c'entra con la prova.",
-      "en": "The signature is a brand rule, it has nothing to do with testing."
+      "it": "È l'errore di partenza: ferma non vuol dire separata dal mondo reale.",
+      "en": "It is the starting mistake: paused does not mean separated from the real world."
      }
     }
    ],
@@ -331,7 +338,14 @@
     "it": "Quello che conta è la separazione: in prova nessuna email può raggiungere un cliente, qualunque cosa si clicchi.",
     "en": "What matters is separation: in testing no email can reach a customer, whatever you click."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "ambiente di prova",
+    "it": "Copia separata del sistema in cui si prova senza toccare clienti veri.",
+    "en": "A separate copy of the system where you test without touching real customers."
+   }
+  ]
  },
  {
   "id": "DA3.4-3",
@@ -498,6 +512,13 @@
     "it": "Le ipotesi del modello servono a orientare il messaggio; scritte come fatti diventano affermazioni senza dato.",
     "en": "The model's guesses help steer the message; written as facts they become claims without data."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "tracciabile",
+    "it": "Che si può ricondurre a un dato preciso della scheda.",
+    "en": "That can be traced back to a specific piece of data in the record."
+   }
+  ]
  }
 ]

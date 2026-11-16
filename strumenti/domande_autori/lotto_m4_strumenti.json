@@ -50,8 +50,8 @@
      "corretta": false,
      "tipo_distrattore": "quasi",
      "spiegazione": {
-      "it": "Proprio no: il test legge «success» e passa lo stesso. È il caso reale dei notebook Google.",
-      "en": "Not at all: the test reads «success» and passes anyway. It is the real case in the Google notebooks."
+      "it": "Proprio no: il test legge «success» e passa lo stesso. È un caso reale descritto nei materiali del settore.",
+      "en": "Not at all: the test reads «success» and passes anyway. It is a real case described in industry materials."
      }
     },
     {
@@ -163,7 +163,14 @@
     "it": "Il messaggio d'errore è un'occasione: deve dire che cosa è successo e che cosa fare dopo.",
     "en": "The error message is an opportunity: it must say what happened and what to do next."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "trattativa",
+    "it": "Possibile vendita seguita nel CRM, con valore e fase (es. offerta inviata).",
+    "en": "A possible sale tracked in the CRM, with a value and a stage (e.g. offer sent)."
+   }
+  ]
  },
  {
   "id": "DA4.2-5",
@@ -223,27 +230,27 @@
     {
      "id": "D",
      "testo": {
-      "it": "È scritto in italiano",
-      "en": "It is written in Italian"
+      "it": "Costa troppi token",
+      "en": "It costs too many tokens"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "La lingua del nome non è il problema.",
-      "en": "The language of the name is not the problem."
+      "it": "Il costo non è il punto: il rischio è che faccia azioni che nessuno ha chiesto.",
+      "en": "Cost is not the point: the risk is that it takes actions nobody asked for."
      }
     },
     {
      "id": "E",
      "testo": {
-      "it": "Invia poche email",
-      "en": "It sends few emails"
+      "it": "Gli manca un parametro",
+      "en": "It lacks a parameter"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "Il numero di email non c'entra: il rischio è inviarle quando nessuno l'ha chiesto.",
-      "en": "The number of emails is not the point: the risk is sending them when nobody asked."
+      "it": "Più parametri non risolvono: il problema è che fa troppi compiti.",
+      "en": "More parameters do not fix it: the problem is that it does too many tasks."
      }
     },
     {
@@ -262,14 +269,14 @@
     {
      "id": "G",
      "testo": {
-      "it": "Usa il CRM",
-      "en": "It uses the CRM"
+      "it": "Niente, con un modello grande",
+      "en": "Nothing, with a big model"
      },
      "corretta": false,
      "tipo_distrattore": "errata",
      "spiegazione": {
-      "it": "Usare il CRM è normale: è il suo lavoro.",
-      "en": "Using the CRM is normal: it is its job."
+      "it": "Anche un modello grande sbaglia con uno strumento che fa tutto: il difetto è nel progetto.",
+      "en": "Even a big model goes wrong with a tool that does everything: the flaw is in the design."
      }
     }
    ],
@@ -355,7 +362,14 @@
     "it": "La regola è un equilibrio: compiti, non chiamate tecniche, ma niente strumento che fa tutto.",
     "en": "The rule is a balance: tasks, not technical calls, but no tool that does everything."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "parametri",
+    "it": "I dati che si passano a uno strumento quando lo si chiama (es. l'id del contatto).",
+    "en": "The data passed to a tool when it is called (e.g. the contact's id)."
+   }
+  ]
  },
  {
   "id": "DA4.3-4",
@@ -508,7 +522,19 @@
     "it": "Un'etichetta scritta dal fornitore descrive come lo strumento dovrebbe comportarsi; solo i controlli dicono come si comporta davvero.",
     "en": "A label written by the vendor describes how the tool should behave; only checks say how it really behaves."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "server MCP",
+    "it": "Programma che espone strumenti o dati a un agente tramite il protocollo MCP.",
+    "en": "A program that offers tools or data to an agent through the MCP protocol."
+   },
+   {
+    "termine": "sola lettura",
+    "it": "Strumento che legge dati senza modificarli.",
+    "en": "A tool that reads data without changing it."
+   }
+  ]
  },
  {
   "id": "DA4.3-5",
@@ -674,7 +700,19 @@
     "it": "Aggiungere un server non sposta le regole: restano nell'host, che le applica a ogni collegamento.",
     "en": "Adding a server does not move the rules: they stay in the host, which enforces them on every connection."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "host",
+    "it": "In MCP, l'applicazione AI che gestisce i collegamenti ai server e applica le regole.",
+    "en": "In MCP, the AI application that manages the connections to servers and applies the rules."
+   },
+   {
+    "termine": "client",
+    "it": "In MCP, il componente dell'host che tiene il collegamento con un singolo server.",
+    "en": "In MCP, the part of the host that keeps the connection with a single server."
+   }
+  ]
  },
  {
   "id": "DA4.4-4",
@@ -734,8 +772,8 @@
     {
      "id": "D",
      "testo": {
-      "it": "Il CRM risponde lentamente nei fine settimana",
-      "en": "The CRM answers slowly at weekends"
+      "it": "Il CRM risponde lentamente alle chiamate degli strumenti",
+      "en": "The CRM answers the tool calls slowly"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -840,7 +878,14 @@
     "it": "Più testo inutile nel contesto vuol dire più rumore: il modello sceglie peggio e si allontana dall'obiettivo.",
     "en": "More useless text in the context means more noise: the model chooses worse and drifts from the goal."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "finestra di contesto",
+    "it": "Il testo massimo che il modello considera in una chiamata: istruzioni, cronologia, dati.",
+    "en": "The most text the model considers in one call: instructions, history, data."
+   }
+  ]
  },
  {
   "id": "DA4.4-5",
@@ -900,14 +945,14 @@
     {
      "id": "D",
      "testo": {
-      "it": "Quante persone hanno condiviso l'annuncio del fornitore sui social",
-      "en": "How many people shared the vendor's announcement on social media"
+      "it": "Se il fornitore è un'azienda grande e conosciuta",
+      "en": "Whether the vendor is a large, well-known company"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "La popolarità di un annuncio non è una misura.",
-      "en": "An announcement's popularity is not a measurement."
+      "it": "La fama del fornitore non è una misura: conta quanto lo strumento costa e rende nel tuo caso.",
+      "en": "The supplier's fame is not a measurement: what counts is what the tool costs and delivers in your case."
      }
     },
     {
@@ -1006,6 +1051,13 @@
     "it": "La prova reale mostra un compromesso: meno token e meno costo, ma più tempo di risposta.",
     "en": "The real test shows a trade-off: fewer tokens and lower cost, but a longer response time."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "esecuzione di codice",
+    "it": "Approccio in cui l'agente scrive codice che lavora sui dati fuori dal contesto del modello.",
+    "en": "An approach where the agent writes code that works on the data outside the model's context."
+   }
+  ]
  }
 ]

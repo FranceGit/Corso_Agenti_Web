@@ -122,14 +122,14 @@
     {
      "id": "c",
      "testo": {
-      "it": "Lead nel foglio insieme al costo del foglio",
-      "en": "Leads in the sheet together with the cost of the sheet"
+      "it": "Solo le opportunità create, senza altro",
+      "en": "Only the opportunities created, nothing else"
      },
      "corretta": false,
-     "tipo_distrattore": "poco",
+     "tipo_distrattore": "quasi",
      "spiegazione": {
-      "it": "Le righe nel foglio sono attività, e il costo del foglio è irrilevante.",
-      "en": "Rows in the sheet are activity, and the cost of the sheet is irrelevant."
+      "it": "C'è il risultato, ma manca la metrica di rischio che dice se la crescita conviene.",
+      "en": "The result is there, but the risk metric that says whether the growth is worth it is missing."
      }
     },
     {
@@ -163,7 +163,19 @@
     "it": "In testa al report va un risultato di business con accanto la sua metrica di rischio.",
     "en": "At the top of the report goes a business result with its risk metric next to it."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "disiscrizioni",
+    "it": "Contatti che chiedono di non ricevere più le email.",
+    "en": "Contacts who ask to stop receiving the emails."
+   },
+   {
+    "termine": "opportunità",
+    "it": "Lead diventato una possibile vendita concreta, seguita dal commerciale.",
+    "en": "A lead that has become a concrete possible sale, handled by sales."
+   }
+  ]
  },
  {
   "id": "DA7.5-5",
@@ -288,14 +300,14 @@
     {
      "id": "c",
      "testo": {
-      "it": "Perché nello stesso periodo il commerciale lavora di più",
-      "en": "Because in the same period the salesperson works harder"
+      "it": "Perché così i due gruppi ricevono le stesse email",
+      "en": "Because then the two groups get the same emails"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "Il motivo non è l'impegno del commerciale, ma togliere le altre differenze.",
-      "en": "The reason is not the salesperson's effort, but removing the other differences."
+      "it": "I gruppi ricevono trattamenti diversi: il caso serve a renderli simili in partenza.",
+      "en": "The groups get different treatments: randomness makes them similar at the start."
      }
     },
     {
@@ -329,6 +341,13 @@
     "it": "Dividere a caso nello stesso periodo toglie stagione e differenze tra lead: resta solo l'effetto dell'agente.",
     "en": "Splitting at random in the same period removes the season and lead differences: only the agent's effect remains."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "bande di incertezza",
+    "it": "Intervallo in cui probabilmente cade il valore vero: più dati, banda più stretta.",
+    "en": "The range where the true value probably lies: more data, narrower band."
+   }
+  ]
  }
 ]

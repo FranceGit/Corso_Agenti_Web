@@ -70,14 +70,14 @@
     {
      "id": "E",
      "testo": {
-      "it": "Nel testo delle email",
-      "en": "In the text of the emails"
+      "it": "In una variabile del codice",
+      "en": "In a variable in the code"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "Uscirebbe verso i clienti a ogni invio.",
-      "en": "It would go out to customers with every send."
+      "it": "Nel codice la chiave finisce in ogni copia e nella cronologia delle modifiche.",
+      "en": "In the code the key ends up in every copy and in the change history."
      }
     },
     {
@@ -96,14 +96,14 @@
     {
      "id": "G",
      "testo": {
-      "it": "Nella scheda di ogni lead",
-      "en": "In each lead's record"
+      "it": "Nella memoria dell'agente",
+      "en": "In the agent's memory"
      },
      "corretta": false,
      "tipo_distrattore": "errata",
      "spiegazione": {
-      "it": "Moltiplica le copie del segreto nel CRM.",
-      "en": "It multiplies copies of the secret in the CRM."
+      "it": "La memoria finisce nel contesto del modello: il segreto sarebbe letto e copiato nei log.",
+      "en": "Memory ends up in the model's context: the secret would be read and copied into the logs."
      }
     }
    ],
@@ -174,14 +174,14 @@
     {
      "id": "e",
      "testo": {
-      "it": "Perché un permesso lungo costa di più",
-      "en": "Because a long permission costs more"
+      "it": "Perché durando poco non serve proteggerlo",
+      "en": "Because it is short-lived, so it need not be protected"
      },
      "corretta": false,
      "tipo_distrattore": "errata",
      "spiegazione": {
-      "it": "Il costo non c'entra con la durata del permesso.",
-      "en": "Cost has nothing to do with the permission's duration."
+      "it": "Anche un permesso breve va protetto: la durata limita il danno, non lo azzera.",
+      "en": "Even a short-lived permission must be protected: the duration limits the harm, it does not remove it."
      }
     }
    ],
@@ -189,7 +189,14 @@
     "it": "Credenziali limitate e di breve durata riducono il danno se qualcosa va storto [WP2 pp.46-47; SEC p.12].",
     "en": "Limited, short-lived credentials reduce the harm if something goes wrong [WP2 pp.46-47; SEC p.12]."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "servizio dei segreti",
+    "it": "Servizio dedicato che custodisce chiavi e password e le dà ai programmi solo quando servono.",
+    "en": "A dedicated service that keeps keys and passwords and gives them to programs only when needed."
+   }
+  ]
  },
  {
   "id": "DA8.4-5",
@@ -249,14 +256,14 @@
     {
      "id": "D",
      "testo": {
-      "it": "Un'immagine troppo pesante che rallenta l'invio",
-      "en": "An image too heavy that slows sending"
+      "it": "Un tracciamento delle aperture, come nelle newsletter",
+      "en": "Open tracking, as in newsletters"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "Il peso dell'immagine non c'entra: conta che cosa c'è nel suo indirizzo.",
-      "en": "The image's size does not matter: what matters is what is in its address."
+      "it": "Un tracciamento delle aperture non contiene i dati dei clienti: qui l'indirizzo li porta fuori.",
+      "en": "Open tracking does not contain customers' data: here the address carries it outside."
      }
     },
     {
@@ -340,14 +347,14 @@
     {
      "id": "e",
      "testo": {
-      "it": "Più email di prova inviate ai clienti veri",
-      "en": "More test emails sent to real customers"
+      "it": "Una regola nelle istruzioni: «non inserire immagini»",
+      "en": "A rule in the instructions: «do not add images»"
      },
      "corretta": false,
-     "tipo_distrattore": "errata",
+     "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "Mandare prove ai clienti veri aggiunge rischio, non lo toglie.",
-      "en": "Sending tests to real customers adds risk, it does not remove it."
+      "it": "Un'istruzione si aggira con un'altra istruzione ostile: serve un controllo sull'uscita.",
+      "en": "An instruction can be overridden by another hostile instruction: you need a check on the output."
      }
     }
    ],
@@ -355,7 +362,19 @@
     "it": "Contro l'esfiltrazione serve un controllo su ciò che esce dall'agente, perché l'istruzione ostile arriva dentro dati che l'agente legge [SEC p.10; OAI p.26].",
     "en": "Against exfiltration you need a check on what leaves the agent, because the hostile instruction arrives inside data the agent reads [SEC p.10; OAI p.26]."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "esfiltrazione",
+    "it": "Fuga di dati portati fuori di nascosto, per esempio dentro un indirizzo web.",
+    "en": "A leak of data secretly carried outside, for example inside a web address."
+   },
+   {
+    "termine": "prospect",
+    "it": "Potenziale cliente già contattato o interessato, non ancora cliente.",
+    "en": "A potential customer already contacted or interested, not yet a customer."
+   }
+  ]
  },
  {
   "id": "DA8.4-6",
@@ -415,14 +434,14 @@
     {
      "id": "D",
      "testo": {
-      "it": "Spostare le sessioni su un disco più grande",
-      "en": "Move the sessions to a bigger disk"
+      "it": "Riassumere le chat e conservare i riassunti per sempre",
+      "en": "Summarise the chats and keep the summaries forever"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "Lo spazio non è il problema: lo sono i dati personali conservati.",
-      "en": "Space is not the problem: the personal data kept is."
+      "it": "Anche i riassunti contengono dati personali: servono mascheramento e scadenza.",
+      "en": "Summaries contain personal data too: they need masking and expiry."
      }
     },
     {
@@ -521,6 +540,18 @@
     "it": "L'utente deve poter chiedere la cancellazione di tutti i suoi dati, e revocando una fonte si cancellano anche i dati derivati [WP3 pp.51, 69].",
     "en": "Users must be able to ask for all their data to be deleted, and revoking a source also deletes the derived data [WP3 pp.51, 69]."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "sessioni",
+    "it": "L'insieme dei messaggi di una conversazione con l'agente.",
+    "en": "The set of messages in one conversation with the agent."
+   },
+   {
+    "termine": "TTL",
+    "it": "Durata massima di un dato: scaduta, il dato si cancella da solo.",
+    "en": "A data item's maximum lifetime: once it expires, the item deletes itself."
+   }
+  ]
  }
 ]

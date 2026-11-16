@@ -38,8 +38,8 @@
     {
      "id": "C",
      "testo": {
-      "it": "Il voto su Google",
-      "en": "The Google rating"
+      "it": "Il nome azienda",
+      "en": "The company name"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -48,8 +48,8 @@
     {
      "id": "D",
      "testo": {
-      "it": "La data di invio",
-      "en": "The send date"
+      "it": "Un numero progressivo",
+      "en": "A running number"
      },
      "corretta": false,
      "tipo_distrattore": "errata",
@@ -68,8 +68,8 @@
     {
      "id": "F",
      "testo": {
-      "it": "Il settore",
-      "en": "The industry"
+      "it": "Il sito web",
+      "en": "The website"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -78,8 +78,8 @@
     {
      "id": "G",
      "testo": {
-      "it": "Il testo dell'email",
-      "en": "The email text"
+      "it": "L'ora di arrivo",
+      "en": "The arrival time"
      },
      "corretta": false,
      "tipo_distrattore": "errata",
@@ -111,8 +111,8 @@
     {
      "id": "b",
      "testo": {
-      "it": "Al testo delle email della campagna",
-      "en": "At the text of the campaign emails"
+      "it": "Alla raccolta: forse il dato non arriva",
+      "en": "At collection: maybe the data never arrives"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -141,8 +141,8 @@
     {
      "id": "e",
      "testo": {
-      "it": "All'orario di avvio della pipeline",
-      "en": "At the pipeline start time"
+      "it": "Al punteggio, che usa il nome azienda",
+      "en": "At scoring, which uses the company name"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -153,7 +153,19 @@
     "it": "Se il dato entra ma esce vuoto, il contratto si rompe dove i campi vengono rinominati: nel tutorial il nome azienda era vuoto per un errore di mappatura.",
     "en": "If the data goes in but comes out empty, the contract breaks where fields are renamed: in the tutorial the company name was empty because of a mapping mistake."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "normalizzazione",
+    "it": "Passo che pulisce e uniforma i dati: formati, nomi dei campi, doppioni.",
+    "en": "A step that cleans and standardises data: formats, field names, duplicates."
+   },
+   {
+    "termine": "mappatura dei campi",
+    "it": "Regola che dice in quale campo di arrivo va ogni campo di partenza.",
+    "en": "A rule saying which target field each source field goes into."
+   }
+  ]
  },
  {
   "id": "DA3.4-4",
@@ -238,11 +250,11 @@
     {
      "id": "c",
      "testo": {
-      "it": "Si prova di notte, quando i clienti non leggono la posta",
-      "en": "You test at night, when customers are not reading email"
+      "it": "Si prova con un decimo dei contatti veri",
+      "en": "You test with a tenth of the real contacts"
      },
      "corretta": false,
-     "tipo_distrattore": "poco",
+     "tipo_distrattore": "quasi",
      "spiegazione": null
     },
     {
@@ -270,7 +282,24 @@
     "it": "Le fonti descrivono ambienti distinti (sviluppo, prova, produzione) con \"a manual approval gate\" tra l'uno e l'altro.",
     "en": "The sources describe separate environments (development, test, production) with \"a manual approval gate\" between them."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "always allow",
+    "it": "Opzione che concede un permesso una volta per tutte, senza più chiedere conferma.",
+    "en": "An option that grants a permission once and for all, without asking again."
+   },
+   {
+    "termine": "produzione",
+    "it": "L'uso vero del sistema, con clienti e dati reali.",
+    "en": "The real use of the system, with real customers and data."
+   },
+   {
+    "termine": "approval gate",
+    "it": "Punto in cui una persona deve approvare prima di passare alla fase successiva.",
+    "en": "A point where a person must approve before moving to the next stage."
+   }
+  ]
  },
  {
   "id": "DA3.5-6",
@@ -365,8 +394,8 @@
     {
      "id": "b",
      "testo": {
-      "it": "FUORI SEDE",
-      "en": "OUT OF OFFICE"
+      "it": "NON INTERESSATO",
+      "en": "NOT INTERESTED"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -405,8 +434,8 @@
     {
      "id": "f",
      "testo": {
-      "it": "La più recente in CRM",
-      "en": "The latest one in the CRM"
+      "it": "Quella con più voti",
+      "en": "The one with most votes"
      },
      "corretta": false,
      "tipo_distrattore": "errata",
@@ -427,6 +456,23 @@
     "it": "Quando una risposta contiene due segnali serve una regola di priorità, e la richiesta di disiscrizione prevale.",
     "en": "When a reply contains two signals you need a priority rule, and the unsubscribe request comes first."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "disiscrizione",
+    "it": "Richiesta di non ricevere più comunicazioni promozionali, da eseguire sempre.",
+    "en": "A request to stop receiving promotional messages, which must always be carried out."
+   },
+   {
+    "termine": "coda di revisione",
+    "it": "Lista dei casi in attesa che una persona li controlli.",
+    "en": "The list of cases waiting for a person to check them."
+   },
+   {
+    "termine": "sequenza",
+    "it": "Serie di email programmate che partono una dopo l'altra.",
+    "en": "A series of scheduled emails that go out one after another."
+   }
+  ]
  }
 ]

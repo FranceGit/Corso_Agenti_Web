@@ -68,8 +68,8 @@
     }
    ],
    "perche": {
-    "it": "Le guide Google indicano almeno 3-5 esempi (6 per partire nella classificazione), vari, scritti bene e con le categorie mescolate.",
-    "en": "Google's guides suggest at least 3-5 examples (6 to start with for classification), varied, well written and with the categories mixed up."
+    "it": "Le guide di settore indicano almeno 3-5 esempi (6 per partire nella classificazione), vari, scritti bene e con le categorie mescolate.",
+    "en": "Industry guides suggest at least 3-5 examples (6 to start with for classification), varied, well written and with the categories mixed up."
    }
   },
   "livello2": {
@@ -82,8 +82,8 @@
     {
      "id": "a",
      "testo": {
-      "it": "Perché così le istruzioni diventano più corte",
-      "en": "Because that makes the instructions shorter"
+      "it": "Perché con le categorie mescolate servono meno esempi in tutto",
+      "en": "Because with mixed categories you need fewer examples overall"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -134,7 +134,14 @@
     "it": "Con esempi sempre nello stesso ordine il modello può imparare la sequenza invece del criterio; mescolarli lo costringe a guardare il testo.",
     "en": "With examples always in the same order the model may learn the sequence instead of the rule; mixing them forces it to look at the text."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "lead",
+    "it": "Contatto commerciale che potrebbe diventare cliente.",
+    "en": "A sales contact who might become a customer."
+   }
+  ]
  },
  {
   "id": "DA2.1-2",
@@ -196,8 +203,8 @@
     {
      "id": "E",
      "testo": {
-      "it": "L'agente rifiuta di classificare le email che parlano di mesi",
-      "en": "The agent refuses to classify emails that mention months"
+      "it": "L'agente sbaglia solo le risposte che citano settembre",
+      "en": "The agent only gets wrong the replies that mention September"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -271,7 +278,14 @@
     "it": "La causa è nell'esempio: si corregge lì e si ricontrolla con un insieme di risposte di cui si conosce già l'etichetta giusta.",
     "en": "The cause is the example: you fix it there and check again with a set of replies whose right label you already know."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "lead",
+    "it": "Contatto commerciale che potrebbe diventare cliente.",
+    "en": "A sales contact who might become a customer."
+   }
+  ]
  },
  {
   "id": "DA2.1-3",
@@ -302,8 +316,8 @@
     {
      "id": "B",
      "testo": {
-      "it": "Un tono più formale",
-      "en": "A more formal tone"
+      "it": "Un esempio di sconto vietato",
+      "en": "An example of a banned discount"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -312,8 +326,8 @@
     {
      "id": "C",
      "testo": {
-      "it": "Togliere il divieto",
-      "en": "Remove the ban"
+      "it": "Sconti solo se il cliente insiste",
+      "en": "Discounts only if the customer insists"
      },
      "corretta": false,
      "tipo_distrattore": "errata",
@@ -332,8 +346,8 @@
     {
      "id": "E",
      "testo": {
-      "it": "Una firma più lunga",
-      "en": "A longer signature"
+      "it": "Un premio se obbedisce",
+      "en": "A reward if it obeys"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -375,8 +389,8 @@
     {
      "id": "a",
      "testo": {
-      "it": "Perché i vincoli rendono le email più brevi",
-      "en": "Because constraints make emails shorter"
+      "it": "Perché un divieto scritto blocca l'azione nel codice",
+      "en": "Because a written ban blocks the action in the code"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -415,8 +429,8 @@
     {
      "id": "e",
      "testo": {
-      "it": "Perché lo chiede la legge sulla privacy",
-      "en": "Because the privacy law requires it"
+      "it": "Perché così l'agente non deve più leggere il listino",
+      "en": "Because then the agent no longer needs to read the price list"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -427,7 +441,14 @@
     "it": "Prima le istruzioni positive, ma i vincoli restano utili quando c'è un rischio da evitare o un formato rigido da rispettare.",
     "en": "Positive instructions come first, but constraints stay useful when there is a risk to avoid or a strict format to follow."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "vincolo",
+    "it": "Regola nelle istruzioni che dice che cosa l'agente non deve fare.",
+    "en": "A rule in the instructions that says what the agent must not do."
+   }
+  ]
  },
  {
   "id": "DA2.3-1",
@@ -442,8 +463,8 @@
   "striscia": "esempio_pratico",
   "livello1": {
    "domanda": {
-    "it": "Un cliente scrive: \"Dov'è il mio ordine 12345?\". Quale piano completo, deciso prima di agire, segue l'esempio Google?",
-    "en": "A customer writes: \"Where is my order 12345?\". Which complete plan, decided before acting, follows Google's example?"
+    "it": "Un cliente scrive: \"Dov'è il mio ordine 12345?\". Quale piano completo, deciso prima di agire, è quello giusto?",
+    "en": "A customer writes: \"Where is my order 12345?\". Which complete plan, decided before acting, is the right one?"
    },
    "opzioni": [
     {
@@ -488,8 +509,8 @@
     }
    ],
    "perche": {
-    "it": "Nell'esempio di Google l'agente, nella fase \"Think It Through\", prepara una strategia completa: Identify, Track, Report.",
-    "en": "In Google's example the agent, in the \"Think It Through\" phase, prepares a complete strategy: Identify, Track, Report."
+    "it": "In un esempio classico delle guide di settore l'agente, nella fase \"Think It Through\", prepara una strategia completa: Identify, Track, Report.",
+    "en": "In a classic example from industry guides the agent, in the \"Think It Through\" phase, prepares a complete strategy: Identify, Track, Report."
    }
   },
   "livello2": {
@@ -551,10 +572,27 @@
     }
    ],
    "perche": {
-    "it": "Un notebook Google avverte che affidare l'ordine alle sole istruzioni è imprevedibile; una catena fissa (SequentialAgent) lo garantisce.",
-    "en": "A Google notebook warns that leaving the order to the instructions alone is unpredictable; a fixed chain (SequentialAgent) guarantees it."
+    "it": "Le guide di settore avvertono che affidare l'ordine alle sole istruzioni è imprevedibile; una catena fissa (SequentialAgent) lo garantisce.",
+    "en": "Industry guides warn that leaving the order to the instructions alone is unpredictable; a fixed chain (SequentialAgent) guarantees it."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "Think It Through",
+    "it": "Fase del ciclo dell'agente in cui ragiona e prepara un piano.",
+    "en": "The phase of the agent's cycle where it reasons and prepares a plan."
+   },
+   {
+    "termine": "SequentialAgent",
+    "it": "Componente che esegue sempre gli stessi passi in un ordine fisso.",
+    "en": "A component that always runs the same steps in a fixed order."
+   },
+   {
+    "termine": "temperatura",
+    "it": "Impostazione del modello: più è alta, più le risposte variano da una volta all'altra.",
+    "en": "A model setting: the higher it is, the more the answers vary from one run to the next."
+   }
+  ]
  },
  {
   "id": "DA2.3-2",
@@ -605,8 +643,8 @@
     {
      "id": "D",
      "testo": {
-      "it": "Che l'agente è stanco e va riavviato più spesso",
-      "en": "That the agent is tired and must be restarted more often"
+      "it": "Che il passo 3 va spostato al primo posto",
+      "en": "That step 3 must be moved to first place"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -624,8 +662,8 @@
     }
    ],
    "perche": {
-    "it": "Secondo il notebook Google il modello \"might decide to skip a step, run them in the wrong order, or get stuck\": un passo di controllo non può dipendere dalla sua buona volontà.",
-    "en": "According to the Google notebook the model \"might decide to skip a step, run them in the wrong order, or get stuck\": a control step cannot depend on its goodwill."
+    "it": "Come avvertono le guide di settore, il modello \"might decide to skip a step, run them in the wrong order, or get stuck\": un passo di controllo non può dipendere dalla sua buona volontà.",
+    "en": "As industry guides warn, the model \"might decide to skip a step, run them in the wrong order, or get stuck\": a control step cannot depend on its goodwill."
    }
   },
   "livello2": {
@@ -638,11 +676,11 @@
     {
      "id": "a",
      "testo": {
-      "it": "Quando le bozze sono scritte in inglese invece che in italiano",
-      "en": "When the drafts are written in English instead of Italian"
+      "it": "Quando salta la lettura del CRM e scrive a memoria",
+      "en": "When it skips reading the CRM and writes from memory"
      },
      "corretta": false,
-     "tipo_distrattore": "poco",
+     "tipo_distrattore": "quasi",
      "spiegazione": null
     },
     {
@@ -652,14 +690,14 @@
       "en": "When the CRM answers slowly and step 1, reading the data, takes much longer than planned"
      },
      "corretta": false,
-     "tipo_distrattore": "quasi",
+     "tipo_distrattore": "poco",
      "spiegazione": null
     },
     {
      "id": "c",
      "testo": {
-      "it": "Quando l'agente lavora di notte, fuori dall'orario d'ufficio",
-      "en": "When the agent works at night, outside office hours"
+      "it": "Quando succede solo una volta su cento",
+      "en": "When it happens only once in a hundred"
      },
      "corretta": false,
      "tipo_distrattore": "errata",
@@ -678,8 +716,8 @@
     {
      "id": "e",
      "testo": {
-      "it": "Quando la bozza contiene troppe frasi di cortesia",
-      "en": "When the draft contains too many polite phrases"
+      "it": "Quando l'email va solo a un collega interno",
+      "en": "When the email only goes to an internal colleague"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -690,7 +728,14 @@
     "it": "Un'email inviata non si ritira: saltare il controllo umano prima di un'azione irreversibile è il caso peggiore.",
     "en": "A sent email cannot be taken back: skipping the human check before an irreversible action is the worst case."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "catena di pensiero",
+    "it": "Ragionamento scritto passo per passo dal modello prima della risposta.",
+    "en": "Reasoning the model writes step by step before the answer."
+   }
+  ]
  },
  {
   "id": "DA2.3-3",
@@ -731,8 +776,8 @@
     {
      "id": "C",
      "testo": {
-      "it": "Un'altra azione a caso",
-      "en": "Another random action"
+      "it": "Un'altra azione, senza guardare",
+      "en": "Another action, without looking"
      },
      "corretta": false,
      "tipo_distrattore": "errata",
@@ -761,8 +806,8 @@
     {
      "id": "F",
      "testo": {
-      "it": "Una pausa fissa di dieci secondi",
-      "en": "A fixed ten-second pause"
+      "it": "Il passo dopo del piano",
+      "en": "The next step of the plan"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -843,10 +888,22 @@
     }
    ],
    "perche": {
-    "it": "Nell'esempio Google del volo l'agente, invece di inventare una risposta, usa lo strumento e osserva dati reali e aggiornati.",
-    "en": "In Google's flight example the agent, instead of making up an answer, uses the tool and observes real, up-to-date data."
+    "it": "In un esempio tipico (un volo da cercare) l'agente, invece di inventare una risposta, usa lo strumento e osserva dati reali e aggiornati.",
+    "en": "In a typical example (a flight to look up) the agent, instead of making up an answer, uses the tool and observes real, up-to-date data."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "ReAct",
+    "it": "Schema in cui l'agente alterna ragionamento, azione con uno strumento e osservazione del risultato.",
+    "en": "A pattern where the agent alternates reasoning, action with a tool and observation of the result."
+   },
+   {
+    "termine": "token",
+    "it": "Pezzetto di testo con cui il modello legge e scrive; costi e limiti si contano in token.",
+    "en": "A small piece of text the model reads and writes in; costs and limits are counted in tokens."
+   }
+  ]
  },
  {
   "id": "DA2.4-1",
@@ -908,8 +965,8 @@
     {
      "id": "E",
      "testo": {
-      "it": "Un errore di formato, perché le cifre andrebbero in tabella",
-      "en": "A format error, because figures should go in a table"
+      "it": "Un dato di settore, che il modello conosce dall'addestramento",
+      "en": "An industry figure, which the model knows from training"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -917,8 +974,8 @@
     }
    ],
    "perche": {
-    "it": "Google definisce l'allucinazione come informazione \"plausible-sounding but factually incorrect or invented ... with high confidence, often when it cannot find a valid source\".",
-    "en": "Google defines a hallucination as information that is \"plausible-sounding but factually incorrect or invented ... with high confidence, often when it cannot find a valid source\"."
+    "it": "Le guide di settore definiscono l'allucinazione come informazione \"plausible-sounding but factually incorrect or invented ... with high confidence, often when it cannot find a valid source\".",
+    "en": "Industry guides define a hallucination as information that is \"plausible-sounding but factually incorrect or invented ... with high confidence, often when it cannot find a valid source\"."
    }
   },
   "livello2": {
@@ -971,8 +1028,8 @@
     {
      "id": "e",
      "testo": {
-      "it": "Sposti la cifra nell'oggetto dell'email",
-      "en": "Move the figure to the email subject line"
+      "it": "Aggiungi un link generico al sito aziendale",
+      "en": "Add a generic link to the company website"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -983,7 +1040,14 @@
     "it": "Un numero senza fonte resta inventato anche se arrotondato o attribuito a \"studi\"; il rimedio è ancorarlo a una fonte o toglierlo.",
     "en": "A number without a source is still made up even if rounded or credited to \"studies\"; the fix is to anchor it to a source or remove it."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "allucinazione",
+    "it": "Contenuto plausibile, detto con sicurezza, ma non sostenuto da dati o fonti.",
+    "en": "Plausible content, stated with confidence, but not backed by data or sources."
+   }
+  ]
  },
  {
   "id": "DA2.4-2",
@@ -1034,8 +1098,8 @@
     }
    ],
    "perche": {
-    "it": "Il whitepaper Google sugli embedding lo dice chiaramente: \"Although RAG can reduce hallucinations, it does not completely eliminate them\".",
-    "en": "Google's embeddings whitepaper says it clearly: \"Although RAG can reduce hallucinations, it does not completely eliminate them\"."
+    "it": "Le guide di settore sugli embedding lo dicono chiaramente: \"Although RAG can reduce hallucinations, it does not completely eliminate them\".",
+    "en": "Industry guides on embeddings say it clearly: \"Although RAG can reduce hallucinations, it does not completely eliminate them\"."
    }
   },
   "livello2": {
@@ -1048,8 +1112,8 @@
     {
      "id": "a",
      "testo": {
-      "it": "Il documento recuperato è in PDF invece che in Word",
-      "en": "The retrieved document is a PDF instead of a Word file"
+      "it": "La risposta usa parole diverse da quelle del documento",
+      "en": "The answer uses different words from those in the document"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -1068,8 +1132,8 @@
     {
      "id": "c",
      "testo": {
-      "it": "Il modello risponde in meno di un secondo",
-      "en": "The model answers in less than a second"
+      "it": "Il sistema recupera il documento giusto e la risposta lo segue",
+      "en": "The system retrieves the right document and the answer follows it"
      },
      "corretta": false,
      "tipo_distrattore": "errata",
@@ -1088,8 +1152,8 @@
     {
      "id": "e",
      "testo": {
-      "it": "La risposta è scritta in un tono troppo formale",
-      "en": "The answer is written in too formal a tone"
+      "it": "Il documento è lungo e il sistema ne recupera solo un pezzo",
+      "en": "The document is long and the system retrieves only part of it"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -1100,7 +1164,24 @@
     "it": "Anche con il documento giusto nel contesto il modello può aggiungere parti non sostenute: per questo si controlla frase per frase.",
     "en": "Even with the right document in context the model can add unsupported parts: that is why you check sentence by sentence."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "RAG",
+    "it": "Recupero di documenti pertinenti da dare al modello insieme alla domanda.",
+    "en": "Retrieving relevant documents to give the model along with the question."
+   },
+   {
+    "termine": "embedding",
+    "it": "Rappresentazione numerica del significato di un testo, usata per trovare testi simili.",
+    "en": "A numeric representation of a text's meaning, used to find similar texts."
+   },
+   {
+    "termine": "allucinazioni",
+    "it": "Contenuti plausibili, detti con sicurezza, ma non sostenuti da dati o fonti.",
+    "en": "Plausible content, stated with confidence, but not backed by data or sources."
+   }
+  ]
  },
  {
   "id": "DA2.4-3",
@@ -1195,8 +1276,8 @@
     {
      "id": "b",
      "testo": {
-      "it": "Perché i prezzi vanno sempre scritti in tabella",
-      "en": "Because prices must always be written in a table"
+      "it": "Perché i prezzi dei concorrenti sono dati riservati",
+      "en": "Because competitors' prices are confidential data"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -1225,8 +1306,8 @@
     {
      "id": "e",
      "testo": {
-      "it": "Perché i concorrenti potrebbero leggere la risposta",
-      "en": "Because competitors might read the answer"
+      "it": "Perché il modello rifiuta di parlare dei concorrenti",
+      "en": "Because the model refuses to talk about competitors"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -1237,7 +1318,19 @@
     "it": "Senza una fonte indicata e aggiornata il modello riempie i vuoti con la sua memoria di addestramento, che può essere vecchia o sbagliata.",
     "en": "Without a named, up-to-date source the model fills the gaps with its training memory, which can be old or wrong."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "ancorata",
+    "it": "Basata su una fonte indicata, che si può controllare.",
+    "en": "Based on a named source that can be checked."
+   },
+   {
+    "termine": "@FAQ clienti",
+    "it": "Riferimento a un documento preciso da usare come fonte della risposta.",
+    "en": "A reference to a specific document to use as the source of the answer."
+   }
+  ]
  },
  {
   "id": "DA2.4-4",
@@ -1289,8 +1382,8 @@
     {
      "id": "D",
      "testo": {
-      "it": "Un problema di formato: la disponibilità andava scritta in una tabella",
-      "en": "A format problem: availability should have been written in a table"
+      "it": "Una fonte sbagliata: il catalogo non era aggiornato",
+      "en": "A wrong source: the catalogue was not up to date"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -1308,8 +1401,8 @@
     }
    ],
    "perche": {
-    "it": "Nel notebook Google l'agente consulta il catalogo ma tace sulle scorte basse: ancorare la risposta non basta, bisogna controllare anche che cosa manca.",
-    "en": "In the Google notebook the agent checks the catalogue but says nothing about the low stock: anchoring the answer is not enough, you must also check what is missing."
+    "it": "In un esempio tipico l'agente consulta il catalogo ma tace sulle scorte basse: ancorare la risposta non basta, bisogna controllare anche che cosa manca.",
+    "en": "In a typical example the agent checks the catalogue but says nothing about the low stock: anchoring the answer is not enough, you must also check what is missing."
    }
   },
   "livello2": {
@@ -1322,8 +1415,8 @@
     {
      "id": "a",
      "testo": {
-      "it": "Contare quante parole ha la risposta",
-      "en": "Counting how many words the answer has"
+      "it": "Verificare che la risposta citi il catalogo",
+      "en": "Checking that the answer cites the catalogue"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -1374,7 +1467,19 @@
     "it": "Ogni frase era sostenuta dalla fonte, quindi un controllo solo sulle frasi scritte non bastava: serviva verificare che la risposta coprisse la domanda.",
     "en": "Every sentence was backed by the source, so a check on the written sentences alone was not enough: you had to verify that the answer covered the question."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "ancorata",
+    "it": "Basata su una fonte indicata, che si può controllare.",
+    "en": "Based on a named source that can be checked."
+   },
+   {
+    "termine": "temperatura",
+    "it": "Impostazione del modello: più è alta, più le risposte variano da una volta all'altra.",
+    "en": "A model setting: the higher it is, the more the answers vary from one run to the next."
+   }
+  ]
  },
  {
   "id": "DA2.4-5",
@@ -1436,8 +1541,8 @@
     {
      "id": "E",
      "testo": {
-      "it": "L'ipotesi riguarda le persone, l'invenzione le aziende",
-      "en": "An assumption is about people, a made-up fact about companies"
+      "it": "L'ipotesi la scrive una persona, l'invenzione il modello",
+      "en": "A person writes the assumption, the model writes the made-up fact"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -1511,7 +1616,14 @@
     "it": "Dedurre \"probabilmente attento al prezzo\" è un'ipotesi; una cifra esatta che nessuna fonte contiene è inventata, anche se parte da un dato vero.",
     "en": "Inferring \"probably price-sensitive\" is an assumption; an exact figure that no source contains is made up, even if it starts from a true data point."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "inferenza",
+    "it": "Deduzione ragionevole tratta da un dato vero, da etichettare come ipotesi.",
+    "en": "A reasonable deduction drawn from true data, to be labelled as a guess."
+   }
+  ]
  },
  {
   "id": "DA2.4-6",
@@ -1573,8 +1685,8 @@
     {
      "id": "E",
      "testo": {
-      "it": "Corretto ma da aggiornare tra un anno",
-      "en": "Correct but to update in a year"
+      "it": "Verificato, se la pagina è stata cambiata",
+      "en": "Verified, if the page has been changed"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -1582,8 +1694,8 @@
     }
    ],
    "perche": {
-    "it": "Una citazione non rende vero un dato: conta che la fonte contenga davvero quella frase. Google parla di controllare che ogni frase sia \"actually citable\".",
-    "en": "A citation does not make data true: what matters is that the source really contains that sentence. Google talks about checking that each phrase is \"actually citable\"."
+    "it": "Una citazione non rende vero un dato: conta che la fonte contenga davvero quella frase. Le guide di settore parlano di controllare che ogni frase sia \"actually citable\".",
+    "en": "A citation does not make data true: what matters is that the source really contains that sentence. Industry guides talk about checking that each phrase is \"actually citable\"."
    }
   },
   "livello2": {
@@ -1626,8 +1738,8 @@
     {
      "id": "d",
      "testo": {
-      "it": "Verificare che la frase sia scritta senza errori di grammatica",
-      "en": "Checking that the sentence has no grammar mistakes"
+      "it": "Chiedere al modello se è sicuro della frase",
+      "en": "Asking the model whether it is sure of the sentence"
      },
      "corretta": false,
      "tipo_distrattore": "errata",
@@ -1636,8 +1748,8 @@
     {
      "id": "e",
      "testo": {
-      "it": "Verificare che la data sia nel futuro",
-      "en": "Checking that the date is in the future"
+      "it": "Verificare che la fonte sia un sito ufficiale",
+      "en": "Checking that the source is an official website"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -1648,7 +1760,19 @@
     "it": "Il controllo di ancoraggio (check grounding) misura quanto un testo è sostenuto dai documenti di riferimento, non se ha una citazione accanto.",
     "en": "Grounding checks measure how far a text is supported by the reference documents, not whether it has a citation next to it."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "check grounding",
+    "it": "Controllo che misura quanto un testo è sostenuto dai documenti di riferimento.",
+    "en": "A check that measures how far a text is supported by the reference documents."
+   },
+   {
+    "termine": "arricchita",
+    "it": "Completata con dati presi da altre fonti o dedotti dal modello.",
+    "en": "Completed with data taken from other sources or inferred by the model."
+   }
+  ]
  },
  {
   "id": "DA4.2-1",
@@ -1785,7 +1909,19 @@
     "it": "Ripetere una lettura non cambia nulla; ripetere una scrittura con effetti economici, come un incasso, li raddoppia.",
     "en": "Repeating a read changes nothing; repeating a write with money effects, like a payment entry, doubles them."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "idempotenza",
+    "it": "Proprietà per cui ripetere la stessa richiesta non duplica l'effetto (es. un solo invio).",
+    "en": "Property by which repeating the same request does not duplicate the effect (e.g. one send only)."
+   },
+   {
+    "termine": "timeout",
+    "it": "Interruzione di una chiamata che non risponde entro il tempo massimo previsto.",
+    "en": "A call cut off because it did not answer within the maximum time allowed."
+   }
+  ]
  },
  {
   "id": "DA4.2-2",
@@ -1836,8 +1972,8 @@
     {
      "id": "D",
      "testo": {
-      "it": "Lo usi solo di notte, quando nessuno sta lavorando sul CRM e il rischio è minore",
-      "en": "You use it only at night, when nobody is working on the CRM and the risk is lower"
+      "it": "Lo usi senza pensarci: le cancellazioni pericolose le blocca comunque il CRM",
+      "en": "You use it without worry: the CRM blocks dangerous deletions anyway"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -1879,8 +2015,8 @@
     {
      "id": "c",
      "testo": {
-      "it": "Perché le letture costano di più in token",
-      "en": "Because reads cost more in tokens"
+      "it": "Perché le letture richiedono sempre l'approvazione umana",
+      "en": "Because reads always need human approval"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -1899,8 +2035,8 @@
     {
      "id": "e",
      "testo": {
-      "it": "Perché il CRM permette una sola scrittura al giorno",
-      "en": "Because the CRM allows only one write a day"
+      "it": "Perché solo le scritture finiscono nei registri di controllo",
+      "en": "Because only writes end up in the audit logs"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -1911,7 +2047,19 @@
     "it": "Le fonti chiedono di classificare ogni azione come sola lettura o con effetti, e di assegnare il rischio anche in base a reversibilità e impatto economico.",
     "en": "The sources ask you to classify each action as read-only or with effects, and to assign risk also by reversibility and money impact."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "server MCP",
+    "it": "Programma che espone strumenti o dati a un agente tramite il protocollo MCP.",
+    "en": "A program that offers tools or data to an agent through the MCP protocol."
+   },
+   {
+    "termine": "readOnlyHint",
+    "it": "Etichetta MCP con cui un server dichiara uno strumento «sola lettura»: un'indicazione, non una garanzia.",
+    "en": "MCP label by which a server declares a tool «read-only»: a hint, not a guarantee."
+   }
+  ]
  },
  {
   "id": "DA4.2-3",
@@ -2001,8 +2149,8 @@
     }
    ],
    "perche": {
-    "it": "Il whitepaper Google chiede nomi \"clearly descriptive, human readable, and specific\" e uno strumento per compito, non multi-strumenti né chiamate API grezze.",
-    "en": "Google's whitepaper asks for names that are \"clearly descriptive, human readable, and specific\" and one tool per task, not multi-tools or raw API calls."
+    "it": "Le guide di settore chiedono nomi \"clearly descriptive, human readable, and specific\" (chiari, leggibili e specifici) e uno strumento per compito, non multi-strumenti né chiamate API grezze.",
+    "en": "Industry guides ask for names that are \"clearly descriptive, human readable, and specific\" and one tool per task, not multi-tools or raw API calls."
    }
   },
   "livello2": {
@@ -2015,8 +2163,8 @@
     {
      "id": "a",
      "testo": {
-      "it": "Perché li legge il cliente quando riceve l'email",
-      "en": "Because the customer reads them when the email arrives"
+      "it": "Perché il CRM li usa per decidere i permessi dello strumento",
+      "en": "Because the CRM uses them to decide the tool's permissions"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -2045,8 +2193,8 @@
     {
      "id": "d",
      "testo": {
-      "it": "Perché più il nome è lungo, più lo strumento è veloce",
-      "en": "Because the longer the name, the faster the tool"
+      "it": "Perché li legge il server dello strumento per eseguire la chiamata giusta",
+      "en": "Because the tool's server reads them to run the right call"
      },
      "corretta": false,
      "tipo_distrattore": "errata",
@@ -2055,11 +2203,11 @@
     {
      "id": "e",
      "testo": {
-      "it": "Perché il CRM rifiuta i nomi con meno di dieci lettere",
-      "en": "Because the CRM rejects names under ten letters"
+      "it": "Perché il modello sceglie lo strumento dal solo nome, senza la descrizione",
+      "en": "Because the model picks the tool from the name alone, without the description"
      },
      "corretta": false,
-     "tipo_distrattore": "poco",
+     "tipo_distrattore": "quasi",
      "spiegazione": null
     }
    ],
@@ -2067,7 +2215,14 @@
     "it": "La documentazione dello strumento entra nel contesto del modello: è il testo da cui decide. Un nome chiaro rende leggibili anche i registri di controllo.",
     "en": "The tool's documentation goes into the model's context: it is the text it decides from. A clear name also makes audit logs readable."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "chiamate API grezze",
+    "it": "Funzioni tecniche del programma esposte così come sono, non pensate per un compito preciso.",
+    "en": "A program's technical functions exposed as they are, not designed for a specific task."
+   }
+  ]
  },
  {
   "id": "DA4.3-1",
@@ -2162,8 +2317,8 @@
     {
      "id": "b",
      "testo": {
-      "it": "Le email della campagna arrivano più spesso in casella",
-      "en": "The campaign emails reach the inbox more often"
+      "it": "L'assistente impara da solo a usare Lemlist, senza descrizioni degli strumenti",
+      "en": "The assistant learns to use Lemlist by itself, with no tool descriptions"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -2204,7 +2359,24 @@
     "it": "È il problema N×M risolto in pratica: il fornitore costruisce un solo adattatore. Ma lo standard non rende affidabile il server: permessi e sicurezza vanno valutati.",
     "en": "It is the N×M problem solved in practice: the vendor builds a single adapter. But the standard does not make the server reliable: permissions and security must be assessed."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "server MCP",
+    "it": "Programma che espone strumenti o dati a un agente tramite il protocollo MCP.",
+    "en": "A program that offers tools or data to an agent through the MCP protocol."
+   },
+   {
+    "termine": "connettore",
+    "it": "Collegamento pronto tra l'assistente AI e un programma esterno.",
+    "en": "A ready-made link between the AI assistant and an outside program."
+   },
+   {
+    "termine": "N×M",
+    "it": "Il problema di N applicazioni per M sistemi: senza standard servono N×M integrazioni su misura.",
+    "en": "The problem of N applications times M systems: without a standard you need N×M custom integrations."
+   }
+  ]
  },
  {
   "id": "DA4.3-2",
@@ -2301,15 +2473,15 @@
   "livello2": {
    "tipo": "motivazione",
    "domanda": {
-    "it": "Perché il whitepaper Google consiglia di usare i prompt dei server MCP raramente, o per niente?",
-    "en": "Why does Google's whitepaper advise using MCP server prompts rarely, if at all?"
+    "it": "Perché alcune guide di settore consigliano di usare i prompt dei server MCP raramente, o per niente?",
+    "en": "Why do some industry guides advise using MCP server prompts rarely, if at all?"
    },
    "opzioni": [
     {
      "id": "a",
      "testo": {
-      "it": "Perché sono scritti in inglese e vanno sempre tradotti prima di poterli usare con i clienti in Italia",
-      "en": "Because they are written in English and must always be translated before they can be used with customers in Italy"
+      "it": "Perché li supporta solo circa un terzo delle applicazioni, quindi spesso non funzionano",
+      "en": "Because only about a third of applications support them, so they often do not work"
      },
      "corretta": false,
      "tipo_distrattore": "quasi",
@@ -2318,8 +2490,8 @@
     {
      "id": "b",
      "testo": {
-      "it": "Perché occupano troppo spazio sul disco del server",
-      "en": "Because they take up too much space on the server's disk"
+      "it": "Perché occupano spazio nella finestra di contesto e alzano i costi",
+      "en": "Because they take up room in the context window and raise costs"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -2360,7 +2532,19 @@
     "it": "\"Prompts should be used rarely, if at all, until a stronger security model is developed\": sono istruzioni di altri che il modello potrebbe seguire.",
     "en": "\"Prompts should be used rarely, if at all, until a stronger security model is developed\": they are someone else's instructions that the model might follow."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "prompt",
+    "it": "In MCP, modello di istruzioni riutilizzabile offerto da un server.",
+    "en": "In MCP, a reusable instruction template offered by a server."
+   },
+   {
+    "termine": "server MCP",
+    "it": "Programma che espone strumenti o dati a un agente tramite il protocollo MCP.",
+    "en": "A program that offers tools or data to an agent through the MCP protocol."
+   }
+  ]
  },
  {
   "id": "DA4.3-3",
@@ -2375,8 +2559,8 @@
   "striscia": "contro_esempio",
   "livello1": {
    "domanda": {
-    "it": "Un fornitore assicura: \"Il nostro server MCP offre strumenti, risorse e prompt: funzionerà allo stesso modo in tutte le applicazioni AI\". Che cosa rispondi, secondo i dati del whitepaper Google?",
-    "en": "A vendor promises: \"Our MCP server offers tools, resources and prompts: it will work the same way in every AI application\". What do you answer, based on Google's whitepaper figures?"
+    "it": "Un fornitore assicura: \"Il nostro server MCP offre strumenti, risorse e prompt: funzionerà allo stesso modo in tutte le applicazioni AI\". Che cosa rispondi, secondo i dati di un censimento di settore?",
+    "en": "A vendor promises: \"Our MCP server offers tools, resources and prompts: it will work the same way in every AI application\". What do you answer, based on the figures of an industry survey?"
    },
    "opzioni": [
     {
@@ -2411,8 +2595,8 @@
     }
    ],
    "perche": {
-    "it": "La tabella del whitepaper (circa 79 applicazioni, settembre 2025) dà Tools 99%, Resources 34%, Prompts 32%: in pratica oggi MCP vuol dire strumenti.",
-    "en": "The whitepaper table (about 79 applications, September 2025) gives Tools 99%, Resources 34%, Prompts 32%: in practice today MCP means tools."
+    "it": "Un censimento di settore (circa 79 applicazioni, settembre 2025) dà Tools 99%, Resources 34%, Prompts 32%: in pratica oggi MCP vuol dire strumenti.",
+    "en": "An industry survey (about 79 applications, September 2025) gives Tools 99%, Resources 34%, Prompts 32%: in practice today MCP means tools."
    }
   },
   "livello2": {
@@ -2477,7 +2661,19 @@
     "it": "\"MCP provides the standard for tool interoperability, but the enterprise bears the responsibility of building the secure, auditable, and reliable framework\".",
     "en": "\"MCP provides the standard for tool interoperability, but the enterprise bears the responsibility of building the secure, auditable, and reliable framework\"."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "standard aperto",
+    "it": "Regole pubbliche che chiunque può adottare, senza dipendere da un solo fornitore.",
+    "en": "Public rules anyone can adopt, without depending on a single vendor."
+   },
+   {
+    "termine": "server MCP",
+    "it": "Programma che espone strumenti o dati a un agente tramite il protocollo MCP.",
+    "en": "A program that offers tools or data to an agent through the MCP protocol."
+   }
+  ]
  },
  {
   "id": "DA4.4-1",
@@ -2604,7 +2800,19 @@
     "it": "Agente specialista con elenco ristretto, filtro degli strumenti, ricerca degli strumenti come documenti o scoperta progressiva: si carica solo ciò che serve.",
     "en": "A specialist agent with a short list, a tool filter, searching for tools like documents or progressive disclosure: you load only what is needed."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "server MCP",
+    "it": "Programma che espone strumenti o dati a un agente tramite il protocollo MCP.",
+    "en": "A program that offers tools or data to an agent through the MCP protocol."
+   },
+   {
+    "termine": "Context Window Bloat",
+    "it": "Contesto gonfiato da testo inutile: più costo, più attesa, informazioni importanti perse.",
+    "en": "A context swollen with useless text: more cost, more waiting, important information lost."
+   }
+  ]
  },
  {
   "id": "DA4.4-2",
@@ -2689,8 +2897,8 @@
     {
      "id": "b",
      "testo": {
-      "it": "L'agente lavora su una sola trattativa alla volta",
-      "en": "The agent works on one deal at a time"
+      "it": "L'agente chiama dieci volte lo stesso strumento, con risposte di una riga",
+      "en": "The agent calls the same tool ten times, with one-line answers"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -2709,8 +2917,8 @@
     {
      "id": "d",
      "testo": {
-      "it": "Gli strumenti hanno nomi in italiano invece che in inglese",
-      "en": "The tools have Italian names instead of English ones"
+      "it": "Nessuno: con 3 strumenti il contesto non si riempie mai",
+      "en": "None: with 3 tools the context never fills up"
      },
      "corretta": false,
      "tipo_distrattore": "errata",
@@ -2719,8 +2927,8 @@
     {
      "id": "e",
      "testo": {
-      "it": "L'utente scrive richieste brevi di una sola riga",
-      "en": "The user writes short one-line requests"
+      "it": "Il prompt di sistema è lungo mezza pagina",
+      "en": "The system prompt is half a page long"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -2731,7 +2939,14 @@
     "it": "Le risposte grandi \"can all quickly swamp the output context\" e restano nella storia: si salvano altrove e si restituisce solo un riferimento.",
     "en": "Large responses \"can all quickly swamp the output context\" and stay in the history: you store them elsewhere and return only a reference."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "export",
+    "it": "Estrazione completa dei dati da un programma, di solito in un file.",
+    "en": "A full extraction of data from a program, usually into a file."
+   }
+  ]
  },
  {
   "id": "DA4.4-3",
@@ -2846,11 +3061,11 @@
     {
      "id": "e",
      "testo": {
-      "it": "Quando il CRM è in italiano",
-      "en": "When the CRM is in Italian"
+      "it": "Quando i risultati intermedi da filtrare sono molto voluminosi",
+      "en": "When the intermediate results to filter are very large"
      },
      "corretta": false,
-     "tipo_distrattore": "poco",
+     "tipo_distrattore": "errata",
      "spiegazione": null
     }
    ],
@@ -2858,7 +3073,19 @@
     "it": "Le misure dicono più lento, non più veloce, e su una sola domanda. L'autore stesso consiglia l'approccio tradizionale con meno di 5 strumenti o quando conta la latenza minima.",
     "en": "The measurements say slower, not faster, and on a single question. The author himself recommends the traditional approach with fewer than 5 tools or when minimum latency matters."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "opportunità",
+    "it": "Nel CRM, una possibile vendita in corso (detta anche trattativa).",
+    "en": "In the CRM, a possible sale in progress (also called a deal)."
+   },
+   {
+    "termine": "ambiente isolato",
+    "it": "Spazio separato (sandbox) dove il codice gira senza toccare il resto del sistema.",
+    "en": "A separate space (sandbox) where code runs without touching the rest of the system."
+   }
+  ]
  },
  {
   "id": "DA4.5-1",
@@ -2919,8 +3146,8 @@
     }
    ],
    "perche": {
-    "it": "Per Google le istruzioni ostili nascoste in file, email o siti possono essere scambiate per comandi ed eseguite \"using the user's authority\".",
-    "en": "For Google, hostile instructions hidden in files, emails or websites can be mistaken for commands and carried out \"using the user's authority\"."
+    "it": "Le guide di settore avvertono che le istruzioni ostili nascoste in file, email o siti possono essere scambiate per comandi ed eseguite \"using the user's authority\" (con i poteri dell'utente).",
+    "en": "Industry guides warn that hostile instructions hidden in files, emails or websites can be mistaken for commands and carried out \"using the user's authority\"."
    }
   },
   "livello2": {
@@ -2963,8 +3190,8 @@
     {
      "id": "d",
      "testo": {
-      "it": "Leggere le email solo in orario d'ufficio",
-      "en": "Reading emails only during office hours"
+      "it": "Un registro che annota ogni email letta dall'agente",
+      "en": "A log that records every email the agent reads"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -2982,10 +3209,22 @@
     }
    ],
    "perche": {
-    "it": "Google propone un controllore a regole (policy engine) che consente, blocca o chiede conferma: per esempio niente email esterne dopo dati da fonte sospetta senza approvazione.",
-    "en": "Google proposes a rule-based controller (policy engine) that allows, blocks or asks for confirmation: for example no outside emails after data from a suspicious source without approval."
+    "it": "Alcuni leader del settore propongono un controllore a regole (policy engine) che consente, blocca o chiede conferma: per esempio niente email esterne dopo dati da fonte sospetta senza approvazione.",
+    "en": "Some industry leaders propose a rule-based controller (policy engine) that allows, blocks or asks for confirmation: for example no outside emails after data from a suspicious source without approval."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "prompt injection indiretta",
+    "it": "Istruzioni ostili nascoste in contenuti esterni che l'agente legge e potrebbe eseguire.",
+    "en": "Hostile instructions hidden in outside content that the agent reads and might follow."
+   },
+   {
+    "termine": "policy engine",
+    "it": "Controllore a regole fisse, fuori dal modello, che consente, blocca o chiede conferma.",
+    "en": "A fixed-rule checker, outside the model, that allows, blocks or asks for confirmation."
+   }
+  ]
  },
  {
   "id": "DA4.5-2",
@@ -3060,8 +3299,8 @@
     {
      "id": "b",
      "testo": {
-      "it": "Un'email scritta tutta in maiuscolo",
-      "en": "An email written all in capitals"
+      "it": "Un'istruzione ostile nel messaggio che l'utente sta leggendo ora",
+      "en": "A hostile instruction in the message the user is reading now"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -3080,8 +3319,8 @@
     {
      "id": "d",
      "testo": {
-      "it": "Una richiesta di disiscrizione",
-      "en": "An unsubscribe request"
+      "it": "Nessuno: chi controlla la conversazione ferma ogni attacco",
+      "en": "None: checking the conversation stops every attack"
      },
      "corretta": false,
      "tipo_distrattore": "errata",
@@ -3090,8 +3329,8 @@
     {
      "id": "e",
      "testo": {
-      "it": "Un allegato PDF molto pesante",
-      "en": "A very large PDF attachment"
+      "it": "Un link sospetto inviato dall'utente durante la chat",
+      "en": "A suspicious link sent by the user during the chat"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -3102,7 +3341,19 @@
     "it": "È il memory poisoning: un'istruzione ostile salvata in memoria influenza le sessioni successive, quando la conversazione originale non c'è più.",
     "en": "This is memory poisoning: a hostile instruction saved in memory influences later sessions, when the original conversation is gone."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "classificatore",
+    "it": "Programma che assegna un'etichetta a un testo (es. «attacco» o «normale»).",
+    "en": "A program that gives a text a label (e.g. «attack» or «normal»)."
+   },
+   {
+    "termine": "memory poisoning",
+    "it": "Attacco che salva un'istruzione ostile nella memoria dell'agente, attiva nelle sessioni future.",
+    "en": "An attack that saves a hostile instruction in the agent's memory, active in future sessions."
+   }
+  ]
  },
  {
   "id": "DA4.5-3",
@@ -3227,8 +3478,8 @@
     {
      "id": "e",
      "testo": {
-      "it": "Il collaboratore doveva scrivere la richiesta in inglese",
-      "en": "The colleague should have written the request in English"
+      "it": "L'agente doveva annotare l'export nel registro del CRM",
+      "en": "The agent should have noted the export in the CRM log"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -3239,6 +3490,23 @@
     "it": "Nel \"confused deputy\" un programma con molti permessi viene usato da chi ne ha meno; i permessi dell'agente devono seguire l'intento e i diritti dell'utente del momento.",
     "en": "In a \"confused deputy\" a program with many permissions is used by someone with fewer; the agent's permissions must follow the intent and rights of the current user."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "always allow",
+    "it": "Opzione «consenti sempre»: l'agente non chiede più conferma per quell'azione.",
+    "en": "«Always allow» option: the agent no longer asks for confirmation for that action."
+   },
+   {
+    "termine": "confused deputy",
+    "it": "Programma con molti permessi usato da chi ne ha meno per fare ciò che non potrebbe.",
+    "en": "A program with many permissions used by someone with fewer to do what they could not."
+   },
+   {
+    "termine": "deliverability",
+    "it": "La capacità delle email di arrivare nella casella principale e non nello spam.",
+    "en": "The ability of emails to reach the main inbox rather than spam."
+   }
+  ]
  }
 ]

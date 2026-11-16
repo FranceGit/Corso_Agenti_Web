@@ -149,14 +149,14 @@
     {
      "id": "e",
      "testo": {
-      "it": "Perché il commerciale deve vedere almeno cinque bozze diverse prima di poterle firmare",
-      "en": "Because the salesperson must see at least five different drafts before being able to sign them"
+      "it": "Perché il collaudo va fatto su almeno cinque lead diversi",
+      "en": "Because the test must be run on at least five different leads"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "Non c'entra la firma: conta la variabilità dell'agente.",
-      "en": "Signing has nothing to do with it: the agent's variability matters."
+      "it": "Lead diversi servono, ma qui conta ripetere più volte lo stesso compito.",
+      "en": "Different leads help, but here what matters is repeating the same task several times."
      }
     }
    ],
@@ -164,7 +164,14 @@
     "it": "Un lancio riuscito può essere fortuna: solo più lanci mostrano come si comporta davvero l'agente.",
     "en": "A successful run may be luck: only several runs show how the agent really behaves."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "deterministico",
+    "it": "Che dà sempre lo stesso risultato con lo stesso input. Un agente non lo è.",
+    "en": "Always giving the same result for the same input. An agent is not."
+   }
+  ]
  },
  {
   "id": "DA7.1-5",
@@ -237,14 +244,14 @@
     {
      "id": "E",
      "testo": {
-      "it": "L'agente ha impiegato due secondi in meno del solito",
-      "en": "The agent took two seconds less than usual"
+      "it": "Le bozze sono sbagliate per un errore nei dati del CRM",
+      "en": "The drafts are wrong because of an error in the CRM data"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "Essere più veloce non nasconde un problema.",
-      "en": "Being faster does not hide a problem."
+      "it": "Il risultato è sbagliato, quindi la regola boccia già: non ne mostra il limite.",
+      "en": "The result is wrong, so the rule already fails it: it does not show the rule's limit."
      }
     }
    ],
@@ -330,6 +337,13 @@
     "it": "La traiettoria mostra come l'agente è arrivato al risultato: strumenti, passi inutili, rischi.",
     "en": "The trajectory shows how the agent reached the result: tools, useless steps, risks."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "traiettoria",
+    "it": "Il percorso seguito dall'agente: strumenti scelti, ordine dei passi, passi inutili o rischiosi.",
+    "en": "The path the agent followed: tools chosen, order of steps, useless or risky steps."
+   }
+  ]
  }
 ]

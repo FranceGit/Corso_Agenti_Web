@@ -1,113 +1,529 @@
 [
  {
-  "id": "DA3.5-1", "origine": "autori", "pillola": "P3.5", "concetti": ["C32", "C33"], "concetto_principale": "C33",
-  "segmento_aiuto": "soglia", "striscia": "esempio_pratico",
+  "id": "DA3.5-1",
+  "origine": "autori",
+  "pillola": "P3.5",
+  "concetti": [
+   "C32",
+   "C33"
+  ],
+  "concetto_principale": "C33",
+  "segmento_aiuto": "soglia",
+  "striscia": "esempio_pratico",
   "livello1": {
-   "domanda": {"it": "Dopo una campagna arriva la risposta «Fantastico, proprio quello che mi mancava: un'altra newsletter». Nei 5 tentativi il modello dà 3 etichette diverse. Che cosa deve succedere?", "en": "After a campaign, the reply «Fantastic, just what I was missing: another newsletter» comes in. In 5 attempts the model gives 3 different labels. What should happen?"},
+   "domanda": {
+    "it": "Dopo una campagna arriva la risposta «Fantastico, proprio quello che mi mancava: un'altra newsletter». Nei 5 tentativi il modello dà 3 etichette diverse. Che cosa deve succedere?",
+    "en": "After a campaign, the reply «Fantastic, just what I was missing: another newsletter» comes in. In 5 attempts the model gives 3 different labels. What should happen?"
+   },
    "opzioni": [
-    {"id": "A", "testo": {"it": "Si sceglie l'etichetta più votata, anche se ha solo 2 voti su 5", "en": "Pick the most voted label, even if it has only 2 votes out of 5"}, "corretta": false, "tipo_distrattore": "quasi",
-     "spiegazione": {"it": "Due voti su cinque non sono una decisione solida: i tentativi non sono d'accordo.", "en": "Two votes out of five are not a solid decision: the attempts do not agree."}},
-    {"id": "B", "testo": {"it": "La risposta passa a una persona, perché i tentativi non sono d'accordo", "en": "The reply goes to a person, because the attempts do not agree"}, "corretta": true, "tipo_distrattore": null,
-     "spiegazione": {"it": "Sotto la soglia di accordo il caso è dubbio: decide una persona.", "en": "Below the agreement threshold the case is doubtful: a person decides."}},
-    {"id": "C", "testo": {"it": "Si rilancia il modello finché non esce sempre la stessa etichetta", "en": "Run the model again until the same label always comes out"}, "corretta": false, "tipo_distrattore": "quasi",
-     "spiegazione": {"it": "Ripetere finché \"esce\" un risultato non lo rende giusto: si sceglie il caso fortunato, non la verità.", "en": "Repeating until a result \"comes out\" does not make it right: you pick the lucky run, not the truth."}},
-    {"id": "D", "testo": {"it": "Va tra gli interessati, perché contiene la parola «fantastico»", "en": "It goes to «interested», because it contains the word «fantastic»"}, "corretta": false, "tipo_distrattore": "errata",
-     "spiegazione": {"it": "È ironica: la parola positiva nasconde un cliente infastidito.", "en": "It is ironic: the positive word hides an annoyed customer."}},
-    {"id": "E", "testo": {"it": "Si cancella la risposta, perché è solo una battuta", "en": "Delete the reply, because it is just a joke"}, "corretta": false, "tipo_distrattore": "poco",
-     "spiegazione": {"it": "Una risposta di un cliente non si butta: può nascondere una richiesta da rispettare.", "en": "A customer reply is never thrown away: it may hide a request that must be respected."}}
+    {
+     "id": "A",
+     "testo": {
+      "it": "Si sceglie l'etichetta più votata, anche se ha solo 2 voti su 5",
+      "en": "Pick the most voted label, even if it has only 2 votes out of 5"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Due voti su cinque non sono una decisione solida: i tentativi non sono d'accordo.",
+      "en": "Two votes out of five are not a solid decision: the attempts do not agree."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "La risposta passa a una persona, perché i tentativi non sono d'accordo",
+      "en": "The reply goes to a person, because the attempts do not agree"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Sotto la soglia di accordo il caso è dubbio: decide una persona.",
+      "en": "Below the agreement threshold the case is doubtful: a person decides."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Si rilancia il modello finché non esce sempre la stessa etichetta",
+      "en": "Run the model again until the same label always comes out"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Ripetere finché \"esce\" un risultato non lo rende giusto: si sceglie il caso fortunato, non la verità.",
+      "en": "Repeating until a result \"comes out\" does not make it right: you pick the lucky run, not the truth."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Va tra gli interessati, perché contiene la parola «fantastico»",
+      "en": "It goes to «interested», because it contains the word «fantastic»"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "È ironica: la parola positiva nasconde un cliente infastidito.",
+      "en": "It is ironic: the positive word hides an annoyed customer."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Si cancella la risposta, perché è solo una battuta",
+      "en": "Delete the reply, because it is just a joke"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Una risposta di un cliente non si butta: può nascondere una richiesta da rispettare.",
+      "en": "A customer reply is never thrown away: it may hide a request that must be respected."
+     }
+    }
    ],
-   "perche": {"it": "Quando i tentativi del modello non sono abbastanza d'accordo, il caso è dubbio e va a una persona.", "en": "When the model's attempts do not agree enough, the case is doubtful and goes to a person."}
+   "perche": {
+    "it": "Quando i tentativi del modello non sono abbastanza d'accordo, il caso è dubbio e va a una persona.",
+    "en": "When the model's attempts do not agree enough, the case is doubtful and goes to a person."
+   }
   },
   "livello2": {
    "tipo": "motivazione",
-   "domanda": {"it": "Perché in questo caso una persona serve più del modello?", "en": "Why is a person more useful than the model in this case?"},
+   "domanda": {
+    "it": "Perché in questo caso una persona serve più del modello?",
+    "en": "Why is a person more useful than the model in this case?"
+   },
    "opzioni": [
-    {"id": "a", "testo": {"it": "Perché il tono ironico inganna il modello, e il disaccordo dei tentativi lo segnala", "en": "Because the ironic tone fools the model, and the disagreement between attempts shows it"}, "corretta": true, "tipo_distrattore": null,
-     "spiegazione": {"it": "Il disaccordo è il segnale che il testo è ambiguo.", "en": "The disagreement is the signal that the text is ambiguous."}},
-    {"id": "b", "testo": {"it": "Perché una persona non sbaglia mai a capire l'ironia", "en": "Because a person never gets irony wrong"}, "corretta": false, "tipo_distrattore": "quasi",
-     "spiegazione": {"it": "Anche le persone sbagliano, ma sui casi ambigui sbagliano meno del modello.", "en": "People make mistakes too, but on ambiguous cases they make fewer than the model."}},
-    {"id": "c", "testo": {"it": "Perché far leggere la risposta a una persona costa meno", "en": "Because having a person read the reply costs less"}, "corretta": false, "tipo_distrattore": "poco",
-     "spiegazione": {"it": "Costa di più: per questo la persona riceve solo i casi dubbi.", "en": "It costs more: that is why the person only gets the doubtful cases."}},
-    {"id": "d", "testo": {"it": "Perché il modello non sa leggere le email in italiano", "en": "Because the model cannot read emails in Italian"}, "corretta": false, "tipo_distrattore": "errata",
-     "spiegazione": {"it": "Il modello legge bene la lingua; è il tono a creare il dubbio.", "en": "The model reads the language well; it is the tone that creates the doubt."}},
-    {"id": "e", "testo": {"it": "Perché le risposte ironiche vanno sempre cancellate", "en": "Because ironic replies must always be deleted"}, "corretta": false, "tipo_distrattore": "errata",
-     "spiegazione": {"it": "Nessuna risposta va cancellata: va capita e registrata nel CRM.", "en": "No reply should be deleted: it must be understood and recorded in the CRM."}}
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché il tono ironico inganna il modello, e il disaccordo dei tentativi lo segnala",
+      "en": "Because the ironic tone fools the model, and the disagreement between attempts shows it"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Il disaccordo è il segnale che il testo è ambiguo.",
+      "en": "The disagreement is the signal that the text is ambiguous."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché una persona non sbaglia mai a capire l'ironia",
+      "en": "Because a person never gets irony wrong"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Anche le persone sbagliano, ma sui casi ambigui sbagliano meno del modello.",
+      "en": "People make mistakes too, but on ambiguous cases they make fewer than the model."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché far leggere la risposta a una persona costa meno",
+      "en": "Because having a person read the reply costs less"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Costa di più: per questo la persona riceve solo i casi dubbi.",
+      "en": "It costs more: that is why the person only gets the doubtful cases."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Perché il modello non sa leggere le email in italiano",
+      "en": "Because the model cannot read emails in Italian"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Il modello legge bene la lingua; è il tono a creare il dubbio.",
+      "en": "The model reads the language well; it is the tone that creates the doubt."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Perché le risposte ironiche vanno sempre cancellate",
+      "en": "Because ironic replies must always be deleted"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Nessuna risposta va cancellata: va capita e registrata nel CRM.",
+      "en": "No reply should be deleted: it must be understood and recorded in the CRM."
+     }
+    }
    ],
-   "perche": {"it": "L'ironia confonde il modello; il disaccordo fra i tentativi è il campanello che manda il caso a una persona.", "en": "Irony confuses the model; the disagreement between attempts is the alarm that sends the case to a person."}
-  }
+   "perche": {
+    "it": "L'ironia confonde il modello; il disaccordo fra i tentativi è il campanello che manda il caso a una persona.",
+    "en": "Irony confuses the model; the disagreement between attempts is the alarm that sends the case to a person."
+   }
+  },
+  "glossario": [
+   {
+    "termine": "tentativi",
+    "it": "Esecuzioni ripetute dello stesso compito per vedere se il modello risponde sempre uguale.",
+    "en": "Repeated runs of the same task to see whether the model always answers the same."
+   }
+  ]
  },
  {
-  "id": "DA3.5-2", "origine": "autori", "pillola": "P3.5", "concetti": ["C32", "C33"], "concetto_principale": "C33",
-  "segmento_aiuto": "soglia", "striscia": "contro_esempio",
+  "id": "DA3.5-2",
+  "origine": "autori",
+  "pillola": "P3.5",
+  "concetti": [
+   "C32",
+   "C33"
+  ],
+  "concetto_principale": "C33",
+  "segmento_aiuto": "soglia",
+  "striscia": "contro_esempio",
   "livello1": {
-   "domanda": {"it": "La soglia è «4 tentativi su 5 d'accordo». Quale di queste risposte NON va passata a una persona?", "en": "The threshold is «4 attempts out of 5 agree». Which of these replies should NOT be handed to a person?"},
+   "domanda": {
+    "it": "La soglia è «4 tentativi su 5 d'accordo». Quale di queste risposte NON va passata a una persona?",
+    "en": "The threshold is «4 attempts out of 5 agree». Which of these replies should NOT be handed to a person?"
+   },
    "opzioni": [
-    {"id": "A", "testo": {"it": "Una risposta ironica che riceve 3 etichette diverse in 5 tentativi", "en": "An ironic reply that gets 3 different labels in 5 attempts"}, "corretta": false, "tipo_distrattore": "errata",
-     "spiegazione": {"it": "Tre etichette diverse: il caso è dubbio e va a una persona.", "en": "Three different labels: the case is doubtful and goes to a person."}},
-    {"id": "B", "testo": {"it": "«Grazie, ma siamo a posto così»: 3 tentativi su 5 dicono «interessato»", "en": "«Thanks, but we are fine as we are»: 3 attempts out of 5 say «interested»"}, "corretta": false, "tipo_distrattore": "quasi",
-     "spiegazione": {"it": "Tre su cinque è sotto la soglia di 4: va a una persona, ed è giusto, perché è un no gentile.", "en": "Three out of five is below the threshold of 4: it goes to a person, and rightly so, because it is a polite no."}},
-    {"id": "C", "testo": {"it": "«Possiamo sentirci giovedì alle 10?»: 5 tentativi su 5 dicono «interessato»", "en": "«Can we talk on Thursday at 10?»: 5 attempts out of 5 say «interested»"}, "corretta": true, "tipo_distrattore": null,
-     "spiegazione": {"it": "Accordo pieno e testo chiaro: l'agente decide da solo e il lead va al commerciale.", "en": "Full agreement and clear text: the agent decides alone and the lead goes to sales."}},
-    {"id": "D", "testo": {"it": "Una risposta in tedesco su cui solo 2 tentativi su 5 sono d'accordo", "en": "A reply in German on which only 2 attempts out of 5 agree"}, "corretta": false, "tipo_distrattore": "poco",
-     "spiegazione": {"it": "Due su cinque è molto sotto la soglia: va a una persona.", "en": "Two out of five is far below the threshold: it goes to a person."}},
-    {"id": "E", "testo": {"it": "«Ora no, ma toglietemi dalla lista»: 3 tentativi su 5 dicono «da ricontattare»", "en": "«Not now, but take me off the list»: 3 attempts out of 5 say «contact later»"}, "corretta": false, "tipo_distrattore": "errata",
-     "spiegazione": {"it": "Qui vince la regola fissa: la disiscrizione si esegue subito; il voto del modello non basta.", "en": "Here the fixed rule wins: the unsubscribe is carried out at once; the model's vote is not enough."}}
+    {
+     "id": "A",
+     "testo": {
+      "it": "Una risposta ironica che riceve 3 etichette diverse in 5 tentativi",
+      "en": "An ironic reply that gets 3 different labels in 5 attempts"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Tre etichette diverse: il caso è dubbio e va a una persona.",
+      "en": "Three different labels: the case is doubtful and goes to a person."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "«Grazie, ma siamo a posto così»: 3 tentativi su 5 dicono «interessato»",
+      "en": "«Thanks, but we are fine as we are»: 3 attempts out of 5 say «interested»"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Tre su cinque è sotto la soglia di 4: va a una persona, ed è giusto, perché è un no gentile.",
+      "en": "Three out of five is below the threshold of 4: it goes to a person, and rightly so, because it is a polite no."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "«Possiamo sentirci giovedì alle 10?»: 5 tentativi su 5 dicono «interessato»",
+      "en": "«Can we talk on Thursday at 10?»: 5 attempts out of 5 say «interested»"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Accordo pieno e testo chiaro: l'agente decide da solo e il lead va al commerciale.",
+      "en": "Full agreement and clear text: the agent decides alone and the lead goes to sales."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Una risposta in tedesco su cui solo 2 tentativi su 5 sono d'accordo",
+      "en": "A reply in German on which only 2 attempts out of 5 agree"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Due su cinque è molto sotto la soglia: va a una persona.",
+      "en": "Two out of five is far below the threshold: it goes to a person."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "«Ora no, ma toglietemi dalla lista»: 3 tentativi su 5 dicono «da ricontattare»",
+      "en": "«Not now, but take me off the list»: 3 attempts out of 5 say «contact later»"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Qui vince la regola fissa: la disiscrizione si esegue subito; il voto del modello non basta.",
+      "en": "Here the fixed rule wins: the unsubscribe is carried out at once; the model's vote is not enough."
+     }
+    }
    ],
-   "perche": {"it": "Solo i casi chiari, con tentativi d'accordo sopra la soglia, si lasciano decidere all'agente.", "en": "Only clear cases, with agreeing attempts above the threshold, are left for the agent to decide."}
+   "perche": {
+    "it": "Solo i casi chiari, con tentativi d'accordo sopra la soglia, si lasciano decidere all'agente.",
+    "en": "Only clear cases, with agreeing attempts above the threshold, are left for the agent to decide."
+   }
   },
   "livello2": {
    "tipo": "contro-esempio",
-   "domanda": {"it": "Una collega propone: «Mandiamo tutte le risposte a una persona, così non sbagliamo mai». Qual è il problema?", "en": "A colleague suggests: «Let's send every reply to a person, so we never make mistakes». What is the problem?"},
+   "domanda": {
+    "it": "Una collega propone: «Mandiamo tutte le risposte a una persona, così non sbagliamo mai». Qual è il problema?",
+    "en": "A colleague suggests: «Let's send every reply to a person, so we never make mistakes». What is the problem?"
+   },
    "opzioni": [
-    {"id": "a", "testo": {"it": "Nessun problema: è sempre la scelta migliore", "en": "No problem: it is always the best choice"}, "corretta": false, "tipo_distrattore": "quasi",
-     "spiegazione": {"it": "Va bene solo nella fase «in ombra», per misurare l'agente; non come regola fissa.", "en": "It is fine only in the «shadow» phase, to measure the agent; not as a permanent rule."}},
-    {"id": "b", "testo": {"it": "Il lavoro umano esplode e i casi chiari aspettano: la soglia serve a mandare alla persona solo i dubbi", "en": "Human work explodes and clear cases wait: the threshold is there to send only the doubtful ones to a person"}, "corretta": true, "tipo_distrattore": null,
-     "spiegazione": {"it": "La soglia è un compromesso: meno errori, ma senza sommergere il team.", "en": "The threshold is a trade-off: fewer mistakes, without flooding the team."}},
-    {"id": "c", "testo": {"it": "Le disiscrizioni non verrebbero più eseguite", "en": "Unsubscribes would no longer be carried out"}, "corretta": false, "tipo_distrattore": "errata",
-     "spiegazione": {"it": "Le disiscrizioni seguono la regola fissa in ogni caso.", "en": "Unsubscribes follow the fixed rule in every case."}},
-    {"id": "d", "testo": {"it": "Le persone non possono aprire il CRM", "en": "People cannot open the CRM"}, "corretta": false, "tipo_distrattore": "poco",
-     "spiegazione": {"it": "Il team usa il CRM ogni giorno: il problema è il tempo, non l'accesso.", "en": "The team uses the CRM every day: the problem is time, not access."}},
-    {"id": "e", "testo": {"it": "Le persone sbagliano più del modello anche sui casi chiari", "en": "People make more mistakes than the model even on clear cases"}, "corretta": false, "tipo_distrattore": "quasi",
-     "spiegazione": {"it": "Non è questo il punto: sui casi chiari la persona non aggiunge nulla, ma costa tempo.", "en": "That is not the point: on clear cases the person adds nothing, but costs time."}}
+    {
+     "id": "a",
+     "testo": {
+      "it": "Nessun problema: è sempre la scelta migliore",
+      "en": "No problem: it is always the best choice"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Va bene solo nella fase «in ombra», per misurare l'agente; non come regola fissa.",
+      "en": "It is fine only in the «shadow» phase, to measure the agent; not as a permanent rule."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Il lavoro umano esplode e i casi chiari aspettano: la soglia serve a mandare alla persona solo i dubbi",
+      "en": "Human work explodes and clear cases wait: the threshold is there to send only the doubtful ones to a person"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "La soglia è un compromesso: meno errori, ma senza sommergere il team.",
+      "en": "The threshold is a trade-off: fewer mistakes, without flooding the team."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Le disiscrizioni non verrebbero più eseguite",
+      "en": "Unsubscribes would no longer be carried out"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Le disiscrizioni seguono la regola fissa in ogni caso.",
+      "en": "Unsubscribes follow the fixed rule in every case."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Le persone vedrebbero dati riservati dei lead",
+      "en": "People would see confidential lead data"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il team vede già quei dati ogni giorno: il problema è il tempo, non la riservatezza.",
+      "en": "The team already sees that data every day: the problem is time, not confidentiality."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Le persone sbagliano più del modello anche sui casi chiari",
+      "en": "People make more mistakes than the model even on clear cases"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Non è questo il punto: sui casi chiari la persona non aggiunge nulla, ma costa tempo.",
+      "en": "That is not the point: on clear cases the person adds nothing, but costs time."
+     }
+    }
    ],
-   "perche": {"it": "Mandare tutto a una persona annulla il vantaggio dell'agente: la soglia separa i casi chiari da quelli dubbi.", "en": "Sending everything to a person cancels the agent's benefit: the threshold separates clear cases from doubtful ones."}
-  }
+   "perche": {
+    "it": "Mandare tutto a una persona annulla il vantaggio dell'agente: la soglia separa i casi chiari da quelli dubbi.",
+    "en": "Sending everything to a person cancels the agent's benefit: the threshold separates clear cases from doubtful ones."
+   }
+  },
+  "glossario": [
+   {
+    "termine": "soglia",
+    "it": "Valore che separa una fascia dall'altra o fa scattare un'azione.",
+    "en": "A value that separates one band from another or triggers an action."
+   },
+   {
+    "termine": "in ombra",
+    "it": "Fase in cui l'agente lavora ma decide ancora una persona, per misurarne gli errori.",
+    "en": "A phase where the agent works but a person still decides, to measure its errors."
+   }
+  ]
  },
  {
-  "id": "DA3.5-5", "origine": "autori", "pillola": "P3.5", "concetti": ["C32", "C33"], "concetto_principale": "C32",
-  "segmento_aiuto": "categorie", "striscia": "definizione",
+  "id": "DA3.5-5",
+  "origine": "autori",
+  "pillola": "P3.5",
+  "concetti": [
+   "C32",
+   "C33"
+  ],
+  "concetto_principale": "C32",
+  "segmento_aiuto": "categorie",
+  "striscia": "definizione",
   "livello1": {
-   "domanda": {"it": "Che cosa vuol dire «classificare» le risposte dei clienti a una campagna?", "en": "What does it mean to «classify» customers' replies to a campaign?"},
+   "domanda": {
+    "it": "Che cosa vuol dire «classificare» le risposte dei clienti a una campagna?",
+    "en": "What does it mean to «classify» customers' replies to a campaign?"
+   },
    "opzioni": [
-    {"id": "A", "testo": {"it": "Dare a ogni risposta tutte le etichette che le si adattano", "en": "Give each reply all the labels that fit it"}, "corretta": false, "tipo_distrattore": "quasi",
-     "spiegazione": {"it": "Le etichette multiple non dicono quale azione far partire.", "en": "Multiple labels do not say which action to start."}},
-    {"id": "B", "testo": {"it": "Riassumere ogni risposta in una frase per il commerciale", "en": "Summarise each reply in one sentence for the salesperson"}, "corretta": false, "tipo_distrattore": "quasi",
-     "spiegazione": {"it": "Un riassunto è utile, ma non è un'etichetta da un elenco chiuso.", "en": "A summary is useful, but it is not a label from a closed list."}},
-    {"id": "C", "testo": {"it": "Dare a ogni risposta una sola etichetta, scelta da un elenco chiuso", "en": "Give each reply just one label, chosen from a closed list"}, "corretta": true, "tipo_distrattore": null,
-     "spiegazione": {"it": "Una sola etichetta da un elenco fisso: così ogni risposta fa partire un'azione precisa.", "en": "Just one label from a fixed list: so every reply starts a precise action."}},
-    {"id": "D", "testo": {"it": "Mettere le risposte in ordine di data di arrivo", "en": "Put the replies in order of arrival date"}, "corretta": false, "tipo_distrattore": "poco",
-     "spiegazione": {"it": "Ordinare non dice che cosa vuole il cliente.", "en": "Sorting by date does not say what the customer wants."}},
-    {"id": "E", "testo": {"it": "Scrivere in automatico una risposta a ogni cliente", "en": "Automatically write a reply to every customer"}, "corretta": false, "tipo_distrattore": "errata",
-     "spiegazione": {"it": "Rispondere è un altro compito; classificare viene prima.", "en": "Replying is a different task; classifying comes first."}}
+    {
+     "id": "A",
+     "testo": {
+      "it": "Dare a ogni risposta tutte le etichette che le si adattano",
+      "en": "Give each reply all the labels that fit it"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Le etichette multiple non dicono quale azione far partire.",
+      "en": "Multiple labels do not say which action to start."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Riassumere ogni risposta in una frase per il commerciale",
+      "en": "Summarise each reply in one sentence for the salesperson"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Un riassunto è utile, ma non è un'etichetta da un elenco chiuso.",
+      "en": "A summary is useful, but it is not a label from a closed list."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Dare a ogni risposta una sola etichetta, scelta da un elenco chiuso",
+      "en": "Give each reply just one label, chosen from a closed list"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Una sola etichetta da un elenco fisso: così ogni risposta fa partire un'azione precisa.",
+      "en": "Just one label from a fixed list: so every reply starts a precise action."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Mettere le risposte in ordine di data di arrivo",
+      "en": "Put the replies in order of arrival date"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Ordinare non dice che cosa vuole il cliente.",
+      "en": "Sorting by date does not say what the customer wants."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Scrivere in automatico una risposta a ogni cliente",
+      "en": "Automatically write a reply to every customer"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Rispondere è un altro compito; classificare viene prima.",
+      "en": "Replying is a different task; classifying comes first."
+     }
+    }
    ],
-   "perche": {"it": "Classificare significa scegliere una sola etichetta da un elenco chiuso per ogni risposta.", "en": "Classifying means choosing just one label from a closed list for each reply."}
+   "perche": {
+    "it": "Classificare significa scegliere una sola etichetta da un elenco chiuso per ogni risposta.",
+    "en": "Classifying means choosing just one label from a closed list for each reply."
+   }
   },
   "livello2": {
    "tipo": "motivazione",
-   "domanda": {"it": "Perché l'elenco delle categorie deve essere chiuso e senza sovrapposizioni?", "en": "Why must the list of categories be closed and without overlaps?"},
+   "domanda": {
+    "it": "Perché l'elenco delle categorie deve essere chiuso e senza sovrapposizioni?",
+    "en": "Why must the list of categories be closed and without overlaps?"
+   },
    "opzioni": [
-    {"id": "a", "testo": {"it": "Perché così l'agente non ha mai bisogno di una persona", "en": "Because then the agent never needs a person"}, "corretta": false, "tipo_distrattore": "quasi",
-     "spiegazione": {"it": "Anche con categorie chiare restano casi dubbi da passare a una persona.", "en": "Even with clear categories, doubtful cases remain to be handed to a person."}},
-    {"id": "b", "testo": {"it": "Perché i CRM accettano al massimo cinque parole", "en": "Because CRMs accept five words at most"}, "corretta": false, "tipo_distrattore": "poco",
-     "spiegazione": {"it": "Non esiste un limite del genere: il motivo è l'azione collegata.", "en": "There is no such limit: the reason is the linked action."}},
-    {"id": "c", "testo": {"it": "Perché ogni etichetta deve far partire un'azione precisa nel CRM", "en": "Because every label must start a precise action in the CRM"}, "corretta": true, "tipo_distrattore": null,
-     "spiegazione": {"it": "Un'etichetta = un'azione: commerciale, promemoria, rimozione dalle liste.", "en": "One label = one action: salesperson, reminder, removal from lists."}},
-    {"id": "d", "testo": {"it": "Perché così il modello è sempre sicuro al 100%", "en": "Because then the model is always 100% sure"}, "corretta": false, "tipo_distrattore": "errata",
-     "spiegazione": {"it": "Il modello resta incerto sui testi ambigui, qualunque sia l'elenco.", "en": "The model stays unsure on ambiguous texts, whatever the list."}},
-    {"id": "e", "testo": {"it": "Perché le categorie aperte rendono le email più lunghe", "en": "Because open categories make emails longer"}, "corretta": false, "tipo_distrattore": "poco",
-     "spiegazione": {"it": "Le categorie non cambiano la lunghezza delle email.", "en": "Categories do not change the length of emails."}}
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché così l'agente non ha mai bisogno di una persona",
+      "en": "Because then the agent never needs a person"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Anche con categorie chiare restano casi dubbi da passare a una persona.",
+      "en": "Even with clear categories, doubtful cases remain to be handed to a person."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché con meno etichette il modello costa meno",
+      "en": "Because fewer labels make the model cheaper"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il costo cambia poco: il motivo è l'azione collegata a ogni etichetta.",
+      "en": "The cost barely changes: the reason is the action linked to each label."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché ogni etichetta deve far partire un'azione precisa nel CRM",
+      "en": "Because every label must start a precise action in the CRM"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Un'etichetta = un'azione: commerciale, promemoria, rimozione dalle liste.",
+      "en": "One label = one action: salesperson, reminder, removal from lists."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Perché così il modello è sempre sicuro al 100%",
+      "en": "Because then the model is always 100% sure"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Il modello resta incerto sui testi ambigui, qualunque sia l'elenco.",
+      "en": "The model stays unsure on ambiguous texts, whatever the list."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Perché così le etichette si possono sommare",
+      "en": "Because then labels can be added together"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Al contrario: senza sovrapposizioni ogni risposta ha una sola etichetta.",
+      "en": "On the contrary: without overlaps each reply has just one label."
+     }
+    }
    ],
-   "perche": {"it": "Un elenco chiuso, senza sovrapposizioni, collega ogni etichetta a una sola azione nel CRM.", "en": "A closed list without overlaps links each label to a single action in the CRM."}
-  }
+   "perche": {
+    "it": "Un elenco chiuso, senza sovrapposizioni, collega ogni etichetta a una sola azione nel CRM.",
+    "en": "A closed list without overlaps links each label to a single action in the CRM."
+   }
+  },
+  "glossario": [
+   {
+    "termine": "elenco chiuso",
+    "it": "Lista fissa di valori ammessi: non se ne possono aggiungere altri.",
+    "en": "A fixed list of allowed values: no others can be added."
+   }
+  ]
  }
 ]

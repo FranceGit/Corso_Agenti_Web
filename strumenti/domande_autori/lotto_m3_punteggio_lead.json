@@ -57,14 +57,14 @@
     {
      "id": "D",
      "testo": {
-      "it": "Il CRM ha esportato i lead in ordine alfabetico",
-      "en": "The CRM exported the leads in alphabetical order"
+      "it": "Un errore del CRM nel salvare i voti",
+      "en": "A CRM error when saving the marks"
      },
      "corretta": false,
      "tipo_distrattore": "errata",
      "spiegazione": {
-      "it": "L'ordine del file non cambia il punteggio di ogni lead.",
-      "en": "The order of the file does not change each lead's score."
+      "it": "Il CRM salva i voti che riceve: sono già tutti uguali quando arrivano.",
+      "en": "The CRM saves the marks it receives: they are already all the same when they arrive."
      }
     },
     {
@@ -135,14 +135,14 @@
     {
      "id": "d",
      "testo": {
-      "it": "Perché il CRM accetta solo punteggi sotto 80",
-      "en": "Because the CRM only accepts scores below 80"
+      "it": "Non è un problema: se sono tutti alti, si chiamano tutti",
+      "en": "It is not a problem: if they are all high, you call them all"
      },
      "corretta": false,
      "tipo_distrattore": "errata",
      "spiegazione": {
-      "it": "Non esiste un limite del genere: è un dettaglio inventato.",
-      "en": "There is no such limit: it is a made-up detail."
+      "it": "Il punteggio serve a scegliere chi chiamare prima: se tutti valgono 90, non sceglie niente.",
+      "en": "The score is for choosing who to call first: if everyone is worth 90, it chooses nothing."
      }
     },
     {
@@ -163,7 +163,19 @@
     "it": "Il punteggio esiste per mettere in ordine i lead. Se tutti hanno lo stesso voto, il commerciale non sa da chi partire.",
     "en": "The score exists to put leads in order. If everyone has the same mark, the salesperson does not know where to start."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "LLM",
+    "it": "Modello linguistico di grandi dimensioni: prevede il testo più probabile.",
+    "en": "Large language model: it predicts the most likely text."
+   },
+   {
+    "termine": "fascia",
+    "it": "Gruppo di punteggi (alta, media, bassa) che decide l'azione da fare.",
+    "en": "A group of scores (high, medium, low) that decides the action to take."
+   }
+  ]
  },
  {
   "id": "DA3.2-2",
@@ -329,6 +341,13 @@
     "it": "Stabilità e verità sono cose diverse. Una motivazione vale solo se si può ritrovare nella scheda o nella nota del lead.",
     "en": "Steadiness and truth are different things. A reasoning only counts if it can be found in the lead's record or note."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "lead",
+    "it": "Contatto commerciale che potrebbe diventare cliente.",
+    "en": "A sales contact who might become a customer."
+   }
+  ]
  }
 ]

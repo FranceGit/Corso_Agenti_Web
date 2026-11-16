@@ -70,14 +70,14 @@
     {
      "id": "E",
      "testo": {
-      "it": "Tradurre le istruzioni in inglese",
-      "en": "Translate the instructions into English"
+      "it": "Ridurre a 5 il numero totale di strumenti",
+      "en": "Cut the total number of tools to 5"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "La lingua delle istruzioni non c'entra con la confusione tra strumenti.",
-      "en": "The language of the instructions has nothing to do with the confusion between tools."
+      "it": "Il numero non è il punto: tre nomi quasi uguali confondono anche fra cinque strumenti.",
+      "en": "The number is not the point: three almost identical names confuse even among five tools."
      }
     }
    ],
@@ -236,14 +236,14 @@
     {
      "id": "E",
      "testo": {
-      "it": "La lingua",
-      "en": "The language"
+      "it": "Tracciabilità",
+      "en": "Traceability"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "La lingua delle risposte non dipende dai permessi.",
-      "en": "The language of the answers does not depend on permissions."
+      "it": "Chi ha scritto cosa resta nei log: si perde il limite al danno che un errore può fare.",
+      "en": "Who wrote what stays in the logs: what is lost is the limit on the damage one mistake can do."
      }
     },
     {
@@ -262,14 +262,14 @@
     {
      "id": "G",
      "testo": {
-      "it": "Il logo",
-      "en": "The logo"
+      "it": "Coordinamento",
+      "en": "Coordination"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "Il marchio non c'entra con chi può scrivere nel CRM.",
-      "en": "The brand has nothing to do with who can write to the CRM."
+      "it": "Gli agenti si coordinano come prima: i permessi decidono il danno possibile, non il dialogo.",
+      "en": "The agents coordinate as before: permissions decide the possible damage, not the dialogue."
      }
     }
    ],
@@ -301,14 +301,14 @@
     {
      "id": "b",
      "testo": {
-      "it": "Tutti, ma solo di notte",
-      "en": "Everyone, but only at night"
+      "it": "Tutti, purché ogni scrittura finisca nei log",
+      "en": "Everyone, as long as every write is logged"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "L'orario non riduce il danno possibile.",
-      "en": "The time of day does not reduce the possible damage."
+      "it": "I log dicono dopo chi ha sbagliato, ma non impediscono il danno.",
+      "en": "Logs tell you afterwards who made the mistake, but they do not prevent the damage."
      }
     },
     {

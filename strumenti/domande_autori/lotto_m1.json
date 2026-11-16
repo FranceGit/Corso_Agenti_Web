@@ -59,8 +59,8 @@
     {
      "id": "E",
      "testo": {
-      "it": "Un classificatore che dice se la domanda è positiva o negativa",
-      "en": "A classifier that says whether the question is positive or negative"
+      "it": "Un workflow che genera e programma una serie di email di nurturing",
+      "en": "A workflow that writes and schedules a series of nurturing emails"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -122,8 +122,8 @@
     {
      "id": "e",
      "testo": {
-      "it": "Perché il lead nurturing è un argomento riservato all'ufficio vendite",
-      "en": "Because lead nurturing is a topic reserved for the sales team"
+      "it": "Perché senza dati del CRM un agente risponderebbe peggio di un assistente",
+      "en": "Because without CRM data an agent would answer worse than an assistant"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -134,7 +134,19 @@
     "it": "Un agente serve quando bisogna agire su sistemi esterni e reagire ai risultati; per spiegare un concetto basta il modello da solo.",
     "en": "An agent is needed when you must act on outside systems and react to the results; to explain a concept the model alone is enough."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "lead nurturing",
+    "it": "Coltivare i contatti nel tempo con messaggi utili finché sono pronti all'acquisto.",
+    "en": "Cultivating contacts over time with useful messages until they are ready to buy."
+   },
+   {
+    "termine": "CRM",
+    "it": "Customer Relationship Management: il software dove l'azienda tiene contatti, trattative e storico dei clienti.",
+    "en": "Customer Relationship Management: the software where a company keeps contacts, deals and customer history."
+   }
+  ]
  },
  {
   "id": "DA1.1-2",
@@ -176,8 +188,8 @@
     {
      "id": "C",
      "testo": {
-      "it": "Un database clienti",
-      "en": "A customer database"
+      "it": "Un connettore API",
+      "en": "An API connector"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -291,7 +303,29 @@
     "it": "Riscrivere un testo dato non richiede di leggere né modificare sistemi: basta il modello. Programmare, controllare o aggiornare nel CRM sono azioni su un sistema esterno.",
     "en": "Rewriting a given text needs no system to be read or changed: the model is enough. Scheduling, checking or updating in the CRM are actions on an outside system."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "LLM",
+    "it": "Large Language Model: modello linguistico addestrato su molto testo che genera testo prevedendo un token alla volta.",
+    "en": "Large Language Model: a language model trained on lots of text that generates text by predicting one token at a time."
+   },
+   {
+    "termine": "workflow",
+    "it": "Flusso di lavoro: una sequenza di passi stabilita in anticipo.",
+    "en": "A sequence of steps fixed in advance."
+   },
+   {
+    "termine": "pipeline",
+    "it": "Le fasi in cui sono divise le trattative di vendita, dal primo contatto alla chiusura.",
+    "en": "The stages that sales deals go through, from first contact to closing."
+   },
+   {
+    "termine": "API",
+    "it": "Interfaccia con cui un programma chiede dati o azioni a un altro programma.",
+    "en": "An interface through which one program asks another for data or actions."
+   }
+  ]
  },
  {
   "id": "DA1.1-3",
@@ -366,8 +400,8 @@
     {
      "id": "a",
      "testo": {
-      "it": "Cambiare il colore e la posizione della finestra di chat sul sito",
-      "en": "Change the colour and position of the chat window on the site"
+      "it": "Collegarlo a un archivio di documenti sui prezzi, così risponde con dati sempre aggiornati",
+      "en": "Connect it to a store of pricing documents, so it answers with always up-to-date data"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -406,8 +440,8 @@
     {
      "id": "e",
      "testo": {
-      "it": "Fargli rispondere anche in inglese e in tedesco ai visitatori stranieri",
-      "en": "Have it also answer foreign visitors in English and German"
+      "it": "Dargli una memoria, così riconosce ogni visitatore quando torna sul sito",
+      "en": "Give it a memory, so it recognises each visitor who comes back to the site"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -415,10 +449,27 @@
     }
    ],
    "perche": {
-    "it": "Diventa agente quando riceve un obiettivo, usa strumenti (il CRM) e decide da sé il passo successivo in base a ciò che osserva, come nella qualificazione dei lead descritta da Google.",
-    "en": "It becomes an agent when it gets a goal, uses tools (the CRM) and decides the next step itself based on what it observes, as in the lead qualification example described by Google."
+    "it": "Diventa agente quando riceve un obiettivo, usa strumenti (il CRM) e decide da sé il passo successivo in base a ciò che osserva, come nella qualificazione dei lead descritta nelle guide di settore.",
+    "en": "It becomes an agent when it gets a goal, uses tools (the CRM) and decides the next step itself based on what it observes, as in the lead qualification example described in industry guides."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "chatbot",
+    "it": "Programma che risponde in chat a domande scritte.",
+    "en": "A program that answers written questions in a chat."
+   },
+   {
+    "termine": "lead",
+    "it": "Contatto che ha mostrato interesse e potrebbe diventare cliente.",
+    "en": "A contact who has shown interest and might become a customer."
+   },
+   {
+    "termine": "CRM",
+    "it": "Customer Relationship Management: il software dove l'azienda tiene contatti, trattative e storico dei clienti.",
+    "en": "Customer Relationship Management: the software where a company keeps contacts, deals and customer history."
+   }
+  ]
  },
  {
   "id": "DA1.1-4",
@@ -545,7 +596,24 @@
     "it": "Diventa agente quando persegue un obiettivo agendo su sistemi (CRM, ticket) e decide il passo successivo in base ai risultati; più categorie o più precisione restano classificazione.",
     "en": "It becomes an agent when it pursues a goal by acting on systems (CRM, tickets) and decides the next step from the results; more categories or more accuracy are still just classification."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "classificatore",
+    "it": "Sistema che assegna a un testo un'etichetta scelta da un elenco fisso (es. positivo/negativo).",
+    "en": "A system that gives a text a label chosen from a fixed list (e.g. positive/negative)."
+   },
+   {
+    "termine": "ticket",
+    "it": "Richiesta di assistenza registrata in un sistema, con stato e responsabile.",
+    "en": "A support request logged in a system, with a status and an owner."
+   },
+   {
+    "termine": "CRM",
+    "it": "Customer Relationship Management: il software dove l'azienda tiene contatti, trattative e storico dei clienti.",
+    "en": "Customer Relationship Management: the software where a company keeps contacts, deals and customer history."
+   }
+  ]
  },
  {
   "id": "DA1.1-5",
@@ -630,8 +698,8 @@
     {
      "id": "a",
      "testo": {
-      "it": "Un tono più cordiale",
-      "en": "A friendlier tone"
+      "it": "Più esempi",
+      "en": "More examples"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -690,8 +758,8 @@
     {
      "id": "g",
      "testo": {
-      "it": "Un logo aziendale",
-      "en": "A company logo"
+      "it": "Un modello più grande",
+      "en": "A bigger model"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -702,7 +770,19 @@
     "it": "Le istruzioni dicono cosa fare; gli strumenti permettono di farlo. Gli agenti sono sistemi, non prompt: migliorare il testo delle istruzioni non aggiunge le mani.",
     "en": "Instructions say what to do; tools make it possible to do it. Agents are systems, not prompts: improving the instructions does not give the agent hands."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "follow-up",
+    "it": "Messaggio di ricontatto dopo un primo scambio, per portare avanti la conversazione.",
+    "en": "A message sent after a first exchange, to move the conversation forward."
+   },
+   {
+    "termine": "CRM",
+    "it": "Customer Relationship Management: il software dove l'azienda tiene contatti, trattative e storico dei clienti.",
+    "en": "Customer Relationship Management: the software where a company keeps contacts, deals and customer history."
+   }
+  ]
  },
  {
   "id": "DA1.1-6",
@@ -797,8 +877,8 @@
     {
      "id": "d",
      "testo": {
-      "it": "Se le sue risposte sono più veloci di quelle di ChatGPT",
-      "en": "Whether its answers are faster than ChatGPT's"
+      "it": "Se le risposte di prova in chat sono corrette e ben scritte",
+      "en": "Whether its test answers in chat are correct and well written"
      },
      "corretta": false,
      "tipo_distrattore": "errata",
@@ -807,8 +887,8 @@
     {
      "id": "e",
      "testo": {
-      "it": "Quante recensioni positive ha ricevuto da altri clienti",
-      "en": "How many positive reviews it got from other clients"
+      "it": "Quale modello linguistico usa e quanto è recente",
+      "en": "Which language model it uses and how recent it is"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -819,7 +899,24 @@
     "it": "Un agente si riconosce dal sistema intorno al modello: strumenti per leggere e scrivere sui sistemi e una regia che gestisce ciclo, limiti e approvazioni.",
     "en": "You recognise an agent by the system around the model: tools to read and write on systems and a control layer that manages the loop, the limits and the approvals."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "prompt",
+    "it": "Il testo di istruzioni e dati che si invia al modello in una chiamata.",
+    "en": "The text of instructions and data sent to the model in a call."
+   },
+   {
+    "termine": "trattative",
+    "it": "Opportunità di vendita in corso con un cliente, seguite nel CRM.",
+    "en": "Sales opportunities in progress with a customer, tracked in the CRM."
+   },
+   {
+    "termine": "finestra di contesto",
+    "it": "La quantità massima di testo, in token, che il modello può considerare in una singola chiamata.",
+    "en": "The maximum amount of text, in tokens, the model can take into account in a single call."
+   }
+  ]
  },
  {
   "id": "DA1.2-1",
@@ -963,8 +1060,8 @@
     {
      "id": "e",
      "testo": {
-      "it": "Perché il numero di token decide la lingua della risposta",
-      "en": "Because the number of tokens decides the language of the answer"
+      "it": "Perché i token misurano quanto il modello ha capito il testo",
+      "en": "Because tokens measure how well the model understood the text"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -975,7 +1072,14 @@
     "it": "Il token è l'unità di costo (i fornitori fanno pagare i token inviati e ricevuti) e l'unità con cui si misura la finestra di contesto.",
     "en": "The token is the unit of cost (providers charge for the tokens sent and received) and the unit used to measure the context window."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "token",
+    "it": "Pezzo di testo (parola o parte di parola) con cui il modello legge e scrive; costi e limiti si misurano in token.",
+    "en": "A piece of text (word or part of a word) the model reads and writes with; costs and limits are measured in tokens."
+   }
+  ]
  },
  {
   "id": "DA1.2-2",
@@ -1080,8 +1184,8 @@
     {
      "id": "d",
      "testo": {
-      "it": "Perché il limite vale solo per le email in inglese, non per quelle in italiano",
-      "en": "Because the limit only applies to emails in English, not in Italian"
+      "it": "Perché il limite vale solo per il testo inviato, non per quello prodotto",
+      "en": "Because the limit only applies to the text sent, not to the text produced"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -1102,7 +1206,19 @@
     "it": "La fonte è esplicita: il limite fa solo smettere il modello di produrre token quando lo raggiunge. Se serve brevità, va chiesta nelle istruzioni.",
     "en": "The source is explicit: the limit just makes the model stop producing tokens when it is reached. If you need brevity, ask for it in the instructions."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "token",
+    "it": "Pezzo di testo (parola o parte di parola) con cui il modello legge e scrive; costi e limiti si misurano in token.",
+    "en": "A piece of text (word or part of a word) the model reads and writes with; costs and limits are measured in tokens."
+   },
+   {
+    "termine": "temperatura",
+    "it": "Impostazione del modello che regola quanto varia la scelta del token successivo: alta = più varietà.",
+    "en": "A model setting that controls how much the choice of the next token varies: high = more variety."
+   }
+  ]
  },
  {
   "id": "DA1.2-3",
@@ -1163,11 +1279,11 @@
     {
      "id": "E",
      "testo": {
-      "it": "Che i documenti lunghi vengano letti più in fretta di quelli corti",
-      "en": "That long documents are read faster than short ones"
+      "it": "Nulla: si paga solo il testo prodotto, non quello inviato",
+      "en": "Nothing: you only pay for the text produced, not the text sent"
      },
      "corretta": false,
-     "tipo_distrattore": "poco",
+     "tipo_distrattore": "quasi",
      "spiegazione": null
     }
    ],
@@ -1218,7 +1334,14 @@
     "it": "Le promesse vanno misurate: il costo reale dipende dai token di ogni chiamata, e una prova con documenti veri lo mostra.",
     "en": "Promises must be measured: the real cost depends on the tokens of each call, and a trial with real documents shows it."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "token",
+    "it": "Pezzo di testo (parola o parte di parola) con cui il modello legge e scrive; costi e limiti si misurano in token.",
+    "en": "A piece of text (word or part of a word) the model reads and writes with; costs and limits are measured in tokens."
+   }
+  ]
  },
  {
   "id": "DA1.2-4",
@@ -1332,8 +1455,8 @@
     {
      "id": "d",
      "testo": {
-      "it": "Il CRM ha cambiato da solo i dati del lead tra una chiamata e l'altra: è l'unica spiegazione possibile",
-      "en": "The CRM changed the lead's data by itself between calls: it is the only possible explanation"
+      "it": "Il CRM ha aggiornato i dati del lead tra una chiamata e l'altra, quindi è sempre colpa dei dati",
+      "en": "The CRM updated the lead's data between calls, so it is always the data's fault"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -1341,10 +1464,22 @@
     }
    ],
    "perche": {
-    "it": "Le fonti Google lo dicono: anche a temperatura 0 lo spareggio fra token con la stessa probabilità può variare, e prompt identici possono dare risultati diversi.",
-    "en": "Google's sources say it: even at temperature 0 the tie-break between equally likely tokens can vary, and identical prompts can give different results."
+    "it": "Le guide di settore lo dicono: anche a temperatura 0 lo spareggio fra token con la stessa probabilità può variare, e prompt identici possono dare risultati diversi.",
+    "en": "Industry guides say it: even at temperature 0 the tie-break between equally likely tokens can vary, and identical prompts can give different results."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "temperatura",
+    "it": "Impostazione del modello che regola quanto varia la scelta del token successivo: alta = più varietà.",
+    "en": "A model setting that controls how much the choice of the next token varies: high = more variety."
+   },
+   {
+    "termine": "token",
+    "it": "Pezzo di testo (parola o parte di parola) con cui il modello legge e scrive; costi e limiti si misurano in token.",
+    "en": "A piece of text (word or part of a word) the model reads and writes with; costs and limits are measured in tokens."
+   }
+  ]
  },
  {
   "id": "DA1.2-5",
@@ -1439,8 +1574,8 @@
     {
      "id": "b",
      "testo": {
-      "it": "Il CRM si blocca",
-      "en": "The CRM freezes"
+      "it": "Legge solo l'inizio",
+      "en": "It only reads the start"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -1479,8 +1614,8 @@
     {
      "id": "f",
      "testo": {
-      "it": "Il cliente lo vede",
-      "en": "The customer sees it"
+      "it": "Le email vecchie non contano",
+      "en": "Old emails do not matter"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -1501,7 +1636,19 @@
     "it": "Più testo vuol dire più costo e lentezza e un'attenzione più debole verso le informazioni importanti (il «context rot»); oltre il limite la chiamata fallisce.",
     "en": "More text means more cost and delay and weaker attention to the important information (\"context rot\"); beyond the limit the call fails."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "CRM",
+    "it": "Customer Relationship Management: il software dove l'azienda tiene contatti, trattative e storico dei clienti.",
+    "en": "Customer Relationship Management: the software where a company keeps contacts, deals and customer history."
+   },
+   {
+    "termine": "context rot",
+    "it": "Calo dell'attenzione del modello alle informazioni importanti quando il contesto diventa molto lungo.",
+    "en": "The model's attention to important information dropping as the context gets very long."
+   }
+  ]
  },
  {
   "id": "DA1.2-6",
@@ -1542,8 +1689,8 @@
     {
      "id": "C",
      "testo": {
-      "it": "Perché i modelli con finestre grandi accettano solo documenti in inglese e scartano quelli scritti in italiano",
-      "en": "Because models with big windows only accept documents in English and discard those written in Italian"
+      "it": "Perché i modelli con finestre grandi leggono solo l'inizio e la fine dei documenti e saltano sempre il centro",
+      "en": "Because models with big windows only read the start and end of documents and always skip the middle"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -1585,8 +1732,8 @@
     {
      "id": "b",
      "testo": {
-      "it": "Il cliente ha negato il consenso alla lettura del fascicolo",
-      "en": "The customer refused consent to read the file"
+      "it": "Il modello ha rifiutato il testo perché conteneva dati personali",
+      "en": "The model refused the text because it contained personal data"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -1627,7 +1774,19 @@
     "it": "Se il testo supera la finestra di contesto la chiamata fallisce: va ridotto, selezionando o riassumendo.",
     "en": "If the text goes beyond the context window the call fails: it must be cut down by selecting or summarising."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "token",
+    "it": "Pezzo di testo (parola o parte di parola) con cui il modello legge e scrive; costi e limiti si misurano in token.",
+    "en": "A piece of text (word or part of a word) the model reads and writes with; costs and limits are measured in tokens."
+   },
+   {
+    "termine": "finestra di contesto",
+    "it": "La quantità massima di testo, in token, che il modello può considerare in una singola chiamata.",
+    "en": "The maximum amount of text, in tokens, the model can take into account in a single call."
+   }
+  ]
  },
  {
   "id": "DA1.2-7",
@@ -1771,10 +1930,22 @@
     }
    ],
    "perche": {
-    "it": "Il modello è un motore di previsione: genera sequenze plausibili. Le fonti Google parlano di difficoltà intrinseche; il recupero di documenti le riduce ma non le elimina.",
-    "en": "The model is a prediction engine: it generates plausible sequences. Google's sources call this an inherent challenge; document retrieval reduces it but does not remove it."
+    "it": "Il modello è un motore di previsione: genera sequenze plausibili. Le guide di settore parlano di difficoltà intrinseche; il recupero di documenti le riduce ma non le elimina.",
+    "en": "The model is a prediction engine: it generates plausible sequences. Industry guides call this an inherent challenge; document retrieval reduces it but does not remove it."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "Allucinazione",
+    "it": "Risposta inventata ma plausibile, presentata dal modello come vera.",
+    "en": "A made-up but plausible answer that the model presents as true."
+   },
+   {
+    "termine": "grounding",
+    "it": "Ancorare la risposta del modello a una fonte fornita, così che si possa verificare.",
+    "en": "Anchoring the model's answer to a provided source, so it can be checked."
+   }
+  ]
  },
  {
   "id": "DA1.2-8",
@@ -1911,7 +2082,19 @@
     "it": "Ancorare la risposta a una fonte (grounding) e farla citare è la contromisura principale; temperatura e modelli più grandi non eliminano le invenzioni.",
     "en": "Anchoring the answer to a source (grounding) and having it cited is the main safeguard; temperature and bigger models do not remove made-up facts."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "grounding",
+    "it": "Ancorare la risposta del modello a una fonte fornita, così che si possa verificare.",
+    "en": "Anchoring the model's answer to a provided source, so it can be checked."
+   },
+   {
+    "termine": "lead",
+    "it": "Contatto che ha mostrato interesse e potrebbe diventare cliente.",
+    "en": "A contact who has shown interest and might become a customer."
+   }
+  ]
  },
  {
   "id": "DA1.2-9",
@@ -2015,8 +2198,8 @@
     {
      "id": "e",
      "testo": {
-      "it": "Un problema di temperatura troppo bassa del modello",
-      "en": "A problem of the model's temperature being too low"
+      "it": "Un errore di memoria: ha confuso questo cliente con un altro che aveva lo sconto",
+      "en": "A memory error: it mixed up this customer with another one who had the discount"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -2027,7 +2210,19 @@
     "it": "Un fatto senza fonte nei dati è un'invenzione; una promessa economica non autorizzata in un'email è proprio il danno da fermare con i controlli.",
     "en": "A fact with no source in the data is made up; an unauthorised money promise in an email is exactly the damage that checks must stop."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "RAG",
+    "it": "Retrieval-Augmented Generation: recuperare documenti pertinenti e darli al modello prima che risponda.",
+    "en": "Retrieval-Augmented Generation: fetching relevant documents and giving them to the model before it answers."
+   },
+   {
+    "termine": "allucinazioni",
+    "it": "Risposta inventata ma plausibile, presentata dal modello come vera.",
+    "en": "A made-up but plausible answer that the model presents as true."
+   }
+  ]
  },
  {
   "id": "DA1.4-1",
@@ -2042,8 +2237,8 @@
   "striscia": "definizione",
   "livello1": {
    "domanda": {
-    "it": "Nella metafora del corpo usata da Google, che cosa è il modello in un agente?",
-    "en": "In the body metaphor used by Google, what is the model in an agent?"
+    "it": "In una metafora diffusa che paragona l'agente a un corpo, che cosa è il modello?",
+    "en": "In a common metaphor that compares the agent to a body, what is the model?"
    },
    "opzioni": [
     {
@@ -2118,8 +2313,8 @@
     }
    ],
    "perche": {
-    "it": "Google descrive il modello come il cervello: il motore centrale che elabora le informazioni, valuta le opzioni e prende le decisioni.",
-    "en": "Google describes the model as the brain: the central engine that processes information, weighs the options and makes decisions."
+    "it": "In questa metafora, diffusa fra alcuni leader del settore, il modello è il cervello: il motore centrale che elabora le informazioni, valuta le opzioni e prende le decisioni.",
+    "en": "In this metaphor, common among some industry leaders, the model is the brain: the central engine that processes information, weighs the options and makes decisions."
    }
   },
   "livello2": {
@@ -2172,8 +2367,8 @@
     {
      "id": "e",
      "testo": {
-      "it": "Disegna l'interfaccia che usano i venditori ogni giorno",
-      "en": "It draws the screen that salespeople use every day"
+      "it": "Recupera da solo i dati dal CRM, senza bisogno di strumenti",
+      "en": "It fetches the data from the CRM by itself, with no need for tools"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -2184,7 +2379,14 @@
     "it": "Il modello ragiona e decide; le azioni le eseguono gli strumenti attraverso la regia, e la memoria conserva ciò che serve tra una conversazione e l'altra.",
     "en": "The model reasons and decides; the tools carry out the actions through the control layer, and memory keeps what is needed between conversations."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "CRM",
+    "it": "Customer Relationship Management: il software dove l'azienda tiene contatti, trattative e storico dei clienti.",
+    "en": "Customer Relationship Management: the software where a company keeps contacts, deals and customer history."
+   }
+  ]
  },
  {
   "id": "DA1.4-2",
@@ -2311,7 +2513,19 @@
     "it": "Il modello serve dove c'è testo libero da interpretare e una decisione da prendere; copiare campi, contare o programmare invii lo fanno regole e strumenti.",
     "en": "The model is needed where there is free text to interpret and a decision to make; copying fields, counting or scheduling are done by rules and tools."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "lead",
+    "it": "Contatto che ha mostrato interesse e potrebbe diventare cliente.",
+    "en": "A contact who has shown interest and might become a customer."
+   },
+   {
+    "termine": "CRM",
+    "it": "Customer Relationship Management: il software dove l'azienda tiene contatti, trattative e storico dei clienti.",
+    "en": "Customer Relationship Management: the software where a company keeps contacts, deals and customer history."
+   }
+  ]
  },
  {
   "id": "DA1.4-3",
@@ -2430,7 +2644,14 @@
     "it": "Ogni componente ha i suoi guasti tipici: strumenti descritti male portano a scelte sbagliate, istruzioni troppo sicure portano a supposizioni, senza memoria si riparte da zero.",
     "en": "Each part has its typical faults: badly described tools lead to wrong choices, over-confident instructions lead to assumptions, without memory you start from zero."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "CRM",
+    "it": "Customer Relationship Management: il software dove l'azienda tiene contatti, trattative e storico dei clienti.",
+    "en": "Customer Relationship Management: the software where a company keeps contacts, deals and customer history."
+   }
+  ]
  },
  {
   "id": "DA1.4-4",
@@ -2445,8 +2666,8 @@
   "striscia": "definizione",
   "livello1": {
    "domanda": {
-    "it": "Google dice che gli strumenti permettono al modello di «sapere qualcosa o fare qualcosa». Quale coppia lo illustra bene?",
-    "en": "Google says tools let the model \"know something or do something\". Which pair shows this well?"
+    "it": "Si dice spesso che gli strumenti permettono al modello di «sapere qualcosa o fare qualcosa». Quale coppia lo illustra bene?",
+    "en": "It is often said that tools let the model \"know something or do something\". Which pair shows this well?"
    },
    "opzioni": [
     {
@@ -2472,8 +2693,8 @@
     {
      "id": "C",
      "testo": {
-      "it": "Scegliere il tono (sapere) e la temperatura del modello (fare)",
-      "en": "Choosing the tone (know) and the model's temperature (do)"
+      "it": "Leggere il prompt (sapere) e scrivere la risposta (fare)",
+      "en": "Reading the prompt (know) and writing the answer (do)"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -2492,8 +2713,8 @@
     {
      "id": "E",
      "testo": {
-      "it": "Scrivere il prompt (sapere) e poi rileggerlo con calma (fare)",
-      "en": "Writing the prompt (know) and then rereading it calmly (do)"
+      "it": "Avere un modello grande (sapere) e uno veloce (fare)",
+      "en": "Having a big model (know) and a fast one (do)"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -2525,8 +2746,8 @@
     {
      "id": "b",
      "testo": {
-      "it": "Più creatività",
-      "en": "More creativity"
+      "it": "Più intelligenza",
+      "en": "More intelligence"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -2565,8 +2786,8 @@
     {
      "id": "f",
      "testo": {
-      "it": "Un tono migliore",
-      "en": "A better tone"
+      "it": "Più ragionamento",
+      "en": "More reasoning"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -2575,8 +2796,8 @@
     {
      "id": "g",
      "testo": {
-      "it": "Più parole",
-      "en": "More words"
+      "it": "Autonomia totale",
+      "en": "Total autonomy"
      },
      "corretta": false,
      "tipo_distrattore": "errata",
@@ -2587,7 +2808,14 @@
     "it": "Gli strumenti collegano il ragionamento del modello al mondo esterno (API, database, CRM) e permettono azioni che vanno oltre la scrittura di testo.",
     "en": "Tools connect the model's reasoning to the outside world (APIs, databases, CRM) and allow actions that go beyond writing text."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "CRM",
+    "it": "Customer Relationship Management: il software dove l'azienda tiene contatti, trattative e storico dei clienti.",
+    "en": "Customer Relationship Management: the software where a company keeps contacts, deals and customer history."
+   }
+  ]
  },
  {
   "id": "DA1.4-5",
@@ -2672,8 +2900,8 @@
     {
      "id": "b",
      "testo": {
-      "it": "La temperatura troppo bassa ha bloccato l'assegnazione",
-      "en": "A temperature that was too low blocked the assignment"
+      "it": "Le istruzioni non dicevano a chi assegnarlo: basta aggiungerlo al prompt",
+      "en": "The instructions did not say who to assign it to: just add it to the prompt"
      },
      "corretta": false,
      "tipo_distrattore": "errata",
@@ -2692,8 +2920,8 @@
     {
      "id": "d",
      "testo": {
-      "it": "Il cliente ha chiuso il ticket prima dell'assegnazione",
-      "en": "The customer closed the ticket before it was assigned"
+      "it": "Il ticket è stato assegnato in un'altra sessione che l'agente non vede",
+      "en": "The ticket was assigned in another session the agent cannot see"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -2714,7 +2942,14 @@
     "it": "Senza lo strumento giusto l'agente può solo dichiarare un'azione, non eseguirla: va controllato l'esito nel sistema, non la frase dell'agente.",
     "en": "Without the right tool the agent can only claim an action, not carry it out: check the result in the system, not the agent's sentence."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "ticket",
+    "it": "Richiesta di assistenza registrata in un sistema, con stato e responsabile.",
+    "en": "A support request logged in a system, with a status and an owner."
+   }
+  ]
  },
  {
   "id": "DA1.4-6",
@@ -2819,8 +3054,8 @@
     {
      "id": "c",
      "testo": {
-      "it": "Perché le istruzioni si possono scrivere solo in inglese e i limiti scritti in italiano non vengono capiti",
-      "en": "Because instructions can only be written in English and limits written in Italian are not understood"
+      "it": "Perché le istruzioni valgono solo per il primo passo del ciclo, poi si azzerano",
+      "en": "Because instructions only apply to the first step of the loop, then they reset"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -2841,7 +3076,24 @@
     "it": "Il comportamento del modello è probabilistico: i limiti critici vanno applicati dalla regia, fuori dal modello, qualunque cosa il modello «voglia».",
     "en": "The model's behaviour is probabilistic: critical limits must be enforced by the control layer, outside the model, whatever the model \"wants\"."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "outreach",
+    "it": "Contatto proattivo di potenziali clienti, di solito via email.",
+    "en": "Proactively contacting potential customers, usually by email."
+   },
+   {
+    "termine": "orchestrazione",
+    "it": "Il codice che regge il ciclo dell'agente: tiene lo stato, applica i limiti, passa la mano a una persona.",
+    "en": "The code that runs the agent's loop: it keeps the state, applies limits and hands over to a person."
+   },
+   {
+    "termine": "prompt",
+    "it": "Il testo di istruzioni e dati che si invia al modello in una chiamata.",
+    "en": "The text of instructions and data sent to the model in a call."
+   }
+  ]
  },
  {
   "id": "DA1.4-7",
@@ -2998,7 +3250,24 @@
     "it": "Contro i cicli infiniti serve un limite di passi gestito dalla regia; le istruzioni aiutano ma non garantiscono l'arresto.",
     "en": "Against endless loops you need a step limit managed by the control layer; instructions help but do not guarantee a stop."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "orchestrazione",
+    "it": "Il codice che regge il ciclo dell'agente: tiene lo stato, applica i limiti, passa la mano a una persona.",
+    "en": "The code that runs the agent's loop: it keeps the state, applies limits and hands over to a person."
+   },
+   {
+    "termine": "budget",
+    "it": "Limite fissato in anticipo a passi, tempo o spesa di un agente.",
+    "en": "A limit set in advance on an agent's steps, time or spending."
+   },
+   {
+    "termine": "finestra di contesto",
+    "it": "La quantità massima di testo, in token, che il modello può considerare in una singola chiamata.",
+    "en": "The maximum amount of text, in tokens, the model can take into account in a single call."
+   }
+  ]
  },
  {
   "id": "DA1.4-8",
@@ -3040,8 +3309,8 @@
     {
      "id": "C",
      "testo": {
-      "it": "La sessione è per i clienti, la memoria è per i venditori",
-      "en": "The session is for customers, the memory is for salespeople"
+      "it": "La sessione dura un giorno, la memoria una settimana",
+      "en": "The session lasts a day, memory lasts a week"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -3069,8 +3338,8 @@
     }
    ],
    "perche": {
-    "it": "Google: la sessione è il contenitore di un'intera conversazione (la scrivania del progetto), la memoria è l'archivio ordinato che dura tra una sessione e l'altra.",
-    "en": "Google: the session is the container of a whole conversation (the project desk), memory is the organised filing cabinet that lasts from one session to the next."
+    "it": "Una distinzione diffusa nelle guide di settore: la sessione è il contenitore di un'intera conversazione (la scrivania del progetto), la memoria è l'archivio ordinato che dura tra una sessione e l'altra.",
+    "en": "A common distinction in industry guides: the session is the container of a whole conversation (the project desk), memory is the organised filing cabinet that lasts from one session to the next."
    }
   },
   "livello2": {
@@ -3093,8 +3362,8 @@
     {
      "id": "b",
      "testo": {
-      "it": "Perché la memoria rende il modello più veloce a scrivere le risposte",
-      "en": "Because memory makes the model faster at writing answers"
+      "it": "Perché la memoria allarga la finestra di contesto del modello",
+      "en": "Because memory enlarges the model's context window"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -3123,8 +3392,8 @@
     {
      "id": "e",
      "testo": {
-      "it": "Perché senza memoria il modello non sa più rispondere in italiano",
-      "en": "Because without memory the model can no longer answer in Italian"
+      "it": "Perché la memoria sostituisce gli strumenti che leggono il CRM",
+      "en": "Because memory replaces the tools that read the CRM"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -3135,7 +3404,24 @@
     "it": "I modelli sono «senza stato» (stateless): fuori dall'addestramento sanno solo ciò che è nella finestra di contesto della singola chiamata.",
     "en": "Models are \"stateless\": apart from their training they only know what is in the context window of that single call."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "sessione",
+    "it": "Il contenitore di una singola conversazione in corso, con i suoi messaggi e il suo stato.",
+    "en": "The container of a single ongoing conversation, with its messages and state."
+   },
+   {
+    "termine": "memoria a lungo termine",
+    "it": "Archivio ordinato che conserva l'essenziale da una sessione all'altra e lo rimette nel contesto quando serve.",
+    "en": "An organised store that keeps the essentials from one session to the next and puts them back in context when needed."
+   },
+   {
+    "termine": "CRM",
+    "it": "Customer Relationship Management: il software dove l'azienda tiene contatti, trattative e storico dei clienti.",
+    "en": "Customer Relationship Management: the software where a company keeps contacts, deals and customer history."
+   }
+  ]
  },
  {
   "id": "DA1.4-9",
@@ -3230,8 +3516,8 @@
     {
      "id": "d",
      "testo": {
-      "it": "Il meteo del giorno in cui la cliente ha scritto",
-      "en": "The weather on the day the customer wrote"
+      "it": "L'umore della cliente in quella singola chat",
+      "en": "The customer's mood in that single chat"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -3252,7 +3538,19 @@
     "it": "La memoria è un archivio ordinato: si conserva l'essenziale e utile, non tutto, e mai dati sensibili senza necessità.",
     "en": "Memory is an organised filing cabinet: you keep what is essential and useful, not everything, and never sensitive data without need."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "memoria a lungo termine",
+    "it": "Archivio ordinato che conserva l'essenziale da una sessione all'altra e lo rimette nel contesto quando serve.",
+    "en": "An organised store that keeps the essentials from one session to the next and puts them back in context when needed."
+   },
+   {
+    "termine": "CRM",
+    "it": "Customer Relationship Management: il software dove l'azienda tiene contatti, trattative e storico dei clienti.",
+    "en": "Customer Relationship Management: the software where a company keeps contacts, deals and customer history."
+   }
+  ]
  },
  {
   "id": "DA1.5-1",
@@ -3294,8 +3592,8 @@
     {
      "id": "C",
      "testo": {
-      "it": "L'autonomia piena è vietata dai fornitori di CRM, che bloccano gli agenti oltre un certo numero di azioni",
-      "en": "Full autonomy is banned by CRM vendors, which block agents beyond a certain number of actions"
+      "it": "L'autonomia piena va bene, purché l'agente scriva nel registro ogni azione che compie",
+      "en": "Full autonomy is fine, as long as the agent writes every action it takes in the log"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -3313,15 +3611,15 @@
     }
    ],
    "perche": {
-    "it": "Google: più autonomia e potere, che danno utilità, sono legati direttamente a più rischio. Ogni grammo di potere concesso porta con sé una misura di rischio.",
-    "en": "Google: more autonomy and power, which bring usefulness, are directly linked to more risk. Every ounce of power you grant brings a matching measure of risk."
+    "it": "Lo dicono le guide di settore: più autonomia e potere, che danno utilità, sono legati direttamente a più rischio. Ogni grammo di potere concesso porta con sé una misura di rischio.",
+    "en": "Industry guides say it: more autonomy and power, which bring usefulness, are directly linked to more risk. Every ounce of power you grant brings a matching measure of risk."
    }
   },
   "livello2": {
    "tipo": "trasferimento",
    "domanda": {
-    "it": "Quale scelta segue l'approccio ibrido raccomandato da Google?",
-    "en": "Which choice follows the hybrid approach recommended by Google?"
+    "it": "Quale scelta segue l'approccio ibrido raccomandato dalle guide di settore?",
+    "en": "Which choice follows the hybrid approach recommended by industry guides?"
    },
    "opzioni": [
     {
@@ -3379,7 +3677,24 @@
     "it": "WP1 raccomanda che il ragionamento non deterministico del modello sia governato da regole di business fisse; «always allow» toglie proprio i punti di controllo.",
     "en": "WP1 recommends that the model's non-deterministic reasoning be governed by fixed business rules; \"always allow\" removes exactly the checkpoints."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "CRM",
+    "it": "Customer Relationship Management: il software dove l'azienda tiene contatti, trattative e storico dei clienti.",
+    "en": "Customer Relationship Management: the software where a company keeps contacts, deals and customer history."
+   },
+   {
+    "termine": "always allow",
+    "it": "Opzione che approva in anticipo tutte le azioni future, togliendo le conferme umane.",
+    "en": "An option that approves all future actions in advance, removing human confirmations."
+   },
+   {
+    "termine": "regole di business",
+    "it": "Regole dell'azienda scritte nel codice (soglie, permessi, divieti) che il sistema applica sempre.",
+    "en": "Company rules written in code (thresholds, permissions, bans) that the system always applies."
+   }
+  ]
  },
  {
   "id": "DA1.5-2",
@@ -3411,8 +3726,8 @@
     {
      "id": "B",
      "testo": {
-      "it": "Il workflow lavora di notte, l'agente durante l'orario d'ufficio",
-      "en": "The workflow works at night, the agent during office hours"
+      "it": "Il workflow segue regole fisse, l'agente usa il modello senza alcuna regola",
+      "en": "The workflow follows fixed rules, the agent uses the model with no rules at all"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -3533,10 +3848,17 @@
     }
    ],
    "perche": {
-    "it": "È il compromesso descritto da Google: la flessibilità del modello contro il controllo prevedibile delle regole scritte nel codice.",
-    "en": "It is the trade-off Google describes: the model's flexibility against the predictable control of rules written in code."
+    "it": "È il compromesso descritto da alcuni leader del settore: la flessibilità del modello contro il controllo prevedibile delle regole scritte nel codice.",
+    "en": "It is the trade-off some industry leaders describe: the model's flexibility against the predictable control of rules written in code."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "workflow con LLM",
+    "it": "Flusso a passi fissi decisi da chi lo progetta, in cui il modello svolge solo alcuni compiti.",
+    "en": "A flow with fixed steps set by its designer, in which the model does only some tasks."
+   }
+  ]
  },
  {
   "id": "DA1.5-3",
@@ -3621,8 +3943,8 @@
     {
      "id": "b",
      "testo": {
-      "it": "Farlo girare ogni ora invece che ogni mattina",
-      "en": "Run it every hour instead of every morning"
+      "it": "Fargli inviare anche le email ai contatti trovati",
+      "en": "Have it also send emails to the contacts it finds"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -3663,7 +3985,24 @@
     "it": "Più nodi AI in un flusso fisso restano un workflow; diventa agente quando il modello decide quali passi fare e con quali strumenti.",
     "en": "More AI nodes in a fixed flow are still a workflow; it becomes an agent when the model decides which steps to take and with which tools."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "n8n",
+    "it": "Strumento per costruire flussi automatici collegando nodi (servizi, filtri, passi AI).",
+    "en": "A tool for building automated flows by linking nodes (services, filters, AI steps)."
+   },
+   {
+    "termine": "deduplica",
+    "it": "Eliminazione dei record doppi, ad esempio lo stesso contatto inserito due volte.",
+    "en": "Removing duplicate records, for example the same contact entered twice."
+   },
+   {
+    "termine": "workflow con LLM",
+    "it": "Flusso a passi fissi decisi da chi lo progetta, in cui il modello svolge solo alcuni compiti.",
+    "en": "A flow with fixed steps set by its designer, in which the model does only some tasks."
+   }
+  ]
  },
  {
   "id": "DA1.5-4",
@@ -3790,7 +4129,19 @@
     "it": "Più autonomia significa più flessibilità ma meno prevedibilità e più rischio: sapere che cosa si compra decide quali controlli servono.",
     "en": "More autonomy means more flexibility but less predictability and more risk: knowing what you buy decides which checks you need."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "workflow con LLM",
+    "it": "Flusso a passi fissi decisi da chi lo progetta, in cui il modello svolge solo alcuni compiti.",
+    "en": "A flow with fixed steps set by its designer, in which the model does only some tasks."
+   },
+   {
+    "termine": "multi-agente",
+    "it": "Sistema in cui più agenti, ciascuno con un compito, collaborano o si passano il lavoro.",
+    "en": "A system where several agents, each with its own task, work together or hand work to each other."
+   }
+  ]
  },
  {
   "id": "DA1.5-5",
@@ -3832,8 +4183,8 @@
     {
      "id": "C",
      "testo": {
-      "it": "Il fornitore più noto",
-      "en": "The best-known vendor"
+      "it": "Il minimo di controlli",
+      "en": "The fewest checks"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -3862,8 +4213,8 @@
     {
      "id": "F",
      "testo": {
-      "it": "L'agente più veloce",
-      "en": "The fastest agent"
+      "it": "Il prompt più corto",
+      "en": "The shortest prompt"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -3915,8 +4266,8 @@
     {
      "id": "c",
      "testo": {
-      "it": "Quando l'azienda ha meno di cento clienti registrati nel CRM",
-      "en": "When the company has fewer than a hundred customers in the CRM"
+      "it": "Quando il testo libero è molto, ma le regole sono poche",
+      "en": "When there is a lot of free text, but few rules"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -3935,8 +4286,8 @@
     {
      "id": "e",
      "testo": {
-      "it": "Quando il fornitore offre uno sconto sul prezzo del modello",
-      "en": "When the vendor offers a discount on the model's price"
+      "it": "Quando le regole sono tante e cambiano spesso, ma i dati sono strutturati",
+      "en": "When the rules are many and change often, but the data are structured"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -3947,7 +4298,19 @@
     "it": "OpenAI: prima di costruire un agente verifica i tre criteri (decisioni complesse, regole difficili da mantenere, molti dati non strutturati); altrimenti «una soluzione deterministica può bastare».",
     "en": "OpenAI: before building an agent check the three criteria (complex decisions, rules hard to maintain, lots of unstructured data); otherwise \"a deterministic solution may suffice\"."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "livello minimo sufficiente",
+    "it": "Principio: scegliere il grado di autonomia più basso che risolve il problema.",
+    "en": "Principle: choose the lowest degree of autonomy that solves the problem."
+   },
+   {
+    "termine": "multi-agente",
+    "it": "Sistema in cui più agenti, ciascuno con un compito, collaborano o si passano il lavoro.",
+    "en": "A system where several agents, each with its own task, work together or hand work to each other."
+   }
+  ]
  },
  {
   "id": "DA1.5-6",
@@ -4064,7 +4427,19 @@
     "it": "Si parte dal livello più basso che risolve il compito: un'attività sempre uguale è un flusso fisso programmato.",
     "en": "You start from the lowest level that solves the task: a job that never changes is a fixed, scheduled flow."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "trattative",
+    "it": "Opportunità di vendita in corso con un cliente, seguite nel CRM.",
+    "en": "Sales opportunities in progress with a customer, tracked in the CRM."
+   },
+   {
+    "termine": "always allow",
+    "it": "Opzione che approva in anticipo tutte le azioni future, togliendo le conferme umane.",
+    "en": "An option that approves all future actions in advance, removing human confirmations."
+   }
+  ]
  },
  {
   "id": "DA1.6-1",
@@ -4191,7 +4566,19 @@
     "it": "Le cautele riguardano soldi, reputazione e dati personali: un'offerta economica non autorizzata a un cliente importante è il caso tipico da far approvare.",
     "en": "Caution is about money, reputation and personal data: an unauthorised money offer to an important customer is the typical case that needs approval."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "CRM",
+    "it": "Customer Relationship Management: il software dove l'azienda tiene contatti, trattative e storico dei clienti.",
+    "en": "Customer Relationship Management: the software where a company keeps contacts, deals and customer history."
+   },
+   {
+    "termine": "campagne",
+    "it": "Invii di messaggi di marketing a un gruppo di contatti, con un obiettivo comune.",
+    "en": "Marketing messages sent to a group of contacts, with a shared goal."
+   }
+  ]
  },
  {
   "id": "DA1.6-2",
@@ -4296,8 +4683,8 @@
     {
      "id": "c",
      "testo": {
-      "it": "Da server troppo lenti",
-      "en": "Servers that are too slow"
+      "it": "Dai duplicati",
+      "en": "Duplicates"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -4326,8 +4713,8 @@
     {
      "id": "f",
      "testo": {
-      "it": "Dai colori dell'interfaccia",
-      "en": "The interface colours"
+      "it": "Dai clienti stessi",
+      "en": "The customers themselves"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -4336,8 +4723,8 @@
     {
      "id": "g",
      "testo": {
-      "it": "Da troppi clienti felici",
-      "en": "Too many happy customers"
+      "it": "Dai limiti dell'AI",
+      "en": "The limits of AI"
      },
      "corretta": false,
      "tipo_distrattore": "errata",
@@ -4348,7 +4735,14 @@
     "it": "La fonte elenca chiamate non registrate, note incomplete, contatti non aggiornati da mesi: il problema è «l'inserimento dei dati, non il software».",
     "en": "The source lists unlogged calls, incomplete notes, contacts not updated for months: the problem is \"data entry and not the actual software\"."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "CRM",
+    "it": "Customer Relationship Management: il software dove l'azienda tiene contatti, trattative e storico dei clienti.",
+    "en": "Customer Relationship Management: the software where a company keeps contacts, deals and customer history."
+   }
+  ]
  },
  {
   "id": "DA1.6-3",
@@ -4463,8 +4857,8 @@
     {
      "id": "e",
      "testo": {
-      "it": "Sono stati i clienti a chiedere di riceverla due volte",
-      "en": "The customers asked to receive it twice"
+      "it": "Il servizio email ha ritentato l'invio dopo un errore temporaneo",
+      "en": "The email service retried the send after a temporary error"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -4475,6 +4869,23 @@
     "it": "Dati duplicati producono azioni duplicate: l'agente agisce su ciò che trova nel CRM.",
     "en": "Duplicate data produce duplicate actions: the agent acts on what it finds in the CRM."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "nurturing",
+    "it": "Coltivare i contatti nel tempo con messaggi utili finché sono pronti all'acquisto.",
+    "en": "Cultivating contacts over time with useful messages until they are ready to buy."
+   },
+   {
+    "termine": "duplicati",
+    "it": "Record doppi: lo stesso contatto presente più volte nel CRM.",
+    "en": "Duplicate records: the same contact appearing more than once in the CRM."
+   },
+   {
+    "termine": "orchestrazione",
+    "it": "Il codice che regge il ciclo dell'agente: tiene lo stato, applica i limiti, passa la mano a una persona.",
+    "en": "The code that runs the agent's loop: it keeps the state, applies limits and hands over to a person."
+   }
+  ]
  }
 ]

@@ -164,7 +164,19 @@
     "it": "Quando i passi sono noti e sempre uguali, basta una catena fissa: è più prevedibile e più facile da controllare.",
     "en": "When the steps are known and always the same, a fixed chain is enough: it is more predictable and easier to check."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "pipeline",
+    "it": "Catena di passi fissi in cui l'uscita di uno entra nel successivo.",
+    "en": "A chain of fixed steps where the output of one goes into the next."
+   },
+   {
+    "termine": "arricchimento",
+    "it": "Passo che aggiunge alla scheda dati presi da altre fonti o dedotti.",
+    "en": "A step that adds to the record data taken from other sources or inferred."
+   }
+  ]
  },
  {
   "id": "DA3.1-2",
@@ -225,14 +237,14 @@
     {
      "id": "D",
      "testo": {
-      "it": "Un logo più visibile in fondo all'email",
-      "en": "A more visible logo at the bottom of the email"
+      "it": "Solo una lista di contatti più lunga",
+      "en": "Only a longer list of contacts"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "Il logo non cambia nulla nel processo dei lead.",
-      "en": "The logo changes nothing in the lead process."
+      "it": "Più contatti non risolvono doppioni, lead poco adatti e risposte non lette.",
+      "en": "More contacts do not fix duplicates, unsuitable leads and unread replies."
      }
     },
     {
@@ -303,14 +315,14 @@
     {
      "id": "d",
      "testo": {
-      "it": "Il sito dell'azienda diventa più lento",
-      "en": "The company's website gets slower"
+      "it": "Il CRM si riempie di contatti in ordine sparso",
+      "en": "The CRM fills up with contacts in no order"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "Il flusso non tocca il sito.",
-      "en": "The flow does not touch the website."
+      "it": "È un fastidio interno, ma il danno vero arriva al cliente ricontattato.",
+      "en": "It is an internal nuisance, but the real harm reaches the customer contacted again."
      }
     },
     {
@@ -331,7 +343,19 @@
     "it": "Un flusso che salta la lettura delle risposte ricontatta chi ha chiesto di essere tolto: il problema arriva al cliente.",
     "en": "A flow that skips reading replies contacts again people who asked to be removed: the problem reaches the customer."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "lead generation",
+    "it": "Attività di raccolta di nuovi contatti commerciali.",
+    "en": "The work of collecting new sales contacts."
+   },
+   {
+    "termine": "pipeline",
+    "it": "Catena di passi fissi in cui l'uscita di uno entra nel successivo.",
+    "en": "A chain of fixed steps where the output of one goes into the next."
+   }
+  ]
  },
  {
   "id": "DA3.1-3",
@@ -379,14 +403,14 @@
     {
      "id": "C",
      "testo": {
-      "it": "Riceve il logo dell'azienda; consegna un'email pronta",
-      "en": "Receives the company logo; hands over a ready email"
+      "it": "Riceve l'email del lead; consegna una risposta",
+      "en": "Receives the lead's email; hands over a reply"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "Il logo non serve al punteggio, e l'email è il compito di un'altra stazione.",
-      "en": "The logo does not help scoring, and the email is another station's job."
+      "it": "Leggere le email e rispondere è il compito di altre stazioni, non del punteggio.",
+      "en": "Reading emails and replying is other stations' job, not scoring's."
      }
     },
     {
@@ -498,6 +522,18 @@
     "it": "Se manca un campo del contratto, la stazione si ferma e lo dice: così il guasto si vede subito.",
     "en": "If a contract field is missing, the station stops and says so: that way the fault shows at once."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "contratto dati",
+    "it": "Elenco dei campi che un passo riceve e consegna, con il loro formato.",
+    "en": "The list of fields a step receives and hands over, with their format."
+   },
+   {
+    "termine": "fascia",
+    "it": "Gruppo di punteggi (alta, media, bassa) che decide l'azione da fare.",
+    "en": "A group of scores (high, medium, low) that decides the action to take."
+   }
+  ]
  }
 ]

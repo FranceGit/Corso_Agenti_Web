@@ -144,7 +144,24 @@
     "it": "WP3 indica quattro limiti delle conversazioni lunghe: finestra di contesto, costo, latenza e qualità. La compattazione riduce ciò che entra nel contesto [WP3 p.22-23].",
     "en": "WP3 lists four limits of long conversations: context window, cost, latency and quality. Compaction shrinks what goes into the context [WP3 p.22-23]."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "compattazione",
+    "it": "Ridurre la storia rimandata al modello, per esempio riassumendo i turni vecchi.",
+    "en": "Shrinking the history sent back to the model, for example by summarising old turns."
+   },
+   {
+    "termine": "Riassunto ricorsivo",
+    "it": "I turni vecchi diventano un riassunto messo davanti ai turni recenti, lasciati interi.",
+    "en": "Old turns become a summary placed in front of the recent turns, which stay whole."
+   },
+   {
+    "termine": "tetto di token",
+    "it": "Limite massimo di token della storia: oltre, i turni più vecchi vengono tagliati.",
+    "en": "Maximum number of tokens for the history: beyond it, the oldest turns are cut."
+   }
+  ]
  },
  {
   "id": "DA5.2-2",
@@ -261,7 +278,19 @@
     "it": "Un riassunto troppo aggressivo può far sparire decisioni e vincoli (inferenza didattica: WP3 dice solo di preservare il contesto più importante). Tenere intatti vincoli e consensi è una regola di buon senso.",
     "en": "A summary that is too aggressive can make decisions and constraints disappear (a teaching inference: WP3 only says to preserve the most important context). Keeping constraints and consents intact is a common-sense rule."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "compattazione",
+    "it": "Ridurre la storia rimandata al modello, per esempio riassumendo i turni vecchi.",
+    "en": "Shrinking the history sent back to the model, for example by summarising old turns."
+   },
+   {
+    "termine": "archivio della sessione",
+    "it": "Dove sono salvati tutti gli eventi originali della conversazione.",
+    "en": "Where all the original events of the conversation are stored."
+   }
+  ]
  },
  {
   "id": "DA5.2-3",
@@ -365,8 +394,8 @@
     {
      "id": "d",
      "testo": {
-      "it": "Logo dell'azienda",
-      "en": "The company logo"
+      "it": "Email di benvenuto inviata",
+      "en": "Welcome email sent"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -407,7 +436,19 @@
     "it": "Gli eventi sono quattro tipi di mattoncini aggiunti in coda (messaggio, risposta, chiamata a uno strumento, risultato); lo stato è il blocco appunti che si aggiorna, come la fase raggiunta [WP3 p.12].",
     "en": "Events are four kinds of building blocks added at the end (message, reply, tool call, result); the state is the scratchpad that gets updated, like the phase reached [WP3 p.12]."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "onboarding",
+    "it": "I primi passi guidati di un nuovo cliente per iniziare a usare un servizio.",
+    "en": "A new customer's first guided steps to start using a service."
+   },
+   {
+    "termine": "archivio permanente",
+    "it": "Memoria su disco o database che sopravvive ai riavvii del server.",
+    "en": "Disk or database storage that survives server restarts."
+   }
+  ]
  },
  {
   "id": "DA5.3-1",
@@ -428,8 +469,8 @@
     {
      "id": "A",
      "testo": {
-      "it": "La foto del logo",
-      "en": "The logo picture"
+      "it": "Stato: fase 2",
+      "en": "State: stage 2"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -563,7 +604,19 @@
     "it": "Dichiarativa = fatti, cifre, preferenze (sapere cosa). Procedurale = abilità e sequenze di passi (sapere come) [WP3 p.35].",
     "en": "Declarative = facts, figures, preferences (knowing what). Procedural = skills and sequences of steps (knowing how) [WP3 p.35]."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "memoria procedurale",
+    "it": "Memoria di come si svolge un compito («sapere come»).",
+    "en": "Memory of how a task is done («knowing how»)."
+   },
+   {
+    "termine": "dichiarativa",
+    "it": "Memoria dei fatti e delle preferenze («sapere cosa»).",
+    "en": "Memory of facts and preferences («knowing what»)."
+   }
+  ]
  },
  {
   "id": "DA5.3-2",
@@ -578,8 +631,8 @@
   "striscia": "contro_esempio",
   "livello1": {
    "domanda": {
-    "it": "Un fornitore promette: «La nostra piattaforma di memoria impara da sola anche le procedure dei venditori, pronta all'uso». Che cosa dicono le fonti Google?",
-    "en": "A vendor promises: \"Our memory platform learns the sales reps' procedures on its own too, ready to use\". What do the Google sources say?"
+    "it": "Un fornitore promette: «La nostra piattaforma di memoria impara da sola anche le procedure dei venditori, pronta all'uso». Che cosa dicono le guide di settore?",
+    "en": "A vendor promises: \"Our memory platform learns the sales reps' procedures on its own too, ready to use\". What do industry guides say?"
    },
    "opzioni": [
     {
@@ -615,8 +668,8 @@
     {
      "id": "D",
      "testo": {
-      "it": "Che le procedure si possono memorizzare solo se scritte in lingua inglese",
-      "en": "That procedures can only be stored if they are written in English"
+      "it": "Che le procedure si salvano come le preferenze dei clienti, senza differenze",
+      "en": "That procedures are saved just like customer preferences, with no difference"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -668,8 +721,8 @@
     {
      "id": "c",
      "testo": {
-      "it": "Perché le procedure si copiano dai siti dei concorrenti e quindi arrivano già pronte e collaudate",
-      "en": "Because the procedures are copied from competitors' websites and so they arrive ready and tested"
+      "it": "Perché le procedure salvate rendono il modello stesso più capace",
+      "en": "Because saved procedures make the model itself more capable"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -690,7 +743,14 @@
     "it": "WP3 p.64-65: la memoria procedurale è «fast, online adaptation», senza riaddestrare il modello come nel fine-tuning.",
     "en": "WP3 p.64-65: procedural memory is \"fast, online adaptation\", without retraining the model as in fine-tuning."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "riaddestramento",
+    "it": "Addestrare di nuovo il modello su nuovi dati, cambiandone i pesi (fine-tuning).",
+    "en": "Training the model again on new data, changing its weights (fine-tuning)."
+   }
+  ]
  },
  {
   "id": "DA5.3-3",
@@ -816,7 +876,14 @@
     "it": "Il consolidamento confronta i ricordi nuovi con quelli esistenti: UPDATE, CREATE o DELETE/INVALIDATE. Senza, la memoria diventa «a noisy, contradictory, and unreliable log» [WP3 p.47-48].",
     "en": "Consolidation compares new memories with the existing ones: UPDATE, CREATE or DELETE/INVALIDATE. Without it, memory becomes \"a noisy, contradictory, and unreliable log\" [WP3 p.47-48]."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "consolidamento",
+    "it": "Confrontare i ricordi nuovi con quelli esistenti: aggiornare, unire, invalidare.",
+    "en": "Comparing new memories with existing ones: update, merge, invalidate."
+   }
+  ]
  },
  {
   "id": "DA5.4-1",
@@ -838,8 +905,8 @@
     {
      "id": "A",
      "testo": {
-      "it": "Un filtro per prezzo, dal prodotto più economico al più caro",
-      "en": "A price filter, from the cheapest product to the most expensive"
+      "it": "Un filtro sulla categoria «scarpe», senza leggere le descrizioni",
+      "en": "A filter on the «shoes» category, without reading the descriptions"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -868,8 +935,8 @@
     {
      "id": "D",
      "testo": {
-      "it": "Un ordinamento delle schede per data di inserimento nel catalogo",
-      "en": "Sorting the sheets by the date they were added to the catalogue"
+      "it": "Una ricerca nelle conversazioni passate con altri clienti",
+      "en": "A search in past conversations with other customers"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -933,7 +1000,19 @@
     "it": "Embedding: rappresentazioni numeriche in cui la distanza tra due vettori riflette la somiglianza di significato [EMB p.6]. Come latitudine e longitudine, ma per i significati [EMB p.7].",
     "en": "Embeddings: numerical representations in which the distance between two vectors reflects how similar their meanings are [EMB p.6]. Like latitude and longitude, but for meanings [EMB p.7]."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "ricerca semantica",
+    "it": "Ricerca per significato, non per parola esatta.",
+    "en": "Search by meaning, not by exact word."
+   },
+   {
+    "termine": "embedding",
+    "it": "Lista di numeri che rappresenta il significato di un testo: testi simili hanno numeri vicini.",
+    "en": "A list of numbers representing a text's meaning: similar texts have close numbers."
+   }
+  ]
  },
  {
   "id": "DA5.4-2",
@@ -1080,7 +1159,24 @@
     "it": "Codici di contratto, SKU e numeri d'ordine sono parole specifiche senza un significato generale: lì serve la parola esatta accanto alla ricerca per significato [EMB p.50].",
     "en": "Contract codes, SKUs and order numbers are specific words with no general meaning: there you need the exact word alongside the search by meaning [EMB p.50]."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "ricerca ibrida",
+    "it": "Ricerca per significato unita alla ricerca per parola esatta (es. un codice).",
+    "en": "Search by meaning combined with search by exact word (e.g. a code)."
+   },
+   {
+    "termine": "embedding",
+    "it": "Lista di numeri che rappresenta il significato di un testo: testi simili hanno numeri vicini.",
+    "en": "A list of numbers representing a text's meaning: similar texts have close numbers."
+   },
+   {
+    "termine": "SKU",
+    "it": "Codice che identifica in modo univoco un prodotto a magazzino.",
+    "en": "A code that uniquely identifies a product in stock."
+   }
+  ]
  },
  {
   "id": "DA5.4-3",
@@ -1141,8 +1237,8 @@
     {
      "id": "E",
      "testo": {
-      "it": "Copiare la garanzia dal sito di un concorrente e citarla come ufficiale",
-      "en": "Copy the warranty from a competitor's website and quote it as official"
+      "it": "Rispondere con la garanzia minima di legge, come se fosse quella del prodotto",
+      "en": "Answer with the legal minimum warranty, as if it were the product's own"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -1174,8 +1270,8 @@
     {
      "id": "b",
      "testo": {
-      "it": "Scrivere le risposte con un tono più formale, così il cliente si fida e non fa altre domande",
-      "en": "Write the answers in a more formal tone, so the customer trusts them and asks no more questions"
+      "it": "Usare un modello più grande, che sbaglia di meno, e fidarsi delle sue risposte",
+      "en": "Use a bigger model, which makes fewer mistakes, and trust its answers"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -1206,7 +1302,19 @@
     "it": "EMB p.52-53: «return the sources from the retrieval and do a quick coherence check either by a human or an LLM».",
     "en": "EMB p.52-53: \"return the sources from the retrieval and do a quick coherence check either by a human or an LLM\"."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "RAG",
+    "it": "Retrieval-Augmented Generation: si recuperano i documenti pertinenti e si danno al modello prima che risponda.",
+    "en": "Retrieval-Augmented Generation: relevant documents are fetched and given to the model before it answers."
+   },
+   {
+    "termine": "allucinazioni",
+    "it": "Risposte plausibili ma inventate, non basate su dati reali.",
+    "en": "Plausible but made-up answers, not based on real data."
+   }
+  ]
  },
  {
   "id": "DA5.5-1",
@@ -1247,8 +1355,8 @@
     {
      "id": "C",
      "testo": {
-      "it": "Tradurli in inglese, perché le regole sulla privacy valgono solo per i testi scritti in italiano",
-      "en": "Translate it into English, because privacy rules only apply to texts written in Italian"
+      "it": "Cifrarli e salvarli interi, perché la cifratura basta a rispettare la privacy",
+      "en": "Encrypt it and save it whole, because encryption is enough for privacy"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -1332,7 +1440,24 @@
     "it": "WP3 p.69: «clear options to opt-out of memory generation or request the deletion of all their files»; SEC p.6-7: trasparenza e controllo sulla memoria.",
     "en": "WP3 p.69: \"clear options to opt-out of memory generation or request the deletion of all their files\"; SEC p.6-7: transparency and control over memory."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "PII",
+    "it": "Dati personali che identificano una persona (nome, telefono, email...).",
+    "en": "Personal data that identifies a person (name, phone, email...)."
+   },
+   {
+    "termine": "opt-out",
+    "it": "Scelta dell'utente di non partecipare (qui: niente ricordi su di lui).",
+    "en": "The user's choice not to take part (here: no memories about them)."
+   },
+   {
+    "termine": "GDPR",
+    "it": "Regolamento europeo sulla protezione dei dati personali.",
+    "en": "The European regulation on personal data protection."
+   }
+  ]
  },
  {
   "id": "DA5.5-2",
@@ -1396,8 +1521,8 @@
     {
      "id": "a",
      "testo": {
-      "it": "Svuotare la cache del sito",
-      "en": "Clearing the website cache"
+      "it": "Cercare il nome nei ricordi",
+      "en": "Searching memories for the name"
      },
      "corretta": false,
      "tipo_distrattore": "quasi",
@@ -1436,8 +1561,8 @@
     {
      "id": "e",
      "testo": {
-      "it": "Alzare la temperatura",
-      "en": "Raising the temperature"
+      "it": "Riassumere la sessione",
+      "en": "Summarising the session"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -1446,8 +1571,8 @@
     {
      "id": "f",
      "testo": {
-      "it": "Cambiare il modello",
-      "en": "Changing the model"
+      "it": "Isolare i ricordi per cliente",
+      "en": "Isolating memories per customer"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -1468,7 +1593,19 @@
     "it": "Il registro della provenienza (da dove viene ogni ricordo) permette di cancellare o rigenerare con precisione i ricordi derivati [WP3 p.49-51].",
     "en": "The provenance record (where each memory comes from) makes it possible to delete or regenerate the derived memories precisely [WP3 p.49-51]."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "TTL",
+    "it": "Time To Live: scadenza automatica dopo la quale un dato viene cancellato.",
+    "en": "Time To Live: automatic expiry after which data is deleted."
+   },
+   {
+    "termine": "provenienza",
+    "it": "Da dove viene un dato o un ricordo (fonte e data).",
+    "en": "Where a piece of data or memory comes from (source and date)."
+   }
+  ]
  },
  {
   "id": "DA5.5-3",
@@ -1573,8 +1710,8 @@
     {
      "id": "d",
      "testo": {
-      "it": "Salvare i ricordi soltanto durante l'orario d'ufficio",
-      "en": "Save memories only during office hours"
+      "it": "Cancellare tutti i ricordi ogni sera",
+      "en": "Delete all memories every evening"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -1595,7 +1732,14 @@
     "it": "WP3 p.69: «The cardinal rule for this archive is data isolation»: memoria isolata per utente o tenant; «An agent serving one user must never have access to the memories of another».",
     "en": "WP3 p.69: \"The cardinal rule for this archive is data isolation\": memory isolated per user or tenant; \"An agent serving one user must never have access to the memories of another\"."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "tenant",
+    "it": "Un cliente servito dallo stesso sistema di altri, con dati separati.",
+    "en": "A customer served by the same system as others, with separate data."
+   }
+  ]
  },
  {
   "id": "DA6.2-1",
@@ -1690,8 +1834,8 @@
     {
      "id": "c",
      "testo": {
-      "it": "Quando gli specialisti sono scritti in linguaggi di programmazione diversi",
-      "en": "When the specialists are written in different programming languages"
+      "it": "Quando gli specialisti sono tanti e cambiano spesso",
+      "en": "When there are many specialists and they change often"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -1710,8 +1854,8 @@
     {
      "id": "e",
      "testo": {
-      "it": "Quando l'azienda ha meno di dieci clienti attivi nel CRM",
-      "en": "When the company has fewer than ten active customers in the CRM"
+      "it": "Quando serve la risposta più veloce possibile",
+      "en": "When the fastest possible answer is needed"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -1722,7 +1866,19 @@
     "it": "OAI p.18: il manager è adatto quando «you only want one agent to control workflow execution and have access to the user».",
     "en": "OAI p.18: the manager fits when \"you only want one agent to control workflow execution and have access to the user\"."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "Decentralizzata",
+    "it": "Variante in cui agenti alla pari si passano il compito, senza un capo che resta al comando.",
+    "en": "A variant where peer agents hand the task to each other, with no boss staying in charge."
+   },
+   {
+    "termine": "Manager",
+    "it": "Variante in cui un agente centrale usa gli specialisti come strumenti e resta lui a parlare con l'utente.",
+    "en": "A variant where a central agent uses the specialists as tools and stays the one talking to the user."
+   }
+  ]
  },
  {
   "id": "DA6.2-2",
@@ -1807,8 +1963,8 @@
     {
      "id": "c",
      "testo": {
-      "it": "La copia notturna di sicurezza del database clienti",
-      "en": "The nightly backup copy of the customer database"
+      "it": "L'arricchimento dei lead, sempre con gli stessi tre passi",
+      "en": "Lead enrichment, always with the same three steps"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -1817,8 +1973,8 @@
     {
      "id": "d",
      "testo": {
-      "it": "Il calcolo dell'IVA su ogni fattura emessa nel mese",
-      "en": "Calculating VAT on every invoice issued in the month"
+      "it": "Un'unica richiesta semplice, come riassumere una call",
+      "en": "A single simple request, such as summarising a call"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -1839,7 +1995,19 @@
     "it": "WP1 p.25: il Coordinator è «essential» per compiti dinamici o non lineari; per una pipeline fissa (A -> B -> C) l'albero di NB1b indica lo schema sequenziale [NB1b celle 59-60].",
     "en": "WP1 p.25: the Coordinator is \"essential\" for dynamic or non-linear tasks; for a fixed pipeline (A -> B -> C) the NB1b decision tree points to the sequential pattern [NB1b cells 59-60]."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "coordinatore dinamico",
+    "it": "Agente che decide di volta in volta quale specialista chiamare e in che ordine.",
+    "en": "An agent that decides case by case which specialist to call and in what order."
+   },
+   {
+    "termine": "schema sequenziale",
+    "it": "Catena fissa: il risultato di un passo diventa l'ingresso del passo successivo.",
+    "en": "A fixed chain: the output of one step becomes the input of the next."
+   }
+  ]
  },
  {
   "id": "DA6.2-3",
@@ -1880,8 +2048,8 @@
     {
      "id": "C",
      "testo": {
-      "it": "Perché il parallelo funziona solo con almeno cinque agenti insieme",
-      "en": "Because parallel only works with at least five agents together"
+      "it": "Perché in parallelo i due agenti costano il doppio",
+      "en": "Because in parallel the two agents cost twice as much"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -1900,8 +2068,8 @@
     {
      "id": "E",
      "testo": {
-      "it": "Perché gli agenti in parallelo possono solo leggere dati, non scrivere email",
-      "en": "Because parallel agents can only read data, not write emails"
+      "it": "Perché due agenti non possono mai lavorare sullo stesso lead",
+      "en": "Because two agents can never work on the same lead"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -1963,8 +2131,8 @@
     {
      "id": "e",
      "testo": {
-      "it": "Due agenti identici",
-      "en": "Two identical agents"
+      "it": "Supervisore che smista",
+      "en": "Routing supervisor"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -1983,8 +2151,8 @@
     {
      "id": "g",
      "testo": {
-      "it": "Agenti in ordine casuale",
-      "en": "Agents in random order"
+      "it": "Parallelo con aggregatore",
+      "en": "Parallel with an aggregator"
      },
      "corretta": false,
      "tipo_distrattore": "errata",
@@ -1995,7 +2163,14 @@
     "it": "Sequenziale = catena di montaggio digitale: il risultato di un agente diventa l'ingresso del successivo [WP1 p.25].",
     "en": "Sequential = a digital assembly line: one agent's output becomes the next agent's input [WP1 p.25]."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "aggregatore",
+    "it": "Passo finale che raccoglie e unisce i risultati di più agenti.",
+    "en": "A final step that collects and merges the results of several agents."
+   }
+  ]
  },
  {
   "id": "DA6.3-1",
@@ -2079,8 +2254,8 @@
     {
      "id": "b",
      "testo": {
-      "it": "Perché la chiamata è gratuita, mentre il passaggio di consegne si paga",
-      "en": "Because the call is free, while a handoff has to be paid for"
+      "it": "Perché la chiamata è sempre più veloce del passaggio di consegne",
+      "en": "Because the call is always faster than a handoff"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -2099,8 +2274,8 @@
     {
      "id": "d",
      "testo": {
-      "it": "Perché gli agenti che calcolano i prezzi non sanno parlare con le persone",
-      "en": "Because agents that calculate prices cannot talk to people"
+      "it": "Perché il passaggio di consegne richiede il protocollo A2A",
+      "en": "Because a handoff requires the A2A protocol"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -2121,7 +2296,24 @@
     "it": "WP2 p.13: usare un agente come strumento «prevents a full handoff of the user conversation, allowing the primary agent to maintain control over the interaction».",
     "en": "WP2 p.13: using an agent as a tool \"prevents a full handoff of the user conversation, allowing the primary agent to maintain control over the interaction\"."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "Agente come strumento",
+    "it": "Un agente chiama un altro agente come fosse uno strumento: riceve la risposta e resta lui al comando.",
+    "en": "One agent calls another as if it were a tool: it gets the answer and stays in charge."
+   },
+   {
+    "termine": "Passaggio di consegne",
+    "it": "Un agente cede la conversazione a un altro, che da lì risponde lui.",
+    "en": "One agent hands the conversation to another, which answers from then on."
+   },
+   {
+    "termine": "A2A",
+    "it": "Agent-to-Agent: protocollo per far collaborare agenti, anche di sistemi o fornitori diversi.",
+    "en": "Agent-to-Agent: a protocol that lets agents work together, even across systems or suppliers."
+   }
+  ]
  },
  {
   "id": "DA6.3-2",
@@ -2172,8 +2364,8 @@
     {
      "id": "D",
      "testo": {
-      "it": "Il sistema di ticket",
-      "en": "The ticket system"
+      "it": "Il router di smistamento",
+      "en": "The routing agent"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -2192,8 +2384,8 @@
     {
      "id": "F",
      "testo": {
-      "it": "Il database del CRM",
-      "en": "The CRM database"
+      "it": "Tutti gli specialisti",
+      "en": "All the specialists"
      },
      "corretta": false,
      "tipo_distrattore": "errata",
@@ -2267,7 +2459,19 @@
     "it": "Con l'agente come strumento il primo agente mantiene il controllo del dialogo; con il passaggio di consegne lo cede [WP2 p.13; NB2a cella 35].",
     "en": "With the agent as a tool the first agent keeps control of the dialogue; with a handoff it gives it up [WP2 p.13; NB2a cell 35]."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "passaggio di consegne",
+    "it": "Un agente cede la conversazione a un altro, che da lì risponde lui.",
+    "en": "One agent hands the conversation to another, which answers from then on."
+   },
+   {
+    "termine": "router",
+    "it": "Componente che legge una richiesta e la manda allo specialista giusto.",
+    "en": "A component that reads a request and sends it to the right specialist."
+   }
+  ]
  },
  {
   "id": "DA6.3-3",
@@ -2384,6 +2588,28 @@
     "it": "WP5 p.33: «For tightly coupled tasks within a single application, lightweight local sub-agents often remain a more efficient choice». MCP collega agente e strumenti, A2A agenti tra loro [WP5 p.27].",
     "en": "WP5 p.33: \"For tightly coupled tasks within a single application, lightweight local sub-agents often remain a more efficient choice\". MCP links an agent to tools, A2A links agents to each other [WP5 p.27]."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "A2A",
+    "it": "Agent-to-Agent: protocollo per far collaborare agenti, anche di sistemi o fornitori diversi.",
+    "en": "Agent-to-Agent: a protocol that lets agents work together, even across systems or suppliers."
+   },
+   {
+    "termine": "agent card",
+    "it": "Scheda che descrive capacità e indirizzo di un agente, così altri agenti lo trovano e lo usano.",
+    "en": "A card describing an agent's capabilities and address, so other agents can find and use it."
+   },
+   {
+    "termine": "Sotto-agenti locali",
+    "it": "Agenti che girano dentro la stessa applicazione e si chiamano direttamente, senza passare dalla rete.",
+    "en": "Agents running inside the same application that call each other directly, without going over the network."
+   },
+   {
+    "termine": "latenza",
+    "it": "Tempo di attesa fra la richiesta e la risposta.",
+    "en": "The waiting time between a request and its answer."
+   }
+  ]
  }
 ]

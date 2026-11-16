@@ -31,14 +31,14 @@
     {
      "id": "B",
      "testo": {
-      "it": "L'approvazione scatta, ma solo per le email più lunghe",
-      "en": "Approval triggers, but only for the longest emails"
+      "it": "L'approvazione scatta, ma solo per gli invii sopra soglia",
+      "en": "Approval triggers, but only for sends above the threshold"
      },
      "corretta": false,
      "tipo_distrattore": "quasi",
      "spiegazione": {
-      "it": "Non c'è nessun livello che la faccia partire, per nessuna email.",
-      "en": "There is no level to start it, for any email."
+      "it": "La soglia è scritta solo nell'autonomia: senza livello di rischio sullo strumento, nessuna regola la applica.",
+      "en": "The threshold is written only in autonomy: without a risk level on the tool, no rule applies it."
      }
     },
     {
@@ -57,14 +57,14 @@
     {
      "id": "D",
      "testo": {
-      "it": "Le email vengono inviate in inglese",
-      "en": "The emails are sent in English"
+      "it": "Lo strumento invia_email viene bloccato del tutto",
+      "en": "The send_email tool is blocked entirely"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "La lingua non c'entra con la coerenza tra le sezioni.",
-      "en": "Language has nothing to do with consistency between sections."
+      "it": "Nessuna regola lo blocca: senza livello di rischio, l'email parte senza controlli.",
+      "en": "No rule blocks it: without a risk level, the email goes out unchecked."
      }
     },
     {
@@ -113,7 +113,7 @@
       "en": "Because that way the check is faster"
      },
      "corretta": false,
-     "tipo_distrattore": "quasi",
+     "tipo_distrattore": "poco",
      "spiegazione": {
       "it": "Non è questione di velocità: certi difetti si vedono solo incrociando.",
       "en": "It is not about speed: some faults only show up when crossing."
@@ -135,14 +135,14 @@
     {
      "id": "d",
      "testo": {
-      "it": "Perché le sezioni hanno tutte lo stesso autore",
-      "en": "Because the sections all have the same author"
+      "it": "Perché così si conta quante sezioni sono compilate",
+      "en": "Because that way you count how many sections are filled in"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "Chi le scrive non cambia il motivo della verifica incrociata.",
-      "en": "Who writes them does not change the reason for the cross-check."
+      "it": "Contare le sezioni compilate misura la completezza, non la coerenza tra loro.",
+      "en": "Counting filled-in sections measures completeness, not consistency between them."
      }
     },
     {
@@ -163,7 +163,19 @@
     "it": "Un blueprint fallisce soprattutto dove le parti non si parlano: per questo la verifica di coerenza usa anche regole incrociate tra sezioni.",
     "en": "A blueprint fails mostly where the parts do not talk to each other: that is why the consistency check also uses cross-rules between sections."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "blueprint",
+    "it": "Progetto scritto dell'agente: obiettivo, strumenti, permessi, autonomia, controlli e rilascio.",
+    "en": "The agent's written design: goal, tools, permissions, autonomy, controls and release."
+   },
+   {
+    "termine": "soglia",
+    "it": "Valore limite oltre il quale scatta una regola, per esempio l'approvazione.",
+    "en": "A limit value beyond which a rule kicks in, for example approval."
+   }
+  ]
  },
  {
   "id": "DA8.6-2",
@@ -248,8 +260,8 @@
     }
    ],
    "perche": {
-    "it": "Ogni componente va versionato (codice, istruzioni, modello, strumenti, memoria, set di prove): è il tasto «annulla» della produzione [WP5 p.16].",
-    "en": "Every component must be versioned (code, instructions, model, tools, memory, test sets): it is production's «undo» button [WP5 p.16]."
+    "it": "Ogni componente va versionato (codice, istruzioni, modello con i suoi settaggi, strumenti, memoria, dati e set di prove): è il tasto «annulla» della produzione [WP5 p.16].",
+    "en": "Every component must be versioned (code, instructions, the model with its settings, tools, memory, data and test sets): it is production's «undo» button [WP5 p.16]."
    }
   },
   "livello2": {
@@ -301,14 +313,14 @@
     {
      "id": "d",
      "testo": {
-      "it": "Scrivere istruzioni più corte",
-      "en": "Write shorter instructions"
+      "it": "Annotare nel registro ogni modifica alle istruzioni",
+      "en": "Note every change to the instructions in the log"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "La lunghezza non dà il tasto «annulla».",
-      "en": "Length does not give an «undo» button."
+      "it": "Il registro dice che cosa è cambiato, ma senza una versione salvata non si può tornare indietro.",
+      "en": "The log says what changed, but without a saved version you cannot go back."
      }
     },
     {
@@ -326,10 +338,17 @@
     }
    ],
    "perche": {
-    "it": "Canary e versioni lavorano insieme: il canary scopre il problema, la versione precedente è il punto a cui tornare [WP5 p.16].",
-    "en": "Canary and versions work together: the canary finds the problem, the previous version is the point to return to [WP5 p.16]."
+    "it": "Canary e versioni lavorano insieme: il canary scopre il problema, la versione precedente (istruzioni, modello e settaggi, strumenti, dati) è il punto a cui tornare [WP5 p.16].",
+    "en": "Canary and versions work together: the canary finds the problem, the previous version (instructions, model and settings, tools, data) is the point to return to [WP5 p.16]."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "canary",
+    "it": "Rilascio di una nuova versione prima a una piccola quota di utenti, allargato per gradi se va bene.",
+    "en": "Releasing a new version first to a small share of users, widened step by step if it goes well."
+   }
+  ]
  },
  {
   "id": "DA8.6-3",
@@ -389,14 +408,14 @@
     {
      "id": "D",
      "testo": {
-      "it": "Il nome dell'agente e il suo logo",
-      "en": "The agent's name and logo"
+      "it": "Gli strumenti dell'agente e i loro permessi",
+      "en": "The agent's tools and their permissions"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "Nome e logo non sono una parte del progetto che manca a SDD.",
-      "en": "Name and logo are not a project part missing from SDD."
+      "it": "Strumenti e permessi entrano nella specifica e nel piano di SDD: sono già coperti.",
+      "en": "Tools and permissions are part of the SDD specification and plan: they are already covered."
      }
     },
     {
@@ -495,6 +514,18 @@
     "it": "La sezione 8 del blueprint, governance e produzione, raccoglie rilascio canary, interruttori, registro, budget e risposta agli incidenti [WP5 pp.6, 16, 22].",
     "en": "Blueprint section 8, governance and production, gathers canary release, switches, log, budget and incident response [WP5 pp.6, 16, 22]."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "SDD",
+    "it": "Spec-driven development: prima si scrive una specifica dettagliata, poi si sviluppa da quella.",
+    "en": "Spec-driven development: you first write a detailed specification, then build from it."
+   },
+   {
+    "termine": "osservabilità",
+    "it": "Capacità di vedere dall'esterno che cosa fa l'agente, con tracce, log e metriche.",
+    "en": "Being able to see from outside what the agent does, through traces, logs and metrics."
+   }
+  ]
  }
 ]

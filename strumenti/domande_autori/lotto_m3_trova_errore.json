@@ -164,7 +164,19 @@
     "it": "Un controllo «contiene» messo per primo cattura anche «Not Interested»: le regole sotto non vengono mai raggiunte.",
     "en": "A «contains» check placed first also catches «Not Interested»: the rules below are never reached."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "LLM",
+    "it": "Modello linguistico di grandi dimensioni: prevede il testo più probabile.",
+    "en": "Large language model: it predicts the most likely text."
+   },
+   {
+    "termine": "report",
+    "it": "Riepilogo dei risultati, per esempio di una campagna.",
+    "en": "A summary of results, for example of a campaign."
+   }
+  ]
  },
  {
   "id": "DA3.5-4",
@@ -331,6 +343,18 @@
     "it": "Il report è un riassunto: solo il confronto con i dati grezzi dice se è vero.",
     "en": "The report is a summary: only the comparison with the raw data tells you whether it is true."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "classificatore",
+    "it": "Programma che assegna a ogni elemento un'etichetta da un elenco.",
+    "en": "A program that gives each item a label from a list."
+   },
+   {
+    "termine": "campione",
+    "it": "Piccola parte dei dati, scelta per controllare il resto.",
+    "en": "A small part of the data, picked to check the rest."
+   }
+  ]
  }
 ]

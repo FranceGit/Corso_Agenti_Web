@@ -163,7 +163,19 @@
     "it": "Dal calo della metrica si passa alle tracce coinvolte: lì si vede la causa.",
     "en": "From the metric drop you move to the traces involved: that is where the cause shows."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "cruscotto",
+    "it": "Schermata che riassume le metriche principali in un colpo d'occhio.",
+    "en": "A screen that sums up the main metrics at a glance."
+   },
+   {
+    "termine": "redazione",
+    "it": "Mascheramento dei dati personali e dei segreti prima di conservarli.",
+    "en": "Masking personal data and secrets before storing them."
+   }
+  ]
  },
  {
   "id": "DA7.2-5",
@@ -223,27 +235,27 @@
     {
      "id": "D",
      "testo": {
-      "it": "Stamparlo su carta",
-      "en": "Print it on paper"
+      "it": "Tenerlo solo per 30 giorni",
+      "en": "Keep it for 30 days only"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "La carta non protegge i dati, li sposta.",
-      "en": "Paper does not protect the data, it moves it."
+      "it": "Per 30 giorni i dati restano comunque in chiaro: vanno mascherati prima di conservarli.",
+      "en": "For 30 days the data still stay in clear text: they must be masked before storing."
      }
     },
     {
      "id": "E",
      "testo": {
-      "it": "Inviarlo al commerciale",
-      "en": "Send it to sales"
+      "it": "Spostarlo in un file a parte",
+      "en": "Move it to a separate file"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "Diffondere il log aumenta l'esposizione.",
-      "en": "Spreading the log increases exposure."
+      "it": "Un altro file contiene gli stessi dati in chiaro: il rischio si sposta, non sparisce.",
+      "en": "Another file holds the same data in clear text: the risk moves, it does not go away."
      }
     },
     {
@@ -327,14 +339,14 @@
     {
      "id": "d",
      "testo": {
-      "it": "Il colore della riga nel programma",
-      "en": "The colour of the line in the program"
+      "it": "Il nome dello strumento usato",
+      "en": "The name of the tool used"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "Il colore non è un dato registrato della richiesta.",
-      "en": "Colour is not recorded data of the request."
+      "it": "Lo stesso strumento serve a tutte e tre le richieste: non le distingue.",
+      "en": "The same tool serves all three requests: it does not tell them apart."
      }
     },
     {
@@ -355,6 +367,18 @@
     "it": "L'identificativo comune (trace_id) lega log e passi della stessa richiesta senza usare dati personali.",
     "en": "The common identifier (trace_id) ties together the logs and steps of the same request without using personal data."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "Mascherare",
+    "it": "Sostituire un dato personale con un segnaposto, come [NOME], prima di conservarlo.",
+    "en": "Replacing personal data with a placeholder, such as [NAME], before storing it."
+   },
+   {
+    "termine": "trace_id",
+    "it": "Identificativo unico di una richiesta, scritto in ogni log e passo per collegarli.",
+    "en": "A unique request identifier, written in every log and step to link them."
+   }
+  ]
  }
 ]

@@ -11,8 +11,8 @@
   "striscia": "esempio_pratico",
   "livello1": {
    "domanda": {
-    "it": "Il motore di regole usa le soglie dell'esempio Google: sotto 100 consenti, da 100 a 500 chiedi conferma, oltre 500 blocca. L'agente vuole rimborsare 320 euro a un cliente per un ordine arrivato rotto. Che cosa succede?",
-    "en": "The rules engine uses the thresholds of Google's example: under 100 allow, from 100 to 500 ask for confirmation, above 500 block. The agent wants to refund a customer 320 euros for an order that arrived broken. What happens?"
+    "it": "Il motore di regole usa le soglie di un esempio di settore: sotto 100 consenti, da 100 a 500 chiedi conferma, oltre 500 blocca. L'agente vuole rimborsare 320 euro a un cliente per un ordine arrivato rotto. Che cosa succede?",
+    "en": "The rules engine uses the thresholds of an industry example: under 100 allow, from 100 to 500 ask for confirmation, above 500 block. The agent wants to refund a customer 320 euros for an order that arrived broken. What happens?"
    },
    "opzioni": [
     {
@@ -148,14 +148,14 @@
     {
      "id": "e",
      "testo": {
-      "it": "Si blocca solo se l'email era scritta in un'altra lingua",
-      "en": "It is blocked only if the email was written in another language"
+      "it": "Si blocca solo se l'email chiedeva proprio un rimborso",
+      "en": "It is blocked only if the email asked for a refund"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "La lingua non c'entra: conta che i dati non siano affidabili.",
-      "en": "The language has nothing to do with it: what counts is that the data is untrusted."
+      "it": "Non conta solo che cosa chiedeva l'email: dati sospetti rendono inaffidabile tutto il contesto.",
+      "en": "It is not only what the email asked for: suspicious data makes the whole context untrusted."
      }
     }
    ],
@@ -163,7 +163,14 @@
     "it": "Il motore di regole guarda anche le azioni precedenti: dopo dati sospetti si chiede più controllo.",
     "en": "The rules engine also looks at previous actions: after suspicious data more control is required."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "motore di regole",
+    "it": "Programma che applica regole fisse scritte prima (soglie, divieti), fuori dal modello.",
+    "en": "A program that applies fixed rules written beforehand (thresholds, bans), outside the model."
+   }
+  ]
  },
  {
   "id": "DA8.2-5",
@@ -210,14 +217,14 @@
     {
      "id": "C",
      "testo": {
-      "it": "Il manager ha approvato troppo tardi: dopo tre ore l'approvazione si raddoppia",
-      "en": "The manager approved too late: after three hours the approval doubles"
+      "it": "Il manager ha cliccato due volte su «approva»",
+      "en": "The manager clicked «approve» twice"
      },
      "corretta": false,
-     "tipo_distrattore": "errata",
+     "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "Il tempo d'attesa non raddoppia nulla: la pausa serve proprio ad aspettare.",
-      "en": "The waiting time doubles nothing: the pause is there precisely to wait."
+      "it": "Un doppio clic darebbe due approvazioni della stessa esecuzione: i registri invece mostrano un identificativo nuovo.",
+      "en": "A double click would give two approvals of the same run: the logs instead show a new identifier."
      }
     },
     {
@@ -314,14 +321,14 @@
     {
      "id": "e",
      "testo": {
-      "it": "Perché rende più veloce l'approvazione del manager",
-      "en": "Because it makes the manager's approval faster"
+      "it": "Perché serve a calcolare quanto è durata la pausa",
+      "en": "Because it is used to work out how long the pause lasted"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
      "spiegazione": {
-      "it": "La velocità del manager non dipende dall'identificativo.",
-      "en": "The manager's speed does not depend on the identifier."
+      "it": "La durata della pausa si legge dai registri; l'identificativo serve a riprendere la stessa esecuzione.",
+      "en": "The length of the pause is read from the logs; the identifier is used to resume the same run."
      }
     }
    ],
@@ -329,6 +336,13 @@
     "it": "L'identificativo dice al sistema quale esecuzione riprendere, con messaggi, strumento e parametri salvati.",
     "en": "The identifier tells the system which run to resume, with the saved messages, tool and parameters."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "fotografia dello stato",
+    "it": "Copia salvata di messaggi, strumento e parametri di un'esecuzione, per riprenderla dopo una pausa.",
+    "en": "A saved copy of a run's messages, tool and parameters, to resume it after a pause."
+   }
+  ]
  }
 ]

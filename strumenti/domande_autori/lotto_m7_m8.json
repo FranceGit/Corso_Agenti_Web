@@ -28,8 +28,8 @@
     {
      "id": "B",
      "testo": {
-      "it": "Aspetto una settimana e poi approvo senza fare altre prove",
-      "en": "I wait a week and then approve without any more tests"
+      "it": "Porto la temperatura a 0 e approvo dopo quella sola prova",
+      "en": "I set the temperature to 0 and approve after that single test"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -101,8 +101,8 @@
     {
      "id": "c",
      "testo": {
-      "it": "Perché i test valgono solo se li fa una persona dell'ufficio legale",
-      "en": "Because tests only count if someone from the legal team runs them"
+      "it": "Perché ogni prova va ripetuta anche con un modello diverso",
+      "en": "Because each test must also be repeated with a different model"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -121,8 +121,8 @@
     {
      "id": "e",
      "testo": {
-      "it": "Perché le email perfette sono sospette e vanno sempre riscritte",
-      "en": "Because perfect emails are suspicious and must always be rewritten"
+      "it": "Perché il modello impara dalla prima prova e poi cambia",
+      "en": "Because the model learns from the first test and then changes"
      },
      "corretta": false,
      "tipo_distrattore": "errata",
@@ -133,7 +133,19 @@
     "it": "La ragione è il non determinismo: anche con lo stesso lead e le stesse istruzioni il risultato può cambiare. Provare lead diversi è utile, ma non risolve questo problema: serve ripetere la stessa prova.",
     "en": "The reason is non-determinism: even with the same lead and the same instructions the result can change. Trying different leads is useful, but it does not solve this problem: you need to repeat the same test."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "deterministico",
+    "it": "Che dà sempre lo stesso risultato con lo stesso input. Un agente non lo è.",
+    "en": "Always giving the same result for the same input. An agent is not."
+   },
+   {
+    "termine": "temperatura",
+    "it": "Parametro del modello che regola quanto le risposte variano: più è alta, più sono varie.",
+    "en": "A model setting that controls how much answers vary: the higher it is, the more varied they are."
+   }
+  ]
  },
  {
   "id": "DA7.1-2",
@@ -248,8 +260,8 @@
     {
      "id": "e",
      "testo": {
-      "it": "La velocità con cui l'agente scrive l'email",
-      "en": "How fast the agent writes the email"
+      "it": "L'assenza di errori di grammatica, e basta",
+      "en": "No grammar mistakes, and nothing else"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -260,7 +272,19 @@
     "it": "Una rubrica giudica ciò che conta (correttezza dei dati, tono, regole) e accetta formulazioni diverse ma giuste. La somiglianza delle parole, anche con una soglia, penalizza le risposte corrette scritte in un altro modo.",
     "en": "A rubric judges what matters (correct data, tone, rules) and accepts different but correct wordings. Word similarity, even with a threshold, penalises correct answers written in another way."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "rubrica",
+    "it": "Griglia di criteri espliciti con cui si giudica una risposta.",
+    "en": "A grid of explicit criteria used to judge an answer."
+   },
+   {
+    "termine": "metriche",
+    "it": "Misure numeriche usate per valutare un sistema (es. tasso di successo, tempo, costo).",
+    "en": "Numeric measures used to evaluate a system (e.g. success rate, time, cost)."
+   }
+  ]
  },
  {
   "id": "DA7.1-3",
@@ -332,8 +356,8 @@
     {
      "id": "F",
      "testo": {
-      "it": "Rifare la prova domani",
-      "en": "Rerun the test tomorrow"
+      "it": "Bocciato per robustezza",
+      "en": "Failed on robustness"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -342,8 +366,8 @@
     {
      "id": "G",
      "testo": {
-      "it": "Dipende dal tono usato",
-      "en": "It depends on the tone used"
+      "it": "Ok se nessuno protesta",
+      "en": "Fine if nobody complains"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -417,7 +441,19 @@
     "it": "Le quattro dimensioni sono efficacia, efficienza, robustezza e sicurezza. Qui l'obiettivo è raggiunto, quindi l'efficacia c'è; ma il percorso contiene un'azione rischiosa: è violata la sicurezza.",
     "en": "The four dimensions are effectiveness, efficiency, robustness and safety. Here the goal is reached, so effectiveness is there; but the path contains a risky action: safety is broken."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "traiettoria",
+    "it": "Il percorso seguito dall'agente: strumenti scelti, ordine dei passi, passi inutili o rischiosi.",
+    "en": "The path the agent followed: tools chosen, order of steps, useless or risky steps."
+   },
+   {
+    "termine": "robustezza",
+    "it": "Capacità di reggere casi difficili, dati strani ed errori degli strumenti.",
+    "en": "The ability to cope with hard cases, odd data and tool errors."
+   }
+  ]
  },
  {
   "id": "DA7.2-1",
@@ -522,8 +558,8 @@
     {
      "id": "e",
      "testo": {
-      "it": "Perché le metriche interessano solo all'ufficio amministrazione",
-      "en": "Because metrics only matter to the accounts department"
+      "it": "Perché le metriche contano solo i costi, non gli errori",
+      "en": "Because metrics only count costs, not errors"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -534,7 +570,24 @@
     "it": "La traccia è la storia di una richiesta e mostra la causa. Le metriche sono numeri riassunti su molte esecuzioni: dicono quanto bene va, non perché un caso preciso è andato male.",
     "en": "The trace is the story of one request and shows the cause. Metrics are numbers summed up over many runs: they say how well things go, not why one specific case went wrong."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "traccia",
+    "it": "Ricostruzione del percorso di una singola richiesta, passo per passo, con i tempi.",
+    "en": "The reconstruction of a single request's path, step by step, with timings."
+   },
+   {
+    "termine": "metriche",
+    "it": "Misure numeriche usate per valutare un sistema (es. tasso di successo, tempo, costo).",
+    "en": "Numeric measures used to evaluate a system (e.g. success rate, time, cost)."
+   },
+   {
+    "termine": "log",
+    "it": "Registro delle azioni e degli eventi di un sistema, riga per riga.",
+    "en": "A record of a system's actions and events, line by line."
+   }
+  ]
  },
  {
   "id": "DA7.2-2",
@@ -671,7 +724,19 @@
     "it": "La riga giusta maschera il dato personale e conserva l'identificativo che lega log e tracce della stessa richiesta. Senza identificativo non si ricostruisce il percorso; con i dati in chiaro si crea un rischio per la privacy.",
     "en": "The right line masks the personal data and keeps the identifier that links logs and traces of the same request. Without an identifier you cannot rebuild the path; with data in clear text you create a privacy risk."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "debug",
+    "it": "Ricerca e correzione della causa di un errore.",
+    "en": "Finding and fixing the cause of an error."
+   },
+   {
+    "termine": "Mascherare",
+    "it": "Sostituire un dato personale con un segnaposto, come [NOME], prima di conservarlo.",
+    "en": "Replacing personal data with a placeholder, such as [NAME], before storing it."
+   }
+  ]
  },
  {
   "id": "DA7.2-3",
@@ -798,7 +863,19 @@
     "it": "Il motivo principale è la privacy: le fonti chiedono di togliere i dati personali dai log prima di conservarli. L'identificativo della richiesta permette di ritrovare il percorso senza esporre il cliente.",
     "en": "The main reason is privacy: the sources ask to remove personal data from logs before storing them. The request identifier lets you find the path without exposing the customer."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "trace_id",
+    "it": "Identificativo unico di una richiesta, scritto in ogni log e passo per collegarli.",
+    "en": "A unique request identifier, written in every log and step to link them."
+   },
+   {
+    "termine": "propagazione del contesto",
+    "it": "Passare lo stesso identificativo della richiesta a ogni passo e servizio coinvolto.",
+    "en": "Passing the same request identifier to every step and service involved."
+   }
+  ]
  },
  {
   "id": "DA7.3-1",
@@ -829,8 +906,8 @@
     {
      "id": "B",
      "testo": {
-      "it": "Email più lunghe",
-      "en": "Longer emails"
+      "it": "Un giudice più severo",
+      "en": "A stricter judge"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -942,8 +1019,8 @@
     {
      "id": "e",
      "testo": {
-      "it": "La stessa richiesta scritta tutta in grassetto",
-      "en": "The same request written all in bold"
+      "it": "La stessa richiesta lanciata 5 volte",
+      "en": "The same request run 5 times"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -954,7 +1031,24 @@
     "it": "Un caso limite è raro o ambiguo, come due contatti con lo stesso nome. L'email con istruzioni nascoste è un caso avversario: serve anche quello, ma appartiene a un'altra famiglia.",
     "en": "An edge case is rare or ambiguous, like two contacts with the same name. The email with hidden instructions is an adversarial case: you need it too, but it belongs to another family."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "lead scoring",
+    "it": "Assegnare a ogni lead un punteggio che stima quanto è probabile che diventi cliente.",
+    "en": "Giving each lead a score that estimates how likely it is to become a customer."
+   },
+   {
+    "termine": "casi limite",
+    "it": "Casi rari o al confine delle regole, dove è più facile sbagliare.",
+    "en": "Rare cases or cases at the edge of the rules, where mistakes are more likely."
+   },
+   {
+    "termine": "avversari",
+    "it": "Casi costruiti per ingannare o forzare l'agente, come i tentativi di prompt injection.",
+    "en": "Cases built to trick or push the agent, such as prompt injection attempts."
+   }
+  ]
  },
  {
   "id": "DA7.3-2",
@@ -986,8 +1080,8 @@
     {
      "id": "B",
      "testo": {
-      "it": "Solo se nello stesso giorno cambia anche il fornitore del modello",
-      "en": "Only if the model provider also changes on the same day"
+      "it": "Solo se le email si accorciano più della metà",
+      "en": "Only if the emails get more than half shorter"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -1025,8 +1119,8 @@
     }
    ],
    "perche": {
-    "it": "Le fonti dicono di rilanciare il set a ogni modifica di codice, strumenti o prompt e di confrontare i punteggi con la versione in produzione. Piccoli cambi di istruzioni possono cambiare molto il comportamento.",
-    "en": "The sources say to rerun the set on every change to code, tools or prompts and to compare the scores with the version in production. Small instruction changes can change behaviour a lot."
+    "it": "Le fonti dicono di rilanciare il set a ogni modifica di codice, strumenti o prompt, e lo stesso vale per modello, parametri (come la temperatura) e dati (set di valutazione, basi di conoscenza): tutto va versionato e confrontato con la versione in produzione. Piccoli cambi di istruzioni possono cambiare molto il comportamento.",
+    "en": "The sources say to rerun the set on every change to code, tools or prompts, and the same goes for the model, its settings (such as temperature) and data (evaluation sets, knowledge bases): everything is versioned and compared with the version in production. Small instruction changes can change behaviour a lot."
    }
   },
   "livello2": {
@@ -1091,7 +1185,24 @@
     "it": "Regressione vuol dire che qualcosa che prima funzionava, dopo una modifica non funziona più. Il set serve proprio a vederlo prima del rilascio; togliere i casi rossi nasconderebbe il problema.",
     "en": "Regression means that something that used to work no longer works after a change. The set exists precisely to catch this before release; removing the red cases would hide the problem."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "outreach",
+    "it": "Contatto attivo di potenziali clienti (email, messaggi, chiamate) per avviare una relazione.",
+    "en": "Actively reaching out to potential customers (emails, messages, calls) to start a relationship."
+   },
+   {
+    "termine": "test di regressione",
+    "it": "Rilancio del set di valutazione dopo una modifica, per verificare che ciò che funzionava funzioni ancora.",
+    "en": "Rerunning the evaluation set after a change, to check that what worked still works."
+   },
+   {
+    "termine": "allucinazione",
+    "it": "Risposta inventata dal modello che suona plausibile ma non viene da nessun dato.",
+    "en": "An answer made up by the model that sounds plausible but comes from no data."
+   }
+  ]
  },
  {
   "id": "DA7.3-3",
@@ -1166,8 +1277,8 @@
     {
      "id": "b",
      "testo": {
-      "it": "Perché il set intero costa meno di un solo caso",
-      "en": "Because the whole set costs less than a single case"
+      "it": "Perché il set si può lanciare solo intero, mai a pezzi",
+      "en": "Because the set can only be run whole, never in parts"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -1196,8 +1307,8 @@
     {
      "id": "e",
      "testo": {
-      "it": "Perché così il rapporto di valutazione risulta più lungo",
-      "en": "Because that way the evaluation report is longer"
+      "it": "Perché serve un nuovo punteggio medio da comunicare al team",
+      "en": "Because a new average score must be reported to the team"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -1208,7 +1319,19 @@
     "it": "Il test di regressione rilancia i casi esistenti per controllare che una modifica non abbia rotto ciò che funzionava. Il non determinismo è un motivo in più per ripetere le prove, ma non è il punto qui.",
     "en": "A regression test reruns the existing cases to check that a change has not broken what used to work. Non-determinism is one more reason to repeat tests, but it is not the point here."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "set di valutazione",
+    "it": "Raccolta di casi di prova con il risultato atteso, usata per misurare l'agente.",
+    "en": "A collection of test cases with expected results, used to measure the agent."
+   },
+   {
+    "termine": "test di regressione",
+    "it": "Rilancio del set di valutazione dopo una modifica, per verificare che ciò che funzionava funzioni ancora.",
+    "en": "Rerunning the evaluation set after a change, to check that what worked still works."
+   }
+  ]
  },
  {
   "id": "DA7.4-1",
@@ -1345,7 +1468,24 @@
     "it": "Il bias di posizione è la tendenza a preferire una risposta solo per l'ordine in cui la si vede. Il giudice è uno strumento di misura: va verificato e calibrato sul giudizio di persone.",
     "en": "Position bias is the tendency to prefer a reply just because of the order in which it is shown. The judge is a measuring tool: it must be checked and calibrated against human judgement."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "LLM giudice",
+    "it": "Modello linguistico usato per valutare le risposte di un altro sistema secondo dei criteri.",
+    "en": "A language model used to score another system's answers against criteria."
+   },
+   {
+    "termine": "confronto a coppie",
+    "it": "Valutazione in cui il giudice sceglie la migliore fra due risposte allo stesso caso.",
+    "en": "An evaluation where the judge picks the better of two answers to the same case."
+   },
+   {
+    "termine": "tasso di vittorie",
+    "it": "Quota di confronti a coppie vinti da una versione contro l'altra.",
+    "en": "The share of pairwise comparisons one version wins against the other."
+   }
+  ]
  },
  {
   "id": "DA7.4-2",
@@ -1440,8 +1580,8 @@
     {
      "id": "c",
      "testo": {
-      "it": "Perché gli esperti di vendita non conoscono il CRM",
-      "en": "Because sales experts do not know the CRM"
+      "it": "Perché gli esperti tendono sempre a dare voti troppo alti",
+      "en": "Because experts always tend to give scores that are too high"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -1472,7 +1612,19 @@
     "it": "Il WP4 avverte che il giudizio umano non è una verità oggettiva perfetta e che sui compiti soggettivi l'accordo tra valutatori è raro. Serve come riferimento calibrato sull'uomo, non come verità assoluta.",
     "en": "WP4 warns that human judgement is not a perfect objective truth and that on subjective tasks agreement between raters is rare. It serves as a human-calibrated reference, not as absolute truth."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "calibrare",
+    "it": "Verificare e correggere uno strumento di misura confrontandolo con un riferimento, qui il giudizio umano.",
+    "en": "Checking and adjusting a measuring tool against a reference, here human judgement."
+   },
+   {
+    "termine": "rubrica",
+    "it": "Griglia di criteri espliciti con cui si giudica una risposta.",
+    "en": "A grid of explicit criteria used to judge an answer."
+   }
+  ]
  },
  {
   "id": "DA7.4-3",
@@ -1557,8 +1709,8 @@
     {
      "id": "a",
      "testo": {
-      "it": "Dare al giudice più tempo per rispondere",
-      "en": "Give the judge more time to answer"
+      "it": "Ripetere la valutazione più volte e fare la media",
+      "en": "Repeat the evaluation several times and average it"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -1609,7 +1761,19 @@
     "it": "Una rubrica scomposta in sotto-domande rende il voto spiegabile e più vicino ai criteri aziendali; il nuovo confronto con il campione umano verifica se la correzione ha funzionato.",
     "en": "A rubric split into sub-questions makes the score explainable and closer to the company's criteria; a new comparison with the human sample checks whether the fix worked."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "meta-valutazione",
+    "it": "Valutare il valutatore: confrontare i voti del giudice con quelli delle persone.",
+    "en": "Evaluating the evaluator: comparing the judge's scores with people's."
+   },
+   {
+    "termine": "rubrica",
+    "it": "Griglia di criteri espliciti con cui si giudica una risposta.",
+    "en": "A grid of explicit criteria used to judge an answer."
+   }
+  ]
  },
  {
   "id": "DA7.5-1",
@@ -1724,8 +1888,8 @@
     {
      "id": "b",
      "testo": {
-      "it": "Un grafico più grande con i 2.000 lead",
-      "en": "A bigger chart with the 2,000 leads"
+      "it": "Un confronto con i lead raccolti l'anno scorso",
+      "en": "A comparison with the leads collected last year"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -1766,7 +1930,24 @@
     "it": "Le righe aggiunte a un foglio sono una metrica ingannevole: crescono e fanno bella figura ma non dicono quanti clienti arrivano. Aperture e risposte sono più vicine al risultato, ma ancora intermedie.",
     "en": "Rows added to a sheet are a vanity metric: they grow and look good but do not say how many customers arrive. Opens and replies are closer to the result, but still intermediate."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "stella polare",
+    "it": "La metrica principale che orienta tutte le decisioni.",
+    "en": "The main metric that guides every decision."
+   },
+   {
+    "termine": "fidelizzazione",
+    "it": "Capacità di tenere i clienti nel tempo.",
+    "en": "The ability to keep customers over time."
+   },
+   {
+    "termine": "Latenza",
+    "it": "Tempo di attesa fra la richiesta e la risposta.",
+    "en": "The waiting time between a request and its answer."
+   }
+  ]
  },
  {
   "id": "DA7.5-2",
@@ -1881,8 +2062,8 @@
     {
      "id": "e",
      "testo": {
-      "it": "Perché i lead migliori non leggono le email",
-      "en": "Because the best leads do not read emails"
+      "it": "Perché il gruppo senza agente resterebbe senza follow-up",
+      "en": "Because the group without the agent would get no follow-up"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -1893,7 +2074,19 @@
     "it": "Se i gruppi non sono scelti a caso, le differenze di partenza si mescolano all'effetto dell'agente e non si può più isolarlo.",
     "en": "If the groups are not chosen at random, the starting differences mix with the agent's effect and it can no longer be isolated."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "follow-up",
+    "it": "Messaggio o contatto di ripresa dopo un primo contatto con un lead.",
+    "en": "A message or contact that follows up on a first contact with a lead."
+   },
+   {
+    "termine": "gruppo di controllo",
+    "it": "Gruppo che nello stesso periodo lavora senza l'agente, per confrontarlo con chi lo usa.",
+    "en": "A group that works without the agent in the same period, to compare with those who use it."
+   }
+  ]
  },
  {
   "id": "DA7.5-3",
@@ -1955,8 +2148,8 @@
     {
      "id": "E",
      "testo": {
-      "it": "No: le conversioni di dicembre non si possono misurare",
-      "en": "No: December conversions cannot be measured"
+      "it": "No: un mese è troppo breve, ne servono almeno tre",
+      "en": "No: one month is too short, you need at least three"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -2030,7 +2223,19 @@
     "it": "Due gruppi scelti a caso nello stesso periodo hanno le stesse condizioni esterne: la differenza tra loro misura l'effetto dell'agente. Il confronto con l'anno prima risente di tutto ciò che è cambiato nel frattempo.",
     "en": "Two groups chosen at random over the same period share the same outside conditions: the difference between them measures the agent's effect. Comparing with the previous year is affected by everything that changed in between."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "outreach",
+    "it": "Contatto attivo di potenziali clienti (email, messaggi, chiamate) per avviare una relazione.",
+    "en": "Actively reaching out to potential customers (emails, messages, calls) to start a relationship."
+   },
+   {
+    "termine": "gruppo di controllo",
+    "it": "Gruppo che nello stesso periodo lavora senza l'agente, per confrontarlo con chi lo usa.",
+    "en": "A group that works without the agent in the same period, to compare with those who use it."
+   }
+  ]
  },
  {
   "id": "DA8.1-1",
@@ -2045,8 +2250,8 @@
   "striscia": "esempio_pratico",
   "livello1": {
    "domanda": {
-    "it": "Hai una nuova versione dell'agente che risponde ai lead. Secondo il whitepaper Google sulla produzione, come inizia un rilascio canarino?",
-    "en": "You have a new version of the agent that answers leads. According to Google's production whitepaper, how does a canary release start?"
+    "it": "Hai una nuova versione dell'agente che risponde ai lead. Secondo le guide di settore sulla produzione, come inizia un rilascio canarino?",
+    "en": "You have a new version of the agent that answers leads. According to industry guides on production, how does a canary release start?"
    },
    "opzioni": [
     {
@@ -2167,7 +2372,14 @@
     "it": "Il canary limita il danno: se la nuova versione sbaglia, sbaglia con pochissimi utenti e si torna alla versione precedente. Se va bene, si allarga per gradi.",
     "en": "The canary limits the damage: if the new version goes wrong, it goes wrong with very few users and you return to the previous version. If it goes well, you widen it step by step."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "rilascio canarino",
+    "it": "Rilascio di una nuova versione prima a una piccola quota di utenti, allargato per gradi se va bene.",
+    "en": "Releasing a new version first to a small share of users, widened step by step if it goes well."
+   }
+  ]
  },
  {
   "id": "DA8.1-2",
@@ -2291,10 +2503,27 @@
     }
    ],
    "perche": {
-    "it": "WP5: ogni componente (codice, prompt, modello, schemi degli strumenti, strutture di memoria, perfino i set di valutazione) va versionato. Se manca un pezzo, il ritorno indietro non riproduce la versione di prima.",
-    "en": "WP5: every component (code, prompts, model, tool schemas, memory structures, even evaluation sets) must be versioned. If one piece is missing, rolling back does not reproduce the earlier version."
+    "it": "WP5: ogni componente (codice, prompt, modello con i suoi settaggi, schemi degli strumenti, strutture di memoria, perfino i set di valutazione e gli altri dati) va versionato. Se manca un pezzo, il ritorno indietro non riproduce la versione di prima.",
+    "en": "WP5: every component (code, prompts, the model with its settings, tool schemas, memory structures, even evaluation sets and other data) must be versioned. If one piece is missing, rolling back does not reproduce the earlier version."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "canary",
+    "it": "Rilascio di una nuova versione prima a una piccola quota di utenti, allargato per gradi se va bene.",
+    "en": "Releasing a new version first to a small share of users, widened step by step if it goes well."
+   },
+   {
+    "termine": "rollback",
+    "it": "Ritorno rapido alla versione precedente dell'agente, già nota e funzionante.",
+    "en": "A quick return to the previous, known-good version of the agent."
+   },
+   {
+    "termine": "tracce",
+    "it": "Registro passo per passo di ciò che l'agente ha letto, deciso e fatto in un compito.",
+    "en": "A step-by-step record of what the agent read, decided and did in a task."
+   }
+  ]
  },
  {
   "id": "DA8.1-3",
@@ -2326,8 +2555,8 @@
     {
      "id": "B",
      "testo": {
-      "it": "In un foglio Excel",
-      "en": "In an Excel sheet"
+      "it": "Con un canary all'1%",
+      "en": "With a 1% canary"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -2356,8 +2585,8 @@
     {
      "id": "E",
      "testo": {
-      "it": "Nella chat del team",
-      "en": "In the team chat"
+      "it": "Rileggendo le email a mano",
+      "en": "Rereading the emails by hand"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -2429,11 +2658,11 @@
     {
      "id": "d",
      "testo": {
-      "it": "La latenza: le email di prova partono troppo lentamente",
-      "en": "Latency: the test emails go out too slowly"
+      "it": "La minimizzazione dei dati: l'agente legge troppi campi",
+      "en": "Data minimisation: the agent reads too many fields"
      },
      "corretta": false,
-     "tipo_distrattore": "errata",
+     "tipo_distrattore": "poco",
      "spiegazione": null
     },
     {
@@ -2451,7 +2680,14 @@
     "it": "Ogni ambiente ha dati e credenziali propri: un account \"di prova\" collegato a contatti veri porta i rischi della produzione dentro il test. Il canary è un'altra cosa: riguarda una versione già provata.",
     "en": "Each environment has its own data and credentials: a \"test\" account connected to real contacts brings production risks into the test. The canary is something else: it concerns a version already tested."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "staging",
+    "it": "Ambiente di prova che copia fedelmente la produzione, con dati e chiavi propri.",
+    "en": "A test environment that faithfully copies production, with its own data and keys."
+   }
+  ]
  },
  {
   "id": "DA8.2-1",
@@ -2516,8 +2752,8 @@
     {
      "id": "a",
      "testo": {
-      "it": "Cercare il sito di un'azienda sul web",
-      "en": "Looking up a company's website"
+      "it": "Leggere 500 schede di lead in un colpo",
+      "en": "Reading 500 lead records in one go"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -2526,8 +2762,8 @@
     {
      "id": "b",
      "testo": {
-      "it": "Leggere la scheda di un lead",
-      "en": "Reading a lead's record"
+      "it": "Aggiornare il punteggio di un lead",
+      "en": "Updating a lead's score"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -2568,7 +2804,19 @@
     "it": "Il rischio dipende da lettura o scrittura, reversibilità, permessi richiesti e impatto economico: un invio di massa con sconto scrive, non si annulla ed è costoso. È il tipo di azione che deve fermarsi per una conferma.",
     "en": "Risk depends on read or write access, reversibility, required permissions and financial impact: a mass send with a discount writes, cannot be undone and is costly. It is the kind of action that must stop for confirmation."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "always allow",
+    "it": "Opzione che approva per sempre un tipo di azione, senza più chiedere conferma.",
+    "en": "An option that approves a kind of action forever, never asking for confirmation again."
+   },
+   {
+    "termine": "select all",
+    "it": "Scelta che concede in un colpo tutti i permessi disponibili.",
+    "en": "A choice that grants all available permissions at once."
+   }
+  ]
  },
  {
   "id": "DA8.2-2",
@@ -2653,8 +2901,8 @@
     {
      "id": "a",
      "testo": {
-      "it": "Cercare il sito di un'azienda",
-      "en": "Looking up a company's website"
+      "it": "Leggere lo storico di 1.000 contatti",
+      "en": "Reading the history of 1,000 contacts"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -2683,8 +2931,8 @@
     {
      "id": "d",
      "testo": {
-      "it": "Leggere lo storico di un cliente",
-      "en": "Reading a customer's history"
+      "it": "Salvare una bozza di email nel CRM",
+      "en": "Saving an email draft in the CRM"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -2705,7 +2953,14 @@
     "it": "Il fail-closed conta soprattutto per le azioni irreversibili o di massa: una cancellazione di 1.000 contatti non si annulla facilmente. E blocca solo quando il controllo non risponde, non sempre.",
     "en": "Fail-closed matters most for irreversible or mass actions: deleting 1,000 contacts is not easy to undo. And it blocks only when the check does not answer, not always."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "fail-closed",
+    "it": "Regola di sicurezza: se il controllo non risponde, l'azione viene negata.",
+    "en": "Safety rule: if the check does not answer, the action is denied."
+   }
+  ]
  },
  {
   "id": "DA8.2-3",
@@ -2780,11 +3035,11 @@
     {
      "id": "a",
      "testo": {
-      "it": "Perché i log sono vietati per le azioni di vendita",
-      "en": "Because logs are forbidden for sales actions"
+      "it": "Perché nei log non si vede quale strumento è stato usato",
+      "en": "Because the logs do not show which tool was used"
      },
      "corretta": false,
-     "tipo_distrattore": "errata",
+     "tipo_distrattore": "poco",
      "spiegazione": null
     },
     {
@@ -2800,8 +3055,8 @@
     {
      "id": "c",
      "testo": {
-      "it": "Perché i log occupano troppo spazio sul server",
-      "en": "Because logs take up too much space on the server"
+      "it": "Perché i log contengono dati personali da non tenere",
+      "en": "Because logs contain personal data that should not be kept"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -2832,7 +3087,19 @@
     "it": "Il log è utile per capire e verificare, ma arriva dopo l'azione. Il fail-closed agisce prima: un'azione rischiosa senza autorizzazione non parte.",
     "en": "The log is useful to understand and check, but it comes after the action. Fail-closed acts before: a risky action without authorisation does not start."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "fail-open",
+    "it": "Regola opposta: se il controllo non risponde, l'azione viene lasciata passare.",
+    "en": "The opposite rule: if the check does not answer, the action is let through."
+   },
+   {
+    "termine": "log",
+    "it": "Registro automatico di ciò che il sistema ha fatto e quando.",
+    "en": "An automatic record of what the system did and when."
+   }
+  ]
  },
  {
   "id": "DA8.3-1",
@@ -2894,8 +3161,8 @@
     {
      "id": "E",
      "testo": {
-      "it": "L'agente si ferma solo se il manager preme due volte",
-      "en": "The agent stops only if the manager presses twice"
+      "it": "L'agente si ferma, ma solo per i clienti nuovi",
+      "en": "The agent stops, but only for new customers"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -2917,8 +3184,8 @@
     {
      "id": "a",
      "testo": {
-      "it": "Riavviare il server del CRM",
-      "en": "Restarting the CRM server"
+      "it": "Una regola nelle istruzioni: «non usare invia_email»",
+      "en": "A rule in the instructions: «do not use send_email»"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -2969,7 +3236,19 @@
     "it": "WP5 descrive un interruttore (circuit breaker) che spegne all'istante solo lo strumento colpito, lasciando vivo il resto; poi si smistano i casi sospetti e si risolve (contenere, smistare, risolvere).",
     "en": "WP5 describes a switch (circuit breaker) that instantly turns off only the affected tool, leaving the rest running; then suspicious cases are triaged and the issue is resolved (contain, triage, resolve)."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "kill switch",
+    "it": "Interruttore d'emergenza con cui una persona ferma l'agente, o parte di esso.",
+    "en": "An emergency switch a person uses to stop the agent, or part of it."
+   },
+   {
+    "termine": "circuit breaker",
+    "it": "Interruttore che spegne all'istante un singolo strumento, lasciando funzionare il resto.",
+    "en": "A switch that instantly turns off a single tool, leaving the rest running."
+   }
+  ]
  },
  {
   "id": "DA8.3-2",
@@ -3030,8 +3309,8 @@
     }
    ],
    "perche": {
-    "it": "Google (SEC) chiede di registrare in modo sicuro input, strumenti, parametri, output e ragionamento intermedio. È questo registro che risponde a \"perché l'agente ha fatto questo?\"; una spiegazione chiesta dopo è una ricostruzione, non un fatto.",
-    "en": "Google (SEC) asks to securely log inputs, tools, parameters, outputs and intermediate reasoning. It is this log that answers \"why did the agent do this?\"; an explanation asked for afterwards is a reconstruction, not a fact."
+    "it": "Le guide di sicurezza del settore (SEC) chiedono di registrare in modo sicuro input, strumenti, parametri, output e ragionamento intermedio. È questo registro che risponde a \"perché l'agente ha fatto questo?\"; una spiegazione chiesta dopo è una ricostruzione, non un fatto.",
+    "en": "Industry security guides (SEC) ask to securely log inputs, tools, parameters, outputs and intermediate reasoning. It is this log that answers \"why did the agent do this?\"; an explanation asked for afterwards is a reconstruction, not a fact."
    }
   },
   "livello2": {
@@ -3084,8 +3363,8 @@
     {
      "id": "e",
      "testo": {
-      "it": "Il registro diventa troppo lungo da leggere",
-      "en": "The log becomes too long to read"
+      "it": "Il problema è solo legale: basta informare i clienti",
+      "en": "The problem is only legal: informing customers is enough"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -3096,7 +3375,19 @@
     "it": "Le fonti chiedono di proteggere i dati sensibili anche dentro i log e di togliere i dati personali prima della conservazione a lungo. Il registro va anche protetto con accessi per ruolo.",
     "en": "The sources ask to protect sensitive data inside the logs too and to remove personal data before long-term storage. The log must also be protected with role-based access."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "in chiaro",
+    "it": "Leggibile da chiunque, senza mascheratura né cifratura.",
+    "en": "Readable by anyone, with no masking or encryption."
+   },
+   {
+    "termine": "mascherati",
+    "it": "Dati in cui le parti personali sono sostituite da asterischi o codici.",
+    "en": "Data in which the personal parts are replaced by asterisks or codes."
+   }
+  ]
  },
  {
   "id": "DA8.3-3",
@@ -3138,8 +3429,8 @@
     {
      "id": "C",
      "testo": {
-      "it": "Il listino dei prezzi",
-      "en": "The price list"
+      "it": "Le istruzioni dell'agente",
+      "en": "The agent's instructions"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -3178,8 +3469,8 @@
     {
      "id": "G",
      "testo": {
-      "it": "Il manuale del CRM",
-      "en": "The CRM manual"
+      "it": "Il punteggio del lead",
+      "en": "The lead's score"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -3231,8 +3522,8 @@
     {
      "id": "d",
      "testo": {
-      "it": "Perché l'agente risponde solo in inglese",
-      "en": "Because the agent only answers in English"
+      "it": "Perché servirebbe chiederlo a un modello più grande",
+      "en": "Because you would need to ask a bigger model"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -3253,7 +3544,14 @@
     "it": "Un modello che risponde dopo produce un testo plausibile, non la prova di ciò che è avvenuto. La prova è il registro scritto al momento della decisione.",
     "en": "A model answering afterwards produces plausible text, not proof of what happened. The proof is the log written at the time of the decision."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "traccia",
+    "it": "Registro passo per passo di ciò che l'agente ha letto, deciso e fatto in un compito.",
+    "en": "A step-by-step record of what the agent read, decided and did in a task."
+   }
+  ]
  },
  {
   "id": "DA8.4-1",
@@ -3338,11 +3636,11 @@
     {
      "id": "a",
      "testo": {
-      "it": "Perché le istruzioni si possono scrivere solo in inglese",
-      "en": "Because instructions can only be written in English"
+      "it": "Perché servono anche controlli nell'interfaccia, oltre alle istruzioni",
+      "en": "Because you also need checks in the interface, besides the instructions"
      },
      "corretta": false,
-     "tipo_distrattore": "poco",
+     "tipo_distrattore": "quasi",
      "spiegazione": null
     },
     {
@@ -3372,7 +3670,7 @@
       "en": "Because longer instructions cost more tokens and slow down every reply"
      },
      "corretta": false,
-     "tipo_distrattore": "quasi",
+     "tipo_distrattore": "poco",
      "spiegazione": null
     },
     {
@@ -3390,7 +3688,19 @@
     "it": "Un'istruzione è un invito rivolto al modello, non una barriera: con un errore o una prompt injection i dati passano. L'isolamento va imposto dove stanno i dati.",
     "en": "An instruction is a request to the model, not a barrier: with a mistake or a prompt injection the data gets through. Isolation must be enforced where the data lives."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "prompt injection",
+    "it": "Attacco che nasconde ordini in un testo letto dall'agente per fargli fare cose non previste.",
+    "en": "An attack that hides orders in a text the agent reads, to make it do unplanned things."
+   },
+   {
+    "termine": "tenant",
+    "it": "Cliente servito dallo stesso sistema, con dati propri e separati.",
+    "en": "A customer served by the same system, with its own separate data."
+   }
+  ]
  },
  {
   "id": "DA8.4-2",
@@ -3517,7 +3827,14 @@
     "it": "WP3: la base documentale per la ricerca è \"generalmente condivisa\", la memoria su un cliente è isolata. Se i documenti contengono informazioni di un cliente, anche loro vanno separati.",
     "en": "WP3: the document base used for search is \"generally shared\", while memory about a customer is isolated. If documents contain one client's information, they must be separated too."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "isolamento",
+    "it": "Separazione per cui i dati di un cliente non sono leggibili da un altro.",
+    "en": "Separation by which one customer's data cannot be read by another."
+   }
+  ]
  },
  {
   "id": "DA8.4-3",
@@ -3592,8 +3909,8 @@
     {
      "id": "b",
      "testo": {
-      "it": "Usare un foglio con più colonne e più ordinato",
-      "en": "Use a tidier sheet with more columns"
+      "it": "Spostare il foglio in un database, con gli stessi accessi",
+      "en": "Move the sheet into a database, with the same access"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -3634,7 +3951,19 @@
     "it": "Prima si riduce l'esposizione: meno dati personali e meno persone che li vedono. Proteggere il video non cambia nulla per chi ha il link del foglio.",
     "en": "First you reduce exposure: less personal data and fewer people who can see it. Protecting the video changes nothing for whoever has the sheet's link."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "lead generation",
+    "it": "Ricerca e raccolta di potenziali clienti (lead).",
+    "en": "Finding and collecting potential customers (leads)."
+   },
+   {
+    "termine": "base giuridica",
+    "it": "Motivo previsto dalla legge (es. consenso, contratto) che permette di usare dati personali.",
+    "en": "A reason allowed by law (e.g. consent, contract) that permits the use of personal data."
+   }
+  ]
  },
  {
   "id": "DA8.5-1",
@@ -3768,10 +4097,17 @@
     }
    ],
    "perche": {
-    "it": "OpenAI: partire con il modello più capace per fissare il livello di riferimento, poi sostituire con modelli più piccoli dove le prove reggono. Il prezzo basso da solo non dice se la qualità tiene.",
-    "en": "OpenAI: start with the most capable model to set the reference level, then switch to smaller models where the tests hold up. A low price alone does not tell you whether quality holds."
+    "it": "Le guide di settore consigliano di partire con il modello più capace per fissare il livello di riferimento, poi di sostituirlo con modelli più piccoli dove le prove reggono. Il prezzo basso da solo non dice se la qualità tiene.",
+    "en": "Industry guides advise starting with the most capable model to set the reference level, then switching to smaller models where the tests hold up. A low price alone does not tell you whether quality holds."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "elaborazione a lotti",
+    "it": "Invio di molte richieste insieme, elaborate senza fretta a prezzo ridotto.",
+    "en": "Sending many requests together, processed without hurry at a reduced price."
+   }
+  ]
  },
  {
   "id": "DA8.5-2",
@@ -3898,7 +4234,19 @@
     "it": "Nel corpus il repo R10 usa MCP e resta interamente legato a una piattaforma cloud a pagamento: lo standard aperto da solo non basta a togliere la dipendenza.",
     "en": "In the sources the R10 repo uses MCP and stays fully tied to a paid cloud platform: the open standard alone is not enough to remove the lock-in."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "outreach",
+    "it": "Contatto proattivo di potenziali clienti (email, messaggi) da parte dell'azienda.",
+    "en": "The company proactively contacting potential customers (emails, messages)."
+   },
+   {
+    "termine": "MCP",
+    "it": "Model Context Protocol: standard aperto per collegare strumenti e dati agli agenti.",
+    "en": "Model Context Protocol: an open standard for connecting tools and data to agents."
+   }
+  ]
  },
  {
   "id": "DA8.5-3",
@@ -3950,8 +4298,8 @@
     {
      "id": "D",
      "testo": {
-      "it": "Niente, è tutto gratis",
-      "en": "Nothing, it is all free"
+      "it": "Niente: il costo resta fisso",
+      "en": "Nothing: the cost stays fixed"
      },
      "corretta": false,
      "tipo_distrattore": "errata",
@@ -3970,8 +4318,8 @@
     {
      "id": "F",
      "testo": {
-      "it": "Solo lo spazio su disco",
-      "en": "Only disk space"
+      "it": "Solo le licenze",
+      "en": "Only licences"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -4013,8 +4361,8 @@
     {
      "id": "b",
      "testo": {
-      "it": "Perché i token costano sempre più dei crediti",
-      "en": "Because tokens always cost more than credits"
+      "it": "Perché più servizi rallentano l'agente",
+      "en": "Because more services slow the agent down"
      },
      "corretta": false,
      "tipo_distrattore": "poco",
@@ -4055,6 +4403,23 @@
     "it": "Ogni servizio esterno è un fornitore da cui si dipende: se cambia prezzi o condizioni bisogna sostituirlo, e più servizi significano più punti di vincolo.",
     "en": "Each outside service is a provider you depend on: if it changes prices or terms you must replace it, and more services mean more lock-in points."
    }
-  }
+  },
+  "glossario": [
+   {
+    "termine": "crediti di arricchimento",
+    "it": "Crediti a pagamento per completare i dati dei contatti (azienda, ruolo, telefono) da fonti esterne.",
+    "en": "Paid credits to complete contact data (company, role, phone) from outside sources."
+   },
+   {
+    "termine": "lock-in",
+    "it": "Dipendenza da un fornitore che rende costoso o difficile cambiarlo.",
+    "en": "Dependence on a supplier that makes switching costly or hard."
+   },
+   {
+    "termine": "sales automation",
+    "it": "Automazione delle attività di vendita (contatti, follow-up, CRM).",
+    "en": "Automation of sales activities (contacts, follow-ups, CRM)."
+   }
+  ]
  }
 ]
