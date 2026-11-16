@@ -1,8 +1,6 @@
 # PROGRESSI — Corso Agenti Web
 
-> **Cantiere in corso (16/11/2026): lezioni interattive del modulo M3 + le loro domande.** Le domande di M3 (P3.1-P3.5) le scrive questo cantiere in `strumenti/domande_autori/lotto_m3_*.json` (id `DA3.x-N`): gli altri lotti non toccano M3.
-
-## Stato al 16/11/2026 — fase 4: domande degli autori + inglese completo
+## Stato al 16/11/2026 — fase 5: domande degli autori + inglese completo (in parallelo alla fase 4)
 
 ### Fatto
 1. **105 domande nuove** (origine `autori`, id `DA<pillola>-N`) sui contenuti verificati (`F:\A\CD\Game_Development\000_PROGETTO\CORSO_CONTENUTI_VERIFICATI.md`), per tutti i moduli tranne M3 (M3 = cantiere delle lezioni M3, lotti `lotto_m3_*`). Coprono le 45 prioritarie (tolte le 3 di M3) e proseguono fino a 3 domande per concetto: M1 33, M2 12, M4 12, M5 12, M6 6, M7 15, M8 15.
@@ -24,6 +22,30 @@
 ### Resta da fare
 - Correggere nel benchmark le formulazioni contraddette (sopra) e riestrarre.
 - Domande autori per gli spicchi già erogabili che restano sotto 3 punti di vista diversi (es. P2.2 C21: 3 domande ma tutte "definizione").
+
+## Stato al 16/11/2026 — fase 4: lezioni interattive del modulo M3 (caso guidato: lead generation)
+
+### Fatto
+1. **Laboratorio** (nuovo nel modello): una pillola può avere, oltre alla lezione, una seconda lezione facoltativa `"tipo": "laboratorio"` (al massimo una, solo se c'è la lezione principale). Nella webapp compare la scheda «Laboratorio» / «Lab»; l'aiuto di una domanda può portare a un passo del laboratorio (`riferimento_aiuto` → `{"scheda": "laboratorio"}`); `rapporto()` elenca `laboratori`; il collaudo li elenca.
+2. **5 lezioni interattive IT/EN** (stessa architettura e regole: 5 passi con "Prova tu" + riassunto in 3 frasi, 394-423 parole, solo esempi marketing/CRM, deterministiche):
+   - P3.1 `pipeline_lead` «la pipeline completa»: il lead Giulia (modulo web con difetti) percorre 6 stazioni (pulizia → arricchimento → punteggio → email con approvazione → classificazione della risposta → CRM); contratto dati di ogni stazione con l'origine di ogni campo; stazioni da spegnere (input mancante + danno di business), «flusso da tutorial» contro flusso completo, «prova tutta la catena» che trova l'errore di mappatura che nessuna stazione vede.
+   - P3.2 `punteggio_lead` «il punteggio dei lead»: 10 lead, regole a cursori (settore, dimensione, comportamento, ruolo + soglie) contro giudizio LLM; istruzioni vaghe = tutti 90-92 «alta» (difetto del repo 11), criteri espliciti + «valuta 5 volte» (nuvola stretta, gemelli), confronto dove lo studente marca «aiuta» (note scritte) / «inventa» (motivazioni senza fonte), soluzione mista e calibrazione con chi è diventato cliente.
+   - P3.4 `email_marca` «scrivere l'email giusta»: frasi collegate al dato che le giustifica (rosse se inventate, gialle se ipotesi scritte come fatto), 6 regole di marca da accendere (l'email cambia davvero), prova (casella finta) / produzione (lucchetto con checklist), approva o rimanda, «approva sempre» come tranello.
+   - P3.5 `leggere_risposte` «leggere le risposte»: 11 risposte nei raccoglitori + vassoio «a una persona», accordo su 5 tentativi, soglia con lavoro umano contro errori, regola «la disiscrizione vince sempre», gioco su 4 casi ambigui con «passa a un umano», modalità in ombra e ritorno dei dati al CRM e al punteggio.
+   - P3.5 laboratorio `trova_errore` «TROVA L'ERRORE»: il bug reale del repo 11 (`if "Interested" in status` controllato prima di "Not Interested"): report 5/5 interessati a 90-92 → festeggi o controlli → etichetti le risposte vere → segui il dato e clicchi la stazione dove diventa sbagliato (la conversione, non l'LLM) → scegli la correzione (confronto esatto su elenco chiuso + sconosciuti a una persona + regola fissa disiscrizione) → report vero e abitudini anti-errore.
+   - P3.3 (arricchimento) resta senza lezione propria: il suo nucleo è già manipolabile in P2.4; dichiarato in `tests/test_lezioni.py` (`PILLOLE_M3_SENZA_LEZIONE`).
+3. **15 domande v2** (origine `autori`, striscia, distrattori classificati con spiegazione per ogni opzione, IT+EN, aiuto su un passo della lezione/laboratorio; P3.3 su `scaletta-N`), lotti `strumenti/domande_autori/lotto_m3_*.json`, inserite con `inserisci_domande.py`: P3.1 ×3 (DA3.1-1..3), P3.2 ×2, P3.3 ×2, P3.4 ×3, P3.5 ×5 (3 della lezione + 2 del laboratorio). **Tutti e 5 gli spicchi di M3 sono erogabili.**
+4. **Test**: pytest tutti verdi (nuovo `tests/test_laboratorio.py`; `test_lezioni.py` esteso a laboratori e M3); prove Node 178 (+66 delle 5 lezioni M3); prova di fumo jsdom di tutti i 16 moduli in IT/EN, ogni passo e ogni comando: 0 errori; flusso completo della webapp contro il server vero (accesso, ogni pillola con lezione in IT e EN, ogni passo, scheda Laboratorio, aiuto che apre il laboratorio, P3.3 su scaletta): 186 passi, 0 errori.
+
+### Da sapere
+- Le etichette «Interested» / «Not Interested» restano in inglese anche nella lezione italiana: sono le parole del programma (la lezione lo spiega).
+- Numeri nelle lezioni M3 (punteggi, ore, conteggi di calibrazione) dichiarati illustrativi; contenuti [EXP] usati come da CORSO_CONTENUTI_VERIFICATI (categorie delle risposte, regola della disiscrizione, soglie).
+- Se `dati/corso_v1.json` venisse rigenerato da una copia vecchia, le domande M3 si reinseriscono con `python strumenti/inserisci_domande.py strumenti/domande_autori/lotto_m3_*.json`.
+- Verifica su browser vero non fatta (solo DOM simulato + server vero).
+
+### Resta da fare
+- Revisione di France sui testi delle 5 lezioni M3 e delle 15 domande.
+- Eventuale lezione propria per P3.3 (strati della scheda, tempo che invecchia i dati, costo dell'arricchimento).
 
 ## Stato al 16/11/2026 — fase 3: batch 1 di lezioni interattive (moduli M1 e M2)
 
