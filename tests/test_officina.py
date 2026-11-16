@@ -161,3 +161,60 @@ def test_accesso_crea_anche_lo_stato_dell_officina(client, tmp_path):
     """La prima apertura dell'Officina fa stato + percorso in parallelo: lo stato deve esistere gia' (niente corsa sul file)."""
     assert client.post("/api/accesso", json={"email": EMAIL, "codice": "DEMO-AGENTI"}).status_code == 200
     assert client.app.state.motore_officina.archivio.esiste(EMAIL)
+
+
+DOMANDA_ESEMPIO_OFFICINA = {
+    "id": "DO1.1-esempio", "origine": "autori", "pillola": "PO1.1", "concetti": ["CO02"], "concetto_principale": "CO02",
+    "segmento_aiuto": "scaletta-3", "striscia": "esempio_pratico",
+    "livello1": {
+        "domanda": {"it": "Cambi solo app.py e ricostruisci l'immagine. Quale Dockerfile riusa la cache delle dipendenze?",
+                    "en": "You change only app.py and rebuild the image. Which Dockerfile reuses the dependency cache?"},
+        "opzioni": [
+            {"id": "A", "testo": {"it": "Copia requirements.txt, installa, poi copia il resto del codice",
+                                  "en": "Copies requirements.txt, installs, then copies the rest of the code"}, "corretta": True},
+            {"id": "B", "testo": {"it": "Copia tutto il codice e poi installa le dipendenze",
+                                  "en": "Copies all the code and then installs the dependencies"}, "corretta": False, "tipo_distrattore": "quasi"},
+            {"id": "C", "testo": {"it": "Installa le dipendenze con un tag latest sull'immagine",
+                                  "en": "Installs the dependencies with a latest tag on the image"}, "corretta": False, "tipo_distrattore": "poco"},
+            {"id": "D", "testo": {"it": "Usa un volume al posto del Dockerfile per il codice",
+                                  "en": "Uses a volume instead of the Dockerfile for the code"}, "corretta": False, "tipo_distrattore": "errata"},
+            {"id": "E", "testo": {"it": "Scrive tutto in una sola istruzione RUN molto lunga",
+                                  "en": "Writes everything in one very long RUN instruction"}, "corretta": False, "tipo_distrattore": "poco"},
+        ],
+        "perche": {"it": "Uno strato si rifà solo se cambia lui o uno prima: le dipendenze restano in cache.",
+                   "en": "A layer is rebuilt only if it or an earlier one changes: dependencies stay cached."},
+    },
+    "livello2": {
+        "tipo": "motivazione",
+        "domanda": {"it": "Perché quell'ordine fa risparmiare tempo?", "en": "Why does that order save time?"},
+        "opzioni": [
+            {"id": "A", "testo": {"it": "Gli strati prima del cambiamento restano validi e Docker li riusa",
+                                  "en": "The layers before the change stay valid and Docker reuses them"}, "corretta": True},
+            {"id": "B", "testo": {"it": "Docker installa le dipendenze in parallelo al codice copiato",
+                                  "en": "Docker installs the dependencies in parallel with the copied code"}, "corretta": False, "tipo_distrattore": "quasi"},
+            {"id": "C", "testo": {"it": "L'immagine finale pesa meno e quindi si scarica prima",
+                                  "en": "The final image weighs less and so it downloads sooner"}, "corretta": False, "tipo_distrattore": "poco"},
+            {"id": "D", "testo": {"it": "Il container parte senza Python e lo aggiunge dopo",
+                                  "en": "The container starts without Python and adds it later"}, "corretta": False, "tipo_distrattore": "errata"},
+            {"id": "E", "testo": {"it": "requirements.txt viene letto una volta sola per sempre",
+                                  "en": "requirements.txt is read only once, forever"}, "corretta": False, "tipo_distrattore": "poco"},
+        ],
+        "perche": {"it": "La cache vale per strato, nell'ordine del Dockerfile.", "en": "The cache works per layer, in Dockerfile order."},
+    },
+}
+
+
+def test_inserisci_domande_riconosce_l_officina(dati_config):
+    """Il cantiere contenuti usera' strumenti/inserisci_domande.py: un lotto di pillole PO va nel corso dell'Officina."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("inserisci_domande", RADICE_PROGETTO / "strumenti" / "inserisci_domande.py")
+    m = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(m)
+    assert m.livello_dei_lotti([DOMANDA_ESEMPIO_OFFICINA]) == 2
+    with pytest.raises(m.ErroreInserimento, match="misti"):
+        m.livello_dei_lotti([DOMANDA_ESEMPIO_OFFICINA, {**DOMANDA_ESEMPIO_OFFICINA, "id": "x", "pillola": "P1.1"}])
+    cfg2 = m.config_del_livello(dati_config, 2)
+    corso = json.loads(FILE_CORSO_L2.read_text(encoding="utf-8"))
+    nuovo, motivi = m.verifica(corso, [DOMANDA_ESEMPIO_OFFICINA], cfg2)
+    assert motivi == {"DO1.1-esempio": []}, motivi
+    assert any(d["id"] == "DO1.1-esempio" for p in nuovo["moduli"][0]["pillole"] for d in p["domande"])

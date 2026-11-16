@@ -4,6 +4,10 @@ Uso (dalla radice del progetto):
     python strumenti/inserisci_domande.py --verifica strumenti/domande_autori/lotto_a.json [altri lotti...]
     python strumenti/inserisci_domande.py strumenti/domande_autori/*.json
 
+OFFICINA (livello 2): se TUTTE le domande dei lotti stanno in pillole PO<u>.<n>, il bersaglio e' il corso
+dell'Officina (config: officina.file_corso, con knowledge graph e lezioni dell'Officina); lotti misti fra i due
+livelli sono rifiutati. Vedi CONTRATTO_CONTENUTI_OFFICINA.md.
+
 Un lotto e' un file JSON con una lista di domande nel formato del corso (corso/modello.py, classe Domanda),
 con "origine": "autori". Ogni domanda va nella pillola che dichiara; se una domanda con lo stesso id e
 origine "autori" c'e' gia', viene sostituita (cosi' un lotto si puo' correggere e reinserire).
@@ -69,6 +73,26 @@ def inserisci(corso: dict, domande: list[dict]) -> dict:
     return nuovo
 
 
+def livello_dei_lotti(domande: list[dict]) -> int:
+    """2 se tutte le domande sono dell'Officina (pillole PO...), 1 se nessuna; lotti misti: errore."""
+    officina = [str(d.get("pillola", "")).startswith("PO") for d in domande]
+    if all(officina) and officina:
+        return 2
+    if any(officina):
+        raise ErroreInserimento("lotti misti: domande del livello 1 e dell'Officina vanno inserite in due passate")
+    return 1
+
+
+def config_del_livello(dati_config: dict, livello: int) -> dict:
+    """Config con corso, knowledge graph e lezioni del livello (per il 2: sezione officina)."""
+    dati = copy.deepcopy(dati_config)
+    if livello == 2:
+        o = dati["officina"]
+        dati["percorsi_file"].update(corso=o["file_corso"], knowledge_graph=o["file_knowledge_graph"],
+                                     cartella_lezioni=o["cartella_lezioni"])
+    return dati
+
+
 def catalogo_su(corso: dict, dati_config: dict) -> Catalogo:
     """Catalogo vero caricato su una copia del corso (file temporaneo), senza toccare dati/."""
     cartella = Path(tempfile.mkdtemp(prefix="inserisci_domande_"))
@@ -93,10 +117,12 @@ def main(argv: list[str]) -> int:
     if not lotti:
         print(__doc__)
         return 2
-    dati_config = leggi_json(FILE_CONFIG)
+    domande = leggi_lotti(lotti)
+    livello = livello_dei_lotti(domande)
+    dati_config = config_del_livello(leggi_json(FILE_CONFIG), livello)
     file_corso = RADICE / dati_config["percorsi_file"]["corso"]
     corso = leggi_json(file_corso)
-    domande = leggi_lotti(lotti)
+    print(f"livello {livello}: {file_corso}")
     nuovo, motivi = verifica(corso, domande, dati_config)
     errori = {did: m for did, m in motivi.items() if m}
     for did, m in errori.items():

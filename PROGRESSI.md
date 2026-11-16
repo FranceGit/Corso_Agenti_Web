@@ -1,5 +1,88 @@
 # PROGRESSI — Corso Agenti Web
 
+## Stato al 16/11/2026 — cantiere OFFICINA-FONDAMENTA (livello 2 «Officina»: impalcatura, esercizi 7-12, assistente libero, kit Codespaces)
+Commit `1dfc05c`, `ecb3664`, `8bda412` e il commit finale di questa sezione. Perimetro: impalcatura ed esercizi. **Non** scritti testi delle lezioni né domande, che spettano al cantiere contenuti secondo `CONTRATTO_CONTENUTI_OFFICINA.md`.
+
+### Scelte architetturali (e perché)
+- **Il livello 2 è un secondo catalogo con un secondo motore, non altri moduli in `corso_v1.json`.**
+  - File propri: `dati/officina/corso_officina.json` (`"livello": 2`, unità O1-O6, 12 pillole PO<u>.<n>), `knowledge_graph_officina.json` (17 concetti CO<nn>), `lezioni/`.
+  - Motivo: `corso_v1.json` e `knowledge_graph.json` li rigenera `estrai_corso.py` dal documento benchmark.
+  - Stato studente separato (`stato_studenti/officina`): salute, percorso e record dell'Officina non toccano quelli del livello 1.
+- **Riuso totale del meccanismo.** `corso/officina.py` deriva la config (`config_officina`) e `corso/app.py` monta le stesse rotte del percorso due volte (`monta_percorso("/api", …)` e `monta_percorso("/api/officina", …)`).
+  - Gli indirizzi del livello 1 sono invariati.
+  - Quando il cantiere contenuti inserirà lezioni e domande, si giocheranno senza altro codice.
+- **Modello** (`corso/modello.py`, schemi rigenerati con `esporta_schema.py`, `git diff schema/` contiene solo questi cambi):
+  - `Corso.livello` (1|2, predefinito 1: i file del livello 1 restano validi così come sono);
+  - id `[MO]n`, `PO?n.n`, `CO?nn`;
+  - un validatore impedisce di mescolare i prefissi fra i livelli.
+- **Cancello** (`config/piattaforma.json` → `officina`, con `_why`):
+  - `politica_sblocco: "dopo_livello1"`: l'Officina si apre a percorso del livello 1 completo, oppure completato almeno una volta (un nuovo giro non la richiude). Vale per lezioni, domande **ed** esercizi.
+  - `deroga_alpha: true`: aperta finché `alpha.modalita_alpha` è attiva, e la vista lo dichiara («aperta per il collaudo»). In beta il cancello torna attivo da solo.
+  - Motivo: l'Officina usa il vocabolario di M3/M4/M7/M8; aperta prima, gli esercizi sarebbero ricette senza perché.
+- **Esercizi 7-12**: stesso `MotoreEsercizi` e stessa pagina, ma laboratorio proprio (`esercizi/config/officina.json`, stato `stato_esercizi/officina`), montato su `/api/officina/esercizi` dietro il cancello.
+  - I test esistenti degli esercizi 1-6 restano identici.
+  - Tipo di area unico `officina` (`esercizi/officina/base.py`): materiale in sola lettura, file da sistemare, scelte chiuse (mai domande aperte), importazione del «pacchetto di consegna» prodotto in Codespaces.
+- **Correttore deterministico**:
+  - i file si leggono come testo (`esercizi/officina/analisi.py`: Dockerfile, compose con PyYAML, requirements, JSON con commenti, forme di chiave);
+  - l'unico codice eseguito è il `response_classifier.py` dell'esercizio 8, nel **banco** (`banco_classificatore.py`): controllo dell'albero sintattico, processo `python -I` isolato con ambiente vuoto, tempo massimo, modello finto, 8 casi fissi;
+  - gli esiti stanno nella fotografia, quindi la correzione resta pura e la ricorrezione identica.
+- **Webapp** (minima):
+  - in `app.js` un solo punto di instradamento (`instrada`: con `S.livello === 2` le API del percorso e degli esercizi vanno su `/api/officina/…`);
+  - in fondo alla barra laterale, **dopo gli 8 moduli**, la voce «Livello 2 · Officina» (lucchetto e motivo se chiusa) e, dentro l'Officina, «Torna al livello 1»;
+  - mappa, pillole, quiz, debriefing ed esercizi sono le viste di sempre;
+  - in `esercizi.js` il disegno dell'area `officina` (con bozze conservate fra un ridisegno e l'altro).
+  - `app.css` non è toccato.
+- **Assistente libero O5** (`esercizi/assistente/`, solo libreria standard):
+  - backend `finto` (predefinito, deterministico), `ollama` e `groq` (piano gratuito, chiave solo da `GROQ_API_KEY`);
+  - configurazione prima del codice (`assistente.json` con `_why`, validatore usato anche dal correttore dell'esercizio 11), backend scelto da fuori con `ASSISTENTE_BACKEND`;
+  - errori parlanti per chiave mancante, 401/403, 429 (con retry-after), 404, rete assente; mai un ripiego silenzioso, mai la chiave nei messaggi.
+- **Kit Codespaces**:
+  - `codespaces_modello/` è **generata** da `strumenti/prepara_codespaces.py` partendo da `strumenti/codespaces/` (devcontainer, README, requirements fissati, .gitignore, pytest, `pacchetto.py`), dall'assistente e dal materiale di O1-O6. Contiene solo esercizi e assistente, niente corso.
+  - Un test ne verifica l'allineamento con le fonti.
+  - `PUBBLICA_OFFICINA.cmd` in radice:
+    - crea FranceGit/corso-officina **privato** (con gh se c'è, altrimenti curl sull'API) e ci pubblica la cartella con git via HTTPS, senza mai un push forzato;
+    - il token si innesta al posto di `<INCOLLA_QUI_IL_TOKEN_GITHUB>` oppure arriva da `OFFICINA_GITHUB_TOKEN`;
+    - il token non viene mai stampato: lo passa un aiutante delle credenziali da variabile d'ambiente, non finisce nell'URL e i comandi di rete sono zittiti;
+    - CRLF garantito da `.gitattributes`.
+
+### Difetto reale di patowari (dettagli in CONTRATTO §5)
+`app/agents/response_classifier.py` controlla `"Interested" in status_str` prima di `"Not Interested"`. Ogni «Not Interested» diventa INTERESTED: il report del repo stesso dice «Interested: 5, Not Interested: 0». L'esercizio 8 lo verifica col banco come controllo bloccante. Documentati altri 8 difetti reali secondari, fra cui il ripiego silenzioso di `LLMService` (chiave scaduta = punteggio 50 per tutti ed email vuote inviate) e il `.gitignore` che ignora `.env.example`. Il repo **non ha licenza**.
+
+### Esercizi (partenza → soluzione di riferimento)
+| N. | Unità | Partenza | Soluzione | Bloccanti |
+|---|---|---|---|---|
+| 7 | O1 Docker | 0 | 100 | chiave nell'immagine |
+| 8 | O2 repo adottato | 0 | 100 (solo l'ordine invertito: supera, perde la robustezza) | difetto non corretto, chiave nel repo |
+| 9 | O3 nebula | 13 | 100 | — |
+| 10 | O4 MCP | 0 | 100 | radice del filesystem troppo larga |
+| 11 | O5 assistente | 0 | 100 | chiave nel file |
+| 12 | O6 Codespaces | 0 | 100 | segreto scritto nel devcontainer |
+
+### Collaudo
+- pytest `tests`: 200 test preesistenti verdi (1 saltato) più 12 nuovi in `tests/test_officina.py` (211 superati in tutto).
+- pytest `esercizi/tests`: 143 preesistenti più 71 nuovi (214 in tutto), fra `test_officina.py`, `test_assistente.py` e `test_officina_kit.py`.
+- Prove Node: `prova_animazioni.mjs` 548 e `misura_testi.mjs` 94, invariate e verdi.
+- Browser simulato contro il server vero:
+  - `esercizi/collaudo/flusso_officina.mjs`: 34 passi, 0 errori, ripetuto 3 volte (livello 2 dopo gli 8 moduli, unità, esercizio 8 corretto nel browser, pacchetto importato fino a 100 nel 7, inglese, ritorno al livello 1);
+  - `flusso_browser.mjs` del livello 1: 182 passi, 0 errori.
+- Nel repo studente: `pytest tests` verde senza rete; `pytest officina/o2` rosso finché il difetto c'è (voluto).
+- **Difetto trovato e riparato dal collaudo**: alla prima apertura dell'Officina stato e percorso partivano in parallelo e la doppia creazione del file di stato dava un 500 casuale. Ora lo stato dell'Officina nasce all'accesso; il test di regressione è in `tests/test_officina.py`.
+
+### Da sapere
+- `requirements.txt` ora comprende `pyyaml` (MIT) per leggere i compose consegnati: sul PC di France serve `pip install -r requirements.txt`.
+- jsdom va installato su disco locale (`JSDOM_DIR`): dalla cartella di rete il solo `require("jsdom")` supera i 100 secondi.
+- I modelli gratuiti di Groq e i numeri del piano gratuito di Codespaces sono quelli noti a novembre 2026. Sono dichiarati «da riverificare» nei `_why`: l'elenco dei modelli si cambia in un solo punto per il correttore (`esercizi/config/officina.json`).
+- Le soluzioni di O5 e O6 sono visibili nel repo studente (`assistente/assistente.json`, `.devcontainer/devcontainer.json`): sono i file veri che fanno funzionare il laboratorio. Gli esercizi chiedono di sistemare le copie difettose e di capire perché.
+- Mai eseguiti in sandbox: Docker, Codespaces, Groq vero, `PUBBLICA_OFFICINA.cmd` (che richiede Windows, git e il token di France).
+
+### Resta da fare
+- **Cantiere contenuti** (contratto in radice): 12 lezioni con componenti JS e prove, almeno 34 domande (obiettivo 51) in IT+EN, test delle lezioni estesi a `dati/officina/lezioni/`.
+- France:
+  - creare il token ed eseguire `PUBBLICA_OFFICINA.cmd`;
+  - aggiungere il segreto `GROQ_API_KEY` in Codespaces;
+  - decidere sulla licenza di patowari prima di un eventuale repo pubblico.
+- Prova a mano in un Codespace vero: devcontainer, docker-in-docker, O1/O2 con Docker vero.
+
 ## Stato al 16/11/2026 — cantiere CONTENUTI-REV (segnalazioni France 4, 8, 9, 10)
 Commit `8197bd4` (domande) e `4e9a195` (lezioni, scalette, bibliografia). Perimetro: contenuti. Non toccati webapp, server, `corso/modello.py` (il campo `glossario` c'era già, ALPHA-FIX `74f9e7b`).
 
