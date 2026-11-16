@@ -57,7 +57,7 @@
      "type": "integer"
     },
     "id": {
-     "pattern": "^C\\d{2}$",
+     "pattern": "^CO?\\d{2}$",
      "title": "Id",
      "type": "string"
     },

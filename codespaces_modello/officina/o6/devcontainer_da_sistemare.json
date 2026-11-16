@@ -1,0 +1,8 @@
+// devcontainer di partenza (O6): si apre, ma consuma il piano gratuito in fretta e porta una chiave nel repo.
+{
+  "name": "Officina",
+  "image": "mcr.microsoft.com/devcontainers/python:latest",
+  "hostRequirements": { "cpus": 8 },
+  "containerEnv": { "GROQ_API_KEY": "incolla-qui-la-tua-chiave" },
+  "forwardPorts": [8000]
+}

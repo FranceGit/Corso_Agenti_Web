@@ -1,0 +1,320 @@
+{
+ "versione_schema": 1,
+ "fonte": "STRUTTURA_OFFICINA (cantiere OFFICINA-FONDAMENTA, 16/11/2026)",
+ "pesi_per_tipo": {
+  "PRE": 3,
+  "CON": 2,
+  "MIT": 2,
+  "APP": 2,
+  "ES": 1
+ },
+ "legenda": {
+  "PRE": {
+   "it": "prerequisito di",
+   "en": "prerequisite of"
+  },
+  "APP": {
+   "it": "approfondisce",
+   "en": "deepens"
+  },
+  "CON": {
+   "it": "contrasta / si distingue da",
+   "en": "contrasts with / differs from"
+  },
+  "ES": {
+   "it": "esempio di",
+   "en": "example of"
+  },
+  "MIT": {
+   "it": "mitiga (rischio -> contromisura)",
+   "en": "mitigates (risk -> countermeasure)"
+  }
+ },
+ "nodi": [
+  {
+   "id": "CO01",
+   "nome": {
+    "it": "Immagine e container",
+    "en": "Image and container"
+   },
+   "pillole": [
+    "PO1.1"
+   ],
+   "anello": 1
+  },
+  {
+   "id": "CO02",
+   "nome": {
+    "it": "Strati e cache di build",
+    "en": "Layers and build cache"
+   },
+   "pillole": [
+    "PO1.1"
+   ],
+   "anello": 1
+  },
+  {
+   "id": "CO03",
+   "nome": {
+    "it": "Volumi e persistenza",
+    "en": "Volumes and persistence"
+   },
+   "pillole": [
+    "PO1.2"
+   ],
+   "anello": 1
+  },
+  {
+   "id": "CO04",
+   "nome": {
+    "it": "Compose: servizi, porte, salute",
+    "en": "Compose: services, ports, health"
+   },
+   "pillole": [
+    "PO1.2"
+   ],
+   "anello": 1
+  },
+  {
+   "id": "CO05",
+   "nome": {
+    "it": "Lettura di un repo sconosciuto",
+    "en": "Reading an unknown repo"
+   },
+   "pillole": [
+    "PO2.1"
+   ],
+   "anello": 2
+  },
+  {
+   "id": "CO06",
+   "nome": {
+    "it": "Dipendenze riproducibili",
+    "en": "Reproducible dependencies"
+   },
+   "pillole": [
+    "PO2.2"
+   ],
+   "anello": 2
+  },
+  {
+   "id": "CO07",
+   "nome": {
+    "it": "Difetto reale e test di regressione",
+    "en": "Real defect and regression test"
+   },
+   "pillole": [
+    "PO2.2"
+   ],
+   "anello": 2
+  },
+  {
+   "id": "CO08",
+   "nome": {
+    "it": "Blueprint e architettura",
+    "en": "Blueprint and architecture"
+   },
+   "pillole": [
+    "PO3.1"
+   ],
+   "anello": 3
+  },
+  {
+   "id": "CO09",
+   "nome": {
+    "it": "Schemi dati come contratto",
+    "en": "Data schemas as a contract"
+   },
+   "pillole": [
+    "PO3.2"
+   ],
+   "anello": 3
+  },
+  {
+   "id": "CO10",
+   "nome": {
+    "it": "Ruoli degli agenti costruttori",
+    "en": "Roles of builder agents"
+   },
+   "pillole": [
+    "PO3.2"
+   ],
+   "anello": 3
+  },
+  {
+   "id": "CO11",
+   "nome": {
+    "it": "Server MCP di riferimento",
+    "en": "Reference MCP servers"
+   },
+   "pillole": [
+    "PO4.1"
+   ],
+   "anello": 4
+  },
+  {
+   "id": "CO12",
+   "nome": {
+    "it": "Radici consentite e minimo privilegio",
+    "en": "Allowed roots and least privilege"
+   },
+   "pillole": [
+    "PO4.2"
+   ],
+   "anello": 4
+  },
+  {
+   "id": "CO13",
+   "nome": {
+    "it": "Astrazione del backend del modello",
+    "en": "Model backend abstraction"
+   },
+   "pillole": [
+    "PO5.1"
+   ],
+   "anello": 5
+  },
+  {
+   "id": "CO14",
+   "nome": {
+    "it": "Segreti fuori dal repo",
+    "en": "Secrets out of the repo"
+   },
+   "pillole": [
+    "PO5.2"
+   ],
+   "anello": 5
+  },
+  {
+   "id": "CO15",
+   "nome": {
+    "it": "Errore esplicito, mai ripiego silenzioso",
+    "en": "Explicit error, never silent fallback"
+   },
+   "pillole": [
+    "PO5.2"
+   ],
+   "anello": 5
+  },
+  {
+   "id": "CO16",
+   "nome": {
+    "it": "Devcontainer",
+    "en": "Devcontainer"
+   },
+   "pillole": [
+    "PO6.1"
+   ],
+   "anello": 6
+  },
+  {
+   "id": "CO17",
+   "nome": {
+    "it": "Limiti del free tier",
+    "en": "Free tier limits"
+   },
+   "pillole": [
+    "PO6.2"
+   ],
+   "anello": 6
+  }
+ ],
+ "archi": [
+  {
+   "da": "CO01",
+   "a": "CO02",
+   "tipo": "PRE",
+   "peso": 3
+  },
+  {
+   "da": "CO01",
+   "a": "CO03",
+   "tipo": "PRE",
+   "peso": 3
+  },
+  {
+   "da": "CO03",
+   "a": "CO04",
+   "tipo": "PRE",
+   "peso": 3
+  },
+  {
+   "da": "CO02",
+   "a": "CO06",
+   "tipo": "APP",
+   "peso": 2
+  },
+  {
+   "da": "CO05",
+   "a": "CO07",
+   "tipo": "PRE",
+   "peso": 3
+  },
+  {
+   "da": "CO06",
+   "a": "CO07",
+   "tipo": "APP",
+   "peso": 2
+  },
+  {
+   "da": "CO04",
+   "a": "CO16",
+   "tipo": "PRE",
+   "peso": 3
+  },
+  {
+   "da": "CO08",
+   "a": "CO09",
+   "tipo": "PRE",
+   "peso": 3
+  },
+  {
+   "da": "CO09",
+   "a": "CO10",
+   "tipo": "APP",
+   "peso": 2
+  },
+  {
+   "da": "CO11",
+   "a": "CO12",
+   "tipo": "PRE",
+   "peso": 3
+  },
+  {
+   "da": "CO13",
+   "a": "CO15",
+   "tipo": "PRE",
+   "peso": 3
+  },
+  {
+   "da": "CO14",
+   "a": "CO15",
+   "tipo": "APP",
+   "peso": 2
+  },
+  {
+   "da": "CO15",
+   "a": "CO07",
+   "tipo": "ES",
+   "peso": 1
+  },
+  {
+   "da": "CO16",
+   "a": "CO17",
+   "tipo": "PRE",
+   "peso": 3
+  },
+  {
+   "da": "CO06",
+   "a": "CO16",
+   "tipo": "APP",
+   "peso": 2
+  },
+  {
+   "da": "CO12",
+   "a": "CO14",
+   "tipo": "MIT",
+   "peso": 2
+  }
+ ]
+}

@@ -1,0 +1,660 @@
+{
+ "versione_schema": 2,
+ "id": "corso_agenti_crm_officina_v1",
+ "livello": 2,
+ "titolo": {
+  "it": "Officina: agenti al banco di lavoro",
+  "en": "Workshop: agents at the workbench"
+ },
+ "fonte": "STRUTTURA_OFFICINA (cantiere OFFICINA-FONDAMENTA, 16/11/2026)",
+ "moduli": [
+  {
+   "id": "O1",
+   "titolo": {
+    "it": "Docker da vicino",
+    "en": "Docker up close"
+   },
+   "anello": 1,
+   "pillole": [
+    {
+     "id": "PO1.1",
+     "titolo": {
+      "it": "Immagini, container e strati",
+      "en": "Images, containers and layers"
+     },
+     "durata_min": 6,
+     "prerequisiti": [],
+     "concetti": [
+      "CO01",
+      "CO02"
+     ],
+     "fonti": [
+      "DOCKER-DOC",
+      "LAB-L1"
+     ],
+     "obiettivo": {
+      "it": "distinguere immagine e container e leggere un Dockerfile riga per riga, con l'ordine degli strati che rende veloce la ricostruzione.",
+      "en": "tell an image from a container and read a Dockerfile line by line, with the layer order that makes rebuilds fast."
+     },
+     "scaletta": [
+      {
+       "it": "Immagine = ricetta congelata; container = un'esecuzione di quella ricetta.",
+       "en": "Image = frozen recipe; container = one run of that recipe."
+      },
+      {
+       "it": "Ogni istruzione del Dockerfile è uno strato: se cambia, si ricostruiscono lui e tutti quelli dopo.",
+       "en": "Each Dockerfile instruction is a layer: if it changes, it and all the following ones are rebuilt."
+      },
+      {
+       "it": "Prima le dipendenze (requirements.txt), poi il codice: la cache resta valida quando cambi solo il codice.",
+       "en": "Dependencies (requirements.txt) first, then the code: the cache stays valid when you change only the code."
+      },
+      {
+       "it": "Tag fisso dell'immagine di base, utente non root, nessun segreto nelle istruzioni.",
+       "en": "Pinned base image tag, non-root user, no secrets in the instructions."
+      }
+     ],
+     "animazione": {
+      "titolo": {
+       "it": "La pila degli strati",
+       "en": "The layer stack"
+      },
+      "progetto": {
+       "it": "Da progettare (cantiere contenuti Officina: vedi CONTRATTO_CONTENUTI_OFFICINA.md).",
+       "en": "To be designed (Officina content workstream: see CONTRATTO_CONTENUTI_OFFICINA.md)."
+      }
+     },
+     "domande": []
+    },
+    {
+     "id": "PO1.2",
+     "titolo": {
+      "it": "Volumi, porte e compose",
+      "en": "Volumes, ports and compose"
+     },
+     "durata_min": 6,
+     "prerequisiti": [
+      "PO1.1"
+     ],
+     "concetti": [
+      "CO03",
+      "CO04"
+     ],
+     "fonti": [
+      "DOCKER-DOC",
+      "LAB-L1"
+     ],
+     "obiettivo": {
+      "it": "far sopravvivere i dati a un container cancellato e descrivere più servizi insieme in un docker-compose.yml leggibile.",
+      "en": "make data survive a deleted container and describe several services together in a readable docker-compose.yml."
+     },
+     "scaletta": [
+      {
+       "it": "Il filesystem di un container sparisce con lui: i dati vivono in un volume.",
+       "en": "A container's filesystem disappears with it: data lives in a volume."
+      },
+      {
+       "it": "Compose descrive servizi, reti e volumi in un solo file: un comando li accende tutti.",
+       "en": "Compose describes services, networks and volumes in one file: one command starts them all."
+      },
+      {
+       "it": "Porte pubblicate solo su 127.0.0.1 quando il servizio serve solo a te.",
+       "en": "Ports published only on 127.0.0.1 when the service is only for you."
+      },
+      {
+       "it": "Controllo di salute e dipendenze fra servizi: chi parte prima e quando è pronto.",
+       "en": "Health check and dependencies between services: who starts first and when it is ready."
+      }
+     ],
+     "animazione": {
+      "titolo": {
+       "it": "Il container che dimentica",
+       "en": "The container that forgets"
+      },
+      "progetto": {
+       "it": "Da progettare (cantiere contenuti Officina: vedi CONTRATTO_CONTENUTI_OFFICINA.md).",
+       "en": "To be designed (Officina content workstream: see CONTRATTO_CONTENUTI_OFFICINA.md)."
+      }
+     },
+     "domande": []
+    }
+   ]
+  },
+  {
+   "id": "O2",
+   "titolo": {
+    "it": "Adotta un repo",
+    "en": "Adopt a repo"
+   },
+   "anello": 2,
+   "pillole": [
+    {
+     "id": "PO2.1",
+     "titolo": {
+      "it": "Leggere un repo che non è tuo",
+      "en": "Reading a repo that is not yours"
+     },
+     "durata_min": 6,
+     "prerequisiti": [
+      "PO1.2"
+     ],
+     "concetti": [
+      "CO05"
+     ],
+     "fonti": [
+      "REPO-PATOWARI"
+     ],
+     "obiettivo": {
+      "it": "orientarsi in un repo sconosciuto (ingresso, dipendenze, configurazione, flusso dei dati) prima di eseguirlo.",
+      "en": "find your way in an unknown repo (entry point, dependencies, configuration, data flow) before running it."
+     },
+     "scaletta": [
+      {
+       "it": "Il materiale scaricato è un dato non fidato: si legge prima di eseguirlo, mai il contrario.",
+       "en": "Downloaded material is untrusted data: you read it before running it, never the other way round."
+      },
+      {
+       "it": "Da dove si entra (main.py), cosa serve (requirements.txt), cosa si configura (config.py, .env).",
+       "en": "Where you enter (main.py), what it needs (requirements.txt), what you configure (config.py, .env)."
+      },
+      {
+       "it": "Seguire un lead dall'ingresso al report: punteggio, arricchimento, email, risposta simulata.",
+       "en": "Follow a lead from input to report: score, enrichment, email, simulated reply."
+      },
+      {
+       "it": "Il report del repo dice 5 interessati su 5: è un risultato o un sintomo?",
+       "en": "The repo's report says 5 interested out of 5: is it a result or a symptom?"
+      }
+     ],
+     "animazione": {
+      "titolo": {
+       "it": "La mappa del repo",
+       "en": "The repo map"
+      },
+      "progetto": {
+       "it": "Da progettare (cantiere contenuti Officina: vedi CONTRATTO_CONTENUTI_OFFICINA.md).",
+       "en": "To be designed (Officina content workstream: see CONTRATTO_CONTENUTI_OFFICINA.md)."
+      }
+     },
+     "domande": []
+    },
+    {
+     "id": "PO2.2",
+     "titolo": {
+      "it": "Containerizzare e correggere",
+      "en": "Containerise and fix"
+     },
+     "durata_min": 6,
+     "prerequisiti": [
+      "PO2.1"
+     ],
+     "concetti": [
+      "CO06",
+      "CO07"
+     ],
+     "fonti": [
+      "REPO-PATOWARI",
+      "DOCKER-DOC"
+     ],
+     "obiettivo": {
+      "it": "far girare il repo in un container con dipendenze fissate e correggere un difetto reale dimostrandolo con un test.",
+      "en": "run the repo in a container with pinned dependencies and fix a real defect, proving it with a test."
+     },
+     "scaletta": [
+      {
+       "it": "requirements.txt con versioni fissate: stessa installazione oggi e fra sei mesi.",
+       "en": "requirements.txt with pinned versions: the same install today and in six months."
+      },
+      {
+       "it": "La chiave del modello arriva da una variabile d'ambiente, mai dal repo (.env.example vuoto).",
+       "en": "The model key comes from an environment variable, never from the repo (empty .env.example)."
+      },
+      {
+       "it": "Per i test il modello finto: deterministico, senza rete, senza costi.",
+       "en": "For tests, the fake model: deterministic, no network, no cost."
+      },
+      {
+       "it": "Il difetto: un controllo «contiene» nell'ordine sbagliato trasforma ogni «Not Interested» in «Interested».",
+       "en": "The defect: a «contains» check in the wrong order turns every «Not Interested» into «Interested»."
+      },
+      {
+       "it": "Prima il test che fallisce, poi la correzione, poi il test che passa.",
+       "en": "First the failing test, then the fix, then the passing test."
+      }
+     ],
+     "animazione": {
+      "titolo": {
+       "it": "Il filtro bucato",
+       "en": "The leaky filter"
+      },
+      "progetto": {
+       "it": "Da progettare (cantiere contenuti Officina: vedi CONTRATTO_CONTENUTI_OFFICINA.md).",
+       "en": "To be designed (Officina content workstream: see CONTRATTO_CONTENUTI_OFFICINA.md)."
+      }
+     },
+     "domande": []
+    }
+   ]
+  },
+  {
+   "id": "O3",
+   "titolo": {
+    "it": "Dentro un CRM enterprise",
+    "en": "Inside an enterprise CRM"
+   },
+   "anello": 3,
+   "pillole": [
+    {
+     "id": "PO3.1",
+     "titolo": {
+      "it": "Il blueprint di un CRM vero",
+      "en": "The blueprint of a real CRM"
+     },
+     "durata_min": 6,
+     "prerequisiti": [],
+     "concetti": [
+      "CO08"
+     ],
+     "fonti": [
+      "NEBULA-CRM"
+     ],
+     "obiettivo": {
+      "it": "leggere il blueprint e l'architettura di nebula-insurance-crm e ritrovare entità, confini e decisioni.",
+      "en": "read the blueprint and architecture of nebula-insurance-crm and find its entities, boundaries and decisions."
+     },
+     "scaletta": [
+      {
+       "it": "Il blueprint dice cosa si costruisce e perché, prima di una riga di codice.",
+       "en": "The blueprint says what is built and why, before a single line of code."
+      },
+      {
+       "it": "Architettura: componenti, confini e decisioni registrate.",
+       "en": "Architecture: components, boundaries and recorded decisions."
+      },
+      {
+       "it": "Lettura guidata: dove sono le entità principali, dove le regole di sicurezza.",
+       "en": "Guided reading: where the main entities are, where the security rules are."
+      }
+     ],
+     "animazione": {
+      "titolo": {
+       "it": "Il CRM in pianta",
+       "en": "The CRM floor plan"
+      },
+      "progetto": {
+       "it": "Da progettare (cantiere contenuti Officina: vedi CONTRATTO_CONTENUTI_OFFICINA.md).",
+       "en": "To be designed (Officina content workstream: see CONTRATTO_CONTENUTI_OFFICINA.md)."
+      }
+     },
+     "domande": []
+    },
+    {
+     "id": "PO3.2",
+     "titolo": {
+      "it": "Schemi dati e agenti costruttori",
+      "en": "Data schemas and builder agents"
+     },
+     "durata_min": 6,
+     "prerequisiti": [
+      "PO3.1"
+     ],
+     "concetti": [
+      "CO09",
+      "CO10"
+     ],
+     "fonti": [
+      "NEBULA-CRM",
+      "NEBULA-AGENTS"
+     ],
+     "obiettivo": {
+      "it": "usare gli schemi JSON come contratto fra parti e riconoscere i ruoli degli agenti che hanno pianificato il CRM (nebula-agents).",
+      "en": "use JSON schemas as a contract between parts and recognise the roles of the agents that planned the CRM (nebula-agents)."
+     },
+     "scaletta": [
+      {
+       "it": "Uno schema JSON dice quali campi sono obbligatori e di che tipo: è il contratto.",
+       "en": "A JSON schema says which fields are required and of what type: it is the contract."
+      },
+      {
+       "it": "Richiesta di creazione e risorsa salvata hanno schemi diversi: perché.",
+       "en": "Create request and stored resource have different schemas: why."
+      },
+      {
+       "it": "nebula-agents: ruoli con competenze scritte (SKILL.md) e un contratto con il repo prodotto.",
+       "en": "nebula-agents: roles with written skills (SKILL.md) and a contract with the product repo."
+      }
+     ],
+     "animazione": {
+      "titolo": {
+       "it": "Il contratto fra le parti",
+       "en": "The contract between the parts"
+      },
+      "progetto": {
+       "it": "Da progettare (cantiere contenuti Officina: vedi CONTRATTO_CONTENUTI_OFFICINA.md).",
+       "en": "To be designed (Officina content workstream: see CONTRATTO_CONTENUTI_OFFICINA.md)."
+      }
+     },
+     "domande": []
+    }
+   ]
+  },
+  {
+   "id": "O4",
+   "titolo": {
+    "it": "MCP in pratica",
+    "en": "MCP in practice"
+   },
+   "anello": 4,
+   "pillole": [
+    {
+     "id": "PO4.1",
+     "titolo": {
+      "it": "Tre server MCP di riferimento",
+      "en": "Three reference MCP servers"
+     },
+     "durata_min": 6,
+     "prerequisiti": [],
+     "concetti": [
+      "CO11"
+     ],
+     "fonti": [
+      "MCP-SERVERS"
+     ],
+     "obiettivo": {
+      "it": "riconoscere cosa offrono i server filesystem, fetch e memory e configurarli in un client.",
+      "en": "recognise what the filesystem, fetch and memory servers offer and configure them in a client."
+     },
+     "scaletta": [
+      {
+       "it": "filesystem: leggere e scrivere file, solo dentro le cartelle consentite.",
+       "en": "filesystem: read and write files, only inside the allowed folders."
+      },
+      {
+       "it": "fetch: scaricare una pagina web e convertirla in testo per il modello.",
+       "en": "fetch: download a web page and turn it into text for the model."
+      },
+      {
+       "it": "memory: un grafo di entità, relazioni e osservazioni che dura fra le sessioni.",
+       "en": "memory: a graph of entities, relations and observations that lasts across sessions."
+      },
+      {
+       "it": "La configurazione del client: comando, argomenti, variabili d'ambiente.",
+       "en": "The client configuration: command, arguments, environment variables."
+      }
+     ],
+     "animazione": {
+      "titolo": {
+       "it": "Tre prese, tre strumenti",
+       "en": "Three sockets, three tools"
+      },
+      "progetto": {
+       "it": "Da progettare (cantiere contenuti Officina: vedi CONTRATTO_CONTENUTI_OFFICINA.md).",
+       "en": "To be designed (Officina content workstream: see CONTRATTO_CONTENUTI_OFFICINA.md)."
+      }
+     },
+     "domande": []
+    },
+    {
+     "id": "PO4.2",
+     "titolo": {
+      "it": "Confini degli strumenti",
+      "en": "Tool boundaries"
+     },
+     "durata_min": 6,
+     "prerequisiti": [
+      "PO4.1"
+     ],
+     "concetti": [
+      "CO12"
+     ],
+     "fonti": [
+      "MCP-SERVERS"
+     ],
+     "obiettivo": {
+      "it": "restringere ogni server MCP al minimo che serve e prevedere cosa succede a una richiesta fuori dai confini.",
+      "en": "restrict each MCP server to the minimum it needs and predict what happens to a request outside the boundaries."
+     },
+     "scaletta": [
+      {
+       "it": "Radici consentite: una cartella di lavoro, mai la radice del disco o la home intera.",
+       "en": "Allowed roots: one working folder, never the disk root or the whole home."
+      },
+      {
+       "it": "La memoria su un file in un volume: sopravvive, ma si può azzerare.",
+       "en": "Memory in a file on a volume: it survives, but can be reset."
+      },
+      {
+       "it": "Un contenuto scaricato con fetch è un dato, non un'istruzione.",
+       "en": "Content downloaded with fetch is data, not an instruction."
+      }
+     ],
+     "animazione": {
+      "titolo": {
+       "it": "Il recinto",
+       "en": "The fence"
+      },
+      "progetto": {
+       "it": "Da progettare (cantiere contenuti Officina: vedi CONTRATTO_CONTENUTI_OFFICINA.md).",
+       "en": "To be designed (Officina content workstream: see CONTRATTO_CONTENUTI_OFFICINA.md)."
+      }
+     },
+     "domande": []
+    }
+   ]
+  },
+  {
+   "id": "O5",
+   "titolo": {
+    "it": "L'assistente libero",
+    "en": "The free assistant"
+   },
+   "anello": 5,
+   "pillole": [
+    {
+     "id": "PO5.1",
+     "titolo": {
+      "it": "Tre backend, un'interfaccia",
+      "en": "Three backends, one interface"
+     },
+     "durata_min": 6,
+     "prerequisiti": [
+      "PO2.2"
+     ],
+     "concetti": [
+      "CO13"
+     ],
+     "fonti": [
+      "ASSISTENTE-OFFICINA"
+     ],
+     "obiettivo": {
+      "it": "scegliere fra modello finto, Ollama locale e Groq gratuito cambiando solo la configurazione.",
+      "en": "choose between fake model, local Ollama and free Groq by changing only the configuration."
+     },
+     "scaletta": [
+      {
+       "it": "Una sola funzione «completa»: chi chiama non sa quale backend risponde.",
+       "en": "A single «complete» function: the caller does not know which backend answers."
+      },
+      {
+       "it": "finto: deterministico, per test e correttore; ollama: locale; groq: free tier in rete.",
+       "en": "fake: deterministic, for tests and the grader; ollama: local; groq: free tier over the network."
+      },
+      {
+       "it": "Configurazione prima del codice, con il perché di ogni scelta (_why).",
+       "en": "Configuration before code, with the reason for each choice (_why)."
+      }
+     ],
+     "animazione": {
+      "titolo": {
+       "it": "Il commutatore",
+       "en": "The switch"
+      },
+      "progetto": {
+       "it": "Da progettare (cantiere contenuti Officina: vedi CONTRATTO_CONTENUTI_OFFICINA.md).",
+       "en": "To be designed (Officina content workstream: see CONTRATTO_CONTENUTI_OFFICINA.md)."
+      }
+     },
+     "domande": []
+    },
+    {
+     "id": "PO5.2",
+     "titolo": {
+      "it": "Chiavi, errori parlanti e limiti",
+      "en": "Keys, talking errors and limits"
+     },
+     "durata_min": 6,
+     "prerequisiti": [
+      "PO5.1"
+     ],
+     "concetti": [
+      "CO14",
+      "CO15"
+     ],
+     "fonti": [
+      "ASSISTENTE-OFFICINA",
+      "REPO-PATOWARI"
+     ],
+     "obiettivo": {
+      "it": "tenere le chiavi fuori dal repo e far fallire l'assistente con un messaggio chiaro invece di ripiegare in silenzio.",
+      "en": "keep keys out of the repo and make the assistant fail with a clear message instead of silently falling back."
+     },
+     "scaletta": [
+      {
+       "it": "GROQ_API_KEY vive in una variabile d'ambiente o in un segreto di Codespaces.",
+       "en": "GROQ_API_KEY lives in an environment variable or a Codespaces secret."
+      },
+      {
+       "it": "Chiave mancante: errore che dice cosa manca e come rimediare, mai «risposta vuota».",
+       "en": "Missing key: an error that says what is missing and how to fix it, never «empty answer»."
+      },
+      {
+       "it": "Il contro-esempio del repo adottato: errore inghiottito e punteggio 50 per tutti.",
+       "en": "The adopted repo's counter-example: swallowed error and score 50 for everyone."
+      },
+      {
+       "it": "Limiti del piano gratuito: richieste al minuto e token al giorno.",
+       "en": "Free plan limits: requests per minute and tokens per day."
+      }
+     ],
+     "animazione": {
+      "titolo": {
+       "it": "Il silenzio che costa",
+       "en": "The costly silence"
+      },
+      "progetto": {
+       "it": "Da progettare (cantiere contenuti Officina: vedi CONTRATTO_CONTENUTI_OFFICINA.md).",
+       "en": "To be designed (Officina content workstream: see CONTRATTO_CONTENUTI_OFFICINA.md)."
+      }
+     },
+     "domande": []
+    }
+   ]
+  },
+  {
+   "id": "O6",
+   "titolo": {
+    "it": "In cloud gratis",
+    "en": "In the cloud for free"
+   },
+   "anello": 6,
+   "pillole": [
+    {
+     "id": "PO6.1",
+     "titolo": {
+      "it": "Il laboratorio in un file",
+      "en": "The lab in one file"
+     },
+     "durata_min": 6,
+     "prerequisiti": [
+      "PO1.2"
+     ],
+     "concetti": [
+      "CO16"
+     ],
+     "fonti": [
+      "CODESPACES-DOC"
+     ],
+     "obiettivo": {
+      "it": "descrivere l'ambiente di lavoro in un devcontainer.json e aprirlo uguale su GitHub Codespaces.",
+      "en": "describe the working environment in a devcontainer.json and open it identically on GitHub Codespaces."
+     },
+     "scaletta": [
+      {
+       "it": "devcontainer.json: immagine, estensioni, comandi dopo la creazione, porte.",
+       "en": "devcontainer.json: image, extensions, post-create commands, ports."
+      },
+      {
+       "it": "Docker dentro Codespaces: la feature docker-in-docker.",
+       "en": "Docker inside Codespaces: the docker-in-docker feature."
+      },
+      {
+       "it": "I segreti si dichiarano, non si scrivono: «secrets» con la sola descrizione.",
+       "en": "Secrets are declared, not written: «secrets» with just the description."
+      }
+     ],
+     "animazione": {
+      "titolo": {
+       "it": "La valigia del laboratorio",
+       "en": "The lab suitcase"
+      },
+      "progetto": {
+       "it": "Da progettare (cantiere contenuti Officina: vedi CONTRATTO_CONTENUTI_OFFICINA.md).",
+       "en": "To be designed (Officina content workstream: see CONTRATTO_CONTENUTI_OFFICINA.md)."
+      }
+     },
+     "domande": []
+    },
+    {
+     "id": "PO6.2",
+     "titolo": {
+      "it": "Il free tier di Codespaces",
+      "en": "The Codespaces free tier"
+     },
+     "durata_min": 6,
+     "prerequisiti": [
+      "PO6.1"
+     ],
+     "concetti": [
+      "CO17"
+     ],
+     "fonti": [
+      "CODESPACES-DOC"
+     ],
+     "obiettivo": {
+      "it": "far bastare le ore gratuite: macchina da 2 core, arresto per inattività, spazio e pulizia.",
+      "en": "make the free hours last: 2-core machine, idle stop, storage and clean-up."
+     },
+     "scaletta": [
+      {
+       "it": "Il piano gratuito conta ore-core: su 2 core le ore valgono il doppio che su 4.",
+       "en": "The free plan counts core-hours: on 2 cores the hours last twice as long as on 4."
+      },
+      {
+       "it": "Lo spazio occupato si paga anche a codespace fermo: cancellare quelli che non servono.",
+       "en": "Used storage counts even when a codespace is stopped: delete the ones you do not need."
+      },
+      {
+       "it": "Arresto automatico per inattività e limite di spesa a zero.",
+       "en": "Automatic idle stop and spending limit at zero."
+      },
+      {
+       "it": "Come portare O1-O5 nel codespace: stesso repo, stessi comandi.",
+       "en": "How to bring O1-O5 into the codespace: same repo, same commands."
+      }
+     ],
+     "animazione": {
+      "titolo": {
+       "it": "Il contatore delle ore",
+       "en": "The hour meter"
+      },
+      "progetto": {
+       "it": "Da progettare (cantiere contenuti Officina: vedi CONTRATTO_CONTENUTI_OFFICINA.md).",
+       "en": "To be designed (Officina content workstream: see CONTRATTO_CONTENUTI_OFFICINA.md)."
+      }
+     },
+     "domande": []
+    }
+   ]
+  }
+ ]
+}

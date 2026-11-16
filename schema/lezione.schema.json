@@ -371,7 +371,7 @@
    "type": "string"
   },
   "pillola": {
-   "pattern": "^P\\d+\\.\\d+$",
+   "pattern": "^PO?\\d+\\.\\d+$",
    "title": "Pillola",
    "type": "string"
   },

@@ -39,6 +39,25 @@
     "file_interfaccia": "esercizi/config/interfaccia_esercizi.json"
   },
 
+  "officina": {
+    "_why": "Livello 2 «Officina» (corso/officina.py), ordinato da France dopo il livello 1 giudicato valido ma basico: 6 unita' O1-O6 (Docker, repo adottato, CRM enterprise, MCP, assistente libero, Codespaces). Riusa tutto il meccanismo del livello 1 (pillole, lezioni, domande a due livelli, salute, esercizi con correttore deterministico) su file propri, con stato studente separato: salute, percorso e record dell'Officina non toccano quelli del livello 1. API sotto /api/officina/*; nella barra laterale compare dopo gli 8 moduli.",
+    "attiva": true,
+    "file_corso": "dati/officina/corso_officina.json",
+    "file_knowledge_graph": "dati/officina/knowledge_graph_officina.json",
+    "cartella_lezioni": "dati/officina/lezioni",
+    "cartella_stato": "stato_studenti/officina",
+    "file_laboratorio": "esercizi/config/officina.json",
+    "_why_file": "Percorsi relativi alla radice. I file dell'Officina NON stanno in dati/corso_v1.json ne' in dati/knowledge_graph.json perche' quei due li rigenera strumenti/estrai_corso.py dal documento benchmark: unita', pillole e concetti dell'Officina andrebbero persi alla prossima estrazione. Pillole PO<u>.<n>, concetti CO<nn>, moduli O<n> (corso/modello.py, livello 2).",
+    "politica_sblocco": "dopo_livello1",
+    "_why_politica_sblocco": "L'Officina presuppone il vocabolario del livello 1 (strumenti e MCP di M4, sicurezza e approvazioni di M3/M8, valutazione di M7): aperta prima, gli esercizi pratici diventerebbero ricette senza perche'. 'dopo_livello1' = si apre quando il percorso del livello 1 e' completo (tutti gli spicchi erogabili superati) o e' stato completato almeno una volta (un nuovo giro non la richiude: chi ha finito non deve rifare tutto per tornare in officina). 'libero' = sempre aperta. Il cancello vale per lezioni, domande ED esercizi dell'Officina: stesso livello, stessa porta.",
+    "deroga_alpha": true,
+    "_why_deroga_alpha": "Durante il collaudo alpha (alpha.modalita_alpha = true) France deve poter entrare subito nell'Officina senza rifare il livello 1: la deroga la apre e la vista lo DICHIARA (deroga_alpha: true, nota a schermo). In beta, spegnendo modalita_alpha, il cancello torna attivo da solo; per tenerlo attivo anche in alpha basta false qui.",
+    "esercizi_per_unita": {
+      "_why": "Esercizio pratico di ogni unita' (numerazione del portale: continua dopo gli esercizi 1-6 del livello 1). Il correttore e' quello deterministico degli esercizi (esercizi/catalogo/e07-e12).",
+      "O1": 7, "O2": 8, "O3": 9, "O4": 10, "O5": 11, "O6": 12
+    }
+  },
+
   "lingue": {
     "_why": "Decisione di France: tutto il modello dati e' bilingue IT/EN. Se un testo manca nella lingua chiesta il server risponde con l'errore 'traduzione_mancante' (mai il testo dell'altra lingua al suo posto).",
     "disponibili": ["it", "en"],

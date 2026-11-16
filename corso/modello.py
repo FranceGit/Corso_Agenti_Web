@@ -6,6 +6,7 @@ sostituisce mai con l'italiano.
 """
 from __future__ import annotations
 
+import re
 from typing import Any, Literal, Optional
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
@@ -19,6 +20,10 @@ Origine = Literal["benchmark", "dimostratore", "autori"]
 # Striscia = punto di vista con cui una domanda guarda il suo concetto (piu' strisce = piu' punti di vista).
 Striscia = Literal["definizione", "esempio_pratico", "contro_esempio", "diagnosi"]
 VERSIONE_SCHEMA_CORSO = 2  # v2: campo 'striscia' nelle domande (migrazione da v1 in corso/migrazioni.py)
+# Livello del corso: 1 = Fondamenta (M1-M8, pillole P<m>.<n>, concetti C<nn>);
+# 2 = Officina (unita' O1-O6, pillole PO<u>.<n>, concetti CO<nn>), in un file a parte (dati/officina/).
+LivelloCorso = Literal[1, 2]
+PREFISSI_LIVELLO = {1: ("M", "P"), 2: ("O", "PO")}
 
 
 class Base(BaseModel):
@@ -115,7 +120,7 @@ class Animazione(Base):
 
 
 class Pillola(Base):
-    id: str = Field(pattern=r"^P\d+\.\d+$")
+    id: str = Field(pattern=r"^PO?\d+\.\d+$")  # P3.2 nel livello 1, PO2.1 nell'Officina
     titolo: Testo
     durata_min: int = Field(gt=0)
     prerequisiti: list[str]
@@ -128,7 +133,7 @@ class Pillola(Base):
 
 
 class Modulo(Base):
-    id: str = Field(pattern=r"^M\d+$")
+    id: str = Field(pattern=r"^[MO]\d+$")  # M<n> nel livello 1, O<n> (unita') nell'Officina
     titolo: Testo
     anello: int = Field(ge=1)
     pillole: list[Pillola] = Field(min_length=1)
@@ -137,6 +142,7 @@ class Modulo(Base):
 class Corso(Base):
     versione_schema: Literal[2]
     id: str
+    livello: LivelloCorso = 1  # assente nei file del livello 1 (nati prima dell'Officina)
     titolo: Testo
     fonte: str  # documento da cui il contenuto e' stato estratto
     moduli: list[Modulo] = Field(min_length=1)
@@ -146,6 +152,13 @@ class Corso(Base):
         pid = [p.id for m in self.moduli for p in m.pillole]
         if len(set(pid)) != len(pid):
             raise ValueError("id di pillola duplicati")
+        pref_modulo, pref_pillola = PREFISSI_LIVELLO[self.livello]
+        for m in self.moduli:
+            if not re.fullmatch(rf"{pref_modulo}\d+", m.id):
+                raise ValueError(f"livello {self.livello}: il modulo {m.id} deve chiamarsi {pref_modulo}<numero>")
+            for p in m.pillole:
+                if not re.fullmatch(rf"{pref_pillola}\d+\.\d+", p.id):
+                    raise ValueError(f"livello {self.livello}: la pillola {p.id} deve chiamarsi {pref_pillola}<n>.<n>")
         did = [d.id for m in self.moduli for p in m.pillole for d in p.domande]
         if len(set(did)) != len(did):
             raise ValueError("id di domanda duplicati")
@@ -177,7 +190,7 @@ class Corso(Base):
 
 
 class Nodo(Base):
-    id: str = Field(pattern=r"^C\d{2}$")
+    id: str = Field(pattern=r"^CO?\d{2}$")  # C<nn> nel livello 1, CO<nn> nell'Officina
     nome: Testo
     pillole: list[str] = Field(min_length=1)
     anello: int = Field(ge=1)
@@ -235,7 +248,7 @@ class Segmento(Base):
 
 class Lezione(Base):
     id: str = Field(min_length=1)
-    pillola: str = Field(pattern=r"^P\d+\.\d+$")
+    pillola: str = Field(pattern=r"^PO?\d+\.\d+$")
     componente: str = Field(pattern=r"^[a-z_]+$")  # nome del modulo JS in webapp/animazioni
     # "lezione" = la lezione interattiva della pillola (al massimo una); "laboratorio" = una seconda lezione
     # facoltativa della stessa pillola, aperta in una scheda a parte (es. "Trova l'errore" su un caso reale)

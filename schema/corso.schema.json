@@ -207,7 +207,7 @@
      "type": "integer"
     },
     "id": {
-     "pattern": "^M\\d+$",
+     "pattern": "^[MO]\\d+$",
      "title": "Id",
      "type": "string"
     },
@@ -318,7 +318,7 @@
      "type": "array"
     },
     "id": {
-     "pattern": "^P\\d+\\.\\d+$",
+     "pattern": "^PO?\\d+\\.\\d+$",
      "title": "Id",
      "type": "string"
     },
@@ -432,6 +432,15 @@
   "id": {
    "title": "Id",
    "type": "string"
+  },
+  "livello": {
+   "default": 1,
+   "enum": [
+    1,
+    2
+   ],
+   "title": "Livello",
+   "type": "integer"
   },
   "moduli": {
    "items": {

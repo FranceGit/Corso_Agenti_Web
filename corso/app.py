@@ -17,12 +17,13 @@ from pydantic import BaseModel
 
 from .account import Sessioni, verifica_credenziali
 from .catalogo import Catalogo
-from .config import Config, carica_config, leggi_json
+from .config import RADICE_PROGETTO, Config, carica_config, leggi_json
 from .errori import (
     ErroreAccesso, ErroreConfigurazione, ErroreDati, ErroreFlusso, ErroreNonTrovato, TraduzioneMancante,
 )
 from .lingua import testi_mancanti
 from .motore import Motore
+from .officina import Cancello, config_officina, vista_livelli
 from .stato import Archivio
 
 FILE_SHELL = {"index.html": "text/html", "app.js": "text/javascript", "app.css": "text/css"}
@@ -199,71 +200,105 @@ def crea_app(cfg: Config | None = None, orologio: Callable[[], datetime] = orolo
     @app.get("/protetto/animazioni/{nome}.js")
     def animazione(nome: str, email: str = Depends(studente)):
         componenti = {lez.componente for lez in catalogo.tutte_le_lezioni()}
+        if getattr(app.state, "catalogo_officina", None) is not None:
+            componenti |= {lez.componente for lez in app.state.catalogo_officina.tutte_le_lezioni()}
         if nome not in componenti:
             raise ErroreNonTrovato(f"animazione '{nome}' inesistente")
         return FileResponse(cartella_anim / f"{nome}.js", media_type="text/javascript")
 
-    @app.get("/api/stato")
-    def api_stato(lingua: str = Depends(lingua_valida), email: str = Depends(studente)):
-        return motore.riepilogo(email, lingua)
+    def monta_percorso(base: str, motore: Motore, catalogo: Catalogo, chi: Callable) -> None:
+        """Rotte del percorso (stato, pillole, spicchi, quiz, debriefing, riepilogo) di UN livello.
 
-    @app.get("/api/percorso")
-    def api_percorso(lingua: str = Depends(lingua_valida), email: str = Depends(studente)):
-        return motore.vista_percorso(email, lingua)
+        Livello 1 su /api (indirizzi storici invariati), Officina su /api/officina con la dipendenza del cancello.
+        """
+        @app.get(f"{base}/stato")
+        def api_stato(lingua: str = Depends(lingua_valida), email: str = Depends(chi)):
+            return motore.riepilogo(email, lingua)
 
-    @app.post("/api/percorso/ricomincia")
-    def api_ricomincia(email: str = Depends(studente)):
-        return motore.ricomincia(email)
+        @app.get(f"{base}/percorso")
+        def api_percorso(lingua: str = Depends(lingua_valida), email: str = Depends(chi)):
+            return motore.vista_percorso(email, lingua)
 
-    @app.get("/api/pillole/{pid}")
-    def api_pillola(pid: str, lingua: str = Depends(lingua_valida), email: str = Depends(studente)):
-        return motore.contenuto_pillola(email, pid, lingua)
+        @app.post(f"{base}/percorso/ricomincia")
+        def api_ricomincia(email: str = Depends(chi)):
+            return motore.ricomincia(email)
 
-    @app.post("/api/spicchi/{pid}/inizia")
-    def api_inizia(pid: str, email: str = Depends(studente)):
-        return motore.inizia_spicchio(email, pid)
+        @app.get(f"{base}/pillole/{{pid}}")
+        def api_pillola(pid: str, lingua: str = Depends(lingua_valida), email: str = Depends(chi)):
+            return motore.contenuto_pillola(email, pid, lingua)
 
-    @app.get("/api/spicchi/{pid}/domanda")
-    def api_domanda(pid: str, lingua: str = Depends(lingua_valida), email: str = Depends(studente)):
-        return motore.domanda_spicchio(email, pid, lingua)
+        @app.post(f"{base}/spicchi/{{pid}}/inizia")
+        def api_inizia(pid: str, email: str = Depends(chi)):
+            return motore.inizia_spicchio(email, pid)
 
-    @app.post("/api/risposta")
-    def api_risposta(dati: Risposta, lingua: str = Depends(lingua_valida), email: str = Depends(studente)):
-        return motore.rispondi(email, dati.posizione, lingua)
+        @app.get(f"{base}/spicchi/{{pid}}/domanda")
+        def api_domanda(pid: str, lingua: str = Depends(lingua_valida), email: str = Depends(chi)):
+            return motore.domanda_spicchio(email, pid, lingua)
 
-    @app.get("/api/debriefing")
-    def api_debriefing(email: str = Depends(studente)):
-        return motore.info_debriefing(email)
+        @app.post(f"{base}/risposta")
+        def api_risposta(dati: Risposta, lingua: str = Depends(lingua_valida), email: str = Depends(chi)):
+            return motore.rispondi(email, dati.posizione, lingua)
 
-    @app.post("/api/debriefing/inizia")
-    def api_debriefing_inizia(email: str = Depends(studente)):
-        return motore.inizia_debriefing(email)
+        @app.get(f"{base}/debriefing")
+        def api_debriefing(email: str = Depends(chi)):
+            return motore.info_debriefing(email)
 
-    @app.get("/api/debriefing/domanda")
-    def api_debriefing_domanda(lingua: str = Depends(lingua_valida), email: str = Depends(studente)):
-        return motore.domanda_debriefing(email, lingua)
+        @app.post(f"{base}/debriefing/inizia")
+        def api_debriefing_inizia(email: str = Depends(chi)):
+            return motore.inizia_debriefing(email)
 
-    @app.post("/api/debriefing/concludi")
-    def api_debriefing_concludi(email: str = Depends(studente)):
-        return motore.concludi_debriefing(email)
+        @app.get(f"{base}/debriefing/domanda")
+        def api_debriefing_domanda(lingua: str = Depends(lingua_valida), email: str = Depends(chi)):
+            return motore.domanda_debriefing(email, lingua)
 
-    @app.get("/api/rapporto")
-    def api_rapporto(email: str = Depends(studente)):
-        return catalogo.rapporto()
+        @app.post(f"{base}/debriefing/concludi")
+        def api_debriefing_concludi(email: str = Depends(chi)):
+            return motore.concludi_debriefing(email)
 
-    # ------------------------------------------------------------ collaudo alpha, riepilogo, bibliografia (ALPHA-FIX)
+        @app.get(f"{base}/rapporto")
+        def api_rapporto(email: str = Depends(chi)):
+            return catalogo.rapporto()
 
-    @app.get("/api/spicchi/{pid}/rivedi/{indice}")
-    def api_rivedi(pid: str, indice: int, lingua: str = Depends(lingua_valida), email: str = Depends(studente)):
-        return motore.rivedi_risposta(email, pid, indice, lingua)
+        # -------------------------------------------------------- collaudo alpha, riepilogo (ALPHA-FIX)
 
-    @app.get("/api/spicchi/{pid}/riepilogo")
-    def api_riepilogo(pid: str, lingua: str = Depends(lingua_valida), email: str = Depends(studente)):
-        return motore.riepilogo_spicchio(email, pid, lingua)
+        @app.get(f"{base}/spicchi/{{pid}}/rivedi/{{indice}}")
+        def api_rivedi(pid: str, indice: int, lingua: str = Depends(lingua_valida), email: str = Depends(chi)):
+            return motore.rivedi_risposta(email, pid, indice, lingua)
 
-    @app.post("/api/spicchi/{pid}/assumi_superato")
-    def api_assumi_superato(pid: str, email: str = Depends(studente)):
-        return motore.assumi_superato(email, pid)
+        @app.get(f"{base}/spicchi/{{pid}}/riepilogo")
+        def api_riepilogo(pid: str, lingua: str = Depends(lingua_valida), email: str = Depends(chi)):
+            return motore.riepilogo_spicchio(email, pid, lingua)
+
+        @app.post(f"{base}/spicchi/{{pid}}/assumi_superato")
+        def api_assumi_superato(pid: str, email: str = Depends(chi)):
+            return motore.assumi_superato(email, pid)
+
+    monta_percorso("/api", motore, catalogo, studente)
+
+    # ------------------------------------------------------------ livello 2 «Officina» (corso/officina.py)
+
+    officina_attiva = cfg.prendi("officina", "attiva", tipo=bool)
+    if officina_attiva:
+        catalogo_l2 = Catalogo(config_officina(cfg))
+        stato_l2 = cartella_stato.with_name(cartella_stato.name + "_officina") if cartella_stato else RADICE_PROGETTO / cfg.prendi("officina", "cartella_stato", tipo=str)
+        motore_l2 = Motore(catalogo_l2, Archivio(stato_l2), orologio)
+        cancello = Cancello(cfg, motore)
+        app.state.catalogo_officina = catalogo_l2
+        app.state.motore_officina = motore_l2
+        app.state.cancello_officina = cancello
+
+        def studente_officina(request: Request) -> str:
+            return cancello.verifica(studente(request))
+
+        monta_percorso("/api/officina", motore_l2, catalogo_l2, studente_officina)
+
+    @app.get("/api/livelli")
+    def api_livelli(lingua: str = Depends(lingua_valida), email: str = Depends(studente)):
+        if not officina_attiva:
+            return {"livelli": [{"numero": 1, "titolo": catalogo.corso.titolo.model_dump()[lingua], "sbloccato": True}]}
+        return vista_livelli(cfg, catalogo, catalogo_l2, cancello, email, lingua)
+
+    # ------------------------------------------------------------ bibliografia (ALPHA-FIX)
 
     @app.get("/api/bibliografia")
     def api_bibliografia(lingua: str = Depends(lingua_valida), email: str = Depends(studente)):
@@ -275,5 +310,12 @@ def crea_app(cfg: Config | None = None, orologio: Callable[[], datetime] = orolo
         from esercizi.motore.portale import monta_esercizi
         monta_esercizi(app, cfg, studente, lingua_valida, orologio,
                        cartella_esercizi or (cartella_stato / "esercizi" if cartella_stato else None))
+        if officina_attiva:
+            # esercizi dell'Officina (7-12): stesso motore e stessa pagina, laboratorio e stato propri, dietro il cancello
+            base = cartella_esercizi or (cartella_stato / "esercizi" if cartella_stato else None)
+            app.state.esercizi_officina = monta_esercizi(
+                app, cfg, studente_officina, lingua_valida, orologio, (base / "officina") if base else None,
+                prefisso="/api/officina/esercizi", file_laboratorio=cfg.prendi("officina", "file_laboratorio", tipo=str),
+                con_pagina=False, attributo_stato="esercizi_officina")
 
     return app

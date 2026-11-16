@@ -1,0 +1,6 @@
+# Compose di partenza dell'esercizio O1: avvia il CRM minimo, ma dimentica i dati e si espone a tutta la rete.
+services:
+  crm:
+    build: .
+    ports:
+      - "8000:8000"

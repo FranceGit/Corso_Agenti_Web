@@ -1,0 +1,8 @@
+# segreti e ambiente locale: mai nel repo
+.env
+!.env.example
+__pycache__/
+*.pyc
+.pytest_cache/
+consegne/
+officina/o4/memoria/

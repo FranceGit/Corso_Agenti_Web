@@ -1,0 +1,31 @@
+{
+  "_why": "Configurazione dell'assistente (versione di partenza: da sistemare).",
+  "versione_config": 1,
+  "backend": "groq",
+  "_why_backend": "Groq e' veloce.",
+  "backend_ammessi": ["finto", "ollama", "groq"],
+  "variabile_backend": "ASSISTENTE_BACKEND",
+  "_why_variabile_backend": "Per cambiare backend senza toccare il file.",
+  "istruzioni_sistema": "Sei l'assistente dell'Officina. Rispondi in italiano.",
+  "temperatura": 0.9,
+  "max_token": 512,
+  "_why_max_token": "Risposte brevi.",
+  "timeout_secondi": 60,
+  "finto": {
+    "_why": "Backend deterministico per i test.",
+    "risposte": {"ciao": "Ciao, sono l'assistente finto."},
+    "risposta_predefinita": "[assistente finto] Ho ricevuto: «{domanda}» (impronta {impronta})."
+  },
+  "ollama": {
+    "_why": "Modello locale gratuito.",
+    "url": "http://127.0.0.1:11434",
+    "modello": "qwen2.5:3b"
+  },
+  "groq": {
+    "url": "https://api.groq.com/openai/v1/chat/completions",
+    "modello": "llama3-70b-8192",
+    "api_key": "incolla-qui-la-tua-chiave",
+    "variabile_chiave": "GROQ_API_KEY",
+    "modelli_free": ["llama-3.1-8b-instant", "llama-3.3-70b-versatile"]
+  }
+}

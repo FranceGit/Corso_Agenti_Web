@@ -1,0 +1,79 @@
+{
+  "_why": "Laboratorio degli esercizi dell'Officina (livello 2, unita' O1-O6): stesso motore e stesso correttore deterministico degli esercizi 1-6 (esercizi/motore), file e stato propri. Montato dal portale sotto /api/officina/esercizi dietro il cancello dell'Officina (config/piattaforma.json, sezione officina). I file consegnati si leggono come TESTO (esercizi/officina/analisi.py); l'unico codice eseguito e' il response_classifier.py dell'esercizio 8, nel banco isolato (esercizi/officina/banco_classificatore.py).",
+  "versione_config": 1,
+
+  "cartella_stato": "stato_esercizi/officina",
+  "_why_cartella_stato": "Relativa alla radice del progetto, dentro stato_esercizi/ (nel .gitignore): dati degli studenti, mai nel repository.",
+
+  "seme_base": 20261116,
+  "variante_per_studente": false,
+  "_why_variante_per_studente": "Gli esercizi dell'Officina non hanno dati da variare (file e scelte sono uguali per tutti): il seme non entra nella correzione.",
+
+  "llm": {
+    "_why": "Il motore richiede la sezione; gli esercizi dell'Officina non chiamano il modello del laboratorio (l'assistente libero di O5 ha la sua configurazione: esercizi/assistente/assistente.json). Finto, quindi nessuna rete.",
+    "backend": "finto",
+    "backend_ammessi": ["finto", "ollama"],
+    "url": "http://127.0.0.1:11434",
+    "modello": "qwen2.5:3b",
+    "modello_finto": "finto-llm-v1",
+    "temperatura": 0,
+    "seme": 42,
+    "timeout_secondi": 120,
+    "file_tabelle_finto": "esercizi/finto_llm/tabelle.json",
+    "file_registro": "registro_llm.sqlite"
+  },
+
+  "posta": {
+    "_why": "Il motore richiede la sezione; nessun esercizio dell'Officina invia posta. Locale in SQLite: nessun servizio esterno.",
+    "backend": "locale",
+    "backend_ammessi": ["locale", "mailpit"],
+    "file_locale": "posta_locale.sqlite",
+    "smtp_host": "127.0.0.1",
+    "smtp_porta": 1025,
+    "api_url": "http://127.0.0.1:8025",
+    "timeout_secondi": 10,
+    "mittente": "officina@crm-didattico.local"
+  },
+
+  "variabili_ambiente": {
+    "_why": "Solo la cartella di stato si sposta da fuori (container del laboratorio).",
+    "CORSO_OFFICINA_CARTELLA_STATO": ["cartella_stato"]
+  },
+
+  "esercizi": {
+    "_why": "Un esercizio per unita' dell'Officina. Numerazione del portale dopo gli esercizi 1-6 del livello 1; nel campo 'piano' l'unita'.",
+    "attivi": [
+      {"numero": 7, "modulo": "e07_docker_vicino", "piano": "O1"},
+      {"numero": 8, "modulo": "e08_adotta_repo", "piano": "O2"},
+      {"numero": 9, "modulo": "e09_crm_enterprise", "piano": "O3"},
+      {"numero": 10, "modulo": "e10_mcp_pratica", "piano": "O4"},
+      {"numero": 11, "modulo": "e11_assistente_libero", "piano": "O5"},
+      {"numero": 12, "modulo": "e12_codespaces", "piano": "O6"}
+    ]
+  },
+
+  "soglie": {
+    "_why": "Sufficienza su 100. 80 dove l'errore ha conseguenze di sicurezza o di dati (Docker, repo adottato, MCP, Codespaces); 75 per la lettura del CRM enterprise e per l'assistente, dove una scelta sbagliata non fa danni. I controlli bloccanti (chiavi nei file, difetto non corretto, recinto MCP troppo largo) portano comunque il voto a 0.",
+    "7": 80,
+    "8": 80,
+    "9": 75,
+    "10": 80,
+    "11": 75,
+    "12": 80
+  },
+
+  "parametri_esercizi": {
+    "_why": "Parametri che cambiano il voto: entrano nell'impronta del verbale.",
+    "7": {},
+    "8": {},
+    "9": {},
+    "10": {},
+    "11": {
+      "modelli_groq_gratuiti": ["llama-3.1-8b-instant", "llama-3.3-70b-versatile"],
+      "_why_modelli_groq_gratuiti": "Modelli del piano gratuito di Groq alla stesura (novembre 2026), gli stessi di esercizi/assistente/assistente.json. Da riverificare su console.groq.com prima della beta: e' l'unico posto da cambiare per il correttore.",
+      "url_groq": "https://api.groq.com/",
+      "_why_url_groq": "Prefisso dell'API ufficiale: un URL diverso manderebbe richieste (e la chiave) altrove."
+    },
+    "12": {}
+  }
+}

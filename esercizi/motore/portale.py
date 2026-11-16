@@ -38,50 +38,58 @@ def carica_testi(percorso: Path, lingue: list[str]) -> dict:
 
 
 def monta_esercizi(app: FastAPI, cfg, studente: Callable, lingua_valida: Callable, orologio: Callable,
-                   cartella_stato: Path | None = None) -> MotoreEsercizi:
+                   cartella_stato: Path | None = None, *, prefisso: str = "/api/esercizi",
+                   file_laboratorio: str | None = None, con_pagina: bool = True,
+                   attributo_stato: str = "esercizi") -> MotoreEsercizi:
+    """Monta un laboratorio di esercizi sotto `prefisso`.
+
+    Livello 1: /api/esercizi con esercizi/config/laboratorio.json (indirizzi storici). Officina: /api/officina/esercizi
+    con il suo laboratorio e la dipendenza `studente` del cancello; la pagina JS (/protetto/esercizi/*) e' una sola.
+    """
     sostituzioni = {"cartella_stato": str(cartella_stato)} if cartella_stato else None
-    cfg_lab = carica_laboratorio(RADICE_PROGETTO / cfg.prendi("esercizi", "file_laboratorio", tipo=str),
-                                 sostituzioni=sostituzioni)
+    file_lab = file_laboratorio or cfg.prendi("esercizi", "file_laboratorio", tipo=str)
+    cfg_lab = carica_laboratorio(RADICE_PROGETTO / file_lab, sostituzioni=sostituzioni)
     motore = MotoreEsercizi(cfg_lab, orologio)
     testi = carica_testi(RADICE_PROGETTO / cfg.prendi("esercizi", "file_interfaccia", tipo=str), cfg.lingue())
-    app.state.esercizi = motore
+    setattr(app.state, attributo_stato, motore)
 
-    @app.get("/protetto/esercizi/{nome}")
-    def pagina_esercizi(nome: str, email: str = Depends(studente)):
-        if nome not in FILE_PAGINA:
-            raise ErroreNonTrovato(f"file '{nome}' inesistente")
-        return FileResponse(CARTELLA_PAGINA / nome, media_type=FILE_PAGINA[nome])
+    if con_pagina:
+        @app.get("/protetto/esercizi/{nome}")
+        def pagina_esercizi(nome: str, email: str = Depends(studente)):
+            if nome not in FILE_PAGINA:
+                raise ErroreNonTrovato(f"file '{nome}' inesistente")
+            return FileResponse(CARTELLA_PAGINA / nome, media_type=FILE_PAGINA[nome])
 
-    @app.get("/api/esercizi")
+    @app.get(prefisso)
     def api_esercizi(lingua: str = Depends(lingua_valida), email: str = Depends(studente)):
         return {"esercizi": motore.elenco(email, lingua), "testi": {k: v[lingua] for k, v in testi.items()}}
 
-    @app.get("/api/esercizi/{numero}")
+    @app.get(f"{prefisso}/{{numero}}")
     def api_esercizio(numero: int, lingua: str = Depends(lingua_valida), email: str = Depends(studente)):
         return motore.scheda(email, numero, lingua)
 
-    @app.post("/api/esercizi/{numero}/azione")
+    @app.post(f"{prefisso}/{{numero}}/azione")
     def api_azione(numero: int, dati: Azione, lingua: str = Depends(lingua_valida), email: str = Depends(studente)):
         return motore.azione(email, numero, dati.nome, dati.parametri, lingua)
 
-    @app.post("/api/esercizi/{numero}/verifica")
+    @app.post(f"{prefisso}/{{numero}}/verifica")
     def api_verifica(numero: int, email: str = Depends(studente)):
         return motore.verifica(email, numero)
 
-    @app.post("/api/esercizi/{numero}/ricomincia")
+    @app.post(f"{prefisso}/{{numero}}/ricomincia")
     def api_ricomincia(numero: int, lingua: str = Depends(lingua_valida), email: str = Depends(studente)):
         motore.ricomincia(email, numero)
         return motore.scheda(email, numero, lingua)
 
-    @app.get("/api/esercizi/{numero}/tentativi")
+    @app.get(f"{prefisso}/{{numero}}/tentativi")
     def api_tentativi(numero: int, email: str = Depends(studente)):
         return {"tentativi": motore.tentativi(email, numero)}
 
-    @app.get("/api/esercizi/{numero}/tentativi/{k}")
+    @app.get(f"{prefisso}/{{numero}}/tentativi/{{k}}")
     def api_verbale(numero: int, k: int, email: str = Depends(studente)):
         return motore.verbale(email, numero, k)
 
-    @app.post("/api/esercizi/{numero}/tentativi/{k}/ricorreggi")
+    @app.post(f"{prefisso}/{{numero}}/tentativi/{{k}}/ricorreggi")
     def api_ricorreggi(numero: int, k: int, email: str = Depends(studente)):
         return motore.ricorreggi(email, numero, k)
 
