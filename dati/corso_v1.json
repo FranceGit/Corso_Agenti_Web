@@ -5404,6 +5404,507 @@
         }
        },
        "striscia": "diagnosi"
+      },
+      {
+       "id": "DA3.1-1",
+       "origine": "autori",
+       "pillola": "P3.1",
+       "concetti": [
+        "C26",
+        "C27"
+       ],
+       "concetto_principale": "C26",
+       "segmento_aiuto": "viaggio",
+       "striscia": "esempio_pratico",
+       "livello1": {
+        "domanda": {
+         "it": "Un'agenzia automatizza i lead del modulo web: pulizia, arricchimento, punteggio, email, lettura delle risposte, CRM. Ogni lead fa sempre gli stessi passi, nello stesso ordine. Che cosa sta costruendo?",
+         "en": "An agency automates the leads from its web form: cleaning, enrichment, scoring, email, reading replies, CRM. Every lead always goes through the same steps, in the same order. What is it building?"
+        },
+        "opzioni": [
+         {
+          "id": "A",
+          "testo": {
+           "it": "Un agente che sceglie da solo, lead per lead, quali passi fare e in che ordine",
+           "en": "An agent that chooses by itself, lead by lead, which steps to take and in what order"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Qui l'ordine è fisso e uguale per tutti: nessuno sceglie i passi.",
+           "en": "Here the order is fixed and the same for everyone: nobody chooses the steps."
+          }
+         },
+         {
+          "id": "B",
+          "testo": {
+           "it": "Un chatbot che risponde alle domande dei visitatori del sito",
+           "en": "A chatbot that answers website visitors' questions"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": {
+           "it": "Un chatbot conversa; qui i lead passano da una stazione all'altra senza conversare.",
+           "en": "A chatbot talks; here leads move from station to station without any conversation."
+          }
+         },
+         {
+          "id": "C",
+          "testo": {
+           "it": "Una pipeline: passi fissi in cui l'uscita di uno entra nel successivo",
+           "en": "A pipeline: fixed steps where the output of one goes into the next"
+          },
+          "corretta": true,
+          "tipo_distrattore": null,
+          "spiegazione": {
+           "it": "Giusto: passi sempre uguali, in ordine, che si passano i dati.",
+           "en": "Right: always the same steps, in order, passing data along."
+          }
+         },
+         {
+          "id": "D",
+          "testo": {
+           "it": "Un report di campagna che riassume i risultati del mese",
+           "en": "A campaign report that sums up the month's results"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": {
+           "it": "Il report è solo l'ultimo prodotto; non è il processo che tratta i lead.",
+           "en": "The report is only the final output; it is not the process that handles the leads."
+          }
+         },
+         {
+          "id": "E",
+          "testo": {
+           "it": "Un foglio condiviso dove i commerciali copiano i lead a mano",
+           "en": "A shared sheet where sales reps copy the leads by hand"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": {
+           "it": "Copiare a mano è l'opposto dell'automazione descritta.",
+           "en": "Copying by hand is the opposite of the automation described."
+          }
+         }
+        ],
+        "perche": {
+         "it": "Passi fissi, nello stesso ordine, che si passano i dati: è una pipeline.",
+         "en": "Fixed steps, in the same order, passing data along: that is a pipeline."
+        }
+       },
+       "livello2": {
+        "tipo": "motivazione",
+        "domanda": {
+         "it": "Perché qui basta una catena di passi fissi e non serve un agente che decide l'ordine?",
+         "en": "Why is a chain of fixed steps enough here, with no need for an agent that decides the order?"
+        },
+        "opzioni": [
+         {
+          "id": "a",
+          "testo": {
+           "it": "Perché una catena fissa non usa mai un modello linguistico",
+           "en": "Because a fixed chain never uses a language model"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Falso: la stazione del punteggio o dell'email può usare un modello. Fisso è l'ordine, non lo strumento.",
+           "en": "False: the scoring or email station can use a model. What is fixed is the order, not the tool."
+          }
+         },
+         {
+          "id": "b",
+          "testo": {
+           "it": "Perché gli agenti non possono scrivere nel CRM",
+           "en": "Because agents cannot write to the CRM"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": {
+           "it": "Gli agenti possono scrivere nel CRM, se hanno il permesso.",
+           "en": "Agents can write to the CRM, if they have permission."
+          }
+         },
+         {
+          "id": "c",
+          "testo": {
+           "it": "Perché una catena fissa costa sempre zero",
+           "en": "Because a fixed chain always costs nothing"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": {
+           "it": "Anche una catena fissa ha costi (modello, fonti, persone).",
+           "en": "A fixed chain also has costs (model, data sources, people)."
+          }
+         },
+         {
+          "id": "d",
+          "testo": {
+           "it": "Perché i passi e il loro ordine sono noti e uguali per ogni lead",
+           "en": "Because the steps and their order are known and the same for every lead"
+          },
+          "corretta": true,
+          "tipo_distrattore": null,
+          "spiegazione": {
+           "it": "Giusto: se l'ordine non cambia, non serve nessuno che lo decida.",
+           "en": "Right: if the order never changes, nobody needs to decide it."
+          }
+         },
+         {
+          "id": "e",
+          "testo": {
+           "it": "Perché con pochi lead al giorno un agente sarebbe troppo lento",
+           "en": "Because with few leads a day an agent would be too slow"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Il numero di lead non c'entra: conta se l'ordine dei passi è sempre lo stesso.",
+           "en": "The number of leads does not matter: what matters is whether the order of steps is always the same."
+          }
+         }
+        ],
+        "perche": {
+         "it": "Quando i passi sono noti e sempre uguali, basta una catena fissa: è più prevedibile e più facile da controllare.",
+         "en": "When the steps are known and always the same, a fixed chain is enough: it is more predictable and easier to check."
+        }
+       }
+      },
+      {
+       "id": "DA3.1-2",
+       "origine": "autori",
+       "pillola": "P3.1",
+       "concetti": [
+        "C26",
+        "C27"
+       ],
+       "concetto_principale": "C26",
+       "segmento_aiuto": "tutorial",
+       "striscia": "contro_esempio",
+       "livello1": {
+        "domanda": {
+         "it": "Un video mostra un «sistema completo di lead generation»: raccoglie contatti da Google Maps e manda subito a tutti la stessa email. Che cosa gli manca per essere una pipeline seria?",
+         "en": "A video shows a «complete lead generation system»: it collects contacts from Google Maps and immediately sends everyone the same email. What does it lack to be a serious pipeline?"
+        },
+        "opzioni": [
+         {
+          "id": "A",
+          "testo": {
+           "it": "Solo un modello più potente che scriva email migliori",
+           "en": "Only a more powerful model to write better emails"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Un'email migliore non risolve doppioni, lead poco adatti e risposte non lette.",
+           "en": "A better email does not fix duplicates, unsuitable leads and unread replies."
+          }
+         },
+         {
+          "id": "B",
+          "testo": {
+           "it": "Niente: raccolta e invio sono gli unici passi che servono",
+           "en": "Nothing: collecting and sending are the only steps needed"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": {
+           "it": "È proprio il limite del flusso: senza i passi intermedi i problemi arrivano ai clienti.",
+           "en": "That is exactly the flow's weakness: without the middle steps, problems reach customers."
+          }
+         },
+         {
+          "id": "C",
+          "testo": {
+           "it": "Pulizia, punteggio, approvazione umana e lettura delle risposte",
+           "en": "Cleaning, scoring, human approval and reading the replies"
+          },
+          "corretta": true,
+          "tipo_distrattore": null,
+          "spiegazione": {
+           "it": "Giusto: sono le stazioni che i flussi da tutorial di solito saltano.",
+           "en": "Right: these are the stations tutorial flows usually skip."
+          }
+         },
+         {
+          "id": "D",
+          "testo": {
+           "it": "Un logo più visibile in fondo all'email",
+           "en": "A more visible logo at the bottom of the email"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": {
+           "it": "Il logo non cambia nulla nel processo dei lead.",
+           "en": "The logo changes nothing in the lead process."
+          }
+         },
+         {
+          "id": "E",
+          "testo": {
+           "it": "Solo un secondo invio dopo una settimana a chi non risponde",
+           "en": "Only a second send a week later to those who do not reply"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Un secondo invio aggiunge contatti, ma non controlla chi contattare né legge le risposte.",
+           "en": "A second send adds contacts, but does not check who to contact or read the replies."
+          }
+         }
+        ],
+        "perche": {
+         "it": "Tra raccolta e invio servono pulizia, punteggio, approvazione e, dopo, la lettura delle risposte.",
+         "en": "Between collecting and sending you need cleaning, scoring, approval and, afterwards, reading the replies."
+        }
+       },
+       "livello2": {
+        "tipo": "contro-esempio",
+        "domanda": {
+         "it": "Quale conseguenza mostra meglio il limite di quel flusso?",
+         "en": "Which consequence best shows that flow's weakness?"
+        },
+        "opzioni": [
+         {
+          "id": "a",
+          "testo": {
+           "it": "Le email partono più lente perché manca il punteggio",
+           "en": "Emails go out more slowly because scoring is missing"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Al contrario: senza punteggio le email partono più in fretta, ma a tutti.",
+           "en": "The opposite: without scoring emails go out faster, but to everyone."
+          }
+         },
+         {
+          "id": "b",
+          "testo": {
+           "it": "Chi scrive «toglietemi dalla lista» resta non letto e viene ricontattato",
+           "en": "Someone who writes «take me off the list» stays unread and is contacted again"
+          },
+          "corretta": true,
+          "tipo_distrattore": null,
+          "spiegazione": {
+           "it": "Giusto: senza lettura delle risposte il danno arriva alla persona e al marchio.",
+           "en": "Right: without reading replies, the harm reaches the person and the brand."
+          }
+         },
+         {
+          "id": "c",
+          "testo": {
+           "it": "Il CRM rifiuta i contatti presi da Google Maps",
+           "en": "The CRM rejects contacts taken from Google Maps"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": {
+           "it": "Il CRM accetta i contatti; il problema è che nessuno li controlla.",
+           "en": "The CRM accepts the contacts; the problem is that nobody checks them."
+          }
+         },
+         {
+          "id": "d",
+          "testo": {
+           "it": "Il sito dell'azienda diventa più lento",
+           "en": "The company's website gets slower"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": {
+           "it": "Il flusso non tocca il sito.",
+           "en": "The flow does not touch the website."
+          }
+         },
+         {
+          "id": "e",
+          "testo": {
+           "it": "I commerciali ricevono troppo pochi lead da chiamare",
+           "en": "Sales reps get too few leads to call"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Succede il contrario: arrivano tanti lead, anche poco adatti.",
+           "en": "The opposite happens: many leads arrive, including unsuitable ones."
+          }
+         }
+        ],
+        "perche": {
+         "it": "Un flusso che salta la lettura delle risposte ricontatta chi ha chiesto di essere tolto: il problema arriva al cliente.",
+         "en": "A flow that skips reading replies contacts again people who asked to be removed: the problem reaches the customer."
+        }
+       }
+      },
+      {
+       "id": "DA3.1-3",
+       "origine": "autori",
+       "pillola": "P3.1",
+       "concetti": [
+        "C26",
+        "C27"
+       ],
+       "concetto_principale": "C27",
+       "segmento_aiuto": "contratto",
+       "striscia": "esempio_pratico",
+       "livello1": {
+        "domanda": {
+         "it": "La stazione «Punteggio» dà un punteggio a ogni lead. Quale contratto dati la descrive meglio?",
+         "en": "The «Scoring» station gives every lead a score. Which data contract describes it best?"
+        },
+        "opzioni": [
+         {
+          "id": "A",
+          "testo": {
+           "it": "Riceve tutta la scheda; consegna ciò che il modello ritiene utile",
+           "en": "Receives the whole record; hands over whatever the model finds useful"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Un contratto vago non si può controllare: non si sa che cosa deve uscire.",
+           "en": "A vague contract cannot be checked: nobody knows what must come out."
+          }
+         },
+         {
+          "id": "B",
+          "testo": {
+           "it": "Riceve ruolo, settore e dimensione; consegna punteggio, fascia e motivazione",
+           "en": "Receives role, sector and size; hands over score, band and reasoning"
+          },
+          "corretta": true,
+          "tipo_distrattore": null,
+          "spiegazione": {
+           "it": "Giusto: campi in ingresso e in uscita dichiarati, quindi controllabili.",
+           "en": "Right: input and output fields are declared, so they can be checked."
+          }
+         },
+         {
+          "id": "C",
+          "testo": {
+           "it": "Riceve il logo dell'azienda; consegna un'email pronta",
+           "en": "Receives the company logo; hands over a ready email"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": {
+           "it": "Il logo non serve al punteggio, e l'email è il compito di un'altra stazione.",
+           "en": "The logo does not help scoring, and the email is another station's job."
+          }
+         },
+         {
+          "id": "D",
+          "testo": {
+           "it": "Non riceve nulla: il modello inventa il punteggio ogni volta",
+           "en": "Receives nothing: the model makes up the score every time"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": {
+           "it": "Senza dati in ingresso il punteggio è inventato e non vale nulla.",
+           "en": "With no input data the score is made up and worthless."
+          }
+         },
+         {
+          "id": "E",
+          "testo": {
+           "it": "Riceve ruolo e settore; consegna un numero senza fascia né motivazione",
+           "en": "Receives role and sector; hands over a number with no band or reasoning"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Senza fascia e motivazione il punteggio non dice che cosa fare né perché.",
+           "en": "Without band and reasoning the score says neither what to do nor why."
+          }
+         }
+        ],
+        "perche": {
+         "it": "Un contratto dati elenca con precisione che cosa la stazione riceve e che cosa consegna.",
+         "en": "A data contract lists precisely what the station receives and what it hands over."
+        }
+       },
+       "livello2": {
+        "tipo": "trasferimento",
+        "domanda": {
+         "it": "Un giorno l'«Arricchimento» smette di consegnare la dimensione dell'azienda. Che cosa deve fare la stazione «Punteggio»?",
+         "en": "One day «Enrichment» stops handing over the company size. What should the «Scoring» station do?"
+        },
+        "opzioni": [
+         {
+          "id": "a",
+          "testo": {
+           "it": "Calcolare lo stesso il punteggio con una dimensione media",
+           "en": "Compute the score anyway with an average size"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Un valore inventato nasconde il guasto: i punteggi sembrano buoni ma sono a caso.",
+           "en": "A made-up value hides the fault: scores look fine but are random."
+          }
+         },
+         {
+          "id": "b",
+          "testo": {
+           "it": "Chiedere al commerciale di cancellare il lead dal CRM",
+           "en": "Ask the sales rep to delete the lead from the CRM"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": {
+           "it": "Il lead non ha colpa: va fermato, non cancellato.",
+           "en": "The lead is not at fault: it must be stopped, not deleted."
+          }
+         },
+         {
+          "id": "c",
+          "testo": {
+           "it": "Fermarsi e segnalare «input mancante»",
+           "en": "Stop and flag «input missing»"
+          },
+          "corretta": true,
+          "tipo_distrattore": null,
+          "spiegazione": {
+           "it": "Giusto: un blocco visibile è meglio di un punteggio sbagliato che nessuno nota.",
+           "en": "Right: a visible block is better than a wrong score nobody notices."
+          }
+         },
+         {
+          "id": "d",
+          "testo": {
+           "it": "Mandare comunque l'email a tutti i lead del giorno",
+           "en": "Send the email to all of the day's leads anyway"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": {
+           "it": "Saltare il punteggio sposta il danno sui clienti.",
+           "en": "Skipping scoring moves the harm onto customers."
+          }
+         },
+         {
+          "id": "e",
+          "testo": {
+           "it": "Andare avanti e scrivere nella motivazione che manca la dimensione",
+           "en": "Carry on and write in the reasoning that the size is missing"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "La nota aiuta, ma il punteggio resta incompleto e parte lo stesso: il contratto non è rispettato.",
+           "en": "The note helps, but the score is still incomplete and goes out anyway: the contract is not respected."
+          }
+         }
+        ],
+        "perche": {
+         "it": "Se manca un campo del contratto, la stazione si ferma e lo dice: così il guasto si vede subito.",
+         "en": "If a contract field is missing, the station stops and says so: that way the fault shows at once."
+        }
+       }
       }
      ]
     },
@@ -5869,6 +6370,338 @@
         }
        },
        "striscia": "contro_esempio"
+      },
+      {
+       "id": "DA3.2-1",
+       "origine": "autori",
+       "pillola": "P3.2",
+       "concetti": [
+        "C28"
+       ],
+       "concetto_principale": "C28",
+       "segmento_aiuto": "vaghe",
+       "striscia": "diagnosi",
+       "livello1": {
+        "domanda": {
+         "it": "Il report del punteggio fatto da un LLM mostra 200 lead, tutti fra 88 e 93 e tutti in fascia alta. Qual è la causa più probabile?",
+         "en": "The report of an LLM-made lead score shows 200 leads, all between 88 and 93 and all in the high band. What is the most likely cause?"
+        },
+        "opzioni": [
+         {
+          "id": "A",
+          "testo": {
+           "it": "Il modello è troppo piccolo: serve un modello più grande",
+           "en": "The model is too small: a bigger model is needed"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Un modello più grande senza criteri darebbe comunque voti simili: manca la regola, non la potenza.",
+           "en": "A bigger model without criteria would still give similar marks: the rule is missing, not the power."
+          }
+         },
+         {
+          "id": "B",
+          "testo": {
+           "it": "Le istruzioni non danno criteri né fasce: il modello non sa come distinguere i lead",
+           "en": "The instructions give no criteria or bands: the model does not know how to tell leads apart"
+          },
+          "corretta": true,
+          "tipo_distrattore": null,
+          "spiegazione": {
+           "it": "Giusto: «dai un punteggio da 0 a 100» senza criteri produce voti alti e tutti uguali.",
+           "en": "Right: «give a score from 0 to 100» without criteria produces high, identical marks."
+          }
+         },
+         {
+          "id": "C",
+          "testo": {
+           "it": "I lead di questa campagna sono davvero tutti ottimi",
+           "en": "The leads in this campaign really are all excellent"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": {
+           "it": "Su 200 lead è quasi impossibile: ci sono sempre contatti deboli, come stagisti o aziende minuscole.",
+           "en": "Out of 200 leads this is almost impossible: there are always weak contacts, like interns or tiny companies."
+          }
+         },
+         {
+          "id": "D",
+          "testo": {
+           "it": "Il CRM ha esportato i lead in ordine alfabetico",
+           "en": "The CRM exported the leads in alphabetical order"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": {
+           "it": "L'ordine del file non cambia il punteggio di ogni lead.",
+           "en": "The order of the file does not change each lead's score."
+          }
+         },
+         {
+          "id": "E",
+          "testo": {
+           "it": "La temperatura è troppo bassa e il modello ripete la stessa risposta",
+           "en": "The temperature is too low and the model repeats the same answer"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Una temperatura bassa rende le risposte più stabili, non tutte alte: il problema è l'assenza di criteri.",
+           "en": "A low temperature makes answers steadier, not all high: the problem is the lack of criteria."
+          }
+         }
+        ],
+        "perche": {
+         "it": "Senza criteri scritti e senza fasce il modello non ha un metro per distinguere i lead: dà a tutti un voto alto e simile.",
+         "en": "Without written criteria and bands the model has no yardstick to tell leads apart: it gives everyone a similar high mark."
+        }
+       },
+       "livello2": {
+        "tipo": "motivazione",
+        "domanda": {
+         "it": "Perché un punteggio uguale per tutti è un problema, anche se i numeri sembrano alti?",
+         "en": "Why is a score that is the same for everyone a problem, even if the numbers look high?"
+        },
+        "opzioni": [
+         {
+          "id": "a",
+          "testo": {
+           "it": "Perché non dice al commerciale chi chiamare per primo",
+           "en": "Because it does not tell the salesperson who to call first"
+          },
+          "corretta": true,
+          "tipo_distrattore": null,
+          "spiegazione": {
+           "it": "Giusto: il punteggio serve a scegliere. Se tutti valgono 90, non sceglie niente.",
+           "en": "Right: the score is for choosing. If everyone is worth 90, it chooses nothing."
+          }
+         },
+         {
+          "id": "b",
+          "testo": {
+           "it": "Perché il report diventa difficile da leggere per il direttore",
+           "en": "Because the report becomes hard for the director to read"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Il report si legge benissimo: il guaio è che non serve a decidere.",
+           "en": "The report reads perfectly well: the trouble is that it does not help decide."
+          }
+         },
+         {
+          "id": "c",
+          "testo": {
+           "it": "Perché i numeri fra 88 e 93 sono troppo vicini a 100",
+           "en": "Because numbers between 88 and 93 are too close to 100"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": {
+           "it": "Il problema non è la vicinanza a 100 ma il fatto che siano tutti uguali.",
+           "en": "The problem is not being close to 100 but being all the same."
+          }
+         },
+         {
+          "id": "d",
+          "testo": {
+           "it": "Perché il CRM accetta solo punteggi sotto 80",
+           "en": "Because the CRM only accepts scores below 80"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": {
+           "it": "Non esiste un limite del genere: è un dettaglio inventato.",
+           "en": "There is no such limit: it is a made-up detail."
+          }
+         },
+         {
+          "id": "e",
+          "testo": {
+           "it": "Perché i lead con voto alto ricevono troppe email",
+           "en": "Because high-scoring leads get too many emails"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": {
+           "it": "Le email dipendono dalle regole della campagna; il punto è che il voto non distingue i lead.",
+           "en": "Emails depend on the campaign rules; the point is that the mark does not tell leads apart."
+          }
+         }
+        ],
+        "perche": {
+         "it": "Il punteggio esiste per mettere in ordine i lead. Se tutti hanno lo stesso voto, il commerciale non sa da chi partire.",
+         "en": "The score exists to put leads in order. If everyone has the same mark, the salesperson does not know where to start."
+        }
+       }
+      },
+      {
+       "id": "DA3.2-2",
+       "origine": "autori",
+       "pillola": "P3.2",
+       "concetti": [
+        "C28"
+       ],
+       "concetto_principale": "C28",
+       "segmento_aiuto": "confronto",
+       "striscia": "esempio_pratico",
+       "livello1": {
+        "domanda": {
+         "it": "Un lead ha campi nella media e una nota: «Il contratto con il loro fornitore scade a marzo». Come lo valuti in modo affidabile?",
+         "en": "A lead has average fields and a note: «Their contract with their supplier ends in March». How do you score it reliably?"
+        },
+        "opzioni": [
+         {
+          "id": "A",
+          "testo": {
+           "it": "Solo con le regole: sono stabili e il punteggio non cambia mai",
+           "en": "Only with the rules: they are steady and the score never changes"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Le regole sono stabili ma non leggono la nota: perdono il segnale più importante.",
+           "en": "Rules are steady but do not read the note: they miss the most important signal."
+          }
+         },
+         {
+          "id": "B",
+          "testo": {
+           "it": "Solo con il modello, chiedendo un voto da 0 a 100 senza criteri",
+           "en": "Only with the model, asking for a mark from 0 to 100 without criteria"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": {
+           "it": "Senza criteri il modello dà voti alti e simili a tutti.",
+           "en": "Without criteria the model gives everyone similar high marks."
+          }
+         },
+         {
+          "id": "C",
+          "testo": {
+           "it": "Ignorando la nota, perché le note scritte non contano",
+           "en": "Ignoring the note, because written notes do not count"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": {
+           "it": "Al contrario: la nota contiene il segnale di acquisto più forte.",
+           "en": "On the contrary: the note holds the strongest buying signal."
+          }
+         },
+         {
+          "id": "D",
+          "testo": {
+           "it": "Regole per i campi e modello che legge la nota citando la frase",
+           "en": "Rules for the fields and the model reading the note, quoting the sentence"
+          },
+          "corretta": true,
+          "tipo_distrattore": null,
+          "spiegazione": {
+           "it": "Giusto: è la soluzione mista. Le regole fanno il lavoro stabile, il modello legge il testo e dice da dove prende il segnale.",
+           "en": "Right: this is the mixed solution. Rules do the steady work, the model reads the text and says where the signal comes from."
+          }
+         },
+         {
+          "id": "E",
+          "testo": {
+           "it": "Chiedendo al modello di completare i dati mancanti dell'azienda",
+           "en": "Asking the model to fill in the company's missing data"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": {
+           "it": "Così il modello inventa dati: il punteggio diventa meno affidabile.",
+           "en": "That way the model makes up data: the score becomes less reliable."
+          }
+         }
+        ],
+        "perche": {
+         "it": "Le regole valutano bene i campi della scheda; il modello serve per i testi, come la nota, purché citi la frase da cui ricava il segnale.",
+         "en": "Rules score the record fields well; the model is useful for texts, like the note, as long as it quotes the sentence the signal comes from."
+        }
+       },
+       "livello2": {
+        "tipo": "trasferimento",
+        "domanda": {
+         "it": "Per un altro lead il modello scrive «azienda in forte crescita», ma la scheda non lo dice. Che cosa fai?",
+         "en": "For another lead the model writes «fast-growing company», but the record does not say so. What do you do?"
+        },
+        "opzioni": [
+         {
+          "id": "a",
+          "testo": {
+           "it": "Lo accetto se il voto è vicino a quello delle regole",
+           "en": "I accept it if the mark is close to the rules' mark"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Un voto vicino non rende vero il fatto: la motivazione resta senza fonte.",
+           "en": "A close mark does not make the fact true: the reasoning still has no source."
+          }
+         },
+         {
+          "id": "b",
+          "testo": {
+           "it": "Faccio valutare il lead 5 volte e tengo il voto più frequente",
+           "en": "I have the lead scored 5 times and keep the most frequent mark"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Ripetere rende il voto più stabile, non più vero: il fatto inventato può tornare uguale.",
+           "en": "Repeating makes the mark steadier, not truer: the made-up fact can come back the same."
+          }
+         },
+         {
+          "id": "c",
+          "testo": {
+           "it": "Scarto quella motivazione: un fatto senza fonte è inventato",
+           "en": "I reject that reasoning: a fact without a source is made up"
+          },
+          "corretta": true,
+          "tipo_distrattore": null,
+          "spiegazione": {
+           "it": "Giusto: ogni motivazione deve indicare il campo o la nota da cui viene.",
+           "en": "Right: every reasoning must point to the field or note it comes from."
+          }
+         },
+         {
+          "id": "d",
+          "testo": {
+           "it": "Aggiungo «forte crescita» alla scheda, così la fonte c'è",
+           "en": "I add «fast-growing» to the record, so there is a source"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": {
+           "it": "Così si sporca il CRM con un dato inventato.",
+           "en": "That dirties the CRM with a made-up fact."
+          }
+         },
+         {
+          "id": "e",
+          "testo": {
+           "it": "Alzo la soglia della fascia alta per tutti i lead",
+           "en": "I raise the high band threshold for every lead"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": {
+           "it": "Cambia tutti i lead per colpa di uno: non risolve l'invenzione.",
+           "en": "It changes every lead because of one: it does not fix the made-up fact."
+          }
+         }
+        ],
+        "perche": {
+         "it": "Stabilità e verità sono cose diverse. Una motivazione vale solo se si può ritrovare nella scheda o nella nota del lead.",
+         "en": "Steadiness and truth are different things. A reasoning only counts if it can be found in the lead's record or note."
+        }
+       }
       }
      ]
     },
@@ -6355,6 +7188,338 @@
         }
        },
        "striscia": "definizione"
+      },
+      {
+       "id": "DA3.3-1",
+       "origine": "autori",
+       "pillola": "P3.3",
+       "concetti": [
+        "C29"
+       ],
+       "concetto_principale": "C29",
+       "segmento_aiuto": "scaletta-3",
+       "striscia": "contro_esempio",
+       "livello1": {
+        "domanda": {
+         "it": "Quale di questi NON è un buon modo di arricchire la scheda di un lead?",
+         "en": "Which of these is NOT a good way to enrich a lead record?"
+        },
+        "opzioni": [
+         {
+          "id": "A",
+          "testo": {
+           "it": "Segnare il problema principale dedotto dal modello come ipotesi, con la sua confidenza",
+           "en": "Mark the main problem guessed by the model as a hypothesis, with its confidence"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "È un buon modo: l'ipotesi resta un'ipotesi e chi legge lo sa.",
+           "en": "It is a good way: the hypothesis stays a hypothesis and the reader knows it."
+          }
+         },
+         {
+          "id": "B",
+          "testo": {
+           "it": "Scrivere «budget approvato» perché il modello lo ritiene probabile",
+           "en": "Write «budget approved» because the model thinks it is likely"
+          },
+          "corretta": true,
+          "tipo_distrattore": null,
+          "spiegazione": {
+           "it": "Giusto: è un'ipotesi scritta come se fosse un fatto, senza nessuna fonte.",
+           "en": "Right: it is a guess written as if it were a fact, with no source."
+          }
+         },
+         {
+          "id": "C",
+          "testo": {
+           "it": "Prendere il numero di dipendenti da una fonte esterna, indicando la data",
+           "en": "Take the number of employees from an outside source, noting the date"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": {
+           "it": "È un buon modo: c'è la fonte e c'è la data, quindi si può controllare.",
+           "en": "It is a good way: there is a source and a date, so it can be checked."
+          }
+         },
+         {
+          "id": "D",
+          "testo": {
+           "it": "Controllare prima nel CRM se il contatto è già un cliente",
+           "en": "First check in the CRM whether the contact is already a customer"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": {
+           "it": "È il primo passo giusto: i dati del CRM sono i più affidabili.",
+           "en": "It is the right first step: CRM data is the most reliable."
+          }
+         },
+         {
+          "id": "E",
+          "testo": {
+           "it": "Lasciare vuoto un campo che nessuna fonte conferma",
+           "en": "Leave empty a field that no source confirms"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "È un buon modo: un campo vuoto è onesto, un campo inventato no.",
+           "en": "It is a good way: an empty field is honest, an invented one is not."
+          }
+         }
+        ],
+        "perche": {
+         "it": "Un'ipotesi del modello si può usare, ma va segnata come ipotesi. Scritta come fatto, inganna chi legge la scheda.",
+         "en": "A guess from the model can be used, but it must be marked as a guess. Written as a fact, it misleads whoever reads the record."
+        }
+       },
+       "livello2": {
+        "tipo": "contro-esempio",
+        "domanda": {
+         "it": "Perché «budget approvato», dedotto dal modello, non deve entrare nella scheda come fatto?",
+         "en": "Why must «budget approved», guessed by the model, not go into the record as a fact?"
+        },
+        "opzioni": [
+         {
+          "id": "a",
+          "testo": {
+           "it": "Perché il modello sbaglia sempre quando parla di soldi",
+           "en": "Because the model is always wrong when it talks about money"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Non sempre: il punto è che qui non c'è una fonte che lo confermi.",
+           "en": "Not always: the point is that here no source confirms it."
+          }
+         },
+         {
+          "id": "b",
+          "testo": {
+           "it": "Perché la scheda del CRM ha un numero massimo di campi",
+           "en": "Because the CRM record has a maximum number of fields"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": {
+           "it": "Lo spazio non c'entra: conta da dove viene il dato.",
+           "en": "Space has nothing to do with it: what matters is where the data comes from."
+          }
+         },
+         {
+          "id": "c",
+          "testo": {
+           "it": "È un'ipotesi senza fonte: il commerciale la leggerebbe come un dato vero",
+           "en": "It is a guess with no source: the salesperson would read it as true data"
+          },
+          "corretta": true,
+          "tipo_distrattore": null,
+          "spiegazione": {
+           "it": "Giusto: chi legge la scheda agisce sui dati, per esempio scrivendo un'offerta sbagliata.",
+           "en": "Right: whoever reads the record acts on the data, for example by writing the wrong offer."
+          }
+         },
+         {
+          "id": "d",
+          "testo": {
+           "it": "Perché il budget di un'azienda non interessa al commerciale",
+           "en": "Because a company's budget does not interest the salesperson"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": {
+           "it": "Al contrario, interessa molto: proprio per questo un dato falso fa danni.",
+           "en": "On the contrary, it matters a lot: that is exactly why false data causes harm."
+          }
+         },
+         {
+          "id": "e",
+          "testo": {
+           "it": "Perché va chiesto al cliente nella prima email",
+           "en": "Because it should be asked to the customer in the first email"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Chiederlo può avere senso, ma non spiega perché non va scritto come fatto.",
+           "en": "Asking may make sense, but it does not explain why it must not be written as a fact."
+          }
+         }
+        ],
+        "perche": {
+         "it": "Un dato nella scheda viene preso per vero da chi lo legge. Un'ipotesi senza fonte va segnata come tale o lasciata fuori.",
+         "en": "Data in the record is taken as true by whoever reads it. A guess with no source must be marked as such or left out."
+        }
+       }
+      },
+      {
+       "id": "DA3.3-2",
+       "origine": "autori",
+       "pillola": "P3.3",
+       "concetti": [
+        "C29"
+       ],
+       "concetto_principale": "C29",
+       "segmento_aiuto": "scaletta-5",
+       "striscia": "diagnosi",
+       "livello1": {
+        "domanda": {
+         "it": "Un'email fa i complimenti a un lead «per il nuovo ruolo di direttore marketing». Ma lui ha cambiato azienda sei mesi fa. La scheda era stata arricchita un anno fa. Qual è la causa più probabile?",
+         "en": "An email congratulates a lead «on the new role as marketing director». But he changed company six months ago. The record was enriched a year ago. What is the most likely cause?"
+        },
+        "opzioni": [
+         {
+          "id": "A",
+          "testo": {
+           "it": "Il modello ha inventato il ruolo mentre scriveva l'email",
+           "en": "The model invented the role while writing the email"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Possibile in generale, ma qui il ruolo era nella scheda: era vero un anno fa.",
+           "en": "Possible in general, but here the role was in the record: it was true a year ago."
+          }
+         },
+         {
+          "id": "B",
+          "testo": {
+           "it": "Il lead ha dato informazioni false nel modulo",
+           "en": "The lead gave false information in the form"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": {
+           "it": "Niente lo fa pensare: il dato era giusto quando è stato raccolto.",
+           "en": "Nothing suggests it: the data was right when it was collected."
+          }
+         },
+         {
+          "id": "C",
+          "testo": {
+           "it": "Il dato arricchito era vecchio e nessuno l'aveva riverificato",
+           "en": "The enriched data was old and nobody had checked it again"
+          },
+          "corretta": true,
+          "tipo_distrattore": null,
+          "spiegazione": {
+           "it": "Giusto: i dati arricchiti invecchiano, le persone cambiano ruolo e azienda.",
+           "en": "Right: enriched data gets old, people change role and company."
+          }
+         },
+         {
+          "id": "D",
+          "testo": {
+           "it": "L'email era troppo personalizzata",
+           "en": "The email was too personalised"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "La personalizzazione va bene se il dato è fresco: il problema è l'età del dato.",
+           "en": "Personalisation is fine if the data is fresh: the problem is the age of the data."
+          }
+         },
+         {
+          "id": "E",
+          "testo": {
+           "it": "Il CRM ha cancellato il ruolo nuovo",
+           "en": "The CRM deleted the new role"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": {
+           "it": "Il ruolo nuovo non è mai entrato nel CRM: nessuno l'ha cercato.",
+           "en": "The new role never entered the CRM: nobody looked for it."
+          }
+         }
+        ],
+        "perche": {
+         "it": "Un dato arricchito vale per un certo tempo. Dopo mesi le persone cambiano ruolo o azienda: il dato va riverificato prima di usarlo.",
+         "en": "Enriched data is valid for a certain time. After months people change role or company: the data must be checked again before it is used."
+        }
+       },
+       "livello2": {
+        "tipo": "diagnosi",
+        "domanda": {
+         "it": "Quale regola avrebbe evitato questo errore?",
+         "en": "Which rule would have prevented this mistake?"
+        },
+        "opzioni": [
+         {
+          "id": "a",
+          "testo": {
+           "it": "Arricchire ogni lead una volta sola, al primo contatto",
+           "en": "Enrich each lead only once, at the first contact"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": {
+           "it": "È proprio questa abitudine che crea dati vecchi.",
+           "en": "This very habit is what creates old data."
+          }
+         },
+         {
+          "id": "b",
+          "testo": {
+           "it": "Ogni dato arricchito ha data e scadenza: scaduto, si riverifica",
+           "en": "Every enriched field has a date and an expiry: once expired, it is checked again"
+          },
+          "corretta": true,
+          "tipo_distrattore": null,
+          "spiegazione": {
+           "it": "Giusto: con la data si vede quanto è vecchio il dato e quando ricontrollarlo.",
+           "en": "Right: with the date you can see how old the data is and when to check it again."
+          }
+         },
+         {
+          "id": "c",
+          "testo": {
+           "it": "Togliere la personalizzazione da tutte le email",
+           "en": "Remove personalisation from all emails"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": {
+           "it": "Toglie l'errore, ma anche tutto il valore della personalizzazione.",
+           "en": "It removes the mistake, but also all the value of personalisation."
+          }
+         },
+         {
+          "id": "d",
+          "testo": {
+           "it": "Usare un modello più grande per l'arricchimento",
+           "en": "Use a bigger model for enrichment"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Un modello più grande non sa che il lead ha cambiato lavoro dopo.",
+           "en": "A bigger model does not know the lead changed job later."
+          }
+         },
+         {
+          "id": "e",
+          "testo": {
+           "it": "Chiedere al modello se il dato è ancora vero",
+           "en": "Ask the model whether the data is still true"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Il modello non ha una fonte aggiornata: tirerebbe a indovinare.",
+           "en": "The model has no up-to-date source: it would guess."
+          }
+         }
+        ],
+        "perche": {
+         "it": "Data e scadenza su ogni campo arricchito dicono quando un dato è troppo vecchio per fidarsi: a quel punto si riverifica.",
+         "en": "A date and an expiry on every enriched field tell you when data is too old to trust: at that point it is checked again."
+        }
+       }
       }
      ]
     },
@@ -6825,6 +7990,507 @@
         }
        },
        "striscia": "esempio_pratico"
+      },
+      {
+       "id": "DA3.4-1",
+       "origine": "autori",
+       "pillola": "P3.4",
+       "concetti": [
+        "C30",
+        "C31"
+       ],
+       "concetto_principale": "C31",
+       "segmento_aiuto": "prova",
+       "striscia": "esempio_pratico",
+       "livello1": {
+        "domanda": {
+         "it": "Il marketing vuole provare la nuova sequenza di email scritte dall'agente prima del lancio. Qual è il modo giusto?",
+         "en": "Marketing wants to test the new email sequence written by the agent before launch. What is the right way?"
+        },
+        "opzioni": [
+         {
+          "id": "A",
+          "testo": {
+           "it": "Inviarle a 20 clienti veri, scelti fra i più affezionati",
+           "en": "Send them to 20 real customers, picked among the most loyal"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Sono comunque persone vere: un errore arriva a clienti importanti e non si ritira.",
+           "en": "They are still real people: a mistake reaches important customers and cannot be taken back."
+          }
+         },
+         {
+          "id": "B",
+          "testo": {
+           "it": "Caricarle nella campagna con i contatti veri, senza premere invio",
+           "en": "Load them into the campaign with the real contacts, without pressing send"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Non è una prova: basta un clic sbagliato e le email partono verso persone vere.",
+           "en": "It is not a test: one wrong click and the emails go out to real people."
+          }
+         },
+         {
+          "id": "C",
+          "testo": {
+           "it": "Inviarle a una casella di prova finta, che nessun cliente vero riceve",
+           "en": "Send them to a fake test inbox that no real customer receives"
+          },
+          "corretta": true,
+          "tipo_distrattore": null,
+          "spiegazione": {
+           "it": "Giusto: si leggono e si correggono le email senza toccare nessun cliente.",
+           "en": "Right: you read and fix the emails without touching any customer."
+          }
+         },
+         {
+          "id": "D",
+          "testo": {
+           "it": "Inviarle a tutti e correggere gli errori con una seconda email",
+           "en": "Send them to everyone and fix mistakes with a second email"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": {
+           "it": "Un'email inviata non si ritira: la seconda email non cancella la prima.",
+           "en": "A sent email cannot be taken back: the second email does not erase the first."
+          }
+         },
+         {
+          "id": "E",
+          "testo": {
+           "it": "Chiedere all'agente stesso se le email sono pronte",
+           "en": "Ask the agent itself whether the emails are ready"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": {
+           "it": "L'agente che ha scritto le email non è un controllo indipendente.",
+           "en": "The agent that wrote the emails is not an independent check."
+          }
+         }
+        ],
+        "perche": {
+         "it": "In un ambiente di prova le email finiscono in una casella finta: si controllano senza che nessun cliente le riceva.",
+         "en": "In a test environment the emails land in a fake inbox: you check them without any customer receiving them."
+        }
+       },
+       "livello2": {
+        "tipo": "motivazione",
+        "domanda": {
+         "it": "Perché la prova va fatta lontano dai contatti veri?",
+         "en": "Why must the test happen away from real contacts?"
+        },
+        "opzioni": [
+         {
+          "id": "a",
+          "testo": {
+           "it": "Perché le email di prova costano più di quelle vere",
+           "en": "Because test emails cost more than real ones"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": {
+           "it": "Il costo non c'entra: il punto è non raggiungere persone vere.",
+           "en": "Cost has nothing to do with it: the point is not to reach real people."
+          }
+         },
+         {
+          "id": "b",
+          "testo": {
+           "it": "Perché un'email inviata non si può ritirare: l'errore arriva subito al cliente",
+           "en": "Because a sent email cannot be taken back: the mistake reaches the customer at once"
+          },
+          "corretta": true,
+          "tipo_distrattore": null,
+          "spiegazione": {
+           "it": "Giusto: l'invio è un'azione irreversibile, quindi gli errori si cercano prima.",
+           "en": "Right: sending is an irreversible action, so mistakes are found beforehand."
+          }
+         },
+         {
+          "id": "c",
+          "testo": {
+           "it": "Perché in prova l'agente scrive meglio",
+           "en": "Because the agent writes better in test mode"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": {
+           "it": "L'agente scrive allo stesso modo: cambia solo dove arriva l'email.",
+           "en": "The agent writes the same way: only where the email lands changes."
+          }
+         },
+         {
+          "id": "d",
+          "testo": {
+           "it": "Perché così non serve più rileggere le email prima del lancio",
+           "en": "Because then there is no need to reread the emails before launch"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": {
+           "it": "Al contrario: la prova serve proprio a rileggere con calma.",
+           "en": "On the contrary: the test is exactly for rereading calmly."
+          }
+         },
+         {
+          "id": "e",
+          "testo": {
+           "it": "Perché la legge vieta di scrivere ai clienti senza un test",
+           "en": "Because the law forbids writing to customers without a test"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Le regole chiedono consenso e disiscrizione, ma il motivo della prova è che l'invio non si annulla.",
+           "en": "Rules ask for consent and unsubscribe, but the reason to test is that sending cannot be undone."
+          }
+         }
+        ],
+        "perche": {
+         "it": "Un'email partita è nella casella del cliente per sempre: per questo gli errori si trovano in prova.",
+         "en": "An email that has gone out stays in the customer's inbox forever: that is why mistakes are found in testing."
+        }
+       }
+      },
+      {
+       "id": "DA3.4-2",
+       "origine": "autori",
+       "pillola": "P3.4",
+       "concetti": [
+        "C30",
+        "C31"
+       ],
+       "concetto_principale": "C31",
+       "segmento_aiuto": "prova",
+       "striscia": "contro_esempio",
+       "livello1": {
+        "domanda": {
+         "it": "Quale di questi NON è un vero ambiente di prova per le email di una campagna?",
+         "en": "Which of these is NOT a real test environment for a campaign's emails?"
+        },
+        "opzioni": [
+         {
+          "id": "A",
+          "testo": {
+           "it": "Una casella finta che raccoglie le email senza inoltrarle",
+           "en": "A fake inbox that collects emails without forwarding them"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": {
+           "it": "Questa è proprio una prova: le email restano lì e nessuno le riceve.",
+           "en": "This is exactly a test: the emails stay there and nobody receives them."
+          }
+         },
+         {
+          "id": "B",
+          "testo": {
+           "it": "Una copia del CRM con contatti inventati, collegata alla casella finta",
+           "en": "A copy of the CRM with made-up contacts, linked to the fake inbox"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": {
+           "it": "Contatti inventati e casella finta: è un ambiente di prova ben fatto.",
+           "en": "Made-up contacts and a fake inbox: it is a well-built test environment."
+          }
+         },
+         {
+          "id": "C",
+          "testo": {
+           "it": "Una lista di colleghi che hanno accettato di ricevere le prove",
+           "en": "A list of colleagues who agreed to receive the tests"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Sono persone vere, ma informate e d'accordo: è una prova accettabile.",
+           "en": "They are real people, but informed and willing: it is an acceptable test."
+          }
+         },
+         {
+          "id": "D",
+          "testo": {
+           "it": "Una campagna già caricata con 500 contatti veri, non ancora spedita",
+           "en": "A campaign already loaded with 500 real contacts, not sent yet"
+          },
+          "corretta": true,
+          "tipo_distrattore": null,
+          "spiegazione": {
+           "it": "Giusto: i destinatari sono veri, quindi un clic sbagliato è un invio vero.",
+           "en": "Right: the recipients are real, so one wrong click is a real send."
+          }
+         },
+         {
+          "id": "E",
+          "testo": {
+           "it": "Un server email di prova che mostra le email solo al team",
+           "en": "A test email server that shows the emails only to the team"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": {
+           "it": "È un ambiente di prova: le email non escono dall'azienda.",
+           "en": "It is a test environment: the emails never leave the company."
+          }
+         }
+        ],
+        "perche": {
+         "it": "«Non ancora spedita» non vuol dire «di prova»: se i contatti sono veri, l'errore è a un clic dal cliente.",
+         "en": "«Not sent yet» does not mean «test»: if the contacts are real, the mistake is one click away from the customer."
+        }
+       },
+       "livello2": {
+        "tipo": "contro-esempio",
+        "domanda": {
+         "it": "Che cosa manca a quella campagna per essere un ambiente di prova?",
+         "en": "What does that campaign lack to be a test environment?"
+        },
+        "opzioni": [
+         {
+          "id": "a",
+          "testo": {
+           "it": "Un numero più piccolo di contatti",
+           "en": "A smaller number of contacts"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Anche con 10 contatti veri l'errore arriva a persone vere.",
+           "en": "Even with 10 real contacts the mistake reaches real people."
+          }
+         },
+         {
+          "id": "b",
+          "testo": {
+           "it": "Un oggetto delle email più breve",
+           "en": "A shorter email subject line"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": {
+           "it": "L'oggetto non decide dove arriva l'email.",
+           "en": "The subject line does not decide where the email lands."
+          }
+         },
+         {
+          "id": "c",
+          "testo": {
+           "it": "La separazione dal mondo reale: nessuna email deve poter arrivare a persone vere",
+           "en": "Separation from the real world: no email must be able to reach real people"
+          },
+          "corretta": true,
+          "tipo_distrattore": null,
+          "spiegazione": {
+           "it": "Giusto: un ambiente di prova è separato, non solo «fermo».",
+           "en": "Right: a test environment is separate, not just «paused»."
+          }
+         },
+         {
+          "id": "d",
+          "testo": {
+           "it": "Un agente più potente che sbagli di meno",
+           "en": "A more powerful agent that makes fewer mistakes"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": {
+           "it": "Un agente migliore sbaglia meno, ma non trasforma una campagna vera in una prova.",
+           "en": "A better agent makes fewer mistakes, but it does not turn a real campaign into a test."
+          }
+         },
+         {
+          "id": "e",
+          "testo": {
+           "it": "La firma in fondo alle email",
+           "en": "The signature at the bottom of the emails"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": {
+           "it": "La firma è una regola di marca, non c'entra con la prova.",
+           "en": "The signature is a brand rule, it has nothing to do with testing."
+          }
+         }
+        ],
+        "perche": {
+         "it": "Quello che conta è la separazione: in prova nessuna email può raggiungere un cliente, qualunque cosa si clicchi.",
+         "en": "What matters is separation: in testing no email can reach a customer, whatever you click."
+        }
+       }
+      },
+      {
+       "id": "DA3.4-3",
+       "origine": "autori",
+       "pillola": "P3.4",
+       "concetti": [
+        "C30",
+        "C31"
+       ],
+       "concetto_principale": "C30",
+       "segmento_aiuto": "frasi",
+       "striscia": "definizione",
+       "livello1": {
+        "domanda": {
+         "it": "Che cosa vuol dire che la personalizzazione di un'email è «tracciabile»?",
+         "en": "What does it mean that an email's personalisation is «traceable»?"
+        },
+        "opzioni": [
+         {
+          "id": "A",
+          "testo": {
+           "it": "Che l'email contiene il nome del lead nell'oggetto",
+           "en": "That the email has the lead's name in the subject line"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Il nome è un dato, ma la tracciabilità riguarda ogni frase personalizzata.",
+           "en": "The name is data, but traceability is about every personalised sentence."
+          }
+         },
+         {
+          "id": "B",
+          "testo": {
+           "it": "Che si vede quante volte il lead ha aperto l'email",
+           "en": "That you can see how many times the lead opened the email"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Questo è il tracciamento delle aperture: un'altra cosa.",
+           "en": "That is open tracking: a different thing."
+          }
+         },
+         {
+          "id": "C",
+          "testo": {
+           "it": "Che l'agente scrive un testo diverso per ogni lead",
+           "en": "That the agent writes a different text for each lead"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": {
+           "it": "Un testo diverso può essere tutto inventato: non basta.",
+           "en": "A different text can be entirely made up: it is not enough."
+          }
+         },
+         {
+          "id": "D",
+          "testo": {
+           "it": "Che l'email viene salvata nel CRM dopo l'invio",
+           "en": "That the email is saved in the CRM after sending"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": {
+           "it": "Salvarla è utile, ma non dice da dove vengono le frasi.",
+           "en": "Saving it is useful, but it does not say where the sentences come from."
+          }
+         },
+         {
+          "id": "E",
+          "testo": {
+           "it": "Che ogni frase personalizzata si collega a un dato preciso della scheda",
+           "en": "That every personalised sentence links to a specific piece of data in the record"
+          },
+          "corretta": true,
+          "tipo_distrattore": null,
+          "spiegazione": {
+           "it": "Giusto: per ogni frase si può indicare il dato che la giustifica.",
+           "en": "Right: for every sentence you can point to the data that justifies it."
+          }
+         }
+        ],
+        "perche": {
+         "it": "Tracciabile vuol dire che ogni frase personalizzata porta a un dato della scheda: quello che non ha un dato è inventato.",
+         "en": "Traceable means every personalised sentence leads to data in the record: whatever has no data is made up."
+        }
+       },
+       "livello2": {
+        "tipo": "trasferimento",
+        "domanda": {
+         "it": "Un'email dice «So che il vostro problema è far tornare i clienti», ma nella scheda è un'ipotesi del modello. Che cosa fai?",
+         "en": "An email says «I know your problem is getting customers to come back», but in the record it is a guess by the model. What do you do?"
+        },
+        "opzioni": [
+         {
+          "id": "a",
+          "testo": {
+           "it": "La lascio: di solito il modello indovina",
+           "en": "I leave it: the model usually guesses right"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Anche se indovina spesso, scritta come un fatto, quando sbaglia fa perdere fiducia.",
+           "en": "Even if it often guesses right, written as a fact it loses trust when it is wrong."
+          }
+         },
+         {
+          "id": "b",
+          "testo": {
+           "it": "Aggiungo «garantito» per renderla più forte",
+           "en": "I add «guaranteed» to make it stronger"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": {
+           "it": "Peggiora: un'ipotesi diventa una promessa assoluta.",
+           "en": "It makes it worse: a guess becomes an absolute promise."
+          }
+         },
+         {
+          "id": "c",
+          "testo": {
+           "it": "La trasformo in una domanda, oppure la tolgo",
+           "en": "I turn it into a question, or remove it"
+          },
+          "corretta": true,
+          "tipo_distrattore": null,
+          "spiegazione": {
+           "it": "Giusto: un'ipotesi può guidare il tema, ma non si scrive come un fatto.",
+           "en": "Right: a guess can guide the topic, but it is not written as a fact."
+          }
+         },
+         {
+          "id": "d",
+          "testo": {
+           "it": "La sposto nell'oggetto dell'email",
+           "en": "I move it into the subject line"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": {
+           "it": "Spostarla non cambia il problema: resta un'ipotesi presentata come fatto.",
+           "en": "Moving it does not change the problem: it is still a guess presented as a fact."
+          }
+         },
+         {
+          "id": "e",
+          "testo": {
+           "it": "Tolgo il nome del lead per non sembrare insistente",
+           "en": "I remove the lead's name so as not to seem pushy"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": {
+           "it": "Il nome è un dato vero: il problema è la frase dedotta.",
+           "en": "The name is real data: the problem is the inferred sentence."
+          }
+         }
+        ],
+        "perche": {
+         "it": "Le ipotesi del modello servono a orientare il messaggio; scritte come fatti diventano affermazioni senza dato.",
+         "en": "The model's guesses help steer the message; written as facts they become claims without data."
+        }
+       }
       }
      ]
     },
@@ -7295,6 +8961,841 @@
         }
        },
        "striscia": "diagnosi"
+      },
+      {
+       "id": "DA3.5-1",
+       "origine": "autori",
+       "pillola": "P3.5",
+       "concetti": [
+        "C32",
+        "C33"
+       ],
+       "concetto_principale": "C33",
+       "segmento_aiuto": "soglia",
+       "striscia": "esempio_pratico",
+       "livello1": {
+        "domanda": {
+         "it": "Dopo una campagna arriva la risposta «Fantastico, proprio quello che mi mancava: un'altra newsletter». Nei 5 tentativi il modello dà 3 etichette diverse. Che cosa deve succedere?",
+         "en": "After a campaign, the reply «Fantastic, just what I was missing: another newsletter» comes in. In 5 attempts the model gives 3 different labels. What should happen?"
+        },
+        "opzioni": [
+         {
+          "id": "A",
+          "testo": {
+           "it": "Si sceglie l'etichetta più votata, anche se ha solo 2 voti su 5",
+           "en": "Pick the most voted label, even if it has only 2 votes out of 5"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Due voti su cinque non sono una decisione solida: i tentativi non sono d'accordo.",
+           "en": "Two votes out of five are not a solid decision: the attempts do not agree."
+          }
+         },
+         {
+          "id": "B",
+          "testo": {
+           "it": "La risposta passa a una persona, perché i tentativi non sono d'accordo",
+           "en": "The reply goes to a person, because the attempts do not agree"
+          },
+          "corretta": true,
+          "tipo_distrattore": null,
+          "spiegazione": {
+           "it": "Sotto la soglia di accordo il caso è dubbio: decide una persona.",
+           "en": "Below the agreement threshold the case is doubtful: a person decides."
+          }
+         },
+         {
+          "id": "C",
+          "testo": {
+           "it": "Si rilancia il modello finché non esce sempre la stessa etichetta",
+           "en": "Run the model again until the same label always comes out"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Ripetere finché \"esce\" un risultato non lo rende giusto: si sceglie il caso fortunato, non la verità.",
+           "en": "Repeating until a result \"comes out\" does not make it right: you pick the lucky run, not the truth."
+          }
+         },
+         {
+          "id": "D",
+          "testo": {
+           "it": "Va tra gli interessati, perché contiene la parola «fantastico»",
+           "en": "It goes to «interested», because it contains the word «fantastic»"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": {
+           "it": "È ironica: la parola positiva nasconde un cliente infastidito.",
+           "en": "It is ironic: the positive word hides an annoyed customer."
+          }
+         },
+         {
+          "id": "E",
+          "testo": {
+           "it": "Si cancella la risposta, perché è solo una battuta",
+           "en": "Delete the reply, because it is just a joke"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": {
+           "it": "Una risposta di un cliente non si butta: può nascondere una richiesta da rispettare.",
+           "en": "A customer reply is never thrown away: it may hide a request that must be respected."
+          }
+         }
+        ],
+        "perche": {
+         "it": "Quando i tentativi del modello non sono abbastanza d'accordo, il caso è dubbio e va a una persona.",
+         "en": "When the model's attempts do not agree enough, the case is doubtful and goes to a person."
+        }
+       },
+       "livello2": {
+        "tipo": "motivazione",
+        "domanda": {
+         "it": "Perché in questo caso una persona serve più del modello?",
+         "en": "Why is a person more useful than the model in this case?"
+        },
+        "opzioni": [
+         {
+          "id": "a",
+          "testo": {
+           "it": "Perché il tono ironico inganna il modello, e il disaccordo dei tentativi lo segnala",
+           "en": "Because the ironic tone fools the model, and the disagreement between attempts shows it"
+          },
+          "corretta": true,
+          "tipo_distrattore": null,
+          "spiegazione": {
+           "it": "Il disaccordo è il segnale che il testo è ambiguo.",
+           "en": "The disagreement is the signal that the text is ambiguous."
+          }
+         },
+         {
+          "id": "b",
+          "testo": {
+           "it": "Perché una persona non sbaglia mai a capire l'ironia",
+           "en": "Because a person never gets irony wrong"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Anche le persone sbagliano, ma sui casi ambigui sbagliano meno del modello.",
+           "en": "People make mistakes too, but on ambiguous cases they make fewer than the model."
+          }
+         },
+         {
+          "id": "c",
+          "testo": {
+           "it": "Perché far leggere la risposta a una persona costa meno",
+           "en": "Because having a person read the reply costs less"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": {
+           "it": "Costa di più: per questo la persona riceve solo i casi dubbi.",
+           "en": "It costs more: that is why the person only gets the doubtful cases."
+          }
+         },
+         {
+          "id": "d",
+          "testo": {
+           "it": "Perché il modello non sa leggere le email in italiano",
+           "en": "Because the model cannot read emails in Italian"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": {
+           "it": "Il modello legge bene la lingua; è il tono a creare il dubbio.",
+           "en": "The model reads the language well; it is the tone that creates the doubt."
+          }
+         },
+         {
+          "id": "e",
+          "testo": {
+           "it": "Perché le risposte ironiche vanno sempre cancellate",
+           "en": "Because ironic replies must always be deleted"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": {
+           "it": "Nessuna risposta va cancellata: va capita e registrata nel CRM.",
+           "en": "No reply should be deleted: it must be understood and recorded in the CRM."
+          }
+         }
+        ],
+        "perche": {
+         "it": "L'ironia confonde il modello; il disaccordo fra i tentativi è il campanello che manda il caso a una persona.",
+         "en": "Irony confuses the model; the disagreement between attempts is the alarm that sends the case to a person."
+        }
+       }
+      },
+      {
+       "id": "DA3.5-2",
+       "origine": "autori",
+       "pillola": "P3.5",
+       "concetti": [
+        "C32",
+        "C33"
+       ],
+       "concetto_principale": "C33",
+       "segmento_aiuto": "soglia",
+       "striscia": "contro_esempio",
+       "livello1": {
+        "domanda": {
+         "it": "La soglia è «4 tentativi su 5 d'accordo». Quale di queste risposte NON va passata a una persona?",
+         "en": "The threshold is «4 attempts out of 5 agree». Which of these replies should NOT be handed to a person?"
+        },
+        "opzioni": [
+         {
+          "id": "A",
+          "testo": {
+           "it": "Una risposta ironica che riceve 3 etichette diverse in 5 tentativi",
+           "en": "An ironic reply that gets 3 different labels in 5 attempts"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": {
+           "it": "Tre etichette diverse: il caso è dubbio e va a una persona.",
+           "en": "Three different labels: the case is doubtful and goes to a person."
+          }
+         },
+         {
+          "id": "B",
+          "testo": {
+           "it": "«Grazie, ma siamo a posto così»: 3 tentativi su 5 dicono «interessato»",
+           "en": "«Thanks, but we are fine as we are»: 3 attempts out of 5 say «interested»"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Tre su cinque è sotto la soglia di 4: va a una persona, ed è giusto, perché è un no gentile.",
+           "en": "Three out of five is below the threshold of 4: it goes to a person, and rightly so, because it is a polite no."
+          }
+         },
+         {
+          "id": "C",
+          "testo": {
+           "it": "«Possiamo sentirci giovedì alle 10?»: 5 tentativi su 5 dicono «interessato»",
+           "en": "«Can we talk on Thursday at 10?»: 5 attempts out of 5 say «interested»"
+          },
+          "corretta": true,
+          "tipo_distrattore": null,
+          "spiegazione": {
+           "it": "Accordo pieno e testo chiaro: l'agente decide da solo e il lead va al commerciale.",
+           "en": "Full agreement and clear text: the agent decides alone and the lead goes to sales."
+          }
+         },
+         {
+          "id": "D",
+          "testo": {
+           "it": "Una risposta in tedesco su cui solo 2 tentativi su 5 sono d'accordo",
+           "en": "A reply in German on which only 2 attempts out of 5 agree"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": {
+           "it": "Due su cinque è molto sotto la soglia: va a una persona.",
+           "en": "Two out of five is far below the threshold: it goes to a person."
+          }
+         },
+         {
+          "id": "E",
+          "testo": {
+           "it": "«Ora no, ma toglietemi dalla lista»: 3 tentativi su 5 dicono «da ricontattare»",
+           "en": "«Not now, but take me off the list»: 3 attempts out of 5 say «contact later»"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": {
+           "it": "Qui vince la regola fissa: la disiscrizione si esegue subito; il voto del modello non basta.",
+           "en": "Here the fixed rule wins: the unsubscribe is carried out at once; the model's vote is not enough."
+          }
+         }
+        ],
+        "perche": {
+         "it": "Solo i casi chiari, con tentativi d'accordo sopra la soglia, si lasciano decidere all'agente.",
+         "en": "Only clear cases, with agreeing attempts above the threshold, are left for the agent to decide."
+        }
+       },
+       "livello2": {
+        "tipo": "contro-esempio",
+        "domanda": {
+         "it": "Una collega propone: «Mandiamo tutte le risposte a una persona, così non sbagliamo mai». Qual è il problema?",
+         "en": "A colleague suggests: «Let's send every reply to a person, so we never make mistakes». What is the problem?"
+        },
+        "opzioni": [
+         {
+          "id": "a",
+          "testo": {
+           "it": "Nessun problema: è sempre la scelta migliore",
+           "en": "No problem: it is always the best choice"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Va bene solo nella fase «in ombra», per misurare l'agente; non come regola fissa.",
+           "en": "It is fine only in the «shadow» phase, to measure the agent; not as a permanent rule."
+          }
+         },
+         {
+          "id": "b",
+          "testo": {
+           "it": "Il lavoro umano esplode e i casi chiari aspettano: la soglia serve a mandare alla persona solo i dubbi",
+           "en": "Human work explodes and clear cases wait: the threshold is there to send only the doubtful ones to a person"
+          },
+          "corretta": true,
+          "tipo_distrattore": null,
+          "spiegazione": {
+           "it": "La soglia è un compromesso: meno errori, ma senza sommergere il team.",
+           "en": "The threshold is a trade-off: fewer mistakes, without flooding the team."
+          }
+         },
+         {
+          "id": "c",
+          "testo": {
+           "it": "Le disiscrizioni non verrebbero più eseguite",
+           "en": "Unsubscribes would no longer be carried out"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": {
+           "it": "Le disiscrizioni seguono la regola fissa in ogni caso.",
+           "en": "Unsubscribes follow the fixed rule in every case."
+          }
+         },
+         {
+          "id": "d",
+          "testo": {
+           "it": "Le persone non possono aprire il CRM",
+           "en": "People cannot open the CRM"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": {
+           "it": "Il team usa il CRM ogni giorno: il problema è il tempo, non l'accesso.",
+           "en": "The team uses the CRM every day: the problem is time, not access."
+          }
+         },
+         {
+          "id": "e",
+          "testo": {
+           "it": "Le persone sbagliano più del modello anche sui casi chiari",
+           "en": "People make more mistakes than the model even on clear cases"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Non è questo il punto: sui casi chiari la persona non aggiunge nulla, ma costa tempo.",
+           "en": "That is not the point: on clear cases the person adds nothing, but costs time."
+          }
+         }
+        ],
+        "perche": {
+         "it": "Mandare tutto a una persona annulla il vantaggio dell'agente: la soglia separa i casi chiari da quelli dubbi.",
+         "en": "Sending everything to a person cancels the agent's benefit: the threshold separates clear cases from doubtful ones."
+        }
+       }
+      },
+      {
+       "id": "DA3.5-5",
+       "origine": "autori",
+       "pillola": "P3.5",
+       "concetti": [
+        "C32",
+        "C33"
+       ],
+       "concetto_principale": "C32",
+       "segmento_aiuto": "categorie",
+       "striscia": "definizione",
+       "livello1": {
+        "domanda": {
+         "it": "Che cosa vuol dire «classificare» le risposte dei clienti a una campagna?",
+         "en": "What does it mean to «classify» customers' replies to a campaign?"
+        },
+        "opzioni": [
+         {
+          "id": "A",
+          "testo": {
+           "it": "Dare a ogni risposta tutte le etichette che le si adattano",
+           "en": "Give each reply all the labels that fit it"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Le etichette multiple non dicono quale azione far partire.",
+           "en": "Multiple labels do not say which action to start."
+          }
+         },
+         {
+          "id": "B",
+          "testo": {
+           "it": "Riassumere ogni risposta in una frase per il commerciale",
+           "en": "Summarise each reply in one sentence for the salesperson"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Un riassunto è utile, ma non è un'etichetta da un elenco chiuso.",
+           "en": "A summary is useful, but it is not a label from a closed list."
+          }
+         },
+         {
+          "id": "C",
+          "testo": {
+           "it": "Dare a ogni risposta una sola etichetta, scelta da un elenco chiuso",
+           "en": "Give each reply just one label, chosen from a closed list"
+          },
+          "corretta": true,
+          "tipo_distrattore": null,
+          "spiegazione": {
+           "it": "Una sola etichetta da un elenco fisso: così ogni risposta fa partire un'azione precisa.",
+           "en": "Just one label from a fixed list: so every reply starts a precise action."
+          }
+         },
+         {
+          "id": "D",
+          "testo": {
+           "it": "Mettere le risposte in ordine di data di arrivo",
+           "en": "Put the replies in order of arrival date"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": {
+           "it": "Ordinare non dice che cosa vuole il cliente.",
+           "en": "Sorting by date does not say what the customer wants."
+          }
+         },
+         {
+          "id": "E",
+          "testo": {
+           "it": "Scrivere in automatico una risposta a ogni cliente",
+           "en": "Automatically write a reply to every customer"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": {
+           "it": "Rispondere è un altro compito; classificare viene prima.",
+           "en": "Replying is a different task; classifying comes first."
+          }
+         }
+        ],
+        "perche": {
+         "it": "Classificare significa scegliere una sola etichetta da un elenco chiuso per ogni risposta.",
+         "en": "Classifying means choosing just one label from a closed list for each reply."
+        }
+       },
+       "livello2": {
+        "tipo": "motivazione",
+        "domanda": {
+         "it": "Perché l'elenco delle categorie deve essere chiuso e senza sovrapposizioni?",
+         "en": "Why must the list of categories be closed and without overlaps?"
+        },
+        "opzioni": [
+         {
+          "id": "a",
+          "testo": {
+           "it": "Perché così l'agente non ha mai bisogno di una persona",
+           "en": "Because then the agent never needs a person"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Anche con categorie chiare restano casi dubbi da passare a una persona.",
+           "en": "Even with clear categories, doubtful cases remain to be handed to a person."
+          }
+         },
+         {
+          "id": "b",
+          "testo": {
+           "it": "Perché i CRM accettano al massimo cinque parole",
+           "en": "Because CRMs accept five words at most"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": {
+           "it": "Non esiste un limite del genere: il motivo è l'azione collegata.",
+           "en": "There is no such limit: the reason is the linked action."
+          }
+         },
+         {
+          "id": "c",
+          "testo": {
+           "it": "Perché ogni etichetta deve far partire un'azione precisa nel CRM",
+           "en": "Because every label must start a precise action in the CRM"
+          },
+          "corretta": true,
+          "tipo_distrattore": null,
+          "spiegazione": {
+           "it": "Un'etichetta = un'azione: commerciale, promemoria, rimozione dalle liste.",
+           "en": "One label = one action: salesperson, reminder, removal from lists."
+          }
+         },
+         {
+          "id": "d",
+          "testo": {
+           "it": "Perché così il modello è sempre sicuro al 100%",
+           "en": "Because then the model is always 100% sure"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": {
+           "it": "Il modello resta incerto sui testi ambigui, qualunque sia l'elenco.",
+           "en": "The model stays unsure on ambiguous texts, whatever the list."
+          }
+         },
+         {
+          "id": "e",
+          "testo": {
+           "it": "Perché le categorie aperte rendono le email più lunghe",
+           "en": "Because open categories make emails longer"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": {
+           "it": "Le categorie non cambiano la lunghezza delle email.",
+           "en": "Categories do not change the length of emails."
+          }
+         }
+        ],
+        "perche": {
+         "it": "Un elenco chiuso, senza sovrapposizioni, collega ogni etichetta a una sola azione nel CRM.",
+         "en": "A closed list without overlaps links each label to a single action in the CRM."
+        }
+       }
+      },
+      {
+       "id": "DA3.5-3",
+       "origine": "autori",
+       "pillola": "P3.5",
+       "concetti": [
+        "C32",
+        "C33"
+       ],
+       "concetto_principale": "C32",
+       "segmento_aiuto": "errore_traccia",
+       "striscia": "diagnosi",
+       "livello1": {
+        "domanda": {
+         "it": "Il report della campagna dice: 5 risposte su 5 «interessati». Le risposte vere dicono quasi tutte «no», e l'LLM ha scritto «Not Interested» per quelle risposte. Dove sta l'errore più probabile?",
+         "en": "The campaign report says: 5 replies out of 5 «interested». The real replies almost all say «no», and the LLM wrote «Not Interested» for those replies. Where is the bug most likely?"
+        },
+        "opzioni": [
+         {
+          "id": "A",
+          "testo": {
+           "it": "Nell'LLM, che ha capito male le risposte dei clienti",
+           "en": "In the LLM, which misunderstood the customers' replies"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "È il primo sospetto, ma l'LLM ha scritto «Not Interested»: l'etichetta era giusta.",
+           "en": "It is the first suspect, but the LLM wrote «Not Interested»: the label was right."
+          }
+         },
+         {
+          "id": "B",
+          "testo": {
+           "it": "Nel report, che somma male i numeri della campagna",
+           "en": "In the report, which adds up the campaign numbers wrongly"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": {
+           "it": "Il report somma bene: sono i dati che riceve a essere già sbagliati.",
+           "en": "The report adds up correctly: the data it receives is already wrong."
+          }
+         },
+         {
+          "id": "C",
+          "testo": {
+           "it": "Nel passo che converte l'etichetta dell'LLM nella categoria del CRM",
+           "en": "In the step that converts the LLM label into the CRM category"
+          },
+          "corretta": true,
+          "tipo_distrattore": null,
+          "spiegazione": {
+           "it": "Giusto: l'etichetta entra giusta e esce sbagliata. Il dato si rompe nella conversione.",
+           "en": "Right: the label goes in right and comes out wrong. The data breaks in the conversion."
+          }
+         },
+         {
+          "id": "D",
+          "testo": {
+           "it": "Nei clienti, che hanno risposto in modo poco chiaro",
+           "en": "In the customers, who replied unclearly"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": {
+           "it": "Le risposte sono chiarissime («non ci interessa»): il problema non è dei clienti.",
+           "en": "The replies are very clear («we are not interested»): the problem is not the customers."
+          }
+         },
+         {
+          "id": "E",
+          "testo": {
+           "it": "Nel punteggio dei lead, troppo alto per tutti",
+           "en": "In the lead score, too high for everyone"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Il punteggio 90-92 per tutti è un altro difetto, ma non cambia l'etichetta della risposta.",
+           "en": "The 90-92 score for everyone is another flaw, but it does not change the reply's label."
+          }
+         }
+        ],
+        "perche": {
+         "it": "L'etichetta dell'LLM è giusta e quella nel CRM è sbagliata: l'errore nasce nel passo in mezzo, la conversione.",
+         "en": "The LLM label is right and the CRM one is wrong: the bug starts in the step in between, the conversion."
+        }
+       },
+       "livello2": {
+        "tipo": "diagnosi",
+        "domanda": {
+         "it": "Quale regola di conversione produce proprio questo errore?",
+         "en": "Which conversion rule produces exactly this bug?"
+        },
+        "opzioni": [
+         {
+          "id": "a",
+          "testo": {
+           "it": "Se l'etichetta È ESATTAMENTE «Interested» → interessato",
+           "en": "If the label IS EXACTLY «Interested» → interested"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": {
+           "it": "Questa è la correzione: «Not Interested» non è esattamente «Interested», quindi non sbaglia.",
+           "en": "This is the fix: «Not Interested» is not exactly «Interested», so it does not go wrong."
+          }
+         },
+         {
+          "id": "b",
+          "testo": {
+           "it": "Se l'etichetta è sconosciuta → passa a una persona",
+           "en": "If the label is unknown → hand it to a person"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": {
+           "it": "Questa regola manda i casi strani a una persona: non trasforma un «no» in un «sì».",
+           "en": "This rule sends odd cases to a person: it does not turn a «no» into a «yes»."
+          }
+         },
+         {
+          "id": "c",
+          "testo": {
+           "it": "Se l'etichetta CONTIENE «Interested» → interessato, controllata per prima",
+           "en": "If the label CONTAINS «Interested» → interested, checked first"
+          },
+          "corretta": true,
+          "tipo_distrattore": null,
+          "spiegazione": {
+           "it": "Giusto: anche «Not Interested» contiene «Interested», e la regola si ferma lì.",
+           "en": "Right: «Not Interested» also contains «Interested», and the rule stops there."
+          }
+         },
+         {
+          "id": "d",
+          "testo": {
+           "it": "Se il cliente chiede la disiscrizione → non contattare più",
+           "en": "If the customer asks to unsubscribe → never contact again"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": {
+           "it": "È una regola fissa utile: protegge chi chiede di uscire, non crea interessati falsi.",
+           "en": "It is a useful fixed rule: it protects those who ask to leave, it does not create false interested leads."
+          }
+         },
+         {
+          "id": "e",
+          "testo": {
+           "it": "Se l'etichetta CONTIENE «Not Interested» → non interessato, controllata per prima",
+           "en": "If the label CONTAINS «Not Interested» → not interested, checked first"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Questo ordine sistema i «no», ma resta fragile: «Maybe Interested» finirebbe ancora fra gli interessati.",
+           "en": "This order fixes the «no» replies, but it stays fragile: «Maybe Interested» would still end up as interested."
+          }
+         }
+        ],
+        "perche": {
+         "it": "Un controllo «contiene» messo per primo cattura anche «Not Interested»: le regole sotto non vengono mai raggiunte.",
+         "en": "A «contains» check placed first also catches «Not Interested»: the rules below are never reached."
+        }
+       }
+      },
+      {
+       "id": "DA3.5-4",
+       "origine": "autori",
+       "pillola": "P3.5",
+       "concetti": [
+        "C32",
+        "C33"
+       ],
+       "concetto_principale": "C32",
+       "segmento_aiuto": "errore_report",
+       "striscia": "esempio_pratico",
+       "livello1": {
+        "domanda": {
+         "it": "Il nuovo classificatore delle risposte segna «100% interessati» per due settimane di fila. Che cosa fai per primo?",
+         "en": "The new reply classifier shows «100% interested» for two weeks in a row. What do you do first?"
+        },
+        "opzioni": [
+         {
+          "id": "A",
+          "testo": {
+           "it": "Passo subito tutti i lead ai commerciali, finché sono caldi",
+           "en": "I hand all the leads to sales at once, while they are hot"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": {
+           "it": "Se i dati sono sbagliati, i commerciali chiamano persone che hanno detto no.",
+           "en": "If the data is wrong, the salespeople call people who said no."
+          }
+         },
+         {
+          "id": "B",
+          "testo": {
+           "it": "Chiedo all'LLM di classificare con più attenzione",
+           "en": "I ask the LLM to classify more carefully"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Sembra ragionevole, ma non sai ancora dove sta l'errore: forse l'LLM ha già ragione.",
+           "en": "It sounds reasonable, but you do not know yet where the bug is: maybe the LLM is already right."
+          }
+         },
+         {
+          "id": "C",
+          "testo": {
+           "it": "Rifaccio il report per vedere se il numero cambia",
+           "en": "I rebuild the report to see if the number changes"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": {
+           "it": "Un report rifatto sugli stessi dati dice le stesse cose.",
+           "en": "A report rebuilt on the same data says the same things."
+          }
+         },
+         {
+          "id": "D",
+          "testo": {
+           "it": "Leggo un campione di risposte originali e le confronto con il CRM",
+           "en": "I read a sample of original replies and compare them with the CRM"
+          },
+          "corretta": true,
+          "tipo_distrattore": null,
+          "spiegazione": {
+           "it": "Giusto: i dati grezzi dicono subito se il report racconta la verità.",
+           "en": "Right: the raw data tells you at once whether the report is telling the truth."
+          }
+         },
+         {
+          "id": "E",
+          "testo": {
+           "it": "Aspetto un altro mese per avere più dati",
+           "en": "I wait another month to have more data"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": {
+           "it": "Aspettare fa solo crescere il danno: intanto si contattano le persone sbagliate.",
+           "en": "Waiting only makes the damage grow: meanwhile the wrong people get contacted."
+          }
+         }
+        ],
+        "perche": {
+         "it": "Un risultato così uniforme è un segnale d'allarme: si controlla un campione di risposte vere prima di agire.",
+         "en": "Such a uniform result is a warning sign: you check a sample of real replies before acting."
+        }
+       },
+       "livello2": {
+        "tipo": "motivazione",
+        "domanda": {
+         "it": "Perché questo è il primo passo giusto?",
+         "en": "Why is this the right first step?"
+        },
+        "opzioni": [
+         {
+          "id": "a",
+          "testo": {
+           "it": "Perché un report uniforme è sempre sbagliato",
+           "en": "Because a uniform report is always wrong"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Troppo: un report uniforme va controllato, ma a volte è vero. Il campione serve a saperlo.",
+           "en": "Too strong: a uniform report must be checked, but sometimes it is true. The sample tells you."
+          }
+         },
+         {
+          "id": "b",
+          "testo": {
+           "it": "Perché i dati grezzi mostrano se il report dice la verità",
+           "en": "Because the raw data shows whether the report tells the truth"
+          },
+          "corretta": true,
+          "tipo_distrattore": null,
+          "spiegazione": {
+           "it": "Giusto: il report è un riassunto, la verità sta nelle risposte originali.",
+           "en": "Right: the report is a summary, the truth is in the original replies."
+          }
+         },
+         {
+          "id": "c",
+          "testo": {
+           "it": "Perché leggere le risposte è più veloce di un report",
+           "en": "Because reading replies is faster than a report"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": {
+           "it": "Non è una questione di velocità: un campione serve a controllare, non a sostituire il report.",
+           "en": "It is not about speed: a sample is for checking, not for replacing the report."
+          }
+         },
+         {
+          "id": "d",
+          "testo": {
+           "it": "Perché l'LLM sbaglia quasi sempre le etichette",
+           "en": "Because the LLM almost always gets the labels wrong"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": {
+           "it": "Non è vero, e nel caso tipico l'errore era in un passo dopo l'LLM.",
+           "en": "It is not true, and in the typical case the bug was in a step after the LLM."
+          }
+         },
+         {
+          "id": "e",
+          "testo": {
+           "it": "Perché così si può cambiare subito fornitore dell'LLM",
+           "en": "Because then you can switch LLM provider at once"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": {
+           "it": "Prima si capisce dove sta l'errore; cambiare fornitore non ripara una regola sbagliata.",
+           "en": "First you find where the bug is; switching provider does not fix a wrong rule."
+          }
+         }
+        ],
+        "perche": {
+         "it": "Il report è un riassunto: solo il confronto con i dati grezzi dice se è vero.",
+         "en": "The report is a summary: only the comparison with the raw data tells you whether it is true."
+        }
+       }
       }
      ]
     }

@@ -1,0 +1,830 @@
+{
+ "id": "L_email_marca",
+ "pillola": "P3.4",
+ "componente": "email_marca",
+ "titolo": {
+  "it": "Scrivere l'email giusta (e spedirla in sicurezza)",
+  "en": "Writing the right email (and sending it safely)"
+ },
+ "sottotitolo": {
+  "it": "Accendi le regole di marca, segui ogni frase fino al suo dato e decidi tu al lucchetto.",
+  "en": "Switch on the brand rules, follow every sentence back to its data and decide at the padlock yourself."
+ },
+ "segmenti": [
+  {
+   "id": "frasi",
+   "titolo": {
+    "it": "Da dove viene ogni frase",
+    "en": "Where every sentence comes from"
+   },
+   "narrazione": [
+    {
+     "it": "L'agente ha scritto un'email a Marta, una lead (un possibile cliente) che ha scaricato una nostra guida. A sinistra vedi la sua scheda nel CRM, a destra l'email, frase per frase.",
+     "en": "The agent has written an email to Marta, a lead (a possible customer) who downloaded one of our guides. On the left you see her record in the CRM, on the right the email, sentence by sentence."
+    },
+    {
+     "it": "Una frase personalizzata va bene solo se nasce da un dato della scheda: la linea colorata mostra quale. Le frasi rosse non hanno nessun dato dietro: l'agente le ha inventate.",
+     "en": "A personalised sentence is fine only if it comes from a piece of data in the record: the coloured line shows which one. The red sentences have no data behind them: the agent made them up."
+    }
+   ],
+   "prova": {
+    "it": "Clicca le frasi segnate in rosso e in giallo e leggi a destra perché sono un problema.",
+    "en": "Click the sentences marked in red and yellow and read on the right why they are a problem."
+   },
+   "concetti": [
+    "C30"
+   ],
+   "stato_animazione": {
+    "regole": {
+     "tono": false,
+     "vietate": false,
+     "sconto": false,
+     "dati": false,
+     "disiscrizione": false,
+     "firma": false
+    },
+    "ambiente": "prova",
+    "approva_sempre": false,
+    "destinatario": "giusto",
+    "frase_aperta": "statistica",
+    "inviato": false,
+    "decisione": "nessuna"
+   }
+  },
+  {
+   "id": "regole",
+   "titolo": {
+    "it": "Le regole di marca cambiano l'email",
+    "en": "Brand rules change the email"
+   },
+   "narrazione": [
+    {
+     "it": "Le regole di marca sono le istruzioni dell'azienda su come si parla ai clienti: il tono, le parole vietate (come «garantito» o «100%»), niente sconti decisi dall'agente, la firma e la riga per disiscriversi.",
+     "en": "Brand rules are the company's instructions on how to talk to customers: the tone, the banned words (such as «guaranteed» or «100%»), no discounts decided by the agent, the signature and the line to unsubscribe."
+    },
+    {
+     "it": "Senza regole l'agente scrive come capita. Con le regole il testo resta personale, ma dentro confini chiari.",
+     "en": "Without rules the agent writes whatever comes out. With rules the text stays personal, but within clear limits."
+    }
+   ],
+   "prova": {
+    "it": "Accendi le regole una alla volta e guarda l'email cambiare: frasi che spariscono, parole sostituite, righe nuove.",
+    "en": "Switch the rules on one at a time and watch the email change: sentences that disappear, words replaced, new lines."
+   },
+   "concetti": [
+    "C30"
+   ],
+   "stato_animazione": {
+    "regole": {
+     "tono": false,
+     "vietate": false,
+     "sconto": false,
+     "dati": false,
+     "disiscrizione": false,
+     "firma": false
+    },
+    "ambiente": "prova",
+    "approva_sempre": false,
+    "destinatario": "giusto",
+    "frase_aperta": "promessa",
+    "inviato": false,
+    "decisione": "nessuna"
+   }
+  },
+  {
+   "id": "ipotesi",
+   "titolo": {
+    "it": "Un'ipotesi non è un fatto",
+    "en": "A guess is not a fact"
+   },
+   "narrazione": [
+    {
+     "it": "Nella scheda il «problema probabile» di Marta ha il bordo tratteggiato: non l'ha detto lei, l'ha dedotto il modello. È un'ipotesi, utile per scegliere di che cosa parlare.",
+     "en": "In the record, Marta's «likely problem» has a dashed border: she did not say it, the model inferred it. It is a guess, useful for choosing what to talk about."
+    },
+    {
+     "it": "Scriverla nell'email come un fatto («so che i vostri clienti non tornano») è rischioso: se è sbagliata, Marta smette di fidarsi. Meglio trasformarla in una domanda.",
+     "en": "Writing it in the email as a fact («I know your customers do not come back») is risky: if it is wrong, Marta stops trusting us. Better to turn it into a question."
+    }
+   ],
+   "prova": {
+    "it": "Accendi «Ogni frase da un dato»: guarda la frase gialla diventare una domanda e la statistica inventata sparire.",
+    "en": "Switch on «Every sentence from data»: watch the yellow sentence become a question and the made-up statistic disappear."
+   },
+   "concetti": [
+    "C30"
+   ],
+   "stato_animazione": {
+    "regole": {
+     "tono": true,
+     "vietate": true,
+     "sconto": true,
+     "dati": false,
+     "disiscrizione": true,
+     "firma": true
+    },
+    "ambiente": "prova",
+    "approva_sempre": false,
+    "destinatario": "giusto",
+    "frase_aperta": "problema",
+    "inviato": false,
+    "decisione": "nessuna"
+   }
+  },
+  {
+   "id": "prova",
+   "titolo": {
+    "it": "Prima si prova, poi si spedisce",
+    "en": "First you test, then you send"
+   },
+   "narrazione": [
+    {
+     "it": "Un'email inviata non si può ritirare. Per questo si prova in un ambiente di prova: le email finiscono in una casella finta che vedi solo tu e nessuna persona vera le riceve.",
+     "en": "A sent email cannot be taken back. That is why you test in a test environment: the emails land in a fake inbox that only you can see, and no real person receives them."
+    },
+    {
+     "it": "Attenzione: una campagna con contatti veri, solo «non ancora spedita», non è un ambiente di prova.",
+     "en": "Careful: a campaign with real contacts that is only «not sent yet» is not a test environment."
+    }
+   ],
+   "prova": {
+    "it": "Premi «Invia» in prova e guarda dove arriva la busta. Poi passa a «Produzione» (l'invio vero) e premi di nuovo.",
+    "en": "Press «Send» in test mode and see where the envelope lands. Then switch to «Production» (real sending) and press again."
+   },
+   "concetti": [
+    "C31"
+   ],
+   "stato_animazione": {
+    "regole": {
+     "tono": true,
+     "vietate": true,
+     "sconto": true,
+     "dati": true,
+     "disiscrizione": true,
+     "firma": true
+    },
+    "ambiente": "prova",
+    "approva_sempre": false,
+    "destinatario": "giusto",
+    "frase_aperta": "aggancio",
+    "inviato": false,
+    "decisione": "nessuna"
+   }
+  },
+  {
+   "id": "lucchetto",
+   "titolo": {
+    "it": "Il lucchetto: approva una persona",
+    "en": "The padlock: a person approves"
+   },
+   "narrazione": [
+    {
+     "it": "In produzione la busta si ferma a un lucchetto: una persona legge l'email e la approva oppure la rimanda indietro. La checklist l'aiuta: disiscrizione, nessuna promessa di soldi, destinatario giusto, nessuna frase senza dato.",
+     "en": "In production the envelope stops at a padlock: a person reads the email and approves it or sends it back. The checklist helps: unsubscribe line, no money promises, right recipient, no sentence without data."
+    },
+    {
+     "it": "C'è anche l'interruttore «Approva sempre». Sembra comodo, ma toglie l'unico controllo prima del cliente.",
+     "en": "There is also an «Always approve» switch. It looks handy, but it removes the only check before the customer."
+    }
+   ],
+   "prova": {
+    "it": "Premi «Invia», leggi la checklist e decidi: approva o rimanda indietro. Poi accendi «Approva sempre», invia di nuovo e guarda che cosa succede.",
+    "en": "Press «Send», read the checklist and decide: approve or send back. Then switch on «Always approve», send again and see what happens."
+   },
+   "concetti": [
+    "C30",
+    "C31"
+   ],
+   "stato_animazione": {
+    "regole": {
+     "tono": true,
+     "vietate": true,
+     "sconto": false,
+     "dati": true,
+     "disiscrizione": true,
+     "firma": true
+    },
+    "ambiente": "produzione",
+    "approva_sempre": false,
+    "destinatario": "sbagliato",
+    "frase_aperta": "sconto",
+    "inviato": false,
+    "decisione": "nessuna"
+   }
+  },
+  {
+   "id": "riassunto",
+   "titolo": {
+    "it": "In tre frasi",
+    "en": "In three sentences"
+   },
+   "narrazione": [
+    {
+     "it": "Ogni frase personalizzata di un'email deve nascere da un dato della scheda, e le ipotesi del modello diventano domande, non fatti.",
+     "en": "Every personalised sentence in an email must come from data in the record, and the model's guesses become questions, not facts."
+    },
+    {
+     "it": "Le regole di marca tengono il testo dentro confini chiari: tono, parole vietate, nessuno sconto inventato, disiscrizione e firma.",
+     "en": "Brand rules keep the text within clear limits: tone, banned words, no made-up discounts, unsubscribe line and signature."
+    },
+    {
+     "it": "Si prova in una casella finta e, prima dell'invio vero, una persona approva: il lucchetto non si toglie per comodità.",
+     "en": "You test in a fake inbox and, before real sending, a person approves: the padlock is not removed for convenience."
+    }
+   ],
+   "concetti": [
+    "C30",
+    "C31"
+   ],
+   "stato_animazione": {
+    "regole": {
+     "tono": true,
+     "vietate": true,
+     "sconto": true,
+     "dati": true,
+     "disiscrizione": true,
+     "firma": true
+    },
+    "ambiente": "produzione",
+    "approva_sempre": false,
+    "destinatario": "giusto",
+    "frase_aperta": "invito",
+    "inviato": false,
+    "decisione": "nessuna"
+   }
+  }
+ ],
+ "scenario": {
+  "lead": {
+   "nome": "Marta Ferri",
+   "campi": [
+    {
+     "id": "nome",
+     "nome": {
+      "it": "Nome",
+      "en": "Name"
+     },
+     "valore": {
+      "it": "Marta Ferri",
+      "en": "Marta Ferri"
+     },
+     "origine": "crm"
+    },
+    {
+     "id": "ruolo",
+     "nome": {
+      "it": "Ruolo",
+      "en": "Role"
+     },
+     "valore": {
+      "it": "Responsabile marketing",
+      "en": "Marketing manager"
+     },
+     "origine": "crm"
+    },
+    {
+     "id": "azienda",
+     "nome": {
+      "it": "Azienda",
+      "en": "Company"
+     },
+     "valore": {
+      "it": "Ottica Sole Srl, 12 negozi (sito aziendale, ottobre 2026)",
+      "en": "Ottica Sole Srl, 12 shops (company website, October 2026)"
+     },
+     "origine": "fonte"
+    },
+    {
+     "id": "ultimo",
+     "nome": {
+      "it": "Ultimo contatto",
+      "en": "Last contact"
+     },
+     "valore": {
+      "it": "Ha scaricato la guida «Clienti che tornano», 3 novembre",
+      "en": "Downloaded the guide «Customers who come back», 3 November"
+     },
+     "origine": "crm"
+    },
+    {
+     "id": "pain",
+     "nome": {
+      "it": "Problema probabile",
+      "en": "Likely problem"
+     },
+     "valore": {
+      "it": "Pochi clienti tornano dopo il primo acquisto",
+      "en": "Few customers come back after the first purchase"
+     },
+     "origine": "dedotto"
+    }
+   ]
+  },
+  "destinatari": [
+   {
+    "id": "giusto",
+    "nome": {
+     "it": "Marta Ferri",
+     "en": "Marta Ferri"
+    },
+    "indirizzo": {
+     "it": "Marta Ferri <marta.ferri@otticasole.it>",
+     "en": "Marta Ferri <marta.ferri@otticasole.it>"
+    }
+   },
+   {
+    "id": "sbagliato",
+    "nome": {
+     "it": "Marta Ferrari (altra azienda)",
+     "en": "Marta Ferrari (another company)"
+    },
+    "indirizzo": {
+     "it": "Marta Ferrari <m.ferrari@solviaggi.it>",
+     "en": "Marta Ferrari <m.ferrari@solviaggi.it>"
+    }
+   }
+  ],
+  "regole": [
+   {
+    "id": "tono",
+    "nome": {
+     "it": "Tono della marca",
+     "en": "Brand tone"
+    },
+    "effetto": {
+     "it": "Cortese e professionale",
+     "en": "Polite and professional"
+    }
+   },
+   {
+    "id": "vietate",
+    "nome": {
+     "it": "Parole vietate",
+     "en": "Banned words"
+    },
+    "effetto": {
+     "it": "Niente «garantito», «gratis», «100%»",
+     "en": "No «guaranteed», «free», «100%»"
+    }
+   },
+   {
+    "id": "sconto",
+    "nome": {
+     "it": "Nessuno sconto dall'agente",
+     "en": "No discounts from the agent"
+    },
+    "effetto": {
+     "it": "Gli sconti li decide una persona",
+     "en": "A person decides discounts"
+    }
+   },
+   {
+    "id": "dati",
+    "nome": {
+     "it": "Ogni frase da un dato",
+     "en": "Every sentence from data"
+    },
+    "effetto": {
+     "it": "Niente numeri inventati, ipotesi come domande",
+     "en": "No made-up numbers, guesses as questions"
+    }
+   },
+   {
+    "id": "disiscrizione",
+    "nome": {
+     "it": "Riga di disiscrizione",
+     "en": "Unsubscribe line"
+    },
+    "effetto": {
+     "it": "Il cliente può dire basta",
+     "en": "The customer can say stop"
+    }
+   },
+   {
+    "id": "firma",
+    "nome": {
+     "it": "Firma",
+     "en": "Signature"
+    },
+    "effetto": {
+     "it": "Chi scrive e per quale azienda",
+     "en": "Who is writing and for which company"
+    }
+   }
+  ],
+  "frasi": [
+   {
+    "id": "saluto",
+    "regola": "tono",
+    "base": {
+     "testo": {
+      "it": "Ehi Marta!!! Pronta a rivoluzionare il tuo negozio?",
+      "en": "Hey Marta!!! Ready to revolutionise your shop?"
+     },
+     "stato": "tono",
+     "campo": "nome"
+    },
+    "con": {
+     "testo": {
+      "it": "Buongiorno Marta,",
+      "en": "Good morning Marta,"
+     },
+     "stato": "dato",
+     "campo": "nome"
+    }
+   },
+   {
+    "id": "aggancio",
+    "base": {
+     "testo": {
+      "it": "Grazie per aver scaricato la nostra guida «Clienti che tornano in negozio».",
+      "en": "Thank you for downloading our guide «Customers who come back to the shop»."
+     },
+     "stato": "dato",
+     "campo": "ultimo"
+    },
+    "con": null
+   },
+   {
+    "id": "azienda",
+    "base": {
+     "testo": {
+      "it": "Con 12 negozi, Ottica Sole incontra ogni giorno tanti clienti.",
+      "en": "With 12 shops, Ottica Sole meets many customers every day."
+     },
+     "stato": "dato",
+     "campo": "azienda"
+    },
+    "con": null
+   },
+   {
+    "id": "problema",
+    "regola": "dati",
+    "base": {
+     "testo": {
+      "it": "So che da voi molti clienti, dopo il primo acquisto, non tornano più.",
+      "en": "I know that many of your customers never come back after their first purchase."
+     },
+     "stato": "ipotesi",
+     "campo": "pain"
+    },
+    "con": {
+     "testo": {
+      "it": "Capita anche a voi che un cliente, dopo il primo paio di occhiali, non torni più?",
+      "en": "Does it happen to you too that a customer never comes back after their first pair of glasses?"
+     },
+     "stato": "domanda",
+     "campo": "pain"
+    }
+   },
+   {
+    "id": "statistica",
+    "regola": "dati",
+    "base": {
+     "testo": {
+      "it": "Le catene come la vostra perdono da 8 a 15 ore a persona ogni settimana in lavoro manuale.",
+      "en": "Chains like yours lose 8 to 15 hours per person every week on manual work."
+     },
+     "stato": "non_supportata"
+    },
+    "con": null
+   },
+   {
+    "id": "promessa",
+    "regola": "vietate",
+    "base": {
+     "testo": {
+      "it": "Con Fidelio i clienti di ritorno aumentano, garantito al 100%.",
+      "en": "With Fidelio returning customers grow, 100% guaranteed."
+     },
+     "stato": "vietata"
+    },
+    "con": {
+     "testo": {
+      "it": "Fidelio ricorda ai clienti, al momento giusto, il controllo della vista.",
+      "en": "Fidelio reminds customers about their eye check at the right time."
+     },
+     "stato": "neutro"
+    }
+   },
+   {
+    "id": "sconto",
+    "regola": "sconto",
+    "base": {
+     "testo": {
+      "it": "Se firma entro venerdì, le faccio subito il 30% di sconto.",
+      "en": "If you sign by Friday, I will give you a 30% discount straight away."
+     },
+     "stato": "promessa"
+    },
+    "con": null
+   },
+   {
+    "id": "invito",
+    "base": {
+     "testo": {
+      "it": "Le va una chiamata di 20 minuti giovedì per capire se Fidelio fa per voi?",
+      "en": "Would you like a 20-minute call on Thursday to see if Fidelio is right for you?"
+     },
+     "stato": "neutro"
+    },
+    "con": null
+   },
+   {
+    "id": "firma",
+    "regola": "firma",
+    "base": {
+     "testo": {
+      "it": "Ciao!",
+      "en": "Bye!"
+     },
+     "stato": "neutro"
+    },
+    "con": {
+     "testo": {
+      "it": "Luca Bassi · Fidelio, programmi fedeltà per negozi",
+      "en": "Luca Bassi · Fidelio, loyalty programmes for shops"
+     },
+     "stato": "neutro"
+    }
+   },
+   {
+    "id": "disiscrizione",
+    "regola": "disiscrizione",
+    "base": null,
+    "con": {
+     "testo": {
+      "it": "Non vuole più ricevere le nostre email? Clicchi qui per disiscriversi.",
+      "en": "No longer want our emails? Click here to unsubscribe."
+     },
+     "stato": "disiscrizione"
+    }
+   }
+  ],
+  "testi": {
+   "check_disiscrizione": {
+    "it": "C'è la riga per disiscriversi",
+    "en": "The unsubscribe line is there"
+   },
+   "check_promesse": {
+    "it": "Nessuna promessa di soldi o sconti",
+    "en": "No promises of money or discounts"
+   },
+   "check_vietate": {
+    "it": "Nessuna parola vietata",
+    "en": "No banned words"
+   },
+   "check_supportate": {
+    "it": "Ogni frase personalizzata ha un dato (niente ipotesi come fatti)",
+    "en": "Every personalised sentence has data (no guesses as facts)"
+   },
+   "check_destinatario": {
+    "it": "Il destinatario è la persona giusta",
+    "en": "The recipient is the right person"
+   },
+   "esito_bozza": {
+    "it": "Bozza pronta: premi «Invia».",
+    "en": "Draft ready: press «Send»."
+   },
+   "esito_casella_finta": {
+    "it": "La busta è nella casella di prova: puoi leggerla e correggerla. Nessun cliente l'ha ricevuta.",
+    "en": "The envelope is in the test inbox: you can read it and fix it. No customer has received it."
+   },
+   "esito_in_attesa": {
+    "it": "Lucchetto chiuso: l'email aspetta che una persona la approvi o la rimandi indietro.",
+    "en": "Padlock closed: the email waits for a person to approve it or send it back."
+   },
+   "esito_partita_ok": {
+    "it": "Approvata e partita verso {nome}: era in regola su tutti i punti.",
+    "en": "Approved and sent to {nome}: it passed every point."
+   },
+   "esito_approvata_con_errori": {
+    "it": "Hai approvato un'email con {problemi} problemi: ora è nella casella di un cliente vero e non si può ritirare.",
+    "en": "You approved an email with {problemi} problems: it is now in a real customer's inbox and cannot be taken back."
+   },
+   "esito_rimandata_giusto": {
+    "it": "Giusto rimandarla indietro: aveva {problemi} problemi. L'agente la corregge e torna al lucchetto.",
+    "en": "Right to send it back: it had {problemi} problems. The agent fixes it and it comes back to the padlock."
+   },
+   "esito_rimandata_inutile": {
+    "it": "L'email era in regola su tutti i punti: potevi approvarla. Il controllo serve, ma non a bloccare tutto.",
+    "en": "The email passed every point: you could have approved it. The check matters, but not to block everything."
+   },
+   "esito_danno": {
+    "it": "Con «Approva sempre» è partita senza che nessuno la leggesse, con {problemi} problemi: ora è nella casella di un cliente vero.",
+    "en": "With «Always approve» it went out without anyone reading it, with {problemi} problems: it is now in a real customer's inbox."
+   },
+   "esito_senza_controllo": {
+    "it": "È partita senza che nessuno la leggesse. Questa volta era in regola: la prossima volta, nessuno lo saprà prima del cliente.",
+    "en": "It went out without anyone reading it. This time it was fine: next time, nobody will know before the customer does."
+   },
+   "spiega_dato": {
+    "it": "Bene: la frase nasce da un dato della scheda, e chiunque può controllarla.",
+    "en": "Good: the sentence comes from data in the record, and anyone can check it."
+   },
+   "spiega_domanda": {
+    "it": "Bene: l'ipotesi del modello diventa una domanda. Se è sbagliata, Marta risponde di no e nessuno ci perde la faccia.",
+    "en": "Good: the model's guess becomes a question. If it is wrong, Marta just says no and nobody loses face."
+   },
+   "spiega_ipotesi": {
+    "it": "Attenzione: qui un'ipotesi del modello è scritta come un fatto. Marta non l'ha mai detto.",
+    "en": "Careful: here a guess by the model is written as a fact. Marta never said it."
+   },
+   "spiega_non_supportata": {
+    "it": "Nessun dato della scheda dice questo: il numero è inventato. Un cliente attento se ne accorge.",
+    "en": "No data in the record says this: the number is made up. An attentive customer will notice."
+   },
+   "spiega_vietata": {
+    "it": "Contiene parole vietate dalla marca: una promessa assoluta che l'azienda non può mantenere.",
+    "en": "It contains words banned by the brand: an absolute promise the company cannot keep."
+   },
+   "spiega_promessa": {
+    "it": "Uno sconto deciso dall'agente: le promesse di soldi le fa solo una persona autorizzata.",
+    "en": "A discount decided by the agent: money promises are made only by an authorised person."
+   },
+   "spiega_tono": {
+    "it": "Il tono non è quello della marca: troppo informale per un primo contatto di lavoro.",
+    "en": "The tone is not the brand's: too informal for a first business contact."
+   },
+   "spiega_neutro": {
+    "it": "Frase di cortesia o sul nostro prodotto: non dice nulla su Marta, quindi non serve un dato della sua scheda.",
+    "en": "A polite sentence or one about our product: it says nothing about Marta, so no data from her record is needed."
+   },
+   "spiega_disiscrizione": {
+    "it": "La riga per disiscriversi: il cliente deve poter dire basta in un clic.",
+    "en": "The unsubscribe line: the customer must be able to say stop in one click."
+   },
+   "apri_frase": {
+    "it": "Apri la frase ({stato})",
+    "en": "Open the sentence ({stato})"
+   },
+   "avviso_approva_sempre": {
+    "it": "«Approva sempre» è acceso: il lucchetto è tolto e ogni email parte senza che nessuno la legga.",
+    "en": "«Always approve» is on: the padlock is removed and every email goes out without anyone reading it."
+   },
+   "nota_lucchetto": {
+    "it": "Prima di aprire il lucchetto, controlla la lista:",
+    "en": "Before opening the padlock, check the list:"
+   },
+   "nota_prova": {
+    "it": "Ambiente di prova: le email vanno in una casella finta.",
+    "en": "Test environment: emails go to a fake inbox."
+   },
+   "oggetto_email": {
+    "it": "Clienti che tornano: una domanda per Ottica Sole",
+    "en": "Customers who come back: a question for Ottica Sole"
+   }
+  },
+  "etichette": {
+   "titolo_comandi": {
+    "it": "Prova a cambiare",
+    "en": "Try changing"
+   },
+   "regole": {
+    "it": "Regole di marca",
+    "en": "Brand rules"
+   },
+   "destinatario": {
+    "it": "Destinatario scelto dall'agente",
+    "en": "Recipient chosen by the agent"
+   },
+   "ambiente": {
+    "it": "Dove si invia",
+    "en": "Where it is sent"
+   },
+   "prova": {
+    "it": "Prova",
+    "en": "Test"
+   },
+   "produzione": {
+    "it": "Produzione",
+    "en": "Production"
+   },
+   "approva_sempre": {
+    "it": "Approva sempre",
+    "en": "Always approve"
+   },
+   "invia": {
+    "it": "Invia",
+    "en": "Send"
+   },
+   "descrizione_scena": {
+    "it": "La scheda del lead a sinistra, l'email a destra con le linee verso i dati, sotto il viaggio della busta",
+    "en": "The lead record on the left, the email on the right with lines to the data, below the envelope's journey"
+   },
+   "scheda_lead": {
+    "it": "SCHEDA DEL LEAD",
+    "en": "LEAD RECORD"
+   },
+   "origine_crm": {
+    "it": "DAL CRM",
+    "en": "FROM CRM"
+   },
+   "origine_fonte": {
+    "it": "DA FONTE",
+    "en": "FROM SOURCE"
+   },
+   "origine_dedotto": {
+    "it": "IPOTESI",
+    "en": "GUESS"
+   },
+   "email": {
+    "it": "EMAIL SCRITTA DALL'AGENTE",
+    "en": "EMAIL WRITTEN BY THE AGENT"
+   },
+   "a": {
+    "it": "A",
+    "en": "To"
+   },
+   "stato_dato": {
+    "it": "Da un dato",
+    "en": "From data"
+   },
+   "stato_domanda": {
+    "it": "Ipotesi come domanda",
+    "en": "Guess as a question"
+   },
+   "stato_ipotesi": {
+    "it": "Ipotesi come fatto",
+    "en": "Guess as a fact"
+   },
+   "stato_non_supportata": {
+    "it": "Non supportata",
+    "en": "Not supported"
+   },
+   "stato_vietata": {
+    "it": "Parola vietata",
+    "en": "Banned word"
+   },
+   "stato_promessa": {
+    "it": "Promessa non autorizzata",
+    "en": "Unauthorised promise"
+   },
+   "stato_tono": {
+    "it": "Fuori tono",
+    "en": "Off tone"
+   },
+   "stato_neutro": {
+    "it": "Cortesia o prodotto",
+    "en": "Courtesy or product"
+   },
+   "stato_disiscrizione": {
+    "it": "Disiscrizione",
+    "en": "Unsubscribe"
+   },
+   "titolo_frase": {
+    "it": "La frase scelta",
+    "en": "The chosen sentence"
+   },
+   "viene_da": {
+    "it": "Viene da",
+    "en": "Comes from"
+   },
+   "nessun_dato": {
+    "it": "nessun dato",
+    "en": "no data"
+   },
+   "titolo_invio": {
+    "it": "Invio",
+    "en": "Sending"
+   },
+   "casella_prova": {
+    "it": "Casella di prova",
+    "en": "Test inbox"
+   },
+   "casella_vera": {
+    "it": "Casella vera",
+    "en": "Real inbox"
+   },
+   "nessuno_riceve": {
+    "it": "nessuno la riceve",
+    "en": "nobody receives it"
+   },
+   "tappa_bozza": {
+    "it": "Bozza",
+    "en": "Draft"
+   },
+   "tappa_lucchetto": {
+    "it": "Approvazione",
+    "en": "Approval"
+   },
+   "tappa_nessun_controllo": {
+    "it": "Nessun controllo",
+    "en": "No check"
+   },
+   "oggetto": {
+    "it": "Oggetto",
+    "en": "Subject"
+   },
+   "approva": {
+    "it": "Approva",
+    "en": "Approve"
+   },
+   "rimanda": {
+    "it": "Rimanda indietro",
+    "en": "Send back"
+   }
+  }
+ },
+ "domande": []
+}

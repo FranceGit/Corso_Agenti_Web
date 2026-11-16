@@ -1,0 +1,334 @@
+[
+ {
+  "id": "DA3.3-1",
+  "origine": "autori",
+  "pillola": "P3.3",
+  "concetti": [
+   "C29"
+  ],
+  "concetto_principale": "C29",
+  "segmento_aiuto": "scaletta-3",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Quale di questi NON è un buon modo di arricchire la scheda di un lead?",
+    "en": "Which of these is NOT a good way to enrich a lead record?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Segnare il problema principale dedotto dal modello come ipotesi, con la sua confidenza",
+      "en": "Mark the main problem guessed by the model as a hypothesis, with its confidence"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "È un buon modo: l'ipotesi resta un'ipotesi e chi legge lo sa.",
+      "en": "It is a good way: the hypothesis stays a hypothesis and the reader knows it."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Scrivere «budget approvato» perché il modello lo ritiene probabile",
+      "en": "Write «budget approved» because the model thinks it is likely"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: è un'ipotesi scritta come se fosse un fatto, senza nessuna fonte.",
+      "en": "Right: it is a guess written as if it were a fact, with no source."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Prendere il numero di dipendenti da una fonte esterna, indicando la data",
+      "en": "Take the number of employees from an outside source, noting the date"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "È un buon modo: c'è la fonte e c'è la data, quindi si può controllare.",
+      "en": "It is a good way: there is a source and a date, so it can be checked."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Controllare prima nel CRM se il contatto è già un cliente",
+      "en": "First check in the CRM whether the contact is already a customer"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "È il primo passo giusto: i dati del CRM sono i più affidabili.",
+      "en": "It is the right first step: CRM data is the most reliable."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Lasciare vuoto un campo che nessuna fonte conferma",
+      "en": "Leave empty a field that no source confirms"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "È un buon modo: un campo vuoto è onesto, un campo inventato no.",
+      "en": "It is a good way: an empty field is honest, an invented one is not."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Un'ipotesi del modello si può usare, ma va segnata come ipotesi. Scritta come fatto, inganna chi legge la scheda.",
+    "en": "A guess from the model can be used, but it must be marked as a guess. Written as a fact, it misleads whoever reads the record."
+   }
+  },
+  "livello2": {
+   "tipo": "contro-esempio",
+   "domanda": {
+    "it": "Perché «budget approvato», dedotto dal modello, non deve entrare nella scheda come fatto?",
+    "en": "Why must «budget approved», guessed by the model, not go into the record as a fact?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché il modello sbaglia sempre quando parla di soldi",
+      "en": "Because the model is always wrong when it talks about money"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Non sempre: il punto è che qui non c'è una fonte che lo confermi.",
+      "en": "Not always: the point is that here no source confirms it."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché la scheda del CRM ha un numero massimo di campi",
+      "en": "Because the CRM record has a maximum number of fields"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Lo spazio non c'entra: conta da dove viene il dato.",
+      "en": "Space has nothing to do with it: what matters is where the data comes from."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "È un'ipotesi senza fonte: il commerciale la leggerebbe come un dato vero",
+      "en": "It is a guess with no source: the salesperson would read it as true data"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: chi legge la scheda agisce sui dati, per esempio scrivendo un'offerta sbagliata.",
+      "en": "Right: whoever reads the record acts on the data, for example by writing the wrong offer."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Perché il budget di un'azienda non interessa al commerciale",
+      "en": "Because a company's budget does not interest the salesperson"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Al contrario, interessa molto: proprio per questo un dato falso fa danni.",
+      "en": "On the contrary, it matters a lot: that is exactly why false data causes harm."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Perché va chiesto al cliente nella prima email",
+      "en": "Because it should be asked to the customer in the first email"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Chiederlo può avere senso, ma non spiega perché non va scritto come fatto.",
+      "en": "Asking may make sense, but it does not explain why it must not be written as a fact."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Un dato nella scheda viene preso per vero da chi lo legge. Un'ipotesi senza fonte va segnata come tale o lasciata fuori.",
+    "en": "Data in the record is taken as true by whoever reads it. A guess with no source must be marked as such or left out."
+   }
+  }
+ },
+ {
+  "id": "DA3.3-2",
+  "origine": "autori",
+  "pillola": "P3.3",
+  "concetti": [
+   "C29"
+  ],
+  "concetto_principale": "C29",
+  "segmento_aiuto": "scaletta-5",
+  "striscia": "diagnosi",
+  "livello1": {
+   "domanda": {
+    "it": "Un'email fa i complimenti a un lead «per il nuovo ruolo di direttore marketing». Ma lui ha cambiato azienda sei mesi fa. La scheda era stata arricchita un anno fa. Qual è la causa più probabile?",
+    "en": "An email congratulates a lead «on the new role as marketing director». But he changed company six months ago. The record was enriched a year ago. What is the most likely cause?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Il modello ha inventato il ruolo mentre scriveva l'email",
+      "en": "The model invented the role while writing the email"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Possibile in generale, ma qui il ruolo era nella scheda: era vero un anno fa.",
+      "en": "Possible in general, but here the role was in the record: it was true a year ago."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Il lead ha dato informazioni false nel modulo",
+      "en": "The lead gave false information in the form"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Niente lo fa pensare: il dato era giusto quando è stato raccolto.",
+      "en": "Nothing suggests it: the data was right when it was collected."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Il dato arricchito era vecchio e nessuno l'aveva riverificato",
+      "en": "The enriched data was old and nobody had checked it again"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: i dati arricchiti invecchiano, le persone cambiano ruolo e azienda.",
+      "en": "Right: enriched data gets old, people change role and company."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "L'email era troppo personalizzata",
+      "en": "The email was too personalised"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "La personalizzazione va bene se il dato è fresco: il problema è l'età del dato.",
+      "en": "Personalisation is fine if the data is fresh: the problem is the age of the data."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Il CRM ha cancellato il ruolo nuovo",
+      "en": "The CRM deleted the new role"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Il ruolo nuovo non è mai entrato nel CRM: nessuno l'ha cercato.",
+      "en": "The new role never entered the CRM: nobody looked for it."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Un dato arricchito vale per un certo tempo. Dopo mesi le persone cambiano ruolo o azienda: il dato va riverificato prima di usarlo.",
+    "en": "Enriched data is valid for a certain time. After months people change role or company: the data must be checked again before it is used."
+   }
+  },
+  "livello2": {
+   "tipo": "diagnosi",
+   "domanda": {
+    "it": "Quale regola avrebbe evitato questo errore?",
+    "en": "Which rule would have prevented this mistake?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Arricchire ogni lead una volta sola, al primo contatto",
+      "en": "Enrich each lead only once, at the first contact"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "È proprio questa abitudine che crea dati vecchi.",
+      "en": "This very habit is what creates old data."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Ogni dato arricchito ha data e scadenza: scaduto, si riverifica",
+      "en": "Every enriched field has a date and an expiry: once expired, it is checked again"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: con la data si vede quanto è vecchio il dato e quando ricontrollarlo.",
+      "en": "Right: with the date you can see how old the data is and when to check it again."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Togliere la personalizzazione da tutte le email",
+      "en": "Remove personalisation from all emails"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Toglie l'errore, ma anche tutto il valore della personalizzazione.",
+      "en": "It removes the mistake, but also all the value of personalisation."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Usare un modello più grande per l'arricchimento",
+      "en": "Use a bigger model for enrichment"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Un modello più grande non sa che il lead ha cambiato lavoro dopo.",
+      "en": "A bigger model does not know the lead changed job later."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Chiedere al modello se il dato è ancora vero",
+      "en": "Ask the model whether the data is still true"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il modello non ha una fonte aggiornata: tirerebbe a indovinare.",
+      "en": "The model has no up-to-date source: it would guess."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Data e scadenza su ogni campo arricchito dicono quando un dato è troppo vecchio per fidarsi: a quel punto si riverifica.",
+    "en": "A date and an expiry on every enriched field tell you when data is too old to trust: at that point it is checked again."
+   }
+  }
+ }
+]

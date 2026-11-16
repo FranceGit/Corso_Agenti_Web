@@ -1,0 +1,1182 @@
+{
+ "id": "L_punteggio_lead",
+ "pillola": "P3.2",
+ "componente": "punteggio_lead",
+ "titolo": {
+  "it": "Il punteggio dei lead: regole o modello?",
+  "en": "Lead scoring: rules or model?"
+ },
+ "sottotitolo": {
+  "it": "Muovi i pesi delle regole, chiedi un voto al modello e scopri dove capisce di più e dove inventa.",
+  "en": "Move the rule weights, ask the model for a score and find out where it understands more and where it makes things up."
+ },
+ "segmenti": [
+  {
+   "id": "regole",
+   "titolo": {
+    "it": "Il punteggio a regole",
+    "en": "The rule-based score"
+   },
+   "narrazione": [
+    {
+     "it": "Il lead scoring (punteggio dei lead) dice quali contatti chiamare per primi. Con le regole ogni criterio vale dei punti: settore, dimensione dell'azienda, comportamento sul sito, ruolo.",
+     "en": "Lead scoring tells you which contacts to call first. With rules, each criterion is worth points: sector, company size, behaviour on the website, role."
+    },
+    {
+     "it": "Il punteggio va da 0 a 100 e cade in una fascia. Ogni fascia ha un'azione: alta va al commerciale, media riceve email periodiche, bassa per ora si lascia.",
+     "en": "The score goes from 0 to 100 and falls into a band. Each band has an action: high goes to a salesperson, medium gets regular emails, low is left for now."
+    }
+   ],
+   "prova": {
+    "it": "Marco è uno stagista ma esce in fascia alta. Alza il peso del «Ruolo» e guarda dove scende.",
+    "en": "Marco is an intern but comes out in the high band. Raise the «Role» weight and watch where he drops."
+   },
+   "concetti": [
+    "C28"
+   ],
+   "stato_animazione": {
+    "pesi": {
+     "settore": 3,
+     "dimensione": 3,
+     "comportamento": 3,
+     "ruolo": 3
+    },
+    "soglia_alta": 70,
+    "soglia_media": 40,
+    "llm": "nascosto",
+    "cinque_volte": false,
+    "modalita": "classifica",
+    "marcature": {},
+    "lead_aperto": "marco",
+    "fonte_aperta": false,
+    "verificato": false
+   }
+  },
+  {
+   "id": "vaghe",
+   "titolo": {
+    "it": "Il modello senza criteri",
+    "en": "The model without criteria"
+   },
+   "narrazione": [
+    {
+     "it": "Ora chiediamo a un modello linguistico (LLM): «Dai a questo lead un punteggio da 0 a 100». Nessun criterio, nessuna fascia.",
+     "en": "Now we ask a language model (LLM): «Give this lead a score from 0 to 100». No criteria, no bands."
+    },
+    {
+     "it": "Il risultato sembra bello: tutti fra 90 e 92, tutti in fascia alta. Ma un punteggio uguale per tutti non distingue nessuno, e il commerciale dovrebbe chiamare anche il bar sotto casa.",
+     "en": "The result looks nice: everyone between 90 and 92, everyone in the high band. But a score that is the same for everyone tells nobody apart, and the salesperson would have to call the corner bar too."
+    }
+   ],
+   "prova": {
+    "it": "Apri tre lead diversi e leggi la motivazione del modello: è quasi uguale per tutti?",
+    "en": "Open three different leads and read the model's reasoning: is it almost the same for everyone?"
+   },
+   "concetti": [
+    "C28"
+   ],
+   "stato_animazione": {
+    "pesi": {
+     "settore": 3,
+     "dimensione": 3,
+     "comportamento": 3,
+     "ruolo": 3
+    },
+    "soglia_alta": 70,
+    "soglia_media": 40,
+    "llm": "vaghe",
+    "cinque_volte": false,
+    "modalita": "classifica",
+    "marcature": {},
+    "lead_aperto": "giorgio",
+    "fonte_aperta": false,
+    "verificato": false
+   }
+  },
+  {
+   "id": "criteri",
+   "titolo": {
+    "it": "Criteri chiari, risposte stabili",
+    "en": "Clear criteria, steady answers"
+   },
+   "narrazione": [
+    {
+     "it": "Lo stesso lead, valutato più volte, deve ricevere lo stesso punteggio. E due lead quasi uguali, come Davide e Marta, devono finire nella stessa fascia.",
+     "en": "The same lead, scored several times, should get the same score. And two almost identical leads, like Davide and Marta, should end up in the same band."
+    },
+    {
+     "it": "Con istruzioni vaghe i cinque tentativi saltano qua e là. Con criteri scritti, fasce e una motivazione obbligatoria, i puntini si stringono.",
+     "en": "With vague instructions the five attempts jump around. With written criteria, bands and a required reasoning, the dots close up."
+    }
+   ],
+   "prova": {
+    "it": "Premi «Valuta 5 volte», poi passa a «Criteri espliciti» e guarda i puntini di Davide e Marta.",
+    "en": "Press «Score 5 times», then switch to «Explicit criteria» and watch Davide's and Marta's dots."
+   },
+   "concetti": [
+    "C28"
+   ],
+   "stato_animazione": {
+    "pesi": {
+     "settore": 3,
+     "dimensione": 3,
+     "comportamento": 3,
+     "ruolo": 3
+    },
+    "soglia_alta": 70,
+    "soglia_media": 40,
+    "llm": "vaghe",
+    "cinque_volte": false,
+    "modalita": "classifica",
+    "marcature": {},
+    "lead_aperto": "davide",
+    "fonte_aperta": false,
+    "verificato": false
+   }
+  },
+  {
+   "id": "confronto",
+   "titolo": {
+    "it": "Dove il modello aiuta e dove inventa",
+    "en": "Where the model helps and where it makes things up"
+   },
+   "narrazione": [
+    {
+     "it": "Ora regole e modello lavorano sugli stessi 10 lead. Nei lead evidenziati non sono d'accordo.",
+     "en": "Now rules and model work on the same 10 leads. In the highlighted leads they disagree."
+    },
+    {
+     "it": "A volte il modello aiuta: legge una nota scritta che le regole non sanno leggere. A volte inventa: scrive un fatto che nella scheda non c'è.",
+     "en": "Sometimes the model helps: it reads a written note the rules cannot read. Sometimes it makes things up: it writes a fact that is not in the record."
+    }
+   ],
+   "prova": {
+    "it": "Apri ogni lead evidenziato, premi «Da dove viene?» e scegli «Aiuta» o «Inventa». Poi premi «Controlla».",
+    "en": "Open each highlighted lead, press «Where does it come from?» and choose «Helps» or «Makes it up». Then press «Check»."
+   },
+   "concetti": [
+    "C28"
+   ],
+   "stato_animazione": {
+    "pesi": {
+     "settore": 3,
+     "dimensione": 3,
+     "comportamento": 3,
+     "ruolo": 5
+    },
+    "soglia_alta": 70,
+    "soglia_media": 45,
+    "llm": "esplicite",
+    "cinque_volte": false,
+    "modalita": "confronto",
+    "marcature": {},
+    "lead_aperto": "sara",
+    "fonte_aperta": false,
+    "verificato": false
+   }
+  },
+  {
+   "id": "mista",
+   "titolo": {
+    "it": "La soluzione mista e la prova dei fatti",
+    "en": "The mixed solution and the reality check"
+   },
+   "narrazione": [
+    {
+     "it": "Spesso conviene unire le due cose: le regole per i campi della scheda, il modello solo per le note, e solo se cita la frase da cui ricava il segnale.",
+     "en": "It often pays to combine the two: rules for the record fields, the model only for the notes, and only if it quotes the sentence the signal comes from."
+    },
+    {
+     "it": "Poi si fa la calibrazione: si confrontano i punteggi con quello che è successo davvero, cioè chi è diventato cliente.",
+     "en": "Then comes calibration: you compare the scores with what really happened, that is, who became a customer."
+    }
+   ],
+   "prova": {
+    "it": "Guarda la colonna «Cliente?» e confronta i quattro conteggi. Poi togli peso al «Ruolo»: quale conteggio cambia?",
+    "en": "Look at the «Customer?» column and compare the four counts. Then lower the «Role» weight: which count changes?"
+   },
+   "concetti": [
+    "C28"
+   ],
+   "stato_animazione": {
+    "pesi": {
+     "settore": 3,
+     "dimensione": 3,
+     "comportamento": 3,
+     "ruolo": 5
+    },
+    "soglia_alta": 70,
+    "soglia_media": 45,
+    "llm": "esplicite",
+    "cinque_volte": false,
+    "modalita": "mista",
+    "marcature": {},
+    "lead_aperto": "sara",
+    "fonte_aperta": false,
+    "verificato": false
+   }
+  },
+  {
+   "id": "riassunto",
+   "titolo": {
+    "it": "In tre frasi",
+    "en": "In three sentences"
+   },
+   "narrazione": [
+    {
+     "it": "Un punteggio dei lead serve solo se ha criteri scritti, fasce con un'azione e una motivazione per ogni lead.",
+     "en": "A lead score is only useful if it has written criteria, bands with an action and a reasoning for every lead."
+    },
+    {
+     "it": "Le regole sono chiare e stabili; il modello capisce le note scritte, ma senza criteri dà a tutti lo stesso voto e a volte inventa fatti.",
+     "en": "Rules are clear and steady; the model understands written notes, but without criteria it gives everyone the same mark and sometimes makes up facts."
+    },
+    {
+     "it": "Si controlla sempre da dove viene ogni motivazione e si confrontano i punteggi con chi è diventato davvero cliente.",
+     "en": "You always check where each reasoning comes from and compare the scores with who really became a customer."
+    }
+   ],
+   "concetti": [
+    "C28"
+   ],
+   "stato_animazione": {
+    "pesi": {
+     "settore": 3,
+     "dimensione": 3,
+     "comportamento": 3,
+     "ruolo": 5
+    },
+    "soglia_alta": 70,
+    "soglia_media": 45,
+    "llm": "esplicite",
+    "cinque_volte": false,
+    "modalita": "mista",
+    "marcature": {},
+    "lead_aperto": "sara",
+    "fonte_aperta": false,
+    "verificato": false
+   }
+  }
+ ],
+ "scenario": {
+  "pesi": {
+   "min": 0,
+   "max": 5,
+   "passo": 1
+  },
+  "criteri": [
+   {
+    "id": "settore",
+    "nome": {
+     "it": "Settore",
+     "en": "Sector"
+    },
+    "spiega": {
+     "it": "Il settore è fra quelli prioritari?",
+     "en": "Is the sector one of the priority ones?"
+    }
+   },
+   {
+    "id": "dimensione",
+    "nome": {
+     "it": "Dimensione",
+     "en": "Company size"
+    },
+    "spiega": {
+     "it": "Quante persone lavorano nell'azienda",
+     "en": "How many people work at the company"
+    }
+   },
+   {
+    "id": "comportamento",
+    "nome": {
+     "it": "Comportamento",
+     "en": "Behaviour"
+    },
+    "spiega": {
+     "it": "Visite al sito e guide scaricate",
+     "en": "Website visits and guides downloaded"
+    }
+   },
+   {
+    "id": "ruolo",
+    "nome": {
+     "it": "Ruolo",
+     "en": "Role"
+    },
+    "spiega": {
+     "it": "Decide gli acquisti, li influenza o nessuno dei due?",
+     "en": "Do they make buying decisions, influence them, or neither?"
+    }
+   }
+  ],
+  "soglia_alta": {
+   "min": 50,
+   "max": 90,
+   "passo": 5,
+   "etichetta": {
+    "it": "Soglia fascia alta",
+    "en": "High band threshold"
+   }
+  },
+  "soglia_media": {
+   "min": 20,
+   "max": 60,
+   "passo": 5,
+   "etichetta": {
+    "it": "Soglia fascia media",
+    "en": "Medium band threshold"
+   }
+  },
+  "regole": {
+   "settori": {
+    "ecommerce": {
+     "nome": {
+      "it": "E-commerce",
+      "en": "E-commerce"
+     },
+     "prioritario": true
+    },
+    "software": {
+     "nome": {
+      "it": "Software",
+      "en": "Software"
+     },
+     "prioritario": true
+    },
+    "retail": {
+     "nome": {
+      "it": "Negozi",
+      "en": "Retail"
+     },
+     "prioritario": false
+    },
+    "logistica": {
+     "nome": {
+      "it": "Logistica",
+      "en": "Logistics"
+     },
+     "prioritario": false
+    },
+    "ristorazione": {
+     "nome": {
+      "it": "Ristorazione",
+      "en": "Food service"
+     },
+     "prioritario": false
+    }
+   },
+   "valore_settore": {
+    "prioritario": 1,
+    "altro": 0.2
+   },
+   "fasce_dimensione": [
+    {
+     "fino_a": 9,
+     "valore": 0
+    },
+    {
+     "fino_a": 49,
+     "valore": 0.4
+    },
+    {
+     "fino_a": 249,
+     "valore": 0.7
+    },
+    {
+     "valore": 1
+    }
+   ],
+   "comportamento": {
+    "peso_download": 3,
+    "pieno_a": 15
+   },
+   "valore_ruolo": {
+    "decide": 1,
+    "influenza": 0.6,
+    "nessuno": 0.1
+   }
+  },
+  "livelli_ruolo": {
+   "decide": {
+    "it": "decide gli acquisti",
+    "en": "makes buying decisions"
+   },
+   "influenza": {
+    "it": "influenza gli acquisti",
+    "en": "influences purchases"
+   },
+   "nessuno": {
+    "it": "non decide",
+    "en": "does not decide"
+   }
+  },
+  "lead": [
+   {
+    "id": "laura",
+    "nome": "Laura Bianchi",
+    "ruolo": {
+     "it": "Direttrice marketing",
+     "en": "Marketing director"
+    },
+    "livello_ruolo": "decide",
+    "azienda": "ShopModa",
+    "settore": "ecommerce",
+    "dipendenti": 250,
+    "visite": 9,
+    "download": 2,
+    "cliente": true,
+    "llm": {
+     "vaghe": {
+      "punti": [
+       91,
+       74,
+       98,
+       83,
+       95
+      ],
+      "motivazione": {
+       "it": "Ottimo potenziale: contatto molto promettente, consiglio di chiamarlo subito.",
+       "en": "Great potential: a very promising contact, I recommend calling right away."
+      }
+     },
+     "esplicite": {
+      "punti": [
+       88,
+       86,
+       89,
+       87,
+       88
+      ],
+      "motivazione": {
+       "it": "Decide gli acquisti, azienda grande nel settore prioritario, molte visite: fascia alta.",
+       "en": "She makes buying decisions, a large company in the priority sector, many visits: high band."
+      },
+      "fonte": {
+       "tipo": "scheda",
+       "testo": {
+        "it": "Campi «Ruolo», «Dipendenti», «Settore» e «Visite» della scheda.",
+        "en": "The «Role», «Employees», «Sector» and «Visits» fields of the record."
+       }
+      }
+     }
+    }
+   },
+   {
+    "id": "marco",
+    "nome": "Marco Rossi",
+    "ruolo": {
+     "it": "Stagista marketing",
+     "en": "Marketing intern"
+    },
+    "livello_ruolo": "nessuno",
+    "azienda": "CasaVerde",
+    "settore": "ecommerce",
+    "dipendenti": 250,
+    "visite": 12,
+    "download": 3,
+    "cliente": false,
+    "llm": {
+     "vaghe": {
+      "punti": [
+       92,
+       66,
+       97,
+       79,
+       90
+      ],
+      "motivazione": {
+       "it": "Ottimo potenziale: contatto molto promettente, consiglio di chiamarlo subito.",
+       "en": "Great potential: a very promising contact, I recommend calling right away."
+      }
+     },
+     "esplicite": {
+      "punti": [
+       48,
+       46,
+       50,
+       47,
+       48
+      ],
+      "motivazione": {
+       "it": "Visita molto il sito, ma è uno stagista: non decide gli acquisti. Fascia media.",
+       "en": "He visits the site a lot, but he is an intern: he does not make buying decisions. Medium band."
+      },
+      "fonte": {
+       "tipo": "scheda",
+       "testo": {
+        "it": "Campo «Ruolo» della scheda: «Stagista marketing».",
+        "en": "The «Role» field of the record: «Marketing intern»."
+       }
+      }
+     }
+    }
+   },
+   {
+    "id": "giorgio",
+    "nome": "Giorgio Esposito",
+    "ruolo": {
+     "it": "Titolare",
+     "en": "Owner"
+    },
+    "livello_ruolo": "decide",
+    "azienda": "Bar Centrale",
+    "settore": "ristorazione",
+    "dipendenti": 4,
+    "visite": 1,
+    "download": 0,
+    "cliente": false,
+    "llm": {
+     "vaghe": {
+      "punti": [
+       90,
+       58,
+       93,
+       71,
+       86
+      ],
+      "motivazione": {
+       "it": "Ottimo potenziale: contatto molto promettente, consiglio di chiamarlo subito.",
+       "en": "Great potential: a very promising contact, I recommend calling right away."
+      }
+     },
+     "esplicite": {
+      "punti": [
+       15,
+       14,
+       17,
+       15,
+       16
+      ],
+      "motivazione": {
+       "it": "Decide lui, ma un bar con 4 persone non usa una piattaforma di email marketing. Fascia bassa.",
+       "en": "He decides, but a 4-person bar does not use an email marketing platform. Low band."
+      },
+      "fonte": {
+       "tipo": "scheda",
+       "testo": {
+        "it": "Campi «Dipendenti» e «Settore» della scheda.",
+        "en": "The «Employees» and «Sector» fields of the record."
+       }
+      }
+     }
+    }
+   },
+   {
+    "id": "sara",
+    "nome": "Sara Conti",
+    "ruolo": {
+     "it": "Responsabile CRM",
+     "en": "CRM manager"
+    },
+    "livello_ruolo": "influenza",
+    "azienda": "Logistica Nord",
+    "settore": "logistica",
+    "dipendenti": 120,
+    "visite": 2,
+    "download": 0,
+    "cliente": true,
+    "llm": {
+     "vaghe": {
+      "punti": [
+       91,
+       62,
+       85,
+       96,
+       70
+      ],
+      "motivazione": {
+       "it": "Ottimo potenziale: contatto molto promettente, consiglio di chiamarlo subito.",
+       "en": "Great potential: a very promising contact, I recommend calling right away."
+      }
+     },
+     "esplicite": {
+      "punti": [
+       80,
+       79,
+       82,
+       80,
+       81
+      ],
+      "motivazione": {
+       "it": "Nella nota dice che il contratto con il fornitore attuale scade a marzo e chiede un'offerta: fascia alta.",
+       "en": "In the note she says the contract with her current supplier ends in March and asks for an offer: high band."
+      },
+      "fonte": {
+       "tipo": "nota",
+       "testo": {
+        "it": "Dalla nota: «il contratto con il fornitore attuale scade a marzo».",
+        "en": "From the note: «the contract with the current supplier ends in March»."
+       }
+      }
+     }
+    },
+    "nota": {
+     "it": "Ci ha scritto: il contratto con il fornitore attuale scade a marzo, vuole un'offerta.",
+     "en": "She wrote to us: the contract with the current supplier ends in March, she wants an offer."
+    }
+   },
+   {
+    "id": "paolo",
+    "nome": "Paolo Greco",
+    "ruolo": {
+     "it": "Amministratore delegato",
+     "en": "Chief executive"
+    },
+    "livello_ruolo": "decide",
+    "azienda": "SoftLab",
+    "settore": "software",
+    "dipendenti": 600,
+    "visite": 3,
+    "download": 1,
+    "cliente": false,
+    "llm": {
+     "vaghe": {
+      "punti": [
+       92,
+       88,
+       99,
+       67,
+       94
+      ],
+      "motivazione": {
+       "it": "Ottimo potenziale: contatto molto promettente, consiglio di chiamarlo subito.",
+       "en": "Great potential: a very promising contact, I recommend calling right away."
+      }
+     },
+     "esplicite": {
+      "punti": [
+       30,
+       28,
+       32,
+       30,
+       29
+      ],
+      "motivazione": {
+       "it": "Azienda ideale, ma nella nota ha appena firmato per 3 anni con un concorrente: fascia bassa per ora.",
+       "en": "An ideal company, but the note says he just signed for 3 years with a competitor: low band for now."
+      },
+      "fonte": {
+       "tipo": "nota",
+       "testo": {
+        "it": "Dalla nota: «ha appena firmato con un concorrente per 3 anni».",
+        "en": "From the note: «has just signed with a competitor for 3 years»."
+       }
+      }
+     }
+    },
+    "nota": {
+     "it": "Ha chiesto il listino solo per curiosità: ha appena firmato con un concorrente per 3 anni.",
+     "en": "He asked for the price list just out of curiosity: he has just signed with a competitor for 3 years."
+    }
+   },
+   {
+    "id": "elena",
+    "nome": "Elena Ferri",
+    "ruolo": {
+     "it": "Marketing manager",
+     "en": "Marketing manager"
+    },
+    "livello_ruolo": "influenza",
+    "azienda": "Ottica Sole",
+    "settore": "retail",
+    "dipendenti": 40,
+    "visite": 4,
+    "download": 1,
+    "cliente": false,
+    "llm": {
+     "vaghe": {
+      "punti": [
+       90,
+       77,
+       64,
+       95,
+       82
+      ],
+      "motivazione": {
+       "it": "Ottimo potenziale: contatto molto promettente, consiglio di chiamarlo subito.",
+       "en": "Great potential: a very promising contact, I recommend calling right away."
+      }
+     },
+     "esplicite": {
+      "punti": [
+       78,
+       76,
+       79,
+       77,
+       78
+      ],
+      "motivazione": {
+       "it": "L'azienda è in forte crescita e sta aprendo nuovi negozi: fascia alta.",
+       "en": "The company is growing fast and is opening new shops: high band."
+      },
+      "fonte": {
+       "tipo": "nessuna"
+      }
+     }
+    }
+   },
+   {
+    "id": "luca",
+    "nome": "Luca Marino",
+    "ruolo": {
+     "it": "Direttore vendite",
+     "en": "Sales director"
+    },
+    "livello_ruolo": "decide",
+    "azienda": "AppFacile",
+    "settore": "software",
+    "dipendenti": 80,
+    "visite": 6,
+    "download": 2,
+    "cliente": true,
+    "llm": {
+     "vaghe": {
+      "punti": [
+       91,
+       96,
+       72,
+       89,
+       63
+      ],
+      "motivazione": {
+       "it": "Ottimo potenziale: contatto molto promettente, consiglio di chiamarlo subito.",
+       "en": "Great potential: a very promising contact, I recommend calling right away."
+      }
+     },
+     "esplicite": {
+      "punti": [
+       84,
+       83,
+       85,
+       84,
+       84
+      ],
+      "motivazione": {
+       "it": "Decide gli acquisti, settore prioritario, ha scaricato due guide: fascia alta.",
+       "en": "He makes buying decisions, priority sector, downloaded two guides: high band."
+      },
+      "fonte": {
+       "tipo": "scheda",
+       "testo": {
+        "it": "Campi «Ruolo», «Settore» e «Download» della scheda.",
+        "en": "The «Role», «Sector» and «Downloads» fields of the record."
+       }
+      }
+     }
+    }
+   },
+   {
+    "id": "chiara",
+    "nome": "Chiara Galli",
+    "ruolo": {
+     "it": "Responsabile marketing",
+     "en": "Marketing manager"
+    },
+    "livello_ruolo": "influenza",
+    "azienda": "PetShop Online",
+    "settore": "ecommerce",
+    "dipendenti": 30,
+    "visite": 5,
+    "download": 1,
+    "cliente": false,
+    "llm": {
+     "vaghe": {
+      "punti": [
+       92,
+       81,
+       69,
+       98,
+       75
+      ],
+      "motivazione": {
+       "it": "Ottimo potenziale: contatto molto promettente, consiglio di chiamarlo subito.",
+       "en": "Great potential: a very promising contact, I recommend calling right away."
+      }
+     },
+     "esplicite": {
+      "punti": [
+       74,
+       73,
+       75,
+       74,
+       74
+      ],
+      "motivazione": {
+       "it": "Ha già un budget approvato per un nuovo strumento: fascia alta.",
+       "en": "She already has an approved budget for a new tool: high band."
+      },
+      "fonte": {
+       "tipo": "nessuna"
+      }
+     }
+    }
+   },
+   {
+    "id": "davide",
+    "nome": "Davide Leone",
+    "ruolo": {
+     "it": "Responsabile marketing",
+     "en": "Marketing manager"
+    },
+    "livello_ruolo": "influenza",
+    "azienda": "Arredo Casa",
+    "settore": "retail",
+    "dipendenti": 150,
+    "visite": 5,
+    "download": 1,
+    "cliente": false,
+    "llm": {
+     "vaghe": {
+      "punti": [
+       91,
+       64,
+       97,
+       72,
+       88
+      ],
+      "motivazione": {
+       "it": "Ottimo potenziale: contatto molto promettente, consiglio di chiamarlo subito.",
+       "en": "Great potential: a very promising contact, I recommend calling right away."
+      }
+     },
+     "esplicite": {
+      "punti": [
+       55,
+       53,
+       56,
+       54,
+       55
+      ],
+      "motivazione": {
+       "it": "Influenza la scelta, azienda media fuori dal settore prioritario, interesse discreto: fascia media.",
+       "en": "He influences the choice, a mid-size company outside the priority sector, fair interest: medium band."
+      },
+      "fonte": {
+       "tipo": "scheda",
+       "testo": {
+        "it": "Campi «Ruolo», «Dipendenti», «Settore» e «Visite» della scheda.",
+        "en": "The «Role», «Employees», «Sector» and «Visits» fields of the record."
+       }
+      }
+     }
+    }
+   },
+   {
+    "id": "marta",
+    "nome": "Marta Neri",
+    "ruolo": {
+     "it": "Responsabile marketing",
+     "en": "Marketing manager"
+    },
+    "livello_ruolo": "influenza",
+    "azienda": "Arredo Più",
+    "settore": "retail",
+    "dipendenti": 160,
+    "visite": 5,
+    "download": 1,
+    "cliente": false,
+    "llm": {
+     "vaghe": {
+      "punti": [
+       90,
+       99,
+       61,
+       95,
+       70
+      ],
+      "motivazione": {
+       "it": "Ottimo potenziale: contatto molto promettente, consiglio di chiamarlo subito.",
+       "en": "Great potential: a very promising contact, I recommend calling right away."
+      }
+     },
+     "esplicite": {
+      "punti": [
+       56,
+       55,
+       57,
+       54,
+       56
+      ],
+      "motivazione": {
+       "it": "Influenza la scelta, azienda media fuori dal settore prioritario, interesse discreto: fascia media.",
+       "en": "She influences the choice, a mid-size company outside the priority sector, fair interest: medium band."
+      },
+      "fonte": {
+       "tipo": "scheda",
+       "testo": {
+        "it": "Campi «Ruolo», «Dipendenti», «Settore» e «Visite» della scheda.",
+        "en": "The «Role», «Employees», «Sector» and «Visits» fields of the record."
+       }
+      }
+     }
+    }
+   }
+  ],
+  "testi": {
+   "punteggio": {
+    "it": "{n}",
+    "en": "{n}"
+   },
+   "dipendenti": {
+    "it": "{n} dipendenti",
+    "en": "{n} employees"
+   },
+   "comportamento": {
+    "it": "{visite} visite, {download} guide scaricate",
+    "en": "{visite} visits, {download} guides downloaded"
+   },
+   "riga_sotto": {
+    "it": "{ruolo} · {azienda}",
+    "en": "{ruolo} · {azienda}"
+   },
+   "distribuzione": {
+    "it": "Alta {alta} · Media {media} · Bassa {bassa}",
+    "en": "High {alta} · Medium {media} · Low {bassa}"
+   },
+   "dispersione": {
+    "it": "5 tentativi: da {min} a {max} (scarto {scarto} punti)",
+    "en": "5 attempts: from {min} to {max} (spread of {scarto} points)"
+   },
+   "accordo": {
+    "it": "{giusti} su {totale}",
+    "en": "{giusti} of {totale}"
+   },
+   "disaccordi": {
+    "it": "Lead dove regole e modello non sono d'accordo: {n}. Marcati: {marcati}.",
+    "en": "Leads where rules and model disagree: {n}. Marked: {marcati}."
+   },
+   "fonte_scheda": {
+    "it": "Viene dalla scheda. {testo}",
+    "en": "It comes from the record. {testo}"
+   },
+   "fonte_nota": {
+    "it": "Viene dalla nota scritta, che le regole non leggono. {testo}",
+    "en": "It comes from the written note, which the rules do not read. {testo}"
+   },
+   "fonte_nessuna": {
+    "it": "Nessun campo della scheda e nessuna nota lo dicono: questo fatto è inventato.",
+    "en": "No field of the record and no note says this: this fact is made up."
+   },
+   "ver_aiuta_ok": {
+    "it": "{nome}: giusto, il modello aiuta. Ha letto un segnale vero che le regole non vedono.",
+    "en": "{nome}: right, the model helps. It read a real signal the rules cannot see."
+   },
+   "ver_inventa_ok": {
+    "it": "{nome}: giusto, il modello inventa. Il fatto della motivazione non è nella scheda.",
+    "en": "{nome}: right, the model makes things up. The fact in the reasoning is not in the record."
+   },
+   "ver_aiuta_no": {
+    "it": "{nome}: attenzione, qui il modello inventa. Premi «Da dove viene?»: nessuna fonte.",
+    "en": "{nome}: careful, here the model makes things up. Press «Where does it come from?»: no source."
+   },
+   "ver_inventa_no": {
+    "it": "{nome}: attenzione, qui il modello aiuta. La motivazione cita la nota del lead.",
+    "en": "{nome}: careful, here the model helps. The reasoning quotes the lead's note."
+   },
+   "ver_manca": {
+    "it": "{nome}: non l'hai ancora marcato.",
+    "en": "{nome}: you have not marked it yet."
+   },
+   "ver_sintesi": {
+    "it": "Giusti: {giusti} su {totale}.",
+    "en": "Right: {giusti} of {totale}."
+   },
+   "ver_tutto": {
+    "it": "Perfetto: hai trovato dove il modello aiuta e dove inventa.",
+    "en": "Perfect: you found where the model helps and where it makes things up."
+   },
+   "nota_vaghe": {
+    "it": "Istruzione data al modello: «Dai a questo lead un punteggio da 0 a 100». Nessun criterio.",
+    "en": "Instruction given to the model: «Give this lead a score from 0 to 100». No criteria."
+   },
+   "nota_esplicite": {
+    "it": "Istruzione data al modello: i 4 criteri, le fasce, «scrivi la motivazione e cita il campo o la nota da cui viene».",
+    "en": "Instruction given to the model: the 4 criteria, the bands, «write the reasoning and quote the field or note it comes from»."
+   },
+   "nota_mista": {
+    "it": "Soluzione mista: le regole decidono sui campi della scheda; il modello cambia il punteggio solo se cita una frase della nota.",
+    "en": "Mixed solution: the rules decide on the record fields; the model changes the score only if it quotes a sentence from the note."
+   },
+   "nessuna_nota": {
+    "it": "Nessuna nota scritta.",
+    "en": "No written note."
+   },
+   "cliente_si": {
+    "it": "è diventato cliente",
+    "en": "became a customer"
+   },
+   "cliente_no": {
+    "it": "non è diventato cliente",
+    "en": "did not become a customer"
+   },
+   "apri_lead": {
+    "it": "Apri la scheda di {nome}",
+    "en": "Open {nome}'s record"
+   },
+   "spiega_calibrazione": {
+    "it": "Un metodo indovina un lead quando dà «Alta» a chi è diventato cliente e non la dà agli altri. Numeri illustrativi.",
+    "en": "A method gets a lead right when it gives «High» to whoever became a customer and not to the others. Illustrative numbers."
+   }
+  },
+  "etichette": {
+   "titolo_comandi": {
+    "it": "Prova a cambiare",
+    "en": "Try changing"
+   },
+   "pesi": {
+    "it": "Pesi delle regole",
+    "en": "Rule weights"
+   },
+   "soglie": {
+    "it": "Fasce",
+    "en": "Bands"
+   },
+   "modello": {
+    "it": "Giudizio del modello (LLM)",
+    "en": "Model's judgement (LLM)"
+   },
+   "nascosto": {
+    "it": "Nascosto",
+    "en": "Hidden"
+   },
+   "vaghe": {
+    "it": "Istruzioni vaghe",
+    "en": "Vague instructions"
+   },
+   "esplicite": {
+    "it": "Criteri espliciti",
+    "en": "Explicit criteria"
+   },
+   "cinque_volte": {
+    "it": "Valuta 5 volte",
+    "en": "Score 5 times"
+   },
+   "modalita": {
+    "it": "Che cosa guardi",
+    "en": "What you look at"
+   },
+   "classifica": {
+    "it": "Classifica",
+    "en": "Ranking"
+   },
+   "confronto": {
+    "it": "Confronto",
+    "en": "Comparison"
+   },
+   "mista": {
+    "it": "Mista",
+    "en": "Mixed"
+   },
+   "col_lead": {
+    "it": "LEAD",
+    "en": "LEAD"
+   },
+   "col_regole": {
+    "it": "REGOLE",
+    "en": "RULES"
+   },
+   "col_modello": {
+    "it": "MODELLO (LLM)",
+    "en": "MODEL (LLM)"
+   },
+   "col_mista": {
+    "it": "MISTA",
+    "en": "MIXED"
+   },
+   "col_cliente": {
+    "it": "CLIENTE?",
+    "en": "CUSTOMER?"
+   },
+   "alta": {
+    "it": "Alta",
+    "en": "High"
+   },
+   "media": {
+    "it": "Media",
+    "en": "Medium"
+   },
+   "bassa": {
+    "it": "Bassa",
+    "en": "Low"
+   },
+   "titolo_scheda": {
+    "it": "Scheda del lead",
+    "en": "Lead record"
+   },
+   "settore": {
+    "it": "Settore",
+    "en": "Sector"
+   },
+   "dimensione": {
+    "it": "Dimensione",
+    "en": "Size"
+   },
+   "comportamento": {
+    "it": "Comportamento",
+    "en": "Behaviour"
+   },
+   "ruolo": {
+    "it": "Ruolo",
+    "en": "Role"
+   },
+   "nota": {
+    "it": "Nota",
+    "en": "Note"
+   },
+   "motivazione": {
+    "it": "Motivazione del modello",
+    "en": "Model's reasoning"
+   },
+   "da_dove": {
+    "it": "Da dove viene?",
+    "en": "Where does it come from?"
+   },
+   "aiuta": {
+    "it": "Aiuta",
+    "en": "Helps"
+   },
+   "inventa": {
+    "it": "Inventa",
+    "en": "Makes it up"
+   },
+   "controlla": {
+    "it": "Controlla",
+    "en": "Check"
+   },
+   "distribuzione_regole": {
+    "it": "Fasce delle regole",
+    "en": "Rule bands"
+   },
+   "distribuzione_modello": {
+    "it": "Fasce del modello",
+    "en": "Model bands"
+   },
+   "calibrazione": {
+    "it": "Quanti lead indovina ogni metodo",
+    "en": "How many leads each method gets right"
+   },
+   "cal_regole": {
+    "it": "Regole",
+    "en": "Rules"
+   },
+   "cal_vaghe": {
+    "it": "Modello, istruzioni vaghe",
+    "en": "Model, vague instructions"
+   },
+   "cal_esplicite": {
+    "it": "Modello, criteri espliciti",
+    "en": "Model, explicit criteria"
+   },
+   "cal_mista": {
+    "it": "Mista",
+    "en": "Mixed"
+   },
+   "descrizione_scena": {
+    "it": "Classifica di 10 lead: punteggio delle regole e punteggio del modello affiancati",
+    "en": "Ranking of 10 leads: rule score and model score side by side"
+   }
+  }
+ },
+ "domande": []
+}

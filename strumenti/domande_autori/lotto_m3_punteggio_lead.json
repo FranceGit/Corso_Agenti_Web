@@ -1,0 +1,334 @@
+[
+ {
+  "id": "DA3.2-1",
+  "origine": "autori",
+  "pillola": "P3.2",
+  "concetti": [
+   "C28"
+  ],
+  "concetto_principale": "C28",
+  "segmento_aiuto": "vaghe",
+  "striscia": "diagnosi",
+  "livello1": {
+   "domanda": {
+    "it": "Il report del punteggio fatto da un LLM mostra 200 lead, tutti fra 88 e 93 e tutti in fascia alta. Qual è la causa più probabile?",
+    "en": "The report of an LLM-made lead score shows 200 leads, all between 88 and 93 and all in the high band. What is the most likely cause?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Il modello è troppo piccolo: serve un modello più grande",
+      "en": "The model is too small: a bigger model is needed"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Un modello più grande senza criteri darebbe comunque voti simili: manca la regola, non la potenza.",
+      "en": "A bigger model without criteria would still give similar marks: the rule is missing, not the power."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Le istruzioni non danno criteri né fasce: il modello non sa come distinguere i lead",
+      "en": "The instructions give no criteria or bands: the model does not know how to tell leads apart"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: «dai un punteggio da 0 a 100» senza criteri produce voti alti e tutti uguali.",
+      "en": "Right: «give a score from 0 to 100» without criteria produces high, identical marks."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "I lead di questa campagna sono davvero tutti ottimi",
+      "en": "The leads in this campaign really are all excellent"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Su 200 lead è quasi impossibile: ci sono sempre contatti deboli, come stagisti o aziende minuscole.",
+      "en": "Out of 200 leads this is almost impossible: there are always weak contacts, like interns or tiny companies."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Il CRM ha esportato i lead in ordine alfabetico",
+      "en": "The CRM exported the leads in alphabetical order"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "L'ordine del file non cambia il punteggio di ogni lead.",
+      "en": "The order of the file does not change each lead's score."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "La temperatura è troppo bassa e il modello ripete la stessa risposta",
+      "en": "The temperature is too low and the model repeats the same answer"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Una temperatura bassa rende le risposte più stabili, non tutte alte: il problema è l'assenza di criteri.",
+      "en": "A low temperature makes answers steadier, not all high: the problem is the lack of criteria."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Senza criteri scritti e senza fasce il modello non ha un metro per distinguere i lead: dà a tutti un voto alto e simile.",
+    "en": "Without written criteria and bands the model has no yardstick to tell leads apart: it gives everyone a similar high mark."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché un punteggio uguale per tutti è un problema, anche se i numeri sembrano alti?",
+    "en": "Why is a score that is the same for everyone a problem, even if the numbers look high?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché non dice al commerciale chi chiamare per primo",
+      "en": "Because it does not tell the salesperson who to call first"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: il punteggio serve a scegliere. Se tutti valgono 90, non sceglie niente.",
+      "en": "Right: the score is for choosing. If everyone is worth 90, it chooses nothing."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché il report diventa difficile da leggere per il direttore",
+      "en": "Because the report becomes hard for the director to read"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il report si legge benissimo: il guaio è che non serve a decidere.",
+      "en": "The report reads perfectly well: the trouble is that it does not help decide."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché i numeri fra 88 e 93 sono troppo vicini a 100",
+      "en": "Because numbers between 88 and 93 are too close to 100"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il problema non è la vicinanza a 100 ma il fatto che siano tutti uguali.",
+      "en": "The problem is not being close to 100 but being all the same."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Perché il CRM accetta solo punteggi sotto 80",
+      "en": "Because the CRM only accepts scores below 80"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Non esiste un limite del genere: è un dettaglio inventato.",
+      "en": "There is no such limit: it is a made-up detail."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Perché i lead con voto alto ricevono troppe email",
+      "en": "Because high-scoring leads get too many emails"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Le email dipendono dalle regole della campagna; il punto è che il voto non distingue i lead.",
+      "en": "Emails depend on the campaign rules; the point is that the mark does not tell leads apart."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Il punteggio esiste per mettere in ordine i lead. Se tutti hanno lo stesso voto, il commerciale non sa da chi partire.",
+    "en": "The score exists to put leads in order. If everyone has the same mark, the salesperson does not know where to start."
+   }
+  }
+ },
+ {
+  "id": "DA3.2-2",
+  "origine": "autori",
+  "pillola": "P3.2",
+  "concetti": [
+   "C28"
+  ],
+  "concetto_principale": "C28",
+  "segmento_aiuto": "confronto",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Un lead ha campi nella media e una nota: «Il contratto con il loro fornitore scade a marzo». Come lo valuti in modo affidabile?",
+    "en": "A lead has average fields and a note: «Their contract with their supplier ends in March». How do you score it reliably?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Solo con le regole: sono stabili e il punteggio non cambia mai",
+      "en": "Only with the rules: they are steady and the score never changes"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Le regole sono stabili ma non leggono la nota: perdono il segnale più importante.",
+      "en": "Rules are steady but do not read the note: they miss the most important signal."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Solo con il modello, chiedendo un voto da 0 a 100 senza criteri",
+      "en": "Only with the model, asking for a mark from 0 to 100 without criteria"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Senza criteri il modello dà voti alti e simili a tutti.",
+      "en": "Without criteria the model gives everyone similar high marks."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Ignorando la nota, perché le note scritte non contano",
+      "en": "Ignoring the note, because written notes do not count"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Al contrario: la nota contiene il segnale di acquisto più forte.",
+      "en": "On the contrary: the note holds the strongest buying signal."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Regole per i campi e modello che legge la nota citando la frase",
+      "en": "Rules for the fields and the model reading the note, quoting the sentence"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: è la soluzione mista. Le regole fanno il lavoro stabile, il modello legge il testo e dice da dove prende il segnale.",
+      "en": "Right: this is the mixed solution. Rules do the steady work, the model reads the text and says where the signal comes from."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Chiedendo al modello di completare i dati mancanti dell'azienda",
+      "en": "Asking the model to fill in the company's missing data"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Così il modello inventa dati: il punteggio diventa meno affidabile.",
+      "en": "That way the model makes up data: the score becomes less reliable."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Le regole valutano bene i campi della scheda; il modello serve per i testi, come la nota, purché citi la frase da cui ricava il segnale.",
+    "en": "Rules score the record fields well; the model is useful for texts, like the note, as long as it quotes the sentence the signal comes from."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Per un altro lead il modello scrive «azienda in forte crescita», ma la scheda non lo dice. Che cosa fai?",
+    "en": "For another lead the model writes «fast-growing company», but the record does not say so. What do you do?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Lo accetto se il voto è vicino a quello delle regole",
+      "en": "I accept it if the mark is close to the rules' mark"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Un voto vicino non rende vero il fatto: la motivazione resta senza fonte.",
+      "en": "A close mark does not make the fact true: the reasoning still has no source."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Faccio valutare il lead 5 volte e tengo il voto più frequente",
+      "en": "I have the lead scored 5 times and keep the most frequent mark"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Ripetere rende il voto più stabile, non più vero: il fatto inventato può tornare uguale.",
+      "en": "Repeating makes the mark steadier, not truer: the made-up fact can come back the same."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Scarto quella motivazione: un fatto senza fonte è inventato",
+      "en": "I reject that reasoning: a fact without a source is made up"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: ogni motivazione deve indicare il campo o la nota da cui viene.",
+      "en": "Right: every reasoning must point to the field or note it comes from."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Aggiungo «forte crescita» alla scheda, così la fonte c'è",
+      "en": "I add «fast-growing» to the record, so there is a source"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Così si sporca il CRM con un dato inventato.",
+      "en": "That dirties the CRM with a made-up fact."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Alzo la soglia della fascia alta per tutti i lead",
+      "en": "I raise the high band threshold for every lead"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Cambia tutti i lead per colpa di uno: non risolve l'invenzione.",
+      "en": "It changes every lead because of one: it does not fix the made-up fact."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Stabilità e verità sono cose diverse. Una motivazione vale solo se si può ritrovare nella scheda o nella nota del lead.",
+    "en": "Steadiness and truth are different things. A reasoning only counts if it can be found in the lead's record or note."
+   }
+  }
+ }
+]

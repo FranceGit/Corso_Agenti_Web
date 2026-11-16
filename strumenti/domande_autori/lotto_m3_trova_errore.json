@@ -1,0 +1,336 @@
+[
+ {
+  "id": "DA3.5-3",
+  "origine": "autori",
+  "pillola": "P3.5",
+  "concetti": [
+   "C32",
+   "C33"
+  ],
+  "concetto_principale": "C32",
+  "segmento_aiuto": "errore_traccia",
+  "striscia": "diagnosi",
+  "livello1": {
+   "domanda": {
+    "it": "Il report della campagna dice: 5 risposte su 5 «interessati». Le risposte vere dicono quasi tutte «no», e l'LLM ha scritto «Not Interested» per quelle risposte. Dove sta l'errore più probabile?",
+    "en": "The campaign report says: 5 replies out of 5 «interested». The real replies almost all say «no», and the LLM wrote «Not Interested» for those replies. Where is the bug most likely?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Nell'LLM, che ha capito male le risposte dei clienti",
+      "en": "In the LLM, which misunderstood the customers' replies"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "È il primo sospetto, ma l'LLM ha scritto «Not Interested»: l'etichetta era giusta.",
+      "en": "It is the first suspect, but the LLM wrote «Not Interested»: the label was right."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Nel report, che somma male i numeri della campagna",
+      "en": "In the report, which adds up the campaign numbers wrongly"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il report somma bene: sono i dati che riceve a essere già sbagliati.",
+      "en": "The report adds up correctly: the data it receives is already wrong."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Nel passo che converte l'etichetta dell'LLM nella categoria del CRM",
+      "en": "In the step that converts the LLM label into the CRM category"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: l'etichetta entra giusta e esce sbagliata. Il dato si rompe nella conversione.",
+      "en": "Right: the label goes in right and comes out wrong. The data breaks in the conversion."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Nei clienti, che hanno risposto in modo poco chiaro",
+      "en": "In the customers, who replied unclearly"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Le risposte sono chiarissime («non ci interessa»): il problema non è dei clienti.",
+      "en": "The replies are very clear («we are not interested»): the problem is not the customers."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Nel punteggio dei lead, troppo alto per tutti",
+      "en": "In the lead score, too high for everyone"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il punteggio 90-92 per tutti è un altro difetto, ma non cambia l'etichetta della risposta.",
+      "en": "The 90-92 score for everyone is another flaw, but it does not change the reply's label."
+     }
+    }
+   ],
+   "perche": {
+    "it": "L'etichetta dell'LLM è giusta e quella nel CRM è sbagliata: l'errore nasce nel passo in mezzo, la conversione.",
+    "en": "The LLM label is right and the CRM one is wrong: the bug starts in the step in between, the conversion."
+   }
+  },
+  "livello2": {
+   "tipo": "diagnosi",
+   "domanda": {
+    "it": "Quale regola di conversione produce proprio questo errore?",
+    "en": "Which conversion rule produces exactly this bug?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Se l'etichetta È ESATTAMENTE «Interested» → interessato",
+      "en": "If the label IS EXACTLY «Interested» → interested"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Questa è la correzione: «Not Interested» non è esattamente «Interested», quindi non sbaglia.",
+      "en": "This is the fix: «Not Interested» is not exactly «Interested», so it does not go wrong."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Se l'etichetta è sconosciuta → passa a una persona",
+      "en": "If the label is unknown → hand it to a person"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Questa regola manda i casi strani a una persona: non trasforma un «no» in un «sì».",
+      "en": "This rule sends odd cases to a person: it does not turn a «no» into a «yes»."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Se l'etichetta CONTIENE «Interested» → interessato, controllata per prima",
+      "en": "If the label CONTAINS «Interested» → interested, checked first"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: anche «Not Interested» contiene «Interested», e la regola si ferma lì.",
+      "en": "Right: «Not Interested» also contains «Interested», and the rule stops there."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Se il cliente chiede la disiscrizione → non contattare più",
+      "en": "If the customer asks to unsubscribe → never contact again"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "È una regola fissa utile: protegge chi chiede di uscire, non crea interessati falsi.",
+      "en": "It is a useful fixed rule: it protects those who ask to leave, it does not create false interested leads."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Se l'etichetta CONTIENE «Not Interested» → non interessato, controllata per prima",
+      "en": "If the label CONTAINS «Not Interested» → not interested, checked first"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Questo ordine sistema i «no», ma resta fragile: «Maybe Interested» finirebbe ancora fra gli interessati.",
+      "en": "This order fixes the «no» replies, but it stays fragile: «Maybe Interested» would still end up as interested."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Un controllo «contiene» messo per primo cattura anche «Not Interested»: le regole sotto non vengono mai raggiunte.",
+    "en": "A «contains» check placed first also catches «Not Interested»: the rules below are never reached."
+   }
+  }
+ },
+ {
+  "id": "DA3.5-4",
+  "origine": "autori",
+  "pillola": "P3.5",
+  "concetti": [
+   "C32",
+   "C33"
+  ],
+  "concetto_principale": "C32",
+  "segmento_aiuto": "errore_report",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Il nuovo classificatore delle risposte segna «100% interessati» per due settimane di fila. Che cosa fai per primo?",
+    "en": "The new reply classifier shows «100% interested» for two weeks in a row. What do you do first?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Passo subito tutti i lead ai commerciali, finché sono caldi",
+      "en": "I hand all the leads to sales at once, while they are hot"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Se i dati sono sbagliati, i commerciali chiamano persone che hanno detto no.",
+      "en": "If the data is wrong, the salespeople call people who said no."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Chiedo all'LLM di classificare con più attenzione",
+      "en": "I ask the LLM to classify more carefully"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Sembra ragionevole, ma non sai ancora dove sta l'errore: forse l'LLM ha già ragione.",
+      "en": "It sounds reasonable, but you do not know yet where the bug is: maybe the LLM is already right."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Rifaccio il report per vedere se il numero cambia",
+      "en": "I rebuild the report to see if the number changes"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Un report rifatto sugli stessi dati dice le stesse cose.",
+      "en": "A report rebuilt on the same data says the same things."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Leggo un campione di risposte originali e le confronto con il CRM",
+      "en": "I read a sample of original replies and compare them with the CRM"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: i dati grezzi dicono subito se il report racconta la verità.",
+      "en": "Right: the raw data tells you at once whether the report is telling the truth."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Aspetto un altro mese per avere più dati",
+      "en": "I wait another month to have more data"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Aspettare fa solo crescere il danno: intanto si contattano le persone sbagliate.",
+      "en": "Waiting only makes the damage grow: meanwhile the wrong people get contacted."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Un risultato così uniforme è un segnale d'allarme: si controlla un campione di risposte vere prima di agire.",
+    "en": "Such a uniform result is a warning sign: you check a sample of real replies before acting."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché questo è il primo passo giusto?",
+    "en": "Why is this the right first step?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché un report uniforme è sempre sbagliato",
+      "en": "Because a uniform report is always wrong"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Troppo: un report uniforme va controllato, ma a volte è vero. Il campione serve a saperlo.",
+      "en": "Too strong: a uniform report must be checked, but sometimes it is true. The sample tells you."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché i dati grezzi mostrano se il report dice la verità",
+      "en": "Because the raw data shows whether the report tells the truth"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: il report è un riassunto, la verità sta nelle risposte originali.",
+      "en": "Right: the report is a summary, the truth is in the original replies."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché leggere le risposte è più veloce di un report",
+      "en": "Because reading replies is faster than a report"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Non è una questione di velocità: un campione serve a controllare, non a sostituire il report.",
+      "en": "It is not about speed: a sample is for checking, not for replacing the report."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Perché l'LLM sbaglia quasi sempre le etichette",
+      "en": "Because the LLM almost always gets the labels wrong"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Non è vero, e nel caso tipico l'errore era in un passo dopo l'LLM.",
+      "en": "It is not true, and in the typical case the bug was in a step after the LLM."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Perché così si può cambiare subito fornitore dell'LLM",
+      "en": "Because then you can switch LLM provider at once"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Prima si capisce dove sta l'errore; cambiare fornitore non ripara una regola sbagliata.",
+      "en": "First you find where the bug is; switching provider does not fix a wrong rule."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Il report è un riassunto: solo il confronto con i dati grezzi dice se è vero.",
+    "en": "The report is a summary: only the comparison with the raw data tells you whether it is true."
+   }
+  }
+ }
+]

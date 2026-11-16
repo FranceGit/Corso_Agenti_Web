@@ -18,13 +18,44 @@ def regole(catalogo_vero) -> dict:
 
 def lezioni_con_riassunto(catalogo_vero):
     escluse = regole(catalogo_vero)["componenti_senza_riassunto"]
-    return [lez for lez in catalogo_vero.lezioni.values() if lez.componente not in escluse]
+    return [lez for lez in catalogo_vero.tutte_le_lezioni() if lez.componente not in escluse]
 
 
 def test_ogni_pillola_dei_moduli_1_e_2_ha_la_sua_lezione(catalogo_vero):
     for modulo in catalogo_vero.corso.moduli[:2]:
         for p in modulo.pillole:
             assert p.id in catalogo_vero.lezioni, f"{p.id} senza lezione interattiva"
+
+
+# P3.3 (arricchimento) resta senza lezione propria: il suo nucleo (dato da fonte / ipotesi / inventato) e' gia'
+# manipolabile nella lezione di P2.4; al suo posto M3 ha il laboratorio "Trova l'errore" in P3.5.
+PILLOLE_M3_SENZA_LEZIONE = {"P3.3"}
+
+
+def test_modulo_3_lezioni_e_laboratorio_trova_l_errore(catalogo_vero):
+    for p in catalogo_vero.corso.moduli[2].pillole:
+        if p.id not in PILLOLE_M3_SENZA_LEZIONE:
+            assert p.id in catalogo_vero.lezioni, f"{p.id} senza lezione interattiva"
+    lab = catalogo_vero.laboratori["P3.5"]
+    assert lab.componente == "trova_errore" and lab.tipo == "laboratorio"
+    principale = {s.id for s in catalogo_vero.lezioni["P3.5"].segmenti} - {"riassunto"}
+    assert not principale & {s.id for s in lab.segmenti}, "segmenti con lo stesso id in lezione e laboratorio: l'aiuto sarebbe ambiguo"
+
+
+def test_domande_del_modulo_3_erogabili_con_aiuto_nella_lezione(catalogo_vero):
+    """Le domande scritte per M3 (origine autori) sono erogabili e il loro aiuto porta a un passo della lezione o del laboratorio."""
+    for p in catalogo_vero.corso.moduli[2].pillole:
+        nuove = [d for d in p.domande if d.origine == "autori"]
+        assert len(nuove) >= 2, f"{p.id}: meno di 2 domande nuove"
+        for d in nuove:
+            assert catalogo_vero.erogabile(d.id), f"{d.id}: {catalogo_vero.motivi_non_erogabile[d.id]}"
+            rif = catalogo_vero.riferimento_aiuto(d)
+            if p.id in PILLOLE_M3_SENZA_LEZIONE:
+                assert rif["scheda"] == "scaletta"
+            else:
+                assert rif["scheda"] in ("lezione", "laboratorio") and rif["segmento"] != "riassunto", d.id
+    assert catalogo_vero.riferimento_aiuto(catalogo_vero.domanda("DA3.5-3"))["scheda"] == "laboratorio"
+    assert catalogo_vero.riferimento_aiuto(catalogo_vero.domanda("DA3.5-1"))["scheda"] == "lezione"
 
 
 def test_passi_con_prova_e_riassunto_finale_in_tre_frasi(catalogo_vero):
@@ -63,7 +94,7 @@ def test_concetti_dei_segmenti_appartengono_alla_pillola(catalogo_vero):
 def test_niente_rimandi_a_spiegazioni_precedenti(catalogo_vero):
     """Regola di France: mai 'come gia' spiegato', si rispiega nel nuovo contesto."""
     vietate = re.compile(r"come (gi[aà]|abbiamo) (spiegato|visto|detto)|as (already )?(explained|seen|mentioned) (before|earlier|above)", re.I)
-    for lez in catalogo_vero.lezioni.values():
+    for lez in catalogo_vero.tutte_le_lezioni():
         for lingua in ("it", "en"):
             testo = str(risolvi(lez.model_dump(exclude={"domande"}), lingua))
             assert not vietate.search(testo), f"{lez.id} [{lingua}]: rimando a una spiegazione precedente"
@@ -75,10 +106,14 @@ def test_ogni_pillola_con_lezione_si_apre_in_entrambe_le_lingue(motore, lingua):
         c = motore.contenuto_pillola("studente@esempio.it", pid, lingua)
         assert c["lezione"]["componente"] == lez.componente
         assert c["lezione"]["segmenti"][0]["titolo"]
+        lab = motore.cat.laboratori.get(pid)
+        assert (c["laboratorio"] or {}).get("componente") == (lab.componente if lab else None)
+        if lab:
+            assert c["laboratorio"]["segmenti"][0]["titolo"] and c["laboratorio"]["tipo"] == "laboratorio"
 
 
 def test_moduli_js_autonomi_e_deterministici(catalogo_vero):
-    for lez in catalogo_vero.lezioni.values():
+    for lez in catalogo_vero.tutte_le_lezioni():
         js = (CARTELLA_ANIM / f"{lez.componente}.js").read_text(encoding="utf-8")
         assert re.search(r"^export function monta\(", js, re.M), f"{lez.componente}: manca export function monta"
         assert "Math.random" not in js and not re.search(r"\bnew Date\b|\bDate\.now\b", js), f"{lez.componente}: non deterministico"
@@ -89,6 +124,6 @@ def test_moduli_js_autonomi_e_deterministici(catalogo_vero):
 
 
 def test_moduli_delle_lezioni_serviti_dopo_l_accesso(client_dentro):
-    for lez in client_dentro.app.state.catalogo.lezioni.values():
+    for lez in client_dentro.app.state.catalogo.tutte_le_lezioni():
         r = client_dentro.get(f"/protetto/animazioni/{lez.componente}.js")
         assert r.status_code == 200 and r.headers["content-type"].startswith("text/javascript"), lez.componente

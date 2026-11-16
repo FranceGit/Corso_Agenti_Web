@@ -1,0 +1,207 @@
+{
+ "id": "L_trova_errore",
+ "pillola": "P3.5",
+ "componente": "trova_errore",
+ "tipo": "laboratorio",
+ "titolo": {"it": "Trova l'errore: il report che diceva «tutti interessati»", "en": "Find the bug: the report that said «everyone is interested»"},
+ "sottotitolo": {"it": "Un report perfetto nasconde un errore vero. Indaga sulle risposte dei clienti, trova il punto rotto e scegli la correzione.", "en": "A perfect report hides a real bug. Investigate the customers' replies, find the broken step and choose the fix."},
+ "segmenti": [
+  {
+   "id": "errore_report",
+   "titolo": {"it": "Un report troppo bello", "en": "A report that is too good"},
+   "narrazione": [
+    {"it": "È finita la prima campagna di email. Il report dice: 5 lead su 5 interessati, tutti con un punteggio fra 90 e 92. Sembra un trionfo.", "en": "The first email campaign is over. The report says: 5 leads out of 5 interested, all with a score between 90 and 92. It looks like a triumph."},
+    {"it": "Ma con le email a freddo (scritte a persone che non ci conoscono) quasi nessuno dice sì. Quando tutti i numeri sono uguali, il primo pensiero deve essere: forse si è rotto qualcosa.", "en": "But with cold emails (sent to people who do not know us) almost nobody says yes. When all the numbers are the same, your first thought should be: maybe something is broken."}
+   ],
+   "prova": {"it": "Scegli tu: «Festeggia» o «Controlla». Poi leggi gli indizi che compaiono accanto al report.", "en": "You choose: «Celebrate» or «Check». Then read the clues that appear next to the report."},
+   "concetti": ["C32"],
+   "stato_animazione": {"fase": "report", "scelta_report": "", "etichette": {}, "confrontato": false, "risposta_aperta": "marco", "stazione": "", "correzione": "", "abitudini": {}}
+  },
+  {
+   "id": "errore_risposte",
+   "titolo": {"it": "Le risposte vere dei clienti", "en": "The customers' real replies"},
+   "narrazione": [
+    {"it": "Il report è un riassunto. Le risposte dei clienti sono i dati grezzi (il testo originale, prima di ogni passaggio): è lì che si controlla.", "en": "The report is a summary. The customers' replies are the raw data (the original text, before any step): that is where you check."},
+    {"it": "Dai tu a ogni risposta l'etichetta giusta: interessato, non interessato, da ricontattare o disiscrizione (il cliente chiede di non ricevere più email).", "en": "Give each reply the right label yourself: interested, not interested, call back later or unsubscribe (the customer asks to stop receiving emails)."}
+   ],
+   "prova": {"it": "Etichetta le 5 risposte, poi premi «Confronta con il CRM» e conta quante etichette del CRM sono sbagliate.", "en": "Label the 5 replies, then press «Compare with the CRM» and count how many CRM labels are wrong."},
+   "concetti": ["C32"],
+   "stato_animazione": {"fase": "risposte", "scelta_report": "controlla", "etichette": {}, "confrontato": false, "risposta_aperta": "marco", "stazione": "", "correzione": "", "abitudini": {}}
+  },
+  {
+   "id": "errore_traccia",
+   "titolo": {"it": "Dove nasce l'errore?", "en": "Where does the bug start?"},
+   "narrazione": [
+    {"it": "Segui una risposta lungo la pipeline (la catena di passi): testo del cliente, etichetta scritta dall'LLM, conversione in una categoria del CRM, scheda nel CRM, report.", "en": "Follow one reply along the pipeline (the chain of steps): the customer's text, the label written by the LLM, the conversion into a CRM category, the CRM record, the report."},
+    {"it": "L'LLM scrive le etichette in inglese, per esempio «Not Interested»: sono le parole che usa il programma. Cerca la prima stazione in cui il dato diventa sbagliato.", "en": "The LLM writes its labels in English, for example «Not Interested»: those are the words the program uses. Look for the first station where the data becomes wrong."}
+   ],
+   "prova": {"it": "Clicca la stazione in cui, secondo te, nasce l'errore. Poi prova con un'altra risposta dal menu.", "en": "Click the station where you think the bug starts. Then try with another reply from the menu."},
+   "concetti": ["C32"],
+   "stato_animazione": {"fase": "traccia", "scelta_report": "controlla", "etichette": {}, "confrontato": false, "risposta_aperta": "marco", "stazione": "", "correzione": "", "abitudini": {}}
+  },
+  {
+   "id": "errore_regola",
+   "titolo": {"it": "La regola sbagliata", "en": "The wrong rule"},
+   "narrazione": [
+    {"it": "La conversione legge le regole dall'alto in basso e si ferma alla prima che vale. La prima dice: se l'etichetta CONTIENE la parola «Interested», allora il cliente è interessato.", "en": "The conversion reads the rules from top to bottom and stops at the first one that fits. The first one says: if the label CONTAINS the word «Interested», then the customer is interested."},
+    {"it": "Ma anche «Not Interested» e «Maybe Interested» contengono «Interested»! Le regole sotto non vengono mai raggiunte. L'LLM aveva ragione: sbaglia il passo dopo.", "en": "But «Not Interested» and «Maybe Interested» also contain «Interested»! The rules below are never reached. The LLM was right: the step after it is wrong."}
+   ],
+   "prova": {"it": "Scegli una correzione e guarda che cosa diventano le 5 risposte. Cerca quella che le sistema tutte.", "en": "Choose a fix and see what the 5 replies become. Look for the one that fixes them all."},
+   "concetti": ["C32", "C33"],
+   "stato_animazione": {"fase": "regola", "scelta_report": "controlla", "etichette": {}, "confrontato": false, "risposta_aperta": "marco", "stazione": "", "correzione": "", "abitudini": {}}
+  },
+  {
+   "id": "errore_rilancio",
+   "titolo": {"it": "Il report, quello vero", "en": "The report, the real one"},
+   "narrazione": [
+    {"it": "Con la correzione giusta il report cambia: un interessato, due non interessati, uno da ricontattare, una disiscrizione. Meno bello, ma vero: il commerciale chiama la persona giusta e nessuno riceve email che ha rifiutato.", "en": "With the right fix the report changes: one interested, two not interested, one to call back, one unsubscribe. Less pretty, but true: the salesperson calls the right person and nobody gets emails they refused."},
+    {"it": "La regola d'oro: non fidarti di un report che non hai mai confrontato con i dati grezzi.", "en": "The golden rule: do not trust a report you have never compared with the raw data."}
+   ],
+   "prova": {"it": "Accendi e spegni la correzione e confronta i due report. Poi spunta le abitudini che avrebbero scoperto subito l'errore.", "en": "Switch the fix on and off and compare the two reports. Then tick the habits that would have caught the bug at once."},
+   "concetti": ["C32", "C33"],
+   "stato_animazione": {"fase": "rilancio", "scelta_report": "controlla", "etichette": {}, "confrontato": false, "risposta_aperta": "marco", "stazione": "", "correzione": "esatta_disiscrizione", "abitudini": {}}
+  },
+  {
+   "id": "riassunto",
+   "titolo": {"it": "In tre frasi", "en": "In three sentences"},
+   "narrazione": [
+    {"it": "Un report in cui tutto è uguale, o tutto è perfetto, è un segnale d'allarme da controllare.", "en": "A report where everything is the same, or everything is perfect, is a warning sign to check."},
+    {"it": "Si confronta un campione di dati grezzi con il report e si segue il dato passo per passo fino al punto in cui diventa sbagliato.", "en": "You compare a sample of raw data with the report and follow the data step by step until the point where it becomes wrong."},
+    {"it": "Le etichette si convertono con un confronto esatto su un elenco chiuso, i casi sconosciuti vanno a una persona e la disiscrizione segue una regola fissa che vince sempre.", "en": "Labels are converted with an exact match against a closed list, unknown cases go to a person and an unsubscribe follows a fixed rule that always wins."}
+   ],
+   "concetti": ["C32", "C33"],
+   "stato_animazione": {"fase": "rilancio", "scelta_report": "controlla", "etichette": {}, "confrontato": false, "risposta_aperta": "marco", "stazione": "", "correzione": "esatta_disiscrizione", "abitudini": {}}
+  }
+ ],
+ "scenario": {
+  "categorie": [
+   {"id": "interessato", "nome": {"it": "Interessato", "en": "Interested"}, "colore": "#16a34a", "azione": {"it": "Passa al commerciale", "en": "Goes to the salesperson"}},
+   {"id": "non_interessato", "nome": {"it": "Non interessato", "en": "Not interested"}, "colore": "#64748b", "azione": {"it": "Nessun nuovo contatto per ora", "en": "No new contact for now"}},
+   {"id": "da_ricontattare", "nome": {"it": "Da ricontattare", "en": "Call back later"}, "colore": "#0ea5e9", "azione": {"it": "Promemoria nel CRM alla data chiesta", "en": "CRM reminder on the requested date"}},
+   {"id": "disiscrizione", "nome": {"it": "Disiscrizione", "en": "Unsubscribe"}, "colore": "#e11d48", "azione": {"it": "Tolto subito da tutte le liste", "en": "Removed from all lists at once"}},
+   {"id": "umano", "nome": {"it": "A una persona", "en": "To a person"}, "colore": "#d97706", "azione": {"it": "Una persona legge e decide", "en": "A person reads and decides"}}
+  ],
+  "risposte": [
+   {"id": "giulia", "nome": "Giulia Neri", "azienda": "Ottica Sole", "punteggio": 91,
+    "testo": {"it": "Interessante! Possiamo sentirci giovedì per una breve demo?", "en": "Interesting! Can we talk on Thursday for a short demo?"},
+    "etichetta_llm": "Interested", "giusta": "interessato", "chiede_disiscrizione": false},
+   {"id": "marco", "nome": "Marco Rossi", "azienda": "Pasticceria Dolce Vita", "punteggio": 90,
+    "testo": {"it": "Grazie, ma per ora siamo a posto così.", "en": "Thanks, but we are fine as we are for now."},
+    "etichetta_llm": "Not Interested", "giusta": "non_interessato", "chiede_disiscrizione": false},
+   {"id": "sara", "nome": "Sara Bianchi", "azienda": "Studio Verde", "punteggio": 92,
+    "testo": {"it": "Toglietemi dalla vostra lista, per favore. Non scrivetemi più.", "en": "Please take me off your list. Do not write to me again."},
+    "etichetta_llm": "Not Interested", "giusta": "disiscrizione", "chiede_disiscrizione": true},
+   {"id": "paolo", "nome": "Paolo Conti", "azienda": "Palestra Forma", "punteggio": 91,
+    "testo": {"it": "Ora no. Richiamatemi a gennaio, quando avremo il nuovo budget.", "en": "Not now. Call me back in January, when we have the new budget."},
+    "etichetta_llm": "Maybe Interested", "giusta": "da_ricontattare", "chiede_disiscrizione": false},
+   {"id": "elena", "nome": "Elena Galli", "azienda": "Agenzia Viaggi Mare", "punteggio": 90,
+    "testo": {"it": "Abbiamo già un fornitore e ci troviamo bene. Non ci interessa.", "en": "We already have a supplier and we are happy with it. We are not interested."},
+    "etichetta_llm": "Not Interested", "giusta": "non_interessato", "chiede_disiscrizione": false}
+  ],
+  "regole_bug": {"confronto": "contiene", "ordine": [["Interested", "interessato"], ["Not Interested", "non_interessato"], ["Maybe Interested", "da_ricontattare"]], "sconosciuta": "interessato", "disiscrizione_fissa": false},
+  "correzioni": [
+   {"id": "chiedi_llm", "tipo": "inutile",
+    "testo": {"it": "Chiedere all'LLM di essere più preciso", "en": "Ask the LLM to be more precise"},
+    "regole": {"confronto": "contiene", "ordine": [["Interested", "interessato"], ["Not Interested", "non_interessato"], ["Maybe Interested", "da_ricontattare"]], "sconosciuta": "interessato", "disiscrizione_fissa": false},
+    "spiega": {"it": "Non cambia nulla: l'LLM era già giusto. L'errore è nel passo dopo, la conversione.", "en": "Nothing changes: the LLM was already right. The bug is in the next step, the conversion."}},
+   {"id": "rifai_report", "tipo": "inutile",
+    "testo": {"it": "Rifare il report da capo", "en": "Rebuild the report from scratch"},
+    "regole": {"confronto": "contiene", "ordine": [["Interested", "interessato"], ["Not Interested", "non_interessato"], ["Maybe Interested", "da_ricontattare"]], "sconosciuta": "interessato", "disiscrizione_fissa": false},
+    "spiega": {"it": "Il report riassume dati già sbagliati: rifatto, dice le stesse cose sbagliate.", "en": "The report sums up data that is already wrong: rebuilt, it says the same wrong things."}},
+   {"id": "inverti", "tipo": "fragile",
+    "testo": {"it": "Controllare prima «Not Interested», poi «Interested»", "en": "Check «Not Interested» first, then «Interested»"},
+    "regole": {"confronto": "contiene", "ordine": [["Not Interested", "non_interessato"], ["Interested", "interessato"], ["Maybe Interested", "da_ricontattare"]], "sconosciuta": "interessato", "disiscrizione_fissa": false},
+    "spiega": {"it": "Mezzo rimedio: «Maybe Interested» contiene ancora «Interested» e diventa interessato, e chi chiede la disiscrizione riceverà altre email. Basta una nuova etichetta per rompere tutto di nuovo.", "en": "Half a remedy: «Maybe Interested» still contains «Interested» and becomes interested, and the person who asked to unsubscribe will get more emails. One new label is enough to break everything again."}},
+   {"id": "esatta", "tipo": "quasi",
+    "testo": {"it": "Confronto esatto con un elenco chiuso di etichette; etichetta sconosciuta → a una persona", "en": "Exact match against a closed list of labels; unknown label → to a person"},
+    "regole": {"confronto": "esatto", "ordine": [["Interested", "interessato"], ["Not Interested", "non_interessato"], ["Maybe Interested", "da_ricontattare"]], "sconosciuta": "umano", "disiscrizione_fissa": false},
+    "spiega": {"it": "Quasi: ora ogni etichetta finisce al posto giusto. Ma Sara ha chiesto di non ricevere più email e risulta solo «non interessata»: potrebbe ricevere la prossima campagna.", "en": "Almost: now every label ends up in the right place. But Sara asked to stop receiving emails and is only «not interested»: she might get the next campaign."}},
+   {"id": "esatta_disiscrizione", "tipo": "giusta",
+    "testo": {"it": "Confronto esatto + sconosciuta → a una persona + regola fissa: chi chiede la disiscrizione non va più contattato, sempre", "en": "Exact match + unknown → to a person + fixed rule: whoever asks to unsubscribe is never contacted again"},
+    "regole": {"confronto": "esatto", "ordine": [["Interested", "interessato"], ["Not Interested", "non_interessato"], ["Maybe Interested", "da_ricontattare"]], "sconosciuta": "umano", "disiscrizione_fissa": true},
+    "spiega": {"it": "Giusta: ogni etichetta va al suo posto, un'etichetta mai vista va a una persona e la disiscrizione vince su qualunque etichetta dell'LLM.", "en": "Right: every label goes to its place, a label never seen before goes to a person and the unsubscribe wins over any LLM label."}}
+  ],
+  "stazioni": [
+   {"id": "cliente", "nome": {"it": "Risposta del cliente", "en": "Customer's reply"}},
+   {"id": "llm", "nome": {"it": "Etichetta dell'LLM", "en": "LLM label"}},
+   {"id": "conversione", "nome": {"it": "Conversione", "en": "Conversion"}},
+   {"id": "crm", "nome": {"it": "Scheda CRM", "en": "CRM record"}},
+   {"id": "report", "nome": {"it": "Report", "en": "Report"}}
+  ],
+  "indizi": [
+   {"it": "5 su 5 nella stessa categoria: con email a freddo è quasi impossibile.", "en": "5 out of 5 in the same category: with cold emails it is almost impossible."},
+   {"it": "Punteggi tutti fra 90 e 92: un punteggio che non distingue nessuno non serve.", "en": "Scores all between 90 and 92: a score that tells nobody apart is useless."},
+   {"it": "Nessun «no», nessuna richiesta di disiscrizione: di solito qualcuno la chiede sempre.", "en": "No «no», no unsubscribe request: usually someone always asks for one."}
+  ],
+  "abitudini": [
+   {"id": "campione", "buona": true, "testo": {"it": "Leggere ogni settimana alcune risposte originali a caso e confrontarle con il CRM", "en": "Every week, read a few original replies at random and compare them with the CRM"}},
+   {"id": "uguali", "buona": true, "testo": {"it": "Fermarsi quando un report è tutto uguale (5 su 5, punteggi 90-92)", "en": "Stop when a report is all the same (5 out of 5, scores 90-92)"}},
+   {"id": "sconosciute", "buona": true, "testo": {"it": "Contare le etichette che la conversione non riconosce e mostrarle nel report", "en": "Count the labels the conversion does not recognise and show them in the report"}},
+   {"id": "grafico", "buona": false, "testo": {"it": "Fidarsi del report se il grafico è chiaro e ordinato", "en": "Trust the report if the chart is clear and tidy"}},
+   {"id": "percentuale", "buona": false, "testo": {"it": "Guardare solo la percentuale finale, per risparmiare tempo", "en": "Look only at the final percentage, to save time"}}
+  ],
+  "testi": {
+   "titolo_report": {"it": "{perc}% interessati", "en": "{perc}% interested"},
+   "sotto_report": {"it": "{n} risposte · punteggio da {min} a {max}", "en": "{n} replies · score from {min} to {max}"},
+   "report_bug": {"it": "Report con la conversione di adesso", "en": "Report with the current conversion"},
+   "report_corretto": {"it": "Report con la correzione «{correzione}»", "en": "Report with the fix «{correzione}»"},
+   "sconosciute": {"it": "Etichette non riconosciute: {n}", "en": "Labels not recognised: {n}"},
+   "nota_punteggio": {"it": "I punteggi restano tutti fra 90 e 92: anche il punteggio va tarato. È un altro errore, con lo stesso sintomo.", "en": "The scores all stay between 90 and 92: the score needs tuning too. It is another bug, with the same symptom."},
+   "esito_festeggia": {"it": "Aspetta a stappare lo spumante! Un risultato così perfetto va controllato prima di presentarlo.", "en": "Hold the champagne! A result this perfect must be checked before you present it."},
+   "esito_controlla": {"it": "Ottimo istinto: un report tutto uguale è un segnale d'allarme. Ecco gli indizi.", "en": "Great instinct: a report that is all the same is a warning sign. Here are the clues."},
+   "scegli_prima": {"it": "Scegli prima se festeggiare o controllare.", "en": "First choose whether to celebrate or check."},
+   "conteggio_etichette": {"it": "Hai etichettato {fatte} risposte su {totali}.", "en": "You have labelled {fatte} replies out of {totali}."},
+   "confronto_esito": {"it": "Il CRM sbaglia {sbagliate} etichette su {totali}. Tu ne hai {giuste} giuste su {totali}.", "en": "The CRM gets {sbagliate} labels wrong out of {totali}. You got {giuste} right out of {totali}."},
+   "riga_confronto": {"it": "{nome}: tu «{tua}», CRM «{crm}», giusta «{giusta}»", "en": "{nome}: you «{tua}», CRM «{crm}», right «{giusta}»"},
+   "nessuna_tua": {"it": "nessuna", "en": "none"},
+   "valore_cliente": {"it": "«{testo}»", "en": "«{testo}»"},
+   "valore_llm": {"it": "{etichetta}", "en": "{etichetta}"},
+   "valore_conversione": {"it": "regola {n}: contiene «{parola}»", "en": "rule {n}: contains «{parola}»"},
+   "valore_conversione_nessuna": {"it": "nessuna regola: valore di riserva", "en": "no rule: fallback value"},
+   "valore_crm": {"it": "{categoria}", "en": "{categoria}"},
+   "valore_report": {"it": "conta come «{categoria}»", "en": "counts as «{categoria}»"},
+   "staz_giusta": {"it": "Esatto! Fino all'LLM il dato è giusto («{llm}»). È la conversione che lo trasforma in «{crm}».", "en": "Exactly! Up to the LLM the data is right («{llm}»). It is the conversion that turns it into «{crm}»."},
+   "staz_prima": {"it": "Qui il dato è ancora giusto. Guarda più avanti lungo la catena.", "en": "Here the data is still right. Look further along the chain."},
+   "staz_dopo": {"it": "Qui il dato è già sbagliato, ma l'errore è nato prima. Torna indietro di qualche stazione.", "en": "Here the data is already wrong, but the bug started earlier. Go back a few stations."},
+   "staz_nessun_errore": {"it": "Per {nome} il dato è giusto in ogni stazione: è davvero interessata. Segui un'altra risposta.", "en": "For {nome} the data is right at every station: she really is interested. Follow another reply."},
+   "staz_scegli": {"it": "Clicca una stazione della catena.", "en": "Click a station of the chain."},
+   "nota_disiscrizione": {"it": "In più Sara ha chiesto di non essere più contattata: questo nessuna etichetta dell'LLM lo dice.", "en": "On top of that, Sara asked not to be contacted again: no LLM label says this."},
+   "corr_scegli": {"it": "Scegli una correzione a sinistra.", "en": "Choose a fix on the left."},
+   "corr_punteggio": {"it": "Risposte al posto giusto: {giuste} su {totali}.", "en": "Replies in the right place: {giuste} out of {totali}."},
+   "corr_riga": {"it": "{nome}: «{etichetta}» → {categoria}", "en": "{nome}: «{etichetta}» → {categoria}"},
+   "abitudini_esito": {"it": "Abitudini utili scelte: {buone} su {totali_buone}. Abitudini rischiose scelte: {cattive}.", "en": "Useful habits chosen: {buone} out of {totali_buone}. Risky habits chosen: {cattive}."},
+   "abitudine_buona": {"it": "Sì: avrebbe scoperto l'errore.", "en": "Yes: it would have caught the bug."},
+   "abitudine_cattiva": {"it": "No: con questa l'errore resta nascosto.", "en": "No: with this the bug stays hidden."},
+   "regola_riga": {"it": "{n}. Se l'etichetta CONTIENE «{parola}» → {categoria}", "en": "{n}. If the label CONTAINS «{parola}» → {categoria}"},
+   "regola_riserva": {"it": "Se nessuna regola vale → {categoria}", "en": "If no rule fits → {categoria}"},
+   "regola_mai": {"it": "mai raggiunta", "en": "never reached"},
+   "regola_esatta_riga": {"it": "Se l'etichetta È ESATTAMENTE «{parola}» → {categoria}", "en": "If the label IS EXACTLY «{parola}» → {categoria}"},
+   "regola_fissa": {"it": "Prima di tutto: se il cliente chiede di essere tolto dalla lista → Disiscrizione (vince sempre)", "en": "First of all: if the customer asks to be taken off the list → Unsubscribe (always wins)"}
+  },
+  "etichette": {
+   "titolo_comandi": {"it": "Indaga", "en": "Investigate"},
+   "festeggia": {"it": "Festeggia", "en": "Celebrate"},
+   "controlla": {"it": "Controlla", "en": "Check"},
+   "scegli_etichetta": {"it": "scegli…", "en": "choose…"},
+   "confronta": {"it": "Confronta con il CRM", "en": "Compare with the CRM"},
+   "segui_risposta": {"it": "Risposta da seguire", "en": "Reply to follow"},
+   "correzioni": {"it": "Correzioni possibili", "en": "Possible fixes"},
+   "nessuna_correzione": {"it": "Nessuna correzione", "en": "No fix"},
+   "correzione_attiva": {"it": "Correzione giusta attiva", "en": "Right fix switched on"},
+   "abitudini": {"it": "Abitudini anti-errore", "en": "Bug-catching habits"},
+   "report": {"it": "REPORT DI CAMPAGNA", "en": "CAMPAIGN REPORT"},
+   "risposte": {"it": "LE RISPOSTE DEI CLIENTI", "en": "THE CUSTOMERS' REPLIES"},
+   "pipeline": {"it": "LA PIPELINE, STAZIONE PER STAZIONE", "en": "THE PIPELINE, STATION BY STATION"},
+   "regole": {"it": "LE REGOLE DELLA CONVERSIONE", "en": "THE CONVERSION RULES"},
+   "tua_etichetta": {"it": "La tua etichetta", "en": "Your label"},
+   "nel_crm": {"it": "Nel CRM", "en": "In the CRM"},
+   "titolo_destra": {"it": "Il taccuino dell'indagine", "en": "The investigation notebook"},
+   "indizi": {"it": "Indizi", "en": "Clues"},
+   "apri_stazione": {"it": "Controlla la stazione {stazione}", "en": "Check the station {stazione}"},
+   "regole_adesso": {"it": "Regole di adesso", "en": "Current rules"},
+   "regole_corrette": {"it": "Regole con la correzione", "en": "Rules with the fix"},
+   "descrizione_scena": {"it": "Report di campagna e indagine sulle risposte dei clienti", "en": "Campaign report and investigation of the customers' replies"}
+  }
+ },
+ "domande": []
+}

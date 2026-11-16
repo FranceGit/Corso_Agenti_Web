@@ -1,0 +1,985 @@
+{
+ "id": "L_pipeline_lead",
+ "pillola": "P3.1",
+ "componente": "pipeline_lead",
+ "titolo": {
+  "it": "Il viaggio di un lead: la pipeline e i suoi contratti",
+  "en": "A lead's journey: the pipeline and its contracts"
+ },
+ "sottotitolo": {
+  "it": "Segui Giulia dal modulo al CRM, spegni le stazioni e guarda dove si rompe la catena.",
+  "en": "Follow Giulia from the form to the CRM, switch stations off and see where the chain breaks."
+ },
+ "segmenti": [
+  {
+   "id": "viaggio",
+   "titolo": {
+    "it": "Il viaggio di un lead",
+    "en": "A lead's journey"
+   },
+   "narrazione": [
+    {
+     "it": "Un lead è una persona che potrebbe diventare cliente. Giulia, responsabile marketing di un negozio di ottica, ha compilato un modulo sul nostro sito: è il nostro lead.",
+     "en": "A lead is a person who might become a customer. Giulia, marketing manager of an optician's shop, filled in a form on our website: she is our lead."
+    },
+    {
+     "it": "Una pipeline (una catena di passi sempre uguali) porta il lead dal modulo fino al CRM, il programma dove l'azienda tiene i dati dei clienti. A ogni stazione la scheda di Giulia si allunga con campi nuovi.",
+     "en": "A pipeline (a chain of steps that are always the same) carries the lead from the form to the CRM, the program where the company keeps its customer data. At each station Giulia's record grows with new fields."
+    }
+   ],
+   "prova": {
+    "it": "Premi «Avanti» una stazione alla volta, finché Giulia arriva nel CRM. Guarda quali campi compaiono sulla scheda e di che colore sono.",
+    "en": "Press «Next» one station at a time, until Giulia reaches the CRM. Watch which fields appear on the record and what colour they are."
+   },
+   "concetti": [
+    "C26"
+   ],
+   "stato_animazione": {
+    "passo": 0,
+    "attive": {
+     "pulizia": true,
+     "arricchimento": true,
+     "punteggio": true,
+     "email": true,
+     "classificazione": true,
+     "crm": true
+    },
+    "flusso": "completo",
+    "mappatura": "giusta",
+    "prova_catena": false,
+    "stazione_aperta": "pulizia"
+   }
+  },
+  {
+   "id": "contratto",
+   "titolo": {
+    "it": "Il contratto di ogni stazione",
+    "en": "Each station's contract"
+   },
+   "narrazione": [
+    {
+     "it": "Ogni stazione ha un contratto dati: l'elenco dei campi che riceve e di quelli che consegna. Il colore dice da dove viene ogni campo: dal modulo, dal CRM, da una fonte esterna o dedotto dal modello.",
+     "en": "Each station has a data contract: the list of fields it receives and the fields it hands over. The colour tells where each field comes from: the form, the CRM, an outside source, or guessed by the model."
+    },
+    {
+     "it": "Con un contratto chiaro ogni stazione si può controllare da sola: se riceve i campi giusti, deve consegnare i suoi.",
+     "en": "With a clear contract each station can be checked on its own: if it receives the right fields, it must hand over its own."
+    }
+   ],
+   "prova": {
+    "it": "Clicca la stazione «Punteggio» e leggi il suo contratto. Poi cerca quale stazione le consegna il settore e la dimensione.",
+    "en": "Click the «Scoring» station and read its contract. Then find which station hands it the sector and the size."
+   },
+   "concetti": [
+    "C27"
+   ],
+   "stato_animazione": {
+    "passo": 6,
+    "attive": {
+     "pulizia": true,
+     "arricchimento": true,
+     "punteggio": true,
+     "email": true,
+     "classificazione": true,
+     "crm": true
+    },
+    "flusso": "completo",
+    "mappatura": "giusta",
+    "prova_catena": false,
+    "stazione_aperta": "punteggio"
+   }
+  },
+  {
+   "id": "spegni",
+   "titolo": {
+    "it": "Spegni una stazione",
+    "en": "Switch off a station"
+   },
+   "narrazione": [
+    {
+     "it": "Le stazioni dipendono l'una dall'altra attraverso i dati. Se una stazione manca, quella dopo non riceve i campi che le servono.",
+     "en": "The stations depend on each other through data. If a station is missing, the next one does not receive the fields it needs."
+    },
+    {
+     "it": "Grazie al contratto, la stazione dopo si accende di rosso, «input mancante», e Giulia si ferma. È un bene: senza questo blocco il problema arriverebbe fino a lei.",
+     "en": "Thanks to the contract, the next station turns red, «input missing», and Giulia stops. That is good: without this block the problem would reach her."
+    }
+   ],
+   "prova": {
+    "it": "Spegni «Arricchimento» e premi «Riproduci». Guarda dove si ferma Giulia e leggi che cosa sarebbe successo senza il blocco. Prova poi con «Classificazione».",
+    "en": "Switch off «Enrichment» and press «Play». See where Giulia stops and read what would have happened without the block. Then try «Classification»."
+   },
+   "concetti": [
+    "C27",
+    "C26"
+   ],
+   "stato_animazione": {
+    "passo": 6,
+    "attive": {
+     "pulizia": true,
+     "arricchimento": true,
+     "punteggio": true,
+     "email": true,
+     "classificazione": true,
+     "crm": true
+    },
+    "flusso": "completo",
+    "mappatura": "giusta",
+    "prova_catena": false,
+    "stazione_aperta": "arricchimento"
+   }
+  },
+  {
+   "id": "tutorial",
+   "titolo": {
+    "it": "Il flusso da tutorial",
+    "en": "The tutorial flow"
+   },
+   "narrazione": [
+    {
+     "it": "Molti flussi mostrati nei video vanno dritti dalla raccolta dei contatti all'invio delle email. Mancano la pulizia, il punteggio, l'approvazione di una persona e la lettura delle risposte.",
+     "en": "Many flows shown in videos go straight from collecting contacts to sending emails. Cleaning, scoring, a person's approval and reading the replies are all missing."
+    },
+    {
+     "it": "Sembrano più veloci, ma nessuno si ferma: i problemi arrivano a Giulia e al nome dell'azienda.",
+     "en": "They look faster, but nothing stops: the problems reach Giulia and the company's name."
+    }
+   ],
+   "prova": {
+    "it": "Passa da «Flusso completo» a «Flusso da tutorial» e confronta la scheda finale di Giulia e l'elenco dei danni.",
+    "en": "Switch between «Full flow» and «Tutorial flow» and compare Giulia's final record and the list of damage."
+   },
+   "concetti": [
+    "C26"
+   ],
+   "stato_animazione": {
+    "passo": 6,
+    "attive": {
+     "pulizia": true,
+     "arricchimento": true,
+     "punteggio": true,
+     "email": true,
+     "classificazione": true,
+     "crm": true
+    },
+    "flusso": "tutorial",
+    "mappatura": "giusta",
+    "prova_catena": false,
+    "stazione_aperta": "pulizia"
+   }
+  },
+  {
+   "id": "catena",
+   "titolo": {
+    "it": "Prova tutta la catena",
+    "en": "Test the whole chain"
+   },
+   "narrazione": [
+    {
+     "it": "Qui ogni stazione è verde: ha ricevuto tutti i campi del suo contratto. Eppure qualcosa non va.",
+     "en": "Here every station is green: it received all the fields in its contract. Yet something is wrong."
+    },
+    {
+     "it": "La pulizia ha preso il nome dell'azienda dalla colonna sbagliata: il campo c'è, ma è vuoto. Nessuna stazione da sola se ne accorge. Per questo si prova anche la catena intera, dall'inizio alla fine.",
+     "en": "Cleaning took the company name from the wrong column: the field is there, but it is empty. No station notices on its own. That is why you also test the whole chain, from start to finish."
+    }
+   ],
+   "prova": {
+    "it": "Premi «Prova tutta la catena» e leggi dove nasce l'errore. Poi accendi «Mappatura dei campi corretta» e riprova.",
+    "en": "Press «Test the whole chain» and read where the error starts. Then switch on «Field mapping correct» and try again."
+   },
+   "concetti": [
+    "C27",
+    "C26"
+   ],
+   "stato_animazione": {
+    "passo": 6,
+    "attive": {
+     "pulizia": true,
+     "arricchimento": true,
+     "punteggio": true,
+     "email": true,
+     "classificazione": true,
+     "crm": true
+    },
+    "flusso": "completo",
+    "mappatura": "sbagliata",
+    "prova_catena": false,
+    "stazione_aperta": "pulizia"
+   }
+  },
+  {
+   "id": "riassunto",
+   "titolo": {
+    "it": "In tre frasi",
+    "en": "In three sentences"
+   },
+   "narrazione": [
+    {
+     "it": "Una pipeline di lead generation è una catena di stazioni fisse: pulizia, arricchimento, punteggio, email, classificazione delle risposte e CRM.",
+     "en": "A lead generation pipeline is a chain of fixed stations: cleaning, enrichment, scoring, email, reply classification and CRM."
+    },
+    {
+     "it": "Ogni stazione ha un contratto dati: che cosa riceve, che cosa consegna e da dove viene ogni campo.",
+     "en": "Each station has a data contract: what it receives, what it hands over and where each field comes from."
+    },
+    {
+     "it": "I contratti fermano i guasti di una singola stazione, ma serve anche una prova di tutta la catena.",
+     "en": "Contracts stop the faults of a single station, but you also need a test of the whole chain."
+    }
+   ],
+   "concetti": [
+    "C26",
+    "C27"
+   ],
+   "stato_animazione": {
+    "passo": 6,
+    "attive": {
+     "pulizia": true,
+     "arricchimento": true,
+     "punteggio": true,
+     "email": true,
+     "classificazione": true,
+     "crm": true
+    },
+    "flusso": "completo",
+    "mappatura": "giusta",
+    "prova_catena": false,
+    "stazione_aperta": "pulizia"
+   }
+  }
+ ],
+ "scenario": {
+  "lead": {
+   "iniziali": "GN"
+  },
+  "parametri": {
+   "ms_passo": 750,
+   "ms_gettone": 550
+  },
+  "ingresso": [
+   "nome_grezzo",
+   "email_grezza",
+   "azienda_grezza",
+   "ruolo"
+  ],
+  "campi_finali": [
+   "stato_crm",
+   "categoria",
+   "punteggio"
+  ],
+  "tutorial": {
+   "assenti": [
+    "pulizia",
+    "punteggio",
+    "classificazione"
+   ]
+  },
+  "origini": [
+   {
+    "id": "modulo",
+    "nome": {
+     "it": "Dal modulo",
+     "en": "From the form"
+    }
+   },
+   {
+    "id": "pipeline",
+    "nome": {
+     "it": "Regola della pipeline",
+     "en": "Pipeline rule"
+    }
+   },
+   {
+    "id": "crm",
+    "nome": {
+     "it": "Dal CRM",
+     "en": "From the CRM"
+    }
+   },
+   {
+    "id": "fonte",
+    "nome": {
+     "it": "Fonte esterna",
+     "en": "Outside source"
+    }
+   },
+   {
+    "id": "modello",
+    "nome": {
+     "it": "Dedotto dal modello",
+     "en": "Guessed by the model"
+    }
+   },
+   {
+    "id": "persona",
+    "nome": {
+     "it": "Deciso da una persona",
+     "en": "Decided by a person"
+    }
+   },
+   {
+    "id": "cliente",
+    "nome": {
+     "it": "Scritto dal cliente",
+     "en": "Written by the customer"
+    }
+   }
+  ],
+  "campi": [
+   {
+    "id": "nome_grezzo",
+    "nome": {
+     "it": "Nome scritto nel modulo",
+     "en": "Name typed in the form"
+    },
+    "origine": "modulo",
+    "valore": {
+     "it": "giulia NERI",
+     "en": "giulia NERI"
+    }
+   },
+   {
+    "id": "email_grezza",
+    "nome": {
+     "it": "Email scritta nel modulo",
+     "en": "Email typed in the form"
+    },
+    "origine": "modulo",
+    "valore": {
+     "it": "Giulia.Neri@OtticaSole.IT (2 iscrizioni)",
+     "en": "Giulia.Neri@OtticaSole.IT (2 sign-ups)"
+    }
+   },
+   {
+    "id": "azienda_grezza",
+    "nome": {
+     "it": "Azienda scritta nel modulo",
+     "en": "Company typed in the form"
+    },
+    "origine": "modulo",
+    "valore": {
+     "it": "ottica sole srl",
+     "en": "ottica sole srl"
+    }
+   },
+   {
+    "id": "ruolo",
+    "nome": {
+     "it": "Ruolo",
+     "en": "Role"
+    },
+    "origine": "modulo",
+    "valore": {
+     "it": "Responsabile marketing",
+     "en": "Marketing manager"
+    }
+   },
+   {
+    "id": "nome",
+    "nome": {
+     "it": "Nome",
+     "en": "Name"
+    },
+    "origine": "pipeline",
+    "valore": {
+     "it": "Giulia Neri",
+     "en": "Giulia Neri"
+    }
+   },
+   {
+    "id": "email",
+    "nome": {
+     "it": "Email",
+     "en": "Email"
+    },
+    "origine": "pipeline",
+    "valore": {
+     "it": "giulia.neri@otticasole.it",
+     "en": "giulia.neri@otticasole.it"
+    }
+   },
+   {
+    "id": "azienda",
+    "nome": {
+     "it": "Azienda",
+     "en": "Company"
+    },
+    "origine": "pipeline",
+    "valore": {
+     "it": "Ottica Sole Srl",
+     "en": "Ottica Sole Srl"
+    },
+    "valore_rotto": {
+     "it": "(vuoto)",
+     "en": "(empty)"
+    }
+   },
+   {
+    "id": "id_unico",
+    "nome": {
+     "it": "Scheda unica",
+     "en": "Single record"
+    },
+    "origine": "pipeline",
+    "valore": {
+     "it": "1 scheda: 2 iscrizioni unite",
+     "en": "1 record: 2 sign-ups merged"
+    }
+   },
+   {
+    "id": "settore",
+    "nome": {
+     "it": "Settore",
+     "en": "Sector"
+    },
+    "origine": "fonte",
+    "valore": {
+     "it": "Ottica, negozi",
+     "en": "Optics, shops"
+    },
+    "valore_rotto": {
+     "it": "non trovato",
+     "en": "not found"
+    }
+   },
+   {
+    "id": "dimensione",
+    "nome": {
+     "it": "Dimensione",
+     "en": "Size"
+    },
+    "origine": "fonte",
+    "valore": {
+     "it": "40 dipendenti",
+     "en": "40 employees"
+    },
+    "valore_rotto": {
+     "it": "non trovata",
+     "en": "not found"
+    }
+   },
+   {
+    "id": "gia_cliente",
+    "nome": {
+     "it": "Già cliente?",
+     "en": "Already a customer?"
+    },
+    "origine": "crm",
+    "valore": {
+     "it": "No",
+     "en": "No"
+    }
+   },
+   {
+    "id": "punteggio",
+    "nome": {
+     "it": "Punteggio",
+     "en": "Score"
+    },
+    "origine": "modello",
+    "valore": {
+     "it": "72 su 100",
+     "en": "72 out of 100"
+    },
+    "valore_rotto": {
+     "it": "18 su 100",
+     "en": "18 out of 100"
+    }
+   },
+   {
+    "id": "fascia",
+    "nome": {
+     "it": "Fascia",
+     "en": "Band"
+    },
+    "origine": "modello",
+    "valore": {
+     "it": "Media",
+     "en": "Medium"
+    },
+    "valore_rotto": {
+     "it": "Bassa",
+     "en": "Low"
+    }
+   },
+   {
+    "id": "motivazione",
+    "nome": {
+     "it": "Motivazione",
+     "en": "Reasoning"
+    },
+    "origine": "modello",
+    "valore": {
+     "it": "Decide sul marketing, settore che seguiamo",
+     "en": "Decides on marketing, a sector we target"
+    },
+    "valore_rotto": {
+     "it": "Azienda sconosciuta: pochi dati",
+     "en": "Unknown company: little data"
+    }
+   },
+   {
+    "id": "bozza",
+    "nome": {
+     "it": "Bozza email",
+     "en": "Email draft"
+    },
+    "origine": "modello",
+    "valore": {
+     "it": "«Gentile Giulia, una guida per i negozi di ottica…»",
+     "en": "«Dear Giulia, a guide for optician's shops…»"
+    },
+    "valore_rotto": {
+     "it": "Non scritta: fascia bassa, lead parcheggiato",
+     "en": "Not written: low band, lead parked"
+    },
+    "valore_tutorial": {
+     "it": "«Gentile giulia NERI, …» (2 volte)",
+     "en": "«Dear giulia NERI, …» (twice)"
+    }
+   },
+   {
+    "id": "approvazione",
+    "nome": {
+     "it": "Approvazione",
+     "en": "Approval"
+    },
+    "origine": "persona",
+    "valore": {
+     "it": "Approvata da Marco (marketing)",
+     "en": "Approved by Marco (marketing)"
+    },
+    "valore_rotto": {
+     "it": "Nessuna",
+     "en": "None"
+    },
+    "valore_tutorial": {
+     "it": "Nessuna: invio automatico",
+     "en": "None: sent automatically"
+    }
+   },
+   {
+    "id": "risposta",
+    "nome": {
+     "it": "Risposta",
+     "en": "Reply"
+    },
+    "origine": "cliente",
+    "valore": {
+     "it": "«Grazie, ora non ci interessa. Toglietemi dalla lista.»",
+     "en": "«Thanks, not interested right now. Take me off the list.»"
+    },
+    "valore_rotto": {
+     "it": "Nessuna risposta",
+     "en": "No reply"
+    }
+   },
+   {
+    "id": "categoria",
+    "nome": {
+     "it": "Categoria della risposta",
+     "en": "Reply category"
+    },
+    "origine": "modello",
+    "valore": {
+     "it": "Disiscrizione",
+     "en": "Unsubscribe"
+    },
+    "valore_rotto": {
+     "it": "Nessuna",
+     "en": "None"
+    }
+   },
+   {
+    "id": "azione",
+    "nome": {
+     "it": "Azione",
+     "en": "Action"
+    },
+    "origine": "pipeline",
+    "valore": {
+     "it": "Togliere Giulia da tutte le liste",
+     "en": "Remove Giulia from every list"
+    },
+    "valore_rotto": {
+     "it": "Nessuna",
+     "en": "None"
+    }
+   },
+   {
+    "id": "stato_crm",
+    "nome": {
+     "it": "Stato nel CRM",
+     "en": "CRM status"
+    },
+    "origine": "pipeline",
+    "valore": {
+     "it": "Non contattare: disiscritta",
+     "en": "Do not contact: unsubscribed"
+    },
+    "valore_rotto": {
+     "it": "Lead freddo, archiviato",
+     "en": "Cold lead, archived"
+    },
+    "valore_tutorial": {
+     "it": "Email inviata 2 volte. Risposta non letta: ricontattata",
+     "en": "Email sent twice. Reply unread: contacted again"
+    }
+   }
+  ],
+  "stazioni": [
+   {
+    "id": "pulizia",
+    "nome": {
+     "it": "Pulizia",
+     "en": "Cleaning"
+    },
+    "compito": {
+     "it": "Sistema nome ed email, unisce i contatti doppi.",
+     "en": "Fixes name and email, merges duplicate contacts."
+    },
+    "ingresso": [
+     "nome_grezzo",
+     "email_grezza",
+     "azienda_grezza"
+    ],
+    "uscita": [
+     "nome",
+     "email",
+     "azienda",
+     "id_unico"
+    ],
+    "danno": {
+     "it": "Giulia riceve due email uguali e il suo nome è scritto male.",
+     "en": "Giulia gets two identical emails and her name is spelled wrong."
+    },
+    "danno_tutorial": {
+     "it": "Senza pulizia: il nome resta «giulia NERI» e il contatto doppio riceve due email uguali.",
+     "en": "Without cleaning: the name stays «giulia NERI» and the duplicate contact gets two identical emails."
+    }
+   },
+   {
+    "id": "arricchimento",
+    "nome": {
+     "it": "Arricchimento",
+     "en": "Enrichment"
+    },
+    "compito": {
+     "it": "Aggiunge settore e dimensione da una fonte esterna e guarda nel CRM se è già cliente.",
+     "en": "Adds sector and size from an outside source and checks the CRM for an existing customer."
+    },
+    "ingresso": [
+     "azienda"
+    ],
+    "uscita": [
+     "settore",
+     "dimensione",
+     "gia_cliente"
+    ],
+    "danno": {
+     "it": "il punteggio tira a indovinare, senza settore né dimensione.",
+     "en": "the score is a guess, with no sector and no size."
+    }
+   },
+   {
+    "id": "punteggio",
+    "nome": {
+     "it": "Punteggio",
+     "en": "Scoring"
+    },
+    "compito": {
+     "it": "Dà un punteggio e una fascia, con la motivazione.",
+     "en": "Gives a score and a band, with the reasoning."
+    },
+    "ingresso": [
+     "ruolo",
+     "settore",
+     "dimensione",
+     "gia_cliente"
+    ],
+    "uscita": [
+     "punteggio",
+     "fascia",
+     "motivazione"
+    ],
+    "danno": {
+     "it": "l'email parte a tutti, anche ai lead poco adatti, e i commerciali perdono tempo.",
+     "en": "the email goes to everyone, even unsuitable leads, and sales reps waste time."
+    },
+    "danno_tutorial": {
+     "it": "Senza punteggio: l'email parte a tutti, anche a chi non è un cliente adatto.",
+     "en": "Without scoring: the email goes to everyone, even people who are not a good fit."
+    }
+   },
+   {
+    "id": "email",
+    "nome": {
+     "it": "Email",
+     "en": "Email"
+    },
+    "compito": {
+     "it": "Scrive la bozza; una persona la approva prima dell'invio.",
+     "en": "Writes the draft; a person approves it before sending."
+    },
+    "ingresso": [
+     "nome",
+     "email",
+     "azienda",
+     "fascia"
+    ],
+    "uscita": [
+     "bozza",
+     "approvazione",
+     "risposta"
+    ],
+    "danno": {
+     "it": "Giulia non riceve nulla e nessuno se ne accorge.",
+     "en": "Giulia receives nothing and nobody notices."
+    }
+   },
+   {
+    "id": "classificazione",
+    "nome": {
+     "it": "Classificazione",
+     "en": "Classification"
+    },
+    "compito": {
+     "it": "Legge la risposta, sceglie la categoria e l'azione.",
+     "en": "Reads the reply, picks the category and the action."
+    },
+    "ingresso": [
+     "risposta"
+    ],
+    "uscita": [
+     "categoria",
+     "azione"
+    ],
+    "danno": {
+     "it": "«toglietemi dalla lista» resta non letto e Giulia viene ricontattata.",
+     "en": "«take me off the list» stays unread and Giulia is contacted again."
+    },
+    "danno_tutorial": {
+     "it": "Senza classificazione: «toglietemi dalla lista» resta non letto e Giulia viene ricontattata.",
+     "en": "Without classification: «take me off the list» stays unread and Giulia is contacted again."
+    }
+   },
+   {
+    "id": "crm",
+    "nome": {
+     "it": "CRM",
+     "en": "CRM"
+    },
+    "compito": {
+     "it": "Scrive l'esito sulla scheda unica e nel report di campagna.",
+     "en": "Writes the outcome on the single record and in the campaign report."
+    },
+    "ingresso": [
+     "id_unico",
+     "punteggio",
+     "categoria"
+    ],
+    "uscita": [
+     "stato_crm"
+    ],
+    "danno": {
+     "it": "il report non sa che cosa è successo: Giulia risulta ancora «in attesa».",
+     "en": "the report does not know what happened: Giulia still shows as «waiting»."
+    }
+   }
+  ],
+  "testi": {
+   "apri_stazione": {
+    "it": "Apri il contratto della stazione {stazione}",
+    "en": "Open the contract of the {stazione} station"
+   },
+   "avanzamento": {
+    "it": "Stazioni attraversate: {n} su {tot}",
+    "en": "Stations passed: {n} of {tot}"
+   },
+   "conta_campi": {
+    "it": "{n} campi",
+    "en": "{n} fields"
+   },
+   "nota_completo": {
+    "it": "Ogni stazione controlla il suo contratto prima di lavorare.",
+    "en": "Each station checks its contract before working."
+   },
+   "nota_tutorial": {
+    "it": "Qui le stazioni mancanti non si possono accendere: nel flusso non ci sono proprio.",
+    "en": "Here the missing stations cannot be switched on: they are simply not in the flow."
+   },
+   "esito_in_corso": {
+    "it": "Giulia è alla stazione {n} di {tot}. Premi «Avanti».",
+    "en": "Giulia is at station {n} of {tot}. Press «Next»."
+   },
+   "esito_ok": {
+    "it": "Giulia è arrivata nel CRM con tutti i campi. La disiscrizione è registrata: non riceverà altre email.",
+    "en": "Giulia reached the CRM with every field. The unsubscribe is recorded: she will get no more emails."
+   },
+   "esito_ok_apparente": {
+    "it": "Tutte le stazioni sono verdi e Giulia è arrivata nel CRM. Sembra tutto a posto…",
+    "en": "Every station is green and Giulia reached the CRM. Everything looks fine…"
+   },
+   "esito_fermo": {
+    "it": "Giulia si è fermata a «{stazione}»: mancano {campi}.",
+    "en": "Giulia stopped at «{stazione}»: missing {campi}."
+   },
+   "esito_arrivato_spente": {
+    "it": "Giulia è arrivata in fondo, ma una stazione era spenta.",
+    "en": "Giulia reached the end, but a station was switched off."
+   },
+   "esito_tutorial": {
+    "it": "Flusso da tutorial: nessuna stazione si ferma, ma i problemi arrivano a Giulia.",
+    "en": "Tutorial flow: no station stops, but the problems reach Giulia."
+   },
+   "danno_spenta": {
+    "it": "«{stazione}» spenta. Senza il blocco del contratto: {danno}",
+    "en": "«{stazione}» off. Without the contract's block: {danno}"
+   },
+   "danno_assente": {
+    "it": "{danno}",
+    "en": "{danno}"
+   },
+   "catena_ok": {
+    "it": "Prova della catena superata: Giulia è arrivata giusta dall'inizio alla fine.",
+    "en": "Chain test passed: Giulia arrived correct from start to finish."
+   },
+   "catena_ko_verde": {
+    "it": "Ogni stazione ha superato il suo controllo, ma la prova di tutta la catena trova un errore:",
+    "en": "Every station passed its own check, but the whole-chain test finds an error:"
+   },
+   "catena_ko_mancano": {
+    "it": "La prova della catena trova {n} problemi:",
+    "en": "The chain test finds {n} problems:"
+   },
+   "catena_radice": {
+    "it": "{campo} è «{valore}»: l'errore nasce in «{stazione}» (colonna sbagliata).",
+    "en": "{campo} is «{valore}»: the error starts in «{stazione}» (wrong column)."
+   },
+   "catena_effetto": {
+    "it": "Risultato finale: {campo} = «{valore}». Un buon lead perso, e nessuno se ne accorge.",
+    "en": "Final result: {campo} = «{valore}». A good lead lost, and nobody notices."
+   },
+   "catena_manca": {
+    "it": "Alla fine manca il campo «{campo}».",
+    "en": "At the end the field «{campo}» is missing."
+   },
+   "catena_interrotta": {
+    "it": "La catena è interrotta: prima riaccendi le stazioni spente.",
+    "en": "The chain is broken: switch the stations back on first."
+   },
+   "catena_tutorial": {
+    "it": "La prova della catena trova {n} problemi:",
+    "en": "The chain test finds {n} problems:"
+   },
+   "origine_modulo": {
+    "it": "Modulo web",
+    "en": "Web form"
+   }
+  },
+  "etichette": {
+   "titolo_comandi": {
+    "it": "Prova a cambiare",
+    "en": "Try changing"
+   },
+   "avanti": {
+    "it": "Avanti",
+    "en": "Next"
+   },
+   "riproduci": {
+    "it": "Riproduci",
+    "en": "Play"
+   },
+   "ricomincia": {
+    "it": "Da capo",
+    "en": "Restart"
+   },
+   "flusso": {
+    "it": "Quale flusso",
+    "en": "Which flow"
+   },
+   "completo": {
+    "it": "Flusso completo",
+    "en": "Full flow"
+   },
+   "tutorial": {
+    "it": "Flusso da tutorial",
+    "en": "Tutorial flow"
+   },
+   "titolo_stazioni": {
+    "it": "Stazioni accese",
+    "en": "Stations on"
+   },
+   "mappatura": {
+    "it": "Mappatura dei campi corretta",
+    "en": "Field mapping correct"
+   },
+   "prova_catena": {
+    "it": "Prova tutta la catena",
+    "en": "Test the whole chain"
+   },
+   "legenda": {
+    "it": "Da dove viene ogni campo",
+    "en": "Where each field comes from"
+   },
+   "ingresso": {
+    "it": "MODULO",
+    "en": "FORM"
+   },
+   "titolo_scheda_lead": {
+    "it": "Scheda di Giulia",
+    "en": "Giulia's record"
+   },
+   "titolo_contratto": {
+    "it": "Contratto della stazione",
+    "en": "Station contract"
+   },
+   "riceve": {
+    "it": "Riceve",
+    "en": "Receives"
+   },
+   "consegna": {
+    "it": "Consegna",
+    "en": "Hands over"
+   },
+   "senza_stazione": {
+    "it": "Se questa stazione manca",
+    "en": "If this station is missing"
+   },
+   "manca": {
+    "it": "manca!",
+    "en": "missing!"
+   },
+   "descrizione_scena": {
+    "it": "Nastro con sei stazioni: il lead Giulia passa dal modulo web al CRM.",
+    "en": "Belt with six stations: the lead Giulia moves from the web form to the CRM."
+   },
+   "stato_ok": {
+    "it": "fatto",
+    "en": "done"
+   },
+   "stato_spenta": {
+    "it": "spenta",
+    "en": "off"
+   },
+   "stato_mancante": {
+    "it": "input mancante",
+    "en": "input missing"
+   },
+   "stato_assente": {
+    "it": "assente",
+    "en": "absent"
+   },
+   "stato_non_raggiunta": {
+    "it": "non raggiunta",
+    "en": "not reached"
+   },
+   "stato_in_attesa": {
+    "it": "in attesa",
+    "en": "waiting"
+   }
+  }
+ },
+ "domande": []
+}

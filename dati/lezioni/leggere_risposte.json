@@ -1,0 +1,198 @@
+{
+ "id": "L_leggere_risposte",
+ "pillola": "P3.5",
+ "componente": "leggere_risposte",
+ "titolo": {"it": "Leggere le risposte dei clienti (e sapere quando passarle a una persona)", "en": "Reading customer replies (and knowing when to hand them to a person)"},
+ "sottotitolo": {"it": "Le risposte a una campagna cadono nei raccoglitori: regola la soglia, la regola della disiscrizione e la modalità in ombra.", "en": "The replies to a campaign fall into the trays: adjust the threshold, the unsubscribe rule and shadow mode."},
+ "segmenti": [
+  {
+   "id": "categorie",
+   "titolo": {"it": "Ogni risposta, un raccoglitore e un'azione", "en": "Every reply, one tray and one action"},
+   "narrazione": [
+    {"it": "Dopo una campagna di email arrivano le risposte dei clienti. L'agente le legge e mette ognuna in un raccoglitore: interessato, non interessato, da ricontattare, fuori sede, disiscrizione (chi chiede di non ricevere più email).", "en": "After an email campaign, the customers' replies come in. The agent reads them and puts each one in a tray: interested, not interested, contact later, out of office, unsubscribe (someone asking to stop receiving emails)."},
+    {"it": "Le categorie sono poche, fisse, e non si sovrappongono. Ognuna fa partire un'azione: «interessato» va al commerciale, «disiscrizione» toglie subito il contatto dalle liste.", "en": "There are few categories, they are fixed, and they do not overlap. Each one starts an action: «interested» goes to the salesperson, «unsubscribe» removes the contact from the lists at once."}
+   ],
+   "prova": {"it": "Clicca una card in un raccoglitore: leggi la risposta, i 5 tentativi del modello e l'azione che parte.", "en": "Click a card in a tray: read the reply, the model's 5 attempts and the action that starts."},
+   "concetti": ["C32"],
+   "stato_animazione": {"vista": "smista", "soglia": 3, "priorita": true, "modalita": "attiva", "scelte": {}, "verificato": false, "carta_aperta": "r01"}
+  },
+  {
+   "id": "soglia",
+   "titolo": {"it": "Quanto è sicuro l'agente?", "en": "How sure is the agent?"},
+   "narrazione": [
+    {"it": "Il modello legge ogni risposta 5 volte. Se i 5 tentativi sono d'accordo, la decisione è solida; se non lo sono, il caso è dubbio. I pallini sulla card contano i tentativi d'accordo.", "en": "The model reads every reply 5 times. If the 5 attempts agree, the decision is solid; if they do not, the case is doubtful. The dots on the card count the attempts that agree."},
+    {"it": "La soglia dice quanti tentativi d'accordo servono perché l'agente decida da solo. Sotto la soglia, la risposta va nel vassoio «A una persona».", "en": "The threshold says how many agreeing attempts are needed for the agent to decide alone. Below the threshold, the reply goes to the «To a person» tray."}
+   ],
+   "prova": {"it": "Sposta la soglia da 3 a 5 su 5: guarda il lavoro umano salire e gli errori scendere.", "en": "Move the threshold from 3 to 5 out of 5: watch human work go up and mistakes go down."},
+   "concetti": ["C33", "C32"],
+   "stato_animazione": {"vista": "smista", "soglia": 3, "priorita": true, "modalita": "attiva", "scelte": {}, "verificato": false, "carta_aperta": "r04"}
+  },
+  {
+   "id": "priorita",
+   "titolo": {"it": "Due segnali nella stessa risposta", "en": "Two signals in the same reply"},
+   "narrazione": [
+    {"it": "«Ora no, magari dopo l'estate. Ma toglietemi da questa lista.» Qui ci sono due segnali: «da ricontattare» e «disiscrizione». Il modello vota più spesso per il primo.", "en": "«Not now, maybe after the summer. But take me off this list.» There are two signals here: «contact later» and «unsubscribe». The model votes more often for the first one."},
+    {"it": "Per questo serve una regola fissa, scritta da noi e non lasciata al modello: se qualcuno chiede di non ricevere più email, vince la disiscrizione. Sempre, anche quando il modello è incerto.", "en": "That is why a fixed rule is needed, written by us and not left to the model: if someone asks to stop receiving emails, unsubscribe wins. Always, even when the model is unsure."}
+   ],
+   "prova": {"it": "Accendi «La disiscrizione vince sempre» e guarda dove va la card di Elena Marchi.", "en": "Switch on «Unsubscribe always wins» and see where Elena Marchi's card goes."},
+   "concetti": ["C32", "C33"],
+   "stato_animazione": {"vista": "smista", "soglia": 3, "priorita": false, "modalita": "attiva", "scelte": {}, "verificato": false, "carta_aperta": "r06"}
+  },
+  {
+   "id": "decidi",
+   "titolo": {"it": "Decidi tu: raccoglitore o persona?", "en": "You decide: tray or person?"},
+   "narrazione": [
+    {"it": "Ora le risposte difficili le smisti tu. Puoi anche scegliere «A una persona»: non è una resa. È la scelta giusta quando il testo è ambiguo, per esempio quando è ironico.", "en": "Now you sort the difficult replies yourself. You can also choose «To a person»: it is not giving up. It is the right choice when the text is ambiguous, for example when it is ironic."}
+   ],
+   "prova": {"it": "Scegli un raccoglitore per ognuna delle 4 risposte, poi premi «Controlla» e leggi il perché.", "en": "Choose a tray for each of the 4 replies, then press «Check» and read why."},
+   "concetti": ["C32", "C33"],
+   "stato_animazione": {"vista": "decidi", "soglia": 3, "priorita": true, "modalita": "attiva", "scelte": {}, "verificato": false, "carta_aperta": "r04"}
+  },
+  {
+   "id": "ciclo",
+   "titolo": {"it": "Chiudere il ciclo, senza fare danni", "en": "Closing the loop, without doing harm"},
+   "narrazione": [
+    {"it": "Ogni risposta classificata aggiorna la scheda del lead nel CRM. I risultati tornano anche al punteggio dei lead: chi era interessato e poi ha comprato insegna al sistema quali lead valgono di più.", "en": "Every classified reply updates the lead's record in the CRM. The results also go back to lead scoring: who was interested and then bought teaches the system which leads are worth more."},
+    {"it": "Prima di lasciar agire l'agente si lavora «in ombra»: l'agente classifica, una persona controlla ogni risposta e nessuna azione parte. Così gli errori si scoprono senza danni.", "en": "Before letting the agent act, you work «in shadow mode»: the agent classifies, a person checks every reply and no action starts. This way mistakes are found without harm."}
+   ],
+   "prova": {"it": "Passa da «In ombra» ad «Attiva» e confronta gli errori che arrivano ai clienti e il lavoro umano.", "en": "Switch from «Shadow» to «Active» and compare the mistakes that reach customers and the human work."},
+   "concetti": ["C32", "C33"],
+   "stato_animazione": {"vista": "smista", "soglia": 3, "priorita": true, "modalita": "ombra", "scelte": {}, "verificato": false, "carta_aperta": "r11"}
+  },
+  {
+   "id": "riassunto",
+   "titolo": {"it": "In tre frasi", "en": "In three sentences"},
+   "narrazione": [
+    {"it": "Ogni risposta va in una sola categoria di un elenco chiuso, e ogni categoria fa partire la sua azione.", "en": "Every reply goes into just one category from a closed list, and every category starts its own action."},
+    {"it": "Quando i tentativi del modello non sono abbastanza d'accordo, la risposta passa a una persona: soglia più alta, meno errori e più lavoro umano.", "en": "When the model's attempts do not agree enough, the reply goes to a person: a higher threshold means fewer mistakes and more human work."},
+    {"it": "La disiscrizione vince sempre per regola fissa, e i risultati tornano al CRM e al punteggio per chiudere il ciclo.", "en": "Unsubscribe always wins by a fixed rule, and the results go back to the CRM and to scoring to close the loop."}
+   ],
+   "concetti": ["C32", "C33"],
+   "stato_animazione": {"vista": "smista", "soglia": 4, "priorita": true, "modalita": "attiva", "scelte": {}, "verificato": false, "carta_aperta": "r06"}
+  }
+ ],
+ "scenario": {
+  "soglia": {"min": 3, "max": 5, "passo": 1, "etichetta": {"it": "Accordo minimo per decidere da solo", "en": "Minimum agreement to decide alone"}},
+  "tentativi_totali": 5,
+  "parametri": {"minuti_revisione": 2, "risposte_giorno": 500},
+  "categorie": [
+   {"id": "interessato", "nome": {"it": "Interessato", "en": "Interested"}, "colore": "#16a34a",
+    "azione_breve": {"it": "→ al commerciale", "en": "→ to sales"},
+    "azione": {"it": "Il lead passa al commerciale, che lo chiama entro un giorno.", "en": "The lead goes to the salesperson, who calls within a day."}},
+   {"id": "non_interessato", "nome": {"it": "Non interessato", "en": "Not interested"}, "colore": "#64748b",
+    "azione_breve": {"it": "→ stop campagna", "en": "→ stop campaign"},
+    "azione": {"it": "La campagna si ferma per questo lead; la scheda nel CRM lo registra.", "en": "The campaign stops for this lead; the CRM record notes it."}},
+   {"id": "ricontattare", "nome": {"it": "Da ricontattare", "en": "Contact later"}, "colore": "#0ea5e9",
+    "azione_breve": {"it": "→ promemoria", "en": "→ reminder"},
+    "azione": {"it": "Nel CRM si crea un promemoria per ricontattarlo alla data indicata.", "en": "A reminder is created in the CRM to contact them again on the date given."}},
+   {"id": "fuori_sede", "nome": {"it": "Fuori sede", "en": "Out of office"}, "colore": "#f59e0b",
+    "azione_breve": {"it": "→ riprova dopo", "en": "→ retry later"},
+    "azione": {"it": "Risposta automatica: l'email si ripete al rientro, senza contarla come risposta vera.", "en": "Automatic reply: the email is repeated on their return, without counting it as a real reply."}},
+   {"id": "disiscrizione", "nome": {"it": "Disiscrizione", "en": "Unsubscribe"}, "colore": "#e11d48",
+    "azione_breve": {"it": "→ via dalle liste", "en": "→ off all lists"},
+    "azione": {"it": "Il contatto esce subito da tutte le liste promozionali e non riceve più email.", "en": "The contact leaves all promotional lists at once and gets no more emails."}}
+  ],
+  "umano": {"id": "umano", "nome": {"it": "A una persona", "en": "To a person"}, "colore": "#7c3aed",
+   "azione_breve": {"it": "→ revisione", "en": "→ review"},
+   "azione": {"it": "Una persona del team legge la risposta e decide la categoria giusta.", "en": "A person on the team reads the reply and decides the right category."}},
+  "risposte": [
+   {"id": "r01", "mittente": "Marco Bianchi", "azienda": {"it": "Ottica Sole", "en": "Ottica Sole (optician)"},
+    "testo": {"it": "Interessante! Possiamo sentirci giovedì alle 10?", "en": "Interesting! Can we talk on Thursday at 10?"},
+    "tentativi": ["interessato", "interessato", "interessato", "interessato", "interessato"], "giusta": "interessato", "disiscrizione": false, "gioco": null},
+   {"id": "r02", "mittente": "Sara Conti", "azienda": {"it": "Hotel Lago Blu", "en": "Hotel Lago Blu"},
+    "testo": {"it": "Mandatemi pure il listino, lo giro al titolare.", "en": "Please send me the price list, I will pass it to the owner."},
+    "tentativi": ["interessato", "interessato", "interessato", "interessato", "ricontattare"], "giusta": "interessato", "disiscrizione": false, "gioco": null},
+   {"id": "r03", "mittente": "Luca Ferri", "azienda": {"it": "Ferramenta Ferri", "en": "Ferri Hardware"},
+    "testo": {"it": "Non ci interessa, grazie.", "en": "We are not interested, thank you."},
+    "tentativi": ["non_interessato", "non_interessato", "non_interessato", "non_interessato", "non_interessato"], "giusta": "non_interessato", "disiscrizione": false, "gioco": null},
+   {"id": "r04", "mittente": "Anna Riva", "azienda": {"it": "Studio Riva", "en": "Riva Studio"},
+    "testo": {"it": "Grazie mille, davvero gentili, ma siamo a posto così.", "en": "Thank you so much, really kind of you, but we are fine as we are."},
+    "tentativi": ["interessato", "interessato", "non_interessato", "interessato", "non_interessato"], "giusta": "non_interessato", "disiscrizione": false,
+    "gioco": {"migliore": "non_interessato", "quasi": ["umano"],
+     "spiega": {"it": "È un no detto con gentilezza: le parole cortesi ingannano il modello, ma il messaggio è «non ci serve».", "en": "It is a no said politely: the kind words fool the model, but the message is «we do not need it»."}}},
+   {"id": "r05", "mittente": "Paolo Gallo", "azienda": {"it": "Gallo Imballaggi", "en": "Gallo Packaging"},
+    "testo": {"it": "Sono fuori ufficio fino al 3 marzo. Per urgenze chiamate la segreteria.", "en": "I am out of the office until 3 March. For urgent matters call the front desk."},
+    "tentativi": ["fuori_sede", "fuori_sede", "fuori_sede", "fuori_sede", "fuori_sede"], "giusta": "fuori_sede", "disiscrizione": false, "gioco": null},
+   {"id": "r06", "mittente": "Elena Marchi", "azienda": {"it": "Pasticceria Marchi", "en": "Marchi Bakery"},
+    "testo": {"it": "Ora no, magari dopo l'estate. Ma toglietemi da questa lista.", "en": "Not now, maybe after the summer. But take me off this list."},
+    "tentativi": ["ricontattare", "ricontattare", "disiscrizione", "ricontattare", "disiscrizione"], "giusta": "disiscrizione", "disiscrizione": true,
+    "gioco": {"migliore": "disiscrizione", "quasi": ["umano"],
+     "spiega": {"it": "Ci sono due segnali, ma la richiesta di uscire dalla lista vince sempre: va eseguita subito, anche se dice «dopo l'estate».", "en": "There are two signals, but the request to leave the list always wins: it must be carried out at once, even if it says «after the summer»."}}},
+   {"id": "r07", "mittente": "Giorgio Sala", "azienda": {"it": "Sala Auto", "en": "Sala Cars"},
+    "testo": {"it": "Cancellatemi dalla vostra mailing list, per favore.", "en": "Please remove me from your mailing list."},
+    "tentativi": ["disiscrizione", "disiscrizione", "disiscrizione", "disiscrizione", "disiscrizione"], "giusta": "disiscrizione", "disiscrizione": true, "gioco": null},
+   {"id": "r08", "mittente": "Chiara Neri", "azienda": {"it": "Neri Design", "en": "Neri Design"},
+    "testo": {"it": "Fantastico, proprio quello che mi mancava: un'altra email il lunedì mattina.", "en": "Fantastic, just what I was missing: another email on Monday morning."},
+    "tentativi": ["interessato", "non_interessato", "ricontattare", "non_interessato", "disiscrizione"], "giusta": "non_interessato", "disiscrizione": false,
+    "gioco": {"migliore": "umano", "quasi": ["non_interessato"],
+     "spiega": {"it": "È ironica: dice «fantastico» ma è infastidita. I tentativi danno 4 etichette diverse: meglio che decida una persona.", "en": "It is ironic: it says «fantastic» but she is annoyed. The attempts give 4 different labels: better to let a person decide."}}},
+   {"id": "r09", "mittente": "Davide Russo", "azienda": {"it": "Russo Impianti", "en": "Russo Installations"},
+    "testo": {"it": "Ci risentiamo a settembre, adesso siamo presi con il bilancio.", "en": "Let's talk again in September, we are busy with the budget now."},
+    "tentativi": ["ricontattare", "ricontattare", "ricontattare", "ricontattare", "non_interessato"], "giusta": "ricontattare", "disiscrizione": false, "gioco": null},
+   {"id": "r10", "mittente": "Marta Greco", "azienda": {"it": "Greco Viaggi", "en": "Greco Travel"},
+    "testo": {"it": "Il budget è chiuso fino a gennaio, ma il prodotto ci piace: richiamateci allora.", "en": "The budget is closed until January, but we like the product: call us back then."},
+    "tentativi": ["ricontattare", "interessato", "ricontattare", "interessato", "ricontattare"], "giusta": "ricontattare", "disiscrizione": false,
+    "gioco": {"migliore": "ricontattare", "quasi": ["umano"],
+     "spiega": {"it": "Le piace, ma ha dato una data: serve un promemoria a gennaio. Chiamarla adesso sarebbe troppo presto.", "en": "She likes it, but she gave a date: a reminder in January is needed. Calling her now would be too early."}}},
+   {"id": "r11", "mittente": "Fabio Costa", "azienda": {"it": "Costa Arredi", "en": "Costa Furniture"},
+    "testo": {"it": "Sono in ferie fino al 20 agosto, al rientro vi rispondo.", "en": "I am on holiday until 20 August, I will reply when I am back."},
+    "tentativi": ["ricontattare", "ricontattare", "ricontattare", "ricontattare", "fuori_sede"], "giusta": "fuori_sede", "disiscrizione": false, "gioco": null}
+  ],
+  "testi": {
+   "formato_soglia": {"it": "{n} su {totali}", "en": "{n} of {totali}"},
+   "tentativi": {"it": "5 tentativi del modello · {accordo} su {totali} d'accordo", "en": "The model's 5 attempts · {accordo} of {totali} agree"},
+   "mot_accordo": {"it": "{accordo} tentativi su {totali} dicono «{categoria}», la soglia è {soglia}: decide l'agente", "en": "{accordo} attempts out of {totali} say «{categoria}», the threshold is {soglia}: the agent decides"},
+   "mot_dubbio": {"it": "solo {accordo} tentativi su {totali} sono d'accordo, sotto la soglia di {soglia}: decide una persona", "en": "only {accordo} attempts out of {totali} agree, below the threshold of {soglia}: a person decides"},
+   "mot_regola": {"it": "la risposta chiede di uscire dalla lista: vince la regola fissa, qualunque sia il voto del modello", "en": "the reply asks to leave the list: the fixed rule wins, whatever the model votes"},
+   "decisione": {"it": "Va in «{destinazione}»: {motivo}.", "en": "Goes to «{destinazione}»: {motivo}."},
+   "errore": {"it": "Sbagliato: la categoria giusta era «{giusta}».", "en": "Wrong: the right category was «{giusta}»."},
+   "errore_grave": {"it": "Errore grave: chiedeva «{giusta}», ma riceverà altre email. È un danno per il cliente e per l'azienda.", "en": "Serious mistake: they asked to «{giusta}», but they will get more emails. It harms the customer and the company."},
+   "errore_scoperto": {"it": "Errore scoperto in ombra: la persona che controlla lo corregge in «{giusta}» prima che parta un'azione.", "en": "Mistake found in shadow mode: the person checking corrects it to «{giusta}» before any action starts."},
+   "su": {"it": "{n} su {tot}", "en": "{n} of {tot}"},
+   "ore_giorno": {"it": "Su {giorno} risposte al giorno: circa {ore} ore di lettura per il team (numeri illustrativi).", "en": "On {giorno} replies a day: about {ore} hours of reading for the team (illustrative numbers)."},
+   "errori_gravi": {"it": "Di cui {n} grave: una disiscrizione ignorata.", "en": "Of which {n} serious: an ignored unsubscribe."},
+   "errori_scoperti": {"it": "Errori scoperti dalla persona prima di agire: {n}.", "en": "Mistakes found by the person before acting: {n}."},
+   "conta_vassoio": {"it": "{n} risposte", "en": "{n} replies"},
+   "apri_risposta": {"it": "Apri la risposta di {mittente}", "en": "Open the reply from {mittente}"},
+   "scegli_per": {"it": "Raccoglitore per la risposta di {mittente}", "en": "Tray for the reply from {mittente}"},
+   "ciclo_crm": {"it": "Nel CRM: {voci}. In attesa di una persona: {attesa}.", "en": "In the CRM: {voci}. Waiting for a person: {attesa}."},
+   "ciclo_punteggio": {"it": "Al punteggio dei lead tornano {interessati} interessati e {non_interessati} non interessati: servono a tarare chi vale di più.", "en": "{interessati} interested and {non_interessati} not interested go back to lead scoring: they help tune who is worth more."},
+   "ciclo_ombra": {"it": "In ombra nessuna azione parte: si raccolgono le correzioni della persona per misurare l'agente.", "en": "In shadow mode no action starts: the person's corrections are collected to measure the agent."},
+   "nota_attiva": {"it": "Attiva: l'agente decide e le azioni partono davvero.", "en": "Active: the agent decides and the actions really start."},
+   "nota_ombra": {"it": "In ombra: l'agente classifica, ma una persona controlla tutto e nessuna azione parte.", "en": "Shadow: the agent classifies, but a person checks everything and no action starts."},
+   "nota_decidi": {"it": "Per ogni risposta scegli un raccoglitore oppure «A una persona».", "en": "For each reply choose a tray or «To a person»."},
+   "ver_giusto": {"it": "{mittente}: giusto. {spiega}", "en": "{mittente}: right. {spiega}"},
+   "ver_quasi": {"it": "{mittente}: si può fare, ma la scelta migliore è «{migliore}». {spiega}", "en": "{mittente}: acceptable, but the best choice is «{migliore}». {spiega}"},
+   "ver_sbagliato": {"it": "{mittente}: no, meglio «{migliore}». {spiega}", "en": "{mittente}: no, «{migliore}» is better. {spiega}"},
+   "ver_vuoto": {"it": "{mittente}: non hai ancora scelto. La scelta migliore è «{migliore}». {spiega}", "en": "{mittente}: you have not chosen yet. The best choice is «{migliore}». {spiega}"},
+   "ver_punteggio": {"it": "Scelte migliori: {giuste} su {totali}. Leggi sotto il perché.", "en": "Best choices: {giuste} of {totali}. Read why below."},
+   "ver_tutto_giusto": {"it": "Perfetto: hai smistato bene anche i casi difficili, e hai passato a una persona quello ambiguo.", "en": "Perfect: you sorted even the hard cases well, and handed the ambiguous one to a person."}
+  },
+  "etichette": {
+   "titolo_comandi": {"it": "Prova a cambiare", "en": "Try changing"},
+   "vista": {"it": "Chi smista", "en": "Who sorts"},
+   "vista_smista": {"it": "L'agente", "en": "The agent"},
+   "vista_decidi": {"it": "Decidi tu", "en": "You decide"},
+   "priorita": {"it": "La disiscrizione vince sempre", "en": "Unsubscribe always wins"},
+   "modalita": {"it": "Modalità", "en": "Mode"},
+   "attiva": {"it": "Attiva", "en": "Active"},
+   "ombra": {"it": "In ombra", "en": "Shadow"},
+   "scegli": {"it": "— scegli —", "en": "— choose —"},
+   "controlla": {"it": "Controlla", "en": "Check"},
+   "titolo_smista": {"it": "LE RISPOSTE DELLA CAMPAGNA, SMISTATE", "en": "THE CAMPAIGN REPLIES, SORTED"},
+   "titolo_decidi": {"it": "DA DECIDERE: SCEGLI IL RACCOGLITORE A SINISTRA", "en": "TO DECIDE: CHOOSE THE TRAY ON THE LEFT"},
+   "legenda": {"it": "I pallini colorati contano i tentativi del modello d'accordo (su 5). Il segno ! indica una decisione sbagliata.", "en": "The coloured dots count the model's attempts that agree (out of 5). The ! sign marks a wrong decision."},
+   "legenda_decidi": {"it": "Le risposte in alto aspettano la tua scelta.", "en": "The replies at the top are waiting for your choice."},
+   "sigla_regola": {"it": "REGOLA", "en": "RULE"},
+   "azione_sospesa": {"it": "azione sospesa", "en": "action on hold"},
+   "azione_sospesa_lunga": {"it": "sospesa: in ombra una persona controlla prima.", "en": "on hold: in shadow mode a person checks first."},
+   "azione": {"it": "Azione:", "en": "Action:"},
+   "titolo_scheda": {"it": "La risposta", "en": "The reply"},
+   "lavoro_umano": {"it": "Risposte lette da una persona", "en": "Replies read by a person"},
+   "errori_arrivati": {"it": "Errori che arrivano ai clienti", "en": "Mistakes that reach customers"},
+   "titolo_ciclo": {"it": "Chiudere il ciclo", "en": "Closing the loop"},
+   "descrizione_scena": {"it": "Sei raccoglitori: interessato, non interessato, da ricontattare, fuori sede, disiscrizione e a una persona, con le card delle risposte dei clienti.", "en": "Six trays: interested, not interested, contact later, out of office, unsubscribe and to a person, with the customers' reply cards."}
+  }
+ },
+ "domande": []
+}

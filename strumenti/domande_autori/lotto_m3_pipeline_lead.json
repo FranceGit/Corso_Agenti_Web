@@ -1,0 +1,503 @@
+[
+ {
+  "id": "DA3.1-1",
+  "origine": "autori",
+  "pillola": "P3.1",
+  "concetti": [
+   "C26",
+   "C27"
+  ],
+  "concetto_principale": "C26",
+  "segmento_aiuto": "viaggio",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Un'agenzia automatizza i lead del modulo web: pulizia, arricchimento, punteggio, email, lettura delle risposte, CRM. Ogni lead fa sempre gli stessi passi, nello stesso ordine. Che cosa sta costruendo?",
+    "en": "An agency automates the leads from its web form: cleaning, enrichment, scoring, email, reading replies, CRM. Every lead always goes through the same steps, in the same order. What is it building?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Un agente che sceglie da solo, lead per lead, quali passi fare e in che ordine",
+      "en": "An agent that chooses by itself, lead by lead, which steps to take and in what order"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Qui l'ordine è fisso e uguale per tutti: nessuno sceglie i passi.",
+      "en": "Here the order is fixed and the same for everyone: nobody chooses the steps."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Un chatbot che risponde alle domande dei visitatori del sito",
+      "en": "A chatbot that answers website visitors' questions"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Un chatbot conversa; qui i lead passano da una stazione all'altra senza conversare.",
+      "en": "A chatbot talks; here leads move from station to station without any conversation."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Una pipeline: passi fissi in cui l'uscita di uno entra nel successivo",
+      "en": "A pipeline: fixed steps where the output of one goes into the next"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: passi sempre uguali, in ordine, che si passano i dati.",
+      "en": "Right: always the same steps, in order, passing data along."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Un report di campagna che riassume i risultati del mese",
+      "en": "A campaign report that sums up the month's results"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Il report è solo l'ultimo prodotto; non è il processo che tratta i lead.",
+      "en": "The report is only the final output; it is not the process that handles the leads."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Un foglio condiviso dove i commerciali copiano i lead a mano",
+      "en": "A shared sheet where sales reps copy the leads by hand"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Copiare a mano è l'opposto dell'automazione descritta.",
+      "en": "Copying by hand is the opposite of the automation described."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Passi fissi, nello stesso ordine, che si passano i dati: è una pipeline.",
+    "en": "Fixed steps, in the same order, passing data along: that is a pipeline."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché qui basta una catena di passi fissi e non serve un agente che decide l'ordine?",
+    "en": "Why is a chain of fixed steps enough here, with no need for an agent that decides the order?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché una catena fissa non usa mai un modello linguistico",
+      "en": "Because a fixed chain never uses a language model"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Falso: la stazione del punteggio o dell'email può usare un modello. Fisso è l'ordine, non lo strumento.",
+      "en": "False: the scoring or email station can use a model. What is fixed is the order, not the tool."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché gli agenti non possono scrivere nel CRM",
+      "en": "Because agents cannot write to the CRM"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Gli agenti possono scrivere nel CRM, se hanno il permesso.",
+      "en": "Agents can write to the CRM, if they have permission."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché una catena fissa costa sempre zero",
+      "en": "Because a fixed chain always costs nothing"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Anche una catena fissa ha costi (modello, fonti, persone).",
+      "en": "A fixed chain also has costs (model, data sources, people)."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Perché i passi e il loro ordine sono noti e uguali per ogni lead",
+      "en": "Because the steps and their order are known and the same for every lead"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: se l'ordine non cambia, non serve nessuno che lo decida.",
+      "en": "Right: if the order never changes, nobody needs to decide it."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Perché con pochi lead al giorno un agente sarebbe troppo lento",
+      "en": "Because with few leads a day an agent would be too slow"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il numero di lead non c'entra: conta se l'ordine dei passi è sempre lo stesso.",
+      "en": "The number of leads does not matter: what matters is whether the order of steps is always the same."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Quando i passi sono noti e sempre uguali, basta una catena fissa: è più prevedibile e più facile da controllare.",
+    "en": "When the steps are known and always the same, a fixed chain is enough: it is more predictable and easier to check."
+   }
+  }
+ },
+ {
+  "id": "DA3.1-2",
+  "origine": "autori",
+  "pillola": "P3.1",
+  "concetti": [
+   "C26",
+   "C27"
+  ],
+  "concetto_principale": "C26",
+  "segmento_aiuto": "tutorial",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Un video mostra un «sistema completo di lead generation»: raccoglie contatti da Google Maps e manda subito a tutti la stessa email. Che cosa gli manca per essere una pipeline seria?",
+    "en": "A video shows a «complete lead generation system»: it collects contacts from Google Maps and immediately sends everyone the same email. What does it lack to be a serious pipeline?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Solo un modello più potente che scriva email migliori",
+      "en": "Only a more powerful model to write better emails"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Un'email migliore non risolve doppioni, lead poco adatti e risposte non lette.",
+      "en": "A better email does not fix duplicates, unsuitable leads and unread replies."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Niente: raccolta e invio sono gli unici passi che servono",
+      "en": "Nothing: collecting and sending are the only steps needed"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "È proprio il limite del flusso: senza i passi intermedi i problemi arrivano ai clienti.",
+      "en": "That is exactly the flow's weakness: without the middle steps, problems reach customers."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Pulizia, punteggio, approvazione umana e lettura delle risposte",
+      "en": "Cleaning, scoring, human approval and reading the replies"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: sono le stazioni che i flussi da tutorial di solito saltano.",
+      "en": "Right: these are the stations tutorial flows usually skip."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Un logo più visibile in fondo all'email",
+      "en": "A more visible logo at the bottom of the email"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il logo non cambia nulla nel processo dei lead.",
+      "en": "The logo changes nothing in the lead process."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Solo un secondo invio dopo una settimana a chi non risponde",
+      "en": "Only a second send a week later to those who do not reply"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Un secondo invio aggiunge contatti, ma non controlla chi contattare né legge le risposte.",
+      "en": "A second send adds contacts, but does not check who to contact or read the replies."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Tra raccolta e invio servono pulizia, punteggio, approvazione e, dopo, la lettura delle risposte.",
+    "en": "Between collecting and sending you need cleaning, scoring, approval and, afterwards, reading the replies."
+   }
+  },
+  "livello2": {
+   "tipo": "contro-esempio",
+   "domanda": {
+    "it": "Quale conseguenza mostra meglio il limite di quel flusso?",
+    "en": "Which consequence best shows that flow's weakness?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Le email partono più lente perché manca il punteggio",
+      "en": "Emails go out more slowly because scoring is missing"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Al contrario: senza punteggio le email partono più in fretta, ma a tutti.",
+      "en": "The opposite: without scoring emails go out faster, but to everyone."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Chi scrive «toglietemi dalla lista» resta non letto e viene ricontattato",
+      "en": "Someone who writes «take me off the list» stays unread and is contacted again"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: senza lettura delle risposte il danno arriva alla persona e al marchio.",
+      "en": "Right: without reading replies, the harm reaches the person and the brand."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Il CRM rifiuta i contatti presi da Google Maps",
+      "en": "The CRM rejects contacts taken from Google Maps"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Il CRM accetta i contatti; il problema è che nessuno li controlla.",
+      "en": "The CRM accepts the contacts; the problem is that nobody checks them."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Il sito dell'azienda diventa più lento",
+      "en": "The company's website gets slower"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il flusso non tocca il sito.",
+      "en": "The flow does not touch the website."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "I commerciali ricevono troppo pochi lead da chiamare",
+      "en": "Sales reps get too few leads to call"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Succede il contrario: arrivano tanti lead, anche poco adatti.",
+      "en": "The opposite happens: many leads arrive, including unsuitable ones."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Un flusso che salta la lettura delle risposte ricontatta chi ha chiesto di essere tolto: il problema arriva al cliente.",
+    "en": "A flow that skips reading replies contacts again people who asked to be removed: the problem reaches the customer."
+   }
+  }
+ },
+ {
+  "id": "DA3.1-3",
+  "origine": "autori",
+  "pillola": "P3.1",
+  "concetti": [
+   "C26",
+   "C27"
+  ],
+  "concetto_principale": "C27",
+  "segmento_aiuto": "contratto",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "La stazione «Punteggio» dà un punteggio a ogni lead. Quale contratto dati la descrive meglio?",
+    "en": "The «Scoring» station gives every lead a score. Which data contract describes it best?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Riceve tutta la scheda; consegna ciò che il modello ritiene utile",
+      "en": "Receives the whole record; hands over whatever the model finds useful"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Un contratto vago non si può controllare: non si sa che cosa deve uscire.",
+      "en": "A vague contract cannot be checked: nobody knows what must come out."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Riceve ruolo, settore e dimensione; consegna punteggio, fascia e motivazione",
+      "en": "Receives role, sector and size; hands over score, band and reasoning"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: campi in ingresso e in uscita dichiarati, quindi controllabili.",
+      "en": "Right: input and output fields are declared, so they can be checked."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Riceve il logo dell'azienda; consegna un'email pronta",
+      "en": "Receives the company logo; hands over a ready email"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il logo non serve al punteggio, e l'email è il compito di un'altra stazione.",
+      "en": "The logo does not help scoring, and the email is another station's job."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Non riceve nulla: il modello inventa il punteggio ogni volta",
+      "en": "Receives nothing: the model makes up the score every time"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Senza dati in ingresso il punteggio è inventato e non vale nulla.",
+      "en": "With no input data the score is made up and worthless."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Riceve ruolo e settore; consegna un numero senza fascia né motivazione",
+      "en": "Receives role and sector; hands over a number with no band or reasoning"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Senza fascia e motivazione il punteggio non dice che cosa fare né perché.",
+      "en": "Without band and reasoning the score says neither what to do nor why."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Un contratto dati elenca con precisione che cosa la stazione riceve e che cosa consegna.",
+    "en": "A data contract lists precisely what the station receives and what it hands over."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Un giorno l'«Arricchimento» smette di consegnare la dimensione dell'azienda. Che cosa deve fare la stazione «Punteggio»?",
+    "en": "One day «Enrichment» stops handing over the company size. What should the «Scoring» station do?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Calcolare lo stesso il punteggio con una dimensione media",
+      "en": "Compute the score anyway with an average size"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Un valore inventato nasconde il guasto: i punteggi sembrano buoni ma sono a caso.",
+      "en": "A made-up value hides the fault: scores look fine but are random."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Chiedere al commerciale di cancellare il lead dal CRM",
+      "en": "Ask the sales rep to delete the lead from the CRM"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Il lead non ha colpa: va fermato, non cancellato.",
+      "en": "The lead is not at fault: it must be stopped, not deleted."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Fermarsi e segnalare «input mancante»",
+      "en": "Stop and flag «input missing»"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Giusto: un blocco visibile è meglio di un punteggio sbagliato che nessuno nota.",
+      "en": "Right: a visible block is better than a wrong score nobody notices."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Mandare comunque l'email a tutti i lead del giorno",
+      "en": "Send the email to all of the day's leads anyway"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Saltare il punteggio sposta il danno sui clienti.",
+      "en": "Skipping scoring moves the harm onto customers."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Andare avanti e scrivere nella motivazione che manca la dimensione",
+      "en": "Carry on and write in the reasoning that the size is missing"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "La nota aiuta, ma il punteggio resta incompleto e parte lo stesso: il contratto non è rispettato.",
+      "en": "The note helps, but the score is still incomplete and goes out anyway: the contract is not respected."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Se manca un campo del contratto, la stazione si ferma e lo dice: così il guasto si vede subito.",
+    "en": "If a contract field is missing, the station stops and says so: that way the fault shows at once."
+   }
+  }
+ }
+]
