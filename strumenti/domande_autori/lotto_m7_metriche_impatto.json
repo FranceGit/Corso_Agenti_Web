@@ -1,0 +1,334 @@
+[
+ {
+  "id": "DA7.5-4",
+  "origine": "autori",
+  "pillola": "P7.5",
+  "concetti": [
+   "C67"
+  ],
+  "concetto_principale": "C67",
+  "segmento_aiuto": "attivita_rischio",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Per avere più clienti il team quintuplica le email della campagna. Le email inviate passano da 2.000 a 10.000, le opportunità restano circa 40 e le disiscrizioni passano da 6 a 150. Il report dice «campagna da record». Che cosa non va?",
+    "en": "To get more customers the team multiplies the campaign emails by five. Emails sent go from 2,000 to 10,000, opportunities stay at about 40 and unsubscribes go from 6 to 150. The report says «record campaign». What is wrong?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Il record è di attività, non di risultato: le opportunità sono ferme e il rischio è esploso",
+      "en": "The record is in activity, not results: opportunities are flat and the risk has exploded"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Le email inviate sono una metrica ingannevole: il risultato (opportunità) non cresce e la metrica di rischio peggiora molto.",
+      "en": "Emails sent are a misleading metric: the result (opportunities) does not grow and the risk metric gets much worse."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Niente: con più email le conversioni arriveranno nei prossimi mesi",
+      "en": "Nothing: with more emails the conversions will come in the next months"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Può succedere, ma va dimostrato con i numeri di risultato; intanto le disiscrizioni sono già un danno.",
+      "en": "It may happen, but it must be proven with result numbers; meanwhile the unsubscribes are already damage."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Il problema è solo il costo dell'invio, che è aumentato di cinque volte",
+      "en": "The only problem is the sending cost, which went up five times"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il costo conta, ma il punto è che le opportunità non salgono e il rischio sale.",
+      "en": "Cost matters, but the point is that opportunities do not rise and risk does."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Bisognava contare anche le email aperte, per avere un record ancora più alto",
+      "en": "They should also have counted opened emails, to get an even higher record"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Le aperture sono ancora attività: un numero in più che fa bella figura non risolve.",
+      "en": "Opens are still activity: one more good-looking number does not solve anything."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Le disiscrizioni sono una buona notizia, perché puliscono la lista dai contatti tiepidi",
+      "en": "Unsubscribes are good news, because they clean the list of lukewarm contacts"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Perdere 150 contatti e reputazione non è pulizia: è il costo della crescita sbagliata.",
+      "en": "Losing 150 contacts and reputation is not cleaning: it is the cost of the wrong growth."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Una metrica di attività che cresce non prova il valore: conta il risultato di business, letto insieme a una metrica di rischio come le disiscrizioni.",
+    "en": "A growing activity metric does not prove value: what counts is the business result, read together with a risk metric such as unsubscribes."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Quale coppia di numeri metteresti in testa al prossimo report?",
+    "en": "Which pair of numbers would you put at the top of the next report?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Opportunità create insieme a disiscrizioni e reclami",
+      "en": "Opportunities created together with unsubscribes and complaints"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Un numero di risultato affiancato da un numero di rischio dice se la crescita conviene davvero.",
+      "en": "A result number next to a risk number tells you whether the growth is really worth it."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Email inviate insieme a email aperte",
+      "en": "Emails sent together with emails opened"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Sono due numeri di attività: nessuno dei due dice se arrivano clienti.",
+      "en": "They are two activity numbers: neither says whether customers arrive."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Lead nel foglio insieme al costo del foglio",
+      "en": "Leads in the sheet together with the cost of the sheet"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Le righe nel foglio sono attività, e il costo del foglio è irrilevante.",
+      "en": "Rows in the sheet are activity, and the cost of the sheet is irrelevant."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Latenza dell'agente insieme al numero di token",
+      "en": "Agent latency together with the number of tokens"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Sono metriche tecniche utili, ma valgono solo se spostano un risultato di business.",
+      "en": "They are useful technical metrics, but they matter only if they move a business result."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Solo il numero più alto del mese, per motivare il team",
+      "en": "Only the highest number of the month, to motivate the team"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Scegliere il numero che fa più bella figura è esattamente la trappola della metrica vanitosa.",
+      "en": "Choosing the best-looking number is exactly the vanity-metric trap."
+     }
+    }
+   ],
+   "perche": {
+    "it": "In testa al report va un risultato di business con accanto la sua metrica di rischio.",
+    "en": "At the top of the report goes a business result with its risk metric next to it."
+   }
+  }
+ },
+ {
+  "id": "DA7.5-5",
+  "origine": "autori",
+  "pillola": "P7.5",
+  "concetti": [
+   "C68"
+  ],
+  "concetto_principale": "C68",
+  "segmento_aiuto": "gruppo_controllo",
+  "striscia": "diagnosi",
+  "livello1": {
+   "domanda": {
+    "it": "Avete diviso i lead a caso: metà con l'agente, metà senza, nello stesso periodo. Dopo 2 settimane il gruppo con l'agente converte il 6,3% e quello senza il 5,8%, ma le due bande di incertezza si sovrappongono ancora. Che cosa concludi?",
+    "en": "You split the leads at random: half with the agent, half without, in the same period. After 2 weeks the group with the agent converts 6.3% and the one without 5.8%, but the two uncertainty bands still overlap. What do you conclude?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "È presto: la differenza può essere caso, bisogna continuare la prova",
+      "en": "It is too early: the difference may be chance, the test must continue"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Con bande che si sovrappongono la differenza non è ancora distinguibile dal caso; con più settimane la banda si stringe.",
+      "en": "With overlapping bands the difference cannot yet be told apart from chance; with more weeks the band narrows."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "L'agente funziona: il suo gruppo converte di più",
+      "en": "The agent works: its group converts more"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il numero è più alto, ma con questa incertezza potrebbe invertirsi la settimana dopo.",
+      "en": "The number is higher, but with this much uncertainty it could flip the next week."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "L'agente non funziona: la differenza è solo di mezzo punto",
+      "en": "The agent does not work: the difference is only half a point"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Mezzo punto può essere un effetto vero e utile: è solo troppo presto per dirlo.",
+      "en": "Half a point can be a real and useful effect: it is just too early to say."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Conviene confrontare invece questo mese con il mese scorso, è più semplice",
+      "en": "It is better to compare this month with last month instead, it is simpler"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Il confronto tra mesi mescola l'agente con la stagione: è proprio ciò che il gruppo di controllo evita.",
+      "en": "Comparing months mixes the agent with the season: it is exactly what the control group avoids."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Bisogna spostare nel gruppo con l'agente i lead migliori, così l'effetto si vede prima",
+      "en": "You should move the best leads into the agent group, so the effect shows sooner"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Scegliere i lead a mano rompe il caso: la differenza non sarebbe più merito dell'agente.",
+      "en": "Picking leads by hand breaks the randomness: the difference would no longer be due to the agent."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Il gruppo di controllo isola l'effetto dell'agente, ma serve abbastanza tempo perché l'incertezza si riduca e la differenza si distingua dal caso.",
+    "en": "The control group isolates the agent's effect, but it needs enough time for the uncertainty to shrink and the difference to stand out from chance."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché i due gruppi devono essere scelti a caso e nello stesso periodo?",
+    "en": "Why must the two groups be chosen at random and in the same period?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché così l'unica differenza tra i gruppi è l'agente",
+      "en": "Because then the only difference between the groups is the agent"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Stessa stagione e lead simili: se un gruppo converte di più, il merito è dell'agente.",
+      "en": "Same season and similar leads: if one group converts more, the credit goes to the agent."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché così servono meno lead per la prova",
+      "en": "Because then fewer leads are needed for the test"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il caso non riduce i lead necessari: serve a rendere giusto il confronto.",
+      "en": "Randomness does not reduce the leads needed: it makes the comparison fair."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché nello stesso periodo il commerciale lavora di più",
+      "en": "Because in the same period the salesperson works harder"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il motivo non è l'impegno del commerciale, ma togliere le altre differenze.",
+      "en": "The reason is not the salesperson's effort, but removing the other differences."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Perché così si può confrontare anche con l'anno scorso",
+      "en": "Because then you can also compare with last year"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il confronto con altri periodi reintroduce la stagione: è ciò che si vuole evitare.",
+      "en": "Comparing with other periods brings the season back: it is what you want to avoid."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Perché il gruppo senza agente non riceve nessuna email",
+      "en": "Because the group without the agent gets no emails"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Il gruppo di controllo lavora con il processo di sempre, non senza contatti.",
+      "en": "The control group works with the usual process, not without contact."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Dividere a caso nello stesso periodo toglie stagione e differenze tra lead: resta solo l'effetto dell'agente.",
+    "en": "Splitting at random in the same period removes the season and lead differences: only the agent's effect remains."
+   }
+  }
+ }
+]

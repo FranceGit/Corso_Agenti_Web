@@ -1,0 +1,986 @@
+{
+ "id": "L_metriche_impatto",
+ "pillola": "P7.5",
+ "componente": "metriche_impatto",
+ "titolo": {
+  "it": "Migliorare osservando: dalle metriche al risultato",
+  "en": "Improving by observing: from metrics to results"
+ },
+ "sottotitolo": {
+  "it": "Un cruscotto collegato: segui la catena fino alla pipeline, alza il volume delle email, confronta con un gruppo di controllo, gira il volano.",
+  "en": "A connected dashboard: follow the chain up to the pipeline, raise the email volume, compare with a control group, turn the flywheel."
+ },
+ "segmenti": [
+  {
+   "id": "stella_polare",
+   "titolo": {
+    "it": "La stella polare e i numeri che la spingono",
+    "en": "The north star and the numbers that push it"
+   },
+   "narrazione": [
+    {
+     "it": "Un agente di marketing produce tanti numeri. In cima va la stella polare: il risultato di business che conta davvero, come le opportunità create e la pipeline generata, cioè il valore delle trattative aperte.",
+     "en": "A marketing agent produces lots of numbers. At the top goes the north star: the business result that really matters, such as the opportunities created and the pipeline generated, that is the value of the open deals."
+    },
+    {
+     "it": "Sotto stanno il tasso di obiettivi raggiunti, poi le metriche tecniche (tempo di risposta, errori, costo per esecuzione) e in fondo le tracce. Un miglioramento tecnico vale se sposta un numero più in alto.",
+     "en": "Below come the goal completion rate, then the technical metrics (response time, errors, cost per run) and at the bottom the traces. A technical improvement is worth it if it moves a number higher up."
+    }
+   ],
+   "prova": {
+    "it": "Clicca «Latenza» e segui la catena fino alla pipeline. Poi clicca «Email inviate».",
+    "en": "Click «Latency» and follow the chain up to the pipeline. Then click «Emails sent»."
+   },
+   "concetti": [
+    "C67"
+   ],
+   "stato_animazione": {
+    "vista": "cruscotto",
+    "evidenza": "latenza",
+    "volume": 0,
+    "rischio": false,
+    "confronto": "prima_dopo",
+    "settimane": 2,
+    "volano": 0,
+    "scelte": {},
+    "verificato": false
+   }
+  },
+  {
+   "id": "attivita_rischio",
+   "titolo": {
+    "it": "Più attività non vuol dire più risultati",
+    "en": "More activity does not mean more results"
+   },
+   "narrazione": [
+    {
+     "it": "Alcuni numeri crescono e fanno bella figura, ma non portano clienti: le email inviate, o i 2.000 lead nel foglio dei tutorial. Le chiamiamo metriche ingannevoli, o vanitose: il termine è nostro, non delle fonti.",
+     "en": "Some numbers grow and look good, but bring no customers: the emails sent, or the 2,000 leads in the spreadsheet of the tutorials. We call them misleading, or vanity, metrics: the term is ours, not the sources'."
+    },
+    {
+     "it": "Accanto a ogni metrica di risultato va una metrica di rischio, come disiscrizioni e reclami: dice quanto costa davvero quella crescita. Le metriche specifiche della lead generation sono un nostro adattamento.",
+     "en": "Next to every result metric goes a risk metric, such as unsubscribes and complaints: it tells you what that growth really costs. The lead-generation-specific metrics are our own adaptation."
+    }
+   ],
+   "prova": {
+    "it": "Porta al massimo il volume di email, poi accendi «Metriche di rischio».",
+    "en": "Push the email volume to the maximum, then switch on «Risk metrics»."
+   },
+   "concetti": [
+    "C67"
+   ],
+   "stato_animazione": {
+    "vista": "cruscotto",
+    "evidenza": "email",
+    "volume": 0,
+    "rischio": false,
+    "confronto": "prima_dopo",
+    "settimane": 2,
+    "volano": 0,
+    "scelte": {},
+    "verificato": false
+   }
+  },
+  {
+   "id": "gruppo_controllo",
+   "titolo": {
+    "it": "Con l'agente e senza, nello stesso periodo",
+    "en": "With the agent and without, in the same period"
+   },
+   "narrazione": [
+    {
+     "it": "A dicembre accendi l'agente e le conversioni salgono del 20% rispetto a novembre. Merito suo? Forse no: a dicembre si vende di più comunque.",
+     "en": "In December you switch the agent on and conversions rise 20% compared with November. Is it thanks to the agent? Maybe not: in December you sell more anyway."
+    },
+    {
+     "it": "Per isolare l'effetto si dividono i lead a caso in due gruppi, nello stesso periodo: uno con l'agente e uno senza, il gruppo di controllo. All'inizio la banda grigia dell'incertezza è larga; con più settimane si stringe e la differenza vera si vede.",
+     "en": "To isolate the effect, the leads are split at random into two groups, in the same period: one with the agent and one without, the control group. At first the grey uncertainty band is wide; with more weeks it narrows and the real difference shows."
+    }
+   ],
+   "prova": {
+    "it": "Passa a «Gruppo di controllo» e sposta le settimane da 2 a 12.",
+    "en": "Switch to «Control group» and move the weeks from 2 to 12."
+   },
+   "concetti": [
+    "C68"
+   ],
+   "stato_animazione": {
+    "vista": "esperimento",
+    "evidenza": "latenza",
+    "volume": 0,
+    "rischio": false,
+    "confronto": "prima_dopo",
+    "settimane": 2,
+    "volano": 0,
+    "scelte": {},
+    "verificato": false
+   }
+  },
+  {
+   "id": "volano",
+   "titolo": {
+    "it": "Il volano: osservare per migliorare",
+    "en": "The flywheel: observing to improve"
+   },
+   "narrazione": [
+    {
+     "it": "Osservare serve se porta a migliorare. Il ciclo ha quattro passi: definire la qualità, rendere visibile il comportamento con log e tracce, valutare il processo, e trasformare ogni errore trovato in produzione in un test permanente.",
+     "en": "Observing is useful if it leads to improvement. The cycle has four steps: define quality, make behaviour visible with logs and traces, evaluate the process, and turn every error found in production into a permanent test."
+    },
+    {
+     "it": "Così lo stesso tipo di errore non torna più, e il miglioramento si controlla di nuovo sui numeri di business.",
+     "en": "This way the same kind of error does not come back, and the improvement is checked again on the business numbers."
+    }
+   ],
+   "prova": {
+    "it": "Premi «Gira il volano» quattro volte e guarda l'errore del nome diventare un test.",
+    "en": "Press «Turn the flywheel» four times and watch the name error become a test."
+   },
+   "concetti": [
+    "C67",
+    "C68"
+   ],
+   "stato_animazione": {
+    "vista": "volano",
+    "evidenza": "latenza",
+    "volume": 0,
+    "rischio": false,
+    "confronto": "prima_dopo",
+    "settimane": 2,
+    "volano": 0,
+    "scelte": {},
+    "verificato": false
+   }
+  },
+  {
+   "id": "quale_numero",
+   "titolo": {
+    "it": "Decidi tu: quale numero lo dimostra?",
+    "en": "You decide: which number proves it?"
+   },
+   "narrazione": [
+    {
+     "it": "Ecco quattro situazioni di un team marketing: per ognuna scegli il numero che dimostra davvero il valore dell'agente.",
+     "en": "Here are four situations of a marketing team: for each one choose the number that really proves the agent's value."
+    }
+   ],
+   "prova": {
+    "it": "Scegli un numero per ogni caso, poi premi «Controlla» e leggi il perché.",
+    "en": "Choose a number for each case, then press «Check» and read why."
+   },
+   "concetti": [
+    "C67",
+    "C68"
+   ],
+   "stato_animazione": {
+    "vista": "decidi",
+    "evidenza": "latenza",
+    "volume": 0,
+    "rischio": false,
+    "confronto": "prima_dopo",
+    "settimane": 2,
+    "volano": 0,
+    "scelte": {},
+    "verificato": false
+   }
+  },
+  {
+   "id": "riassunto",
+   "titolo": {
+    "it": "In tre frasi",
+    "en": "In three sentences"
+   },
+   "narrazione": [
+    {
+     "it": "In cima ci sono i risultati di business, come opportunità e pipeline; le metriche tecniche contano se li spostano.",
+     "en": "At the top are the business results, such as opportunities and pipeline; technical metrics matter if they move them."
+    },
+    {
+     "it": "Le metriche di attività possono ingannare: ogni risultato va letto insieme a una metrica di rischio, come disiscrizioni e reclami.",
+     "en": "Activity metrics can mislead: every result must be read together with a risk metric, such as unsubscribes and complaints."
+    },
+    {
+     "it": "Per sapere se l'agente funziona si confrontano due gruppi scelti a caso nello stesso periodo, e ogni errore osservato diventa un test.",
+     "en": "To know whether the agent works you compare two randomly chosen groups in the same period, and every error you observe becomes a test."
+    }
+   ],
+   "concetti": [
+    "C67",
+    "C68"
+   ],
+   "stato_animazione": {
+    "vista": "esperimento",
+    "evidenza": "latenza",
+    "volume": 0,
+    "rischio": true,
+    "confronto": "controllo",
+    "settimane": 12,
+    "volano": 4,
+    "scelte": {},
+    "verificato": false
+   }
+  }
+ ],
+ "scenario": {
+  "_why": "Tutti i numeri sono illustrativi. Le metriche specifiche di lead generation (pipeline, disiscrizioni, reclami, lead nel foglio) sono un adattamento [EXP] delle metriche delle fonti.",
+  "volume": {
+   "livelli": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "etichetta": {
+    "it": "Volume di email inviate",
+    "en": "Volume of emails sent"
+   }
+  },
+  "settimane": {
+   "min": 1,
+   "max": 12,
+   "passo": 1,
+   "etichetta": {
+    "it": "Settimane di prova",
+    "en": "Weeks of testing"
+   }
+  },
+  "modello": {
+   "_why": "Come rispondono i numeri al volume di email (fattore f = 1..5): attivita' proporzionali a f; opportunita' quasi piatte (piccolo guadagno che si esaurisce, poi calo oltre la soglia di fastidio); disiscrizioni e reclami che crescono come f al quadrato.",
+   "email_base": 2000,
+   "foglio_base": 400,
+   "opportunita_base": 40,
+   "guadagno": 0.15,
+   "soglia_fastidio": 3,
+   "calo_per_livello": 3,
+   "valore_opportunita": 2500,
+   "tasso_disiscrizione": 0.003,
+   "tasso_reclami": 0.0006
+  },
+  "livelli": [
+   {
+    "id": "stella",
+    "nome": {
+     "it": "STELLA POLARE (BUSINESS)",
+     "en": "NORTH STAR (BUSINESS)"
+    },
+    "colore": "#16a34a"
+   },
+   {
+    "id": "obiettivi",
+    "nome": {
+     "it": "OBIETTIVI RAGGIUNTI",
+     "en": "GOALS ACHIEVED"
+    },
+    "colore": "#0ea5e9"
+   },
+   {
+    "id": "tecniche",
+    "nome": {
+     "it": "METRICHE TECNICHE",
+     "en": "TECHNICAL METRICS"
+    },
+    "colore": "#6366f1"
+   },
+   {
+    "id": "tracce",
+    "nome": {
+     "it": "TRACCE",
+     "en": "TRACES"
+    },
+    "colore": "#64748b"
+   }
+  ],
+  "metriche": [
+   {
+    "id": "pipeline",
+    "livello": "stella",
+    "nome": {
+     "it": "Pipeline generata",
+     "en": "Pipeline generated"
+    },
+    "formato": "euro",
+    "spiega": {
+     "it": "Il valore delle trattative aperte grazie ai lead: è il numero che il business guarda per primo.",
+     "en": "The value of the deals opened thanks to the leads: it is the number the business looks at first."
+    }
+   },
+   {
+    "id": "opportunita",
+    "livello": "stella",
+    "nome": {
+     "it": "Opportunità create",
+     "en": "Opportunities created"
+    },
+    "formato": "intero",
+    "spiega": {
+     "it": "Lead diventati trattative vere con un commerciale.",
+     "en": "Leads that became real deals with a salesperson."
+    }
+   },
+   {
+    "id": "tasso_obiettivi",
+    "livello": "obiettivi",
+    "nome": {
+     "it": "Lead qualificati e passati",
+     "en": "Leads qualified and handed over"
+    },
+    "valore": 62,
+    "formato": "percento",
+    "spiega": {
+     "it": "Tasso di obiettivi raggiunti: quante volte l'agente porta a termine il suo scopo, qualificare il lead e passarlo al commerciale.",
+     "en": "Goal completion rate: how often the agent completes its purpose, qualifying the lead and handing it to the salesperson."
+    }
+   },
+   {
+    "id": "prima_risposta",
+    "livello": "obiettivi",
+    "nome": {
+     "it": "Tempo di prima risposta",
+     "en": "Time to first reply"
+    },
+    "valore": 15,
+    "formato": "minuti",
+    "spiega": {
+     "it": "Quanto aspetta un lead prima di ricevere la prima risposta.",
+     "en": "How long a lead waits before getting the first reply."
+    }
+   },
+   {
+    "id": "latenza",
+    "livello": "tecniche",
+    "nome": {
+     "it": "Latenza",
+     "en": "Latency"
+    },
+    "valore": 2.1,
+    "formato": "secondi",
+    "spiega": {
+     "it": "Il tempo che l'agente impiega a rispondere: da solo non dice nulla sul business, ma accorcia il tempo di prima risposta.",
+     "en": "The time the agent takes to reply: on its own it says nothing about the business, but it shortens the time to first reply."
+    }
+   },
+   {
+    "id": "errori",
+    "livello": "tecniche",
+    "nome": {
+     "it": "Errori",
+     "en": "Errors"
+    },
+    "valore": 1.2,
+    "formato": "percento1",
+    "spiega": {
+     "it": "Esecuzioni finite male: abbassano il tasso di obiettivi raggiunti.",
+     "en": "Runs that ended badly: they lower the goal completion rate."
+    }
+   },
+   {
+    "id": "costo",
+    "livello": "tecniche",
+    "nome": {
+     "it": "Costo per esecuzione",
+     "en": "Cost per run"
+    },
+    "valore": 0.04,
+    "formato": "euro2",
+    "spiega": {
+     "it": "Quanto costa ogni esecuzione dell'agente: entra nel costo per lead qualificato.",
+     "en": "What each agent run costs: it goes into the cost per qualified lead."
+    }
+   },
+   {
+    "id": "tracce",
+    "livello": "tracce",
+    "nome": {
+     "it": "Tracce delle richieste",
+     "en": "Request traces"
+    },
+    "formato": "nessuno",
+    "spiega": {
+     "it": "Il percorso di ogni richiesta, passo per passo: si aprono quando un numero più in alto mostra un problema.",
+     "en": "The path of each request, step by step: you open them when a number higher up shows a problem."
+    }
+   },
+   {
+    "id": "email",
+    "livello": "attivita",
+    "nome": {
+     "it": "Email inviate",
+     "en": "Emails sent"
+    },
+    "formato": "intero",
+    "spiega": {
+     "it": "Attività, non risultato: nessuna linea la collega alle opportunità.",
+     "en": "Activity, not result: no line connects it to opportunities."
+    }
+   },
+   {
+    "id": "foglio",
+    "livello": "attivita",
+    "nome": {
+     "it": "Lead nel foglio",
+     "en": "Leads in the sheet"
+    },
+    "formato": "intero",
+    "spiega": {
+     "it": "Righe aggiunte a un foglio, come nei tutorial: crescono veloci ma non dicono quanti diventano clienti.",
+     "en": "Rows added to a spreadsheet, as in the tutorials: they grow fast but do not say how many become customers."
+    }
+   },
+   {
+    "id": "disiscrizioni",
+    "livello": "rischio",
+    "nome": {
+     "it": "Disiscrizioni",
+     "en": "Unsubscribes"
+    },
+    "formato": "intero",
+    "spiega": {
+     "it": "Metrica di rischio: contatti che chiedono di non ricevere più email.",
+     "en": "Risk metric: contacts asking not to receive any more emails."
+    }
+   },
+   {
+    "id": "reclami",
+    "livello": "rischio",
+    "nome": {
+     "it": "Reclami spam",
+     "en": "Spam complaints"
+    },
+    "formato": "intero",
+    "spiega": {
+     "it": "Metrica di rischio: segnalazioni di spam, che danneggiano la reputazione delle vostre email.",
+     "en": "Risk metric: spam reports, which damage the reputation of your emails."
+    }
+   }
+  ],
+  "collegamenti": [
+   [
+    "tracce",
+    "latenza"
+   ],
+   [
+    "tracce",
+    "errori"
+   ],
+   [
+    "tracce",
+    "costo"
+   ],
+   [
+    "latenza",
+    "prima_risposta"
+   ],
+   [
+    "errori",
+    "tasso_obiettivi"
+   ],
+   [
+    "costo",
+    "pipeline"
+   ],
+   [
+    "prima_risposta",
+    "opportunita"
+   ],
+   [
+    "tasso_obiettivi",
+    "opportunita"
+   ],
+   [
+    "opportunita",
+    "pipeline"
+   ]
+  ],
+  "esperimento": {
+   "_why": "Conversioni dei lead in percentuale (illustrative). Novembre senza agente; dicembre con agente; dicembre gruppo di controllo senza agente (stagionalita'). Le serie settimanali sono le stime cumulative, che oscillano all'inizio e si assestano; la banda d'incertezza attorno a ogni curva e' larga piu' o meno banda_base / radice(settimane); la differenza 'si vede' quando le due bande non si toccano piu'.",
+   "novembre": 5.0,
+   "dicembre_agente": 6.0,
+   "dicembre_controllo": 5.6,
+   "serie_agente": [
+    6.3,
+    5.6,
+    6.3,
+    5.8,
+    6.2,
+    5.9,
+    6.0,
+    5.95,
+    6.05,
+    6.02,
+    6.0,
+    6.0
+   ],
+   "serie_controllo": [
+    5.8,
+    5.9,
+    5.7,
+    5.7,
+    5.7,
+    5.7,
+    5.7,
+    5.65,
+    5.6,
+    5.6,
+    5.6,
+    5.6
+   ],
+   "banda_base": 0.6,
+   "scala_max": 8.0,
+   "lead_puntini": 36,
+   "seme": 12345,
+   "grafico_min": 4.5,
+   "grafico_max": 7.0
+  },
+  "volano": {
+   "passi": [
+    {
+     "nome": {
+      "it": "Definisci la qualità",
+      "en": "Define quality"
+     },
+     "esito": {
+      "it": "Qualità = nome e dati giusti, tono del brand. Metrica: email corrette.",
+      "en": "Quality = right name and data, brand tone. Metric: correct emails."
+     }
+    },
+    {
+     "nome": {
+      "it": "Rendi visibile",
+      "en": "Make it visible"
+     },
+     "esito": {
+      "it": "Le tracce mostrano che il nome arriva dal campo «azienda» invece che «contatto».",
+      "en": "The traces show the name comes from the «company» field instead of «contact»."
+     }
+    },
+    {
+     "nome": {
+      "it": "Valuta il processo",
+      "en": "Evaluate the process"
+     },
+     "esito": {
+      "it": "Giudice e revisione umana trovano 3 email su 100 con il nome sbagliato.",
+      "en": "Judge and human review find 3 emails out of 100 with the wrong name."
+     }
+    },
+    {
+     "nome": {
+      "it": "L'errore diventa un test",
+      "en": "The error becomes a test"
+     },
+     "esito": {
+      "it": "Il caso entra nel set di valutazione; la correzione esce solo con il set tutto verde.",
+      "en": "The case joins the evaluation set; the fix goes out only with the whole set green."
+     }
+    }
+   ],
+   "osservazione": {
+    "it": "Osservato in produzione: alcune email salutano il lead con il nome dell'azienda.",
+    "en": "Observed in production: some emails greet the lead with the company name."
+   },
+   "casi_set": 40,
+   "corrette_prima": 97,
+   "corrette_dopo": 99.5,
+   "risposte_prima": 4.1,
+   "risposte_dopo": 4.4
+  },
+  "numeri": [
+   {
+    "id": "email",
+    "nome": {
+     "it": "Email inviate",
+     "en": "Emails sent"
+    }
+   },
+   {
+    "id": "foglio",
+    "nome": {
+     "it": "Lead nel foglio",
+     "en": "Leads in the sheet"
+    }
+   },
+   {
+    "id": "prima_risposta",
+    "nome": {
+     "it": "Tempo di prima risposta",
+     "en": "Time to first reply"
+    }
+   },
+   {
+    "id": "latenza",
+    "nome": {
+     "it": "Latenza dell'agente",
+     "en": "Agent latency"
+    }
+   },
+   {
+    "id": "conversione_lead",
+    "nome": {
+     "it": "Lead diventati opportunità",
+     "en": "Leads that became opportunities"
+    }
+   },
+   {
+    "id": "pipeline",
+    "nome": {
+     "it": "Pipeline generata dai lead",
+     "en": "Pipeline generated by the leads"
+    }
+   },
+   {
+    "id": "conv_rischio",
+    "nome": {
+     "it": "Conversioni insieme a disiscrizioni e reclami",
+     "en": "Conversions together with unsubscribes and complaints"
+    }
+   },
+   {
+    "id": "conv_mese",
+    "nome": {
+     "it": "Conversioni di questo mese contro il mese scorso",
+     "en": "This month's conversions against last month's"
+    }
+   },
+   {
+    "id": "controllo",
+    "nome": {
+     "it": "Stesso periodo: gruppo con agente contro gruppo senza",
+     "en": "Same period: group with the agent against group without"
+    }
+   }
+  ],
+  "casi": [
+   {
+    "id": "c_veloce",
+    "testo": {
+     "it": "Il nuovo agente ha dimezzato il tempo di prima risposta ai lead. È servito davvero?",
+     "en": "The new agent has halved the time to first reply to leads. Did it really help?"
+    },
+    "migliore": "conversione_lead",
+    "quasi": [
+     "prima_risposta",
+     "pipeline"
+    ],
+    "spiega": {
+     "it": "Rispondere prima è un mezzo: conta se più lead diventano opportunità.",
+     "en": "Replying sooner is a means: what counts is whether more leads become opportunities."
+    }
+   },
+   {
+    "id": "c_foglio",
+    "testo": {
+     "it": "Un tutorial festeggia: «abbiamo 2.000 lead nel foglio». Quale numero ti convincerebbe?",
+     "en": "A tutorial celebrates: «we have 2,000 leads in the sheet». Which number would convince you?"
+    },
+    "migliore": "pipeline",
+    "quasi": [
+     "conversione_lead"
+    ],
+    "spiega": {
+     "it": "Le righe nel foglio sono attività: il valore si vede nella pipeline che quei lead generano.",
+     "en": "Rows in a sheet are activity: the value shows in the pipeline those leads generate."
+    }
+   },
+   {
+    "id": "c_volume",
+    "testo": {
+     "it": "Il team raddoppia le email della campagna per avere più clienti.",
+     "en": "The team doubles the campaign emails to get more customers."
+    },
+    "migliore": "conv_rischio",
+    "quasi": [
+     "conversione_lead"
+    ],
+    "spiega": {
+     "it": "Più email possono portare poche conversioni in più e molte disiscrizioni: risultato e rischio vanno letti insieme.",
+     "en": "More emails can bring a few more conversions and many unsubscribes: result and risk must be read together."
+    }
+   },
+   {
+    "id": "c_dicembre",
+    "testo": {
+     "it": "A dicembre, con l'agente acceso, le conversioni sono salite del 20% rispetto a novembre.",
+     "en": "In December, with the agent on, conversions rose 20% compared with November."
+    },
+    "migliore": "controllo",
+    "quasi": [
+     "conversione_lead"
+    ],
+    "spiega": {
+     "it": "A dicembre si vende di più comunque: solo un gruppo di controllo nello stesso periodo isola l'effetto dell'agente.",
+     "en": "In December you sell more anyway: only a control group in the same period isolates the agent's effect."
+    }
+   }
+  ],
+  "testi": {
+   "formato_euro": {
+    "it": "{n} €",
+    "en": "€{n}"
+   },
+   "formato_intero": {
+    "it": "{n}",
+    "en": "{n}"
+   },
+   "formato_percento": {
+    "it": "{n}%",
+    "en": "{n}%"
+   },
+   "formato_minuti": {
+    "it": "{n} min",
+    "en": "{n} min"
+   },
+   "formato_secondi": {
+    "it": "{n} s",
+    "en": "{n} s"
+   },
+   "formato_volume": {
+    "it": "{n} email",
+    "en": "{n} emails"
+   },
+   "formato_settimane": {
+    "it": "{n} settimane",
+    "en": "{n} weeks"
+   },
+   "variazione": {
+    "it": "{nome}: {valore} ({delta} rispetto al volume più basso)",
+    "en": "{nome}: {valore} ({delta} compared with the lowest volume)"
+   },
+   "barra_novembre": {
+    "it": "Novembre, senza agente",
+    "en": "November, no agent"
+   },
+   "barra_dicembre": {
+    "it": "Dicembre, con agente",
+    "en": "December, with agent"
+   },
+   "barra_controllo": {
+    "it": "Dicembre, controllo senza agente",
+    "en": "December, control without agent"
+   },
+   "effetto_apparente": {
+    "it": "Effetto apparente (dicembre contro novembre): +{delta}%",
+    "en": "Apparent effect (December against November): +{delta}%"
+   },
+   "effetto_vero": {
+    "it": "Differenza tra i due gruppi dopo {settimane} settimane: {diff} punti, incertezza ± {banda}",
+    "en": "Difference between the two groups after {settimane} weeks: {diff} points, uncertainty ± {banda}"
+   },
+   "verdetto_presto": {
+    "it": "Troppo presto: le due bande si sovrappongono, la differenza può essere caso.",
+    "en": "Too early: the two bands overlap, the difference may be chance."
+   },
+   "verdetto_chiaro": {
+    "it": "La differenza si vede: l'effetto dell'agente è circa {diff} punti, non il 20% apparente.",
+    "en": "The difference shows: the agent's effect is about {diff} points, not the apparent 20%."
+   },
+   "nota_prima_dopo": {
+    "it": "Confrontare due mesi diversi mescola l'agente con la stagione: anche senza agente dicembre vende di più.",
+    "en": "Comparing two different months mixes the agent with the season: even without the agent December sells more."
+   },
+   "volano_passo": {
+    "it": "Passi completati: {n} su {tot}",
+    "en": "Steps completed: {n} of {tot}"
+   },
+   "volano_set": {
+    "it": "Casi nel set di valutazione: {n}",
+    "en": "Cases in the evaluation set: {n}"
+   },
+   "volano_corrette": {
+    "it": "Email corrette: {n}%",
+    "en": "Correct emails: {n}%"
+   },
+   "volano_business": {
+    "it": "Risposte positive dei lead: {n}% (controllo sul business)",
+    "en": "Positive replies from leads: {n}% (business check)"
+   },
+   "ver_giusto": {
+    "it": "Caso {n}: giusto. {spiega}",
+    "en": "Case {n}: right. {spiega}"
+   },
+   "ver_quasi": {
+    "it": "Caso {n}: utile, ma il numero migliore è «{migliore}». {spiega}",
+    "en": "Case {n}: useful, but the best number is «{migliore}». {spiega}"
+   },
+   "ver_sbagliato": {
+    "it": "Caso {n}: no, meglio «{migliore}». {spiega}",
+    "en": "Case {n}: no, «{migliore}» is better. {spiega}"
+   },
+   "ver_vuoto": {
+    "it": "Caso {n}: non hai ancora scelto. Il numero migliore è «{migliore}». {spiega}",
+    "en": "Case {n}: you have not chosen yet. The best number is «{migliore}». {spiega}"
+   },
+   "ver_punteggio": {
+    "it": "Scelte migliori: {giuste} su {totali}. Leggi sotto il perché.",
+    "en": "Best choices: {giuste} of {totali}. Read why below."
+   },
+   "ver_tutto_giusto": {
+    "it": "Perfetto: in ogni caso hai scelto il numero che dimostra il valore.",
+    "en": "Perfect: in every case you chose the number that proves the value."
+   },
+   "apri_metrica": {
+    "it": "Evidenzia «{nome}» e i suoi collegamenti",
+    "en": "Highlight «{nome}» and its links"
+   },
+   "scegli_per": {
+    "it": "Numero per il caso {n}",
+    "en": "Number for case {n}"
+   },
+   "caso": {
+    "it": "Caso {n}",
+    "en": "Case {n}"
+   },
+   "collegata_a": {
+    "it": "Spinge: {nomi}",
+    "en": "Pushes: {nomi}"
+   },
+   "spinta_da": {
+    "it": "È spinta da: {nomi}",
+    "en": "Pushed by: {nomi}"
+   },
+   "nessun_collegamento": {
+    "it": "Nessun collegamento con i risultati di business.",
+    "en": "No link to business results."
+   },
+   "formato_indice": {
+    "it": "×{n}",
+    "en": "×{n}"
+   },
+   "indice": {
+    "it": "{nome} {indice}",
+    "en": "{nome} {indice}"
+   }
+  },
+  "etichette": {
+   "titolo_comandi": {
+    "it": "Prova a cambiare",
+    "en": "Try changing"
+   },
+   "vista": {
+    "it": "Cosa guardi",
+    "en": "What you look at"
+   },
+   "vista_cruscotto": {
+    "it": "Cruscotto",
+    "en": "Dashboard"
+   },
+   "vista_esperimento": {
+    "it": "Esperimento",
+    "en": "Experiment"
+   },
+   "vista_volano": {
+    "it": "Volano",
+    "en": "Flywheel"
+   },
+   "vista_decidi": {
+    "it": "Decidi tu",
+    "en": "You decide"
+   },
+   "rischio": {
+    "it": "Metriche di rischio",
+    "en": "Risk metrics"
+   },
+   "confronto": {
+    "it": "Confronto",
+    "en": "Comparison"
+   },
+   "prima_dopo": {
+    "it": "Dicembre contro novembre",
+    "en": "December against November"
+   },
+   "controllo": {
+    "it": "Gruppo di controllo",
+    "en": "Control group"
+   },
+   "gira": {
+    "it": "Gira il volano",
+    "en": "Turn the flywheel"
+   },
+   "ricomincia": {
+    "it": "Ricomincia",
+    "en": "Start again"
+   },
+   "controlla": {
+    "it": "Controlla",
+    "en": "Check"
+   },
+   "scegli": {
+    "it": "— scegli —",
+    "en": "— choose —"
+   },
+   "attivita": {
+    "it": "ATTIVITÀ",
+    "en": "ACTIVITY"
+   },
+   "rischio_maiuscolo": {
+    "it": "RISCHIO",
+    "en": "RISK"
+   },
+   "nota_exp": {
+    "it": "Numeri illustrativi. «Metrica vanitosa» e le metriche di lead generation sono un adattamento del progettista.",
+    "en": "Illustrative numbers. «Vanity metric» and the lead-generation metrics are the designer's adaptation."
+   },
+   "nota_attivita": {
+    "it": "Attività non è risultato.",
+    "en": "Activity is not results."
+   },
+   "titolo_metrica": {
+    "it": "La metrica",
+    "en": "The metric"
+   },
+   "titolo_valori": {
+    "it": "Al volume scelto",
+    "en": "At the chosen volume"
+   },
+   "titolo_esperimento": {
+    "it": "Che cosa dice il confronto",
+    "en": "What the comparison says"
+   },
+   "titolo_volano": {
+    "it": "Il caso",
+    "en": "The case"
+   },
+   "titolo_verifica": {
+    "it": "Riscontro",
+    "en": "Feedback"
+   },
+   "titolo_scena_cruscotto": {
+    "it": "IL CRUSCOTTO COLLEGATO",
+    "en": "THE CONNECTED DASHBOARD"
+   },
+   "titolo_scena_esperimento": {
+    "it": "CONVERSIONI DEI LEAD (%)",
+    "en": "LEAD CONVERSIONS (%)"
+   },
+   "titolo_scena_volano": {
+    "it": "IL VOLANO DELLA QUALITÀ",
+    "en": "THE QUALITY FLYWHEEL"
+   },
+   "titolo_scena_decidi": {
+    "it": "QUALE NUMERO DIMOSTRA IL VALORE?",
+    "en": "WHICH NUMBER PROVES THE VALUE?"
+   },
+   "asse_settimane": {
+    "it": "settimane",
+    "en": "weeks"
+   },
+   "con_agente": {
+    "it": "con agente",
+    "en": "with agent"
+   },
+   "senza_agente": {
+    "it": "senza agente",
+    "en": "without agent"
+   },
+   "divisi_a_caso": {
+    "it": "Lead divisi a caso",
+    "en": "Leads split at random"
+   },
+   "descrizione_scena": {
+    "it": "Un cruscotto a piramide con le metriche di business in cima e quelle tecniche sotto, le metriche di attività e di rischio a lato, un esperimento con gruppo di controllo e il volano del miglioramento.",
+    "en": "A pyramid dashboard with business metrics at the top and technical ones below, activity and risk metrics at the side, an experiment with a control group and the improvement flywheel."
+   }
+  }
+ },
+ "domande": []
+}
