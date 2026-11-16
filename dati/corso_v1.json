@@ -31518,6 +31518,338 @@
         }
        },
        "striscia": "esempio_pratico"
+      },
+      {
+       "id": "DA6.4-1",
+       "origine": "autori",
+       "pillola": "P6.4",
+       "concetti": [
+        "C58"
+       ],
+       "concetto_principale": "C58",
+       "segmento_aiuto": "telefono",
+       "striscia": "diagnosi",
+       "livello1": {
+        "domanda": {
+         "it": "Una squadra di 4 agenti in fila (qualifica, email, invito, report) manda a un cliente che «non vuole essere chiamato il lunedì» un invito a una call di lunedì. Ogni agente, preso da solo, ha lavorato bene. Dov'è il guasto più probabile?",
+         "en": "A team of 4 agents in a row (qualification, email, invitation, report) sends a customer who «does not want calls on Mondays» an invitation to a Monday call. Each agent, taken alone, worked well. Where is the most likely fault?"
+        },
+        "opzioni": [
+         {
+          "id": "A",
+          "testo": {
+           "it": "Nel riassunto fra agenti, che ha perso il vincolo",
+           "en": "In the summary between agents, which lost the constraint"
+          },
+          "corretta": true,
+          "tipo_distrattore": null,
+          "spiegazione": {
+           "it": "È il telefono senza fili: a ogni passaggio il riassunto libero perde un dettaglio, e chi viene dopo non può saperlo.",
+           "en": "It is the broken telephone: at every hand-off the free summary loses a detail, and whoever comes next cannot know it."
+          }
+         },
+         {
+          "id": "B",
+          "testo": {
+           "it": "Nell'agente Email, che andrebbe sostituito con un modello più grande",
+           "en": "In the Email agent, which should be replaced with a larger model"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "L'agente Email non ha mai ricevuto il vincolo: un modello più grande non indovina un dato che non gli arriva.",
+           "en": "The Email agent never received the constraint: a larger model does not guess data that never reaches it."
+          }
+         },
+         {
+          "id": "C",
+          "testo": {
+           "it": "Nella scheda del CRM, che non contiene il vincolo",
+           "en": "In the CRM record, which does not contain the constraint"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Il vincolo c'era: il primo agente l'ha letto. Si è perso lungo la catena.",
+           "en": "The constraint was there: the first agent read it. It got lost along the chain."
+          }
+         },
+         {
+          "id": "D",
+          "testo": {
+           "it": "Nella temperatura troppo alta del modello",
+           "en": "In the model temperature being too high"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": {
+           "it": "La temperatura cambia lo stile delle risposte, non fa sparire un fatto passato fra agenti.",
+           "en": "Temperature changes the style of the answers, it does not make a fact passed between agents disappear."
+          }
+         },
+         {
+          "id": "E",
+          "testo": {
+           "it": "Da nessuna parte: con quattro agenti un errore ogni tanto è inevitabile",
+           "en": "Nowhere: with four agents an occasional mistake is unavoidable"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": {
+           "it": "Il guasto ha una causa precisa e una contromisura: passare una scheda strutturata e controllare ai passaggi.",
+           "en": "The fault has a precise cause and a countermeasure: passing a structured record and checking at the hand-offs."
+          }
+         }
+        ],
+        "perche": {
+         "it": "Nessun agente sbaglia del tutto: il dato si perde nel passaggio. Si cura con una scheda strutturata e un punto di controllo che confronta i dati con il CRM.",
+         "en": "No agent is fully wrong: the data is lost in the hand-off. The cure is a structured record and a checkpoint that compares the data with the CRM."
+        }
+       },
+       "livello2": {
+        "tipo": "trasferimento",
+        "domanda": {
+         "it": "Quale intervento impedisce che il vincolo si perda di nuovo, senza rifare la squadra?",
+         "en": "Which change stops the constraint from getting lost again, without rebuilding the team?"
+        },
+        "opzioni": [
+         {
+          "id": "a",
+          "testo": {
+           "it": "Una scheda a campi fissi, controllata subito con il CRM",
+           "en": "A fixed-field record, checked at once against the CRM"
+          },
+          "corretta": true,
+          "tipo_distrattore": null,
+          "spiegazione": {
+           "it": "I campi fissi non si perdono come le frasi di un riassunto, e il controllo ferma subito ciò che manca o è sbagliato.",
+           "en": "Fixed fields do not get lost like the sentences of a summary, and the check immediately stops what is missing or wrong."
+          }
+         },
+         {
+          "id": "b",
+          "testo": {
+           "it": "Chiedere a ogni agente di scrivere riassunti più lunghi",
+           "en": "Asking each agent to write longer summaries"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Riassunti più lunghi perdono meno, ma niente garantisce che il vincolo ci sia: serve un campo, non più testo.",
+           "en": "Longer summaries lose less, but nothing guarantees the constraint is there: you need a field, not more text."
+          }
+         },
+         {
+          "id": "c",
+          "testo": {
+           "it": "Mettere un solo controllo, alla fine, subito prima del report finale",
+           "en": "Putting a single check at the end, just before the final report"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Arriva tardi: l'invito di lunedì è già partito quando il controllo scatta.",
+           "en": "It comes too late: the Monday invitation has already gone out when the check runs."
+          }
+         },
+         {
+          "id": "d",
+          "testo": {
+           "it": "Aggiungere un quinto agente che riassume i riassunti",
+           "en": "Adding a fifth agent that summarises the summaries"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": {
+           "it": "Un passaggio in più è un'altra occasione di perdere dati, e costa una chiamata in più.",
+           "en": "One more hand-off is another chance to lose data, and it costs one more call."
+          }
+         },
+         {
+          "id": "e",
+          "testo": {
+           "it": "Scrivere le istruzioni degli agenti in maiuscolo",
+           "en": "Writing the agents' instructions in capital letters"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": {
+           "it": "Il carattere delle istruzioni non fa arrivare un dato che il passaggio ha perso.",
+           "en": "The type case of the instructions does not deliver data that the hand-off lost."
+          }
+         }
+        ],
+        "perche": {
+         "it": "Dati strutturati e un controllo presto, al primo passaggio: così il vincolo arriva fino all'ultimo agente.",
+         "en": "Structured data and an early check, at the first hand-off: this way the constraint reaches the last agent."
+        }
+       }
+      },
+      {
+       "id": "DA6.4-2",
+       "origine": "autori",
+       "pillola": "P6.4",
+       "concetti": [
+        "C58"
+       ],
+       "concetto_principale": "C58",
+       "segmento_aiuto": "esplode",
+       "striscia": "contro_esempio",
+       "livello1": {
+        "domanda": {
+         "it": "Le risposte del vostro agente commerciale sono buone ma non ottime. Un consulente propone: «Passiamo a 8 agenti specializzati che si parlano tutti tra loro, così la qualità sale». Che cosa rischiate?",
+         "en": "Your sales agent's answers are good but not great. A consultant proposes: «Let's move to 8 specialised agents that all talk to each other, so quality goes up». What do you risk?"
+        },
+        "opzioni": [
+         {
+          "id": "A",
+          "testo": {
+           "it": "Più chiamate e attesa, senza garanzia di qualità",
+           "en": "More calls and waiting, with no quality guarantee"
+          },
+          "corretta": true,
+          "tipo_distrattore": null,
+          "spiegazione": {
+           "it": "Con tutti che parlano con tutti i messaggi crescono molto più degli agenti, mentre la qualità dopo pochi agenti si ferma.",
+           "en": "With everyone talking to everyone the messages grow much faster than the agents, while quality stops after a few agents."
+          }
+         },
+         {
+          "id": "B",
+          "testo": {
+           "it": "Nessun rischio: più specialisti significa sempre risposte migliori",
+           "en": "No risk: more specialists always means better answers"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": {
+           "it": "Le fonti chiedono di verificare se aggiungere agenti migliora davvero la qualità: non è automatico.",
+           "en": "The sources ask you to check whether adding agents really improves quality: it is not automatic."
+          }
+         },
+         {
+          "id": "C",
+          "testo": {
+           "it": "Solo un costo di avvio, che poi si ripaga da solo",
+           "en": "Only a start-up cost, which then pays for itself"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Il coordinamento si paga a ogni compito, non una volta sola: è un costo che resta.",
+           "en": "Coordination is paid on every task, not once: it is a cost that stays."
+          }
+         },
+         {
+          "id": "D",
+          "testo": {
+           "it": "Che gli agenti si rifiutino di collaborare",
+           "en": "That the agents refuse to cooperate"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": {
+           "it": "Gli agenti non «rifiutano»: il problema sono i messaggi, i costi e i rimpalli che si moltiplicano.",
+           "en": "Agents do not «refuse»: the problem is the messages, costs and ping-pong that multiply."
+          }
+         },
+         {
+          "id": "E",
+          "testo": {
+           "it": "Una qualità più alta ma con risposte più lente, da accettare",
+           "en": "Higher quality but slower answers, to be accepted"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "La lentezza è certa, la qualità più alta no: prima si massimizza un agente e si misura.",
+           "en": "The slowness is certain, the higher quality is not: first you maximise one agent and measure."
+          }
+         }
+        ],
+        "perche": {
+         "it": "Partire semplici: si aggiunge un agente solo se migliora davvero il risultato, perché ogni agente in più costa messaggi, chiamate e attesa.",
+         "en": "Start simple: you add an agent only if it really improves the result, because every extra agent costs messages, calls and waiting."
+        }
+       },
+       "livello2": {
+        "tipo": "motivazione",
+        "domanda": {
+         "it": "Perché, con 8 agenti che si parlano tutti, il costo cresce molto più in fretta del numero di agenti?",
+         "en": "Why, with 8 agents that all talk to each other, does the cost grow much faster than the number of agents?"
+        },
+        "opzioni": [
+         {
+          "id": "a",
+          "testo": {
+           "it": "Perché le coppie di agenti crescono più degli agenti",
+           "en": "Because the pairs of agents grow faster than the agents"
+          },
+          "corretta": true,
+          "tipo_distrattore": null,
+          "spiegazione": {
+           "it": "Con 8 agenti i messaggi per compito sono 56; con un coordinatore sarebbero 14.",
+           "en": "With 8 agents there are 56 messages per task; with a coordinator there would be 14."
+          }
+         },
+         {
+          "id": "b",
+          "testo": {
+           "it": "Perché i modelli specializzati costano di più per token",
+           "en": "Because specialised models cost more per token"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Il prezzo per token non c'entra: anche a parità di prezzo i messaggi si moltiplicano.",
+           "en": "The price per token has nothing to do with it: even at the same price the messages multiply."
+          }
+         },
+         {
+          "id": "c",
+          "testo": {
+           "it": "Perché ogni agente ha bisogno di una licenza a parte",
+           "en": "Because every agent needs a separate licence"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": {
+           "it": "Le licenze possono pesare, ma la crescita veloce viene dai messaggi tra agenti.",
+           "en": "Licences may weigh, but the fast growth comes from the messages between agents."
+          }
+         },
+         {
+          "id": "d",
+          "testo": {
+           "it": "Perché il costo dipende solo dal numero di clienti, non dagli agenti",
+           "en": "Because the cost depends only on the number of customers, not on the agents"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": {
+           "it": "Ogni agente e ogni messaggio sono chiamate al modello pagate.",
+           "en": "Every agent and every message are paid model calls."
+          }
+         },
+         {
+          "id": "e",
+          "testo": {
+           "it": "Perché più agenti allungano le istruzioni di ciascuno",
+           "en": "Because more agents make each one's instructions longer"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Semmai le istruzioni si accorciano: il costo che esplode è quello del coordinamento.",
+           "en": "If anything the instructions get shorter: the cost that explodes is coordination."
+          }
+         }
+        ],
+        "perche": {
+         "it": "In una rete in cui tutti parlano con tutti i messaggi sono n·(n−1): con 8 agenti 56 per compito. Un coordinatore li riduce, ma il primo passo resta partire semplici.",
+         "en": "In a network where everyone talks to everyone there are n·(n−1) messages: with 8 agents, 56 per task. A coordinator reduces them, but the first step is still to start simple."
+        }
+       }
       }
      ]
     }
@@ -44097,6 +44429,338 @@
         "perche": {
          "it": "Ogni servizio esterno è un fornitore da cui si dipende: se cambia prezzi o condizioni bisogna sostituirlo, e più servizi significano più punti di vincolo.",
          "en": "Each outside service is a provider you depend on: if it changes prices or terms you must replace it, and more services mean more lock-in points."
+        }
+       }
+      },
+      {
+       "id": "DA8.5-4",
+       "origine": "autori",
+       "pillola": "P8.5",
+       "concetti": [
+        "C77"
+       ],
+       "concetto_principale": "C77",
+       "segmento_aiuto": "cache",
+       "striscia": "diagnosi",
+       "livello1": {
+        "domanda": {
+         "it": "Avete acceso la cache delle istruzioni ripetute, ma la bolletta del vostro agente email non scende di un euro. Le tracce mostrano che ogni prompt comincia con «Oggi è il 14/11, ore 10:32:07». Che cosa succede?",
+         "en": "You turned on the cache of the repeated instructions, but your email agent's bill does not drop by a single euro. The traces show that every prompt starts with «Today is 14/11, 10:32:07». What is happening?"
+        },
+        "opzioni": [
+         {
+          "id": "A",
+          "testo": {
+           "it": "L'inizio del prompt cambia a ogni chiamata",
+           "en": "The beginning of the prompt changes at every call"
+          },
+          "corretta": true,
+          "tipo_distrattore": null,
+          "spiegazione": {
+           "it": "La cache riusa l'inizio identico: una data e ora in testa lo rende sempre diverso.",
+           "en": "The cache reuses an identical beginning: a date and time at the top makes it always different."
+          }
+         },
+         {
+          "id": "B",
+          "testo": {
+           "it": "La cache funziona solo con il modello grande",
+           "en": "The cache only works with the large model"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Il modello non c'entra: il problema è l'inizio del testo, che non si ripete mai.",
+           "en": "The model has nothing to do with it: the problem is the beginning of the text, which never repeats."
+          }
+         },
+         {
+          "id": "C",
+          "testo": {
+           "it": "Le istruzioni sono troppo corte per essere messe in cache",
+           "en": "The instructions are too short to be cached"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Istruzioni e strumenti sono la parte più lunga e ripetuta: il guaio è la riga che le precede.",
+           "en": "Instructions and tools are the longest repeated part: the trouble is the line before them."
+          }
+         },
+         {
+          "id": "D",
+          "testo": {
+           "it": "Il fornitore ha alzato i prezzi lo stesso giorno",
+           "en": "The vendor raised its prices on the same day"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": {
+           "it": "Coincidenza improbabile: le tracce indicano già la causa, la data in testa.",
+           "en": "An unlikely coincidence: the traces already show the cause, the date at the top."
+          }
+         },
+         {
+          "id": "E",
+          "testo": {
+           "it": "La cache aumenta la qualità, non riduce i costi",
+           "en": "The cache increases quality, it does not cut costs"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": {
+           "it": "È il contrario: la cache non tocca la qualità e fa pagare la parte ripetuta circa un decimo.",
+           "en": "It is the opposite: the cache does not touch quality and charges the repeated part about a tenth."
+          }
+         }
+        ],
+        "perche": {
+         "it": "La cache funziona solo se l'inizio del prompt è identico: data e ora vanno messe in fondo, non in testa.",
+         "en": "The cache works only if the beginning of the prompt is identical: date and time go at the end, not at the top."
+        }
+       },
+       "livello2": {
+        "tipo": "trasferimento",
+        "domanda": {
+         "it": "Come sistemate il prompt per far tornare il risparmio?",
+         "en": "How do you fix the prompt to bring the saving back?"
+        },
+        "opzioni": [
+         {
+          "id": "a",
+          "testo": {
+           "it": "Parte fissa in testa, data e cliente in fondo",
+           "en": "Fixed part at the top, date and customer at the end"
+          },
+          "corretta": true,
+          "tipo_distrattore": null,
+          "spiegazione": {
+           "it": "Così la parte ripetuta resta uguale a ogni chiamata e la cache la ritrova.",
+           "en": "This way the repeated part stays the same at every call and the cache finds it again."
+          }
+         },
+         {
+          "id": "b",
+          "testo": {
+           "it": "Togliere la data dal prompt anche quando serve all'agente",
+           "en": "Removing the date from the prompt even when the agent needs it"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Risolve la cache ma toglie un dato utile: basta spostarlo in fondo.",
+           "en": "It fixes the cache but removes useful data: moving it to the end is enough."
+          }
+         },
+         {
+          "id": "c",
+          "testo": {
+           "it": "Arrotondare l'ora al minuto",
+           "en": "Rounding the time to the minute"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "L'inizio cambierebbe ancora a ogni minuto: il risparmio resterebbe quasi nullo.",
+           "en": "The beginning would still change every minute: the saving would stay almost zero."
+          }
+         },
+         {
+          "id": "d",
+          "testo": {
+           "it": "Passare al modello piccolo per compensare",
+           "en": "Switching to the small model to compensate"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": {
+           "it": "Cambia la qualità del lavoro e non ripara la cache.",
+           "en": "It changes the quality of the work and does not fix the cache."
+          }
+         },
+         {
+          "id": "e",
+          "testo": {
+           "it": "Spegnere e riaccendere la cache ogni giorno",
+           "en": "Turning the cache off and on every day"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": {
+           "it": "Non cambia niente: il problema è il testo, non l'interruttore.",
+           "en": "It changes nothing: the problem is the text, not the switch."
+          }
+         }
+        ],
+        "perche": {
+         "it": "Prima ciò che non cambia mai, poi ciò che cambia: è la regola che fa lavorare la cache.",
+         "en": "First what never changes, then what changes: that is the rule that makes the cache work."
+        }
+       }
+      },
+      {
+       "id": "DA8.5-5",
+       "origine": "autori",
+       "pillola": "P8.5",
+       "concetti": [
+        "C77"
+       ],
+       "concetto_principale": "C77",
+       "segmento_aiuto": "ruoli",
+       "striscia": "esempio_pratico",
+       "livello1": {
+        "domanda": {
+         "it": "Il vostro agente decide gli sconti per 20.000 trattative al mese. Passare dal modello grande al piccolo taglia la spesa per i token di circa 1.500 €, ma il piccolo sbaglia molti più sconti, e ognuno costa a un venditore 1,50 € di correzione. Come lo valutate?",
+         "en": "Your agent decides discounts for 20,000 deals a month. Moving from the large to the small model cuts the token spend by about €1,500, but the small model gets many more discounts wrong, and each one costs a salesperson €1.50 to correct. How do you judge it?"
+        },
+        "opzioni": [
+         {
+          "id": "A",
+          "testo": {
+           "it": "Si confronta il totale: token più rilavorazioni",
+           "en": "You compare the total: tokens plus rework"
+          },
+          "corretta": true,
+          "tipo_distrattore": null,
+          "spiegazione": {
+           "it": "Se il piccolo sbaglia qualche migliaio di sconti in più, le correzioni superano i 1.500 € risparmiati: falso risparmio.",
+           "en": "If the small model gets a few thousand more discounts wrong, the corrections exceed the €1,500 saved: a false saving."
+          }
+         },
+         {
+          "id": "B",
+          "testo": {
+           "it": "Conviene sempre: 1.500 € al mese sono un risparmio sicuro",
+           "en": "It always pays: €1,500 a month is a sure saving"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": {
+           "it": "È sicuro solo il risparmio sui token; gli errori tornano come lavoro delle persone.",
+           "en": "Only the token saving is sure; the mistakes come back as people's work."
+          }
+         },
+         {
+          "id": "C",
+          "testo": {
+           "it": "Si sceglie il piccolo e si chiede ai venditori di controllare tutto",
+           "en": "You pick the small model and ask the salespeople to check everything"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Controllare tutto è proprio la rilavorazione che mangia il risparmio.",
+           "en": "Checking everything is exactly the rework that eats the saving."
+          }
+         },
+         {
+          "id": "D",
+          "testo": {
+           "it": "Si sceglie il modello primo in classifica, per sicurezza",
+           "en": "You pick the top-ranked model, to be safe"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Il migliore in classifica non è per forza il giusto: va provato sul compito e sul costo totale.",
+           "en": "The top-ranked one is not necessarily the right one: it must be tested on the task and on the total cost."
+          }
+         },
+         {
+          "id": "E",
+          "testo": {
+           "it": "Si decide in base al nome del fornitore",
+           "en": "You decide based on the vendor's name"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": {
+           "it": "Il nome non dice niente su errori e costi del vostro compito.",
+           "en": "The name says nothing about the mistakes and costs of your task."
+          }
+         }
+        ],
+        "perche": {
+         "it": "Il conto vero è token più rilavorazioni: un modello troppo piccolo su una decisione difficile fa risparmiare token e spendere di più in correzioni.",
+         "en": "The real bill is tokens plus rework: a model that is too small on a hard decision saves tokens and spends more on corrections."
+        }
+       },
+       "livello2": {
+        "tipo": "motivazione",
+        "domanda": {
+         "it": "Perché per classificare le risposte il modello piccolo va bene, e per decidere gli sconti no?",
+         "en": "Why is the small model fine for classifying replies, but not for deciding discounts?"
+        },
+        "opzioni": [
+         {
+          "id": "a",
+          "testo": {
+           "it": "Uno è facile e l'errore costa poco, l'altro no",
+           "en": "One is easy and its mistake is cheap, the other is not"
+          },
+          "corretta": true,
+          "tipo_distrattore": null,
+          "spiegazione": {
+           "it": "Si sceglie per ruolo: il modello più economico che fa bene quel compito, guardando anche il costo dell'errore.",
+           "en": "You choose per role: the cheapest model that does that task well, looking at the cost of the mistake too."
+          }
+         },
+         {
+          "id": "b",
+          "testo": {
+           "it": "Perché il modello piccolo non sa leggere i numeri",
+           "en": "Because the small model cannot read numbers"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": {
+           "it": "Non è questione di leggere numeri: è la difficoltà della decisione.",
+           "en": "It is not about reading numbers: it is the difficulty of the decision."
+          }
+         },
+         {
+          "id": "c",
+          "testo": {
+           "it": "Perché la classificazione si fa di notte e gli sconti di giorno",
+           "en": "Because classification is done at night and discounts during the day"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "L'orario conta per la latenza, non per la qualità della decisione.",
+           "en": "The time of day matters for latency, not for the quality of the decision."
+          }
+         },
+         {
+          "id": "d",
+          "testo": {
+           "it": "Perché gli sconti richiedono sempre il modello più grande che esiste",
+           "en": "Because discounts always require the largest model there is"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": {
+           "it": "Non sempre il più grande: quello che regge alle prove su quel compito.",
+           "en": "Not always the largest: the one that holds up to the tests on that task."
+          }
+         },
+         {
+          "id": "e",
+          "testo": {
+           "it": "Perché un modello piccolo costa di più per le decisioni importanti",
+           "en": "Because a small model costs more for important decisions"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": {
+           "it": "Il prezzo per token non cambia con l'importanza: cambiano gli errori.",
+           "en": "The price per token does not change with importance: the mistakes do."
+          }
+         }
+        ],
+        "perche": {
+         "it": "Instradamento per difficoltà: piccolo dove il compito è semplice e l'errore costa poco, più capace dove l'errore pesa.",
+         "en": "Routing by difficulty: small where the task is simple and the mistake is cheap, more capable where the mistake weighs."
         }
        }
       }

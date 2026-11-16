@@ -1,0 +1,248 @@
+{
+ "id": "L_trappole_squadra",
+ "pillola": "P6.4",
+ "componente": "trappole_squadra",
+ "titolo": {"it": "Le trappole della squadra di agenti", "en": "The pitfalls of an agent team"},
+ "sottotitolo": {"it": "Una squadra CRM al lavoro: il telefono senza fili, il rimpallo infinito, il costo che esplode e il guasto che non è di nessuno.", "en": "A CRM team at work: the broken telephone, the endless ping-pong, the exploding cost and the failure that belongs to nobody."},
+ "segmenti": [
+  {
+   "id": "telefono",
+   "titolo": {"it": "Il telefono senza fili", "en": "The broken telephone"},
+   "narrazione": [
+    {"it": "Quattro agenti lavorano in fila: qualifica, email, invito all'evento, report. Ognuno passa al successivo un riassunto, e a ogni passaggio qualcosa si perde o si storce: se il primo scrive «Spagna» invece di «Italia», gli altri lo prendono per buono.", "en": "Four agents work in a row: qualification, email, event invitation, report. Each one passes a summary to the next, and at every hand-off something gets lost or bent: if the first writes «Spain» instead of «Italy», the others take it at face value."},
+    {"it": "Nessun allarme scatta, perché ogni passo «funziona». La contromisura è un punto di controllo al passaggio, che confronta i dati con il CRM: costa una chiamata, ma ferma la macchia.", "en": "No alarm goes off, because every step «works». The countermeasure is a checkpoint at the hand-off that compares the data with the CRM: it costs one call, but it stops the stain."}
+   ],
+   "prova": {"it": "Accendi l'errore iniziale e segui la macchia. Poi metti un controllo dopo Qualifica e prova la «scheda strutturata» al posto del riassunto.", "en": "Turn on the initial error and follow the stain. Then put a check after Qualification and try the «structured record» instead of the summary."},
+   "concetti": ["C58"],
+   "stato_animazione": {"vista": "catena", "errore": false, "passaggio": "riassunto", "controlli": [], "limite": 0, "ruoli_chiari": false, "agenti": 4, "topologia": "tutti", "traccia": false, "sospettato": "", "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "rimpallo",
+   "titolo": {"it": "Il rimpallo infinito", "en": "The endless ping-pong"},
+   "narrazione": [
+    {"it": "Il cliente scrive: «Passo al piano Pro, ma la fattura di marzo è sbagliata». Vendite gira la fattura ad Assistenza, Assistenza gira il cambio di piano a Vendite, e così via: il grafo dei messaggi cresce e il costo sale senza fine.", "en": "The customer writes: «I'm moving to the Pro plan, but the March invoice is wrong». Sales passes the invoice to Support, Support passes the plan change to Sales, and so on: the message graph grows and the cost rises without end."},
+    {"it": "Servono due difese: un limite globale di passaggi per tutta la richiesta, che poi passa la mano a una persona, e ruoli chiari su chi decide cosa.", "en": "Two defences are needed: a global limit on hand-offs for the whole request, which then hands over to a person, and clear roles on who decides what."}
+   ],
+   "prova": {"it": "Lascia il limite a «nessuno» e guarda il contatore. Poi metti il limite a 4, e infine accendi «ruoli chiari».", "en": "Leave the limit at «none» and watch the counter. Then set the limit to 4, and finally turn on «clear roles»."},
+   "concetti": ["C58"],
+   "stato_animazione": {"vista": "rimpallo", "errore": false, "passaggio": "riassunto", "controlli": [], "limite": 0, "ruoli_chiari": false, "agenti": 4, "topologia": "tutti", "traccia": false, "sospettato": "", "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "esplode",
+   "titolo": {"it": "Il costo che esplode", "en": "The exploding cost"},
+   "narrazione": [
+    {"it": "Ogni agente in più aggiunge chiamate al modello e attesa. Se tutti parlano con tutti, i messaggi crescono molto più in fretta degli agenti: con 8 agenti sono 56 per ogni compito.", "en": "Every extra agent adds calls to the model and waiting. If everyone talks to everyone, the messages grow much faster than the agents: with 8 agents there are 56 for every task."},
+    {"it": "La qualità invece sale solo all'inizio, poi si ferma e cala. La regola è partire semplici: si aggiunge un agente solo se migliora davvero il risultato.", "en": "Quality, instead, rises only at the start, then stops and drops. The rule is to start simple: you add an agent only if it really improves the result."}
+   ],
+   "prova": {"it": "Porta gli agenti da 2 a 8 con «tutti con tutti», poi passa a «coordinatore» e confronta il costo del mese.", "en": "Take the agents from 2 to 8 with «everyone with everyone», then switch to «coordinator» and compare the monthly cost."},
+   "concetti": ["C58"],
+   "stato_animazione": {"vista": "esplode", "errore": false, "passaggio": "riassunto", "controlli": [], "limite": 0, "ruoli_chiari": false, "agenti": 2, "topologia": "tutti", "traccia": false, "sospettato": "", "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "colpa",
+   "titolo": {"it": "Di chi è la colpa?", "en": "Whose fault is it?"},
+   "narrazione": [
+    {"it": "Il report dice zero risposte positive alla campagna di ottobre, ma erano sette. Quattro agenti, e ognuno ha un registro in ordine: il guasto non appartiene a nessuno da solo.", "en": "The report says zero positive replies to the October campaign, but there were seven. Four agents, and each one has a tidy log: the failure belongs to no one alone."},
+    {"it": "Un identificativo comune su ogni richiesta (trace ID) ricompone il percorso: si vede chi ha sovrascritto lo stato «interessato» con «perso».", "en": "A shared identifier on every request (trace ID) puts the path back together: you can see who overwrote the status «interested» with «lost»."}
+   ],
+   "prova": {"it": "Indica il colpevole senza identificativo, poi accendilo e riprova.", "en": "Point out the culprit without the identifier, then turn it on and try again."},
+   "concetti": ["C58"],
+   "stato_animazione": {"vista": "colpa", "errore": false, "passaggio": "riassunto", "controlli": [], "limite": 0, "ruoli_chiari": false, "agenti": 4, "topologia": "tutti", "traccia": false, "sospettato": "", "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "decidi_trappole",
+   "titolo": {"it": "Decidi tu: quale contromisura?", "en": "You decide: which countermeasure?"},
+   "narrazione": [
+    {"it": "Cinque guai di una squadra di marketing e vendite. Per ognuno scegli la contromisura che lo ferma alla radice.", "en": "Five problems of a marketing and sales team. For each one choose the countermeasure that stops it at the root."}
+   ],
+   "prova": {"it": "Scegli una contromisura per ogni caso, poi premi «Controlla» e leggi il perché.", "en": "Choose a countermeasure for each case, then press «Check» and read why."},
+   "concetti": ["C58"],
+   "stato_animazione": {"vista": "decidi", "errore": false, "passaggio": "riassunto", "controlli": [], "limite": 0, "ruoli_chiari": false, "agenti": 4, "topologia": "tutti", "traccia": false, "sospettato": "", "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "riassunto",
+   "titolo": {"it": "In tre frasi", "en": "In three sentences"},
+   "narrazione": [
+    {"it": "In una squadra di agenti un errore passa di mano in mano e si allarga: un punto di controllo al passaggio lo ferma.", "en": "In a team of agents a mistake passes from hand to hand and spreads: a checkpoint at the hand-off stops it."},
+    {"it": "Due agenti possono rimpallarsi un compito senza fine: servono un limite globale di passaggi, una persona a cui passare la mano e ruoli chiari.", "en": "Two agents can bounce a task back and forth endlessly: you need a global hand-off limit, a person to hand over to, and clear roles."},
+    {"it": "Ogni agente in più costa messaggi e attesa e rende più difficile trovare il colpevole: si parte semplici e si traccia ogni richiesta con un identificativo comune.", "en": "Every extra agent costs messages and waiting and makes it harder to find the culprit: you start simple and track every request with a shared identifier."}
+   ],
+   "concetti": ["C58"],
+   "stato_animazione": {"vista": "catena", "errore": true, "passaggio": "scheda", "controlli": [1], "limite": 0, "ruoli_chiari": false, "agenti": 4, "topologia": "tutti", "traccia": false, "sospettato": "", "scelte": {}, "verificato": false}
+  }
+ ],
+ "scenario": {
+  "costo": {
+   "token_per_chiamata": 2500,
+   "euro_per_milione_token": 3,
+   "compiti_mese": 10000,
+   "secondi_per_chiamata": 1.5,
+   "nota": {"it": "Prezzi e token d'esempio, illustrativi: le fonti non misurano quanto costa ogni agente in più.", "en": "Example prices and tokens, illustrative: the sources do not measure how much each extra agent costs."}
+  },
+  "catena": {
+   "agenti": [
+    {"id": "qualifica", "nome": {"it": "Qualifica", "en": "Qualification"}, "colore": "#8b5cf6", "usa": ["paese"], "prodotto": {"it": "Lead di {paese}", "en": "Lead from {paese}"}},
+    {"id": "email", "nome": {"it": "Email", "en": "Email"}, "colore": "#0ea5e9", "usa": ["paese", "vincolo"], "prodotto": {"it": "Email in {lingua}", "en": "Email in {lingua}"}},
+    {"id": "evento", "nome": {"it": "Evento", "en": "Event"}, "colore": "#f59e0b", "usa": ["paese", "budget"], "prodotto": {"it": "Invito a {citta}", "en": "Invitation to {citta}"}},
+    {"id": "report", "nome": {"it": "Report", "en": "Report"}, "colore": "#10b981", "usa": ["paese", "budget", "interesse"], "prodotto": {"it": "Report: lead di {paese}", "en": "Report: lead from {paese}"}}
+   ],
+   "fatti": [
+    {"id": "paese", "etichetta": {"it": "Paese", "en": "Country"}, "valore": {"it": "Italia", "en": "Italy"}, "errato": {"it": "Spagna", "en": "Spain"}, "perso_al": null},
+    {"id": "vincolo", "etichetta": {"it": "Vincolo", "en": "Constraint"}, "valore": {"it": "non chiamare il lunedì", "en": "do not call on Mondays"}, "errato": null, "perso_al": 1},
+    {"id": "budget", "etichetta": {"it": "Budget", "en": "Budget"}, "valore": {"it": "5.000 €", "en": "€5,000"}, "errato": null, "perso_al": 2},
+    {"id": "interesse", "etichetta": {"it": "Interesse", "en": "Interest"}, "valore": {"it": "CRM per 20 venditori", "en": "CRM for 20 salespeople"}, "errato": null, "perso_al": 3}
+   ],
+   "derivati": {
+    "lingua": {"giusto": {"it": "italiano", "en": "Italian"}, "errato": {"it": "spagnolo", "en": "Spanish"}},
+    "citta": {"giusto": {"it": "Milano", "en": "Milan"}, "errato": {"it": "Madrid", "en": "Madrid"}}
+   },
+   "chiamate_per_controllo": 1
+  },
+  "rimpallo": {
+   "limite": {"min": 0, "max": 12, "passo": 1, "etichetta": {"it": "Limite globale di passaggi", "en": "Global hand-off limit"}},
+   "simulazione_max": 30,
+   "passaggi_con_ruoli": 1,
+   "nodi": [
+    {"id": "vendite", "nome": {"it": "Vendite", "en": "Sales"}, "colore": "#f59e0b"},
+    {"id": "assistenza", "nome": {"it": "Assistenza", "en": "Support"}, "colore": "#0ea5e9"},
+    {"id": "persona", "nome": {"it": "Operatore", "en": "Operator"}, "colore": "#e11d48"}
+   ],
+   "richiesta": {"it": "«Passo al piano Pro, ma la fattura di marzo è sbagliata.»", "en": "«I'm moving to the Pro plan, but the March invoice is wrong.»"},
+   "battute": {
+    "vendite": {"it": "Vendite: «C'è una fattura: la passo ad Assistenza.»", "en": "Sales: «There is an invoice: passing it to Support.»"},
+    "assistenza": {"it": "Assistenza: «C'è un cambio di piano: lo passo a Vendite.»", "en": "Support: «There is a plan change: passing it to Sales.»"},
+    "ruoli": {"it": "Vendite cambia il piano e passa solo la fattura ad Assistenza, che la corregge e chiude.", "en": "Sales changes the plan and passes only the invoice to Support, which corrects it and closes."}
+   }
+  },
+  "esplode": {
+   "agenti": {"min": 1, "max": 8, "passo": 1, "etichetta": {"it": "Numero di agenti", "en": "Number of agents"}},
+   "nomi": [
+    {"it": "Coordinatore", "en": "Coordinator"}, {"it": "Ricerca", "en": "Research"}, {"it": "Punteggio", "en": "Scoring"}, {"it": "Email", "en": "Email"},
+    {"it": "Eventi", "en": "Events"}, {"it": "Report", "en": "Report"}, {"it": "Revisore", "en": "Reviewer"}, {"it": "Privacy", "en": "Privacy"}
+   ],
+   "qualita": [78, 86, 90, 91, 91, 90, 88, 86]
+  },
+  "colpa": {
+   "richiesta": "REQ-0412",
+   "agenti": [
+    {"id": "smistatore", "nome": {"it": "Smistatore", "en": "Sorter"}, "colore": "#8b5cf6"},
+    {"id": "classificatore", "nome": {"it": "Classificatore", "en": "Classifier"}, "colore": "#0ea5e9"},
+    {"id": "pulizia", "nome": {"it": "Pulizia dati", "en": "Data cleaning"}, "colore": "#f59e0b"},
+    {"id": "report", "nome": {"it": "Report", "en": "Report"}, "colore": "#10b981"}
+   ],
+   "colpevole": "pulizia",
+   "eventi": [
+    {"req": "REQ-0410", "ora": "10:00", "agente": "smistatore", "testo": {"it": "importa 40 contatti dalla fiera", "en": "imports 40 contacts from the trade fair"}},
+    {"req": "REQ-0410", "ora": "10:01", "agente": "classificatore", "testo": {"it": "assegna il settore ai 40 contatti", "en": "assigns the sector to the 40 contacts"}},
+    {"req": "REQ-0412", "ora": "10:01", "agente": "smistatore", "testo": {"it": "raccoglie 23 risposte alla campagna di ottobre", "en": "collects 23 replies to the October campaign"}},
+    {"req": "REQ-0411", "ora": "10:01", "agente": "classificatore", "testo": {"it": "etichetta 5 disiscrizioni dalla newsletter", "en": "labels 5 newsletter unsubscribes"}},
+    {"req": "REQ-0412", "ora": "10:02", "agente": "classificatore", "testo": {"it": "segna 7 risposte come «interessato»", "en": "marks 7 replies as «interested»"}},
+    {"req": "REQ-0410", "ora": "10:02", "agente": "pulizia", "testo": {"it": "unisce 3 doppioni della fiera", "en": "merges 3 trade fair duplicates"}},
+    {"req": "REQ-0412", "ora": "10:03", "agente": "pulizia", "testo": {"it": "«nessuna attività da 30 giorni»: mette 7 schede a «perso»", "en": "«no activity for 30 days»: sets 7 records to «lost»"}},
+    {"req": "REQ-0411", "ora": "10:03", "agente": "pulizia", "testo": {"it": "toglie 5 indirizzi dalla lista", "en": "removes 5 addresses from the list"}},
+    {"req": "REQ-0410", "ora": "10:04", "agente": "report", "testo": {"it": "fiera: 37 nuovi lead", "en": "trade fair: 37 new leads"}},
+    {"req": "REQ-0412", "ora": "10:04", "agente": "report", "testo": {"it": "campagna di ottobre: 0 risposte positive", "en": "October campaign: 0 positive replies"}},
+    {"req": "REQ-0411", "ora": "10:05", "agente": "report", "testo": {"it": "newsletter: 5 disiscritti", "en": "newsletter: 5 unsubscribed"}}
+   ],
+   "spiega": {
+    "giusto": {"it": "Giusto: Pulizia dati ha letto la data dell'ultima email inviata, non quella della risposta, e ha sovrascritto «interessato» con «perso». Il Report ha solo contato ciò che trovava.", "en": "Right: Data cleaning read the date of the last email sent, not the date of the reply, and overwrote «interested» with «lost». The Report only counted what it found."},
+    "sbagliato": {"it": "No: segui le righe di {req}. {nome} ha fatto il suo lavoro con i dati che ha ricevuto.", "en": "No: follow the lines of {req}. {nome} did its job with the data it received."},
+    "non_dimostrabile": {"it": "Forse, ma non puoi dimostrarlo: le righe di tre richieste sono mescolate e ogni registro, da solo, sembra in ordine.", "en": "Maybe, but you cannot prove it: the lines of three requests are mixed and each log, on its own, looks fine."}
+   }
+  },
+  "risposte_gioco": [
+   {"id": "controllo", "nome": {"it": "Controllo al passaggio", "en": "Hand-off check"}},
+   {"id": "limite", "nome": {"it": "Limite di passaggi + persona", "en": "Hand-off limit + person"}},
+   {"id": "traccia", "nome": {"it": "Identificativo comune", "en": "Shared identifier"}},
+   {"id": "ruoli", "nome": {"it": "Ruoli e permessi chiari", "en": "Clear roles and permissions"}},
+   {"id": "semplice", "nome": {"it": "Parti da un agente", "en": "Start with one agent"}}
+  ],
+  "casi": [
+   {"id": "k1", "testo": {"it": "Un cliente di Milano riceve l'email in spagnolo: il primo agente aveva sbagliato il paese e nessuno se n'è accorto.", "en": "A customer in Milan gets the email in Spanish: the first agent got the country wrong and nobody noticed."},
+    "migliore": "controllo", "quasi": ["traccia"],
+    "spiega": {"it": "L'errore passa di mano in mano: un controllo al primo passaggio lo ferma prima dei danni. La traccia aiuta solo dopo.", "en": "The mistake passes from hand to hand: a check at the first hand-off stops it before the damage. The trace only helps afterwards."}},
+   {"id": "k2", "testo": {"it": "Vendite e Assistenza si rimandano da un'ora la stessa richiesta di un cliente.", "en": "Sales and Support have been bouncing the same customer request for an hour."},
+    "migliore": "limite", "quasi": ["ruoli"],
+    "spiega": {"it": "Un limite globale ferma il ciclo e passa la mano a una persona. Chiarire i ruoli aiuta, ma da solo non garantisce lo stop.", "en": "A global limit stops the loop and hands over to a person. Clarifying roles helps, but on its own it does not guarantee the stop."}},
+   {"id": "k3", "testo": {"it": "Il report è sbagliato, cinque agenti sono coinvolti e ognuno dice che il suo pezzo funzionava.", "en": "The report is wrong, five agents are involved and each one says its part worked."},
+    "migliore": "traccia", "quasi": [],
+    "spiega": {"it": "Con lo stesso identificativo su ogni passo si ricostruisce il percorso della richiesta e si vede dove nasce l'errore.", "en": "With the same identifier on every step you rebuild the path of the request and see where the mistake starts."}},
+   {"id": "k4", "testo": {"it": "Due agenti riscrivono a turno lo stesso campo «stato» del CRM, ognuno con la sua regola.", "en": "Two agents take turns rewriting the same «status» field in the CRM, each with its own rule."},
+    "migliore": "ruoli", "quasi": ["traccia"],
+    "spiega": {"it": "Un campo deve avere un solo agente che lo scrive: ruoli e permessi chiari tolgono la gara. La traccia mostra il problema, non lo toglie.", "en": "A field must have only one agent that writes it: clear roles and permissions remove the contest. The trace shows the problem, it does not remove it."}},
+   {"id": "k5", "testo": {"it": "Per rispondere sui prezzi del listino il team propone sei agenti che si parlano tutti tra loro.", "en": "To answer questions about list prices the team proposes six agents that all talk to each other."},
+    "migliore": "semplice", "quasi": [],
+    "spiega": {"it": "Compito semplice: sei agenti costano messaggi e attesa senza migliorare la risposta. Prima si massimizza un agente.", "en": "A simple task: six agents cost messages and waiting without improving the answer. First you maximise one agent."}}
+  ],
+  "testi": {
+   "formato_valore": {"it": "{n}", "en": "{n}"},
+   "nessun_limite": {"it": "nessuno", "en": "none"},
+   "euro": {"it": "{n} €", "en": "€{n}"},
+   "secondi": {"it": "{n} s", "en": "{n} s"},
+   "percento": {"it": "{n}%", "en": "{n}%"},
+   "perso": {"it": "perso", "en": "lost"},
+   "fatti_intatti": {"it": "Fatti arrivati intatti al report: {n} su {totale}", "en": "Facts reaching the report intact: {n} of {totale}"},
+   "avvisi": {"it": "Avvisi dei controlli: {n}", "en": "Checkpoint warnings: {n}"},
+   "esito_catena_ok": {"it": "Il cliente riceve il messaggio giusto.", "en": "The customer gets the right message."},
+   "esito_catena_male": {"it": "Agenti che lavorano su dati sbagliati o mancanti: {elenco}.", "en": "Agents working on wrong or missing data: {elenco}."},
+   "avviso_controllo": {"it": "Controllo dopo {nome}: dati confrontati con il CRM e corretti.", "en": "Check after {nome}: data compared with the CRM and corrected."},
+   "passaggi": {"it": "Passaggi: {n}", "en": "Hand-offs: {n}"},
+   "passaggi_infiniti": {"it": "Passaggi: {n} e ancora avanti…", "en": "Hand-offs: {n} and still going…"},
+   "esito_infinito": {"it": "Ciclo senza fine: lo ferma solo la simulazione, nella realtà continuerebbe a pagare.", "en": "Endless loop: only the simulation stops it; in reality it would keep paying."},
+   "esito_persona": {"it": "Raggiunto il limite: la richiesta passa a un operatore umano.", "en": "Limit reached: the request goes to a human operator."},
+   "esito_risolto": {"it": "Risolta subito: ognuno fa la sua parte e passa solo ciò che non è suo.", "en": "Solved right away: each one does its part and passes on only what is not its own."},
+   "messaggi_compito": {"it": "Messaggi per compito: {n}", "en": "Messages per task: {n}"},
+   "qualita": {"it": "Qualità del risultato (illustrativa): {n}%", "en": "Quality of the result (illustrative): {n}%"},
+   "consiglio_esplode_ok": {"it": "Ogni agente in più qui migliora ancora il risultato.", "en": "Each extra agent here still improves the result."},
+   "consiglio_esplode_spreco": {"it": "Più agenti di così non migliorano il risultato: paghi solo coordinamento.", "en": "More agents than this do not improve the result: you only pay for coordination."},
+   "registro_mescolato": {"it": "Registro: {n} righe, tre richieste mescolate.", "en": "Log: {n} lines, three requests mixed."},
+   "registro_tracciato": {"it": "Righe di {req} evidenziate: il percorso di una sola richiesta.", "en": "Lines of {req} highlighted: the path of a single request."},
+   "chi_ha_sbagliato": {"it": "Chi ha sbagliato?", "en": "Who made the mistake?"},
+   "indica": {"it": "Indica {nome} come colpevole", "en": "Point to {nome} as the culprit"},
+   "controllo_dopo": {"it": "Controllo dopo {nome}", "en": "Check after {nome}"},
+   "scegli_per": {"it": "Risposta per il caso {n}", "en": "Answer for case {n}"},
+   "caso": {"it": "Caso {n}", "en": "Case {n}"},
+   "ver_giusto": {"it": "Caso {n}: giusto. {spiega}", "en": "Case {n}: right. {spiega}"},
+   "ver_quasi": {"it": "Caso {n}: aiuta, ma meglio «{migliore}». {spiega}", "en": "Case {n}: it helps, but «{migliore}» is better. {spiega}"},
+   "ver_sbagliato": {"it": "Caso {n}: no, meglio «{migliore}». {spiega}", "en": "Case {n}: no, «{migliore}» is better. {spiega}"},
+   "ver_vuoto": {"it": "Caso {n}: non hai scelto. La risposta migliore è «{migliore}». {spiega}", "en": "Case {n}: you did not choose. The best answer is «{migliore}». {spiega}"},
+   "ver_punteggio": {"it": "Risposte migliori: {giuste} su {totali}.", "en": "Best answers: {giuste} of {totali}."},
+   "ver_tutto_giusto": {"it": "Perfetto: per ogni trappola hai scelto la contromisura alla radice.", "en": "Perfect: for each pitfall you chose the root countermeasure."}
+  },
+  "etichette": {
+   "titolo_comandi": {"it": "Prova a cambiare", "en": "Try changing"},
+   "vista": {"it": "Trappola", "en": "Pitfall"},
+   "vista_catena": {"it": "Telefono", "en": "Telephone"},
+   "vista_rimpallo": {"it": "Rimpallo", "en": "Ping-pong"},
+   "vista_esplode": {"it": "Costo", "en": "Cost"},
+   "vista_colpa": {"it": "Colpa", "en": "Blame"},
+   "vista_decidi": {"it": "Decidi tu", "en": "You decide"},
+   "errore": {"it": "Errore iniziale: «Spagna» al posto di «Italia»", "en": "Initial error: «Spain» instead of «Italy»"},
+   "passaggio": {"it": "Come passano i dati", "en": "How the data is passed"},
+   "passaggio_riassunto": {"it": "Riassunto libero", "en": "Free summary"},
+   "passaggio_scheda": {"it": "Scheda strutturata", "en": "Structured record"},
+   "ruoli_chiari": {"it": "Ruoli chiari: chi decide cosa", "en": "Clear roles: who decides what"},
+   "topologia": {"it": "Chi parla con chi", "en": "Who talks to whom"},
+   "topologia_tutti": {"it": "Tutti con tutti", "en": "Everyone with everyone"},
+   "topologia_coordinatore": {"it": "Coordinatore", "en": "Coordinator"},
+   "traccia": {"it": "Identificativo comune (trace ID)", "en": "Shared identifier (trace ID)"},
+   "scegli": {"it": "— scegli —", "en": "— choose —"},
+   "controlla": {"it": "Controlla", "en": "Check"},
+   "titolo_scheda": {"it": "Il contatore", "en": "The counter"},
+   "chiamate": {"it": "Chiamate al modello per compito", "en": "Model calls per task"},
+   "token": {"it": "Token per compito", "en": "Tokens per task"},
+   "costo_compito": {"it": "Costo per compito", "en": "Cost per task"},
+   "costo_mese": {"it": "Costo al mese ({n} compiti)", "en": "Cost per month ({n} tasks)"},
+   "attesa": {"it": "Attesa per compito", "en": "Waiting per task"},
+   "titolo_catena": {"it": "QUATTRO AGENTI IN FILA", "en": "FOUR AGENTS IN A ROW"},
+   "titolo_rimpallo": {"it": "DUE AGENTI E UNA RICHIESTA", "en": "TWO AGENTS AND ONE REQUEST"},
+   "titolo_esplode": {"it": "IL GRAFO DEI MESSAGGI", "en": "THE MESSAGE GRAPH"},
+   "titolo_colpa": {"it": "IL REGISTRO DELLA SQUADRA", "en": "THE TEAM'S LOG"},
+   "titolo_decidi": {"it": "CINQUE GUAI, CINQUE CONTROMISURE", "en": "FIVE PROBLEMS, FIVE COUNTERMEASURES"},
+   "dati_crm": {"it": "Scheda nel CRM", "en": "Record in the CRM"},
+   "regola": {"it": "Parti semplice; poi controlli ai passaggi, limiti globali, ruoli chiari, un identificativo comune.", "en": "Start simple; then hand-off checks, global limits, clear roles, a shared identifier."},
+   "descrizione_scena": {"it": "Una squadra di agenti collegati da frecce che portano i messaggi; il numero su ogni freccia conta i messaggi passati.", "en": "A team of agents connected by arrows carrying the messages; the number on each arrow counts the messages passed."}
+  }
+ },
+ "domande": []
+}

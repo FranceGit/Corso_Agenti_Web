@@ -16,6 +16,7 @@ LEZIONI_M6_M8 = {
     "P6.1": "uno_o_tanti",
     "P6.2": "schemi_orchestrazione",
     "P6.3": "due_piani_agenti",
+    "P6.4": "trappole_squadra",
     "P7.1": "cinque_strade",
     "P7.2": "tre_pilastri",
     "P7.3": "griglia_test",
@@ -25,14 +26,15 @@ LEZIONI_M6_M8 = {
     "P8.2": "smistatore_rischio",
     "P8.3": "plancia_controllo",
     "P8.4": "caveau_dati",
+    "P8.5": "bolletta_agente",
     "P8.6": "blueprint_crm",
 }
 LABORATORI_M6_M8 = {"P8.1": "rilascio_canary"}
 
-# Pillole senza lezione propria in questo cantiere (scelta dichiarata in PROGRESSI, fase 6): P6.4 (trappole del
-# multi-agente: la propagazione dell'errore e il limite di giri sono gia' manipolabili in schemi_orchestrazione)
-# e P8.5 (costi e scelta del modello). Le loro domande restano con l'aiuto sulla scaletta.
-SENZA_LEZIONE = {"P6.4", "P8.5"}
+# Pillole senza lezione propria: nessuna. P6.4 (trappole del multi-agente) e P8.5 (costi) erano rimaste sulla
+# scaletta nella fase 6 e hanno avuto la loro lezione nel cantiere dei completamenti (trappole_squadra,
+# bolletta_agente). Le loro domande benchmark conservano l'aiuto sulla scaletta, che resta valido.
+SENZA_LEZIONE: set[str] = set()
 
 # domande v2 scritte insieme alle lezioni (lotti strumenti/domande_autori/lotto_m6_*, lotto_m7_*, lotto_m8_*)
 NUOVE = {
@@ -42,6 +44,8 @@ NUOVE = {
     "P8.1": ["DA8.1-4", "DA8.1-5", "DA8.1-6", "DA8.1-7"], "P8.2": ["DA8.2-4", "DA8.2-5"],
     "P8.3": ["DA8.3-4", "DA8.3-5", "DA8.3-6"], "P8.4": ["DA8.4-4", "DA8.4-5", "DA8.4-6"],
     "P8.6": ["DA8.6-1", "DA8.6-2", "DA8.6-3"],
+    # cantiere dei completamenti
+    "P6.4": ["DA6.4-1", "DA6.4-2"], "P8.5": ["DA8.5-4", "DA8.5-5"],
 }
 AIUTO_NEL_LABORATORIO = {"DA8.1-6", "DA8.1-7"}
 
@@ -129,5 +133,32 @@ def test_handoff_e_quattro_pilastri_della_qualita(catalogo_vero):
 def test_contenuti_senza_fonte_dichiarati(catalogo_vero):
     """Bias del giudice di lunghezza e auto-preferenza [EXP]; kill switch e fail-closed dal benchmark [R15]."""
     marcatura = re.compile(r"\[EXP\]|\[R15\]|non (è|e') (nelle|scritt)|non compa|fonti? non|competenza|esperienza del progettista|benchmark", re.I)
-    for pid in ("P7.4", "P8.2", "P8.3", "P8.4"):
+    for pid in ("P6.4", "P7.4", "P8.2", "P8.3", "P8.4", "P8.5"):
         assert marcatura.search(testo(catalogo_vero.lezioni[pid], "it")), pid
+
+
+def test_trappole_del_multi_agente(catalogo_vero):
+    """P6.4: le quattro trappole (telefono senza fili, rimpallo, costo, colpa) con contatore e grafo dei messaggi;
+    l'identificativo comune si chiama trace ID (WP5 p.32), non correlation id."""
+    lez = catalogo_vero.lezioni["P6.4"]
+    viste = {s.stato_animazione["vista"] for s in lez.segmenti}
+    assert {"catena", "rimpallo", "esplode", "colpa", "decidi"} <= viste
+    en = testo(lez, "en").lower()
+    assert "trace id" in en and "correlation" not in en
+    sc = lez.scenario
+    assert sc["rimpallo"]["limite"]["min"] == 0, "deve esistere lo stato senza limite (il ciclo infinito)"
+    assert sc["colpa"]["colpevole"] in {a["id"] for a in sc["colpa"]["agenti"]}
+
+
+def test_costi_con_prezzi_dichiarati_illustrativi(catalogo_vero):
+    """P8.5: prezzi d'esempio dichiarati illustrativi; rapporti dalle fonti (uscita 5x ingresso, cache un decimo)."""
+    lez = catalogo_vero.lezioni["P8.5"]
+    sc = lez.scenario
+    assert re.search(r"illustrativ", str(sc["testi"]["nota_prezzi"]["it"]), re.I)
+    assert re.search(r"illustrati", str(sc["testi"]["nota_prezzi"]["en"]), re.I)
+    for m in sc["modelli"]:
+        assert m["euro_uscita"] == 5 * m["euro_ingresso"], m["id"]
+    assert sc["cache"]["rapporto_prezzo"] == 0.1
+    assert [m["id"] for m in sc["modelli"]] == ["piccolo", "medio", "grande"]
+    concetti = {c for s in lez.segmenti for c in s.concetti}
+    assert concetti == set(catalogo_vero.pillola("P8.5").concetti)

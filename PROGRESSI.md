@@ -1,5 +1,47 @@
 # PROGRESSI — Corso Agenti Web
 
+## Stato al 16/11/2026 — cantiere COMPLETAMENTI: lezioni P6.4 e P8.5 + esercizi 4-6
+Commit `fc1d317` (esercizi) e successivo (lezioni). Ora **ogni pillola di M1-M8 ha la sua lezione** tranne P3.3 (scelta dichiarata della fase 4).
+
+### Fatto — lezioni
+1. **P6.4 `trappole_squadra` «Le trappole della squadra di agenti»** (426 parole, 5 passi + riassunto). Contatore dei costi (chiamate, token, € per compito e al mese, attesa) e grafo dei messaggi sempre visibili:
+   - telefono senza fili: catena Qualifica → Email → Evento → Report, riassunto libero che perde un fatto a ogni passaggio contro scheda strutturata, errore iniziale «Spagna», punti di controllo cliccabili sui passaggi (fermano la macchia, costano una chiamata);
+   - rimpallo infinito Vendite ↔ Assistenza: limite globale 0 («nessuno»)-12 con passaggio all'operatore, ruoli chiari;
+   - costo che esplode: 1-8 agenti, «tutti con tutti» n·(n−1) contro coordinatore 2·(n−1), qualità che si ferma e cala;
+   - responsabilità di nessuno: registro di 3 richieste mescolate; con l'identificativo comune (trace ID, WP5 p.32, non «correlation id») si segue REQ-0412 e si dimostra chi ha sovrascritto «interessato» con «perso»;
+   - «Decidi tu»: 5 guai, 5 contromisure.
+2. **P8.5 `bolletta_agente` «La bolletta dell'agente»** (379 parole). Cruscotto con compiti al mese, token per chiamata, chiamate per compito, modello piccolo/medio/grande (uno per tutti o uno per ruolo: classifica, email, offerta), cache della parte ripetuta e «data e ora in testa» che la annulla. Bolletta a due righe (chiamate al modello e rilavorazioni) con barre partenza/adesso. Si vede il risparmio vero (cache, modello giusto per ruolo, meno giri a vuoto) e il falso risparmio (piccolo sull'offerta, troppo pochi giri). «Decidi tu» su 5 proposte, una sul lock-in (C78).
+   - **Prezzi d'esempio dichiarati illustrativi** a schermo. Dalle fonti vengono solo i rapporti: uscita 5× l'ingresso, cache 1/10 (R10). Costo dell'errore e qualità per ruolo sono illustrativi, dichiarati [EXP].
+3. **4 domande v2** (lotti `lotto_m6_trappole_squadra.json`, `lotto_m8_bolletta_agente.json`, inserite). Aiuto su un passo della lezione, corretta mai l'opzione più lunga:
+   - DA6.4-1 diagnosi (telefono senza fili), DA6.4-2 contro-esempio (8 agenti «tutti con tutti»);
+   - DA8.5-4 diagnosi (cache annullata dalla data in testa), DA8.5-5 esempio pratico (falso risparmio sugli sconti).
+   - Fabbisogno rigenerato: 40/40 spicchi erogabili, 0 domande mancanti. P6.4 ora copre tutte e 4 le strisce (era solo definizione + esempio); C77 copre tutte e 4; C78 ne copre 3.
+4. **Test**:
+   - pytest `tests/` 181 verdi + 1 saltato (copertura 98%), `esercizi/tests` 143 verdi;
+   - prove Node 548 (+32 delle due lezioni);
+   - prova di fumo jsdom IT/EN di ogni passo e comando: 0 errori;
+   - browser simulato contro il server vero (P6.4 e P8.5 in IT e EN, ogni passo con tutti i comandi toccati, aiuti verso i passi e verso la scaletta, spicchi M6-M8 tutti erogabili e con lezione): 24 passi, 314 azioni, 0 errori. Script in `C:\Users\User\AppData\Local\Claude-Data\claude_pzs8sxrjxfjjc\local-agent-mode-sessions\db921416-4ab5-4b00-861b-b895d61f5223\0d0aa5bc-a6bb-4d37-ba5e-829b82276bbe\local_ee99c290-884d-4831-90dc-c89f562a3f9e\outputs\completamenti\collaudo\`.
+   - Test aggiornati (dichiarati): in `tests/test_lezioni_m6_m8.py` `SENZA_LEZIONE` è ora vuoto e P6.4/P8.5 entrano in `LEZIONI_M6_M8` e `NUOVE`. Due test nuovi: trappole con trace ID; prezzi illustrativi con rapporti 5× e 1/10.
+
+### Fatto — esercizi 4-6 (stesso motore, correttore deterministico, voto riproducibile, IT/EN; tocca solo `esercizi/`)
+1. **Esercizio 4 «Chiedere all'LLM, ma con una rubrica»** (piano 3). Lo studente compone le istruzioni da 10 blocchi e le prova sui 10 lead visibili. Il correttore le manda sui 10 lead nascosti col finto-LLM (registro) e controlla JSON valido, motivazione ≤40 parole, fascia coerente con le soglie, distribuzione non degenere, accordo ≥7/10 con il direttore e criteri nel prompt. Esiti: partenza 0, giusta 100, +«ragiona» 10, +«entusiasta» 90, senza soglie 56.
+2. **Esercizio 5 «Email con il freno a mano»** (piano 5+6). Usa le 6 regole e la checklist della lezione P3.4: scelta dei campi (telefono e note private danno un avviso), 8 bozze da approvare o rifiutare, invio, registro, interruttore di emergenza. Trappole: un contatto «non contattare» (bloccato dal sistema) e uno sconto promesso dal modello. Bloccante: lo sconto parte. Esiti: giusta 100, «approva sempre» 0, campi sensibili 75.
+3. **Esercizio 6 «Dare gli strumenti giusti all'agente»** (piano 7). Permessi non dato / con approvazione / libero per 8 strumenti, più il tetto di passi. Diario dell'agente su 4 richieste, tra cui una nota con istruzioni nascoste. Il correttore prova la configurazione su 7 richieste nascoste: 3 necessarie, 3 pericolose e un ciclo. Bloccante: un'azione pericolosa eseguita da sola. Esiti: partenza 0, giusta 100, tetto 30 85, invia_email libero 0.
+4. **Finto-LLM con compiti «simulatore»** (`esercizi/finto_llm/simulatori.py`): la risposta dipende dalle istruzioni dello studente. I segnali stanno in `esercizi/strumenti/compiti_finto_e04_e06.json`, che `genera_dati_e03.py` unisce a `tabelle.json`.
+5. **Test**: 143 pytest in `esercizi/tests` (+65, copertura 97%). Browser simulato: 182 passi, 0 errori (esercizi 4-6 fino a 100 in IT, poi ricominciati e rifatti in EN). Nuovo test di sintassi ES del modulo della pagina: ha trovato una parentesi mancante che `node --check` non vedeva.
+
+### Da sapere
+- Gli esercizi seguono il contenuto chiesto (rubrica, email con approvazione, strumenti), con la numerazione del piano (3, 5+6, 7) nel campo `piano` del verbale. Restano da fare gli esercizi «memoria» e «report KPI» del piano.
+- Le bozze dell'esercizio 5 restano in italiano anche nell'interfaccia inglese, con una nota a schermo, così voto e registro non dipendono dalla lingua.
+- Con il tetto di passi a 5 l'esercizio 6 passa con 77 su 70, anche se un compito resta a metà: la soglia è in config.
+- Verifica visiva su browser vero non fatta. Anteprima statica delle scene in `C:\Users\User\AppData\Local\Claude-Data\claude_pzs8sxrjxfjjc\local-agent-mode-sessions\db921416-4ab5-4b00-861b-b895d61f5223\0d0aa5bc-a6bb-4d37-ba5e-829b82276bbe\local_ee99c290-884d-4831-90dc-c89f562a3f9e\outputs\completamenti\anteprima_lezioni.html`, da aprire nel browser.
+- Se `dati/corso_v1.json` venisse rigenerato da una copia vecchia: `python strumenti/inserisci_domande.py strumenti/domande_autori/lotto_m6_trappole_squadra.json strumenti/domande_autori/lotto_m8_bolletta_agente.json`.
+
+### Resta da fare
+- Revisione di France su testi e domande delle due lezioni e sui tre esercizi.
+- Collaudo visivo su browser vero.
+- Prova degli esercizi con Ollama vero.
+
 ## Stato al 16/11/2026 — cantiere ESERCIZI PRATICI: fondamenta (laboratorio, correttore, esercizi 1-3)
 Tocca solo `esercizi/` più agganci minimi: `corso/app.py` (monta le API se `esercizi.attivi`), `config/piattaforma.json` (sezione `esercizi`), `config/interfaccia.json` (testo `esercizi_pratici`), `webapp/app.js` (voce laterale + caricamento del modulo protetto), `pytest.ini` (`esercizi/tests`), `.gitignore` (`stato_esercizi/`).
 
@@ -21,7 +63,7 @@ Tocca solo `esercizi/` più agganci minimi: `corso/app.py` (monta le API se `ese
 - Nella suite generale `tests/` alcuni test falliscono per il lavoro in corso dei cantieri lezioni (P8.1 laboratorio, D8.6, griglia_test senza JS). Non dipendono dagli esercizi: verificato in una copia pulita di HEAD.
 
 ### Resta da fare
-- Esercizi 4-9 del piano: prompt con rubrica e JSON, email con politica di marca, approvazioni, agente con strumenti, memoria, report KPI.
+- Esercizi 4-9 del piano: prompt con rubrica e JSON, email con politica di marca, approvazioni, agente con strumenti, memoria, report KPI. (Aggiornamento: rubrica, email + approvazioni e strumenti sono fatti nel cantiere completamenti; restano memoria e report KPI.)
 - Prova a secco con Ollama vero (`qwen2.5:3b`) sul PC di France.
 - Collaudo visivo su browser vero.
 
@@ -56,7 +98,7 @@ Cantiere M6-M8, in parallelo a M4-M5 ed esercizi. Tocca solo i file dei 14 compo
 
 ### Resta da fare
 - Revisione di France sui testi delle 14 lezioni e delle 31 domande, e collaudo visivo su browser vero.
-- Eventuali lezioni per P6.4 (la macchia che si allarga) e P8.5 (il calcolatore dei costi).
+- ~~Eventuali lezioni per P6.4 e P8.5~~: fatte nel cantiere completamenti (`trappole_squadra`, `bolletta_agente`).
 
 ## Stato al 16/11/2026 — fase 6: lezioni interattive M4 (strumenti e MCP) e M5 (contesto, sessioni, memoria)
 Cantiere M4-M5, in parallelo a M6-M8 ed esercizi. Commit `acb6551`.

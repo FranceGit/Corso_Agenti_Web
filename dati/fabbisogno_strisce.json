@@ -1118,7 +1118,9 @@
      "domande": [
       "D6.1-a",
       "D6.1-b",
-      "D6.1-c"
+      "D6.1-c",
+      "DA6.1-1",
+      "DA6.1-2"
      ],
      "strisce_coperte": [
       "esempio_pratico",
@@ -1141,12 +1143,14 @@
      "domande": [
       "D6.2-a",
       "D6.2-b",
-      "DA6.2-3"
+      "DA6.2-3",
+      "DA6.2-4"
      ],
      "strisce_coperte": [
       "definizione",
       "esempio_pratico",
-      "contro_esempio"
+      "contro_esempio",
+      "diagnosi"
      ],
      "mancano_per_erogare": 0,
      "mancano_per_obiettivo": 0,
@@ -1158,7 +1162,8 @@
      "domande": [
       "D6.2-c",
       "DA6.2-1",
-      "DA6.2-2"
+      "DA6.2-2",
+      "DA6.2-5"
      ],
      "strisce_coperte": [
       "definizione",
@@ -1198,11 +1203,15 @@
      "domande": [
       "D6.3-a",
       "D6.3-c",
-      "DA6.3-3"
+      "DA6.3-3",
+      "DA6.3-4",
+      "DA6.3-5"
      ],
      "strisce_coperte": [
       "definizione",
-      "esempio_pratico"
+      "esempio_pratico",
+      "contro_esempio",
+      "diagnosi"
      ],
      "mancano_per_erogare": 0,
      "mancano_per_obiettivo": 0,
@@ -1220,11 +1229,15 @@
      "domande": [
       "D6.4-a",
       "D6.4-b",
-      "D6.4-c"
+      "D6.4-c",
+      "DA6.4-1",
+      "DA6.4-2"
      ],
      "strisce_coperte": [
       "definizione",
-      "esempio_pratico"
+      "esempio_pratico",
+      "contro_esempio",
+      "diagnosi"
      ],
      "mancano_per_erogare": 0,
      "mancano_per_obiettivo": 0,
@@ -1242,12 +1255,14 @@
      "domande": [
       "D7.1-a",
       "DA7.1-1",
-      "DA7.1-2"
+      "DA7.1-2",
+      "DA7.1-4"
      ],
      "strisce_coperte": [
       "definizione",
       "esempio_pratico",
-      "contro_esempio"
+      "contro_esempio",
+      "diagnosi"
      ],
      "mancano_per_erogare": 0,
      "mancano_per_obiettivo": 0,
@@ -1259,11 +1274,13 @@
      "domande": [
       "D7.1-b",
       "D7.1-c",
-      "DA7.1-3"
+      "DA7.1-3",
+      "DA7.1-5"
      ],
      "strisce_coperte": [
       "definizione",
-      "esempio_pratico"
+      "esempio_pratico",
+      "contro_esempio"
      ],
      "mancano_per_erogare": 0,
      "mancano_per_obiettivo": 0,
@@ -1281,11 +1298,13 @@
      "domande": [
       "D7.2-a",
       "D7.2-b",
-      "DA7.2-1"
+      "DA7.2-1",
+      "DA7.2-4"
      ],
      "strisce_coperte": [
       "definizione",
       "esempio_pratico",
+      "contro_esempio",
       "diagnosi"
      ],
      "mancano_per_erogare": 0,
@@ -1298,7 +1317,8 @@
      "domande": [
       "D7.2-c",
       "DA7.2-2",
-      "DA7.2-3"
+      "DA7.2-3",
+      "DA7.2-5"
      ],
      "strisce_coperte": [
       "esempio_pratico",
@@ -1321,12 +1341,14 @@
      "domande": [
       "D7.3-a",
       "D7.3-c",
-      "DA7.3-1"
+      "DA7.3-1",
+      "DA7.3-4"
      ],
      "strisce_coperte": [
       "definizione",
       "esempio_pratico",
-      "contro_esempio"
+      "contro_esempio",
+      "diagnosi"
      ],
      "mancano_per_erogare": 0,
      "mancano_per_obiettivo": 0,
@@ -1338,7 +1360,8 @@
      "domande": [
       "D7.3-b",
       "DA7.3-2",
-      "DA7.3-3"
+      "DA7.3-3",
+      "DA7.3-5"
      ],
      "strisce_coperte": [
       "definizione",
@@ -1361,11 +1384,14 @@
      "domande": [
       "D7.4-a",
       "D7.4-b",
-      "DA7.4-1"
+      "DA7.4-1",
+      "DA7.4-4",
+      "DA7.4-5"
      ],
      "strisce_coperte": [
       "definizione",
       "esempio_pratico",
+      "contro_esempio",
       "diagnosi"
      ],
      "mancano_per_erogare": 0,
@@ -1401,11 +1427,13 @@
      "domande": [
       "D7.5-a",
       "D7.5-c",
-      "DA7.5-1"
+      "DA7.5-1",
+      "DA7.5-4"
      ],
      "strisce_coperte": [
       "definizione",
-      "esempio_pratico"
+      "esempio_pratico",
+      "contro_esempio"
      ],
      "mancano_per_erogare": 0,
      "mancano_per_obiettivo": 0,
@@ -1417,12 +1445,14 @@
      "domande": [
       "D7.5-b",
       "DA7.5-2",
-      "DA7.5-3"
+      "DA7.5-3",
+      "DA7.5-5"
      ],
      "strisce_coperte": [
       "definizione",
       "esempio_pratico",
-      "contro_esempio"
+      "contro_esempio",
+      "diagnosi"
      ],
      "mancano_per_erogare": 0,
      "mancano_per_obiettivo": 0,
@@ -1440,7 +1470,8 @@
      "domande": [
       "D8.1-b",
       "D8.1-c",
-      "DA8.1-3"
+      "DA8.1-3",
+      "DA8.1-4"
      ],
      "strisce_coperte": [
       "definizione",
@@ -1456,11 +1487,15 @@
      "domande": [
       "D8.1-a",
       "DA8.1-1",
-      "DA8.1-2"
+      "DA8.1-2",
+      "DA8.1-5",
+      "DA8.1-6",
+      "DA8.1-7"
      ],
      "strisce_coperte": [
       "definizione",
       "esempio_pratico",
+      "contro_esempio",
       "diagnosi"
      ],
      "mancano_per_erogare": 0,
@@ -1479,7 +1514,8 @@
      "domande": [
       "D8.2-a",
       "D8.2-c",
-      "DA8.2-1"
+      "DA8.2-1",
+      "DA8.2-4"
      ],
      "strisce_coperte": [
       "definizione",
@@ -1496,12 +1532,14 @@
      "domande": [
       "D8.2-b",
       "DA8.2-2",
-      "DA8.2-3"
+      "DA8.2-3",
+      "DA8.2-5"
      ],
      "strisce_coperte": [
       "definizione",
       "esempio_pratico",
-      "contro_esempio"
+      "contro_esempio",
+      "diagnosi"
      ],
      "mancano_per_erogare": 0,
      "mancano_per_obiettivo": 0,
@@ -1519,12 +1557,15 @@
      "domande": [
       "D8.3-a",
       "D8.3-b",
-      "DA8.3-1"
+      "DA8.3-1",
+      "DA8.3-4",
+      "DA8.3-5"
      ],
      "strisce_coperte": [
       "definizione",
       "esempio_pratico",
-      "contro_esempio"
+      "contro_esempio",
+      "diagnosi"
      ],
      "mancano_per_erogare": 0,
      "mancano_per_obiettivo": 0,
@@ -1536,11 +1577,13 @@
      "domande": [
       "D8.3-c",
       "DA8.3-2",
-      "DA8.3-3"
+      "DA8.3-3",
+      "DA8.3-6"
      ],
      "strisce_coperte": [
       "definizione",
       "esempio_pratico",
+      "contro_esempio",
       "diagnosi"
      ],
      "mancano_per_erogare": 0,
@@ -1559,7 +1602,8 @@
      "domande": [
       "D8.4-a",
       "DA8.4-1",
-      "DA8.4-2"
+      "DA8.4-2",
+      "DA8.4-4"
      ],
      "strisce_coperte": [
       "definizione",
@@ -1576,12 +1620,15 @@
      "domande": [
       "D8.4-b",
       "D8.4-c",
-      "DA8.4-3"
+      "DA8.4-3",
+      "DA8.4-5",
+      "DA8.4-6"
      ],
      "strisce_coperte": [
       "definizione",
       "esempio_pratico",
-      "contro_esempio"
+      "contro_esempio",
+      "diagnosi"
      ],
      "mancano_per_erogare": 0,
      "mancano_per_obiettivo": 0,
@@ -1599,12 +1646,15 @@
      "domande": [
       "D8.5-a",
       "D8.5-b",
-      "DA8.5-1"
+      "DA8.5-1",
+      "DA8.5-4",
+      "DA8.5-5"
      ],
      "strisce_coperte": [
       "definizione",
       "esempio_pratico",
-      "contro_esempio"
+      "contro_esempio",
+      "diagnosi"
      ],
      "mancano_per_erogare": 0,
      "mancano_per_obiettivo": 0,
@@ -1639,10 +1689,15 @@
      "domande": [
       "D8.6-a",
       "D8.6-b",
-      "D8.6-c"
+      "D8.6-c",
+      "DA8.6-1",
+      "DA8.6-2",
+      "DA8.6-3"
      ],
      "strisce_coperte": [
       "definizione",
+      "esempio_pratico",
+      "contro_esempio",
       "diagnosi"
      ],
      "mancano_per_erogare": 0,

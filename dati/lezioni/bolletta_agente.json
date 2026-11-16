@@ -1,0 +1,174 @@
+{
+ "id": "L_bolletta_agente",
+ "pillola": "P8.5",
+ "componente": "bolletta_agente",
+ "titolo": {"it": "La bolletta dell'agente", "en": "The agent's bill"},
+ "sottotitolo": {"it": "Un agente di outreach CRM e la sua bolletta del mese: dove si risparmia davvero e dove il risparmio è un'illusione.", "en": "A CRM outreach agent and its monthly bill: where you really save and where the saving is an illusion."},
+ "segmenti": [
+  {
+   "id": "conto",
+   "titolo": {"it": "Da dove viene la bolletta", "en": "Where the bill comes from"},
+   "narrazione": [
+    {"it": "Ogni compito dell'agente fa alcune chiamate al modello. Ogni chiamata consuma token in ingresso (istruzioni, strumenti, scheda del cliente) e in uscita (la risposta). Il costo è chiamate × token × prezzo, moltiplicato per i compiti del mese.", "en": "Every task of the agent makes a few calls to the model. Every call uses input tokens (instructions, tools, customer record) and output tokens (the answer). The cost is calls × tokens × price, multiplied by the tasks of the month."},
+    {"it": "I prezzi qui sono d'esempio, illustrativi: contano i rapporti. L'uscita costa circa 5 volte l'ingresso, e il modello grande costa 60 volte il piccolo.", "en": "The prices here are examples, for illustration only: the ratios matter. Output costs about 5 times input, and the large model costs 60 times the small one."}
+   ],
+   "prova": {"it": "Cambia volume, token per chiamata e modello, e guarda la bolletta del mese.", "en": "Change the volume, the tokens per call and the model, and watch the monthly bill."},
+   "concetti": ["C77"],
+   "stato_animazione": {"vista": "cruscotto", "volume": 20000, "token": 3000, "chiamate": 8, "modalita": "unico", "modello_unico": "medio", "modelli_ruolo": {"classifica": "medio", "email": "medio", "offerta": "medio"}, "cache": false, "data_in_testa": false, "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "cache",
+   "titolo": {"it": "La parte che si ripete", "en": "The part that repeats"},
+   "narrazione": [
+    {"it": "Tre quarti di ogni chiamata sono sempre uguali: istruzioni e descrizione degli strumenti. Con la memoria temporanea dell'inizio (cache) il modello non le rilegge e le fa pagare circa un decimo.", "en": "Three quarters of every call are always the same: instructions and the description of the tools. With the memory of the beginning (cache) the model does not reread them and charges about a tenth."},
+    {"it": "Basta poco per perderla: una data e ora in testa al prompt cambia l'inizio a ogni chiamata, e il risparmio sparisce.", "en": "It takes little to lose it: a date and time at the top of the prompt changes the beginning at every call, and the saving disappears."}
+   ],
+   "prova": {"it": "Accendi la cache, poi accendi «data e ora in testa» e guarda il risparmio sparire.", "en": "Turn on the cache, then turn on «date and time at the top» and watch the saving disappear."},
+   "concetti": ["C77"],
+   "stato_animazione": {"vista": "cruscotto", "volume": 20000, "token": 3000, "chiamate": 8, "modalita": "unico", "modello_unico": "medio", "modelli_ruolo": {"classifica": "medio", "email": "medio", "offerta": "medio"}, "cache": false, "data_in_testa": false, "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "ruoli",
+   "titolo": {"it": "Il modello giusto e il falso risparmio", "en": "The right model and the false saving"},
+   "narrazione": [
+    {"it": "Il compito ha tre ruoli: classificare la risposta, scrivere l'email, decidere l'offerta. Si parte dal modello grande, poi si scende ruolo per ruolo finché la qualità regge.", "en": "The task has three roles: classifying the reply, writing the email, deciding the offer. You start from the large model, then step down role by role as long as quality holds."},
+    {"it": "Attenzione al falso risparmio: il modello piccolo sull'offerta sbaglia più di un'offerta su tre, e ogni errore va rifatto da una persona. La bolletta sale invece di scendere.", "en": "Watch out for the false saving: the small model on the offer gets more than one offer in three wrong, and every mistake must be redone by a person. The bill goes up instead of down."}
+   ],
+   "prova": {"it": "Metti il piccolo sulla classificazione: resta verde. Poi mettilo sull'offerta e guarda crescere le rilavorazioni.", "en": "Put the small model on classification: it stays green. Then put it on the offer and watch the rework grow."},
+   "concetti": ["C77"],
+   "stato_animazione": {"vista": "cruscotto", "volume": 20000, "token": 3000, "chiamate": 8, "modalita": "ruoli", "modello_unico": "medio", "modelli_ruolo": {"classifica": "grande", "email": "grande", "offerta": "grande"}, "cache": true, "data_in_testa": false, "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "giri",
+   "titolo": {"it": "Meno giri, ma non troppo pochi", "en": "Fewer rounds, but not too few"},
+   "narrazione": [
+    {"it": "Ogni giro in più è una chiamata pagata. Qui il lavoro ne richiede 4: gli altri rileggono e ripetono senza migliorare niente.", "en": "Every extra round is a paid call. Here the work needs 4: the others reread and repeat without improving anything."},
+    {"it": "Sotto i 4 giri, però, l'agente salta dei passaggi: la qualità crolla e le rilavorazioni si mangiano il risparmio.", "en": "Below 4 rounds, though, the agent skips steps: quality collapses and the rework eats up the saving."}
+   ],
+   "prova": {"it": "Porta le chiamate per compito da 8 a 4, poi a 2, e guarda le due righe della bolletta.", "en": "Take the calls per task from 8 to 4, then to 2, and watch the two lines of the bill."},
+   "concetti": ["C77"],
+   "stato_animazione": {"vista": "cruscotto", "volume": 20000, "token": 3000, "chiamate": 8, "modalita": "ruoli", "modello_unico": "medio", "modelli_ruolo": {"classifica": "piccolo", "email": "medio", "offerta": "grande"}, "cache": true, "data_in_testa": false, "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "decidi_bolletta",
+   "titolo": {"it": "Decidi tu: risparmio vero o falso?", "en": "You decide: real or false saving?"},
+   "narrazione": [
+    {"it": "Cinque proposte del team per tagliare la bolletta. Per ognuna decidi: risparmio vero, falso risparmio, oppure dipende dalle prove.", "en": "Five proposals from the team to cut the bill. For each one decide: real saving, false saving, or it depends on the tests."}
+   ],
+   "prova": {"it": "Scegli una risposta per ogni proposta, poi premi «Controlla» e leggi il perché.", "en": "Choose an answer for each proposal, then press «Check» and read why."},
+   "concetti": ["C77", "C78"],
+   "stato_animazione": {"vista": "decidi", "volume": 20000, "token": 3000, "chiamate": 8, "modalita": "unico", "modello_unico": "medio", "modelli_ruolo": {"classifica": "medio", "email": "medio", "offerta": "medio"}, "cache": false, "data_in_testa": false, "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "riassunto",
+   "titolo": {"it": "In tre frasi", "en": "In three sentences"},
+   "narrazione": [
+    {"it": "La bolletta di un agente è chiamate × token × prezzo × volume: si risparmia davvero con la cache, il modello giusto per ogni ruolo e meno giri a vuoto.", "en": "An agent's bill is calls × tokens × price × volume: you really save with the cache, the right model for each role and fewer empty rounds."},
+    {"it": "Il falso risparmio è un modello troppo piccolo o troppo pochi giri: gli errori tornano come rilavorazioni e costano più dei token.", "en": "The false saving is a model that is too small or too few rounds: the mistakes come back as rework and cost more than the tokens."},
+    {"it": "Si parte dal modello grande, si scende ruolo per ruolo finché le prove reggono, e non ci si lega a un solo fornitore.", "en": "You start from the large model, step down role by role as long as the tests hold, and you do not tie yourself to a single vendor."}
+   ],
+   "concetti": ["C77", "C78"],
+   "stato_animazione": {"vista": "cruscotto", "volume": 20000, "token": 3000, "chiamate": 4, "modalita": "ruoli", "modello_unico": "medio", "modelli_ruolo": {"classifica": "piccolo", "email": "medio", "offerta": "grande"}, "cache": true, "data_in_testa": false, "scelte": {}, "verificato": false}
+  }
+ ],
+ "scenario": {
+  "volume": {"min": 1000, "max": 100000, "passo": 1000, "etichetta": {"it": "Compiti al mese", "en": "Tasks per month"}},
+  "token": {"min": 500, "max": 8000, "passo": 500, "etichetta": {"it": "Token in ingresso per chiamata", "en": "Input tokens per call"}},
+  "chiamate": {"min": 1, "max": 12, "passo": 1, "etichetta": {"it": "Chiamate per compito", "en": "Calls per task"}},
+  "token_uscita": 300,
+  "chiamate_necessarie": 4,
+  "penalita_per_chiamata_mancante": 10,
+  "cache": {"quota_ripetuta": 0.75, "rapporto_prezzo": 0.1},
+  "riferimento": {"volume": 20000, "token": 3000, "chiamate": 8, "modalita": "unico", "modello_unico": "medio", "modelli_ruolo": {"classifica": "medio", "email": "medio", "offerta": "medio"}, "cache": false, "data_in_testa": false},
+  "modelli": [
+   {"id": "piccolo", "nome": {"it": "Piccolo", "en": "Small"}, "sigla": "P", "colore": "#10b981", "euro_ingresso": 0.25, "euro_uscita": 1.25, "secondi": 0.6},
+   {"id": "medio", "nome": {"it": "Medio", "en": "Medium"}, "sigla": "M", "colore": "#0ea5e9", "euro_ingresso": 3, "euro_uscita": 15, "secondi": 1.5},
+   {"id": "grande", "nome": {"it": "Grande", "en": "Large"}, "sigla": "G", "colore": "#8b5cf6", "euro_ingresso": 15, "euro_uscita": 75, "secondi": 4}
+  ],
+  "ruoli": [
+   {"id": "classifica", "nome": {"it": "Classifica la risposta", "en": "Classify the reply"}, "quota_chiamate": 0.2, "qualita": {"piccolo": 97, "medio": 98, "grande": 98}, "euro_per_errore": 0.1,
+    "errore": {"it": "un lead finito nel mucchio sbagliato", "en": "a lead in the wrong pile"}},
+   {"id": "email", "nome": {"it": "Scrive l'email", "en": "Writes the email"}, "quota_chiamate": 0.6, "qualita": {"piccolo": 80, "medio": 95, "grande": 97}, "euro_per_errore": 0.4,
+    "errore": {"it": "un'email da riscrivere a mano", "en": "an email to rewrite by hand"}},
+   {"id": "offerta", "nome": {"it": "Decide l'offerta", "en": "Decides the offer"}, "quota_chiamate": 0.2, "qualita": {"piccolo": 60, "medio": 88, "grande": 97}, "euro_per_errore": 1.5,
+    "errore": {"it": "uno sconto sbagliato da correggere", "en": "a wrong discount to correct"}}
+  ],
+  "soglia_qualita": 90,
+  "risposte_gioco": [
+   {"id": "vero", "nome": {"it": "Risparmio vero", "en": "Real saving"}},
+   {"id": "falso", "nome": {"it": "Falso risparmio", "en": "False saving"}},
+   {"id": "dipende", "nome": {"it": "Dipende dalle prove", "en": "It depends on the tests"}}
+  ],
+  "casi": [
+   {"id": "k1", "testo": {"it": "Mettere il modello piccolo anche sulla decisione degli sconti, «tanto costa 60 volte meno».", "en": "Putting the small model on the discount decision too, «it costs 60 times less anyway»."},
+    "migliore": "falso", "quasi": [],
+    "spiega": {"it": "Sulle decisioni difficili il piccolo sbaglia spesso: ogni sconto sbagliato costa più di tutti i token risparmiati.", "en": "On hard decisions the small model is often wrong: every wrong discount costs more than all the tokens saved."}},
+   {"id": "k2", "testo": {"it": "Tenere istruzioni e strumenti sempre identici in testa al prompt, per sfruttare la cache.", "en": "Keeping instructions and tools always identical at the top of the prompt, to use the cache."},
+    "migliore": "vero", "quasi": [],
+    "spiega": {"it": "La parte ripetuta costa circa un decimo e la qualità non cambia: è un risparmio senza effetti collaterali.", "en": "The repeated part costs about a tenth and quality does not change: it is a saving with no side effects."}},
+   {"id": "k3", "testo": {"it": "Togliere i due giri di autoverifica che, nei test, non cambiano mai la risposta.", "en": "Removing the two self-check rounds that, in the tests, never change the answer."},
+    "migliore": "vero", "quasi": ["dipende"],
+    "spiega": {"it": "Giri che non cambiano niente sono chiamate pagate a vuoto. Le prove ci sono già: si possono togliere.", "en": "Rounds that change nothing are calls paid for nothing. The tests are already there: they can go."}},
+   {"id": "k4", "testo": {"it": "Classificare 50.000 risposte di notte, a lotti, col modello piccolo provato prima su un campione.", "en": "Classifying 50,000 replies overnight, in batches, with the small model tested first on a sample."},
+    "migliore": "vero", "quasi": ["dipende"],
+    "spiega": {"it": "Compito semplice, nessuno aspetta la risposta e il piccolo è già stato provato: costo basso senza perdere qualità.", "en": "A simple task, nobody waits for the answer and the small model has already been tested: low cost without losing quality."}},
+   {"id": "k5", "testo": {"it": "Scrivere tutto sulle funzioni proprietarie di un solo fornitore, perché oggi è il più economico.", "en": "Writing everything on the proprietary functions of a single vendor, because today it is the cheapest."},
+    "migliore": "falso", "quasi": ["dipende"],
+    "spiega": {"it": "Il prezzo di oggi non è quello di domani: se il fornitore aumenta, cambiarlo costa riscrivere mezzo agente. Uno strato standard riduce la dipendenza.", "en": "Today's price is not tomorrow's: if the vendor raises it, switching costs rewriting half the agent. A standard layer reduces the dependence."}}
+  ],
+  "testi": {
+   "formato_valore": {"it": "{n}", "en": "{n}"},
+   "euro": {"it": "{n} €", "en": "€{n}"},
+   "secondi": {"it": "{n} s", "en": "{n} s"},
+   "percento": {"it": "{n}%", "en": "{n}%"},
+   "prezzo_modello": {"it": "{nome}: {ingresso} € / {uscita} € per milione di token (ingresso / uscita)", "en": "{nome}: €{ingresso} / €{uscita} per million tokens (input / output)"},
+   "nota_prezzi": {"it": "Prezzi d'esempio, illustrativi: non sono il listino di un fornitore reale. Dalle fonti vengono solo i rapporti: uscita circa 5 volte l'ingresso, parte in cache circa un decimo.", "en": "Example prices, for illustration only: not a real vendor's price list. Only the ratios come from the sources: output about 5 times input, cached part about a tenth."},
+   "nota_errori": {"it": "Costo di un errore e qualità per ruolo: valori illustrativi, le fonti non li misurano (esperienza del progettista).", "en": "Cost of a mistake and quality per role: illustrative values, the sources do not measure them (designer's experience)."},
+   "confronto": {"it": "Rispetto al punto di partenza: {segno}{n} €", "en": "Compared with the starting point: {segno}€{n}"},
+   "errori_ruolo": {"it": "{n} errori al mese: {errore}", "en": "{n} mistakes per month: {errore}"},
+   "chiamate_ruolo": {"it": "{n} chiamate per compito", "en": "{n} calls per task"},
+   "giri_vuoto": {"it": "{n} chiamate per compito non migliorano niente: giri a vuoto pagati.", "en": "{n} calls per task improve nothing: paid empty rounds."},
+   "giri_pochi": {"it": "Mancano {n} chiamate per finire il lavoro: la qualità crolla.", "en": "{n} calls are missing to finish the work: quality collapses."},
+   "giri_giusti": {"it": "Le chiamate bastano al lavoro, senza giri a vuoto.", "en": "The calls are enough for the work, with no empty rounds."},
+   "cache_persa": {"it": "La data e ora in testa cambia l'inizio a ogni chiamata: la cache non trova mai la parte ripetuta.", "en": "The date and time at the top changes the beginning at every call: the cache never finds the repeated part."},
+   "falso_risparmio": {"it": "Falso risparmio: i token costano poco, ma le rilavorazioni costano più di quanto risparmi.", "en": "False saving: the tokens are cheap, but the rework costs more than you save."},
+   "scegli_per": {"it": "Risposta per la proposta {n}", "en": "Answer for proposal {n}"},
+   "caso": {"it": "Proposta {n}", "en": "Proposal {n}"},
+   "ver_giusto": {"it": "Proposta {n}: giusto. {spiega}", "en": "Proposal {n}: right. {spiega}"},
+   "ver_quasi": {"it": "Proposta {n}: prudente, ma meglio «{migliore}». {spiega}", "en": "Proposal {n}: cautious, but «{migliore}» is better. {spiega}"},
+   "ver_sbagliato": {"it": "Proposta {n}: no, meglio «{migliore}». {spiega}", "en": "Proposal {n}: no, «{migliore}» is better. {spiega}"},
+   "ver_vuoto": {"it": "Proposta {n}: non hai scelto. La risposta migliore è «{migliore}». {spiega}", "en": "Proposal {n}: you did not choose. The best answer is «{migliore}». {spiega}"},
+   "ver_punteggio": {"it": "Risposte migliori: {giuste} su {totali}.", "en": "Best answers: {giuste} of {totali}."},
+   "ver_tutto_giusto": {"it": "Perfetto: sai distinguere il risparmio vero da quello che torna indietro come errori.", "en": "Perfect: you can tell the real saving from the one that comes back as mistakes."}
+  },
+  "etichette": {
+   "titolo_comandi": {"it": "Prova a cambiare", "en": "Try changing"},
+   "vista": {"it": "Vista", "en": "View"},
+   "vista_cruscotto": {"it": "Cruscotto", "en": "Dashboard"},
+   "vista_decidi": {"it": "Decidi tu", "en": "You decide"},
+   "modalita": {"it": "Modello", "en": "Model"},
+   "modalita_unico": {"it": "Uno per tutti", "en": "One for all"},
+   "modalita_ruoli": {"it": "Uno per ruolo", "en": "One per role"},
+   "cache": {"it": "Cache della parte ripetuta", "en": "Cache of the repeated part"},
+   "data_in_testa": {"it": "Data e ora in testa al prompt", "en": "Date and time at the top of the prompt"},
+   "scegli": {"it": "— scegli —", "en": "— choose —"},
+   "controlla": {"it": "Controlla", "en": "Check"},
+   "titolo_scheda": {"it": "La bolletta del mese", "en": "The monthly bill"},
+   "riga_modello": {"it": "Chiamate al modello", "en": "Model calls"},
+   "riga_cache": {"it": "di cui risparmiato con la cache", "en": "of which saved with the cache"},
+   "riga_rilavorazioni": {"it": "Rilavorazioni (errori da rifare)", "en": "Rework (mistakes to redo)"},
+   "riga_totale": {"it": "Totale del mese", "en": "Monthly total"},
+   "per_compito": {"it": "Per compito", "en": "Per task"},
+   "attesa": {"it": "Attesa per compito", "en": "Waiting per task"},
+   "token_mese": {"it": "Token al mese", "en": "Tokens per month"},
+   "qualita": {"it": "qualità", "en": "quality"},
+   "partenza": {"it": "Partenza", "en": "Start"},
+   "adesso": {"it": "Adesso", "en": "Now"},
+   "titolo_cruscotto": {"it": "UN COMPITO, TRE RUOLI, UNA BOLLETTA", "en": "ONE TASK, THREE ROLES, ONE BILL"},
+   "titolo_decidi": {"it": "CINQUE PROPOSTE PER TAGLIARE LA BOLLETTA", "en": "FIVE PROPOSALS TO CUT THE BILL"},
+   "regola": {"it": "Prima il modello grande, poi scendi ruolo per ruolo finché le prove reggono.", "en": "First the large model, then step down role by role as long as the tests hold."},
+   "descrizione_scena": {"it": "Il flusso di un compito in tre ruoli, ognuno con il suo modello e la sua qualità, e due barre che confrontano la bolletta di partenza con quella attuale.", "en": "The flow of a task in three roles, each with its model and its quality, and two bars comparing the starting bill with the current one."}
+  }
+ },
+ "domande": []
+}
