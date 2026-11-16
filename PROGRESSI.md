@@ -1,5 +1,67 @@
 # PROGRESSI — Corso Agenti Web
 
+## Stato al 16/11/2026 — cantiere OFFICINA-CONTENUTI (livello 2: 12 lezioni interattive, 51 domande, test estesi, pulizia residua del livello 1)
+Commit `d3f4215` (contenuti dell'Officina), `0a0bdbc` (pulizia del livello 1) e il commit finale di questa sezione. Lavoro diviso in 6 agenti, uno per unità; inserimento delle domande, fusioni nel corso e commit fatti solo dal coordinatore, in sequenza.
+
+### Fatto — lezioni (una per pillola, IT+EN, tutte sotto le 500 parole, riassunto finale in 3 frasi)
+| Pillola | Componente | Parole IT | Passi | Che cosa si manipola |
+|---|---|---|---|---|
+| PO1.1 | `pila_strati` | 451 | 5 | Dockerfile come pila di strati: modifica un file o l'ordine delle righe e guarda la ricostruzione a cascata (41 s contro 1 s); tag, utente root, chiave in ENV che resta in «docker history»; un'immagine e tre container; «Trova il difetto». |
+| PO1.2 | `container_smemorato` | 452 | 5 | POST, restart, down, down -v con nessun volume, anonimo o nominato; compose CRM+Postgres con porte su 0.0.0.0 o 127.0.0.1 e linea del tempo dell'healthcheck; «Trova il difetto» su un compose ispirato a patowari. |
+| PO2.1 | `mappa_repo` | 487 | 5 | Albero vero del repo patowari: aprire i file nell'ordine giusto (ingresso, dipendenze, configurazione, flusso), lente con le righe vere e 6 indizi, «Esegui subito» senza chiave, un lead seguito in 7 tappe fino a «Interested: 5, Not Interested: 0». |
+| PO2.2 | `filtro_bucato` | 494 | 5 | Dipendenze oggi e fra sei mesi; chiave nel repo, nell'ambiente o assente, modello vero o finto; 8 casi tipo nei cesti secondo ordine dei controlli, confronto e normalizzazione (repo 5/8, solo ordine 7/8, ordine+normalizzazione 8/8); rosso → correzione → verde. |
+| PO3.1 | `pianta_crm` | 431 | 5 | Pianta di nebula-insurance-crm: domande concrete che illuminano la sezione del BLUEPRINT, l'ADR o la matrice dove sta la risposta; moduli e proprietà delle entità; classificare frasi in blueprint, architettura, decisione, codice. |
+| PO3.2 | `contratto_parti` | 480 | 5 | Richiesta POST /contacts contro il vero `contact-create-request.schema.json` (modulo web, API, database; deriva delle regole copiate a mano), risorsa salvata con i campi del server; 7 compiti da affidare ai ruoli di nebula-agents. |
+| PO4.1 | `tre_prese` | 468 | 5 | Configurazione `mcpServers` che si compone riga per riga; richieste del CRM verso filesystem, fetch e memory con gli strumenti veri, o fermate alla presa vuota, allo strumento assente in sola lettura, a `MEMORY_FILE_PATH`. |
+| PO4.2 | `recinto_mcp` | 486 | 6 | Radici consentite (/, home, cartella di lavoro) e sola lettura contro 6 richieste, con i messaggi d'errore veri del server; memoria nel container o nel volume; pagina scaricata che ordina di inviare il `.env`. |
+| PO5.1 | `commutatore_backend` | 464 | 5 | Una sola funzione per il chiamante, backend scelto da `assistente.json` e `ASSISTENTE_BACKEND`; errori dove nascono; il finto risponde sempre uguale; «dettagli sparsi» (4 chiamanti da toccare contro 0). |
+| PO5.2 | `silenzio_costoso` | 447 | 5 | Dove vive la chiave e chi la vede; guasti (chiave mancante, 401, 429, 404, rete) con l'assistente che parla contro il ripiego silenzioso di patowari (50 «Medium», email vuote inviate); limiti al minuto del piano gratuito. |
+| PO6.1 | `valigia_lab` | 455 | 5 | `devcontainer.json` come valigia (immagine, docker-in-docker, estensioni, postCreateCommand, porte, segreti dichiarati); il codespace che si riapre riga per riga con l'esito di ogni mancanza; il file da sistemare dell'esercizio 12. |
+| PO6.2 | `contatore_ore` | 486 | 6 | Calendario di 30 giorni con ore-core e GB-mese (120 e 15, dichiarati da riverificare): core, ore al giorno, arresto per inattività, codespace fermi, limite di spesa; O1-O5 nel codespace. |
+
+- Ogni animazione: banco a tre finestre (la shell numera ①②③④, illumina e scrive «Hai cambiato…»), esiti dentro la scena, sequenza rilanciabile da «Rivedi l'animazione», logica pura esportata, nessuna stringa visibile nel JS, CSS prefissato `.lz-<componente>`.
+- Progetto delle animazioni scritto in `corso_officina.json`; scalette riallineate alle lezioni in PO3.1, PO4.2, PO5.1 (il codice usa `chiedi`, non «completa»), PO5.2 (limiti al minuto, non al giorno) e PO6.2.
+- Bibliografia: aggiunte DOCKER-DOC, NEBULA-CRM, NEBULA-AGENTS, MCP-SERVERS, CODESPACES-DOC, ASSISTENTE-OFFICINA, LAB-L1; REPO-PATOWARI sta nella voce esistente [R11] (stessa opera). Nessun URL.
+
+### Fatto — domande (lotti `strumenti/domande_autori/lotto_o1_docker.json` … `lotto_o6_codespaces.json`, inseriti con `inserisci_domande.py`)
+| Unità | Domande | Concetti (3 ciascuno, strisce diverse) |
+|---|---|---|
+| O1 | 12 | CO01, CO02, CO03, CO04 |
+| O2 | 9 | CO05, CO06, CO07 |
+| O3 | 9 | CO08, CO09, CO10 |
+| O4 | 6 | CO11, CO12 |
+| O5 | 9 | CO13, CO14, CO15 |
+| O6 | 6 | CO16, CO17 |
+| **Totale** | **51 erogabili** (obiettivo raggiunto) | 17 concetti |
+
+- 102 livelli: 21 a 7 opzioni (sempre 2 quasi + 2 poco + 2 errate), 57 a 5, 17 a 4, 7 a 3.
+- Corretta più lunga in 7 livelli su 102 (0,069; limite 0,30); posizione della corretta distribuita.
+- Spiegazione per ogni opzione, glossario su tutte le 51 domande, stesso termine = stessa definizione (unificati 4 termini che due unità definivano in modo diverso). Aiuto sempre su un passo della lezione.
+
+### Fatto — test
+- `tests_js/prova_animazioni.mjs` e `tests_js/misura_testi.mjs` leggono le lezioni da entrambe le cartelle (prese dalla config); `misura_testi` carica jsdom da `JSDOM_DIR` se impostata. Prove per componente in `tests_js/lezioni/<componente>.mjs` (12 file nuovi).
+- Nuovo `tests/test_lezioni_officina.py` (20 test): una lezione per pillola, passi e riassunto, parole, concetti tutti trattati, niente rimandi né autorità citate, elenchi puntati in IT e EN, moduli JS autonomi con le loro prove, serviti dopo l'accesso e da `/api/officina/pillole`, sigle in bibliografia, spicchi erogabili, 3 domande per concetto da strisce diverse, corso = lotti, glossario coerente, anti-indizio e fasce.
+- Test aggiornati (dichiarati): in `tests/test_officina.py` le asserzioni «nessuna domanda / nessuna lezione / 409 a inizio spicchio / spicchi in preparazione» ora chiedono il contrario (51 domande, 12 lezioni, 200, nessuno spicchio in preparazione); in `esercizi/collaudo/flusso_officina.mjs` il passo «12 spicchi in preparazione» diventa «12 spicchi, nessuno in preparazione».
+- Esiti: pytest `tests` 230 superati e 1 saltato (a lotti); con `CORSO_BENCHMARK_MD` il test di riproducibilità dell'estrazione passa (0 saltati). `esercizi/tests` 214 superati. Node: `prova_animazioni` 750, `misura_testi` 118. `prepara_codespaces.py --verifica`: allineato.
+- Browser simulato contro il server vero (script in `outputs\officina_contenuti\collaudo\`):
+  - 12 lezioni dell'Officina in IT e in EN: 74 passi e 1.113 azioni per lingua, canone ①②③④ senza numeri ripetuti, bordo illuminato e messaggio-guida in tutte le 12, «Rivedi l'animazione» due volte per passo, 0 difetti;
+  - percorso domande completo: PO2.2 in IT (7 risposte, «Spicchio superato!») e PO4.1 in EN, con una risposta sbagliata voluta, riepilogo, riquadro «Termini», salute del livello 1 invariata (100): 0 difetti;
+  - `flusso_officina.mjs`: 34 passi, 0 errori; lezioni del livello 1 ritoccate (P4.2, P6.1, P6.2, P8.2) in IT e EN: 0 difetti.
+
+### Fatto — pulizia residua del livello 1
+- (a) OpenAI non è più citato come autorità in `smistatore_rischio` e `uno_o_tanti` (IT+EN): formulazioni neutre con la sigla [OAI]. Stessa correzione per gli stessi giri di frase in `schemi_orchestrazione` («OpenAI distingue…») e `strumento_chiaro` («Secondo OpenAI…»). Restano, perché sono fatti e non appelli: «MCP presentato da Anthropic» (presa_standard) e la cifra del 98,7% attribuita alla sua fonte (valigia_strumenti). Le sigle nei perché (WP1, SEC…) restano.
+- (b) 16 voci di scaletta che erano note d'autore riscritte per lo studente nel documento benchmark (con una nota in testa) e in `strumenti/traduzioni_en_pillole.json`: P1.3/6, P4.2/6 («confrontare con il testo scaricato»), P4.3/5, P5.1/5, P5.2/6, P5.3/5, P6.2/5, P6.3/4, P7.1/5, P7.2/6, P7.3/3 e /5, P7.4/2, P8.1/6, P8.2/4 e P8.3/1 («non verificato a fondo»). Ora sono rimandi «Per approfondire» con la sigla ([G2]-[G5], [NB1b]-[NB5a]) o frasi con la sigla della fonte. `estrai_corso.py` rigenerato: cambiano solo queste 16 voci (IT+EN), 298 domande conservate. Copia del documento prima delle modifiche: `outputs\officina_contenuti\CORSO_BENCHMARK_STRUTTURA.prima_officina_contenuti.md`.
+
+### Da sapere
+- In PO2.2 la lezione dice che i controlli «contiene» vanno dal più specifico al più generale e che serve normalizzare: è il principio, non il codice. Il classificatore corretto non è mai mostrato, ma la correzione minima si intuisce: se si vuole un esercizio 8 più difficile, togliere quella frase.
+- Dati illustrativi dichiarati a schermo: secondi di build e tempi del database (O1), Postgres nel compose d'esempio (il CRM minimo usa un file JSON), messaggio pydantic ricostruito e tre giri del modello vero (O2), retry-after e messaggi di rete (O5), GB per codespace (O6, il materiale non lo dice).
+- Restano citazioni OpenAI nelle domande benchmark di `corso_v1.json` (es. «Secondo OpenAI, quando una soluzione a regole fisse può bastare?»). Non toccate: il testo della domanda benchmark fa parte dell'impronta che l'estrattore controlla. Va deciso se neutralizzarle.
+- Proposte di testo per gli esercizi (non applicate): e07 il commento del Dockerfile dice «5 difetti», la consegna ne elenca 4; e08 aggiungere «invio» alle tappe del flusso; e09 aggiungere `contact.schema.json` al materiale; e10 la lezione rende facile la scelta `sola_lettura` e il LEGGIMI potrebbe dire che i segreti non vanno nella radice consentita.
+
+### Resta da fare
+- France: giro a mano nel browser vero delle 12 lezioni dell'Officina (IT e EN) e di uno spicchio di domande; revisione di testi e domande.
+- Decisione sulle citazioni OpenAI nelle domande benchmark.
+
 ## Stato al 16/11/2026 — cantiere OFFICINA-FONDAMENTA (livello 2 «Officina»: impalcatura, esercizi 7-12, assistente libero, kit Codespaces)
 Commit `1dfc05c`, `ecb3664`, `8bda412` e il commit finale di questa sezione. Perimetro: impalcatura ed esercizi. **Non** scritti testi delle lezioni né domande, che spettano al cantiere contenuti secondo `CONTRATTO_CONTENUTI_OFFICINA.md`.
 

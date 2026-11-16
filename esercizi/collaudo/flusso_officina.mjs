@@ -101,7 +101,7 @@ vai("#voce-livello-2");
 await aspetta(() => $("#voce-livello-1") && $(".sottotitolo")?.textContent.startsWith("Officina"), "livello 2: testata con il titolo dell'Officina", 10000);
 controlla($$(".laterale .gruppo-anello:not(.gruppo-livelli)").length === 6, "livello 2: 6 anelli, uno per unita' O1-O6");
 controlla($$(".laterale .voce .sigla").map((s) => s.textContent).every((x) => x.startsWith("PO")), "livello 2: solo pillole PO");
-controlla($$(".laterale .voce.in_preparazione").length === 12, "livello 2: 12 spicchi in preparazione (domande e lezioni del cantiere contenuti)");
+controlla($$(".laterale .voce.in_preparazione").length === 0 && $$(".laterale .voce .sigla").filter((s) => s.textContent.startsWith("PO")).length === 12, "livello 2: 12 spicchi, nessuno in preparazione (lezioni e domande del cantiere contenuti)");
 
 // ---------------------------------------------------------------- esercizi dell'Officina
 vai("#voce-esercizi");
