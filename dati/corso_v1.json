@@ -906,8 +906,8 @@
          }
         ],
         "perche": {
-         "it": "OpenAI è netta: chatbot semplici e modelli a turno singolo non sono agenti, perché il modello non governa il flusso di lavoro. Rispondere bene non basta.",
-         "en": "OpenAI is clear: simple chatbots and single-turn models are not agents, because the model does not run the workflow. Answering well is not enough."
+         "it": "La prassi del settore è netta [OAI]: chatbot semplici e modelli a turno singolo non sono agenti, perché il modello non governa il flusso di lavoro. Rispondere bene non basta.",
+         "en": "Industry practice is clear [OAI]: simple chatbots and single-turn models are not agents, because the model does not run the workflow. Answering well is not enough."
         }
        },
        "livello2": {
@@ -1060,8 +1060,8 @@
          }
         ],
         "perche": {
-         "it": "OpenAI cita proprio i classificatori di sentiment tra le applicazioni che usano un modello linguistico ma non sono agenti: il modello non controlla il flusso di lavoro.",
-         "en": "OpenAI names sentiment classifiers among the applications that use a language model but are not agents: the model does not control the workflow."
+         "it": "Una guida del settore [OAI] cita proprio i classificatori di sentiment tra le applicazioni che usano un modello linguistico ma non sono agenti: il modello non controlla il flusso di lavoro.",
+         "en": "An industry guide [OAI] names sentiment classifiers among the applications that use a language model but are not agents: the model does not control the workflow."
         }
        },
        "livello2": {
@@ -4964,8 +4964,8 @@
          }
         ],
         "perche": {
-         "it": "Sapere (leggere i ticket) e fare (assegnarli a una persona, il «passaggio a un umano» citato da OpenAI) sono due strumenti diversi; scriverlo nel testo non sposta nulla.",
-         "en": "Knowing (reading tickets) and doing (assigning them to a person, the \"hand-off to a human\" named by OpenAI) are two different tools; writing it in the text moves nothing."
+         "it": "Sapere (leggere i ticket) e fare (assegnarli a una persona, il «passaggio a un umano» citato nelle guide del settore [OAI]) sono due strumenti diversi; scriverlo nel testo non sposta nulla.",
+         "en": "Knowing (reading tickets) and doing (assigning them to a person, the \"hand-off to a human\" named in industry guides [OAI]) are two different tools; writing it in the text moves nothing."
         }
        },
        "livello2": {
@@ -6865,8 +6865,8 @@
        "livello2": {
         "tipo": "motivazione",
         "domanda": {
-         "it": "Secondo OpenAI, quando una soluzione a regole fisse può bastare?",
-         "en": "According to OpenAI, when can a fixed-rules solution be enough?"
+         "it": "Secondo una prassi diffusa nel settore, quando una soluzione a regole fisse può bastare?",
+         "en": "According to a widespread industry practice, when can a fixed-rules solution be enough?"
         },
         "opzioni": [
          {
@@ -6921,8 +6921,8 @@
          }
         ],
         "perche": {
-         "it": "OpenAI: prima di costruire un agente verifica i tre criteri (decisioni complesse, regole difficili da mantenere, molti dati non strutturati); altrimenti «una soluzione deterministica può bastare».",
-         "en": "OpenAI: before building an agent check the three criteria (complex decisions, rules hard to maintain, lots of unstructured data); otherwise \"a deterministic solution may suffice\"."
+         "it": "Prassi diffusa [OAI]: prima di costruire un agente verifica i tre criteri (decisioni complesse, regole difficili da mantenere, molti dati non strutturati); altrimenti «una soluzione deterministica può bastare».",
+         "en": "Widespread practice [OAI]: before building an agent check the three criteria (complex decisions, rules hard to maintain, lots of unstructured data); otherwise \"a deterministic solution may suffice\"."
         }
        },
        "glossario": [
@@ -6987,8 +6987,8 @@
          }
         ],
         "perche": {
-         "it": "Un report sempre uguale non ha decisioni complesse né testo libero: bastano regole. Il rimborso con eccezioni è proprio il caso da agente citato da OpenAI.",
-         "en": "A report that never changes has no complex decisions and no free text: rules are enough. A refund with exceptions is exactly the agent use case named by OpenAI."
+         "it": "Un report sempre uguale non ha decisioni complesse né testo libero: bastano regole. Il rimborso con eccezioni è proprio il caso da agente citato nelle guide del settore [OAI].",
+         "en": "A report that never changes has no complex decisions and no free text: rules are enough. A refund with exceptions is exactly the agent use case named in industry guides [OAI]."
         }
        },
        "livello2": {
@@ -21838,8 +21838,8 @@
          }
         ],
         "perche": {
-         "it": "I risultati voluminosi ripassano dal contesto a ogni passo; e secondo OpenAI conta la sovrapposizione: oltre 15 strumenti distinti funzionano, meno di 10 sovrapposti no.",
-         "en": "Bulky results pass through the context at every step; and according to OpenAI overlap matters: over 15 distinct tools work, fewer than 10 overlapping ones do not."
+         "it": "I risultati voluminosi ripassano dal contesto a ogni passo; e secondo una prassi diffusa [OAI] conta la sovrapposizione: oltre 15 strumenti distinti funzionano, meno di 10 sovrapposti no.",
+         "en": "Bulky results pass through the context at every step; and according to a widespread practice [OAI] overlap matters: over 15 distinct tools work, fewer than 10 overlapping ones do not."
         }
        },
        "livello2": {

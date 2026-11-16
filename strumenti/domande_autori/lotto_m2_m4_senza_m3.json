@@ -2873,8 +2873,8 @@
     }
    ],
    "perche": {
-    "it": "I risultati voluminosi ripassano dal contesto a ogni passo; e secondo OpenAI conta la sovrapposizione: oltre 15 strumenti distinti funzionano, meno di 10 sovrapposti no.",
-    "en": "Bulky results pass through the context at every step; and according to OpenAI overlap matters: over 15 distinct tools work, fewer than 10 overlapping ones do not."
+    "it": "I risultati voluminosi ripassano dal contesto a ogni passo; e secondo una prassi diffusa [OAI] conta la sovrapposizione: oltre 15 strumenti distinti funzionano, meno di 10 sovrapposti no.",
+    "en": "Bulky results pass through the context at every step; and according to a widespread practice [OAI] overlap matters: over 15 distinct tools work, fewer than 10 overlapping ones do not."
    }
   },
   "livello2": {

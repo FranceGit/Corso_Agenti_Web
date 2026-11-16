@@ -148,6 +148,8 @@ Commit `1dfc05c`, `ecb3664`, `8bda412` e il commit finale di questa sezione. Per
 ## Stato al 16/11/2026 — cantiere CONTENUTI-REV (segnalazioni France 4, 8, 9, 10)
 Commit `8197bd4` (domande) e `4e9a195` (lezioni, scalette, bibliografia). Perimetro: contenuti. Non toccati webapp, server, `corso/modello.py` (il campo `glossario` c'era già, ALPHA-FIX `74f9e7b`).
 
+- **OpenAI non piu' citata come autorita' nelle domande (decisione France, 16/11/2026):** 6 domande neutralizzate (IT+EN) con formula generica e sigla [OAI]: DA1.1-3, DA1.1-4, DA1.4-5, DA1.5-6 e DA4.4-2 (solo il «perche'»), DA1.5-5 (testo del livello 2 e «perche'»). Opzioni e risposte corrette invariate. Il documento benchmark non contiene queste domande (sono d'autori): non toccato; modificati `dati/corso_v1.json` e i lotti `lotto_m1.json` e `lotto_m2_m4_senza_m3.json`. `estrai_corso.py`: 298 domande conservate; `inserisci_domande.py --verifica`: 57/57 erogabili; pytest `tests` 230 superati e 1 saltato (a lotti).
+
 ### Dove si corregge (vincolante)
 - **Domande autori**: nei lotti `strumenti/domande_autori/lotto_*.json`, poi `python strumenti/inserisci_domande.py strumenti/domande_autori/*.json`.
 - **Domande benchmark**: il docstring di `estrai_corso.py` dice che la loro fonte di verità è `dati/corso_v1.json`. Lì vivono inglese, classificazione, glossario e le opzioni aggiunte con la regola delle bande. Il documento benchmark ha solo l'italiano originale. Per questo la correzione va nel JSON e, per le opzioni che esistono anche nel documento, con lo stesso testo italiano nel documento (`F:\A\CD\Game_Development\000_PROGETTO\CORSO_BENCHMARK_STRUTTURA.md`, con una nota in testa). L'estrattore controlla l'impronta (testo della domanda, corretta, tipo di livello 2), che resta invariata.
