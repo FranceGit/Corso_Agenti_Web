@@ -20,6 +20,11 @@ l'estrattore aggiorna da documento solo moduli, pillole e knowledge graph e CONS
 dopo aver controllato che corrispondano ancora all'origine (stessi id per pillola, stesso testo italiano
 delle due domande, stessa risposta corretta, stesso tipo di livello 2). Se il documento e' cambiato su una
 domanda l'estrazione si ferma e dice quale: la riconciliazione e' un lavoro d'autore, non automatico.
+
+CORREZIONI DEL DOCUMENTO (16/11/2026): le formulazioni smentite dai contenuti verificati sono state corrette nel
+documento con la marcatura "[corretto — fonte verificata: ...]", che pulisci() toglie da tutti i testi estratti
+(pillole e domande): l'impronta delle domande si confronta quindi sul testo senza marcatura. Quando una
+correzione tocca il testo di una domanda (es. D8.1-a, livello 2) va applicata con le stesse parole anche al JSON.
 """
 from __future__ import annotations
 
@@ -61,8 +66,14 @@ def testo(it: str, en: str | None = None) -> dict:
     return {"it": it.strip(), "en": en}
 
 
+# Marcatura editoriale delle correzioni del documento benchmark (16/11/2026, dai contenuti verificati):
+# "[corretto — fonte verificata: ...]" serve a chi legge il documento, non allo studente, e si toglie dai testi.
+RE_CORRETTO = re.compile(r"\s*\[corretto — fonte verificata[^\]]*\]")
+
+
 def pulisci(s: str) -> str:
-    """Toglie il markdown di enfasi, lascia il testo leggibile."""
+    """Toglie il markdown di enfasi e le marcature delle correzioni, lascia il testo leggibile."""
+    s = RE_CORRETTO.sub("", s)
     s = re.sub(r"\*\*(.+?)\*\*", r"\1", s)
     s = re.sub(r"(?<!\w)\*(.+?)\*(?!\w)", r"\1", s)
     return s.strip()

@@ -3060,8 +3060,8 @@
        "en": "It repeats until the goal is reached or a stop condition kicks in (maximum number of steps, budget, request for human intervention)."
       },
       {
-       "it": "Il whitepaper Google del giorno 1 descrive un ciclo analogo a cinque fasi. Verificare la formulazione esatta sul testo scaricato.",
-       "en": "The Google day-1 whitepaper describes a similar five-phase loop. Check the exact wording against the downloaded text."
+       "it": "Il whitepaper Google del giorno 1 [G1] scompone il ciclo in cinque fasi (\"five fundamental steps\"): \"Get the Mission\" (ricevere la missione), \"Scan the Scene\" (esplorare la scena), \"Think It Through\" (ragionare e pianificare), \"Take Action\" (agire), \"Observe and Iterate\" (osservare e ripetere). Il giro \"repeats, returning to Step 3\": si torna al ragionamento, non alla missione. Le condizioni di arresto non sono in [G1]: vengono da OpenAI (strumento finale, output nel formato atteso, errore, numero massimo di turni) e dalla guida operativa Google (massimo di passi); il budget come limite è [EXP].",
+       "en": "The Google day-1 whitepaper [G1] breaks the loop into five phases (\"five fundamental steps\"): \"Get the Mission\", \"Scan the Scene\", \"Think It Through\" (reason and plan), \"Take Action\", \"Observe and Iterate\". The loop \"repeats, returning to Step 3\": it goes back to reasoning, not to the mission. Stop conditions are not in [G1]: they come from OpenAI (a final tool, an output in the expected format, an error, a maximum number of turns) and from Google's operations guide (maximum number of steps); a budget as a limit is [EXP]."
       }
      ],
      "animazione": {
@@ -5275,8 +5275,8 @@
        "en": "Multi-agent: several specialised agents work together."
       },
       {
-       "it": "Il whitepaper Google [G1] propone una tassonomia di livelli simile, da verificare sul testo. Regola: più autonomia significa più flessibilità, ma anche meno prevedibilità, più costo e più rischio. Si sceglie il livello minimo che risolve il problema.",
-       "en": "The Google whitepaper [G1] proposes a similar taxonomy of levels, to be checked against the text. Rule: more autonomy means more flexibility, but also less predictability, more cost and more risk. You choose the minimum level that solves the problem."
+       "it": "Il whitepaper Google [G1] classifica i sistemi in livelli di capacità, ciascuno costruito sul precedente: \"Level 0: The Core Reasoning System\" (il modello da solo, senza strumenti né memoria), \"Level 1: The Connected Problem-Solver\" (collegato a strumenti), \"Level 2: The Strategic Problem-Solver\" (pianifica obiettivi in più parti scegliendo le informazioni giuste per ogni passo), \"Level 3: The Collaborative Multi-Agent System\" (squadra di specialisti), \"Level 4: The Self-Evolving System\" (crea da sé nuovi strumenti o agenti). Non è la stessa scala dello spettro: i livelli misurano quanto è capace l'agente, lo spettro chi decide i passi (in [G1] va da \"a sprinkle of AI\" a \"the LM in the driver's seat\"). Regola: più autonomia significa più flessibilità, ma anche meno prevedibilità, più costo e più rischio. Si sceglie il livello minimo che risolve il problema.",
+       "en": "The Google whitepaper [G1] classifies systems into capability levels, each building on the previous one: \"Level 0: The Core Reasoning System\" (the model on its own, without tools or memory), \"Level 1: The Connected Problem-Solver\" (connected to tools), \"Level 2: The Strategic Problem-Solver\" (plans multi-part goals, choosing the right information for each step), \"Level 3: The Collaborative Multi-Agent System\" (a team of specialists), \"Level 4: The Self-Evolving System\" (creates new tools or agents by itself). It is not the same scale as the spectrum: the levels measure how capable the agent is, the spectrum who decides the steps (in [G1] it goes from \"a sprinkle of AI\" to \"the LM in the driver's seat\"). Rule: more autonomy means more flexibility, but also less predictability, more cost and more risk. You choose the minimum level that solves the problem."
       }
      ],
      "animazione": {
@@ -12034,6 +12034,162 @@
          "en": "If a contract field is missing, the station stops and says so: that way the fault shows at once."
         }
        }
+      },
+      {
+       "id": "DA3.1-4",
+       "origine": "autori",
+       "pillola": "P3.1",
+       "concetti": [
+        "C27"
+       ],
+       "concetto_principale": "C27",
+       "segmento_aiuto": "catena",
+       "striscia": "esempio_pratico",
+       "livello1": {
+        "domanda": {
+         "it": "Nel passo di normalizzazione dei lead, quale campo si usa per togliere i duplicati?",
+         "en": "In the lead normalisation step, which field is used to remove duplicates?"
+        },
+        "opzioni": [
+         {
+          "id": "A",
+          "testo": {
+           "it": "Il nome completo",
+           "en": "The full name"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": null
+         },
+         {
+          "id": "B",
+          "testo": {
+           "it": "L'email",
+           "en": "The email"
+          },
+          "corretta": true,
+          "tipo_distrattore": null,
+          "spiegazione": null
+         },
+         {
+          "id": "C",
+          "testo": {
+           "it": "Il voto su Google",
+           "en": "The Google rating"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": null
+         },
+         {
+          "id": "D",
+          "testo": {
+           "it": "La data di invio",
+           "en": "The send date"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": null
+         },
+         {
+          "id": "E",
+          "testo": {
+           "it": "Il numero di telefono",
+           "en": "The phone number"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": null
+         },
+         {
+          "id": "F",
+          "testo": {
+           "it": "Il settore",
+           "en": "The industry"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": null
+         },
+         {
+          "id": "G",
+          "testo": {
+           "it": "Il testo dell'email",
+           "en": "The email text"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": null
+         }
+        ],
+        "perche": {
+         "it": "Nel flusso reale analizzato i duplicati si tolgono sul campo email: identifica una persona meglio del nome, che può ripetersi.",
+         "en": "In the real flow analysed, duplicates are removed on the email field: it identifies a person better than the name, which can repeat."
+        }
+       },
+       "livello2": {
+        "tipo": "diagnosi",
+        "domanda": {
+         "it": "Dopo la normalizzazione il campo \"nome azienda\" arriva sempre vuoto, ma la raccolta funziona. Dove guardi per primo?",
+         "en": "After normalisation the \"company name\" field always arrives empty, but collection works. Where do you look first?"
+        },
+        "opzioni": [
+         {
+          "id": "a",
+          "testo": {
+           "it": "Al filtro che scarta i lead senza email e a quello che toglie i duplicati",
+           "en": "At the filter that drops leads without email and at the one that removes duplicates"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": null
+         },
+         {
+          "id": "b",
+          "testo": {
+           "it": "Al testo delle email della campagna",
+           "en": "At the text of the campaign emails"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": null
+         },
+         {
+          "id": "c",
+          "testo": {
+           "it": "Al modello: va sostituito con uno più grande",
+           "en": "At the model: it must be replaced with a bigger one"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": null
+         },
+         {
+          "id": "d",
+          "testo": {
+           "it": "Alla mappatura dei campi nel passo di normalizzazione",
+           "en": "At the field mapping in the normalisation step"
+          },
+          "corretta": true,
+          "tipo_distrattore": null,
+          "spiegazione": null
+         },
+         {
+          "id": "e",
+          "testo": {
+           "it": "All'orario di avvio della pipeline",
+           "en": "At the pipeline start time"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": null
+         }
+        ],
+        "perche": {
+         "it": "Se il dato entra ma esce vuoto, il contratto si rompe dove i campi vengono rinominati: nel tutorial il nome azienda era vuoto per un errore di mappatura.",
+         "en": "If the data goes in but comes out empty, the contract breaks where fields are renamed: in the tutorial the company name was empty because of a mapping mistake."
+        }
+       }
       }
      ]
     },
@@ -14620,6 +14776,123 @@
          "en": "The model's guesses help steer the message; written as facts they become claims without data."
         }
        }
+      },
+      {
+       "id": "DA3.4-4",
+       "origine": "autori",
+       "pillola": "P3.4",
+       "concetti": [
+        "C31",
+        "C30"
+       ],
+       "concetto_principale": "C31",
+       "segmento_aiuto": "lucchetto",
+       "striscia": "contro_esempio",
+       "livello1": {
+        "domanda": {
+         "it": "In un tutorial di automazione vendite l'autore dice: \"l'account è solo di prova\" e consiglia di cliccare \"always allow\" alle richieste di permesso dell'agente. Che cosa c'è di sbagliato?",
+         "en": "In a sales automation tutorial the author says: \"the account is just a test one\" and advises clicking \"always allow\" on the agent's permission requests. What is wrong?"
+        },
+        "opzioni": [
+         {
+          "id": "A",
+          "testo": {
+           "it": "Il problema è solo tecnico: un account di prova ha limiti di invio molto più bassi, quindi la campagna partirà più lenta del previsto, ma senza altri rischi per i contatti né per l'azienda",
+           "en": "The problem is only technical: a test account has much lower sending limits, so the campaign will start more slowly than planned, but with no other risks for the contacts or the company"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": null
+         },
+         {
+          "id": "B",
+          "testo": {
+           "it": "Due cose: l'account \"di prova\" contiene contatti veri, quindi non è un ambiente di test; e \"always allow\" toglie il controllo umano sulle azioni che non si possono ritirare",
+           "en": "Two things: the \"test\" account contains real contacts, so it is not a test environment; and \"always allow\" removes human control on actions that cannot be undone"
+          },
+          "corretta": true,
+          "tipo_distrattore": null,
+          "spiegazione": null
+         },
+         {
+          "id": "C",
+          "testo": {
+           "it": "Solo \"always allow\" è un problema; l'account di prova invece va bene, perché finché la casella non è collegata le email non partono e quindi non c'è nessun rischio",
+           "en": "Only \"always allow\" is a problem; the test account is fine, because as long as the inbox is not connected the emails do not go out and so there is no risk"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": null
+         }
+        ],
+        "perche": {
+         "it": "I contatti caricati sono \"actual contacts\" e \"always allow\" elimina i punti di approvazione: le fonti chiedono invece revisione umana sulle azioni irreversibili, soprattutto all'inizio.",
+         "en": "The contacts loaded are \"actual contacts\" and \"always allow\" removes the approval points: the sources instead ask for human review on irreversible actions, especially at the start."
+        }
+       },
+       "livello2": {
+        "tipo": "trasferimento",
+        "domanda": {
+         "it": "Come si imposta correttamente il passaggio dalla prova all'invio reale?",
+         "en": "How do you set up the move from testing to real sending correctly?"
+        },
+        "opzioni": [
+         {
+          "id": "a",
+          "testo": {
+           "it": "Ambienti separati con un cancello di approvazione manuale prima della produzione",
+           "en": "Separate environments with a manual approval gate before production"
+          },
+          "corretta": true,
+          "tipo_distrattore": null,
+          "spiegazione": null
+         },
+         {
+          "id": "b",
+          "testo": {
+           "it": "Si prova inviando ai colleghi e, quando il testo va bene, si clicca \"always allow\" per far partire tutto",
+           "en": "You test by sending to colleagues and, when the text looks good, you click \"always allow\" to start everything"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": null
+         },
+         {
+          "id": "c",
+          "testo": {
+           "it": "Si prova di notte, quando i clienti non leggono la posta",
+           "en": "You test at night, when customers are not reading email"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": null
+         },
+         {
+          "id": "d",
+          "testo": {
+           "it": "Si invia subito a tutti e si corregge in base alle risposte",
+           "en": "You send to everyone at once and fix things based on the replies"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": null
+         },
+         {
+          "id": "e",
+          "testo": {
+           "it": "Si usa un account a pagamento invece di uno di prova",
+           "en": "You use a paid account instead of a test one"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": null
+         }
+        ],
+        "perche": {
+         "it": "Le fonti descrivono ambienti distinti (sviluppo, prova, produzione) con \"a manual approval gate\" tra l'uno e l'altro.",
+         "en": "The sources describe separate environments (development, test, production) with \"a manual approval gate\" between them."
+        }
+       }
       }
      ]
     },
@@ -15923,6 +16196,163 @@
         "perche": {
          "it": "Il report è un riassunto: solo il confronto con i dati grezzi dice se è vero.",
          "en": "The report is a summary: only the comparison with the raw data tells you whether it is true."
+        }
+       }
+      },
+      {
+       "id": "DA3.5-6",
+       "origine": "autori",
+       "pillola": "P3.5",
+       "concetti": [
+        "C33",
+        "C32"
+       ],
+       "concetto_principale": "C33",
+       "segmento_aiuto": "priorita",
+       "striscia": "contro_esempio",
+       "livello1": {
+        "domanda": {
+         "it": "Una risposta \"toglietemi dalla vostra lista, grazie\" viene classificata DISISCRIZIONE con confidenza bassa. Per regola va in coda di revisione, che oggi ha due settimane di arretrato, e intanto la sequenza continua. Che cosa non va?",
+         "en": "A reply \"please take me off your list, thanks\" is classified UNSUBSCRIBE with low confidence. By rule it goes to the review queue, which has a two-week backlog today, and meanwhile the sequence goes on. What is wrong?"
+        },
+        "opzioni": [
+         {
+          "id": "A",
+          "testo": {
+           "it": "La disiscrizione va eseguita comunque: la soglia non deve ritardare un'azione obbligatoria",
+           "en": "The unsubscribe must be carried out anyway: the threshold must not delay a mandatory action"
+          },
+          "corretta": true,
+          "tipo_distrattore": null,
+          "spiegazione": null
+         },
+         {
+          "id": "B",
+          "testo": {
+           "it": "Niente: la regola è stata rispettata, purché la revisione avvenga entro un mese dalla risposta del lead",
+           "en": "Nothing: the rule was followed, as long as the review happens within a month of the lead's reply"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": null
+         },
+         {
+          "id": "C",
+          "testo": {
+           "it": "La coda è troppo lunga: basta assumere un altro revisore per il periodo",
+           "en": "The queue is too long: just hire another reviewer for the period"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": null
+         },
+         {
+          "id": "D",
+          "testo": {
+           "it": "La soglia è troppo alta: va abbassata finché tutto passa in automatico",
+           "en": "The threshold is too high: lower it until everything goes through automatically"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": null
+         },
+         {
+          "id": "E",
+          "testo": {
+           "it": "La risposta andava classificata NON INTERESSATO, che ha più confidenza",
+           "en": "The reply should have been classified NOT INTERESTED, which has more confidence"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": null
+         }
+        ],
+        "perche": {
+         "it": "La soglia decide chi classifica, non se rispettare una richiesta di disiscrizione: nel dubbio quella si esegue sempre, subito (regola di progetto del corso).",
+         "en": "The threshold decides who classifies, not whether to respect an unsubscribe request: when in doubt it is always carried out, at once (the course's design rule)."
+        }
+       },
+       "livello2": {
+        "tipo": "contro-esempio",
+        "domanda": {
+         "it": "Un'altra risposta dice \"Non ora, e comunque toglietemi dalla lista\". Che cosa prevale?",
+         "en": "Another reply says \"Not now, and anyway take me off the list\". What takes priority?"
+        },
+        "opzioni": [
+         {
+          "id": "a",
+          "testo": {
+           "it": "DA RICONTATTARE",
+           "en": "CALL BACK LATER"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": null
+         },
+         {
+          "id": "b",
+          "testo": {
+           "it": "FUORI SEDE",
+           "en": "OUT OF OFFICE"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": null
+         },
+         {
+          "id": "c",
+          "testo": {
+           "it": "INTERESSATO",
+           "en": "INTERESTED"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": null
+         },
+         {
+          "id": "d",
+          "testo": {
+           "it": "Due etichette insieme",
+           "en": "Two labels together"
+          },
+          "corretta": false,
+          "tipo_distrattore": "quasi",
+          "spiegazione": null
+         },
+         {
+          "id": "e",
+          "testo": {
+           "it": "Nessuna etichetta",
+           "en": "No label"
+          },
+          "corretta": false,
+          "tipo_distrattore": "poco",
+          "spiegazione": null
+         },
+         {
+          "id": "f",
+          "testo": {
+           "it": "La più recente in CRM",
+           "en": "The latest one in the CRM"
+          },
+          "corretta": false,
+          "tipo_distrattore": "errata",
+          "spiegazione": null
+         },
+         {
+          "id": "g",
+          "testo": {
+           "it": "La disiscrizione",
+           "en": "The unsubscribe"
+          },
+          "corretta": true,
+          "tipo_distrattore": null,
+          "spiegazione": null
+         }
+        ],
+        "perche": {
+         "it": "Quando una risposta contiene due segnali serve una regola di priorità, e la richiesta di disiscrizione prevale.",
+         "en": "When a reply contains two signals you need a priority rule, and the unsubscribe request comes first."
         }
        }
       }
@@ -19944,8 +20374,8 @@
        "en": "The context of each call is made of: instructions + tool definitions + conversation history + retrieved data + memory + current input."
       },
       {
-       "it": "Il context engineering consiste nel selezionare, ordinare e comprimere queste parti: \"l'informazione giusta, al momento giusto\".",
-       "en": "Context engineering means selecting, ordering and compressing these parts: \"the right information, at the right time\"."
+       "it": "Il context engineering consiste nel selezionare, riassumere e inserire queste parti (\"selecting, summarizing, and injecting\"): \"l'informazione giusta, al momento giusto\", né più né meno di quella che serve.",
+       "en": "Context engineering means selecting, summarizing and injecting these parts (the words of the source): \"the right information, at the right time\", no more and no less than what is needed."
       },
       {
        "it": "Troppo poco contesto porta a errori per mancanza di informazioni. Troppo contesto porta a rumore, costi e attenzione diluita.",
@@ -20029,8 +20459,8 @@
          {
           "id": "E",
           "testo": {
-           "it": "Nel selezionare, ordinare e comprimere le informazioni che entrano nel contesto del modello a ogni passo",
-           "en": "Selecting, ordering and compressing the information that goes into the model's context at each step"
+           "it": "Nel selezionare, riassumere e inserire le informazioni che entrano nel contesto del modello a ogni passo",
+           "en": "Selecting, summarizing and injecting the information that goes into the model's context at each step"
           },
           "corretta": true,
           "tipo_distrattore": null,
@@ -20038,8 +20468,8 @@
          }
         ],
         "perche": {
-         "it": "Context engineering vuol dire scegliere, ordinare e comprimere ciò che il modello vede a ogni passo.",
-         "en": "Context engineering means choosing, ordering and compressing what the model sees at each step."
+         "it": "Context engineering vuol dire selezionare, riassumere e inserire ciò che il modello vede a ogni passo: né più né meno di quello che serve.",
+         "en": "Context engineering means selecting, summarizing and injecting what the model sees at each step: no more and no less than what is needed."
         }
        },
        "livello2": {
@@ -28481,8 +28911,8 @@
        "en": "It must contain typical cases, edge cases (missing data, different languages, ambiguous replies) and adversarial cases (prompt injection, out-of-scope requests)."
       },
       {
-       "it": "Si parte da 20-50 casi ben scelti e si cresce aggiungendo ogni errore reale trovato in produzione.",
-       "en": "You start with 20-50 well-chosen cases and grow by adding every real error found in production."
+       "it": "Si parte da un nucleo di casi ben scelti (indicativamente 20-50: ordine di grandezza da esperienza, le fonti non danno un numero [EXP]) e si cresce aggiungendo ogni errore reale trovato in produzione.",
+       "en": "You start with a core of well-chosen cases (roughly 20-50: an order of magnitude from experience, the sources give no number [EXP]) and grow by adding every real error found in production."
       },
       {
        "it": "Regressione: prima di cambiare istruzioni, modello o strumenti si rilancia il set e si confronta con la versione precedente.",
@@ -29355,16 +29785,16 @@
        "en": "Many outputs (emails, summaries) do not have a single answer. An LLM judge evaluates them with an explicit rubric (relevance, accuracy against the data, tone, compliance)."
       },
       {
-       "it": "I bias noti dei giudici LLM:\n- preferenza per le risposte più lunghe;\n- influenza dell'ordine di presentazione;\n- possibile preferenza per testi simili ai propri.",
-       "en": "Known biases of LLM judges:\n- preference for longer answers;\n- influence of the order of presentation;\n- possible preference for texts similar to their own."
+       "it": "I bias dei giudici LLM ([EXP] competenza propria: le fonti del corso non li elencano; solo il bias di posizione è richiamato da uno studio citato da Google):\n- preferenza per le risposte più lunghe;\n- influenza dell'ordine di presentazione (bias di posizione);\n- possibile preferenza per testi simili ai propri.",
+       "en": "Biases of LLM judges ([EXP] own expertise: the course sources do not list them; only position bias is referenced, through a study cited by Google):\n- preference for longer answers;\n- influence of the order of presentation (position bias);\n- possible preference for texts similar to their own."
       },
       {
-       "it": "Le mitigazioni:\n- criteri verificabili;\n- doppia valutazione con ordine invertito;\n- calibrazione su un campione giudicato da persone.",
-       "en": "The mitigations:\n- checkable criteria;\n- double evaluation with the order reversed;\n- calibration on a sample judged by people."
+       "it": "Le mitigazioni:\n- criteri verificabili;\n- doppia valutazione con ordine invertito ([EXP]);\n- calibrazione su un campione giudicato da persone.",
+       "en": "The mitigations:\n- checkable criteria;\n- double evaluation with the order reversed ([EXP]);\n- calibration on a sample judged by people."
       },
       {
-       "it": "La revisione umana si fa a campione e sui casi segnalati. Dà la \"verità di riferimento\" per calibrare il giudice.",
-       "en": "Human review is done on a sample and on flagged cases. It provides the \"reference truth\" for calibrating the judge."
+       "it": "La revisione umana si fa a campione e sui casi segnalati. Dà il riferimento calibrato sul giudizio umano (non una verità oggettiva: anche gli esperti non sempre concordano) per calibrare il giudice.",
+       "en": "Human review is done on a sample and on flagged cases. It provides a reference calibrated on human judgement (not an objective truth: even experts do not always agree) for calibrating the judge."
       },
       {
        "it": "Il giudice è uno strumento di misura: va validato come qualunque altro strumento.",
@@ -29725,8 +30155,8 @@
          {
           "id": "D",
           "testo": {
-           "it": "Rivedere un campione e i casi segnalati, fornendo la verità di riferimento per calibrare giudici e soglie",
-           "en": "Reviewing a sample and the flagged cases, providing the reference truth to calibrate judges and thresholds"
+           "it": "Rivedere un campione e i casi segnalati, fornendo il riferimento umano (non una verità perfetta) per tarare giudici e soglie",
+           "en": "Reviewing a sample and the flagged cases, providing the human reference (not a perfect truth) to calibrate judges and thresholds"
           },
           "corretta": true,
           "tipo_distrattore": null,
@@ -29744,8 +30174,8 @@
          }
         ],
         "perche": {
-         "it": "Le persone rivedono un campione e i casi segnalati: danno la verità di riferimento per tarare giudici e soglie.",
-         "en": "People review a sample and the flagged cases: they provide the reference truth to calibrate judges and thresholds."
+         "it": "Le persone rivedono un campione e i casi segnalati: danno il riferimento umano, non una verità perfetta, per tarare giudici e soglie.",
+         "en": "People review a sample and the flagged cases: they provide the human reference, not a perfect truth, to calibrate judges and thresholds."
         }
        },
        "livello2": {
@@ -31154,8 +31584,8 @@
        "en": "Versioning of instructions, model, tools and configurations. Every result must be traceable to a version."
       },
       {
-       "it": "Rilascio graduale (es. prima il 5% del traffico), monitoraggio, ritorno rapido alla versione precedente (rollback).",
-       "en": "Gradual release (e.g. 5% of the traffic first), monitoring, quick return to the previous version (rollback)."
+       "it": "Rilascio graduale (canary: si parte dall'1% degli utenti e si sale per gradi), monitoraggio, ritorno rapido alla versione precedente (rollback).",
+       "en": "Gradual release (canary: you start with 1% of users and scale up step by step), monitoring, quick return to the previous version (rollback)."
       },
       {
        "it": "Affidabilità: gestione di errori e timeout, limiti di frequenza dei servizi esterni, code.",
@@ -31172,8 +31602,8 @@
        "en": "The canary release"
       },
       "progetto": {
-       "it": "- Cosa si vede: il flusso delle richieste è un fiume di pallini che scorre verso la versione 1 dell'agente. Il pulsante \"rilascia v2\" devia il 5% dei pallini verso la v2. Due grafici affiancati (tasso di successo v1 e v2) si aggiornano in tempo reale.\n- Interazione:\n- Lo studente sceglie tra due scenari.\n- Nel primo la v2 è migliore e il traffico sale a 25%, 50%, 100%.\n- Nel secondo la v2 ha un difetto: il suo grafico scende sotto la soglia, scatta il rollback automatico e i pallini tornano tutti alla v1. Un'etichetta indica quale versione di istruzioni e modello ha causato il calo.\n- Perché aiuta: rende concreto il rilascio a rischio controllato e il valore del versionamento.",
-       "en": "- What you see: the flow of requests is a river of dots running towards version 1 of the agent. The \"release v2\" button diverts 5% of the dots to v2. Two charts side by side (success rate of v1 and v2) update in real time.\n- Interaction:\n- The student chooses between two scenarios.\n- In the first, v2 is better and the traffic rises to 25%, 50%, 100%.\n- In the second, v2 has a defect: its chart falls below the threshold, the automatic rollback kicks in and all the dots go back to v1. A label shows which version of instructions and model caused the drop.\n- Why it helps: it makes a controlled-risk release and the value of versioning concrete."
+       "it": "- Cosa si vede: il flusso delle richieste è un fiume di pallini che scorre verso la versione 1 dell'agente. Il pulsante \"rilascia v2\" devia l'1% dei pallini verso la v2. Due grafici affiancati (tasso di successo v1 e v2) si aggiornano in tempo reale.\n- Interazione:\n- Lo studente sceglie tra due scenari.\n- Nel primo la v2 è migliore e il traffico sale a 5%, 25%, 50%, 100%.\n- Nel secondo la v2 ha un difetto: il suo grafico scende sotto la soglia, scatta il rollback automatico e i pallini tornano tutti alla v1. Un'etichetta indica quale versione di istruzioni e modello ha causato il calo.\n- Perché aiuta: rende concreto il rilascio a rischio controllato e il valore del versionamento.",
+       "en": "- What you see: the flow of requests is a river of dots running towards version 1 of the agent. The \"release v2\" button diverts 1% of the dots to v2. Two charts side by side (success rate of v1 and v2) update in real time.\n- Interaction:\n- The student chooses between two scenarios.\n- In the first, v2 is better and the traffic rises to 5%, 25%, 50%, 100%.\n- In the second, v2 has a defect: its chart falls below the threshold, the automatic rollback kicks in and all the dots go back to v1. A label shows which version of instructions and model caused the drop.\n- Why it helps: it makes a controlled-risk release and the value of versioning concrete."
       }
      },
      "domande": [
@@ -31252,8 +31682,8 @@
        "livello2": {
         "tipo": "trasferimento",
         "domanda": {
-         "it": "Durante il rilascio al 5%, la nuova versione mostra più reclami. Cosa prevede una buona procedura?",
-         "en": "During the 5% release, the new version shows more complaints. What does a good procedure call for?"
+         "it": "Durante il rilascio all'1%, la nuova versione mostra più reclami. Cosa prevede una buona procedura?",
+         "en": "During the 1% release, the new version shows more complaints. What does a good procedure call for?"
         },
         "opzioni": [
          {
@@ -31299,8 +31729,8 @@
          {
           "id": "e",
           "testo": {
-           "it": "Lasciare il 5% attivo e intanto correggere la nuova versione",
-           "en": "Keep the 5% running while fixing the new version"
+           "it": "Lasciare l'1% attivo e intanto correggere la nuova versione",
+           "en": "Keep the 1% running while fixing the new version"
           },
           "corretta": false,
           "tipo_distrattore": "quasi",
@@ -32069,8 +32499,8 @@
        "en": "The risk depends on the type of action, the sensitivity of the resource (deletions, personal data, money thresholds) and low confidence, which raises the level."
       },
       {
-       "it": "Fail-closed: se il servizio che decide le autorizzazioni non risponde, l'azione è negata, non concessa.",
-       "en": "Fail-closed: if the service that decides the permissions does not answer, the action is denied, not allowed."
+       "it": "Fail-closed (secondo il repo R15, non verificato a fondo: nessuna fonte verificata del corso lo nomina, [EXP]): se il servizio che decide le autorizzazioni non risponde, l'azione è negata, non concessa.",
+       "en": "Fail-closed (according to the R15 repo, not checked in depth: no verified source of the course names it, [EXP]): if the service that decides the permissions does not answer, the action is denied, not allowed."
       },
       {
        "it": "L'approvazione ha una scadenza e viene registrata.",
@@ -32907,8 +33337,8 @@
      },
      "scaletta": [
       {
-       "it": "Kill switch a più livelli: singolo agente, singolo cliente o tenant, globale. Gli stati sono: in esecuzione, in pausa (finisce ciò che ha in corso), arrestato (nessun nuovo effetto). Schema descritto in [R15].",
-       "en": "Kill switch at several levels: single agent, single customer or tenant, global. The states are: running, paused (finishes what it is doing), stopped (no new effects). Scheme described in [R15]."
+       "it": "Kill switch a più livelli: singolo agente, singolo cliente o tenant, globale. Gli stati sono: in esecuzione, in pausa (finisce ciò che ha in corso), arrestato (nessun nuovo effetto). Schema del repo R15 (non verificato a fondo): nessuna fonte verificata usa il termine \"kill switch\"; l'equivalente documentato è l'interruttore che spegne all'istante un singolo strumento (circuit breaker) [G5].",
+       "en": "Kill switch at several levels: single agent, single customer or tenant, global. The states are: running, paused (finishes what it is doing), stopped (no new effects). Scheme from the R15 repo (not checked in depth): no verified source uses the term \"kill switch\"; the documented equivalent is the switch that instantly turns off a single tool (circuit breaker) [G5]."
       },
       {
        "it": "L'agente controlla lo stato prima di ogni azione con effetti, non solo all'avvio.",

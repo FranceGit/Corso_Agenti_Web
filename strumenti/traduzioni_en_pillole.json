@@ -31,7 +31,7 @@
    "It acts: it calls a tool.",
    "It observes the result, even an error, and updates its state.",
    "It repeats until the goal is reached or a stop condition kicks in (maximum number of steps, budget, request for human intervention).",
-   "The Google day-1 whitepaper describes a similar five-phase loop. Check the exact wording against the downloaded text."
+   "The Google day-1 whitepaper [G1] breaks the loop into five phases (\"five fundamental steps\"): \"Get the Mission\", \"Scan the Scene\", \"Think It Through\" (reason and plan), \"Take Action\", \"Observe and Iterate\". The loop \"repeats, returning to Step 3\": it goes back to reasoning, not to the mission. Stop conditions are not in [G1]: they come from OpenAI (a final tool, an output in the expected format, an error, a maximum number of turns) and from Google's operations guide (maximum number of steps); a budget as a limit is [EXP]."
   ],
   "animazione": "- What you see:\n- A circle with four stations: Reason, Act, Observe, Update state. A light indicator travels round the circle.\n- Beside it, a \"state\" panel fills up with lines at each round: \"12 leads found\", \"3 without email\", \"drafts created: 9\".\n- Interaction:\n- The \"break the tool\" button makes the CRM icon return an error (\"contact not found\"). The indicator shows the reaction: a new attempt with different parameters, or a detour to \"ask a human\".\n- The \"maximum number of steps\" slider (from 3 to 20) shows that with a low limit the agent stops before finishing, and with no limit a repeated error creates an endless loop (the cost counter climbs).\n- Why it helps: it shows that observation is what makes the agent adaptive and that the limit is a protection, not a flaw."
  },
@@ -54,7 +54,7 @@
    "LLM workflow: the steps are decided by a human, the LLM carries them out (e.g. scoring → email).",
    "Agent: the model chooses which steps to take and in what order.",
    "Multi-agent: several specialised agents work together.",
-   "The Google whitepaper [G1] proposes a similar taxonomy of levels, to be checked against the text. Rule: more autonomy means more flexibility, but also less predictability, more cost and more risk. You choose the minimum level that solves the problem."
+   "The Google whitepaper [G1] classifies systems into capability levels, each building on the previous one: \"Level 0: The Core Reasoning System\" (the model on its own, without tools or memory), \"Level 1: The Connected Problem-Solver\" (connected to tools), \"Level 2: The Strategic Problem-Solver\" (plans multi-part goals, choosing the right information for each step), \"Level 3: The Collaborative Multi-Agent System\" (a team of specialists), \"Level 4: The Self-Evolving System\" (creates new tools or agents by itself). It is not the same scale as the spectrum: the levels measure how capable the agent is, the spectrum who decides the steps (in [G1] it goes from \"a sprinkle of AI\" to \"the LM in the driver's seat\"). Rule: more autonomy means more flexibility, but also less predictability, more cost and more risk. You choose the minimum level that solves the problem."
   ],
   "animazione": "- What you see:\n- A horizontal slider with 5 marks. Above it there is a process diagram that changes:\n- mark 1: a flowchart with fixed arrows;\n- mark 2: an \"AI\" box in a single node;\n- mark 3: AI boxes in several nodes, but arrows still fixed;\n- mark 4: the arrows become dashed and are \"drawn\" at runtime by the agent;\n- mark 5: several agents exchange messages.\n- On the side, four indicators move together with the slider: flexibility ↑, predictability ↓, cost ↑, risk ↑.\n- Interaction: the student drags three scenarios (e.g. \"sending the same monthly newsletter to everyone\", \"replying to very variable quote requests\", \"summarising a call\") onto the mark they think is right and receives reasoned feedback.\n- Why it helps: it shows the trade-off visually. Autonomy is not \"better\" in absolute terms."
  },
@@ -230,7 +230,7 @@
   "obiettivo": "understand that an agent's quality depends on which information goes into the context at each step.",
   "scaletta": [
    "The context of each call is made of: instructions + tool definitions + conversation history + retrieved data + memory + current input.",
-   "Context engineering means selecting, ordering and compressing these parts: \"the right information, at the right time\".",
+   "Context engineering means selecting, summarizing and injecting these parts (the words of the source): \"the right information, at the right time\", no more and no less than what is needed.",
    "Too little context leads to errors from missing information. Too much context leads to noise, costs and diluted attention.",
    "The main techniques: summaries, targeted retrieval (RAG, see P5.4), selective memory, removal of results that are no longer useful.",
    "Google's day 3 whitepaper is devoted to context engineering, sessions and memory."
@@ -355,7 +355,7 @@
   "scaletta": [
    "An evaluation set (golden set) is a collection of cases with the expected result or the acceptance criteria.",
    "It must contain typical cases, edge cases (missing data, different languages, ambiguous replies) and adversarial cases (prompt injection, out-of-scope requests).",
-   "You start with 20-50 well-chosen cases and grow by adding every real error found in production.",
+   "You start with a core of well-chosen cases (roughly 20-50: an order of magnitude from experience, the sources give no number [EXP]) and grow by adding every real error found in production.",
    "Regression: before changing instructions, model or tools, you rerun the set and compare with the previous version.",
    "Google's day 4b notebook is devoted to evaluation."
   ],
@@ -365,9 +365,9 @@
   "obiettivo": "use an LLM as an evaluator in a controlled way and combine it with human review.",
   "scaletta": [
    "Many outputs (emails, summaries) do not have a single answer. An LLM judge evaluates them with an explicit rubric (relevance, accuracy against the data, tone, compliance).",
-   "Known biases of LLM judges:\n- preference for longer answers;\n- influence of the order of presentation;\n- possible preference for texts similar to their own.",
-   "The mitigations:\n- checkable criteria;\n- double evaluation with the order reversed;\n- calibration on a sample judged by people.",
-   "Human review is done on a sample and on flagged cases. It provides the \"reference truth\" for calibrating the judge.",
+   "Biases of LLM judges ([EXP] own expertise: the course sources do not list them; only position bias is referenced, through a study cited by Google):\n- preference for longer answers;\n- influence of the order of presentation (position bias);\n- possible preference for texts similar to their own.",
+   "The mitigations:\n- checkable criteria;\n- double evaluation with the order reversed ([EXP]);\n- calibration on a sample judged by people.",
+   "Human review is done on a sample and on flagged cases. It provides a reference calibrated on human judgement (not an objective truth: even experts do not always agree) for calibrating the judge.",
    "The judge is a measuring instrument: it must be validated like any other instrument."
   ],
   "animazione": "- What you see: two candidate emails, A and B, side by side. On the right a \"judge\" panel with the 4-item rubric, ticked off one at a time with a score.\n- Interaction:\n- The \"reverse the order\" button presents B before A: in an illustrative case the verdict changes and the label \"position bias\" appears.\n- Turning on \"double evaluation\", the judge evaluates both orders and flags the disagreement as \"uncertain → human review\".\n- A scatter plot shows how well the judge's scores agree with human scores over 50 cases. With a vague rubric the cloud is wide, with an explicit rubric it gets tighter.\n- Why it helps: it makes the biases and the need for calibration tangible."
@@ -389,11 +389,11 @@
    "The guided case [R11] is a local MVP; the repo [R15] describes an enterprise architecture. The gap between the two is the topic of this pill.",
    "Separate environments: development, test, production, each with its own data and credentials.",
    "Versioning of instructions, model, tools and configurations. Every result must be traceable to a version.",
-   "Gradual release (e.g. 5% of the traffic first), monitoring, quick return to the previous version (rollback).",
+   "Gradual release (canary: you start with 1% of users and scale up step by step), monitoring, quick return to the previous version (rollback).",
    "Reliability: handling errors and timeouts, rate limits of outside services, queues.",
    "Google's day 5 whitepaper is devoted to the move from prototype to production."
   ],
-  "animazione": "- What you see: the flow of requests is a river of dots running towards version 1 of the agent. The \"release v2\" button diverts 5% of the dots to v2. Two charts side by side (success rate of v1 and v2) update in real time.\n- Interaction:\n- The student chooses between two scenarios.\n- In the first, v2 is better and the traffic rises to 25%, 50%, 100%.\n- In the second, v2 has a defect: its chart falls below the threshold, the automatic rollback kicks in and all the dots go back to v1. A label shows which version of instructions and model caused the drop.\n- Why it helps: it makes a controlled-risk release and the value of versioning concrete."
+  "animazione": "- What you see: the flow of requests is a river of dots running towards version 1 of the agent. The \"release v2\" button diverts 1% of the dots to v2. Two charts side by side (success rate of v1 and v2) update in real time.\n- Interaction:\n- The student chooses between two scenarios.\n- In the first, v2 is better and the traffic rises to 5%, 25%, 50%, 100%.\n- In the second, v2 has a defect: its chart falls below the threshold, the automatic rollback kicks in and all the dots go back to v1. A label shows which version of instructions and model caused the drop.\n- Why it helps: it makes a controlled-risk release and the value of versioning concrete."
  },
  "P8.2": {
   "obiettivo": "design a system that classifies the risk of actions, with human approval and \"fail-closed\" behaviour.",
@@ -401,7 +401,7 @@
    "Every action of the agent is described in a structured \"package\": agent, type of action, resource, risk level, confidence, evidence. This is the approach documented in [R15].",
    "Risk levels (scheme from [R15]):\n- LOW: automatic execution with logging;\n- MEDIUM: automatic execution with policy rules;\n- HIGH: blocked until a human approves.",
    "The risk depends on the type of action, the sensitivity of the resource (deletions, personal data, money thresholds) and low confidence, which raises the level.",
-   "Fail-closed: if the service that decides the permissions does not answer, the action is denied, not allowed.",
+   "Fail-closed (according to the R15 repo, not checked in depth: no verified source of the course names it, [EXP]): if the service that decides the permissions does not answer, the action is denied, not allowed.",
    "The approval has an expiry and is recorded."
   ],
   "animazione": "- What you see: action packages (cards with labels: \"update note\", \"send email to 500 contacts\", \"apply 30% discount\", \"delete contact\") move along a conveyor belt towards a sorter with three exits.\n- Green exit: execute.\n- Yellow exit: execute with a policy check.\n- Red exit: approval queue, where a neutral stick figure with a stamp approves or rejects.\n- Interaction:\n- The \"confidence\" slider of a package: lowering it, the \"update note\" package moves from green to yellow.\n- The \"authorisation service unavailable\" switch: in fail-closed mode all the packages stop (padlock). In a \"fail-open\" mode, shown for comparison, the \"delete contact\" action goes through unchecked, with an alarm.\n- Why it helps: it shows that supervision is a graded, automatic mechanism, not a manual check of everything."
@@ -409,7 +409,7 @@
  "P8.3": {
   "obiettivo": "know the emergency stop mechanisms, the recording of decisions and how to explain them.",
   "scaletta": [
-   "Kill switch at several levels: single agent, single customer or tenant, global. The states are: running, paused (finishes what it is doing), stopped (no new effects). Scheme described in [R15].",
+   "Kill switch at several levels: single agent, single customer or tenant, global. The states are: running, paused (finishes what it is doing), stopped (no new effects). Scheme from the R15 repo (not checked in depth): no verified source uses the term \"kill switch\"; the documented equivalent is the switch that instantly turns off a single tool (circuit breaker) [G5].",
    "The agent checks the state before every action that has effects, not only at start-up.",
    "Decision log (audit trail). For each decision you save: redacted inputs, decision factors, confidence, evidence (references, not secrets), tools called, outcome.",
    "Explainability: the log makes it possible to answer \"why did the agent do this?\" for a customer, an auditor or an authority.",

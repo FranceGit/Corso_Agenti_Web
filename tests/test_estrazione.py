@@ -120,6 +120,23 @@ def test_documento_sintetico_tutti_i_casi(tmp_path, senza_traduzioni):
     assert kg["archi"][1]["nota"] is None and kg["nodi"][1]["pillole"] == ["P1.1", "P1.2"]
 
 
+def test_marcature_delle_correzioni_tolte_dai_testi(tmp_path, senza_traduzioni):
+    """Le correzioni del documento portano "[corretto — fonte verificata: ...]": la marcatura serve al lettore del
+    documento, non entra nei testi del corso e non cambia l'impronta delle domande (16/11/2026)."""
+    assert ec.pulisci("Si parte dall'1% degli utenti. [corretto — fonte verificata: WP5 p.16]") == "Si parte dall'1% degli utenti."
+    assert ec.pulisci("prima [corretto — fonte verificata] dopo") == "prima dopo"
+    md = tmp_path / "corso.md"
+    pulito = documento()
+    marcato = documento(**{"capire *bene* la cosa 1.": "capire *bene* la cosa 1. [corretto — fonte verificata: X p.1]"})
+    assert marcato != pulito
+    md.write_text(marcato, encoding="utf-8")
+    corso_marcato, _ = ec.estrai(md)
+    md.write_text(pulito, encoding="utf-8")
+    corso_pulito, _ = ec.estrai(md)
+    assert corso_marcato == corso_pulito
+    assert "corretto" not in json.dumps(corso_marcato, ensure_ascii=False)
+
+
 @pytest.mark.parametrize("vecchio, nuovo, messaggio", [
     ("    - **Corretta: B**", "    - **Corretta: G**", "non presente"),
     ("    - B) beta\n    - **Corretta: B**", "    - B) beta\n    ? riga strana\n    - **Corretta: B**", "non riconosciuta"),

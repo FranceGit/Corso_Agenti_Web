@@ -1,0 +1,432 @@
+[
+ {
+  "id": "DA3.1-4",
+  "origine": "autori",
+  "pillola": "P3.1",
+  "concetti": [
+   "C27"
+  ],
+  "concetto_principale": "C27",
+  "segmento_aiuto": "catena",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Nel passo di normalizzazione dei lead, quale campo si usa per togliere i duplicati?",
+    "en": "In the lead normalisation step, which field is used to remove duplicates?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Il nome completo",
+      "en": "The full name"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "L'email",
+      "en": "The email"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Il voto su Google",
+      "en": "The Google rating"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "La data di invio",
+      "en": "The send date"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Il numero di telefono",
+      "en": "The phone number"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "F",
+     "testo": {
+      "it": "Il settore",
+      "en": "The industry"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "G",
+     "testo": {
+      "it": "Il testo dell'email",
+      "en": "The email text"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Nel flusso reale analizzato i duplicati si tolgono sul campo email: identifica una persona meglio del nome, che può ripetersi.",
+    "en": "In the real flow analysed, duplicates are removed on the email field: it identifies a person better than the name, which can repeat."
+   }
+  },
+  "livello2": {
+   "tipo": "diagnosi",
+   "domanda": {
+    "it": "Dopo la normalizzazione il campo \"nome azienda\" arriva sempre vuoto, ma la raccolta funziona. Dove guardi per primo?",
+    "en": "After normalisation the \"company name\" field always arrives empty, but collection works. Where do you look first?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Al filtro che scarta i lead senza email e a quello che toglie i duplicati",
+      "en": "At the filter that drops leads without email and at the one that removes duplicates"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Al testo delle email della campagna",
+      "en": "At the text of the campaign emails"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Al modello: va sostituito con uno più grande",
+      "en": "At the model: it must be replaced with a bigger one"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Alla mappatura dei campi nel passo di normalizzazione",
+      "en": "At the field mapping in the normalisation step"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "All'orario di avvio della pipeline",
+      "en": "At the pipeline start time"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Se il dato entra ma esce vuoto, il contratto si rompe dove i campi vengono rinominati: nel tutorial il nome azienda era vuoto per un errore di mappatura.",
+    "en": "If the data goes in but comes out empty, the contract breaks where fields are renamed: in the tutorial the company name was empty because of a mapping mistake."
+   }
+  }
+ },
+ {
+  "id": "DA3.4-4",
+  "origine": "autori",
+  "pillola": "P3.4",
+  "concetti": [
+   "C31",
+   "C30"
+  ],
+  "concetto_principale": "C31",
+  "segmento_aiuto": "lucchetto",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "In un tutorial di automazione vendite l'autore dice: \"l'account è solo di prova\" e consiglia di cliccare \"always allow\" alle richieste di permesso dell'agente. Che cosa c'è di sbagliato?",
+    "en": "In a sales automation tutorial the author says: \"the account is just a test one\" and advises clicking \"always allow\" on the agent's permission requests. What is wrong?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Il problema è solo tecnico: un account di prova ha limiti di invio molto più bassi, quindi la campagna partirà più lenta del previsto, ma senza altri rischi per i contatti né per l'azienda",
+      "en": "The problem is only technical: a test account has much lower sending limits, so the campaign will start more slowly than planned, but with no other risks for the contacts or the company"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Due cose: l'account \"di prova\" contiene contatti veri, quindi non è un ambiente di test; e \"always allow\" toglie il controllo umano sulle azioni che non si possono ritirare",
+      "en": "Two things: the \"test\" account contains real contacts, so it is not a test environment; and \"always allow\" removes human control on actions that cannot be undone"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Solo \"always allow\" è un problema; l'account di prova invece va bene, perché finché la casella non è collegata le email non partono e quindi non c'è nessun rischio",
+      "en": "Only \"always allow\" is a problem; the test account is fine, because as long as the inbox is not connected the emails do not go out and so there is no risk"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "I contatti caricati sono \"actual contacts\" e \"always allow\" elimina i punti di approvazione: le fonti chiedono invece revisione umana sulle azioni irreversibili, soprattutto all'inizio.",
+    "en": "The contacts loaded are \"actual contacts\" and \"always allow\" removes the approval points: the sources instead ask for human review on irreversible actions, especially at the start."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Come si imposta correttamente il passaggio dalla prova all'invio reale?",
+    "en": "How do you set up the move from testing to real sending correctly?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Ambienti separati con un cancello di approvazione manuale prima della produzione",
+      "en": "Separate environments with a manual approval gate before production"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Si prova inviando ai colleghi e, quando il testo va bene, si clicca \"always allow\" per far partire tutto",
+      "en": "You test by sending to colleagues and, when the text looks good, you click \"always allow\" to start everything"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Si prova di notte, quando i clienti non leggono la posta",
+      "en": "You test at night, when customers are not reading email"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Si invia subito a tutti e si corregge in base alle risposte",
+      "en": "You send to everyone at once and fix things based on the replies"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Si usa un account a pagamento invece di uno di prova",
+      "en": "You use a paid account instead of a test one"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Le fonti descrivono ambienti distinti (sviluppo, prova, produzione) con \"a manual approval gate\" tra l'uno e l'altro.",
+    "en": "The sources describe separate environments (development, test, production) with \"a manual approval gate\" between them."
+   }
+  }
+ },
+ {
+  "id": "DA3.5-6",
+  "origine": "autori",
+  "pillola": "P3.5",
+  "concetti": [
+   "C33",
+   "C32"
+  ],
+  "concetto_principale": "C33",
+  "segmento_aiuto": "priorita",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Una risposta \"toglietemi dalla vostra lista, grazie\" viene classificata DISISCRIZIONE con confidenza bassa. Per regola va in coda di revisione, che oggi ha due settimane di arretrato, e intanto la sequenza continua. Che cosa non va?",
+    "en": "A reply \"please take me off your list, thanks\" is classified UNSUBSCRIBE with low confidence. By rule it goes to the review queue, which has a two-week backlog today, and meanwhile the sequence goes on. What is wrong?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "La disiscrizione va eseguita comunque: la soglia non deve ritardare un'azione obbligatoria",
+      "en": "The unsubscribe must be carried out anyway: the threshold must not delay a mandatory action"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Niente: la regola è stata rispettata, purché la revisione avvenga entro un mese dalla risposta del lead",
+      "en": "Nothing: the rule was followed, as long as the review happens within a month of the lead's reply"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "La coda è troppo lunga: basta assumere un altro revisore per il periodo",
+      "en": "The queue is too long: just hire another reviewer for the period"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "La soglia è troppo alta: va abbassata finché tutto passa in automatico",
+      "en": "The threshold is too high: lower it until everything goes through automatically"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "La risposta andava classificata NON INTERESSATO, che ha più confidenza",
+      "en": "The reply should have been classified NOT INTERESTED, which has more confidence"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "La soglia decide chi classifica, non se rispettare una richiesta di disiscrizione: nel dubbio quella si esegue sempre, subito (regola di progetto del corso).",
+    "en": "The threshold decides who classifies, not whether to respect an unsubscribe request: when in doubt it is always carried out, at once (the course's design rule)."
+   }
+  },
+  "livello2": {
+   "tipo": "contro-esempio",
+   "domanda": {
+    "it": "Un'altra risposta dice \"Non ora, e comunque toglietemi dalla lista\". Che cosa prevale?",
+    "en": "Another reply says \"Not now, and anyway take me off the list\". What takes priority?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "DA RICONTATTARE",
+      "en": "CALL BACK LATER"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "FUORI SEDE",
+      "en": "OUT OF OFFICE"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "INTERESSATO",
+      "en": "INTERESTED"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Due etichette insieme",
+      "en": "Two labels together"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Nessuna etichetta",
+      "en": "No label"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "f",
+     "testo": {
+      "it": "La più recente in CRM",
+      "en": "The latest one in the CRM"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "g",
+     "testo": {
+      "it": "La disiscrizione",
+      "en": "The unsubscribe"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Quando una risposta contiene due segnali serve una regola di priorità, e la richiesta di disiscrizione prevale.",
+    "en": "When a reply contains two signals you need a priority rule, and the unsubscribe request comes first."
+   }
+  }
+ }
+]
