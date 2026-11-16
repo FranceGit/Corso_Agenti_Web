@@ -1,5 +1,8 @@
 # PROGRESSI — Corso Agenti Web
 
+## Stato al 16/11/2026 — fase 6: lezioni interattive M6-M8 (IN CORSO)
+Cantiere M6-M8, in parallelo al cantiere M4-M5. Tocca solo: `dati/lezioni/`, `webapp/animazioni/`, `tests_js/lezioni/` dei componenti `uno_o_tanti`, `schemi_orchestrazione`, `due_piani_a2a`, `cinque_strade`, `tre_pilastri`, `griglia_test`, `giudice_bias`, `metriche_impatto`, `prototipo_produzione`, `rilascio_canary` (laboratorio P8.1), `smistatore_rischio`, `plancia_controllo`, `caveau_dati`, `blueprint_crm`; i lotti `strumenti/domande_autori/lotto_m6_*`, `lotto_m7_*` (non `lotto_m7_m8.json`), `lotto_m8_*`; il test `tests/test_lezioni_m6_m8.py`.
+
 ## Stato al 16/11/2026 — fase 5: domande degli autori + inglese completo (in parallelo alla fase 4)
 
 ### Fatto
