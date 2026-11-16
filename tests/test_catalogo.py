@@ -20,10 +20,18 @@ def test_rapporto_erogabilita(catalogo_vero):
     r = catalogo_vero.rapporto()
     assert r["pillole"] == 40 and r["concetti"] == 79 and r["archi"] == 128
     # lezioni interattive: il dimostratore (P1.3, P4.1) + il batch 1 (tutte le altre pillole dei moduli M1 e M2)
-    assert r["lezioni_interattive"] == ["P1.1", "P1.2", "P1.3", "P1.4", "P1.5", "P1.6", "P2.1", "P2.2", "P2.3", "P2.4", "P4.1"]
-    assert r["domande_totali"] == 131
-    # dall'upgrade del 16/11/2026 anche le 120 domande benchmark sono conformi: tutte erogabili
-    assert r["domande_erogabili"] == 131
+    # + il modulo M3 (tutte tranne P3.3) con il laboratorio "Trova l'errore" in P3.5
+    assert r["lezioni_interattive"] == ["P1.1", "P1.2", "P1.3", "P1.4", "P1.5", "P1.6", "P2.1", "P2.2", "P2.3", "P2.4",
+                                        "P3.1", "P3.2", "P3.4", "P3.5", "P4.1"]
+    assert r["laboratori"] == ["P3.5"]
+    # dall'upgrade del 16/11/2026 anche le 120 domande benchmark sono conformi; poi si aggiungono quelle
+    # degli autori (origine "autori"): tutte devono restare erogabili
+    per_origine = {}
+    for d in catalogo_vero._domande.values():
+        per_origine[d.origine] = per_origine.get(d.origine, 0) + 1
+    assert per_origine["benchmark"] == 120 and per_origine["dimostratore"] == 11 and per_origine["autori"] >= 105
+    assert r["domande_totali"] == sum(per_origine.values())
+    assert r["domande_erogabili"] == r["domande_totali"]
     assert r["motivi_non_erogabile"] == {}
     origini = {d.origine for d in catalogo_vero.domande_erogabili("P1.3") + catalogo_vero.domande_erogabili("P4.1")}
     assert origini == {"dimostratore", "benchmark"}
@@ -68,9 +76,11 @@ def copia_dati(tmp_path, dati_config, modifica_corso=None, modifica_kg=None, mod
     (tmp_path / "corso.json").write_text(json.dumps(corso, ensure_ascii=False), encoding="utf-8")
     (tmp_path / "kg.json").write_text(json.dumps(kg, ensure_ascii=False), encoding="utf-8")
     (tmp_path / "lezioni" / "a.json").write_text(json.dumps(lez, ensure_ascii=False), encoding="utf-8")
-    # anche la seconda lezione, invariata: le domande benchmark di P4.1 rimandano ai suoi segmenti come aiuto
-    altra = (DATI / "lezioni" / "strumenti_agente.json").read_text(encoding="utf-8")
-    (tmp_path / "lezioni" / "z_strumenti.json").write_text(altra, encoding="utf-8")
+    # anche le altre lezioni, invariate: molte domande (benchmark di P4.1, autori di M1-M2) rimandano ai loro
+    # segmenti come aiuto, e un aiuto che non porta da nessuna parte ferma il caricamento
+    for f in sorted((DATI / "lezioni").glob("*.json")):
+        if f.name != "ciclo_agente.json":
+            (tmp_path / "lezioni" / f"z_{f.name}").write_text(f.read_text(encoding="utf-8"), encoding="utf-8")
     dati = copy.deepcopy(dati_config)
     dati["percorsi_file"]["corso"] = str(tmp_path / "corso.json")
     dati["percorsi_file"]["knowledge_graph"] = str(tmp_path / "kg.json")

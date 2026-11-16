@@ -8,7 +8,7 @@ import pytest
 from corso.catalogo import Catalogo
 from corso.errori import ErroreConfigurazione, ErroreGrafo
 from corso.percorsi import genera_anelli, genera_strisce, ordine_opzioni, peso_legame, seme_studente
-from tests.conftest import config_da
+from tests.conftest import config_con_corso, config_da, senza_autori
 
 SEMI = [f"seme-{i}" for i in range(150)]
 
@@ -88,8 +88,10 @@ def test_strisce_deterministiche_per_tentativo(catalogo_vero):
     assert len(diversi) > 1, "un nuovo tentativo deve proporre strisce diverse"
 
 
-def test_carenze_dichiarate_per_spicchi_senza_domande_erogabili(catalogo_vero):
-    s = genera_strisce(catalogo_vero, "P1.1", "x", 1)
+def test_carenze_dichiarate_per_spicchi_senza_domande_erogabili(dati_config, tmp_path):
+    # P1.1 riportata alle sole 3 domande benchmark (senza quelle degli autori)
+    cat = Catalogo(config_con_corso(dati_config, tmp_path, senza_autori("P1.1")))
+    s = genera_strisce(cat, "P1.1", "x", 1)
     assert not s.erogabile and s.domande == []
     # P1.1 ha 3 domande: 2 su C02 (bastano), 1 su C03, nessuna su C01 -> carenze dichiarate su C01 e C03
     assert [(c.concetto, c.disponibili, c.minimo) for c in s.carenze] == [("C01", 0, 2), ("C03", 1, 2)]

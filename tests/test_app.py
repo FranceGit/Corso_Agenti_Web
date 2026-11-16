@@ -7,7 +7,7 @@ import pytest
 
 from corso.account import Sessioni, verifica_credenziali
 from corso.errori import ErroreAccesso, ErroreConfigurazione
-from tests.conftest import EMAIL, codice_valido, config_da
+from tests.conftest import EMAIL, client_dentro_con, codice_valido, config_con_corso, config_da, senza_autori
 
 
 def test_shell_pubblica_e_contenuti_protetti(client):
@@ -63,14 +63,26 @@ def test_lingue_interfaccia_e_lingua_non_prevista(client, client_dentro):
     assert r.status_code == 400 and r.json()["errore"] == "configurazione"
 
 
-def test_traduzione_mancante_esplicita(client_dentro):
-    r = client_dentro.get("/api/pillole/P3.1?lingua=en")  # pillola ancora senza testi lunghi in inglese
+def test_traduzione_mancante_esplicita(dati_config, tmp_path, orologio):
+    # dal 16/11/2026 tutte le pillole hanno l'inglese: il caso si riproduce togliendo un testo a una copia del corso
+    def togli_en(corso):
+        p31 = next(p for m in corso["moduli"] for p in m["pillole"] if p["id"] == "P3.1")
+        p31["scaletta"][0]["en"] = None
+    c = client_dentro_con(config_con_corso(dati_config, tmp_path, togli_en), tmp_path, orologio)
+    r = c.get("/api/pillole/P3.1?lingua=en")
     assert r.status_code == 409
     corpo = r.json()
     assert corpo["errore"] == "traduzione_mancante" and corpo["lingua"] == "en" and "$.scaletta[0]" in corpo["percorsi"]
-    assert client_dentro.get("/api/pillole/P3.1?lingua=it").status_code == 200
-    assert client_dentro.get("/api/pillole/P1.1?lingua=en").status_code == 200  # tradotta con la sua lezione (batch 1)
-    assert client_dentro.get("/api/pillole/P1.3?lingua=en").status_code == 200
+    assert c.get("/api/pillole/P3.1?lingua=it").status_code == 200
+    assert c.get("/api/pillole/P1.1?lingua=en").status_code == 200
+
+
+def test_tutte_le_pillole_si_aprono_in_inglese(client_dentro, catalogo_vero):
+    """Percorso utente standard: nessuna pillola risponde 'traduzione mancante', in nessuna lingua."""
+    for p in catalogo_vero.corso.pillole():
+        for lingua in catalogo_vero.cfg.lingue():
+            r = client_dentro.get(f"/api/pillole/{p.id}?lingua={lingua}")
+            assert r.status_code == 200, (p.id, lingua, r.json())
 
 
 def test_pillola_inesistente(client_dentro):
@@ -78,8 +90,10 @@ def test_pillola_inesistente(client_dentro):
     assert r.status_code == 404 and r.json()["errore"] == "non_trovato"
 
 
-def test_flusso_quiz_via_api(client_dentro):
-    assert client_dentro.post("/api/spicchi/P1.1/inizia").json()["errore"] == "spicchio_non_erogabile"
+def test_flusso_quiz_via_api(client_dentro, dati_config, tmp_path, orologio):
+    # uno spicchio senza abbastanza domande (qui P1.1 senza le domande degli autori) non si apre
+    ridotto = client_dentro_con(config_con_corso(dati_config, tmp_path, senza_autori("P1.1")), tmp_path, orologio)
+    assert ridotto.post("/api/spicchi/P1.1/inizia").json()["errore"] == "spicchio_non_erogabile"
     assert client_dentro.post("/api/spicchi/P1.3/inizia").status_code == 200
     d = client_dentro.get("/api/spicchi/P1.3/domanda?lingua=en").json()
     assert d["livello"] == 1 and d["progresso"]["striscia"] == 1
@@ -96,7 +110,7 @@ def test_flusso_quiz_via_api(client_dentro):
     assert client_dentro.post("/api/debriefing/concludi").json()["errore"] == "debriefing_non_iniziato"
     assert client_dentro.post("/api/percorso/ricomincia").json()["giro"] == 2
     r = client_dentro.get("/api/rapporto").json()
-    assert r["domande_erogabili"] == r["domande_totali"] == 131
+    assert r["domande_erogabili"] == r["domande_totali"]
 
 
 def test_sessione_scade(cfg, orologio):

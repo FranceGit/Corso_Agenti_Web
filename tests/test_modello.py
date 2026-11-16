@@ -48,7 +48,7 @@ def test_corso_estratto_completo():
     c = Corso.model_validate(carica("corso_v1.json"))
     assert len(c.moduli) == 8
     assert len(c.pillole()) == 40
-    assert sum(len(p.domande) for p in c.pillole()) == 120
+    assert sum(1 for p in c.pillole() for d in p.domande if d.origine == "benchmark") == 120
     # dopo l'upgrade il numero di opzioni segue il budget di lettura (3/4/5/7), non piu' il 5+4 del documento
     assert all(len(liv.opzioni) in (3, 4, 5, 7) for p in c.pillole() for d in p.domande for liv in (d.livello1, d.livello2))
     assert c.anello_di("P1.1") == 1 and c.anello_di("P8.6") == 6
@@ -56,8 +56,8 @@ def test_corso_estratto_completo():
         c.pillola("P9.9")
     with pytest.raises(KeyError):
         c.anello_di("P9.9")
-    # i testi inglesi lunghi mancano (da completare) tranne le pillole che hanno la lezione interattiva (moduli 1-2 e P4.1)
-    assert c.pillola("P3.1").scaletta[0].en is None
+    # dal 16/11/2026 i testi inglesi lunghi ci sono per tutte le pillole (non solo quelle con la lezione interattiva)
+    assert all(t.en is not None for p in c.pillole() for t in [p.obiettivo, p.animazione.progetto, *p.scaletta])
     assert c.pillola("P1.1").scaletta[0].en is not None
     assert c.pillola("P1.3").scaletta[0].en is not None
     assert c.pillola("P1.1").titolo.en == "From chatbot to agent"

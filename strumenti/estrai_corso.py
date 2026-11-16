@@ -272,7 +272,7 @@ def estrai_kg(righe: list[str], anello_di_modulo: dict[str, int], titoli_en: dic
         for origine in [x.strip() for x in da.split(",")]:
             archi.append({
                 "da": origine, "a": a, "tipo": tipo, "peso": pesi[tipo],
-                "nota": testo(nota) if nota else None,
+                "nota": testo(nota, titoli_en["note_archi"].get(nota)) if nota else None,
             })
     legenda = {t: testo(v[0], v[1]) for t, v in titoli_en["legenda_archi"].items()}
     if set(legenda) != set(pesi):

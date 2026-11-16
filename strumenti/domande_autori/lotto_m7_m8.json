@@ -1,0 +1,4060 @@
+[
+ {
+  "id": "DA7.1-1",
+  "origine": "autori",
+  "pillola": "P7.1",
+  "concetti": [
+   "C59"
+  ],
+  "concetto_principale": "C59",
+  "segmento_aiuto": "scaletta-1",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Hai cambiato le istruzioni dell'agente che scrive le email ai lead. Provi la nuova versione su un lead una sola volta e l'email è perfetta. Che cosa fai?",
+    "en": "You changed the instructions of the agent that writes emails to leads. You try the new version on one lead, just once, and the email is perfect. What do you do?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Rilancio la stessa richiesta più volte e confronto i risultati prima di decidere",
+      "en": "I run the same request several times and compare the results before deciding"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Aspetto una settimana e poi approvo senza fare altre prove",
+      "en": "I wait a week and then approve without any more tests"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Approvo: se è andata bene una volta, andrà bene sempre",
+      "en": "I approve: if it worked once, it will always work"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Approvo e chiedo al modello di confermare che la versione è stabile",
+      "en": "I approve and ask the model to confirm that the version is stable"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Provo su un secondo lead diverso, magari più difficile, e se l'email va bene anche lì approvo",
+      "en": "I try a second, different lead, maybe a harder one, and if the email works there too I approve"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Un agente non è deterministico: la stessa richiesta può dare percorsi e risultati diversi. Le fonti dicono di non decidere su un solo test e di ripetere la stessa richiesta (per esempio 3-5 volte).",
+    "en": "An agent is not deterministic: the same request can lead to different paths and results. The sources say not to decide on a single test and to repeat the same request (for example 3-5 times)."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché una sola prova riuscita non basta?",
+    "en": "Why is one successful test not enough?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché un solo lead non rappresenta tutti i tipi di lead che ci sono nel CRM aziendale",
+      "en": "Because a single lead does not represent all the kinds of leads in the company CRM"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché lo stesso input può produrre percorsi e risposte diverse a ogni esecuzione",
+      "en": "Because the same input can produce different paths and answers on every run"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché i test valgono solo se li fa una persona dell'ufficio legale",
+      "en": "Because tests only count if someone from the legal team runs them"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Perché il modello si stanca e la seconda email viene sempre peggio",
+      "en": "Because the model gets tired and the second email always comes out worse"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Perché le email perfette sono sospette e vanno sempre riscritte",
+      "en": "Because perfect emails are suspicious and must always be rewritten"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "La ragione è il non determinismo: anche con lo stesso lead e le stesse istruzioni il risultato può cambiare. Provare lead diversi è utile, ma non risolve questo problema: serve ripetere la stessa prova.",
+    "en": "The reason is non-determinism: even with the same lead and the same instructions the result can change. Trying different leads is useful, but it does not solve this problem: you need to repeat the same test."
+   }
+  }
+ },
+ {
+  "id": "DA7.1-2",
+  "origine": "autori",
+  "pillola": "P7.1",
+  "concetti": [
+   "C59",
+   "C60"
+  ],
+  "concetto_principale": "C59",
+  "segmento_aiuto": "scaletta-2",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Un collega propone di collaudare l'agente così: per ogni lead il test passa solo se l'email generata è identica, parola per parola, a un'email modello. Che cosa non va?",
+    "en": "A colleague proposes to test the agent like this: for each lead the test passes only if the generated email is identical, word for word, to a model email. What is wrong?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Niente: un agente ben configurato produce sempre la stessa email, quindi il confronto esatto è il metodo più rigoroso",
+      "en": "Nothing: a well-configured agent always produces the same email, so an exact comparison is the most rigorous method"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Va bene, basta accettare le email che coincidono con il modello per almeno l'80% delle parole, così si tollerano le piccole differenze di stile",
+      "en": "It is fine, as long as you accept emails that match the model on at least 80% of the words, so small differences in style are tolerated"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "L'agente può scrivere email corrette con parole diverse a ogni esecuzione: il confronto parola per parola boccerebbe anche risposte giuste",
+      "en": "The agent can write correct emails with different words on every run: a word-for-word comparison would fail right answers too"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Il problema è solo di tempo: confrontare parola per parola richiede troppe ore a chi controlla i risultati del test",
+      "en": "The only problem is time: comparing word for word takes too many hours for whoever checks the test results"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Con un agente lo stesso input può dare testi diversi e spesso esistono più risposte corrette. Le metriche che confrontano con una sola risposta \"corretta\" possono penalizzare ingiustamente soluzioni inattese: servono criteri o rubriche.",
+    "en": "With an agent the same input can give different texts, and there are often several correct answers. Metrics that compare with a single \"correct\" answer can unfairly penalise unexpected solutions: you need criteria or rubrics."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Quale criterio di collaudo è più adatto per le email ai lead?",
+    "en": "Which test criterion fits emails to leads best?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Il numero di parole: le email più lunghe sono le più complete",
+      "en": "The word count: longer emails are the most complete"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Un'unica prova che il responsabile marketing legge una sola volta",
+      "en": "A single test that the marketing manager reads only once"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "La somiglianza delle parole con un'email modello approvata, con una soglia di somiglianza alta",
+      "en": "How similar the words are to an approved model email, with a high similarity threshold"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Una griglia di criteri: dati del lead giusti, tono adatto, nessuna promessa inventata",
+      "en": "A grid of criteria: correct lead data, suitable tone, no invented promises"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "La velocità con cui l'agente scrive l'email",
+      "en": "How fast the agent writes the email"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Una rubrica giudica ciò che conta (correttezza dei dati, tono, regole) e accetta formulazioni diverse ma giuste. La somiglianza delle parole, anche con una soglia, penalizza le risposte corrette scritte in un altro modo.",
+    "en": "A rubric judges what matters (correct data, tone, rules) and accepts different but correct wordings. Word similarity, even with a threshold, penalises correct answers written in another way."
+   }
+  }
+ },
+ {
+  "id": "DA7.1-3",
+  "origine": "autori",
+  "pillola": "P7.1",
+  "concetti": [
+   "C60",
+   "C59"
+  ],
+  "concetto_principale": "C60",
+  "segmento_aiuto": "scaletta-3",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "L'agente doveva preparare le bozze per i lead caldi. Le bozze sono giuste, ma per arrivarci ha inviato un'email a un cliente senza approvazione. Come lo valuti?",
+    "en": "The agent had to prepare drafts for the hot leads. The drafts are right, but along the way it sent an email to a customer without approval. How do you rate it?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Promosso con un avviso",
+      "en": "Passed with a warning"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Bocciato solo per efficienza",
+      "en": "Failed only on efficiency"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Promosso: conta il risultato",
+      "en": "Passed: the result is what counts"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Bocciato: bozze sbagliate",
+      "en": "Failed: wrong drafts"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Risultato sì, percorso no",
+      "en": "Result yes, path no"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "F",
+     "testo": {
+      "it": "Rifare la prova domani",
+      "en": "Rerun the test tomorrow"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "G",
+     "testo": {
+      "it": "Dipende dal tono usato",
+      "en": "It depends on the tone used"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Si valutano sia il risultato sia la traiettoria, cioè i passi seguiti. Un invio senza approvazione viola la sicurezza, che per le fonti è il cancello non negoziabile, anche se il risultato finale è giusto.",
+    "en": "You assess both the result and the trajectory, that is the steps taken. Sending without approval breaks safety, which the sources call the non-negotiable gate, even if the final result is right."
+   }
+  },
+  "livello2": {
+   "tipo": "diagnosi",
+   "domanda": {
+    "it": "Quale dimensione della qualità ha violato questo agente?",
+    "en": "Which quality dimension did this agent break?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Sicurezza: ha fatto un'azione rischiosa fuori dai limiti stabiliti",
+      "en": "Safety: it took a risky action outside the agreed limits"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Robustezza: non ha gestito un errore di uno strumento",
+      "en": "Robustness: it did not handle a tool error"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Efficacia: non ha raggiunto l'obiettivo di preparare le bozze",
+      "en": "Effectiveness: it did not reach the goal of preparing the drafts"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Nessuna: inviare un'email è un'azione sempre innocua",
+      "en": "None: sending an email is always harmless"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Efficienza: ha usato più passi del necessario per arrivare alle bozze",
+      "en": "Efficiency: it used more steps than needed to reach the drafts"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Le quattro dimensioni sono efficacia, efficienza, robustezza e sicurezza. Qui l'obiettivo è raggiunto, quindi l'efficacia c'è; ma il percorso contiene un'azione rischiosa: è violata la sicurezza.",
+    "en": "The four dimensions are effectiveness, efficiency, robustness and safety. Here the goal is reached, so effectiveness is there; but the path contains a risky action: safety is broken."
+   }
+  }
+ },
+ {
+  "id": "DA7.2-1",
+  "origine": "autori",
+  "pillola": "P7.2",
+  "concetti": [
+   "C61",
+   "C62"
+  ],
+  "concetto_principale": "C61",
+  "segmento_aiuto": "scaletta-2",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Ieri il tuo agente ha dato un punteggio altissimo a un lead freddo. Come usi log, tracce e metriche per capire che cosa è successo?",
+    "en": "Yesterday your agent gave a very high score to a cold lead. How do you use logs, traces and metrics to understand what happened?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Apro la traccia di quella richiesta, che mostra la catena dei passi (strumenti chiamati, dati ricevuti, risposta del modello), e cerco il passo che ha portato al punteggio sbagliato",
+      "en": "I open the trace of that request, which shows the chain of steps (tools called, data received, model answer), and look for the step that led to the wrong score"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Guardo il cruscotto delle metriche della settimana: se il tasso di errore medio è basso, il caso di ieri è un'eccezione e non serve indagare oltre su quella singola richiesta di ieri",
+      "en": "I look at the weekly metrics dashboard: if the average error rate is low, yesterday's case is an exception and there is no need to look further into that single request"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Chiedo all'agente di spiegare a parole perché ha dato quel punteggio e uso la sua risposta come prova: la sua spiegazione basta e non serve conservare alcuna registrazione",
+      "en": "I ask the agent to explain in words why it gave that score and use its answer as proof: its explanation is enough and there is no need to keep any records"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "I log dicono cosa è successo, le tracce perché è successo, le metriche quanto bene va nel complesso. Per un singolo caso sbagliato si parte dalla traccia, che unisce i passi in una storia.",
+    "en": "Logs say what happened, traces say why it happened, metrics say how well things go overall. For a single wrong case you start from the trace, which joins the steps into one story."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché qui la traccia è più utile delle metriche?",
+    "en": "Why is the trace more useful than metrics here?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché la traccia contiene il voto dato dal cliente",
+      "en": "Because the trace contains the rating given by the customer"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché le tracce sostituiscono i log, che non servono più",
+      "en": "Because traces replace logs, which are no longer needed"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché ricostruisce il percorso di quella richiesta, passo per passo",
+      "en": "Because it rebuilds the path of that request, step by step"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Perché le metriche si aggiornano solo una volta al mese, a fine periodo",
+      "en": "Because metrics are only updated once a month, at the end of the period"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Perché le metriche interessano solo all'ufficio amministrazione",
+      "en": "Because metrics only matter to the accounts department"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "La traccia è la storia di una richiesta e mostra la causa. Le metriche sono numeri riassunti su molte esecuzioni: dicono quanto bene va, non perché un caso preciso è andato male.",
+    "en": "The trace is the story of one request and shows the cause. Metrics are numbers summed up over many runs: they say how well things go, not why one specific case went wrong."
+   }
+  }
+ },
+ {
+  "id": "DA7.2-2",
+  "origine": "autori",
+  "pillola": "P7.2",
+  "concetti": [
+   "C62",
+   "C61"
+  ],
+  "concetto_principale": "C62",
+  "segmento_aiuto": "scaletta-5",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Un tutorial consiglia di registrare nei log, al massimo dettaglio, i prompt completi con nome, email e telefono dei lead, \"così il debug è più facile\". In produzione, con un CRM vero, che cosa va fatto?",
+    "en": "A tutorial advises logging, at full detail, the complete prompts with the leads' name, email and phone, \"so debugging is easier\". In production, with a real CRM, what should be done?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Salvare i log solo nei giorni in cui l'agente sbaglia",
+      "en": "Save logs only on the days when the agent makes mistakes"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Non registrare nulla: senza log non c'è rischio per la privacy",
+      "en": "Log nothing: without logs there is no privacy risk"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Registrare tutto in chiaro: tanto i log li leggono solo i tecnici",
+      "en": "Log everything in clear text: only the technical team reads logs anyway"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Mascherare i dati personali prima di salvare i log, tenendo solo ciò che serve",
+      "en": "Mask personal data before saving the logs, keeping only what is needed"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Tenere i prompt completi con tutti i dati dei lead, ma cancellare i log dopo un anno",
+      "en": "Keep the full prompts with all the lead data, but delete the logs after a year"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Le fonti chiedono un meccanismo di mascheramento dei dati personali dentro la catena dei log, prima che i dati vengano conservati a lungo. Il massimo dettaglio dei notebook va bene in prova, non con dati di clienti veri.",
+    "en": "The sources ask for a personal-data masking step inside the logging pipeline, before data is stored long term. The full detail used in the notebooks is fine for testing, not with real customer data."
+   }
+  },
+  "livello2": {
+   "tipo": "contro-esempio",
+   "domanda": {
+    "it": "Quale riga di log rispetta la regola?",
+    "en": "Which log line follows the rule?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Bozza creata. Tutto bene.",
+      "en": "Draft created. All good."
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "prompt completo: \"Scrivi a Mario Rossi, tel. 333...\", esito=ok",
+      "en": "full prompt: \"Write to Mario Rossi, phone 333...\", result=ok"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "id_richiesta=7f3a, lead=Mario Rossi, mario.rossi@azienda.it, esito=ok",
+      "en": "request_id=7f3a, lead=Mario Rossi, mario.rossi@company.com, result=ok"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "lead=[MASCHERATO], esito=ok (senza identificativo della richiesta)",
+      "en": "lead=[MASKED], result=ok (with no request identifier)"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "id_richiesta=7f3a, strumento=crea_bozza, lead=[MASCHERATO], esito=ok",
+      "en": "request_id=7f3a, tool=create_draft, lead=[MASKED], result=ok"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "La riga giusta maschera il dato personale e conserva l'identificativo che lega log e tracce della stessa richiesta. Senza identificativo non si ricostruisce il percorso; con i dati in chiaro si crea un rischio per la privacy.",
+    "en": "The right line masks the personal data and keeps the identifier that links logs and traces of the same request. Without an identifier you cannot rebuild the path; with data in clear text you create a privacy risk."
+   }
+  }
+ },
+ {
+  "id": "DA7.2-3",
+  "origine": "autori",
+  "pillola": "P7.2",
+  "concetti": [
+   "C62",
+   "C61"
+  ],
+  "concetto_principale": "C62",
+  "segmento_aiuto": "scaletta-4",
+  "striscia": "diagnosi",
+  "livello1": {
+   "domanda": {
+    "it": "Un cliente si lamenta di un'email sbagliata. Nei log trovi centinaia di righe di quel giorno, ma non riesci a capire quali appartengono alla sua richiesta. Che cosa manca?",
+    "en": "A customer complains about a wrong email. In the logs you find hundreds of lines from that day, but you cannot tell which ones belong to his request. What is missing?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Un cruscotto con la media degli errori del giorno, che mostra subito quante email sbagliate sono partite in totale",
+      "en": "A dashboard with the day's average errors, showing at once how many wrong emails went out in total"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Più dettaglio: se registrassimo i prompt completi con i dati del cliente, troveremmo la sua richiesta cercando il suo nome e cognome",
+      "en": "More detail: if we logged the full prompts with the customer's data, we could find his request by searching for his first and last name"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Un identificativo comune della richiesta, scritto in ogni log e in ogni passo, che leghi tutte le righe della stessa conversazione",
+      "en": "A shared request identifier, written in every log and every step, that links all the lines of the same conversation"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Nulla: i log servono solo a contare gli errori; per capire un caso bisogna chiedere all'agente di ricordarselo",
+      "en": "Nothing: logs are only for counting errors; to understand one case you must ask the agent to remember it"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Un identificativo unico per richiesta (nel WP4, la \"propagazione del contesto\" con un trace_id) lega log e passi della stessa richiesta. Cercare per nome vorrebbe dire tenere dati personali in chiaro nei log.",
+    "en": "A unique identifier per request (in WP4, \"context propagation\" with a trace_id) links the logs and steps of the same request. Searching by name would mean keeping personal data in clear text in the logs."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché non conviene risolvere cercando il nome del cliente nei log?",
+    "en": "Why is searching for the customer's name in the logs a bad fix?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché il nome può essere scritto in modi diversi nei vari passi",
+      "en": "Because the name may be written in different ways in the various steps"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché i log non devono contenere dati personali in chiaro",
+      "en": "Because logs must not contain personal data in clear text"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché i nomi dei clienti non compaiono mai nei prompt",
+      "en": "Because customer names never appear in prompts"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Perché cercare per nome è troppo lento sui log",
+      "en": "Because searching by name is too slow on logs"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Perché la legge vieta di conservare qualunque log",
+      "en": "Because the law forbids keeping any logs at all"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Il motivo principale è la privacy: le fonti chiedono di togliere i dati personali dai log prima di conservarli. L'identificativo della richiesta permette di ritrovare il percorso senza esporre il cliente.",
+    "en": "The main reason is privacy: the sources ask to remove personal data from logs before storing them. The request identifier lets you find the path without exposing the customer."
+   }
+  }
+ },
+ {
+  "id": "DA7.3-1",
+  "origine": "autori",
+  "pillola": "P7.3",
+  "concetti": [
+   "C63"
+  ],
+  "concetto_principale": "C63",
+  "segmento_aiuto": "scaletta-2",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Il set di valutazione del tuo agente di lead scoring ha 10 domande inventate, tutte su lead completi e cortesi. Che cosa manca?",
+    "en": "The evaluation set of your lead scoring agent has 10 made-up questions, all about complete and polite leads. What is missing?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Niente, è completo",
+      "en": "Nothing, it is complete"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Email più lunghe",
+      "en": "Longer emails"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Un modello più grande",
+      "en": "A bigger model"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Più casi dello stesso tipo",
+      "en": "More cases of the same kind"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Meno casi, più veloci",
+      "en": "Fewer, faster cases"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "F",
+     "testo": {
+      "it": "Casi limite e avversari",
+      "en": "Edge and adversarial cases"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "G",
+     "testo": {
+      "it": "Solo i casi avversari",
+      "en": "Only the adversarial cases"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Un set di valutazione deve coprire casi tipici, limite (dati mancanti, omonimi, lingue diverse) e avversari (chi cerca di ingannare l'agente). Dieci casi tutti simili danno una falsa sicurezza: è l'esempio di set povero da non imitare.",
+    "en": "An evaluation set must cover typical cases, edge cases (missing data, people with the same name, other languages) and adversarial cases (someone trying to trick the agent). Ten similar cases give false confidence: it is the poor set not to copy."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Quale caso aggiungeresti come caso limite?",
+    "en": "Which case would you add as an edge case?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Nessuno: i casi limite si scoprono solo in produzione",
+      "en": "None: edge cases are only found in production"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Un altro lead completo e cortese, di un'azienda diversa",
+      "en": "Another complete and polite lead, from a different company"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Un'email con istruzioni nascoste che chiede di esportare i contatti",
+      "en": "An email with hidden instructions asking to export the contacts"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "\"Aggiorna il lead Rossi\" quando nel CRM ci sono due Rossi",
+      "en": "\"Update the Rossi lead\" when the CRM has two people called Rossi"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "La stessa richiesta scritta tutta in grassetto",
+      "en": "The same request written all in bold"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Un caso limite è raro o ambiguo, come due contatti con lo stesso nome. L'email con istruzioni nascoste è un caso avversario: serve anche quello, ma appartiene a un'altra famiglia.",
+    "en": "An edge case is rare or ambiguous, like two contacts with the same name. The email with hidden instructions is an adversarial case: you need it too, but it belongs to another family."
+   }
+  }
+ },
+ {
+  "id": "DA7.3-2",
+  "origine": "autori",
+  "pillola": "P7.3",
+  "concetti": [
+   "C64",
+   "C63"
+  ],
+  "concetto_principale": "C64",
+  "segmento_aiuto": "scaletta-4",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Il team vuole solo accorciare le istruzioni dell'agente di outreach (\"email più brevi\"). Il codice non cambia. Serve rilanciare il set di valutazione?",
+    "en": "The team only wants to shorten the outreach agent's instructions (\"shorter emails\"). The code does not change. Do you need to rerun the evaluation set?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "No: i test di regressione servono solo quando cambia il codice del programma",
+      "en": "No: regression tests are only needed when the program's code changes"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Solo se nello stesso giorno cambia anche il fornitore del modello",
+      "en": "Only if the model provider also changes on the same day"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Sì, ma basta rilanciare i soli casi che riguardano la lunghezza delle email",
+      "en": "Yes, but it is enough to rerun only the cases about email length"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "No: basta chiedere al modello se le email sono ancora buone",
+      "en": "No: just ask the model whether the emails are still good"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Sì: anche un cambio di sole istruzioni può rompere casi che prima funzionavano",
+      "en": "Yes: even a change to the instructions alone can break cases that used to work"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Le fonti dicono di rilanciare il set a ogni modifica di codice, strumenti o prompt e di confrontare i punteggi con la versione in produzione. Piccoli cambi di istruzioni possono cambiare molto il comportamento.",
+    "en": "The sources say to rerun the set on every change to code, tools or prompts and to compare the scores with the version in production. Small instruction changes can change behaviour a lot."
+   }
+  },
+  "livello2": {
+   "tipo": "diagnosi",
+   "domanda": {
+    "it": "Dopo la modifica 37 casi su 40 restano verdi; i 3 rossi sono lead senza nome, che ricevono \"Gentile ,\". Che cosa è successo?",
+    "en": "After the change 37 cases out of 40 stay green; the 3 red ones are leads with no name, who get \"Dear ,\". What happened?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Una regressione: la modifica ha rotto casi limite che prima passavano",
+      "en": "A regression: the change broke edge cases that used to pass"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Niente di grave: 37 su 40 è un successo, si pubblica",
+      "en": "Nothing serious: 37 out of 40 is a success, publish it"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Un difetto del set: i casi senza nome andrebbero tolti dai test",
+      "en": "A flaw in the set: cases with no name should be removed from the tests"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Un'allucinazione casuale del modello, da ignorare",
+      "en": "A random model hallucination, to be ignored"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Un guasto del CRM, che non c'entra con la modifica",
+      "en": "A CRM fault, unrelated to the change"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Regressione vuol dire che qualcosa che prima funzionava, dopo una modifica non funziona più. Il set serve proprio a vederlo prima del rilascio; togliere i casi rossi nasconderebbe il problema.",
+    "en": "Regression means that something that used to work no longer works after a change. The set exists precisely to catch this before release; removing the red cases would hide the problem."
+   }
+  }
+ },
+ {
+  "id": "DA7.3-3",
+  "origine": "autori",
+  "pillola": "P7.3",
+  "concetti": [
+   "C64",
+   "C63"
+  ],
+  "concetto_principale": "C64",
+  "segmento_aiuto": "scaletta-3",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "In produzione l'agente ha mandato un'offerta a un cliente che non esiste. Il team corregge le istruzioni e pubblica subito. Quale comportamento sarebbe stato corretto?",
+    "en": "In production the agent sent an offer to a customer who does not exist. The team fixes the instructions and publishes straight away. What would have been the right behaviour?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Pubblicare subito è giusto: in produzione la velocità conta più delle prove e i test di regressione servono solo per i rilasci grandi, pianificati settimane prima",
+      "en": "Publishing at once is right: in production speed matters more than tests, and regression tests are only for big releases planned weeks in advance"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Trasformare l'errore in un nuovo caso permanente del set di valutazione, correggere, rilanciare tutto il set e confrontarlo con la versione in produzione prima di pubblicare",
+      "en": "Turn the error into a new permanent case in the evaluation set, fix it, rerun the whole set and compare it with the production version before publishing"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Correggere le istruzioni e provare a mano solo il caso del cliente inesistente: se ora va bene, pubblicare, perché la correzione non tocca gli altri casi del set e il caso segnalato ora è risolto",
+      "en": "Fix the instructions and test by hand only the case of the missing customer: if it works now, publish, because the fix does not touch the other cases in the set and the reported case is now solved"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Ogni errore di produzione diventa un caso permanente del set, che così \"vaccina\" il sistema contro quella classe di errori. E ogni modifica, anche una correzione, va confrontata sull'intero set per non rompere altro.",
+    "en": "Every production error becomes a permanent case in the set, which \"vaccinates\" the system against that class of errors. And every change, even a fix, must be checked on the whole set so nothing else breaks."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché rilanciare tutto il set e non solo il caso corretto?",
+    "en": "Why rerun the whole set and not just the fixed case?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché il caso corretto potrebbe fallire di nuovo per puro caso",
+      "en": "Because the fixed case might fail again just by chance"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché il set intero costa meno di un solo caso",
+      "en": "Because the whole set costs less than a single case"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché la correzione potrebbe rompere altri casi che prima funzionavano",
+      "en": "Because the fix could break other cases that used to work"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Per abitudine: in realtà basterebbe il caso corretto",
+      "en": "Out of habit: in reality the fixed case would be enough"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Perché così il rapporto di valutazione risulta più lungo",
+      "en": "Because that way the evaluation report is longer"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Il test di regressione rilancia i casi esistenti per controllare che una modifica non abbia rotto ciò che funzionava. Il non determinismo è un motivo in più per ripetere le prove, ma non è il punto qui.",
+    "en": "A regression test reruns the existing cases to check that a change has not broken what used to work. Non-determinism is one more reason to repeat tests, but it is not the point here."
+   }
+  }
+ },
+ {
+  "id": "DA7.4-1",
+  "origine": "autori",
+  "pillola": "P7.4",
+  "concetti": [
+   "C65",
+   "C66"
+  ],
+  "concetto_principale": "C65",
+  "segmento_aiuto": "scaletta-1",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Vuoi sapere se la nuova versione dell'agente scrive risposte ai clienti migliori della vecchia. Come usi un LLM giudice?",
+    "en": "You want to know whether the new version of the agent writes better customer replies than the old one. How do you use an LLM judge?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Gli chiedo se, in generale, la nuova versione gli sembra migliore",
+      "en": "I ask it whether, in general, the new version seems better"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Gli chiedo di riscrivere lui le risposte che gli sembrano migliori",
+      "en": "I ask it to rewrite the replies it thinks are better"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Gli chiedo un voto da 1 a 5 per ogni risposta e poi confronto le medie dei voti",
+      "en": "I ask it for a 1-5 score for each reply and then compare the average scores"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Gli faccio confrontare due risposte allo stesso cliente, con criteri scritti",
+      "en": "I have it compare two replies to the same customer, with written criteria"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Lo lascio giudicare senza criteri, così è più libero e obiettivo",
+      "en": "I let it judge with no criteria, so it is freer and more objective"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Il WP4 consiglia il confronto a coppie al posto del voto singolo: un alto tasso di vittorie della nuova versione è un segnale più affidabile di un piccolo cambio in un voto da 1 a 5, spesso rumoroso.",
+    "en": "WP4 recommends pairwise comparison instead of single scores: a high win rate for the new version is a more reliable signal than a small change in a 1-5 score, which is often noisy."
+   }
+  },
+  "livello2": {
+   "tipo": "diagnosi",
+   "domanda": {
+    "it": "Se inverti l'ordine delle due risposte, il giudice cambia spesso verdetto. Che cosa significa?",
+    "en": "If you swap the order of the two replies, the judge often changes its verdict. What does it mean?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Che il giudice funziona bene: cambiare idea è segno di attenzione",
+      "en": "That the judge works well: changing its mind shows it pays attention"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Il giudice è stanco: basta rifare la prova domani",
+      "en": "The judge is tired: just rerun the test tomorrow"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Le due risposte sono equivalenti: va registrato un pareggio, non una vittoria",
+      "en": "The two replies are equivalent: a tie should be recorded, not a win"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Che la nuova versione è di sicuro migliore della vecchia",
+      "en": "That the new version is surely better than the old one"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Il giudice ha un bias di posizione: i verdetti vanno controllati e calibrati",
+      "en": "The judge has a position bias: the verdicts must be checked and calibrated"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Il bias di posizione è la tendenza a preferire una risposta solo per l'ordine in cui la si vede. Il giudice è uno strumento di misura: va verificato e calibrato sul giudizio di persone.",
+    "en": "Position bias is the tendency to prefer a reply just because of the order in which it is shown. The judge is a measuring tool: it must be checked and calibrated against human judgement."
+   }
+  }
+ },
+ {
+  "id": "DA7.4-2",
+  "origine": "autori",
+  "pillola": "P7.4",
+  "concetti": [
+   "C66",
+   "C65"
+  ],
+  "concetto_principale": "C66",
+  "segmento_aiuto": "scaletta-4",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "L'agente risponde ogni giorno a 2.000 richieste di clienti e un LLM giudice le valuta tutte. Come organizzi la revisione umana?",
+    "en": "The agent answers 2,000 customer requests every day and an LLM judge rates all of them. How do you organise human review?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Esperti rivedono un campione e i casi segnalati (per esempio i pollici in giù) e i loro voti servono a calibrare il giudice",
+      "en": "Experts review a sample and the flagged cases (for example thumbs down), and their ratings are used to calibrate the judge"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Nessuna revisione umana: un giudice LLM con una buona rubrica è più oggettivo delle persone e le sostituisce",
+      "en": "No human review: an LLM judge with a good rubric is more objective than people and replaces them"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Esperti rivedono un campione casuale una volta all'anno; per il resto ci si fida del giudice, che è veloce e costa poco",
+      "en": "Experts review a random sample once a year; for the rest you trust the judge, which is fast and cheap"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Una persona rilegge tutte le 2.000 risposte ogni giorno, così il giudice non serve e si elimina ogni errore",
+      "en": "One person rereads all 2,000 replies every day, so the judge is not needed and every error is removed"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "La revisione umana si fa a campione e sui casi segnalati: costa, quindi non si fa su tutto, ma dà il riferimento per calibrare il giudice. Come dice il WP4, un'AI può aiutare a correggere il compito, ma una persona scrive la rubrica.",
+    "en": "Human review is done on a sample and on flagged cases: it is costly, so it is not done on everything, but it gives the reference to calibrate the judge. As WP4 says, an AI can help grade the test, but a person writes the rubric."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché il voto degli esperti non va trattato come una verità perfetta?",
+    "en": "Why should the experts' ratings not be treated as perfect truth?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché il giudice LLM è sempre più preciso e coerente delle persone esperte",
+      "en": "Because the LLM judge is always more accurate and consistent than expert people"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché sui compiti soggettivi anche gli esperti spesso non sono d'accordo tra loro",
+      "en": "Because on subjective tasks even experts often disagree with each other"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché gli esperti di vendita non conoscono il CRM",
+      "en": "Because sales experts do not know the CRM"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Perché le persone non sanno giudicare il tono di un'email",
+      "en": "Because people cannot judge the tone of an email"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Perché gli esperti riescono a valutare molte meno risposte di un giudice automatico",
+      "en": "Because experts can rate far fewer replies than an automatic judge"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Il WP4 avverte che il giudizio umano non è una verità oggettiva perfetta e che sui compiti soggettivi l'accordo tra valutatori è raro. Serve come riferimento calibrato sull'uomo, non come verità assoluta.",
+    "en": "WP4 warns that human judgement is not a perfect objective truth and that on subjective tasks agreement between raters is rare. It serves as a human-calibrated reference, not as absolute truth."
+   }
+  }
+ },
+ {
+  "id": "DA7.4-3",
+  "origine": "autori",
+  "pillola": "P7.4",
+  "concetti": [
+   "C66",
+   "C65"
+  ],
+  "concetto_principale": "C66",
+  "segmento_aiuto": "scaletta-3",
+  "striscia": "diagnosi",
+  "livello1": {
+   "domanda": {
+    "it": "Il giudice LLM dà in media 4,6 su 5 alle email dell'agente; su un campione, gli esperti di vendita danno in media 2,8. Che cosa fai?",
+    "en": "The LLM judge gives the agent's emails 4.6 out of 5 on average; on a sample, the sales experts give 2.8 on average. What do you do?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Uso il 4,6: il giudice valuta più email, quindi ha ragione lui",
+      "en": "I use 4.6: the judge rates more emails, so it is right"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Faccio la media dei due voti e uso 3,7 come punteggio ufficiale",
+      "en": "I average the two scores and use 3.7 as the official score"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Non mi fido: il giudice va ricalibrato sui voti degli esperti",
+      "en": "I do not trust it: the judge must be recalibrated on the experts' ratings"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Cambio gli esperti: probabilmente sono troppo severi",
+      "en": "I replace the experts: they are probably too strict"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Pubblico la nuova versione: entrambi i voti sono sopra 2,5",
+      "en": "I publish the new version: both scores are above 2.5"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Come ogni strumento di misura, il giudice va calibrato: si confrontano i suoi voti con quelli delle persone (meta-valutazione). Se divergono così tanto, il giudice non è un buon sostituto del giudizio umano.",
+    "en": "Like any measuring tool, the judge must be calibrated: you compare its ratings with people's (meta-evaluation). If they differ this much, the judge is not a good stand-in for human judgement."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Quale correzione aiuta di più ad allineare il giudice agli esperti?",
+    "en": "Which fix helps most to align the judge with the experts?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Dare al giudice più tempo per rispondere",
+      "en": "Give the judge more time to answer"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Chiedere al giudice, nelle istruzioni, di essere più severo",
+      "en": "Ask the judge, in its instructions, to be stricter"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Usare un modello giudice più grande e più recente, senza ricontrollare il campione",
+      "en": "Use a bigger and newer judge model, without rechecking the sample"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Scomporre la rubrica in criteri verificabili, poi ricontrollare sul campione umano",
+      "en": "Split the rubric into checkable criteria, then recheck on the human sample"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Togliere la rubrica, così il giudice usa il suo buon senso",
+      "en": "Remove the rubric, so the judge uses its common sense"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Una rubrica scomposta in sotto-domande rende il voto spiegabile e più vicino ai criteri aziendali; il nuovo confronto con il campione umano verifica se la correzione ha funzionato.",
+    "en": "A rubric split into sub-questions makes the score explainable and closer to the company's criteria; a new comparison with the human sample checks whether the fix worked."
+   }
+  }
+ },
+ {
+  "id": "DA7.5-1",
+  "origine": "autori",
+  "pillola": "P7.5",
+  "concetti": [
+   "C67",
+   "C68"
+  ],
+  "concetto_principale": "C67",
+  "segmento_aiuto": "scaletta-3",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Il nuovo agente ha dimezzato il tempo di risposta ai lead. Quale numero dice se è servito davvero al business?",
+    "en": "The new agent has halved the response time to leads. Which number tells you whether it really helped the business?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Righe aggiunte al foglio",
+      "en": "Rows added to the sheet"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Token per esecuzione",
+      "en": "Tokens per run"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Email inviate",
+      "en": "Emails sent"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Lead diventati clienti",
+      "en": "Leads who became customers"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Compiti completati",
+      "en": "Tasks completed"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "F",
+     "testo": {
+      "it": "Email aperte dai lead",
+      "en": "Emails opened by leads"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "G",
+     "testo": {
+      "it": "Latenza media",
+      "en": "Average latency"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Le metriche di business (conversioni, ricavi, fidelizzazione) sono la \"stella polare\". Un miglioramento tecnico vale se sposta una di queste senza peggiorare le metriche di rischio. Aperture e compiti completati sono passi intermedi.",
+    "en": "Business metrics (conversions, revenue, retention) are the \"north star\". A technical improvement counts if it moves one of these without worsening the risk metrics. Opens and completed tasks are intermediate steps."
+   }
+  },
+  "livello2": {
+   "tipo": "contro-esempio",
+   "domanda": {
+    "it": "Un tutorial dichiara il successo perché \"abbiamo ottenuto 2.000 lead\" nel foglio. Che cosa manca?",
+    "en": "A tutorial claims success because \"we got 2,000 leads\" in the sheet. What is missing?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Una misura di risultato: quanti di quei lead sono diventati clienti",
+      "en": "A result measure: how many of those leads became customers"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Un grafico più grande con i 2.000 lead",
+      "en": "A bigger chart with the 2,000 leads"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Niente: più lead nel foglio vuol dire più clienti",
+      "en": "Nothing: more leads in the sheet means more customers"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Il costo in token per ogni lead, che è la metrica principale da guardare",
+      "en": "The token cost for each lead, which is the main metric to look at"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "I dati sulle aperture e sulle risposte alle email inviate a quei lead",
+      "en": "The data on opens and replies to the emails sent to those leads"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Le righe aggiunte a un foglio sono una metrica ingannevole: crescono e fanno bella figura ma non dicono quanti clienti arrivano. Aperture e risposte sono più vicine al risultato, ma ancora intermedie.",
+    "en": "Rows added to a sheet are a vanity metric: they grow and look good but do not say how many customers arrive. Opens and replies are closer to the result, but still intermediate."
+   }
+  }
+ },
+ {
+  "id": "DA7.5-2",
+  "origine": "autori",
+  "pillola": "P7.5",
+  "concetti": [
+   "C68",
+   "C67"
+  ],
+  "concetto_principale": "C68",
+  "segmento_aiuto": "scaletta-4",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Vuoi sapere se l'agente di follow-up fa davvero vendere di più. Come imposti la prova?",
+    "en": "You want to know whether the follow-up agent really increases sales. How do you set up the test?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Confronto le conversioni di questo mese, con l'agente, con quelle dello stesso mese dell'anno scorso, quando l'agente non c'era ancora",
+      "en": "I compare this month's conversions, with the agent, with those of the same month last year, when the agent did not exist yet"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Chiedo ai commerciali se, da quando c'è l'agente, i clienti sembrano più contenti e comprano di più",
+      "en": "I ask the sales reps whether, since the agent arrived, customers seem happier and buy more"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Divido a caso i nuovi lead in due gruppi nello stesso periodo: uno seguito dall'agente, l'altro come prima, e confronto le conversioni",
+      "en": "I split new leads at random into two groups over the same period: one handled by the agent, the other as before, and compare conversions"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Do l'agente ai lead migliori e confronto con gli altri: se i suoi convertono di più, l'agente funziona",
+      "en": "I give the agent the best leads and compare with the others: if its leads convert more, the agent works"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Con un gruppo di controllo (senza agente) e un gruppo con l'agente, scelti a caso e nello stesso periodo, la differenza si può attribuire all'agente e non alla stagione o al tipo di lead.",
+    "en": "With a control group (without the agent) and a group with the agent, chosen at random and over the same period, the difference can be credited to the agent and not to the season or the type of lead."
+   }
+  },
+  "livello2": {
+   "tipo": "contro-esempio",
+   "domanda": {
+    "it": "Perché dare l'agente solo ai lead migliori rovina la prova?",
+    "en": "Why does giving the agent only the best leads ruin the test?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché l'agente funziona solo con i lead peggiori",
+      "en": "Because the agent only works with the worst leads"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché i due gruppi finirebbero per avere dimensioni troppo diverse tra loro",
+      "en": "Because the two groups would end up with very different sizes"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché i lead migliori convertono di più comunque: l'effetto si confonde",
+      "en": "Because the best leads convert more anyway: the effect gets mixed up"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Non la rovina: è il modo più rapido per vedere subito l'effetto dell'agente",
+      "en": "It does not ruin it: it is the fastest way to see the agent's effect at once"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Perché i lead migliori non leggono le email",
+      "en": "Because the best leads do not read emails"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Se i gruppi non sono scelti a caso, le differenze di partenza si mescolano all'effetto dell'agente e non si può più isolarlo.",
+    "en": "If the groups are not chosen at random, the starting differences mix with the agent's effect and it can no longer be isolated."
+   }
+  }
+ },
+ {
+  "id": "DA7.5-3",
+  "origine": "autori",
+  "pillola": "P7.5",
+  "concetti": [
+   "C68",
+   "C67"
+  ],
+  "concetto_principale": "C68",
+  "segmento_aiuto": "scaletta-4",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "A dicembre il team accende l'agente di outreach e le conversioni salgono del 20% rispetto a novembre. Si può dire che il merito è dell'agente?",
+    "en": "In December the team switches on the outreach agent and conversions rise 20% compared with November. Can you say the agent deserves the credit?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Sì: se le conversioni salgono dopo l'agente, è merito suo",
+      "en": "Yes: if conversions rise after the agent, it is thanks to it"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Sì, perché un +20% è troppo grande per essere un caso",
+      "en": "Yes, because +20% is too big to be chance"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Sì, ma solo se il numero di lead arrivati a dicembre è rimasto uguale a novembre",
+      "en": "Yes, but only if the number of leads arriving in December stayed the same as in November"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "No: senza un gruppo di controllo nello stesso periodo, conta anche la stagione",
+      "en": "No: without a control group over the same period, the season matters too"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "No: le conversioni di dicembre non si possono misurare",
+      "en": "No: December conversions cannot be measured"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Il confronto prima/dopo non isola l'effetto: dicembre può andare meglio per altri motivi (stagione, promozioni). Serve un confronto con un gruppo senza agente nello stesso periodo.",
+    "en": "A before/after comparison does not isolate the effect: December may go better for other reasons (season, promotions). You need a comparison with a group without the agent over the same period."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Quale disegno risolve il problema?",
+    "en": "Which design solves the problem?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Chiedere all'agente di stimare quanto ha contribuito",
+      "en": "Ask the agent to estimate how much it contributed"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Confrontare le vendite di dicembre con quelle del dicembre dell'anno prima",
+      "en": "Compare December's sales with those of December the year before"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Raddoppiare le email per un mese e vedere se le conversioni salgono",
+      "en": "Double the emails for a month and see if conversions rise"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Accendere l'agente solo nei fine settimana",
+      "en": "Switch the agent on only at weekends"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "A dicembre, metà dei lead scelti a caso con l'agente e metà senza",
+      "en": "In December, half the leads chosen at random with the agent and half without"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Due gruppi scelti a caso nello stesso periodo hanno le stesse condizioni esterne: la differenza tra loro misura l'effetto dell'agente. Il confronto con l'anno prima risente di tutto ciò che è cambiato nel frattempo.",
+    "en": "Two groups chosen at random over the same period share the same outside conditions: the difference between them measures the agent's effect. Comparing with the previous year is affected by everything that changed in between."
+   }
+  }
+ },
+ {
+  "id": "DA8.1-1",
+  "origine": "autori",
+  "pillola": "P8.1",
+  "concetti": [
+   "C70",
+   "C69"
+  ],
+  "concetto_principale": "C70",
+  "segmento_aiuto": "scaletta-4",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Hai una nuova versione dell'agente che risponde ai lead. Secondo il whitepaper Google sulla produzione, come inizia un rilascio canarino?",
+    "en": "You have a new version of the agent that answers leads. According to Google's production whitepaper, how does a canary release start?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Con l'1% degli utenti, osservando gli errori, poi si allarga per gradi",
+      "en": "With 1% of users, watching for errors, then widening step by step"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Con metà degli utenti, per avere subito dati sufficienti",
+      "en": "With half the users, to get enough data straight away"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Con tutti gli utenti, tenendo pronta la versione vecchia",
+      "en": "With all users, keeping the old version ready"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Con i soli colleghi interni, poi con tutti in un colpo solo",
+      "en": "With internal colleagues only, then with everyone at once"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Con il 5% del traffico, poi il 25%, poi tutti gli utenti, controllando i reclami",
+      "en": "With 5% of traffic, then 25%, then all users, checking the complaints"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "WP5: \"Canary: Start with 1% of users\", controllando prompt injection e usi inattesi degli strumenti; poi si sale per gradi o si torna subito indietro. Il 5% che compare in alcune scalette non è nelle fonti.",
+    "en": "WP5: \"Canary: Start with 1% of users\", watching for prompt injections and unexpected tool usage; then you scale up gradually or roll back at once. The 5% that appears in some outlines is not in the sources."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché si parte da una quota così piccola?",
+    "en": "Why start with such a small share?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché così il costo dei token della nuova versione resta basso",
+      "en": "Because that keeps the new version's token cost low"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché un difetto colpisce pochissimi clienti e si può tornare indietro subito",
+      "en": "Because a defect hits very few customers and you can roll back at once"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché l'1% basta a dimostrare che la versione è perfetta",
+      "en": "Because 1% is enough to prove the version is perfect"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Perché i clienti nuovi non notano le differenze",
+      "en": "Because new customers do not notice the differences"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Perché la nuova versione ha bisogno di tempo per imparare dai clienti",
+      "en": "Because the new version needs time to learn from customers"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Il canary limita il danno: se la nuova versione sbaglia, sbaglia con pochissimi utenti e si torna alla versione precedente. Se va bene, si allarga per gradi.",
+    "en": "The canary limits the damage: if the new version goes wrong, it goes wrong with very few users and you return to the previous version. If it goes well, you widen it step by step."
+   }
+  }
+ },
+ {
+  "id": "DA8.1-2",
+  "origine": "autori",
+  "pillola": "P8.1",
+  "concetti": [
+   "C70",
+   "C69"
+  ],
+  "concetto_principale": "C70",
+  "segmento_aiuto": "scaletta-4",
+  "striscia": "diagnosi",
+  "livello1": {
+   "domanda": {
+    "it": "Durante il canary la nuova versione genera più reclami e alcune chiamate inattese allo strumento \"invia_email\". Che cosa prevede una buona procedura?",
+    "en": "During the canary the new version causes more complaints and some unexpected calls to the \"send_email\" tool. What does a good procedure require?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Tornare subito alla versione precedente (rollback), che è versionata, e indagare con le tracce prima di riprovare",
+      "en": "Roll back at once to the previous version, which is versioned, and investigate with the traces before trying again"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Allargare subito al 100% degli utenti: con più dati sarà più facile capire se i reclami sono solo un caso",
+      "en": "Widen at once to 100% of users: with more data it will be easier to see whether the complaints are just chance"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Ignorare i reclami: nel canary sono normali e la nuova versione va portata a tutti entro la data prevista",
+      "en": "Ignore the complaints: they are normal in a canary and the new version must reach everyone by the planned date"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Fermare l'allargamento al gradino attuale e lasciare la nuova versione attiva per quel gruppo finché non si trova la causa",
+      "en": "Stop widening at the current step and leave the new version running for that group until the cause is found"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Il canary serve a \"salire per gradi o tornare indietro subito\". Chiamate inattese a uno strumento che scrive sono proprio ciò che il canary deve sorvegliare. Il versionamento è il tasto \"annulla\" della produzione.",
+    "en": "The canary is there to \"scale up gradually or roll back instantly\". Unexpected calls to a tool that writes are exactly what the canary must watch. Versioning is the production \"undo\" button."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Che cosa deve essere versionato perché il rollback funzioni davvero?",
+    "en": "What must be versioned for the rollback to really work?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Solo il codice: istruzioni e modello si possono ricostruire a memoria",
+      "en": "Only the code: instructions and model can be rebuilt from memory"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Solo l'elenco delle email già inviate ai clienti durante la campagna",
+      "en": "Only the list of emails already sent to customers during the campaign"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Solo il nome della versione nel titolo del documento",
+      "en": "Only the version name in the document title"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Codice, istruzioni, modello, strumenti e perfino il set di valutazione",
+      "en": "Code, instructions, model, tools and even the evaluation set"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Niente: basta chiedere all'agente di comportarsi come prima",
+      "en": "Nothing: just ask the agent to behave as before"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "WP5: ogni componente (codice, prompt, modello, schemi degli strumenti, strutture di memoria, perfino i set di valutazione) va versionato. Se manca un pezzo, il ritorno indietro non riproduce la versione di prima.",
+    "en": "WP5: every component (code, prompts, model, tool schemas, memory structures, even evaluation sets) must be versioned. If one piece is missing, rolling back does not reproduce the earlier version."
+   }
+  }
+ },
+ {
+  "id": "DA8.1-3",
+  "origine": "autori",
+  "pillola": "P8.1",
+  "concetti": [
+   "C69",
+   "C70"
+  ],
+  "concetto_principale": "C69",
+  "segmento_aiuto": "scaletta-2",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Dove provi la nuova sequenza di email automatiche prima di mandarla ai clienti veri?",
+    "en": "Where do you test the new automated email sequence before sending it to real customers?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "In sviluppo, sul mio PC",
+      "en": "In development, on my PC"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "In un foglio Excel",
+      "en": "In an Excel sheet"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Direttamente in produzione",
+      "en": "Straight in production"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Su 10 clienti veri a caso",
+      "en": "On 10 real customers at random"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Nella chat del team",
+      "en": "In the team chat"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "F",
+     "testo": {
+      "it": "Sul CRM vero, di notte",
+      "en": "On the real CRM, at night"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "G",
+     "testo": {
+      "it": "In staging (copia fedele)",
+      "en": "In staging (faithful copy)"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Gli ambienti sono separati: sviluppo, staging (una copia fedele della produzione, con prove di carico e uso interno) e produzione, ciascuno con dati e chiavi propri. L'ultima prova prima dei clienti si fa in staging.",
+    "en": "Environments are separate: development, staging (a faithful copy of production, with load tests and internal use) and production, each with its own data and keys. The last test before customers happens in staging."
+   }
+  },
+  "livello2": {
+   "tipo": "contro-esempio",
+   "domanda": {
+    "it": "Un tutorial collega l'agente in prova, con un account di test, a contatti veri di aziende reali. Quale principio viola?",
+    "en": "A tutorial connects the agent under test, using a test account, to real contacts at real companies. Which principle does it break?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Ambienti separati: in prova si usano dati e caselle di prova, non clienti veri",
+      "en": "Separate environments: tests use test data and mailboxes, not real customers"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Il rilascio graduale: andava provato prima sull'1% dei contatti e poi allargato",
+      "en": "Gradual release: it should have been tried first on 1% of the contacts and then widened"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Il versionamento: mancava il numero di versione nel nome",
+      "en": "Versioning: the version number was missing from the name"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "La latenza: le email di prova partono troppo lentamente",
+      "en": "Latency: the test emails go out too slowly"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Nessuno: provare sui clienti veri è il test più realistico",
+      "en": "None: testing on real customers is the most realistic test"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Ogni ambiente ha dati e credenziali propri: un account \"di prova\" collegato a contatti veri porta i rischi della produzione dentro il test. Il canary è un'altra cosa: riguarda una versione già provata.",
+    "en": "Each environment has its own data and credentials: a \"test\" account connected to real contacts brings production risks into the test. The canary is something else: it concerns a version already tested."
+   }
+  }
+ },
+ {
+  "id": "DA8.2-1",
+  "origine": "autori",
+  "pillola": "P8.2",
+  "concetti": [
+   "C71",
+   "C72"
+  ],
+  "concetto_principale": "C71",
+  "segmento_aiuto": "scaletta-3",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "In un tutorial di sales automation l'autore clicca \"always allow\" su tutte le conferme e concede al collegamento con il CRM tutti i permessi con \"select all\". Che cosa c'è di sbagliato?",
+    "en": "In a sales automation tutorial the author clicks \"always allow\" on every confirmation and gives the CRM connection every permission with \"select all\". What is wrong?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Toglie i punti di approvazione: anche le azioni ad alto rischio (invii di massa, cancellazioni, sconti) partono senza che una persona le veda, e l'agente ha più poteri di quelli che il compito richiede",
+      "en": "It removes the approval points: even high-risk actions (mass sends, deletions, discounts) go out without anyone seeing them, and the agent has more powers than the task needs"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Niente: \"always allow\" è il modo consigliato per lavorare in autonomia, perché le conferme rallentano l'agente e le azioni sul CRM si possono comunque annullare tutte",
+      "en": "Nothing: \"always allow\" is the recommended way to work autonomously, because confirmations slow the agent down and CRM actions can all be undone anyway"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Va bene anche in produzione, purché si controllino i log a fine giornata: se qualcosa va storto lo si vede la sera e si rimedia il giorno dopo con un'email di scuse ai clienti coinvolti, senza bisogno di conferme preventive",
+      "en": "It is fine in production too, as long as the logs are checked at the end of the day: if something goes wrong you see it in the evening and fix it the next day with an apology email to the customers involved, with no need for confirmations beforehand"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Le fonti chiedono una conferma umana per le azioni critiche o irreversibili e poteri limitati allo scopo (minimo privilegio). Il danno possibile cresce con i poteri dati all'agente; un controllo a fine giornata arriva quando il danno è fatto.",
+    "en": "The sources ask for human confirmation for critical or irreversible actions and powers limited to the purpose (least privilege). The possible damage grows with the powers given to the agent; an end-of-day check comes after the damage is done."
+   }
+  },
+  "livello2": {
+   "tipo": "diagnosi",
+   "domanda": {
+    "it": "Quale di queste azioni, con \"always allow\", farebbe più danni?",
+    "en": "Which of these actions, with \"always allow\", would do the most harm?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Cercare il sito di un'azienda sul web",
+      "en": "Looking up a company's website"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Leggere la scheda di un lead",
+      "en": "Reading a lead's record"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Inviare un'email a 500 contatti con uno sconto del 30%",
+      "en": "Sending an email to 500 contacts with a 30% discount"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Nessuna: con always allow le azioni restano a basso rischio",
+      "en": "None: with always allow actions stay low-risk"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Cancellare una nota interna duplicata",
+      "en": "Deleting a duplicate internal note"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Il rischio dipende da lettura o scrittura, reversibilità, permessi richiesti e impatto economico: un invio di massa con sconto scrive, non si annulla ed è costoso. È il tipo di azione che deve fermarsi per una conferma.",
+    "en": "Risk depends on read or write access, reversibility, required permissions and financial impact: a mass send with a discount writes, cannot be undone and is costly. It is the kind of action that must stop for confirmation."
+   }
+  }
+ },
+ {
+  "id": "DA8.2-2",
+  "origine": "autori",
+  "pillola": "P8.2",
+  "concetti": [
+   "C72",
+   "C71"
+  ],
+  "concetto_principale": "C72",
+  "segmento_aiuto": "scaletta-4",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Il servizio che decide se l'agente può applicare uno sconto non risponde. L'agente sta per scontare del 40% un contratto. Con la regola fail-closed che cosa succede?",
+    "en": "The service that decides whether the agent may apply a discount does not answer. The agent is about to give a 40% discount on a contract. With the fail-closed rule, what happens?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "L'agente aspetta un minuto e poi applica lo sconto lo stesso",
+      "en": "The agent waits a minute and then applies the discount anyway"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Lo sconto parte ma viene segnalato al manager il giorno dopo, per un controllo",
+      "en": "The discount goes through but is flagged to the manager the next day, for a check"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "L'agente chiede direttamente al cliente se lo sconto va bene",
+      "en": "The agent asks the customer directly whether the discount is fine"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Lo sconto non parte: senza risposta del controllo, l'azione è negata",
+      "en": "The discount does not go through: with no answer from the check, the action is denied"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Lo sconto parte: se il controllo è giù, si concede per non bloccare",
+      "en": "The discount goes through: if the check is down, it is allowed so as not to block"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Fail-closed vuol dire che, se il controllo non risponde, l'azione è negata. Il contrario (fail-open) concede l'azione proprio quando nessuno controlla.",
+    "en": "Fail-closed means that if the check does not answer, the action is denied. The opposite (fail-open) allows the action exactly when nobody is checking."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Per quale azione il fail-closed è più importante?",
+    "en": "For which action does fail-closed matter most?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Cercare il sito di un'azienda",
+      "en": "Looking up a company's website"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Nessuna: il fail-closed blocca sempre tutto, anche quando il controllo funziona",
+      "en": "None: fail-closed always blocks everything, even when the check works"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Inviare un'email a un solo cliente",
+      "en": "Sending an email to one customer"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Leggere lo storico di un cliente",
+      "en": "Reading a customer's history"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Cancellare 1.000 contatti dal CRM",
+      "en": "Deleting 1,000 contacts from the CRM"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Il fail-closed conta soprattutto per le azioni irreversibili o di massa: una cancellazione di 1.000 contatti non si annulla facilmente. E blocca solo quando il controllo non risponde, non sempre.",
+    "en": "Fail-closed matters most for irreversible or mass actions: deleting 1,000 contacts is not easy to undo. And it blocks only when the check does not answer, not always."
+   }
+  }
+ },
+ {
+  "id": "DA8.2-3",
+  "origine": "autori",
+  "pillola": "P8.2",
+  "concetti": [
+   "C72",
+   "C71"
+  ],
+  "concetto_principale": "C72",
+  "segmento_aiuto": "scaletta-4",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Per non rallentare le vendite, un collega propone: \"se il servizio delle autorizzazioni è irraggiungibile, l'agente procede comunque con tutte le azioni\". Che cosa rispondi?",
+    "en": "To avoid slowing down sales, a colleague proposes: \"if the authorisation service cannot be reached, the agent goes ahead with all actions anyway\". What do you answer?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "È fail-open: proprio quando il controllo manca, le azioni rischiose passerebbero senza verifica. Per quelle va negato: fail-closed",
+      "en": "It is fail-open: exactly when the check is missing, risky actions would pass unchecked. For those it must be denied: fail-closed"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Va bene solo di notte, quando i clienti dormono e le email partite per errore si leggono solo la mattina dopo",
+      "en": "It is fine only at night, when customers are asleep and emails sent by mistake are only read the next morning"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Va bene per tutte le azioni purché l'agente scriva nel log che il controllo era irraggiungibile, così si verifica tutto il giorno dopo",
+      "en": "It is fine for all actions as long as the agent writes in the log that the check was unreachable, so everything can be verified the next day"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "È la scelta corretta: un agente deve sempre mettere la continuità del servizio prima dei controlli di autorizzazione",
+      "en": "It is the right choice: an agent must always put service continuity before authorisation checks"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Fail-open concede l'azione quando il controllo non risponde: è il contrario di ciò che serve per le azioni rischiose. Un registro a posteriori non annulla un invio o una cancellazione già avvenuti.",
+    "en": "Fail-open allows the action when the check does not answer: the opposite of what risky actions need. A record written afterwards does not undo a send or a deletion that has already happened."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché scrivere nel log non basta come alternativa?",
+    "en": "Why is writing to the log not enough as an alternative?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché i log sono vietati per le azioni di vendita",
+      "en": "Because logs are forbidden for sales actions"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché il log racconta il danno dopo, non lo impedisce",
+      "en": "Because the log tells the story of the damage afterwards, it does not prevent it"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché i log occupano troppo spazio sul server",
+      "en": "Because logs take up too much space on the server"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Basta: un log completo vale quanto un'approvazione",
+      "en": "It is enough: a complete log is worth as much as an approval"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Perché i log potrebbero non essere letti in tempo",
+      "en": "Because the logs might not be read in time"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Il log è utile per capire e verificare, ma arriva dopo l'azione. Il fail-closed agisce prima: un'azione rischiosa senza autorizzazione non parte.",
+    "en": "The log is useful to understand and check, but it comes after the action. Fail-closed acts before: a risky action without authorisation does not start."
+   }
+  }
+ },
+ {
+  "id": "DA8.3-1",
+  "origine": "autori",
+  "pillola": "P8.3",
+  "concetti": [
+   "C73",
+   "C74"
+  ],
+  "concetto_principale": "C73",
+  "segmento_aiuto": "scaletta-2",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Un agente controlla il kill switch solo all'avvio della campagna. A metà degli invii il manager preme \"arresta\". Che cosa succede?",
+    "en": "An agent checks the kill switch only when the campaign starts. Halfway through the sends the manager presses \"stop\". What happens?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "L'agente si ferma dopo aver finito il lotto di email che stava già inviando",
+      "en": "The agent stops after finishing the batch of emails it was already sending"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "L'agente annulla da solo le email già inviate",
+      "en": "The agent cancels the emails already sent by itself"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "L'agente continua a inviare: non ricontrolla lo stato prima di ogni azione",
+      "en": "The agent keeps sending: it does not recheck the state before each action"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "L'agente si ferma subito: l'arresto vale sempre all'istante",
+      "en": "The agent stops at once: a stop always works instantly"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "L'agente si ferma solo se il manager preme due volte",
+      "en": "The agent stops only if the manager presses twice"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Il controllo va fatto prima di ogni azione con effetti, non solo all'avvio: altrimenti un agente già partito non \"sente\" l'arresto e continua fino alla fine.",
+    "en": "The check must happen before every action with effects, not only at start-up: otherwise an agent that has already started does not \"hear\" the stop and carries on to the end."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Se il problema è solo lo strumento \"invia_email\", quale comando è più mirato?",
+    "en": "If the problem is only the \"send_email\" tool, which command is most targeted?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Riavviare il server del CRM",
+      "en": "Restarting the CRM server"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Cancellare la campagna dal calendario e aspettare",
+      "en": "Deleting the campaign from the calendar and waiting"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Il kill switch globale, che ferma in un colpo tutti gli agenti dell'azienda",
+      "en": "The global kill switch, which stops all the company's agents at once"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Un circuit breaker che spegne all'istante solo quello strumento",
+      "en": "A circuit breaker that instantly switches off only that tool"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "La pausa dell'agente, che però prima finisce tutto ciò che ha in corso",
+      "en": "Pausing the agent, which however first finishes everything it is doing"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "WP5 descrive un interruttore (circuit breaker) che spegne all'istante solo lo strumento colpito, lasciando vivo il resto; poi si smistano i casi sospetti e si risolve (contenere, smistare, risolvere).",
+    "en": "WP5 describes a switch (circuit breaker) that instantly turns off only the affected tool, leaving the rest running; then suspicious cases are triaged and the issue is resolved (contain, triage, resolve)."
+   }
+  }
+ },
+ {
+  "id": "DA8.3-2",
+  "origine": "autori",
+  "pillola": "P8.3",
+  "concetti": [
+   "C74",
+   "C73"
+  ],
+  "concetto_principale": "C74",
+  "segmento_aiuto": "scaletta-3",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Un cliente chiede: \"Perché il vostro sistema mi ha escluso dall'offerta di primavera?\". Che cosa ti permette di rispondere con fatti?",
+    "en": "A customer asks: \"Why did your system leave me out of the spring offer?\". What lets you answer with facts?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Il registro delle decisioni: dati di ingresso mascherati, strumenti chiamati con i parametri, esito e ragionamento, legati a quella richiesta",
+      "en": "The decision log: masked input data, tools called with their parameters, outcome and reasoning, linked to that request"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Una nuova domanda all'agente: gli chiedo oggi perché ha escluso quel cliente e inoltro la sua spiegazione",
+      "en": "A new question to the agent: I ask it today why it left that customer out and forward its explanation"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Il contratto con il fornitore del modello, che descrive in generale come il modello prende le decisioni",
+      "en": "The contract with the model provider, which describes in general how the model makes decisions"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Il cruscotto delle metriche: mostra quanti clienti sono stati esclusi dall'offerta di primavera in media e quanto spesso l'agente sbaglia",
+      "en": "The metrics dashboard: it shows how many customers were left out of the spring offer on average and how often the agent is wrong"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Google (SEC) chiede di registrare in modo sicuro input, strumenti, parametri, output e ragionamento intermedio. È questo registro che risponde a \"perché l'agente ha fatto questo?\"; una spiegazione chiesta dopo è una ricostruzione, non un fatto.",
+    "en": "Google (SEC) asks to securely log inputs, tools, parameters, outputs and intermediate reasoning. It is this log that answers \"why did the agent do this?\"; an explanation asked for afterwards is a reconstruction, not a fact."
+   }
+  },
+  "livello2": {
+   "tipo": "diagnosi",
+   "domanda": {
+    "it": "Il registro c'è, ma contiene email e telefoni dei clienti in chiaro. Che problema c'è?",
+    "en": "The log exists, but it holds customers' emails and phone numbers in clear text. What is the problem?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Il registro stesso diventa un rischio per la privacy: va mascherato e protetto",
+      "en": "The log itself becomes a privacy risk: it must be masked and protected"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Conviene eliminare il registro: meglio non tenere traccia",
+      "en": "Better to delete the log: best to keep no record"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Nessuno, purché il registro con i dati dei clienti venga cancellato dopo un mese",
+      "en": "None, as long as the log with customer data is deleted after a month"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Nessuno: un registro deve contenere tutto in chiaro, altrimenti non vale",
+      "en": "None: a log must hold everything in clear text, otherwise it is not valid"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Il registro diventa troppo lungo da leggere",
+      "en": "The log becomes too long to read"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Le fonti chiedono di proteggere i dati sensibili anche dentro i log e di togliere i dati personali prima della conservazione a lungo. Il registro va anche protetto con accessi per ruolo.",
+    "en": "The sources ask to protect sensitive data inside the logs too and to remove personal data before long-term storage. The log must also be protected with role-based access."
+   }
+  }
+ },
+ {
+  "id": "DA8.3-3",
+  "origine": "autori",
+  "pillola": "P8.3",
+  "concetti": [
+   "C74",
+   "C73"
+  ],
+  "concetto_principale": "C74",
+  "segmento_aiuto": "scaletta-4",
+  "striscia": "diagnosi",
+  "livello1": {
+   "domanda": {
+    "it": "Un revisore chiede perché l'agente ha dato la priorità a un certo lead. Che cosa apri per primo?",
+    "en": "An auditor asks why the agent gave priority to a certain lead. What do you open first?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Niente: non si può sapere",
+      "en": "Nothing: it cannot be known"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Una nuova domanda all'agente",
+      "en": "A new question to the agent"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Il listino dei prezzi",
+      "en": "The price list"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Il log degli errori",
+      "en": "The error log"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "La traccia della decisione",
+      "en": "The trace of the decision"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "F",
+     "testo": {
+      "it": "Le metriche del mese",
+      "en": "The month's metrics"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "G",
+     "testo": {
+      "it": "Il manuale del CRM",
+      "en": "The CRM manual"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "La spiegabilità si fonda sulla traccia e sul registro della decisione: mostrano la catena dei passi e i fattori che hanno portato alla scelta. Metriche e log degli errori non raccontano quel singolo caso.",
+    "en": "Explainability rests on the trace and the decision log: they show the chain of steps and the factors that led to the choice. Metrics and error logs do not tell the story of that single case."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché chiedere oggi all'agente \"perché l'hai fatto?\" non basta?",
+    "en": "Why is asking the agent today \"why did you do it?\" not enough?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Basta: l'agente ricorda sempre perfettamente ogni decisione che ha preso",
+      "en": "It is enough: the agent always perfectly remembers every decision it made"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché tra migliaia di lead l'agente potrebbe non ricordare proprio quel caso",
+      "en": "Because among thousands of leads the agent might not remember that very case"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché genererebbe una spiegazione nuova, non il registro di ciò che è successo",
+      "en": "Because it would generate a new explanation, not the record of what happened"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Perché l'agente risponde solo in inglese",
+      "en": "Because the agent only answers in English"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Perché un agente non può mai spiegare niente",
+      "en": "Because an agent can never explain anything"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Un modello che risponde dopo produce un testo plausibile, non la prova di ciò che è avvenuto. La prova è il registro scritto al momento della decisione.",
+    "en": "A model answering afterwards produces plausible text, not proof of what happened. The proof is the log written at the time of the decision."
+   }
+  }
+ },
+ {
+  "id": "DA8.4-1",
+  "origine": "autori",
+  "pillola": "P8.4",
+  "concetti": [
+   "C75",
+   "C76"
+  ],
+  "concetto_principale": "C75",
+  "segmento_aiuto": "scaletta-1",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "La tua agenzia usa lo stesso agente CRM per due clienti concorrenti, Alfa e Beta. Dove va garantito che Alfa non veda i lead di Beta?",
+    "en": "Your agency uses the same CRM agent for two competing clients, Alfa and Beta. Where must you guarantee that Alfa cannot see Beta's leads?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Nel contratto: basta una clausola di riservatezza firmata",
+      "en": "In the contract: a signed confidentiality clause is enough"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Nelle istruzioni: \"non mostrare mai i dati dell'altro cliente\"",
+      "en": "In the instructions: \"never show the other client's data\""
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Nel modello: un modello grande capisce da solo cosa è riservato",
+      "en": "In the model: a big model works out by itself what is confidential"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Nei dati: ogni richiesta autorizzata sul proprietario, con dati separati per cliente",
+      "en": "In the data: every request authorised against the owner, with data separated by client"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Nell'interfaccia: gli utenti di Alfa vedono solo i menu e le pagine pensate per Alfa",
+      "en": "In the interface: Alfa's users only see the menus and pages built for Alfa"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "WP3: \"Strict Isolation is the most critical security principle\": ogni richiesta è autorizzata sul proprietario dei dati, per utente o per tenant (cliente). Istruzioni e interfaccia si possono aggirare.",
+    "en": "WP3: \"Strict Isolation is the most critical security principle\": every request is authorised against the owner of the data, per user or per tenant (client). Instructions and interface can be bypassed."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché le istruzioni all'agente non bastano?",
+    "en": "Why are instructions to the agent not enough?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché le istruzioni si possono scrivere solo in inglese",
+      "en": "Because instructions can only be written in English"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché i clienti possono leggere le istruzioni dell'agente",
+      "en": "Because clients can read the agent's instructions"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Bastano, se il divieto è scritto in maiuscolo e ripetuto due volte nelle istruzioni",
+      "en": "They are enough, if the ban is written in capitals and repeated twice in the instructions"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Perché istruzioni più lunghe costano più token e rallentano ogni risposta",
+      "en": "Because longer instructions cost more tokens and slow down every reply"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Perché il modello può sbagliare o essere ingannato; l'isolamento deve tenere comunque",
+      "en": "Because the model can make mistakes or be tricked; isolation must hold anyway"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Un'istruzione è un invito rivolto al modello, non una barriera: con un errore o una prompt injection i dati passano. L'isolamento va imposto dove stanno i dati.",
+    "en": "An instruction is a request to the model, not a barrier: with a mistake or a prompt injection the data gets through. Isolation must be enforced where the data lives."
+   }
+  }
+ },
+ {
+  "id": "DA8.4-2",
+  "origine": "autori",
+  "pillola": "P8.4",
+  "concetti": [
+   "C75",
+   "C76"
+  ],
+  "concetto_principale": "C75",
+  "segmento_aiuto": "scaletta-1",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Un errore di configurazione dell'accesso permette a un utente del cliente Alfa di aprire la memoria delle conversazioni del cliente Beta, anche se le pagine dell'app mostrano solo i dati di Alfa. Che cosa insegna questo caso?",
+    "en": "An access configuration error lets a user from client Alfa open client Beta's conversation memory, even though the app pages show only Alfa's data. What does this case teach?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Che serviva un modello più potente, capace di capire da solo che quell'utente non doveva vedere i dati di Beta",
+      "en": "That a more powerful model was needed, able to work out by itself that the user should not see Beta's data"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Che mancava la cancellazione automatica della memoria: con i dati cancellati prima, Beta avrebbe avuto molti meno dati riservati da esporre",
+      "en": "That automatic memory deletion was missing: with the data deleted earlier, Beta would have had far less confidential data to expose"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Che l'isolamento era solo nell'interfaccia: dati e memoria non erano separati e autorizzati per cliente, così un accesso sbagliato li apre",
+      "en": "That isolation was only in the interface: data and memory were not separated and authorised per client, so a wrong access opens them"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Che va tutto bene: è normale che la memoria sia condivisa tra clienti, basta che le pagine mostrino i dati giusti",
+      "en": "That all is fine: it is normal for memory to be shared between clients, as long as the pages show the right data"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "WP3: per la memoria \"la regola cardinale è l'isolamento dei dati\", per utente o per tenant. WP5 cita tra i fallimenti tipici l'accesso a un database riservato per un'autenticazione configurata male.",
+    "en": "WP3: for memory \"the cardinal rule is data isolation\", per user or per tenant. WP5 lists among typical failures access to a confidential database because of badly configured authentication."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Quale archivio può restare condiviso tra i due clienti, con cautela?",
+    "en": "Which store can stay shared between the two clients, with care?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Statistiche aggregate calcolate sui dati di entrambi i clienti insieme",
+      "en": "Aggregate statistics computed on both clients' data together"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Una base di documenti generici, come le guide pubbliche dei prodotti",
+      "en": "A base of general documents, such as public product guides"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Le schede dei lead con email e telefoni",
+      "en": "The lead records with emails and phone numbers"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "La memoria delle conversazioni che ciascun cliente ha avuto con i suoi clienti",
+      "en": "The memory of the conversations each client has had with its own customers"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Nessuno: due clienti non possono usare lo stesso software",
+      "en": "None: two clients can never use the same software"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "WP3: la base documentale per la ricerca è \"generalmente condivisa\", la memoria su un cliente è isolata. Se i documenti contengono informazioni di un cliente, anche loro vanno separati.",
+    "en": "WP3: the document base used for search is \"generally shared\", while memory about a customer is isolated. If documents contain one client's information, they must be separated too."
+   }
+  }
+ },
+ {
+  "id": "DA8.4-3",
+  "origine": "autori",
+  "pillola": "P8.4",
+  "concetti": [
+   "C76",
+   "C75"
+  ],
+  "concetto_principale": "C76",
+  "segmento_aiuto": "scaletta-2",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Un tutorial di lead generation salva in un foglio condiviso email, telefoni e profili LinkedIn di centinaia di persone, senza controlli d'accesso. Nel video l'autore oscura i dati perché \"molto riservati\". Che cosa insegna questo esempio?",
+    "en": "A lead generation tutorial saves emails, phone numbers and LinkedIn profiles of hundreds of people in a shared sheet, with no access controls. In the video the author blurs the data because it is \"very confidential\". What does this example teach?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Che basta oscurare i dati quando si mostrano ad altri: se nel video non si vedono, il foglio può restare condiviso così, perché il rischio riguarda soltanto la pubblicazione del video e il foglio non va toccato",
+      "en": "That it is enough to blur the data when showing it to others: if it cannot be seen in the video, the sheet can stay shared as it is, because the risk only concerns publishing the video and the sheet need not be touched"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Che è un esempio da non imitare: i dati personali vanno ridotti al necessario, mascherati prima di salvarli in log e sessioni, protetti con accessi e trattati con una base giuridica, non solo nascosti nel video",
+      "en": "That it is an example not to copy: personal data must be reduced to what is needed, masked before saving it in logs and sessions, protected with access controls and handled on a legal basis, not just hidden in the video"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Che è una buona pratica: raccogliere più dati possibile su ogni lead migliora la personalizzazione e un foglio condiviso è il modo più rapido per farli usare all'agente",
+      "en": "That it is good practice: collecting as much data as possible on each lead improves personalisation, and a shared sheet is the fastest way for the agent to use it"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Le fonti chiedono di mascherare i dati personali prima di scriverli in log e sessioni, di filtrarli dalle risposte e di avere regole chiare su quali dati usare. Oscurare il video non protegge il foglio.",
+    "en": "The sources ask to mask personal data before writing it into logs and sessions, to filter it out of answers and to have clear rules on which data may be used. Blurring the video does not protect the sheet."
+   }
+  },
+  "livello2": {
+   "tipo": "diagnosi",
+   "domanda": {
+    "it": "Quale correzione serve per prima?",
+    "en": "Which fix is needed first?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Condividere il foglio con tutto il team, così ci si controlla a vicenda",
+      "en": "Share the sheet with the whole team, so everyone checks each other"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Usare un foglio con più colonne e più ordinato",
+      "en": "Use a tidier sheet with more columns"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Mettere una password al video del tutorial",
+      "en": "Put a password on the tutorial video"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Raccogliere solo i dati necessari e limitare chi può aprire il foglio",
+      "en": "Collect only the data needed and limit who can open the sheet"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Mascherare i dati solo quando un cliente si lamenta",
+      "en": "Mask the data only when a customer complains"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Prima si riduce l'esposizione: meno dati personali e meno persone che li vedono. Proteggere il video non cambia nulla per chi ha il link del foglio.",
+    "en": "First you reduce exposure: less personal data and fewer people who can see it. Protecting the video changes nothing for whoever has the sheet's link."
+   }
+  }
+ },
+ {
+  "id": "DA8.5-1",
+  "origine": "autori",
+  "pillola": "P8.5",
+  "concetti": [
+   "C77",
+   "C78"
+  ],
+  "concetto_principale": "C77",
+  "segmento_aiuto": "scaletta-2",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Per classificare 50.000 risposte di lead in \"interessato / non interessato\", il team sceglie il modello primo in classifica, il più potente e costoso. Che cosa dicono le fonti?",
+    "en": "To sort 50,000 lead replies into \"interested / not interested\", the team picks the top-ranked model, the most powerful and expensive one. What do the sources say?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Va bene se si usa l'elaborazione a lotti, che dimezza il costo di ogni singola richiesta",
+      "en": "It is fine if batch processing is used, which halves the cost of every single request"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Va bene: il primo in classifica è sempre la scelta più sicura",
+      "en": "It is fine: the top-ranked model is always the safest choice"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Serve un modello ancora più grande, perché 50.000 casi sono tanti",
+      "en": "An even bigger model is needed, because 50,000 cases are a lot"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Meglio un modello medio scelto in base alla fama del fornitore",
+      "en": "Better a mid-size model chosen by the provider's reputation"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Errore comune: per un compito semplice basta un modello piccolo, verificato sui casi",
+      "en": "A common mistake: for a simple task a small model is enough, checked on the cases"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "STG: \"The most common mistake is over-investing in capability\"; WP1: scegliere il primo in classifica \"is a common path to failure\". Compiti semplici come classificare vanno a un modello piccolo e veloce, verificato sulle prove.",
+    "en": "STG: \"The most common mistake is over-investing in capability\"; WP1: choosing the top-ranked model \"is a common path to failure\". Simple tasks like classifying go to a small, fast model, checked on the tests."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Come si sceglie in pratica il modello più piccolo che basta?",
+    "en": "In practice, how do you choose the smallest model that is enough?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Si parte dal più capace come riferimento, poi si prova il piccolo sugli stessi casi",
+      "en": "You start with the most capable as a reference, then try the small one on the same cases"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Si chiede direttamente al modello grande quale modello conviene usare per il compito",
+      "en": "You ask the big model directly which model is best to use for the task"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Si usa sempre il più piccolo, senza bisogno di prove",
+      "en": "You always use the smallest, with no need for tests"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Si prova subito il modello più piccolo e, se costa poco, lo si tiene così",
+      "en": "You try the smallest model at once and, if it is cheap, you keep it as it is"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Si sceglie il modello con il nome più recente",
+      "en": "You choose the model with the newest name"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "OpenAI: partire con il modello più capace per fissare il livello di riferimento, poi sostituire con modelli più piccoli dove le prove reggono. Il prezzo basso da solo non dice se la qualità tiene.",
+    "en": "OpenAI: start with the most capable model to set the reference level, then switch to smaller models where the tests hold up. A low price alone does not tell you whether quality holds."
+   }
+  }
+ },
+ {
+  "id": "DA8.5-2",
+  "origine": "autori",
+  "pillola": "P8.5",
+  "concetti": [
+   "C78",
+   "C77"
+  ],
+  "concetto_principale": "C78",
+  "segmento_aiuto": "scaletta-5",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Il vostro agente di outreach usa un solo fornitore per modello, CRM e invio email, tutto su una piattaforma proprietaria. Il fornitore raddoppia i prezzi. Quale scelta di progetto avrebbe reso più facile cambiare?",
+    "en": "Your outreach agent uses a single provider for model, CRM and email sending, all on one proprietary platform. The provider doubles its prices. Which design choice would have made switching easier?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Collegare gli strumenti con uno standard aperto (come MCP) e uno strato che separa l'agente dal fornitore del modello, sostituibile senza rifare tutto",
+      "en": "Connecting the tools with an open standard (such as MCP) and a layer that separates the agent from the model provider, replaceable without redoing everything"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Usare il modello più grande del fornitore, perché i modelli grandi si spostano più facilmente da una piattaforma all'altra",
+      "en": "Using the provider's biggest model, because big models move more easily from one platform to another"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Nessuna: cambiare fornitore richiede sempre di riscrivere tutto, quindi conviene accettare l'aumento e non pensarci in fase di progetto",
+      "en": "None: changing provider always means rewriting everything, so it is better to accept the increase and not think about it at design time"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Firmare con lo stesso fornitore un contratto di cinque anni a prezzo bloccato, così il rischio di aumenti sparisce per tutta la durata del contratto",
+      "en": "Signing a five-year fixed-price contract with the same provider, so the risk of increases disappears for the whole period"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "WP2: MCP permette di cambiare il fornitore del modello o un servizio \"senza riprogettare l'intero strato di integrazione\". Standard aperti e uno strato di astrazione riducono la dipendenza; un contratto lungo la rimanda soltanto.",
+    "en": "WP2: MCP lets you switch the model provider or a service \"without needing to re-architect the entire integration layer\". Open standards and an abstraction layer reduce lock-in; a long contract only postpones it."
+   }
+  },
+  "livello2": {
+   "tipo": "contro-esempio",
+   "domanda": {
+    "it": "Un progetto usa MCP ma gira interamente su una piattaforma cloud a pagamento. È al sicuro dalla dipendenza dal fornitore?",
+    "en": "A project uses MCP but runs entirely on a paid cloud platform. Is it safe from vendor lock-in?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Sì, se il fornitore è un'azienda molto grande",
+      "en": "Yes, if the provider is a very large company"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "No, perché MCP funziona con un solo fornitore",
+      "en": "No, because MCP only works with one provider"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "No: MCP aiuta, ma se tutto il resto dipende da una piattaforma il vincolo resta",
+      "en": "No: MCP helps, but if everything else depends on one platform the lock-in remains"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Sì, purché la piattaforma offra anche un piano gratuito per ripartire altrove",
+      "en": "Yes, as long as the platform also offers a free plan to start again elsewhere"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Sì: chi usa MCP non può avere nessuna dipendenza da un singolo fornitore",
+      "en": "Yes: anyone using MCP cannot have any dependence on a single provider"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Nel corpus il repo R10 usa MCP e resta interamente legato a una piattaforma cloud a pagamento: lo standard aperto da solo non basta a togliere la dipendenza.",
+    "en": "In the sources the R10 repo uses MCP and stays fully tied to a paid cloud platform: the open standard alone is not enough to remove the lock-in."
+   }
+  }
+ },
+ {
+  "id": "DA8.5-3",
+  "origine": "autori",
+  "pillola": "P8.5",
+  "concetti": [
+   "C78",
+   "C77"
+  ],
+  "concetto_principale": "C78",
+  "segmento_aiuto": "scaletta-5",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Un tutorial di sales automation dice: \"quando cresci, aumenta solo l'uso dei token\". L'agente usa però anche crediti di arricchimento, caselle email e licenze. Che cosa cresce davvero con i volumi?",
+    "en": "A sales automation tutorial says: \"as you grow, only token usage goes up\". But the agent also uses enrichment credits, mailboxes and licences. What really grows with volume?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Solo il numero di utenti",
+      "en": "Only the number of users"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Token e caselle email",
+      "en": "Tokens and mailboxes"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Token, crediti e licenze",
+      "en": "Tokens, credits and licences"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Niente, è tutto gratis",
+      "en": "Nothing, it is all free"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Solo i token",
+      "en": "Only tokens"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "F",
+     "testo": {
+      "it": "Solo lo spazio su disco",
+      "en": "Only disk space"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "G",
+     "testo": {
+      "it": "Solo token e crediti",
+      "en": "Only tokens and credits"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Nei tutorial l'agente dipende da 3-4 servizi a pagamento: crediti per arricchire i contatti, caselle email, licenze, abbonamenti. \"Scala solo l'uso dei token\" è una semplificazione falsa.",
+    "en": "In the tutorials the agent depends on 3-4 paid services: credits to enrich contacts, mailboxes, licences, subscriptions. \"Only token usage scales\" is a false simplification."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché dipendere da più servizi a pagamento è un rischio di lock-in?",
+    "en": "Why is depending on several paid services a lock-in risk?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché i servizi diversi usano interfacce e linguaggi diversi da imparare",
+      "en": "Because the different services use different interfaces and languages to learn"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché i token costano sempre più dei crediti",
+      "en": "Because tokens always cost more than credits"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché i servizi a pagamento non si possono mai disdire",
+      "en": "Because paid services can never be cancelled"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Non è un rischio: più servizi diversi danno automaticamente più libertà di scelta",
+      "en": "It is not a risk: more different services automatically give more freedom of choice"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Perché ogni servizio può cambiare prezzi o regole e va sostituito a parte",
+      "en": "Because each service can change prices or rules and must be replaced separately"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Ogni servizio esterno è un fornitore da cui si dipende: se cambia prezzi o condizioni bisogna sostituirlo, e più servizi significano più punti di vincolo.",
+    "en": "Each outside service is a provider you depend on: if it changes prices or terms you must replace it, and more services mean more lock-in points."
+   }
+  }
+ }
+]

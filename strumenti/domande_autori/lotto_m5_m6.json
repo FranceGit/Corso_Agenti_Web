@@ -1,0 +1,2389 @@
+[
+ {
+  "id": "DA5.2-1",
+  "origine": "autori",
+  "pillola": "P5.2",
+  "concetti": [
+   "C46",
+   "C45"
+  ],
+  "concetto_principale": "C46",
+  "segmento_aiuto": "scaletta-4",
+  "striscia": "definizione",
+  "livello1": {
+   "domanda": {
+    "it": "Una chat di preventivo è diventata lunghissima. Quale strategia di compattazione tiene interi solo i turni recenti e mette davanti un riassunto dei turni vecchi?",
+    "en": "A quote chat has become very long. Which compaction strategy keeps only the recent turns whole and puts a summary of the old turns in front of them?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Taglio a tetto di token",
+      "en": "Token-based cut-off"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Riassunto ricorsivo",
+      "en": "Recursive summarization"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Cancellare l'archivio",
+      "en": "Delete the archive"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Finestra più grande",
+      "en": "A bigger window"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Ultimi N turni",
+      "en": "Last N turns"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "F",
+     "testo": {
+      "it": "Nuova sessione vuota",
+      "en": "A new empty session"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "G",
+     "testo": {
+      "it": "Mandare tutta la storia",
+      "en": "Send the whole history"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Il riassunto ricorsivo («Recursive Summarization») trasforma i turni vecchi in un riassunto scritto da un LLM e lo mette davanti ai turni recenti, lasciati interi [WP3 p.24].",
+    "en": "Recursive summarization turns the old turns into a summary written by an LLM and puts it in front of the recent turns, which stay whole [WP3 p.24]."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché si compatta una conversazione lunga invece di mandare ogni volta tutta la storia al modello?",
+    "en": "Why do you compact a long conversation instead of sending the whole history to the model every time?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Solo per risparmiare sui costi: la qualità delle risposte resta identica anche con una storia lunghissima di centinaia di turni",
+      "en": "Only to save money: the quality of the answers stays the same even with a very long history of hundreds of turns"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché così la storia completa viene cancellata dall'archivio e la sessione occupa meno spazio sul server",
+      "en": "Because this way the full history is deleted from the archive and the session takes up less space on the server"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché oltre un certo punto la storia non entra nella finestra, e intanto salgono costo e attesa e cala la qualità",
+      "en": "Because past a certain point the history no longer fits the window, and meanwhile cost and waiting time go up and quality goes down"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Perché le regole sulla privacy vietano di conservare conversazioni più lunghe di dieci turni con un cliente",
+      "en": "Because privacy rules forbid keeping conversations with a customer longer than ten turns"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "WP3 indica quattro limiti delle conversazioni lunghe: finestra di contesto, costo, latenza e qualità. La compattazione riduce ciò che entra nel contesto [WP3 p.22-23].",
+    "en": "WP3 lists four limits of long conversations: context window, cost, latency and quality. Compaction shrinks what goes into the context [WP3 p.22-23]."
+   }
+  }
+ },
+ {
+  "id": "DA5.2-2",
+  "origine": "autori",
+  "pillola": "P5.2",
+  "concetti": [
+   "C46",
+   "C45"
+  ],
+  "concetto_principale": "C46",
+  "segmento_aiuto": "scaletta-4",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Un agente di assistenza riassume ogni 3 turni la chat con un cliente, tenendo 1 turno di sovrapposizione. Il giorno dopo un collega vuole rileggere la conversazione originale, parola per parola. Che cosa trova?",
+    "en": "A support agent summarizes the chat with a customer every 3 turns, keeping 1 turn of overlap. The next day a colleague wants to reread the original conversation, word for word. What do they find?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Solo i riassunti: ogni volta che scatta la compattazione i turni vecchi vengono sostituiti anche nell'archivio, quindi resta l'ultimo turno intero più la serie dei riassunti",
+      "en": "Only the summaries: every time compaction kicks in, the old turns are replaced in the archive too, so only the last whole turn plus the series of summaries is left"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Niente: a ogni compattazione l'archivio della sessione viene svuotato per risparmiare spazio, e per rileggere la chat bisogna chiedere al cliente di inoltrare i suoi messaggi",
+      "en": "Nothing: at each compaction the session archive is emptied to save space, and to reread the chat you have to ask the customer to forward their messages"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "La conversazione completa: la compattazione cambia solo ciò che viene rimandato al modello a ogni turno, mentre gli eventi originali restano salvati nell'archivio della sessione",
+      "en": "The full conversation: compaction only changes what is sent back to the model at each turn, while the original events stay stored in the session archive"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "WP3: la compattazione «does not modify the historical events stored in your session storage». Si riduce ciò che entra nel contesto; l'archivio resta [WP3 p.24].",
+    "en": "WP3: compaction \"does not modify the historical events stored in your session storage\". It shrinks what goes into the context; the archive stays [WP3 p.24]."
+   }
+  },
+  "livello2": {
+   "tipo": "diagnosi",
+   "domanda": {
+    "it": "Dopo una compattazione l'agente propone una chiamata di lunedì, ma all'inizio il cliente aveva chiesto di non essere chiamato il lunedì. Qual è la causa più probabile?",
+    "en": "After a compaction the agent suggests a call on Monday, but at the start the customer had asked not to be called on Mondays. What is the most likely cause?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "La compattazione ha cancellato l'archivio della sessione con i messaggi originali",
+      "en": "Compaction deleted the session archive with the original messages"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Il riassunto ha perso un vincolo del cliente, che andava protetto dalla compattazione",
+      "en": "The summary lost a customer constraint, which should have been protected from compaction"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Il calendario aziendale non segnava il lunedì come giorno di chiusura",
+      "en": "The company calendar did not mark Monday as a closing day"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Il cliente nel frattempo ha cambiato idea, quindi l'agente ha fatto bene",
+      "en": "In the meantime the customer changed their mind, so the agent did well"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Il tetto di token era troppo alto e il modello ha letto troppi turni tutti insieme, confondendo le date",
+      "en": "The token cap was too high and the model read too many turns all at once, mixing up the dates"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Un riassunto troppo aggressivo può far sparire decisioni e vincoli (inferenza didattica: WP3 dice solo di preservare il contesto più importante). Tenere intatti vincoli e consensi è una regola di buon senso.",
+    "en": "A summary that is too aggressive can make decisions and constraints disappear (a teaching inference: WP3 only says to preserve the most important context). Keeping constraints and consents intact is a common-sense rule."
+   }
+  }
+ },
+ {
+  "id": "DA5.2-3",
+  "origine": "autori",
+  "pillola": "P5.2",
+  "concetti": [
+   "C45"
+  ],
+  "concetto_principale": "C45",
+  "segmento_aiuto": "scaletta-2",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Un nuovo cliente fa l'onboarding in tre passi: crea il profilo, collega il CRM, invita un collega. Si ferma dopo il secondo passo e torna il giorno dopo. Che cosa permette all'agente di riprendere dal terzo passo?",
+    "en": "A new customer does onboarding in three steps: create the profile, connect the CRM, invite a colleague. They stop after the second step and come back the next day. What lets the agent resume from the third step?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "La storia dei messaggi tenuta nella memoria temporanea del server, che resta disponibile fino al giorno dopo",
+      "en": "The message history kept in the server's temporary memory, which stays available until the next day"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Il modello linguistico, che dopo due passi ha imparato il profilo del cliente e ora lo ricorda da solo",
+      "en": "The language model, which after two steps has learned the customer's profile and now remembers it on its own"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Lo stato della sessione (il passo raggiunto) salvato in un archivio permanente, non nella memoria temporanea",
+      "en": "The session state (the step reached) saved in a permanent store, not in temporary memory"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Un'email al cliente che gli chiede di riassumere da dove era arrivato e che cosa aveva già fatto",
+      "en": "An email to the customer asking them to sum up where they had got to and what they had already done"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Lo stato è il blocco appunti del compito (come un carrello). Se è salvato su un archivio permanente sopravvive ai riavvii e permette di riprendere tra sessioni [WP3 p.12-13; STG p.14].",
+    "en": "The state is the task's scratchpad (like a shopping cart). If it is saved in a permanent store it survives restarts and lets you resume across sessions [WP3 p.12-13; STG p.14]."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "In una sessione, quale di questi elementi fa parte dello STATO (appunti di lavoro) e non della storia (eventi)?",
+    "en": "In a session, which of these items belongs to the STATE (working notes) and not to the history (events)?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Risultato di uno strumento",
+      "en": "A tool result"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Messaggio del cliente",
+      "en": "The customer's message"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Risposta dell'agente",
+      "en": "The agent's reply"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Logo dell'azienda",
+      "en": "The company logo"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Chiamata al CRM",
+      "en": "A call to the CRM"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "f",
+     "testo": {
+      "it": "Listino prezzi generale",
+      "en": "The general price list"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "g",
+     "testo": {
+      "it": "Fase attuale: passo 3",
+      "en": "Current phase: step 3"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Gli eventi sono quattro tipi di mattoncini aggiunti in coda (messaggio, risposta, chiamata a uno strumento, risultato); lo stato è il blocco appunti che si aggiorna, come la fase raggiunta [WP3 p.12].",
+    "en": "Events are four kinds of building blocks added at the end (message, reply, tool call, result); the state is the scratchpad that gets updated, like the phase reached [WP3 p.12]."
+   }
+  }
+ },
+ {
+  "id": "DA5.3-1",
+  "origine": "autori",
+  "pillola": "P5.3",
+  "concetti": [
+   "C48"
+  ],
+  "concetto_principale": "C48",
+  "segmento_aiuto": "scaletta-3",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Un agente commerciale conserva ricordi diversi. Quale di questi è memoria procedurale (sapere come) e non dichiarativa (sapere cosa)?",
+    "en": "A sales agent keeps different memories. Which of these is procedural memory (knowing how) and not declarative memory (knowing what)?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "La foto del logo",
+      "en": "The logo picture"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Preferisce l'email",
+      "en": "Prefers email"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "L'intero log delle chat",
+      "en": "The whole chat log"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Preventivo di Rossi: 8.000 €",
+      "en": "Rossi's quote: €8,000"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Preventivo approvato il 3/3",
+      "en": "Quote approved on 3 March"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "F",
+     "testo": {
+      "it": "Come preparare un preventivo",
+      "en": "How to prepare a quote"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "G",
+     "testo": {
+      "it": "Ha sede a Torino",
+      "en": "Based in Turin"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "La memoria procedurale conserva come si svolge un compito («knowing how»); fatti e preferenze sul cliente sono memoria dichiarativa («knowing what») [WP3 p.35].",
+    "en": "Procedural memory keeps how a task is done (\"knowing how\"); facts and preferences about the customer are declarative memory (\"knowing what\") [WP3 p.35]."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché «preferisce l'email» è memoria dichiarativa?",
+    "en": "Why is \"prefers email\" declarative memory?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché è un fatto su un cliente: sapere cosa, non sapere come fare un compito",
+      "en": "Because it is a fact about a customer: knowing what, not knowing how to do a task"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché viene da una conversazione, mentre la procedurale arriva sempre dal CRM",
+      "en": "Because it comes from a conversation, while procedural memory always comes from the CRM"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché vale per tutti i clienti dell'azienda, non solo per lui",
+      "en": "Because it applies to all the company's customers, not only to him"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Perché è una frase breve: i ricordi brevi sono sempre dichiarativi",
+      "en": "Because it is a short sentence: short memories are always declarative"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Perché riguarda un canale di contatto, e i canali sono sempre procedure",
+      "en": "Because it is about a contact channel, and channels are always procedures"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Dichiarativa = fatti, cifre, preferenze (sapere cosa). Procedurale = abilità e sequenze di passi (sapere come) [WP3 p.35].",
+    "en": "Declarative = facts, figures, preferences (knowing what). Procedural = skills and sequences of steps (knowing how) [WP3 p.35]."
+   }
+  }
+ },
+ {
+  "id": "DA5.3-2",
+  "origine": "autori",
+  "pillola": "P5.3",
+  "concetti": [
+   "C48",
+   "C47"
+  ],
+  "concetto_principale": "C48",
+  "segmento_aiuto": "scaletta-3",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Un fornitore promette: «La nostra piattaforma di memoria impara da sola anche le procedure dei venditori, pronta all'uso». Che cosa dicono le fonti Google?",
+    "en": "A vendor promises: \"Our memory platform learns the sales reps' procedures on its own too, ready to use\". What do the Google sources say?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Che i sistemi commerciali non sono pensati per gestire la memoria procedurale",
+      "en": "That commercial systems are not designed to manage procedural memory"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Che la memoria procedurale è il log completo di tutte le chat dei venditori",
+      "en": "That procedural memory is the full log of all the sales reps' chats"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Che la memoria procedurale funziona solo dopo un riaddestramento completo del modello linguistico",
+      "en": "That procedural memory only works after a full retraining of the language model"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Che le procedure si possono memorizzare solo se scritte in lingua inglese",
+      "en": "That procedures can only be stored if they are written in English"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Che dichiarativa e procedurale sono la stessa cosa, chiamata in due modi",
+      "en": "That declarative and procedural are the same thing under two names"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "WP3 p.64: i sistemi commerciali «are not designed to manage procedural memories». Una promessa così va verificata, non presa per buona.",
+    "en": "WP3 p.64: commercial systems \"are not designed to manage procedural memories\". A promise like this must be checked, not taken at face value."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché, secondo WP3, una memoria procedurale ben fatta sarebbe utile anche senza riaddestrare il modello?",
+    "en": "Why, according to WP3, would a well-built procedural memory be useful even without retraining the model?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché sostituisce del tutto il riaddestramento (fine-tuning), che da quel momento non serve mai più in nessun caso",
+      "en": "Because it fully replaces retraining (fine-tuning), which from then on is never needed again in any case"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché le procedure salvate in memoria vanno a modificare direttamente i pesi interni del modello linguistico",
+      "en": "Because the procedures saved in memory directly change the internal weights of the language model"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché le procedure si copiano dai siti dei concorrenti e quindi arrivano già pronte e collaudate",
+      "en": "Because the procedures are copied from competitors' websites and so they arrive ready and tested"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Perché permette un adattamento rapido durante l'uso, senza cambiare il modello",
+      "en": "Because it allows fast adaptation during use, without changing the model"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "WP3 p.64-65: la memoria procedurale è «fast, online adaptation», senza riaddestrare il modello come nel fine-tuning.",
+    "en": "WP3 p.64-65: procedural memory is \"fast, online adaptation\", without retraining the model as in fine-tuning."
+   }
+  }
+ },
+ {
+  "id": "DA5.3-3",
+  "origine": "autori",
+  "pillola": "P5.3",
+  "concetti": [
+   "C47"
+  ],
+  "concetto_principale": "C47",
+  "segmento_aiuto": "scaletta-2",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "La caffetteria «The Daily Grind» fa estrarre ricordi solo sull'argomento «feedback sul locale». Un cliente scrive: «Il caffè oggi era un po' tiepido... e la musica troppo alta. Comunque buona giornata!». Che cosa estrae un buon sistema di memoria?",
+    "en": "The coffee shop \"The Daily Grind\" extracts memories only on the topic \"feedback about the shop\". A customer writes: \"The coffee was a bit lukewarm today... and the music way too loud. Have a nice day anyway!\". What does a good memory system extract?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Due ricordi: caffè tiepido e musica troppo alta; il saluto finale resta fuori",
+      "en": "Two memories: lukewarm coffee and music too loud; the final greeting is left out"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "L'intero messaggio parola per parola: la memoria a lungo termine è il registro completo delle conversazioni",
+      "en": "The whole message word for word: long-term memory is the full record of the conversations"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Nessun ricordo: le lamentele non si salvano mai, per non mettere il locale in cattiva luce nelle risposte",
+      "en": "No memory: complaints are never saved, so as not to show the shop in a bad light in the answers"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Un unico riassunto di tutto il messaggio, saluto compreso, salvato così com'è per non perdere nessun dettaglio",
+      "en": "A single summary of the whole message, greeting included, saved as it is so as not to lose any detail"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "L'estrazione tiene solo ciò che rientra negli argomenti definiti; «not simple summarization». Dall'esempio della fonte nascono due ricordi [WP3 p.44-46].",
+    "en": "Extraction keeps only what fits the defined topics; \"not simple summarization\". In the source's example two memories come out [WP3 p.44-46]."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Un mese dopo lo stesso cliente scrive che ora la musica va benissimo. Che cosa deve fare il consolidamento?",
+    "en": "A month later the same customer writes that the music is now just fine. What should consolidation do?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Aggiornare o invalidare il vecchio ricordo «musica troppo alta»",
+      "en": "Update or invalidate the old memory \"music too loud\""
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Creare un secondo ricordo e tenerli entrambi, senza toccare il vecchio",
+      "en": "Create a second memory and keep both, without touching the old one"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Chiedere al cliente di confermare per email ogni ricordo salvato",
+      "en": "Ask the customer to confirm every saved memory by email"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Cancellare tutti i ricordi del cliente e ricominciare da zero",
+      "en": "Delete all the customer's memories and start from scratch"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Ignorare il nuovo messaggio: vale sempre il primo ricordo salvato",
+      "en": "Ignore the new message: the first saved memory always wins"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Il consolidamento confronta i ricordi nuovi con quelli esistenti: UPDATE, CREATE o DELETE/INVALIDATE. Senza, la memoria diventa «a noisy, contradictory, and unreliable log» [WP3 p.47-48].",
+    "en": "Consolidation compares new memories with the existing ones: UPDATE, CREATE or DELETE/INVALIDATE. Without it, memory becomes \"a noisy, contradictory, and unreliable log\" [WP3 p.47-48]."
+   }
+  }
+ },
+ {
+  "id": "DA5.4-1",
+  "origine": "autori",
+  "pillola": "P5.4",
+  "concetti": [
+   "C49",
+   "C50"
+  ],
+  "concetto_principale": "C49",
+  "segmento_aiuto": "scaletta-3",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Un cliente scrive in chat: «Avete scarpe per chi ha il piede largo?». Le schede prodotto dicono «calzata extra larga» e «comoda per piedi larghi». Quale ricerca trova quelle schede?",
+    "en": "A customer writes in the chat: \"Do you have shoes for people with wide feet?\". The product sheets say \"extra wide fit\" and \"comfortable for wide feet\". Which search finds those sheets?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Un filtro per prezzo, dal prodotto più economico al più caro",
+      "en": "A price filter, from the cheapest product to the most expensive"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Nessuna: il modello inventa la risposta in base al suo addestramento",
+      "en": "None: the model makes up the answer from its training"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "La ricerca semantica: confronta i significati, anche con parole diverse",
+      "en": "Semantic search: it compares meanings, even with different words"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Un ordinamento delle schede per data di inserimento nel catalogo",
+      "en": "Sorting the sheets by the date they were added to the catalogue"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "La ricerca per parola esatta, purché la frase del cliente coincida parola per parola con la scheda",
+      "en": "Exact-word search, as long as the customer's sentence matches the sheet word for word"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "La ricerca vettoriale trova risultati «even when the wording is different»; una ricerca con la frase esatta «would fail to return any results» [EMB p.36; STG p.20].",
+    "en": "Vector search finds results \"even when the wording is different\"; a search with the exact sentence \"would fail to return any results\" [EMB p.36; STG p.20]."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché la ricerca semantica riesce a collegare «piede largo» a «calzata extra larga»?",
+    "en": "Why can semantic search link \"wide feet\" to \"extra wide fit\"?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché il sistema consulta un elenco di sinonimi scritto a mano da qualcuno del marketing, che collega ogni parola alle sue varianti, e solo dopo cerca tra le schede prodotto del catalogo",
+      "en": "Because the system looks up a list of synonyms written by hand by someone in marketing, which links every word to its variants, and only then searches the catalogue's product sheets"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché il modello linguistico è stato addestrato proprio sul catalogo dell'azienda e quindi conosce a memoria tutte le schede prodotto, comprese quelle aggiunte la settimana scorsa",
+      "en": "Because the language model was trained on the company's own catalogue and so knows all the product sheets by heart, including the ones added last week"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché domanda e schede vengono trasformate in embedding, cioè liste di numeri che rappresentano il significato: testi con significati vicini hanno numeri vicini, anche se le parole sono diverse",
+      "en": "Because the question and the sheets are turned into embeddings, that is lists of numbers that represent meaning: texts with close meanings have close numbers, even if the words are different"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Embedding: rappresentazioni numeriche in cui la distanza tra due vettori riflette la somiglianza di significato [EMB p.6]. Come latitudine e longitudine, ma per i significati [EMB p.7].",
+    "en": "Embeddings: numerical representations in which the distance between two vectors reflects how similar their meanings are [EMB p.6]. Like latitude and longitude, but for meanings [EMB p.7]."
+   }
+  }
+ },
+ {
+  "id": "DA5.4-2",
+  "origine": "autori",
+  "pillola": "P5.4",
+  "concetti": [
+   "C49",
+   "C50"
+  ],
+  "concetto_principale": "C49",
+  "segmento_aiuto": "scaletta-6",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Un operatore chiede all'agente: «Stato dell'ordine ORD-48213?». La ricerca semantica restituisce ordini con descrizioni simili ma con numeri diversi. Che cosa conviene fare?",
+    "en": "An operator asks the agent: \"Status of order ORD-48213?\". Semantic search returns orders with similar descriptions but different numbers. What should you do?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Aumentare la temperatura del modello, così prova più numeri d'ordine diversi finché trova quello giusto",
+      "en": "Raise the model's temperature, so it tries more order numbers until it finds the right one"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Unire alla ricerca per significato una ricerca per parola esatta sul codice (ricerca ibrida)",
+      "en": "Combine the search by meaning with an exact-word search on the code (hybrid search)"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Dividere i documenti in porzioni molto più piccole, così ogni ordine ha un embedding più preciso",
+      "en": "Split the documents into much smaller chunks, so that each order has a more precise embedding"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Chiedere al cliente di descrivere l'ordine a parole, invece di dare il numero, ogni volta che scrive",
+      "en": "Ask the customer to describe the order in words instead of giving the number, every time they write"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Con ID e codici gli embedding trovano testi dal significato simile ma non l'ID giusto: la soluzione è la ricerca ibrida, significato più parola esatta come filtro [EMB p.50].",
+    "en": "With IDs and codes, embeddings find texts with a similar meaning but not the right ID: the fix is hybrid search, meaning plus exact word as a filter [EMB p.50]."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Quale altra richiesta CRM corre lo stesso rischio con la sola ricerca semantica?",
+    "en": "Which other CRM request runs the same risk with semantic search alone?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "«Rossi Srl di Milano»",
+      "en": "\"Rossi Srl in Milan\""
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "«Scarpe comode da corsa»",
+      "en": "\"Comfortable running shoes\""
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "«Offerta di aprile 2025»",
+      "en": "\"April 2025 offer\""
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "«Clienti scontenti del reso»",
+      "en": "\"Customers unhappy with returns\""
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "«Cos'è il lead nurturing?»",
+      "en": "\"What is lead nurturing?\""
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "f",
+     "testo": {
+      "it": "«Contratto n. CT-2290»",
+      "en": "\"Contract no. CT-2290\""
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "g",
+     "testo": {
+      "it": "«Prodotti per piedi larghi»",
+      "en": "\"Products for wide feet\""
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Codici di contratto, SKU e numeri d'ordine sono parole specifiche senza un significato generale: lì serve la parola esatta accanto alla ricerca per significato [EMB p.50].",
+    "en": "Contract codes, SKUs and order numbers are specific words with no general meaning: there you need the exact word alongside the search by meaning [EMB p.50]."
+   }
+  }
+ },
+ {
+  "id": "DA5.4-3",
+  "origine": "autori",
+  "pillola": "P5.4",
+  "concetti": [
+   "C50"
+  ],
+  "concetto_principale": "C50",
+  "segmento_aiuto": "scaletta-4",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Un cliente chiede all'agente di assistenza la garanzia di un prodotto che non compare in nessun documento indicizzato. Qual è il comportamento corretto con il RAG?",
+    "en": "A customer asks the support agent about the warranty of a product that does not appear in any indexed document. What is the right behaviour with RAG?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Rispondere che il prodotto non esiste più e chiudere la conversazione",
+      "en": "Answer that the product no longer exists and close the conversation"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Dire «non lo so» e, se serve, passare la domanda a una persona",
+      "en": "Say \"I don't know\" and, if needed, pass the question to a person"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Rispondere con la garanzia del prodotto più simile trovato nei documenti",
+      "en": "Answer with the warranty of the most similar product found in the documents"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Inventare una garanzia plausibile: tanto il RAG elimina le allucinazioni",
+      "en": "Make up a plausible warranty: RAG removes hallucinations anyway"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Copiare la garanzia dal sito di un concorrente e citarla come ufficiale",
+      "en": "Copy the warranty from a competitor's website and quote it as official"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Il RAG riduce le allucinazioni ma «does not completely eliminate them». Istruzione d'esempio: «If you don't know the answer, just say that 'I don't know'» [EMB p.43, 52-53].",
+    "en": "RAG reduces hallucinations but \"does not completely eliminate them\". Example instruction: \"If you don't know the answer, just say that 'I don't know'\" [EMB p.43, 52-53]."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Che cosa aiuta, secondo le fonti, a controllare le risposte di un sistema RAG?",
+    "en": "According to the sources, what helps to check the answers of a RAG system?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Nulla: se la risposta nasce da documenti aziendali è vera per definizione e non serve controllarla",
+      "en": "Nothing: if the answer comes from company documents it is true by definition and needs no checking"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Scrivere le risposte con un tono più formale, così il cliente si fida e non fa altre domande",
+      "en": "Write the answers in a more formal tone, so the customer trusts them and asks no more questions"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Recuperare sempre una sola porzione di documento, così la risposta non può mescolare fonti diverse tra loro",
+      "en": "Always retrieve a single chunk of a document, so the answer cannot mix different sources"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Mostrare le fonti recuperate e far fare un rapido controllo di coerenza a una persona o a un LLM",
+      "en": "Show the retrieved sources and have a person or an LLM do a quick coherence check"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "EMB p.52-53: «return the sources from the retrieval and do a quick coherence check either by a human or an LLM».",
+    "en": "EMB p.52-53: \"return the sources from the retrieval and do a quick coherence check either by a human or an LLM\"."
+   }
+  }
+ },
+ {
+  "id": "DA5.5-1",
+  "origine": "autori",
+  "pillola": "P5.5",
+  "concetti": [
+   "C51"
+  ],
+  "concetto_principale": "C51",
+  "segmento_aiuto": "scaletta-1",
+  "striscia": "definizione",
+  "livello1": {
+   "domanda": {
+    "it": "Che cosa chiede WP3 di fare con i dati personali identificativi (PII) prima di salvare una sessione o un ricordo?",
+    "en": "What does WP3 ask you to do with personally identifiable information (PII) before saving a session or a memory?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Salvarli tutti: più dati personali conserva l'agente, più le email di marketing sono personalizzate",
+      "en": "Save all of it: the more personal data the agent keeps, the more personal the marketing emails are"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Salvarli interi in una cartella separata, e oscurarli solo quando qualcuno chiede la cancellazione",
+      "en": "Save it whole in a separate folder, and redact it only when someone asks for deletion"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Tradurli in inglese, perché le regole sulla privacy valgono solo per i testi scritti in italiano",
+      "en": "Translate it into English, because privacy rules only apply to texts written in Italian"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Oscurarli o toglierli prima di scriverli in archivio, così un'eventuale fuga di dati fa meno danni",
+      "en": "Redact or remove it before writing it to storage, so that any data leak does less harm"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "WP3 p.21: PII oscurate «before the session data is ever written to storage» (citati GDPR e CCPA); p.69: salvare la conoscenza «without creating a liability».",
+    "en": "WP3 p.21: PII redacted \"before the session data is ever written to storage\" (GDPR and CCPA are cited); p.69: save knowledge \"without creating a liability\"."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Un utente dice all'assistente: «Non voglio che ricordiate nulla di me». Che cosa deve essere possibile?",
+    "en": "A user tells the assistant: \"I don't want you to remember anything about me\". What must be possible?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Niente: la memoria è attiva per tutti e non si spegne per un singolo utente",
+      "en": "Nothing: memory is on for everyone and cannot be turned off for one user"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Cancellare la conversazione di oggi, mentre i ricordi già salvati restano attivi",
+      "en": "Delete today's conversation, while the memories already saved stay active"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Rinunciare ai ricordi (opt-out) e far cancellare quelli già salvati",
+      "en": "Opt out of memories and have the ones already saved deleted"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Continuare a salvare i ricordi, ma senza mostrarli all'utente nelle risposte",
+      "en": "Keep saving memories, but without showing them to the user in the answers"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Cambiare nome utente, così i ricordi vecchi non si collegano più a lui",
+      "en": "Change the username, so the old memories are no longer linked to them"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "WP3 p.69: «clear options to opt-out of memory generation or request the deletion of all their files»; SEC p.6-7: trasparenza e controllo sulla memoria.",
+    "en": "WP3 p.69: \"clear options to opt-out of memory generation or request the deletion of all their files\"; SEC p.6-7: transparency and control over memory."
+   }
+  }
+ },
+ {
+  "id": "DA5.5-2",
+  "origine": "autori",
+  "pillola": "P5.5",
+  "concetti": [
+   "C51"
+  ],
+  "concetto_principale": "C51",
+  "segmento_aiuto": "scaletta-5",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Una demo promette: «La memoria del nostro agente ricorda per sempre ogni conversazione con ogni cliente». Perché, per un responsabile CRM, è un campanello d'allarme?",
+    "en": "A demo promises: \"Our agent's memory remembers every conversation with every customer forever\". Why is this a warning sign for a CRM manager?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Perché una buona memoria chiede il contrario: scadenza automatica (TTL), oblio dei ricordi che perdono rilevanza, possibilità di rinuncia e cancellazione su richiesta del cliente",
+      "en": "Because good memory asks for the opposite: automatic expiry (TTL), forgetting memories that lose relevance, and the option to opt out and to delete on the customer's request"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Perché «per sempre» costa troppo in spazio di archiviazione, mentre per la privacy conservare tutte le conversazioni dei clienti non crea in realtà alcun problema",
+      "en": "Because \"forever\" costs too much in storage space, while for privacy keeping all the customers' conversations does not really create any problem"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Non è un campanello d'allarme: più a lungo si conserva tutto, più l'agente diventa preciso, e le regole sui dati personali riguardano le persone, non gli agenti AI",
+      "en": "It is not a warning sign: the longer everything is kept, the more precise the agent becomes, and the rules on personal data apply to people, not to AI agents"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "NB5b presenta la memoria come «Remembers permanently» (frase promozionale); WP3 chiede TTL, «forgetting», opt-out e cancellazione [WP3 p.48, 69].",
+    "en": "NB5b presents memory as \"Remembers permanently\" (a promotional phrase); WP3 asks for TTL, \"forgetting\", opt-out and deletion [WP3 p.48, 69]."
+   }
+  },
+  "livello2": {
+   "tipo": "diagnosi",
+   "domanda": {
+    "it": "Un cliente chiede di cancellare i suoi dati. Che cosa rende possibile una pulizia precisa dei ricordi nati da quei dati?",
+    "en": "A customer asks for their data to be deleted. What makes a precise clean-up of the memories derived from that data possible?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Svuotare la cache del sito",
+      "en": "Clearing the website cache"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Registrare la provenienza",
+      "en": "Recording provenance"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Tenere tutto per sicurezza",
+      "en": "Keeping everything just in case"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Cancellare solo la sessione",
+      "en": "Deleting only the session"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Alzare la temperatura",
+      "en": "Raising the temperature"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "f",
+     "testo": {
+      "it": "Cambiare il modello",
+      "en": "Changing the model"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "g",
+     "testo": {
+      "it": "Cancellare ogni cliente",
+      "en": "Deleting every customer"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Il registro della provenienza (da dove viene ogni ricordo) permette di cancellare o rigenerare con precisione i ricordi derivati [WP3 p.49-51].",
+    "en": "The provenance record (where each memory comes from) makes it possible to delete or regenerate the derived memories precisely [WP3 p.49-51]."
+   }
+  }
+ },
+ {
+  "id": "DA5.5-3",
+  "origine": "autori",
+  "pillola": "P5.5",
+  "concetti": [
+   "C52",
+   "C51"
+  ],
+  "concetto_principale": "C52",
+  "segmento_aiuto": "scaletta-3",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Un agente ha imparato con il cliente Alfa una procedura di trattativa piena di dettagli (prezzi riservati, nomi dei referenti). L'azienda la riusa come esempio per tutti gli altri clienti. Che cosa c'è di sbagliato?",
+    "en": "An agent learned a negotiation procedure with customer Alfa, full of details (confidential prices, names of contacts). The company reuses it as an example for all the other customers. What is wrong?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Niente di grave, purché il cliente Alfa non lo venga a sapere e gli altri clienti non vedano il suo nome",
+      "en": "Nothing serious, as long as customer Alfa never finds out and the other customers do not see its name"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "È come diffondere un memo riservato a tutti: prima va ripulito dai dati sensibili",
+      "en": "It is like sharing a confidential memo with everyone: it must first be cleaned of sensitive data"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Niente: le procedure imparate sono dell'azienda e possono contenere qualsiasi dato di qualsiasi cliente",
+      "en": "Nothing: learned procedures belong to the company and can contain any data of any customer"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Le procedure non si possono mai condividere tra clienti, quindi l'agente si bloccherebbe all'istante",
+      "en": "Procedures can never be shared between customers, so the agent would stop working at once"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "WP3 p.69: riusare un ricordo nato con un cliente è come «sharing a memo company-wide»: serve anonimizzazione rigorosa; i ricordi validi per tutta l'applicazione vanno «sanitized of all sensitive content» [WP3 p.39].",
+    "en": "WP3 p.69: reusing a memory born with one customer is like \"sharing a memo company-wide\": strict anonymization is needed; memories valid for the whole application must be \"sanitized of all sensitive content\" [WP3 p.39]."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Quale regola protegge da questo errore anche nella memoria di tutti i giorni?",
+    "en": "Which rule protects against this mistake in everyday memory too?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Isolare i ricordi per cliente (o tenant)",
+      "en": "Isolate memories per customer (or tenant)"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Isolare solo le sessioni, lasciando la memoria a lungo termine comune a tutti",
+      "en": "Isolate only the sessions, leaving long-term memory shared by everyone"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Usare un modello linguistico diverso per ogni reparto dell'azienda",
+      "en": "Use a different language model for each department of the company"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Salvare i ricordi soltanto durante l'orario d'ufficio",
+      "en": "Save memories only during office hours"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Mettere tutti i ricordi in un archivio comune, così l'agente impara più in fretta",
+      "en": "Put all memories in one shared archive, so the agent learns faster"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "WP3 p.69: «The cardinal rule for this archive is data isolation»: memoria isolata per utente o tenant; «An agent serving one user must never have access to the memories of another».",
+    "en": "WP3 p.69: \"The cardinal rule for this archive is data isolation\": memory isolated per user or tenant; \"An agent serving one user must never have access to the memories of another\"."
+   }
+  }
+ },
+ {
+  "id": "DA6.2-1",
+  "origine": "autori",
+  "pillola": "P6.2",
+  "concetti": [
+   "C55",
+   "C54"
+  ],
+  "concetto_principale": "C55",
+  "segmento_aiuto": "scaletta-4",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Nel customer service un agente di smistamento riceve «Mi aggiornate sui tempi di consegna del nostro ultimo ordine?» e passa la conversazione all'agente Ordini, che da quel momento risponde lui al cliente. Quale variante del coordinatore è?",
+    "en": "In customer service a triage agent receives \"Can you update us on the delivery time of our last order?\" and passes the conversation to the Orders agent, which from then on answers the customer itself. Which variant of the coordinator is this?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Sequenziale: tutti gli specialisti lavorano uno dopo l'altro su ogni richiesta, in un ordine sempre fisso",
+      "en": "Sequential: all the specialists work one after the other on every request, in an always fixed order"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Non è un sistema multi-agente: lo smistamento è soltanto un menu telefonico con i tasti numerati",
+      "en": "It is not a multi-agent system: the triage is just a phone menu with numbered keys"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Decentralizzata: agenti alla pari che si passano il compito, e lo specialista prende in mano la conversazione",
+      "en": "Decentralized: peer agents that hand the task to each other, and the specialist takes over the conversation"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Manager: un agente centrale chiama gli specialisti come strumenti e resta sempre lui a parlare con il cliente",
+      "en": "Manager: a central agent calls the specialists as tools and is always the one talking to the customer"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "OAI p.17-23: nello schema decentralizzato gli agenti operano alla pari, «handing off tasks to one another»; il Triage Agent passa la domanda sulla consegna all'Order Management Agent.",
+    "en": "OAI p.17-23: in the decentralized pattern agents work as peers, \"handing off tasks to one another\"; the Triage Agent passes the delivery question to the Order Management Agent."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Quando conviene invece la variante manager?",
+    "en": "When is the manager variant the better choice instead?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Quando un solo agente deve guidare il flusso e parlare con il cliente",
+      "en": "When a single agent must run the flow and talk to the customer"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Quando ogni specialista deve poter parlare direttamente con il cliente",
+      "en": "When each specialist must be able to talk directly to the customer"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Quando gli specialisti sono scritti in linguaggi di programmazione diversi",
+      "en": "When the specialists are written in different programming languages"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Quando le richieste arrivano tutte uguali, sempre nello stesso ordine",
+      "en": "When requests all arrive the same way, always in the same order"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Quando l'azienda ha meno di dieci clienti attivi nel CRM",
+      "en": "When the company has fewer than ten active customers in the CRM"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "OAI p.18: il manager è adatto quando «you only want one agent to control workflow execution and have access to the user».",
+    "en": "OAI p.18: the manager fits when \"you only want one agent to control workflow execution and have access to the user\"."
+   }
+  }
+ },
+ {
+  "id": "DA6.2-2",
+  "origine": "autori",
+  "pillola": "P6.2",
+  "concetti": [
+   "C55",
+   "C54"
+  ],
+  "concetto_principale": "C55",
+  "segmento_aiuto": "scaletta-4",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "La qualificazione dei lead ha sempre gli stessi passi nello stesso ordine: arricchisci, assegna un punteggio, assegna al venditore. Un team la affida a un coordinatore dinamico che decide da solo chi chiamare. Che cosa rischia?",
+    "en": "Lead qualification always has the same steps in the same order: enrich, score, assign to a sales rep. A team hands it to a dynamic coordinator that decides on its own whom to call. What does it risk?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Che il processo diventi troppo veloce, perché il coordinatore dinamico esegue sempre tutti i passi in parallelo e il CRM non riesce a ricevere in tempo gli aggiornamenti dei lead",
+      "en": "That the process becomes too fast, because the dynamic coordinator always runs all the steps in parallel and the CRM cannot receive the lead updates in time"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Solo un aumento dei costi: il coordinatore dinamico rispetta comunque l'ordine dei passi, ma usa più chiamate al modello di uno schema sequenziale, quindi ogni lead qualificato costa un po' di più",
+      "en": "Only higher costs: the dynamic coordinator still keeps the order of the steps, but uses more calls to the model than a sequential pattern, so each qualified lead costs a bit more"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Che il coordinatore salti un passo, li esegua nell'ordine sbagliato o si blocchi: quando l'ordine è fisso conviene uno schema sequenziale, che esegue i passi sempre nello stesso ordine",
+      "en": "That the coordinator skips a step, runs the steps in the wrong order or gets stuck: when the order is fixed a sequential pattern is better, as it always runs the steps in the same order"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "NB1b cella 22: affidarsi al prompt per imporre l'ordine «can be unreliable»: il modello può «skip a step, run them in the wrong order, or get stuck».",
+    "en": "NB1b cell 22: relying on the prompt to enforce the order \"can be unreliable\": the model may \"skip a step, run them in the wrong order, or get stuck\"."
+   }
+  },
+  "livello2": {
+   "tipo": "contro-esempio",
+   "domanda": {
+    "it": "In quale di questi casi il coordinatore dinamico è invece la scelta adatta?",
+    "en": "In which of these cases is the dynamic coordinator the right choice instead?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Richieste sempre diverse, da smistare a specialisti diversi",
+      "en": "Ever-changing requests, to be routed to different specialists"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Un invio di newsletter sempre uguale, ogni lunedì alle 9 del mattino",
+      "en": "A newsletter send that is always the same, every Monday at 9 am"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "La copia notturna di sicurezza del database clienti",
+      "en": "The nightly backup copy of the customer database"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Il calcolo dell'IVA su ogni fattura emessa nel mese",
+      "en": "Calculating VAT on every invoice issued in the month"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Un processo fisso a tre passi, purché il prompt sia scritto con cura",
+      "en": "A fixed three-step process, as long as the prompt is carefully written"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "WP1 p.25: il Coordinator è «essential» per compiti dinamici o non lineari; per una pipeline fissa (A -> B -> C) l'albero di NB1b indica lo schema sequenziale [NB1b celle 59-60].",
+    "en": "WP1 p.25: the Coordinator is \"essential\" for dynamic or non-linear tasks; for a fixed pipeline (A -> B -> C) the NB1b decision tree points to the sequential pattern [NB1b cells 59-60]."
+   }
+  }
+ },
+ {
+  "id": "DA6.2-3",
+  "origine": "autori",
+  "pillola": "P6.2",
+  "concetti": [
+   "C54"
+  ],
+  "concetto_principale": "C54",
+  "segmento_aiuto": "scaletta-2",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Un team mette in parallelo due agenti: uno calcola il punteggio del lead, l'altro scrive l'email usando quel punteggio. Perché lo schema è sbagliato?",
+    "en": "A team runs two agents in parallel: one calculates the lead score, the other writes the email using that score. Why is the pattern wrong?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Perché manca l'aggregatore finale: aggiungendolo, lo schema funzionerebbe",
+      "en": "Because the final aggregator is missing: adding it would make the pattern work"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Perché l'email dipende dal punteggio, che in parallelo non c'è ancora",
+      "en": "Because the email depends on the score, which in parallel does not exist yet"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Perché il parallelo funziona solo con almeno cinque agenti insieme",
+      "en": "Because parallel only works with at least five agents together"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Non è sbagliato: il parallelo va bene per qualsiasi coppia di agenti",
+      "en": "It is not wrong: parallel works for any pair of agents"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Perché gli agenti in parallelo possono solo leggere dati, non scrivere email",
+      "en": "Because parallel agents can only read data, not write emails"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Il parallelo «assumes no inherent need for shared state or direct information exchange» tra gli agenti [STG p.33]: qui uno ha bisogno del risultato dell'altro.",
+    "en": "Parallel \"assumes no inherent need for shared state or direct information exchange\" between the agents [STG p.33]: here one needs the other's result."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Quale schema serve qui?",
+    "en": "Which pattern is needed here?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Coordinatore dinamico",
+      "en": "Dynamic coordinator"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Un solo prompt lunghissimo",
+      "en": "One very long prompt"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Ciclo generatore-revisore",
+      "en": "Generator-critic loop"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Sequenziale: prima il punteggio",
+      "en": "Sequential: score first"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Due agenti identici",
+      "en": "Two identical agents"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "f",
+     "testo": {
+      "it": "Parallelo con più agenti",
+      "en": "Parallel with more agents"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "g",
+     "testo": {
+      "it": "Agenti in ordine casuale",
+      "en": "Agents in random order"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Sequenziale = catena di montaggio digitale: il risultato di un agente diventa l'ingresso del successivo [WP1 p.25].",
+    "en": "Sequential = a digital assembly line: one agent's output becomes the next agent's input [WP1 p.25]."
+   }
+  }
+ },
+ {
+  "id": "DA6.3-1",
+  "origine": "autori",
+  "pillola": "P6.3",
+  "concetti": [
+   "C56"
+  ],
+  "concetto_principale": "C56",
+  "segmento_aiuto": "scaletta-3",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "L'agente di assistenza chiede all'agente Prezzi lo sconto applicabile a un cliente, riceve la risposta e continua lui la conversazione con il cliente. Come comunicano i due agenti?",
+    "en": "The support agent asks the Pricing agent which discount applies to a customer, gets the answer and carries on the conversation with the customer itself. How do the two agents communicate?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Protocollo A2A obbligatorio, perché due agenti possono parlarsi soltanto tramite uno standard esterno",
+      "en": "Mandatory A2A protocol, because two agents can only talk to each other through an outside standard"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Agente come strumento: l'assistenza chiama l'agente Prezzi, riceve la risposta e resta lei al comando",
+      "en": "Agent as a tool: support calls the Pricing agent, gets the answer and stays in charge"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Passaggio di consegne: l'agente Prezzi prende la conversazione e da quel momento risponde lui al cliente",
+      "en": "Handoff: the Pricing agent takes over the conversation and from then on answers the customer itself"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Non comunicano: l'agente di assistenza conosce già tutti gli sconti grazie al suo addestramento",
+      "en": "They do not communicate: the support agent already knows all the discounts thanks to its training"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "NB2a cella 35: «Agent A calls Agent B as a tool; Agent B's response goes back to Agent A; Agent A stays in control».",
+    "en": "NB2a cell 35: \"Agent A calls Agent B as a tool; Agent B's response goes back to Agent A; Agent A stays in control\"."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché qui conviene la chiamata e non il passaggio di consegne?",
+    "en": "Why is the call better here than a handoff?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché il passaggio di consegne funziona solo tra agenti costruiti da aziende diverse tra loro",
+      "en": "Because a handoff only works between agents built by different companies"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché la chiamata è gratuita, mentre il passaggio di consegne si paga",
+      "en": "Because the call is free, while a handoff has to be paid for"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché con la chiamata il cliente parla con entrambi gli agenti insieme",
+      "en": "Because with the call the customer talks to both agents at once"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Perché gli agenti che calcolano i prezzi non sanno parlare con le persone",
+      "en": "Because agents that calculate prices cannot talk to people"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Perché l'assistenza resta l'unica voce col cliente e le serve solo un dato",
+      "en": "Because support stays the only voice with the customer and only needs one piece of data"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "WP2 p.13: usare un agente come strumento «prevents a full handoff of the user conversation, allowing the primary agent to maintain control over the interaction».",
+    "en": "WP2 p.13: using an agent as a tool \"prevents a full handoff of the user conversation, allowing the primary agent to maintain control over the interaction\"."
+   }
+  }
+ },
+ {
+  "id": "DA6.3-2",
+  "origine": "autori",
+  "pillola": "P6.3",
+  "concetti": [
+   "C56"
+  ],
+  "concetto_principale": "C56",
+  "segmento_aiuto": "scaletta-3",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Il marketing vuole che l'assistente principale resti l'unico a parlare con il cliente, ma il sistema è configurato con un passaggio di consegne verso lo specialista Resi. Dopo il passaggio, chi risponde al cliente?",
+    "en": "Marketing wants the main assistant to remain the only one talking to the customer, but the system is set up with a handoff to the Returns specialist. After the handoff, who answers the customer?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "L'assistente principale",
+      "en": "The main assistant"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Entrambi, a turno",
+      "en": "Both, taking turns"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Un operatore umano",
+      "en": "A human operator"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Il sistema di ticket",
+      "en": "The ticket system"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Nessuno: si blocca",
+      "en": "Nobody: it freezes"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "F",
+     "testo": {
+      "it": "Il database del CRM",
+      "en": "The CRM database"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "G",
+     "testo": {
+      "it": "Lo specialista Resi",
+      "en": "The Returns specialist"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Nel passaggio di consegne A cede del tutto il controllo: B «takes over and handles all future user input» e A esce dal giro [NB2a cella 35; OAI p.21].",
+    "en": "In a handoff A gives up control completely: B \"takes over and handles all future user input\" and A is out of the loop [NB2a cell 35; OAI p.21]."
+   }
+  },
+  "livello2": {
+   "tipo": "contro-esempio",
+   "domanda": {
+    "it": "Quale configurazione avrebbe rispettato la richiesta del marketing?",
+    "en": "Which setup would have met marketing's request?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Chiamare lo specialista Resi come strumento: risponde all'assistente, che parla lui col cliente",
+      "en": "Call the Returns specialist as a tool: it answers the assistant, which does the talking with the customer"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Mettere i due agenti in parallelo, così rispondono al cliente nello stesso momento con due messaggi diversi",
+      "en": "Run the two agents in parallel, so they answer the customer at the same time with two different messages"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Passaggio di consegne con ritorno all'assistente principale solo a fine conversazione, dopo i saluti al cliente",
+      "en": "A handoff with a return to the main assistant only at the end of the conversation, after saying goodbye to the customer"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Togliere lo specialista Resi e lasciare che l'assistente inventi le regole dei resi quando gli servono",
+      "en": "Remove the Returns specialist and let the assistant make up the returns rules whenever it needs them"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Con l'agente come strumento il primo agente mantiene il controllo del dialogo; con il passaggio di consegne lo cede [WP2 p.13; NB2a cella 35].",
+    "en": "With the agent as a tool the first agent keeps control of the dialogue; with a handoff it gives it up [WP2 p.13; NB2a cell 35]."
+   }
+  }
+ },
+ {
+  "id": "DA6.3-3",
+  "origine": "autori",
+  "pillola": "P6.3",
+  "concetti": [
+   "C57",
+   "C56"
+  ],
+  "concetto_principale": "C57",
+  "segmento_aiuto": "scaletta-4",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Il vostro agente di assistenza deve chiedere disponibilità e prezzi all'agente catalogo di un fornitore esterno, costruito da un'altra azienda. Che cosa usare?",
+    "en": "Your support agent must ask an outside vendor's catalogue agent, built by another company, about availability and prices. What should you use?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "MCP, perché il catalogo del fornitore è uno strumento come un database",
+      "en": "MCP, because the vendor's catalogue is a tool just like a database"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Nessun collegamento: l'agente stima da solo prezzi e disponibilità",
+      "en": "No connection: the agent estimates prices and availability on its own"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "A2A: l'agente del fornitore si presenta con una agent card e riceve incarichi",
+      "en": "A2A: the vendor's agent introduces itself with an agent card and receives tasks"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Un'email automatica al fornitore ogni volta che un cliente fa una domanda",
+      "en": "An automatic email to the vendor every time a customer asks a question"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Un sotto-agente locale, copiando dentro la nostra app l'agente del fornitore",
+      "en": "A local sub-agent, copying the vendor's agent into our own app"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "A2A serve per «formal, cross-team integrations» con un contratto di servizio; esempio NB5a: un Customer Support Agent interroga il Product Catalog Agent di un fornitore [WP5 p.30, 33; NB5a cella 2].",
+    "en": "A2A is for \"formal, cross-team integrations\" with a service contract; NB5a example: a Customer Support Agent queries a vendor's Product Catalog Agent [WP5 p.30, 33; NB5a cell 2]."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "E per due agenti interni della stessa applicazione, scritti dal vostro team, che si passano i lead più volte al minuto?",
+    "en": "And for two internal agents in the same application, written by your team, that pass leads to each other several times a minute?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Sotto-agenti locali: stesso team, stesso processo e bassa latenza; A2A conviene per integrazioni formali tra team o aziende diverse, con un contratto di servizio",
+      "en": "Local sub-agents: same team, same process and low latency; A2A pays off for formal integrations between different teams or companies, with a service contract"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Sempre A2A, perché ogni collaborazione tra agenti deve passare da uno standard aperto con agent card, anche quando si trovano nella stessa applicazione e li aggiorna lo stesso team",
+      "en": "Always A2A, because every collaboration between agents must go through an open standard with an agent card, even when they sit in the same application and the same team updates them"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "MCP, perché MCP è il protocollo che fa parlare un agente con altri agenti, mentre A2A serve a collegare un agente ai suoi strumenti e ai database del CRM aziendale",
+      "en": "MCP, because MCP is the protocol that lets an agent talk to other agents, while A2A connects an agent to its tools and to the company's CRM databases"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "WP5 p.33: «For tightly coupled tasks within a single application, lightweight local sub-agents often remain a more efficient choice». MCP collega agente e strumenti, A2A agenti tra loro [WP5 p.27].",
+    "en": "WP5 p.33: \"For tightly coupled tasks within a single application, lightweight local sub-agents often remain a more efficient choice\". MCP links an agent to tools, A2A links agents to each other [WP5 p.27]."
+   }
+  }
+ }
+]

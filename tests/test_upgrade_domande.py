@@ -143,7 +143,8 @@ def test_riferimento_aiuto(catalogo_vero):
     ("fasi", "non ha lezione"),
 ])
 def test_riferimento_aiuto_invalido_ferma_il_caricamento(tmp_path, dati_config, riferimento, messaggio):
-    cfg = copia_dati(tmp_path, dati_config, modifica_corso=lambda c: pillola(c, "P1.1")["domande"][0].update(segmento_aiuto=riferimento))
+    # P8.6 non ha lezione interattiva (copia_dati copia tutte le lezioni vere, quindi P1.1 ora ne ha una)
+    cfg = copia_dati(tmp_path, dati_config, modifica_corso=lambda c: pillola(c, "P8.6")["domande"][0].update(segmento_aiuto=riferimento))
     with pytest.raises(ErroreDati, match=messaggio):
         Catalogo(cfg)
 
@@ -229,7 +230,8 @@ def test_fabbisogno_coerente_con_il_generatore_di_strisce(catalogo_vero):
             assert not set(c["strisce_da_scrivere"]) & set(c["strisce_coperte"])
     assert f["nuove_domande_per_erogare_tutto"] == sum(c["mancano_per_erogare"] for p in f["pillole"] for c in p["concetti"])
     p11 = next(p for p in f["pillole"] if p["pillola"] == "P1.1")
-    assert [(c["concetto"], c["mancano_per_erogare"]) for c in p11["concetti"]] == [("C01", 2), ("C02", 0), ("C03", 1)]
+    # con le domande degli autori (16/11/2026) P1.1 ha almeno 2 domande per ogni concetto
+    assert [(c["concetto"], c["mancano_per_erogare"]) for c in p11["concetti"]] == [("C01", 0), ("C02", 0), ("C03", 0)]
 
 
 def test_fabbisogno_main(tmp_path, monkeypatch, capsys):

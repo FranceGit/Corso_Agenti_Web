@@ -910,7 +910,7 @@
    "peso": 2,
    "nota": {
     "it": "testo vs azione",
-    "en": null
+    "en": "text vs action"
    }
   },
   {
@@ -969,7 +969,7 @@
    "peso": 3,
    "nota": {
     "it": "costo in token",
-    "en": null
+    "en": "cost in tokens"
    }
   },
   {
@@ -993,7 +993,7 @@
    "peso": 3,
    "nota": {
     "it": "coerenza dello scoring",
-    "en": null
+    "en": "scoring consistency"
    }
   },
   {
@@ -1003,7 +1003,7 @@
    "peso": 3,
    "nota": {
     "it": "non determinismo",
-    "en": null
+    "en": "non-determinism"
    }
   },
   {
@@ -1076,7 +1076,7 @@
    "peso": 2,
    "nota": {
     "it": "limiti globali",
-    "en": null
+    "en": "global limits"
    }
   },
   {
@@ -1100,7 +1100,7 @@
    "peso": 3,
    "nota": {
     "it": "validazione nel codice",
-    "en": null
+    "en": "validation in code"
    }
   },
   {
@@ -1152,7 +1152,7 @@
    "peso": 1,
    "nota": {
     "it": "la pipeline è un workflow",
-    "en": null
+    "en": "the pipeline is a workflow"
    }
   },
   {
@@ -1162,7 +1162,7 @@
    "peso": 2,
    "nota": {
     "it": "non moltiplicare agenti senza motivo",
-    "en": null
+    "en": "do not multiply agents without a reason"
    }
   },
   {
@@ -1172,7 +1172,7 @@
    "peso": 3,
    "nota": {
     "it": "più autonomia → più rischio",
-    "en": null
+    "en": "more autonomy → more risk"
    }
   },
   {
@@ -1189,7 +1189,7 @@
    "peso": 3,
    "nota": {
     "it": "ruoli CRM",
-    "en": null
+    "en": "CRM roles"
    }
   },
   {
@@ -1227,7 +1227,7 @@
    "peso": 2,
    "nota": {
     "it": "istruzioni ≠ permessi",
-    "en": null
+    "en": "instructions ≠ permissions"
    }
   },
   {
@@ -1237,7 +1237,7 @@
    "peso": 2,
    "nota": {
     "it": "istruzioni ≠ isolamento",
-    "en": null
+    "en": "instructions ≠ isolation"
    }
   },
   {
@@ -1247,7 +1247,7 @@
    "peso": 3,
    "nota": {
     "it": "versionare i prompt",
-    "en": null
+    "en": "versioning the prompts"
    }
   },
   {
@@ -1278,7 +1278,7 @@
    "peso": 2,
    "nota": {
     "it": "adattività vs controllabilità",
-    "en": null
+    "en": "adaptability vs controllability"
    }
   },
   {
@@ -1288,7 +1288,7 @@
    "peso": 3,
    "nota": {
     "it": "piano approvabile",
-    "en": null
+    "en": "a plan that can be approved"
    }
   },
   {
@@ -1319,7 +1319,7 @@
    "peso": 1,
    "nota": {
     "it": "sequenziale",
-    "en": null
+    "en": "sequential"
    }
   },
   {
@@ -1329,7 +1329,7 @@
    "peso": 3,
    "nota": {
     "it": "validazione ai passaggi",
-    "en": null
+    "en": "validation at hand-offs"
    }
   },
   {
@@ -1339,7 +1339,7 @@
    "peso": 2,
    "nota": {
     "it": "calibrazione con esiti",
-    "en": null
+    "en": "calibration against outcomes"
    }
   },
   {
@@ -1349,7 +1349,7 @@
    "peso": 3,
    "nota": {
     "it": "minimizzazione",
-    "en": null
+    "en": "minimisation"
    }
   },
   {
@@ -1366,7 +1366,7 @@
    "peso": 3,
    "nota": {
     "it": "revisione prima dell'invio",
-    "en": null
+    "en": "review before sending"
    }
   },
   {
@@ -1376,7 +1376,7 @@
    "peso": 1,
    "nota": {
     "it": "separazione degli ambienti",
-    "en": null
+    "en": "separation of environments"
    }
   },
   {
@@ -1393,7 +1393,7 @@
    "peso": 3,
    "nota": {
     "it": "confidenza → rischio",
-    "en": null
+    "en": "confidence → risk"
    }
   },
   {
@@ -1403,7 +1403,7 @@
    "peso": 1,
    "nota": {
     "it": "escalation all'umano",
-    "en": null
+    "en": "escalation to a human"
    }
   },
   {
@@ -1441,7 +1441,7 @@
    "peso": 2,
    "nota": {
     "it": "niente effetti duplicati",
-    "en": null
+    "en": "no duplicate effects"
    }
   },
   {
@@ -1465,7 +1465,7 @@
    "peso": 2,
    "nota": {
     "it": "agente-strumento vs agente-agente",
-    "en": null
+    "en": "agent-to-tool vs agent-to-agent"
    }
   },
   {
@@ -1482,7 +1482,7 @@
    "peso": 2,
    "nota": {
     "it": "standard aperto",
-    "en": null
+    "en": "open standard"
    }
   },
   {
@@ -1513,7 +1513,7 @@
    "peso": 3,
    "nota": {
     "it": "sandbox",
-    "en": null
+    "en": "sandbox"
    }
   },
   {
@@ -1537,7 +1537,7 @@
    "peso": 3,
    "nota": {
     "it": "avvelenamento della memoria",
-    "en": null
+    "en": "memory poisoning"
    }
   },
   {
@@ -1547,7 +1547,7 @@
    "peso": 3,
    "nota": {
     "it": "casi avversari",
-    "en": null
+    "en": "adversarial cases"
    }
   },
   {
@@ -1585,7 +1585,7 @@
    "peso": 2,
    "nota": {
     "it": "riassunto di sessione vs memoria persistente",
-    "en": null
+    "en": "session summary vs persistent memory"
    }
   },
   {
@@ -1602,7 +1602,7 @@
    "peso": 2,
    "nota": {
     "it": "memoria vs RAG",
-    "en": null
+    "en": "memory vs RAG"
    }
   },
   {
@@ -1626,7 +1626,7 @@
    "peso": 2,
    "nota": {
     "it": "grounding",
-    "en": null
+    "en": "grounding"
    }
   },
   {
@@ -1664,7 +1664,7 @@
    "peso": 2,
    "nota": {
     "it": "permessi per ruolo",
-    "en": null
+    "en": "permissions by role"
    }
   },
   {
@@ -1702,7 +1702,7 @@
    "peso": 3,
    "nota": {
     "it": "correlation id",
-    "en": null
+    "en": "correlation id"
    }
   },
   {
@@ -1747,7 +1747,7 @@
    "peso": 2,
    "nota": {
     "it": "redazione",
-    "en": null
+    "en": "redaction"
    }
   },
   {
@@ -1792,7 +1792,7 @@
    "peso": 2,
    "nota": {
     "it": "automatico vs umano",
-    "en": null
+    "en": "automatic vs human"
    }
   },
   {
@@ -1809,7 +1809,7 @@
    "peso": 3,
    "nota": {
     "it": "KPI",
-    "en": null
+    "en": "KPIs"
    }
   },
   {
@@ -1861,7 +1861,7 @@
    "peso": 3,
    "nota": {
     "it": "il blueprint integra",
-    "en": null
+    "en": "the blueprint brings together"
    }
   },
   {
@@ -1871,7 +1871,7 @@
    "peso": 3,
    "nota": {
     "it": "il blueprint integra",
-    "en": null
+    "en": "the blueprint brings together"
    }
   },
   {
@@ -1881,7 +1881,7 @@
    "peso": 3,
    "nota": {
     "it": "il blueprint integra",
-    "en": null
+    "en": "the blueprint brings together"
    }
   },
   {
@@ -1891,7 +1891,7 @@
    "peso": 3,
    "nota": {
     "it": "il blueprint integra",
-    "en": null
+    "en": "the blueprint brings together"
    }
   },
   {
@@ -1901,7 +1901,7 @@
    "peso": 3,
    "nota": {
     "it": "il blueprint integra",
-    "en": null
+    "en": "the blueprint brings together"
    }
   },
   {
@@ -1911,7 +1911,7 @@
    "peso": 3,
    "nota": {
     "it": "il blueprint integra",
-    "en": null
+    "en": "the blueprint brings together"
    }
   },
   {
@@ -1921,7 +1921,7 @@
    "peso": 3,
    "nota": {
     "it": "il blueprint integra",
-    "en": null
+    "en": "the blueprint brings together"
    }
   },
   {
@@ -1931,7 +1931,7 @@
    "peso": 3,
    "nota": {
     "it": "il blueprint integra",
-    "en": null
+    "en": "the blueprint brings together"
    }
   }
  ]

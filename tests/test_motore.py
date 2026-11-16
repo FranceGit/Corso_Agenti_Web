@@ -3,8 +3,11 @@ from __future__ import annotations
 
 import pytest
 
+from corso.catalogo import Catalogo
 from corso.errori import ErroreConfigurazione, ErroreDati, ErroreFlusso
-from tests.conftest import EMAIL, motore_con, posizione, striscia_pulita
+from corso.motore import Motore
+from corso.stato import Archivio
+from tests.conftest import EMAIL, config_con_corso, motore_con, posizione, senza_autori, striscia_pulita
 
 
 def completa_pulito(motore, pid):
@@ -257,7 +260,9 @@ def test_ripasso_sbagliato_riporta_al_primo_gradino_senza_danno(motore, orologio
     assert motore.stato(EMAIL).da_rivedere[0].gradino == 0
 
 
-def test_flussi_fuori_sequenza(motore):
+def test_flussi_fuori_sequenza(dati_config, tmp_path, orologio):
+    # P1.1 senza le domande degli autori torna "in preparazione" (nel corso vero ora tutti gli spicchi sono erogabili)
+    motore = Motore(Catalogo(config_con_corso(dati_config, tmp_path, senza_autori("P1.1"))), Archivio(tmp_path / "st"), orologio)
     with pytest.raises(ErroreFlusso, match="non c'e'"):
         motore.rispondi(EMAIL, 1, "it")
     with pytest.raises(ErroreFlusso, match="va iniziato"):
@@ -271,7 +276,8 @@ def test_flussi_fuori_sequenza(motore):
         motore.rispondi(EMAIL, 99, "it")
 
 
-def test_vista_percorso(motore):
+def test_vista_percorso(dati_config, tmp_path, orologio):
+    motore = Motore(Catalogo(config_con_corso(dati_config, tmp_path, senza_autori("P1.1"))), Archivio(tmp_path / "st"), orologio)
     v = motore.vista_percorso(EMAIL, "en")
     assert v["corso"].startswith("Building AI agents")
     spicchi = {s["pillola"]: s for a in v["anelli"] for s in a["spicchi"]}
@@ -290,7 +296,9 @@ def test_politica_sequenziale(dati_config, tmp_path, orologio):
         m.inizia_spicchio(EMAIL, "P4.1")
     with pytest.raises(ErroreFlusso):
         m.contenuto_pillola(EMAIL, "P4.1", "it")
-    completa_pulito(m, "P1.3")
+    for pid in [s["pillola"] for a in m.vista_percorso(EMAIL, "it")["anelli"] if a["numero"] == 1
+                for s in a["spicchi"] if s["erogabile"]]:
+        completa_pulito(m, pid)  # tutti gli spicchi erogabili dell'anello 1 (dal 16/11/2026 lo sono tutti)
     sblocco = {a["numero"]: a["sbloccato"] for a in m.vista_percorso(EMAIL, "it")["anelli"]}
     # l'anello 2 ha spicchi erogabili (es. P2.2) ancora da superare: si apre il 2, non il 3 che contiene P4.1
     assert sblocco[2] and not sblocco[3]

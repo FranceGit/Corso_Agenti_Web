@@ -7,124 +7,138 @@
   "contro_esempio",
   "diagnosi"
  ],
- "pillole_erogabili": 9,
+ "pillole_erogabili": 40,
  "pillole_totali": 40,
- "nuove_domande_per_erogare_tutto": 45,
- "nuove_domande_per_obiettivo": 114,
+ "nuove_domande_per_erogare_tutto": 0,
+ "nuove_domande_per_obiettivo": 0,
  "pillole": [
   {
    "pillola": "P1.1",
-   "erogabile": false,
+   "erogabile": true,
    "concetti": [
     {
      "concetto": "C01",
      "nome": "Assistente LLM (generazione di testo)",
-     "domande": [],
-     "strisce_coperte": [],
-     "mancano_per_erogare": 2,
-     "mancano_per_obiettivo": 3,
-     "strisce_da_scrivere": [
+     "domande": [
+      "DA1.1-1",
+      "DA1.1-2",
+      "DA1.1-3"
+     ],
+     "strisce_coperte": [
       "definizione",
       "esempio_pratico",
       "contro_esempio"
-     ]
+     ],
+     "mancano_per_erogare": 0,
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     },
     {
      "concetto": "C02",
      "nome": "Agente AI (obiettivo + azione + osservazione)",
      "domande": [
       "D1.1-a",
-      "D1.1-b"
+      "D1.1-b",
+      "DA1.1-4"
      ],
      "strisce_coperte": [
       "definizione",
-      "esempio_pratico"
+      "esempio_pratico",
+      "contro_esempio"
      ],
      "mancano_per_erogare": 0,
-     "mancano_per_obiettivo": 1,
-     "strisce_da_scrivere": [
-      "contro_esempio"
-     ]
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     },
     {
      "concetto": "C03",
      "nome": "Agente come sistema (non solo prompt)",
      "domande": [
-      "D1.1-c"
+      "D1.1-c",
+      "DA1.1-5",
+      "DA1.1-6"
      ],
      "strisce_coperte": [
-      "definizione"
-     ],
-     "mancano_per_erogare": 1,
-     "mancano_per_obiettivo": 2,
-     "strisce_da_scrivere": [
+      "definizione",
       "esempio_pratico",
       "contro_esempio"
-     ]
+     ],
+     "mancano_per_erogare": 0,
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     }
    ]
   },
   {
    "pillola": "P1.2",
-   "erogabile": false,
+   "erogabile": true,
    "concetti": [
     {
      "concetto": "C04",
      "nome": "Token",
-     "domande": [],
-     "strisce_coperte": [],
-     "mancano_per_erogare": 2,
-     "mancano_per_obiettivo": 3,
-     "strisce_da_scrivere": [
+     "domande": [
+      "DA1.2-1",
+      "DA1.2-2",
+      "DA1.2-3"
+     ],
+     "strisce_coperte": [
       "definizione",
       "esempio_pratico",
       "contro_esempio"
-     ]
+     ],
+     "mancano_per_erogare": 0,
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     },
     {
      "concetto": "C05",
      "nome": "Previsione probabilistica / temperatura",
      "domande": [
       "D1.2-a",
-      "D1.2-c"
+      "D1.2-c",
+      "DA1.2-4"
      ],
      "strisce_coperte": [
-      "definizione"
+      "definizione",
+      "esempio_pratico"
      ],
      "mancano_per_erogare": 0,
-     "mancano_per_obiettivo": 1,
-     "strisce_da_scrivere": [
-      "esempio_pratico"
-     ]
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     },
     {
      "concetto": "C06",
      "nome": "Finestra di contesto",
      "domande": [
-      "D1.2-b"
+      "D1.2-b",
+      "DA1.2-5",
+      "DA1.2-6"
      ],
      "strisce_coperte": [
-      "definizione"
-     ],
-     "mancano_per_erogare": 1,
-     "mancano_per_obiettivo": 2,
-     "strisce_da_scrivere": [
+      "definizione",
       "esempio_pratico",
       "contro_esempio"
-     ]
+     ],
+     "mancano_per_erogare": 0,
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     },
     {
      "concetto": "C07",
      "nome": "Allucinazione",
-     "domande": [],
-     "strisce_coperte": [],
-     "mancano_per_erogare": 2,
-     "mancano_per_obiettivo": 3,
-     "strisce_da_scrivere": [
+     "domande": [
+      "DA1.2-7",
+      "DA1.2-8",
+      "DA1.2-9"
+     ],
+     "strisce_coperte": [
       "definizione",
       "esempio_pratico",
       "contro_esempio"
-     ]
+     ],
+     "mancano_per_erogare": 0,
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     }
    ]
   },
@@ -172,196 +186,210 @@
   },
   {
    "pillola": "P1.4",
-   "erogabile": false,
+   "erogabile": true,
    "concetti": [
     {
      "concetto": "C10",
      "nome": "Modello (componente)",
-     "domande": [],
-     "strisce_coperte": [],
-     "mancano_per_erogare": 2,
-     "mancano_per_obiettivo": 3,
-     "strisce_da_scrivere": [
+     "domande": [
+      "DA1.4-1",
+      "DA1.4-2",
+      "DA1.4-3"
+     ],
+     "strisce_coperte": [
       "definizione",
       "esempio_pratico",
       "contro_esempio"
-     ]
+     ],
+     "mancano_per_erogare": 0,
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     },
     {
      "concetto": "C11",
      "nome": "Strumenti (componente)",
      "domande": [
-      "D1.4-b"
+      "D1.4-b",
+      "DA1.4-4",
+      "DA1.4-5"
      ],
      "strisce_coperte": [
+      "definizione",
+      "esempio_pratico",
       "contro_esempio"
      ],
-     "mancano_per_erogare": 1,
-     "mancano_per_obiettivo": 2,
-     "strisce_da_scrivere": [
-      "definizione",
-      "esempio_pratico"
-     ]
+     "mancano_per_erogare": 0,
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     },
     {
      "concetto": "C12",
      "nome": "Orchestrazione (componente)",
      "domande": [
-      "D1.4-a"
+      "D1.4-a",
+      "DA1.4-6",
+      "DA1.4-7"
      ],
      "strisce_coperte": [
-      "definizione"
-     ],
-     "mancano_per_erogare": 1,
-     "mancano_per_obiettivo": 2,
-     "strisce_da_scrivere": [
+      "definizione",
       "esempio_pratico",
       "contro_esempio"
-     ]
+     ],
+     "mancano_per_erogare": 0,
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     },
     {
      "concetto": "C13",
      "nome": "Memoria/contesto (componente)",
      "domande": [
-      "D1.4-c"
+      "D1.4-c",
+      "DA1.4-8",
+      "DA1.4-9"
      ],
      "strisce_coperte": [
+      "definizione",
+      "esempio_pratico",
       "diagnosi"
      ],
-     "mancano_per_erogare": 1,
-     "mancano_per_obiettivo": 2,
-     "strisce_da_scrivere": [
-      "definizione",
-      "esempio_pratico"
-     ]
+     "mancano_per_erogare": 0,
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     }
    ]
   },
   {
    "pillola": "P1.5",
-   "erogabile": false,
+   "erogabile": true,
    "concetti": [
     {
      "concetto": "C14",
      "nome": "Spettro dell'autonomia",
      "domande": [
       "D1.5-b",
-      "D1.5-c"
+      "D1.5-c",
+      "DA1.5-1"
      ],
      "strisce_coperte": [
       "definizione",
-      "esempio_pratico"
+      "esempio_pratico",
+      "contro_esempio"
      ],
      "mancano_per_erogare": 0,
-     "mancano_per_obiettivo": 1,
-     "strisce_da_scrivere": [
-      "contro_esempio"
-     ]
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     },
     {
      "concetto": "C15",
      "nome": "Workflow con LLM vs agente",
-     "domande": [],
-     "strisce_coperte": [],
-     "mancano_per_erogare": 2,
-     "mancano_per_obiettivo": 3,
-     "strisce_da_scrivere": [
+     "domande": [
+      "DA1.5-2",
+      "DA1.5-3",
+      "DA1.5-4"
+     ],
+     "strisce_coperte": [
       "definizione",
       "esempio_pratico",
       "contro_esempio"
-     ]
+     ],
+     "mancano_per_erogare": 0,
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     },
     {
      "concetto": "C16",
      "nome": "Principio del livello minimo sufficiente",
      "domande": [
-      "D1.5-a"
+      "D1.5-a",
+      "DA1.5-5",
+      "DA1.5-6"
      ],
      "strisce_coperte": [
-      "esempio_pratico"
-     ],
-     "mancano_per_erogare": 1,
-     "mancano_per_obiettivo": 2,
-     "strisce_da_scrivere": [
       "definizione",
+      "esempio_pratico",
       "contro_esempio"
-     ]
+     ],
+     "mancano_per_erogare": 0,
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     }
    ]
   },
   {
    "pillola": "P1.6",
-   "erogabile": false,
+   "erogabile": true,
    "concetti": [
     {
      "concetto": "C17",
      "nome": "Casi d'uso CRM lungo il funnel",
      "domande": [
       "D1.6-a",
-      "D1.6-b"
+      "D1.6-b",
+      "DA1.6-1"
      ],
      "strisce_coperte": [
+      "definizione",
       "esempio_pratico"
      ],
      "mancano_per_erogare": 0,
-     "mancano_per_obiettivo": 1,
-     "strisce_da_scrivere": [
-      "definizione"
-     ]
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     },
     {
      "concetto": "C18",
      "nome": "Qualità dei dati CRM",
      "domande": [
-      "D1.6-c"
+      "D1.6-c",
+      "DA1.6-2",
+      "DA1.6-3"
      ],
      "strisce_coperte": [
+      "definizione",
+      "esempio_pratico",
       "diagnosi"
      ],
-     "mancano_per_erogare": 1,
-     "mancano_per_obiettivo": 2,
-     "strisce_da_scrivere": [
-      "definizione",
-      "esempio_pratico"
-     ]
+     "mancano_per_erogare": 0,
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     }
    ]
   },
   {
    "pillola": "P2.1",
-   "erogabile": false,
+   "erogabile": true,
    "concetti": [
     {
      "concetto": "C19",
      "nome": "Istruzioni di sistema",
      "domande": [
       "D2.1-a",
-      "D2.1-c"
+      "D2.1-c",
+      "DA2.1-3"
      ],
      "strisce_coperte": [
-      "definizione"
+      "definizione",
+      "esempio_pratico"
      ],
      "mancano_per_erogare": 0,
-     "mancano_per_obiettivo": 1,
-     "strisce_da_scrivere": [
-      "esempio_pratico"
-     ]
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     },
     {
      "concetto": "C20",
      "nome": "Esempi (few-shot)",
      "domande": [
-      "D2.1-b"
+      "D2.1-b",
+      "DA2.1-1",
+      "DA2.1-2"
      ],
      "strisce_coperte": [
-      "definizione"
-     ],
-     "mancano_per_erogare": 1,
-     "mancano_per_obiettivo": 2,
-     "strisce_da_scrivere": [
+      "definizione",
       "esempio_pratico",
       "contro_esempio"
-     ]
+     ],
+     "mancano_per_erogare": 0,
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     }
    ]
   },
@@ -388,133 +416,138 @@
   },
   {
    "pillola": "P2.3",
-   "erogabile": false,
+   "erogabile": true,
    "concetti": [
     {
      "concetto": "C22",
      "nome": "ReAct",
      "domande": [
       "D2.3-a",
-      "D2.3-c"
+      "D2.3-c",
+      "DA2.3-3"
      ],
      "strisce_coperte": [
       "definizione",
+      "esempio_pratico",
       "diagnosi"
      ],
      "mancano_per_erogare": 0,
-     "mancano_per_obiettivo": 1,
-     "strisce_da_scrivere": [
-      "esempio_pratico"
-     ]
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     },
     {
      "concetto": "C23",
      "nome": "Pianifica-poi-esegui / decomposizione",
      "domande": [
-      "D2.3-b"
+      "D2.3-b",
+      "DA2.3-1",
+      "DA2.3-2"
      ],
      "strisce_coperte": [
-      "definizione"
-     ],
-     "mancano_per_erogare": 1,
-     "mancano_per_obiettivo": 2,
-     "strisce_da_scrivere": [
+      "definizione",
       "esempio_pratico",
       "contro_esempio"
-     ]
+     ],
+     "mancano_per_erogare": 0,
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     }
    ]
   },
   {
    "pillola": "P2.4",
-   "erogabile": false,
+   "erogabile": true,
    "concetti": [
     {
      "concetto": "C07",
      "nome": "Allucinazione",
      "domande": [
-      "D2.4-a"
+      "D2.4-a",
+      "DA2.4-1",
+      "DA2.4-2"
      ],
      "strisce_coperte": [
-      "definizione"
-     ],
-     "mancano_per_erogare": 1,
-     "mancano_per_obiettivo": 2,
-     "strisce_da_scrivere": [
+      "definizione",
       "esempio_pratico",
       "contro_esempio"
-     ]
+     ],
+     "mancano_per_erogare": 0,
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     },
     {
      "concetto": "C24",
      "nome": "Grounding e citazione delle fonti",
      "domande": [
-      "D2.4-b"
+      "D2.4-b",
+      "DA2.4-3",
+      "DA2.4-4"
      ],
      "strisce_coperte": [
-      "definizione"
-     ],
-     "mancano_per_erogare": 1,
-     "mancano_per_obiettivo": 2,
-     "strisce_da_scrivere": [
+      "definizione",
       "esempio_pratico",
       "contro_esempio"
-     ]
+     ],
+     "mancano_per_erogare": 0,
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     },
     {
      "concetto": "C25",
      "nome": "Fatto vs inferenza vs invenzione",
      "domande": [
-      "D2.4-c"
+      "D2.4-c",
+      "DA2.4-5",
+      "DA2.4-6"
      ],
      "strisce_coperte": [
-      "esempio_pratico"
-     ],
-     "mancano_per_erogare": 1,
-     "mancano_per_obiettivo": 2,
-     "strisce_da_scrivere": [
       "definizione",
+      "esempio_pratico",
       "contro_esempio"
-     ]
+     ],
+     "mancano_per_erogare": 0,
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     }
    ]
   },
   {
    "pillola": "P3.1",
-   "erogabile": false,
+   "erogabile": true,
    "concetti": [
     {
      "concetto": "C26",
      "nome": "Pipeline di lead generation",
      "domande": [
-      "D3.1-b"
+      "D3.1-b",
+      "DA3.1-1",
+      "DA3.1-2"
      ],
      "strisce_coperte": [
-      "definizione"
-     ],
-     "mancano_per_erogare": 1,
-     "mancano_per_obiettivo": 2,
-     "strisce_da_scrivere": [
+      "definizione",
       "esempio_pratico",
       "contro_esempio"
-     ]
+     ],
+     "mancano_per_erogare": 0,
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     },
     {
      "concetto": "C27",
      "nome": "Contratto dati tra passi",
      "domande": [
       "D3.1-a",
-      "D3.1-c"
+      "D3.1-c",
+      "DA3.1-3"
      ],
      "strisce_coperte": [
       "definizione",
+      "esempio_pratico",
       "diagnosi"
      ],
      "mancano_per_erogare": 0,
-     "mancano_per_obiettivo": 1,
-     "strisce_da_scrivere": [
-      "esempio_pratico"
-     ]
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     }
    ]
   },
@@ -528,12 +561,15 @@
      "domande": [
       "D3.2-a",
       "D3.2-b",
-      "D3.2-c"
+      "D3.2-c",
+      "DA3.2-1",
+      "DA3.2-2"
      ],
      "strisce_coperte": [
       "definizione",
       "esempio_pratico",
-      "contro_esempio"
+      "contro_esempio",
+      "diagnosi"
      ],
      "mancano_per_erogare": 0,
      "mancano_per_obiettivo": 0,
@@ -551,11 +587,15 @@
      "domande": [
       "D3.3-a",
       "D3.3-b",
-      "D3.3-c"
+      "D3.3-c",
+      "DA3.3-1",
+      "DA3.3-2"
      ],
      "strisce_coperte": [
       "definizione",
-      "esempio_pratico"
+      "esempio_pratico",
+      "contro_esempio",
+      "diagnosi"
      ],
      "mancano_per_erogare": 0,
      "mancano_per_obiettivo": 0,
@@ -565,79 +605,83 @@
   },
   {
    "pillola": "P3.4",
-   "erogabile": false,
+   "erogabile": true,
    "concetti": [
     {
      "concetto": "C30",
      "nome": "Outreach personalizzato tracciabile",
      "domande": [
       "D3.4-b",
-      "D3.4-c"
+      "D3.4-c",
+      "DA3.4-3"
      ],
      "strisce_coperte": [
+      "definizione",
       "esempio_pratico",
       "diagnosi"
      ],
      "mancano_per_erogare": 0,
-     "mancano_per_obiettivo": 1,
-     "strisce_da_scrivere": [
-      "definizione"
-     ]
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     },
     {
      "concetto": "C31",
      "nome": "Ambiente di test (sandbox email)",
      "domande": [
-      "D3.4-a"
+      "D3.4-a",
+      "DA3.4-1",
+      "DA3.4-2"
      ],
      "strisce_coperte": [
-      "definizione"
-     ],
-     "mancano_per_erogare": 1,
-     "mancano_per_obiettivo": 2,
-     "strisce_da_scrivere": [
+      "definizione",
       "esempio_pratico",
       "contro_esempio"
-     ]
+     ],
+     "mancano_per_erogare": 0,
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     }
    ]
   },
   {
    "pillola": "P3.5",
-   "erogabile": false,
+   "erogabile": true,
    "concetti": [
     {
      "concetto": "C32",
      "nome": "Classificazione delle risposte",
      "domande": [
       "D3.5-b",
-      "D3.5-c"
+      "D3.5-c",
+      "DA3.5-5",
+      "DA3.5-3",
+      "DA3.5-4"
      ],
      "strisce_coperte": [
+      "definizione",
       "esempio_pratico",
       "diagnosi"
      ],
      "mancano_per_erogare": 0,
-     "mancano_per_obiettivo": 1,
-     "strisce_da_scrivere": [
-      "definizione"
-     ]
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     },
     {
      "concetto": "C33",
      "nome": "Soglia di confidenza ed escalation",
      "domande": [
-      "D3.5-a"
+      "D3.5-a",
+      "DA3.5-1",
+      "DA3.5-2"
      ],
      "strisce_coperte": [
-      "definizione"
-     ],
-     "mancano_per_erogare": 1,
-     "mancano_per_obiettivo": 2,
-     "strisce_da_scrivere": [
+      "definizione",
       "esempio_pratico",
       "contro_esempio"
-     ]
+     ],
+     "mancano_per_erogare": 0,
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     }
    ]
   },
@@ -684,155 +728,159 @@
   },
   {
    "pillola": "P4.2",
-   "erogabile": false,
+   "erogabile": true,
    "concetti": [
     {
      "concetto": "C36",
      "nome": "Progettazione degli strumenti (descrizioni, errori)",
      "domande": [
       "D4.2-a",
-      "D4.2-c"
+      "D4.2-c",
+      "DA4.2-3"
      ],
      "strisce_coperte": [
+      "definizione",
       "esempio_pratico"
      ],
      "mancano_per_erogare": 0,
-     "mancano_per_obiettivo": 1,
-     "strisce_da_scrivere": [
-      "definizione"
-     ]
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     },
     {
      "concetto": "C37",
      "nome": "Idempotenza e lettura/scrittura",
      "domande": [
-      "D4.2-b"
+      "D4.2-b",
+      "DA4.2-1",
+      "DA4.2-2"
      ],
      "strisce_coperte": [
-      "definizione"
-     ],
-     "mancano_per_erogare": 1,
-     "mancano_per_obiettivo": 2,
-     "strisce_da_scrivere": [
+      "definizione",
       "esempio_pratico",
       "contro_esempio"
-     ]
+     ],
+     "mancano_per_erogare": 0,
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     }
    ]
   },
   {
    "pillola": "P4.3",
-   "erogabile": false,
+   "erogabile": true,
    "concetti": [
     {
      "concetto": "C38",
      "nome": "MCP (host, client, server)",
      "domande": [
       "D4.3-a",
-      "D4.3-b"
+      "D4.3-b",
+      "DA4.3-1"
      ],
      "strisce_coperte": [
-      "definizione"
+      "definizione",
+      "esempio_pratico"
      ],
      "mancano_per_erogare": 0,
-     "mancano_per_obiettivo": 1,
-     "strisce_da_scrivere": [
-      "esempio_pratico"
-     ]
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     },
     {
      "concetto": "C39",
      "nome": "Strumenti, risorse, prompt MCP",
      "domande": [
-      "D4.3-c"
+      "D4.3-c",
+      "DA4.3-2",
+      "DA4.3-3"
      ],
      "strisce_coperte": [
-      "definizione"
-     ],
-     "mancano_per_erogare": 1,
-     "mancano_per_obiettivo": 2,
-     "strisce_da_scrivere": [
+      "definizione",
       "esempio_pratico",
       "contro_esempio"
-     ]
+     ],
+     "mancano_per_erogare": 0,
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     }
    ]
   },
   {
    "pillola": "P4.4",
-   "erogabile": false,
+   "erogabile": true,
    "concetti": [
     {
      "concetto": "C40",
      "nome": "Costo di contesto degli strumenti",
      "domande": [
-      "D4.4-a"
+      "D4.4-a",
+      "DA4.4-1",
+      "DA4.4-2"
      ],
      "strisce_coperte": [
-      "definizione"
-     ],
-     "mancano_per_erogare": 1,
-     "mancano_per_obiettivo": 2,
-     "strisce_da_scrivere": [
+      "definizione",
       "esempio_pratico",
       "contro_esempio"
-     ]
+     ],
+     "mancano_per_erogare": 0,
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     },
     {
      "concetto": "C41",
      "nome": "Scoperta progressiva / esecuzione di codice",
      "domande": [
       "D4.4-b",
-      "D4.4-c"
+      "D4.4-c",
+      "DA4.4-3"
      ],
      "strisce_coperte": [
       "definizione",
+      "esempio_pratico",
       "contro_esempio"
      ],
      "mancano_per_erogare": 0,
-     "mancano_per_obiettivo": 1,
-     "strisce_da_scrivere": [
-      "esempio_pratico"
-     ]
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     }
    ]
   },
   {
    "pillola": "P4.5",
-   "erogabile": false,
+   "erogabile": true,
    "concetti": [
     {
      "concetto": "C42",
      "nome": "Prompt injection indiretta",
      "domande": [
-      "D4.5-a"
+      "D4.5-a",
+      "DA4.5-1",
+      "DA4.5-2"
      ],
      "strisce_coperte": [
-      "definizione"
-     ],
-     "mancano_per_erogare": 1,
-     "mancano_per_obiettivo": 2,
-     "strisce_da_scrivere": [
+      "definizione",
       "esempio_pratico",
       "contro_esempio"
-     ]
+     ],
+     "mancano_per_erogare": 0,
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     },
     {
      "concetto": "C43",
      "nome": "Minimo privilegio e segreti",
      "domande": [
       "D4.5-b",
-      "D4.5-c"
+      "D4.5-c",
+      "DA4.5-3"
      ],
      "strisce_coperte": [
       "definizione",
-      "esempio_pratico"
+      "esempio_pratico",
+      "contro_esempio"
      ],
      "mancano_per_erogare": 0,
-     "mancano_per_obiettivo": 1,
-     "strisce_da_scrivere": [
-      "contro_esempio"
-     ]
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     }
    ]
   },
@@ -861,156 +909,160 @@
   },
   {
    "pillola": "P5.2",
-   "erogabile": false,
+   "erogabile": true,
    "concetti": [
     {
      "concetto": "C45",
      "nome": "Sessione: storia e stato",
      "domande": [
       "D5.2-a",
-      "D5.2-b"
+      "D5.2-b",
+      "DA5.2-3"
      ],
      "strisce_coperte": [
-      "definizione"
+      "definizione",
+      "esempio_pratico"
      ],
      "mancano_per_erogare": 0,
-     "mancano_per_obiettivo": 1,
-     "strisce_da_scrivere": [
-      "esempio_pratico"
-     ]
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     },
     {
      "concetto": "C46",
      "nome": "Compattazione",
      "domande": [
-      "D5.2-c"
+      "D5.2-c",
+      "DA5.2-1",
+      "DA5.2-2"
      ],
      "strisce_coperte": [
+      "definizione",
+      "esempio_pratico",
       "diagnosi"
      ],
-     "mancano_per_erogare": 1,
-     "mancano_per_obiettivo": 2,
-     "strisce_da_scrivere": [
-      "definizione",
-      "esempio_pratico"
-     ]
+     "mancano_per_erogare": 0,
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     }
    ]
   },
   {
    "pillola": "P5.3",
-   "erogabile": false,
+   "erogabile": true,
    "concetti": [
     {
      "concetto": "C47",
      "nome": "Memoria a lungo termine (estrai-consolida-recupera)",
      "domande": [
       "D5.3-a",
-      "D5.3-c"
+      "D5.3-c",
+      "DA5.3-3"
      ],
      "strisce_coperte": [
       "definizione",
+      "esempio_pratico",
       "contro_esempio"
      ],
      "mancano_per_erogare": 0,
-     "mancano_per_obiettivo": 1,
-     "strisce_da_scrivere": [
-      "esempio_pratico"
-     ]
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     },
     {
      "concetto": "C48",
      "nome": "Memoria dichiarativa vs procedurale",
      "domande": [
-      "D5.3-b"
+      "D5.3-b",
+      "DA5.3-1",
+      "DA5.3-2"
      ],
      "strisce_coperte": [
-      "definizione"
-     ],
-     "mancano_per_erogare": 1,
-     "mancano_per_obiettivo": 2,
-     "strisce_da_scrivere": [
+      "definizione",
       "esempio_pratico",
       "contro_esempio"
-     ]
+     ],
+     "mancano_per_erogare": 0,
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     }
    ]
   },
   {
    "pillola": "P5.4",
-   "erogabile": false,
+   "erogabile": true,
    "concetti": [
     {
      "concetto": "C49",
      "nome": "Embedding e ricerca semantica",
      "domande": [
-      "D5.4-a"
+      "D5.4-a",
+      "DA5.4-1",
+      "DA5.4-2"
      ],
      "strisce_coperte": [
-      "definizione"
-     ],
-     "mancano_per_erogare": 1,
-     "mancano_per_obiettivo": 2,
-     "strisce_da_scrivere": [
+      "definizione",
       "esempio_pratico",
       "contro_esempio"
-     ]
+     ],
+     "mancano_per_erogare": 0,
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     },
     {
      "concetto": "C50",
      "nome": "RAG",
      "domande": [
       "D5.4-b",
-      "D5.4-c"
+      "D5.4-c",
+      "DA5.4-3"
      ],
      "strisce_coperte": [
       "definizione",
+      "esempio_pratico",
       "diagnosi"
      ],
      "mancano_per_erogare": 0,
-     "mancano_per_obiettivo": 1,
-     "strisce_da_scrivere": [
-      "esempio_pratico"
-     ]
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     }
    ]
   },
   {
    "pillola": "P5.5",
-   "erogabile": false,
+   "erogabile": true,
    "concetti": [
     {
      "concetto": "C51",
      "nome": "Privacy della memoria / cancellazione",
      "domande": [
-      "D5.5-a"
+      "D5.5-a",
+      "DA5.5-1",
+      "DA5.5-2"
      ],
      "strisce_coperte": [
-      "esempio_pratico"
-     ],
-     "mancano_per_erogare": 1,
-     "mancano_per_obiettivo": 2,
-     "strisce_da_scrivere": [
       "definizione",
+      "esempio_pratico",
       "contro_esempio"
-     ]
+     ],
+     "mancano_per_erogare": 0,
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     },
     {
      "concetto": "C52",
      "nome": "Isolamento e avvelenamento della memoria",
      "domande": [
       "D5.5-b",
-      "D5.5-c"
+      "D5.5-c",
+      "DA5.5-3"
      ],
      "strisce_coperte": [
       "definizione",
-      "esempio_pratico"
+      "esempio_pratico",
+      "contro_esempio"
      ],
      "mancano_per_erogare": 0,
-     "mancano_per_obiettivo": 1,
-     "strisce_da_scrivere": [
-      "contro_esempio"
-     ]
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     }
    ]
   },
@@ -1039,78 +1091,80 @@
   },
   {
    "pillola": "P6.2",
-   "erogabile": false,
+   "erogabile": true,
    "concetti": [
     {
      "concetto": "C54",
      "nome": "Schemi: sequenziale, parallelo, ciclo",
      "domande": [
       "D6.2-a",
-      "D6.2-b"
+      "D6.2-b",
+      "DA6.2-3"
      ],
      "strisce_coperte": [
       "definizione",
-      "esempio_pratico"
+      "esempio_pratico",
+      "contro_esempio"
      ],
      "mancano_per_erogare": 0,
-     "mancano_per_obiettivo": 1,
-     "strisce_da_scrivere": [
-      "contro_esempio"
-     ]
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     },
     {
      "concetto": "C55",
      "nome": "Schema supervisore/router",
      "domande": [
-      "D6.2-c"
+      "D6.2-c",
+      "DA6.2-1",
+      "DA6.2-2"
      ],
      "strisce_coperte": [
-      "definizione"
-     ],
-     "mancano_per_erogare": 1,
-     "mancano_per_obiettivo": 2,
-     "strisce_da_scrivere": [
+      "definizione",
       "esempio_pratico",
       "contro_esempio"
-     ]
+     ],
+     "mancano_per_erogare": 0,
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     }
    ]
   },
   {
    "pillola": "P6.3",
-   "erogabile": false,
+   "erogabile": true,
    "concetti": [
     {
      "concetto": "C56",
      "nome": "Comunicazione: stato condiviso / eventi",
      "domande": [
-      "D6.3-b"
+      "D6.3-b",
+      "DA6.3-1",
+      "DA6.3-2"
      ],
      "strisce_coperte": [
-      "definizione"
-     ],
-     "mancano_per_erogare": 1,
-     "mancano_per_obiettivo": 2,
-     "strisce_da_scrivere": [
+      "definizione",
       "esempio_pratico",
       "contro_esempio"
-     ]
+     ],
+     "mancano_per_erogare": 0,
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     },
     {
      "concetto": "C57",
      "nome": "A2A e agent card",
      "domande": [
       "D6.3-a",
-      "D6.3-c"
+      "D6.3-c",
+      "DA6.3-3"
      ],
      "strisce_coperte": [
-      "definizione"
+      "definizione",
+      "esempio_pratico"
      ],
      "mancano_per_erogare": 0,
-     "mancano_per_obiettivo": 1,
-     "strisce_da_scrivere": [
-      "esempio_pratico"
-     ]
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     }
    ]
   },
@@ -1138,388 +1192,398 @@
   },
   {
    "pillola": "P7.1",
-   "erogabile": false,
+   "erogabile": true,
    "concetti": [
     {
      "concetto": "C59",
      "nome": "Non determinismo nella valutazione",
      "domande": [
-      "D7.1-a"
+      "D7.1-a",
+      "DA7.1-1",
+      "DA7.1-2"
      ],
      "strisce_coperte": [
-      "definizione"
-     ],
-     "mancano_per_erogare": 1,
-     "mancano_per_obiettivo": 2,
-     "strisce_da_scrivere": [
+      "definizione",
       "esempio_pratico",
       "contro_esempio"
-     ]
+     ],
+     "mancano_per_erogare": 0,
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     },
     {
      "concetto": "C60",
      "nome": "Valutazione di risultato e traiettoria",
      "domande": [
       "D7.1-b",
-      "D7.1-c"
+      "D7.1-c",
+      "DA7.1-3"
      ],
      "strisce_coperte": [
-      "definizione"
+      "definizione",
+      "esempio_pratico"
      ],
      "mancano_per_erogare": 0,
-     "mancano_per_obiettivo": 1,
-     "strisce_da_scrivere": [
-      "esempio_pratico"
-     ]
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     }
    ]
   },
   {
    "pillola": "P7.2",
-   "erogabile": false,
+   "erogabile": true,
    "concetti": [
     {
      "concetto": "C61",
      "nome": "Log, tracce, metriche",
      "domande": [
       "D7.2-a",
-      "D7.2-b"
+      "D7.2-b",
+      "DA7.2-1"
      ],
      "strisce_coperte": [
       "definizione",
+      "esempio_pratico",
       "diagnosi"
      ],
      "mancano_per_erogare": 0,
-     "mancano_per_obiettivo": 1,
-     "strisce_da_scrivere": [
-      "esempio_pratico"
-     ]
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     },
     {
      "concetto": "C62",
      "nome": "Correlation id e redazione nei log",
      "domande": [
-      "D7.2-c"
+      "D7.2-c",
+      "DA7.2-2",
+      "DA7.2-3"
      ],
      "strisce_coperte": [
-      "esempio_pratico"
+      "esempio_pratico",
+      "contro_esempio",
+      "diagnosi"
      ],
-     "mancano_per_erogare": 1,
-     "mancano_per_obiettivo": 2,
-     "strisce_da_scrivere": [
-      "definizione",
-      "contro_esempio"
-     ]
+     "mancano_per_erogare": 0,
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     }
    ]
   },
   {
    "pillola": "P7.3",
-   "erogabile": false,
+   "erogabile": true,
    "concetti": [
     {
      "concetto": "C63",
      "nome": "Set di valutazione (tipici, limite, avversari)",
      "domande": [
       "D7.3-a",
-      "D7.3-c"
+      "D7.3-c",
+      "DA7.3-1"
      ],
      "strisce_coperte": [
       "definizione",
-      "esempio_pratico"
+      "esempio_pratico",
+      "contro_esempio"
      ],
      "mancano_per_erogare": 0,
-     "mancano_per_obiettivo": 1,
-     "strisce_da_scrivere": [
-      "contro_esempio"
-     ]
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     },
     {
      "concetto": "C64",
      "nome": "Test di regressione",
      "domande": [
-      "D7.3-b"
+      "D7.3-b",
+      "DA7.3-2",
+      "DA7.3-3"
      ],
      "strisce_coperte": [
-      "definizione"
-     ],
-     "mancano_per_erogare": 1,
-     "mancano_per_obiettivo": 2,
-     "strisce_da_scrivere": [
+      "definizione",
       "esempio_pratico",
       "contro_esempio"
-     ]
+     ],
+     "mancano_per_erogare": 0,
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     }
    ]
   },
   {
    "pillola": "P7.4",
-   "erogabile": false,
+   "erogabile": true,
    "concetti": [
     {
      "concetto": "C65",
      "nome": "LLM come giudice e bias",
      "domande": [
       "D7.4-a",
-      "D7.4-b"
+      "D7.4-b",
+      "DA7.4-1"
      ],
      "strisce_coperte": [
       "definizione",
+      "esempio_pratico",
       "diagnosi"
      ],
      "mancano_per_erogare": 0,
-     "mancano_per_obiettivo": 1,
-     "strisce_da_scrivere": [
-      "esempio_pratico"
-     ]
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     },
     {
      "concetto": "C66",
      "nome": "Revisione umana e calibrazione",
      "domande": [
-      "D7.4-c"
+      "D7.4-c",
+      "DA7.4-2",
+      "DA7.4-3"
      ],
      "strisce_coperte": [
-      "contro_esempio"
+      "esempio_pratico",
+      "contro_esempio",
+      "diagnosi"
      ],
-     "mancano_per_erogare": 1,
-     "mancano_per_obiettivo": 2,
-     "strisce_da_scrivere": [
-      "definizione",
-      "esempio_pratico"
-     ]
+     "mancano_per_erogare": 0,
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     }
    ]
   },
   {
    "pillola": "P7.5",
-   "erogabile": false,
+   "erogabile": true,
    "concetti": [
     {
      "concetto": "C67",
      "nome": "Metriche di business vs tecniche",
      "domande": [
       "D7.5-a",
-      "D7.5-c"
+      "D7.5-c",
+      "DA7.5-1"
      ],
      "strisce_coperte": [
-      "definizione"
+      "definizione",
+      "esempio_pratico"
      ],
      "mancano_per_erogare": 0,
-     "mancano_per_obiettivo": 1,
-     "strisce_da_scrivere": [
-      "esempio_pratico"
-     ]
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     },
     {
      "concetto": "C68",
      "nome": "Gruppo di controllo / A/B",
      "domande": [
-      "D7.5-b"
+      "D7.5-b",
+      "DA7.5-2",
+      "DA7.5-3"
      ],
      "strisce_coperte": [
-      "definizione"
-     ],
-     "mancano_per_erogare": 1,
-     "mancano_per_obiettivo": 2,
-     "strisce_da_scrivere": [
+      "definizione",
       "esempio_pratico",
       "contro_esempio"
-     ]
+     ],
+     "mancano_per_erogare": 0,
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     }
    ]
   },
   {
    "pillola": "P8.1",
-   "erogabile": false,
+   "erogabile": true,
    "concetti": [
     {
      "concetto": "C69",
      "nome": "Ambienti e versionamento",
      "domande": [
       "D8.1-b",
-      "D8.1-c"
+      "D8.1-c",
+      "DA8.1-3"
      ],
      "strisce_coperte": [
-      "definizione"
+      "definizione",
+      "esempio_pratico"
      ],
      "mancano_per_erogare": 0,
-     "mancano_per_obiettivo": 1,
-     "strisce_da_scrivere": [
-      "esempio_pratico"
-     ]
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     },
     {
      "concetto": "C70",
      "nome": "Rilascio graduale e rollback",
      "domande": [
-      "D8.1-a"
+      "D8.1-a",
+      "DA8.1-1",
+      "DA8.1-2"
      ],
      "strisce_coperte": [
-      "definizione"
-     ],
-     "mancano_per_erogare": 1,
-     "mancano_per_obiettivo": 2,
-     "strisce_da_scrivere": [
+      "definizione",
       "esempio_pratico",
-      "contro_esempio"
-     ]
+      "diagnosi"
+     ],
+     "mancano_per_erogare": 0,
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     }
    ]
   },
   {
    "pillola": "P8.2",
-   "erogabile": false,
+   "erogabile": true,
    "concetti": [
     {
      "concetto": "C71",
      "nome": "Livelli di rischio delle azioni",
      "domande": [
       "D8.2-a",
-      "D8.2-c"
+      "D8.2-c",
+      "DA8.2-1"
      ],
      "strisce_coperte": [
       "definizione",
-      "esempio_pratico"
+      "esempio_pratico",
+      "contro_esempio"
      ],
      "mancano_per_erogare": 0,
-     "mancano_per_obiettivo": 1,
-     "strisce_da_scrivere": [
-      "contro_esempio"
-     ]
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     },
     {
      "concetto": "C72",
      "nome": "Approvazione umana e fail-closed",
      "domande": [
-      "D8.2-b"
+      "D8.2-b",
+      "DA8.2-2",
+      "DA8.2-3"
      ],
      "strisce_coperte": [
-      "definizione"
-     ],
-     "mancano_per_erogare": 1,
-     "mancano_per_obiettivo": 2,
-     "strisce_da_scrivere": [
+      "definizione",
       "esempio_pratico",
       "contro_esempio"
-     ]
+     ],
+     "mancano_per_erogare": 0,
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     }
    ]
   },
   {
    "pillola": "P8.3",
-   "erogabile": false,
+   "erogabile": true,
    "concetti": [
     {
      "concetto": "C73",
      "nome": "Kill switch",
      "domande": [
       "D8.3-a",
-      "D8.3-b"
+      "D8.3-b",
+      "DA8.3-1"
      ],
      "strisce_coperte": [
       "definizione",
-      "esempio_pratico"
+      "esempio_pratico",
+      "contro_esempio"
      ],
      "mancano_per_erogare": 0,
-     "mancano_per_obiettivo": 1,
-     "strisce_da_scrivere": [
-      "contro_esempio"
-     ]
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     },
     {
      "concetto": "C74",
      "nome": "Audit trail e spiegabilità",
      "domande": [
-      "D8.3-c"
+      "D8.3-c",
+      "DA8.3-2",
+      "DA8.3-3"
      ],
      "strisce_coperte": [
-      "definizione"
-     ],
-     "mancano_per_erogare": 1,
-     "mancano_per_obiettivo": 2,
-     "strisce_da_scrivere": [
+      "definizione",
       "esempio_pratico",
-      "contro_esempio"
-     ]
+      "diagnosi"
+     ],
+     "mancano_per_erogare": 0,
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     }
    ]
   },
   {
    "pillola": "P8.4",
-   "erogabile": false,
+   "erogabile": true,
    "concetti": [
     {
      "concetto": "C75",
      "nome": "Isolamento multi-tenant",
      "domande": [
-      "D8.4-a"
+      "D8.4-a",
+      "DA8.4-1",
+      "DA8.4-2"
      ],
      "strisce_coperte": [
-      "definizione"
-     ],
-     "mancano_per_erogare": 1,
-     "mancano_per_obiettivo": 2,
-     "strisce_da_scrivere": [
+      "definizione",
       "esempio_pratico",
       "contro_esempio"
-     ]
+     ],
+     "mancano_per_erogare": 0,
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     },
     {
      "concetto": "C76",
      "nome": "Redazione PII e luogo di elaborazione",
      "domande": [
       "D8.4-b",
-      "D8.4-c"
+      "D8.4-c",
+      "DA8.4-3"
      ],
      "strisce_coperte": [
       "definizione",
-      "esempio_pratico"
+      "esempio_pratico",
+      "contro_esempio"
      ],
      "mancano_per_erogare": 0,
-     "mancano_per_obiettivo": 1,
-     "strisce_da_scrivere": [
-      "contro_esempio"
-     ]
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     }
    ]
   },
   {
    "pillola": "P8.5",
-   "erogabile": false,
+   "erogabile": true,
    "concetti": [
     {
      "concetto": "C77",
      "nome": "Costo e instradamento dei modelli",
      "domande": [
       "D8.5-a",
-      "D8.5-b"
+      "D8.5-b",
+      "DA8.5-1"
      ],
      "strisce_coperte": [
       "definizione",
-      "esempio_pratico"
+      "esempio_pratico",
+      "contro_esempio"
      ],
      "mancano_per_erogare": 0,
-     "mancano_per_obiettivo": 1,
-     "strisce_da_scrivere": [
-      "contro_esempio"
-     ]
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     },
     {
      "concetto": "C78",
      "nome": "Dipendenza dal fornitore",
      "domande": [
-      "D8.5-c"
+      "D8.5-c",
+      "DA8.5-2",
+      "DA8.5-3"
      ],
      "strisce_coperte": [
-      "definizione"
-     ],
-     "mancano_per_erogare": 1,
-     "mancano_per_obiettivo": 2,
-     "strisce_da_scrivere": [
+      "definizione",
       "esempio_pratico",
       "contro_esempio"
-     ]
+     ],
+     "mancano_per_erogare": 0,
+     "mancano_per_obiettivo": 0,
+     "strisce_da_scrivere": []
     }
    ]
   },

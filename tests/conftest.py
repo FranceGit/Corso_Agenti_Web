@@ -40,6 +40,31 @@ def config_da(dati: dict) -> Config:
     return Config(copy.deepcopy(dati), "config di prova")
 
 
+def config_con_corso(dati_config: dict, tmp_path: Path, modifica) -> Config:
+    """Config che punta a una copia modificata del corso vero (KG, lezioni e webapp restano quelli veri)."""
+    corso = json.loads(config_da(dati_config).percorso_file("corso").read_text(encoding="utf-8"))
+    modifica(corso)
+    f = tmp_path / "corso_modificato.json"
+    f.write_text(json.dumps(corso, ensure_ascii=False), encoding="utf-8")
+    dati = copy.deepcopy(dati_config)
+    dati["percorsi_file"]["corso"] = str(f)
+    return config_da(dati)
+
+
+def senza_autori(*pillole: str):
+    """Modifica del corso: toglie le domande scritte dagli autori (origine 'autori') nelle pillole indicate.
+
+    Riporta quegli spicchi allo stato "in preparazione" di prima delle domande nuove: serve ai test che
+    verificano il comportamento con uno spicchio non erogabile, ora che nel corso vero lo sono tutti.
+    """
+    def modifica(corso: dict) -> None:
+        for m in corso["moduli"]:
+            for p in m["pillole"]:
+                if p["id"] in pillole:
+                    p["domande"] = [d for d in p["domande"] if d["origine"] != "autori"]
+    return modifica
+
+
 @pytest.fixture
 def cfg(dati_config) -> Config:
     return config_da(dati_config)
@@ -109,3 +134,10 @@ def client_dentro(client) -> TestClient:
     r = client.post("/api/accesso", json={"email": EMAIL, "codice": codice_valido()})
     assert r.status_code == 200
     return client
+
+
+def client_dentro_con(cfg: Config, tmp_path: Path, orologio) -> TestClient:
+    """Client gia' entrato, su un'app costruita con una configurazione data (es. un corso modificato)."""
+    c = TestClient(crea_app(cfg=cfg, cartella_stato=tmp_path / "stato_http_mod", orologio=orologio))
+    assert c.post("/api/accesso", json={"email": EMAIL, "codice": codice_valido()}).status_code == 200
+    return c

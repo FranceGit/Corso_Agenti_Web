@@ -3,7 +3,10 @@
   "id": "DA1.1-1",
   "origine": "autori",
   "pillola": "P1.1",
-  "concetti": ["C01", "C02"],
+  "concetti": [
+   "C01",
+   "C02"
+  ],
   "concetto_principale": "C01",
   "segmento_aiuto": "solo_testo",
   "striscia": "esempio_pratico",
@@ -13,11 +16,56 @@
     "en": "A marketing manager asks: \"Explain in simple words what lead nurturing is\". What does she really need?"
    },
    "opzioni": [
-    {"id": "A", "testo": {"it": "Un assistente che genera testo: basta una risposta scritta", "en": "An assistant that generates text: a written answer is enough"}, "corretta": true, "tipo_distrattore": null, "spiegazione": null},
-    {"id": "B", "testo": {"it": "Un agente collegato al CRM, perché il tema è il marketing", "en": "An agent connected to the CRM, because the topic is marketing"}, "corretta": false, "tipo_distrattore": "quasi", "spiegazione": null},
-    {"id": "C", "testo": {"it": "Un agente che invia email di prova ai lead per mostrarle l'idea", "en": "An agent that sends test emails to leads to show her the idea"}, "corretta": false, "tipo_distrattore": "errata", "spiegazione": null},
-    {"id": "D", "testo": {"it": "Un sistema con più agenti che si dividono la spiegazione", "en": "A system with several agents that split the explanation"}, "corretta": false, "tipo_distrattore": "poco", "spiegazione": null},
-    {"id": "E", "testo": {"it": "Un classificatore che dice se la domanda è positiva o negativa", "en": "A classifier that says whether the question is positive or negative"}, "corretta": false, "tipo_distrattore": "poco", "spiegazione": null}
+    {
+     "id": "A",
+     "testo": {
+      "it": "Un assistente che genera testo: basta una risposta scritta",
+      "en": "An assistant that generates text: a written answer is enough"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Un agente collegato al CRM, perché il tema è il marketing",
+      "en": "An agent connected to the CRM, because the topic is marketing"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Un agente che invia email di prova ai lead per mostrarle l'idea",
+      "en": "An agent that sends test emails to leads to show her the idea"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Un sistema con più agenti che si dividono la spiegazione",
+      "en": "A system with several agents that split the explanation"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Un classificatore che dice se la domanda è positiva o negativa",
+      "en": "A classifier that says whether the question is positive or negative"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
    ],
    "perche": {
     "it": "Spiegare un concetto è lavoro da modello che genera testo: non serve leggere né modificare nessun sistema esterno.",
@@ -31,15 +79,4401 @@
     "en": "Why would an agent be wasted here?"
    },
    "opzioni": [
-    {"id": "a", "testo": {"it": "Perché il compito finisce con un testo: non c'è nessuna azione da fare su CRM, email o calendario", "en": "Because the task ends with a text: there is no action to take on the CRM, email or calendar"}, "corretta": true, "tipo_distrattore": null, "spiegazione": null},
-    {"id": "b", "testo": {"it": "Perché gli agenti non sanno spiegare i concetti di marketing", "en": "Because agents cannot explain marketing concepts"}, "corretta": false, "tipo_distrattore": "errata", "spiegazione": null},
-    {"id": "c", "testo": {"it": "Perché la domanda è breve: gli agenti servono solo per i testi lunghi", "en": "Because the question is short: agents are only for long texts"}, "corretta": false, "tipo_distrattore": "poco", "spiegazione": null},
-    {"id": "d", "testo": {"it": "Perché un agente costa di più, anche se la risposta sarebbe migliore", "en": "Because an agent costs more, even though the answer would be better"}, "corretta": false, "tipo_distrattore": "quasi", "spiegazione": null},
-    {"id": "e", "testo": {"it": "Perché il lead nurturing è un argomento riservato all'ufficio vendite", "en": "Because lead nurturing is a topic reserved for the sales team"}, "corretta": false, "tipo_distrattore": "poco", "spiegazione": null}
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché il compito finisce con un testo: non c'è nessuna azione da fare su CRM, email o calendario",
+      "en": "Because the task ends with a text: there is no action to take on the CRM, email or calendar"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché gli agenti non sanno spiegare i concetti di marketing",
+      "en": "Because agents cannot explain marketing concepts"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché la domanda è breve: gli agenti servono solo per i testi lunghi",
+      "en": "Because the question is short: agents are only for long texts"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Perché un agente costa di più, anche se la risposta sarebbe migliore",
+      "en": "Because an agent costs more, even though the answer would be better"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Perché il lead nurturing è un argomento riservato all'ufficio vendite",
+      "en": "Because lead nurturing is a topic reserved for the sales team"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
    ],
    "perche": {
     "it": "Un agente serve quando bisogna agire su sistemi esterni e reagire ai risultati; per spiegare un concetto basta il modello da solo.",
     "en": "An agent is needed when you must act on outside systems and react to the results; to explain a concept the model alone is enough."
+   }
+  }
+ },
+ {
+  "id": "DA1.1-2",
+  "origine": "autori",
+  "pillola": "P1.1",
+  "concetti": [
+   "C01",
+   "C02"
+  ],
+  "concetto_principale": "C01",
+  "segmento_aiuto": "solo_testo",
+  "striscia": "definizione",
+  "livello1": {
+   "domanda": {
+    "it": "Come si chiama un programma che riceve una domanda e restituisce solo testo, senza agire su altri sistemi?",
+    "en": "What do you call a program that receives a question and returns only text, without acting on other systems?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Un agente senza memoria",
+      "en": "An agent without memory"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Un agente autonomo",
+      "en": "An autonomous agent"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Un database clienti",
+      "en": "A customer database"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Un assistente LLM",
+      "en": "An LLM assistant"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Un workflow con LLM",
+      "en": "An LLM workflow"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "F",
+     "testo": {
+      "it": "Un motore di regole",
+      "en": "A rules engine"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "G",
+     "testo": {
+      "it": "Un sistema multi-agente",
+      "en": "A multi-agent system"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Un assistente basato su un modello linguistico legge una domanda e scrive una risposta: il lavoro finisce lì, nessun sistema esterno viene letto o modificato.",
+    "en": "An assistant based on a language model reads a question and writes an answer: the work ends there, no outside system is read or changed."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Quale di questi compiti resta nel perimetro di un assistente che genera testo?",
+    "en": "Which of these tasks stays within the scope of an assistant that generates text?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Scrivere un'email e programmarne l'invio nel CRM per domani",
+      "en": "Write an email and schedule it in the CRM for tomorrow"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Controllare nel CRM se il contatto è già cliente",
+      "en": "Check in the CRM whether the contact is already a customer"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Riscrivere in tono più cordiale un'email già pronta",
+      "en": "Rewrite a finished email in a friendlier tone"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Spostare dieci trattative alla fase successiva della pipeline",
+      "en": "Move ten deals to the next stage of the pipeline"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Aggiornare il telefono di un contatto nella sua scheda",
+      "en": "Update a contact's phone number in their record"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Riscrivere un testo dato non richiede di leggere né modificare sistemi: basta il modello. Programmare, controllare o aggiornare nel CRM sono azioni su un sistema esterno.",
+    "en": "Rewriting a given text needs no system to be read or changed: the model is enough. Scheduling, checking or updating in the CRM are actions on an outside system."
+   }
+  }
+ },
+ {
+  "id": "DA1.1-3",
+  "origine": "autori",
+  "pillola": "P1.1",
+  "concetti": [
+   "C01",
+   "C02"
+  ],
+  "concetto_principale": "C01",
+  "segmento_aiuto": "due_corsie",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Un collega dice: «Il nostro chatbot sul sito è un agente: risponde benissimo alle domande sui prezzi». Che cosa manca perché sia davvero un agente?",
+    "en": "A colleague says: \"Our website chatbot is an agent: it answers pricing questions really well\". What is missing for it to really be an agent?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Una memoria della conversazione: senza ricordare i turni precedenti nessun programma può essere considerato un vero agente",
+      "en": "A memory of the conversation: without remembering earlier turns no program can count as a real agent"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Un modello linguistico più grande e più recente, perché la qualità delle risposte è ciò che distingue un agente",
+      "en": "A bigger, newer language model, because the quality of the answers is what makes an agent"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Un obiettivo da raggiungere e strumenti per agire su sistemi esterni, con il modello che decide i passi",
+      "en": "A goal to reach and tools to act on outside systems, with the model deciding the steps"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Niente: se le risposte sono corrette e veloci il programma è un agente, perché fa il lavoro di una persona",
+      "en": "Nothing: if the answers are right and fast the program is an agent, because it does a person's job"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "OpenAI è netta: chatbot semplici e modelli a turno singolo non sono agenti, perché il modello non governa il flusso di lavoro. Rispondere bene non basta.",
+    "en": "OpenAI is clear: simple chatbots and single-turn models are not agents, because the model does not run the workflow. Answering well is not enough."
+   }
+  },
+  "livello2": {
+   "tipo": "contro-esempio",
+   "domanda": {
+    "it": "Quale aggiunta trasformerebbe quel chatbot in un agente?",
+    "en": "Which addition would turn that chatbot into an agent?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Cambiare il colore e la posizione della finestra di chat sul sito",
+      "en": "Change the colour and position of the chat window on the site"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Fargli proporre al visitatore un'email di follow-up, che poi una persona del team rilegge e invia",
+      "en": "Have it suggest a follow-up email to the visitor, which a team member then checks and sends"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Togliergli i limiti di sicurezza, così risponde a qualsiasi domanda",
+      "en": "Remove its safety limits, so it answers any question"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Dargli un obiettivo, farlo cercare nel CRM e fargli decidere a chi passare il lead",
+      "en": "Give it a goal, have it search the CRM and let it decide who to pass the lead to"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Fargli rispondere anche in inglese e in tedesco ai visitatori stranieri",
+      "en": "Have it also answer foreign visitors in English and German"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Diventa agente quando riceve un obiettivo, usa strumenti (il CRM) e decide da sé il passo successivo in base a ciò che osserva, come nella qualificazione dei lead descritta da Google.",
+    "en": "It becomes an agent when it gets a goal, uses tools (the CRM) and decides the next step itself based on what it observes, as in the lead qualification example described by Google."
+   }
+  }
+ },
+ {
+  "id": "DA1.1-4",
+  "origine": "autori",
+  "pillola": "P1.1",
+  "concetti": [
+   "C02",
+   "C01"
+  ],
+  "concetto_principale": "C02",
+  "segmento_aiuto": "azione",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Un classificatore AI legge ogni email in arrivo e dice se il tono è positivo o negativo. È un agente?",
+    "en": "An AI classifier reads every incoming email and says whether its tone is positive or negative. Is it an agent?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "No, perché non ha una memoria a lungo termine delle conversazioni con i clienti",
+      "en": "No, because it has no long-term memory of its conversations with customers"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Sì, perché lavora da solo su migliaia di email al giorno",
+      "en": "Yes, because it works on its own on thousands of emails a day"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "No: assegna un'etichetta, ma non guida azioni verso un obiettivo",
+      "en": "No: it assigns a label, but does not drive actions towards a goal"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Sì, perché capisce le emozioni dei clienti meglio di una persona",
+      "en": "Yes, because it understands customers' feelings better than a person"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Sì, perché usa un modello linguistico per decidere l'etichetta",
+      "en": "Yes, because it uses a language model to decide the label"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "OpenAI cita proprio i classificatori di sentiment tra le applicazioni che usano un modello linguistico ma non sono agenti: il modello non controlla il flusso di lavoro.",
+    "en": "OpenAI names sentiment classifiers among the applications that use a language model but are not agents: the model does not control the workflow."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Che cosa dovrebbe fare lo stesso sistema per diventare un agente?",
+    "en": "What would the same system have to do to become an agent?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Classificare le email in dieci categorie invece di due, aggiungendo per ciascuna etichetta una spiegazione scritta e un livello di urgenza",
+      "en": "Sort the emails into ten categories instead of two, adding a written explanation and an urgency level to each label"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Lavorare in tempo reale invece che una volta al giorno, così le etichette arrivano prima al team di assistenza",
+      "en": "Work in real time instead of once a day, so the labels reach the support team sooner"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Usare un modello più potente che sbagli meno etichette: con una precisione del 99% diventa un agente",
+      "en": "Use a more powerful model that gets fewer labels wrong: at 99% accuracy it becomes an agent"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Ricevere l'obiettivo «gestisci i clienti scontenti», leggere lo storico nel CRM, decidere se aprire un ticket e verificare l'esito",
+      "en": "Receive the goal \"handle unhappy customers\", read the history in the CRM, decide whether to open a ticket and check the result"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Diventa agente quando persegue un obiettivo agendo su sistemi (CRM, ticket) e decide il passo successivo in base ai risultati; più categorie o più precisione restano classificazione.",
+    "en": "It becomes an agent when it pursues a goal by acting on systems (CRM, tickets) and decides the next step from the results; more categories or more accuracy are still just classification."
+   }
+  }
+ },
+ {
+  "id": "DA1.1-5",
+  "origine": "autori",
+  "pillola": "P1.1",
+  "concetti": [
+   "C03",
+   "C02"
+  ],
+  "concetto_principale": "C03",
+  "segmento_aiuto": "senza_strumenti",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Il team marketing ha scritto istruzioni perfette per un agente di follow-up, ma nessuno lo ha collegato al CRM né alla posta. Che cosa otterrà?",
+    "en": "The marketing team wrote perfect instructions for a follow-up agent, but nobody connected it to the CRM or to email. What will they get?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Follow-up completi, perché istruzioni ottime bastano a far agire l'agente",
+      "en": "Complete follow-ups, because great instructions are enough to make the agent act"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Solo testi di esempio: senza strumenti non può leggere i lead né inviare nulla",
+      "en": "Only sample texts: without tools it cannot read the leads or send anything"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Email ben scritte ma generiche, inviate in automatico a tutti i contatti senza alcun filtro",
+      "en": "Well-written but generic emails, sent automatically to all contacts with no filter at all"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Un errore immediato: un agente senza strumenti si rifiuta di rispondere",
+      "en": "An immediate error: an agent without tools refuses to answer"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Follow-up inviati regolarmente, solo un po' più lentamente del solito",
+      "en": "Follow-ups sent as normal, just a bit more slowly than usual"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Un agente è un sistema: modello, istruzioni, strumenti e regia. Senza strumenti il modello non tocca sistemi esterni e produce solo testo.",
+    "en": "An agent is a system: model, instructions, tools and control layer. Without tools the model touches no outside system and only produces text."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Che cosa manca, prima di tutto, a quel sistema?",
+    "en": "What is that system missing first of all?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Un tono più cordiale",
+      "en": "A friendlier tone"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "La memoria lunga",
+      "en": "Long-term memory"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Istruzioni più lunghe",
+      "en": "Longer instructions"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Il permesso di scrivere",
+      "en": "Permission to write"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Una temperatura più alta",
+      "en": "A higher temperature"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "f",
+     "testo": {
+      "it": "Gli strumenti",
+      "en": "The tools"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "g",
+     "testo": {
+      "it": "Un logo aziendale",
+      "en": "A company logo"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Le istruzioni dicono cosa fare; gli strumenti permettono di farlo. Gli agenti sono sistemi, non prompt: migliorare il testo delle istruzioni non aggiunge le mani.",
+    "en": "Instructions say what to do; tools make it possible to do it. Agents are systems, not prompts: improving the instructions does not give the agent hands."
+   }
+  }
+ },
+ {
+  "id": "DA1.1-6",
+  "origine": "autori",
+  "pillola": "P1.1",
+  "concetti": [
+   "C03",
+   "C02"
+  ],
+  "concetto_principale": "C03",
+  "segmento_aiuto": "senza_strumenti",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Un'agenzia vende un «agente commerciale» che in realtà è un unico prompt molto lungo incollato in una chat. Che cosa ti aspetti se gli chiedi di aggiornare le trattative ferme da 30 giorni?",
+    "en": "An agency sells a \"sales agent\" that is really just one very long prompt pasted into a chat. What do you expect if you ask it to update the deals that have been stuck for 30 days?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Che aggiorni le trattative più evidenti e salti le altre, perché un prompt molto lungo riempie la finestra di contesto e il modello perde attenzione sulle ultime istruzioni ricevute.",
+      "en": "That it updates the most obvious deals and skips the others, because a very long prompt fills the context window and the model loses attention on the last instructions."
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Che spieghi bene come si aggiornano le trattative, magari con una tabella di esempio, ma che non cambi nulla nel CRM: un prompt, per quanto curato, non ha strumenti né una regia che esegua i passi.",
+      "en": "That it explains well how to update the deals, maybe with a sample table, but changes nothing in the CRM: a prompt, however careful, has no tools and no control layer to carry out the steps."
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Che aggiorni tutte le trattative ferme, perché un prompt abbastanza dettagliato contiene già tutte le regole: gli strumenti servono solo a rendere il lavoro più veloce, non a renderlo davvero possibile.",
+      "en": "That it updates all the stuck deals, because a detailed enough prompt already holds all the rules: tools only make the work faster, they are not what makes it possible."
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Gli agenti sono sistemi, non prompt: senza strumenti collegati al CRM e senza una regia che esegue i passi, anche il prompt migliore produce solo testo.",
+    "en": "Agents are systems, not prompts: without tools connected to the CRM and a control layer that carries out the steps, even the best prompt only produces text."
+   }
+  },
+  "livello2": {
+   "tipo": "diagnosi",
+   "domanda": {
+    "it": "Che cosa chiederesti all'agenzia per capire se è davvero un agente?",
+    "en": "What would you ask the agency to find out whether it really is an agent?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Quali strumenti usa sul CRM e chi gestisce passi, limiti e approvazioni",
+      "en": "Which tools it uses on the CRM and what manages steps, limits and approvals"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Quanto è lungo e dettagliato il prompt che hanno scritto",
+      "en": "How long and detailed the prompt they wrote is"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Se ricorda le conversazioni passate con ogni cliente e le preferenze di contatto",
+      "en": "Whether it remembers past conversations with each customer and their contact preferences"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Se le sue risposte sono più veloci di quelle di ChatGPT",
+      "en": "Whether its answers are faster than ChatGPT's"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Quante recensioni positive ha ricevuto da altri clienti",
+      "en": "How many positive reviews it got from other clients"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Un agente si riconosce dal sistema intorno al modello: strumenti per leggere e scrivere sui sistemi e una regia che gestisce ciclo, limiti e approvazioni.",
+    "en": "You recognise an agent by the system around the model: tools to read and write on systems and a control layer that manages the loop, the limits and the approvals."
+   }
+  }
+ },
+ {
+  "id": "DA1.2-1",
+  "origine": "autori",
+  "pillola": "P1.2",
+  "concetti": [
+   "C04"
+  ],
+  "concetto_principale": "C04",
+  "segmento_aiuto": "token",
+  "striscia": "definizione",
+  "livello1": {
+   "domanda": {
+    "it": "Con quali pezzi lavora davvero un modello linguistico quando legge e scrive?",
+    "en": "What pieces does a language model really work with when it reads and writes?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Parole intere",
+      "en": "Whole words"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Frasi complete",
+      "en": "Full sentences"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Immagini del testo",
+      "en": "Pictures of the text"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Singole lettere",
+      "en": "Single letters"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Token",
+      "en": "Tokens"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "F",
+     "testo": {
+      "it": "Concetti già verificati",
+      "en": "Already-checked ideas"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "G",
+     "testo": {
+      "it": "Pagine di testo",
+      "en": "Pages of text"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Il testo viene spezzato in token, cioè parole o pezzi di parola, ciascuno con un numero preso da un vocabolario: il modello vede token, non parole.",
+    "en": "The text is split into tokens, that is words or pieces of words, each with a number taken from a vocabulary: the model sees tokens, not words."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché a chi gestisce un progetto di agenti conviene sapere che cos'è un token?",
+    "en": "Why is it useful for someone running an agent project to know what a token is?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché si pagano i token inviati e ricevuti, e la finestra si misura in token",
+      "en": "Because you pay for the tokens sent and received, and the window is measured in tokens"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché ogni token corrisponde sempre a una parola intera, quindi si contano facilmente",
+      "en": "Because each token always matches one whole word, so they are easy to count"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché il token è la password che serve per accedere al modello",
+      "en": "Because the token is the password needed to use the model"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Perché più token si usano, più il modello diventa preciso",
+      "en": "Because the more tokens you use, the more accurate the model gets"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Perché il numero di token decide la lingua della risposta",
+      "en": "Because the number of tokens decides the language of the answer"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Il token è l'unità di costo (i fornitori fanno pagare i token inviati e ricevuti) e l'unità con cui si misura la finestra di contesto.",
+    "en": "The token is the unit of cost (providers charge for the tokens sent and received) and the unit used to measure the context window."
+   }
+  }
+ },
+ {
+  "id": "DA1.2-2",
+  "origine": "autori",
+  "pillola": "P1.2",
+  "concetti": [
+   "C04",
+   "C06"
+  ],
+  "concetto_principale": "C04",
+  "segmento_aiuto": "token",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Un agente riassume ogni giorno 300 email di clienti molto lunghe. Il responsabile vuole ridurre la spesa. Su che cosa conviene agire?",
+    "en": "Every day an agent summarises 300 very long customer emails. The manager wants to cut the cost. What is the best thing to work on?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Sul limite massimo di lunghezza della risposta: impostarlo basso rende i riassunti più sintetici e meno costosi",
+      "en": "The maximum answer length: setting it low makes the summaries shorter and cheaper"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Sulla temperatura: abbassarla fa usare al modello parole più corte e quindi costa meno a ogni chiamata",
+      "en": "The temperature: lowering it makes the model use shorter words, so each call costs less"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Sul numero di email: il costo dipende da quante richieste si fanno, non da quanto testo contengono",
+      "en": "The number of emails: the cost depends on how many requests you make, not on how much text they contain"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Sui token: mandare al modello solo le parti utili delle email e chiedere riassunti brevi nelle istruzioni",
+      "en": "The tokens: send the model only the useful parts of the emails and ask for short summaries in the instructions"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Si paga per i token inviati e ricevuti: meno testo inutile in ingresso e risposte più brevi chieste nelle istruzioni riducono la spesa.",
+    "en": "You pay for the tokens sent and received: less useless text going in and shorter answers asked for in the instructions cut the cost."
+   }
+  },
+  "livello2": {
+   "tipo": "contro-esempio",
+   "domanda": {
+    "it": "Perché abbassare soltanto il limite di lunghezza della risposta non è una buona soluzione?",
+    "en": "Why is just lowering the answer length limit not a good solution?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché un limite basso alza la temperatura e rende i riassunti casuali",
+      "en": "Because a low limit raises the temperature and makes the summaries random"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché il modello non diventa conciso: si ferma a metà e il riassunto resta troncato",
+      "en": "Because the model does not become brief: it stops halfway and the summary is cut off"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché il modello rifiuta di rispondere, o risponde a caso, quando il limite è troppo basso",
+      "en": "Because the model refuses to answer, or answers at random, when the limit is too low"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Perché il limite vale solo per le email in inglese, non per quelle in italiano",
+      "en": "Because the limit only applies to emails in English, not in Italian"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Perché il limite alza il prezzo di ogni token, anche se se ne usano meno",
+      "en": "Because the limit raises the price of each token, even if fewer are used"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "La fonte è esplicita: il limite fa solo smettere il modello di produrre token quando lo raggiunge. Se serve brevità, va chiesta nelle istruzioni.",
+    "en": "The source is explicit: the limit just makes the model stop producing tokens when it is reached. If you need brevity, ask for it in the instructions."
+   }
+  }
+ },
+ {
+  "id": "DA1.2-3",
+  "origine": "autori",
+  "pillola": "P1.2",
+  "concetti": [
+   "C04"
+  ],
+  "concetto_principale": "C04",
+  "segmento_aiuto": "token",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Un fornitore promette: «Il nostro agente costa uguale qualunque sia la lunghezza dei documenti». Che cosa c'è di sospetto?",
+    "en": "A vendor promises: \"Our agent costs the same whatever the length of the documents\". What is suspicious about it?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Nulla: il prezzo dei modelli dipende solo dal numero di utenti",
+      "en": "Nothing: the price of models only depends on the number of users"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Il costo cresce con il numero di parole, ma solo per i documenti scritti in inglese",
+      "en": "The cost grows with the number of words, but only for documents written in English"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Nulla: i token si pagano solo quando il modello viene addestrato",
+      "en": "Nothing: tokens are only paid for when the model is trained"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Di solito il costo cresce con i token inviati e ricevuti: più testo, più spesa",
+      "en": "Usually the cost grows with the tokens sent and received: more text, more cost"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Che i documenti lunghi vengano letti più in fretta di quelli corti",
+      "en": "That long documents are read faster than short ones"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "La maggior parte dei fornitori fa pagare in base ai token inviati e ricevuti; più testo vuol dire più calcolo, più tempo e più denaro.",
+    "en": "Most providers charge by the tokens sent and received; more text means more computing, more time and more money."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Quale verifica è più sensata prima di firmare il contratto?",
+    "en": "Which check makes most sense before signing the contract?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Nessuna: se il fornitore usa un modello famoso il costo è sicuramente fisso, perché i grandi modelli hanno prezzi uguali per tutti, indipendentemente da quanto testo ricevono e producono.",
+      "en": "None: if the vendor uses a famous model the cost is surely fixed, because big models have the same prices for everyone, whatever amount of text they receive and produce."
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Chiedere al fornitore una percentuale di risparmio garantita sul costo attuale del team, perché un numero scritto nel contratto protegge l'azienda anche se il calcolo dei token resta sconosciuto.",
+      "en": "Ask the vendor for a guaranteed saving percentage on the team's current cost, because a number written in the contract protects the company even if the token calculation stays unknown."
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Chiedere come viene calcolato il prezzo e fare una prova con documenti reali di lunghezza diversa, controllando token e spesa di ogni chiamata, invece di fidarsi della promessa a voce.",
+      "en": "Ask how the price is calculated and run a trial with real documents of different lengths, checking the tokens and the cost of each call, instead of trusting a spoken promise."
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Le promesse vanno misurate: il costo reale dipende dai token di ogni chiamata, e una prova con documenti veri lo mostra.",
+    "en": "Promises must be measured: the real cost depends on the tokens of each call, and a trial with real documents shows it."
+   }
+  }
+ },
+ {
+  "id": "DA1.2-4",
+  "origine": "autori",
+  "pillola": "P1.2",
+  "concetti": [
+   "C05"
+  ],
+  "concetto_principale": "C05",
+  "segmento_aiuto": "temperatura",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Il team vuole cinque idee di oggetto diverse per la newsletter di lancio di un prodotto. Che impostazione usare?",
+    "en": "The team wants five different subject line ideas for a product launch newsletter. Which setting should they use?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Temperatura zero, poi si chiede cinque volte la stessa cosa",
+      "en": "Temperature zero, then ask the same thing five times"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Temperatura più alta, perché servono risposte varie e originali",
+      "en": "A higher temperature, because varied and original answers are needed"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Temperatura bassa, così le cinque idee restano in tema con il tono del brand",
+      "en": "A low temperature, so the five ideas stay in line with the brand's tone"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Una finestra di contesto più grande, che genera più idee",
+      "en": "A bigger context window, which generates more ideas"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Nessuna: la temperatura cambia solo la velocità di risposta",
+      "en": "None: the temperature only changes how fast it answers"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "La temperatura regola quanto varia la scelta del token successivo: più alta per testi creativi, bassa per classificare o rispondere con precisione.",
+    "en": "The temperature controls how much the choice of the next token varies: higher for creative texts, low for classifying or answering precisely."
+   }
+  },
+  "livello2": {
+   "tipo": "contro-esempio",
+   "domanda": {
+    "it": "Il team imposta temperatura 0 per classificare i lead e, raramente, vede due risultati diversi per lo stesso lead. Qual è la spiegazione?",
+    "en": "The team sets temperature 0 to classify leads and, now and then, sees two different results for the same lead. What is the explanation?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "La temperatura 0 viene ignorata dal modello, che usa sempre una temperatura minima di sicurezza diversa da zero",
+      "en": "The model ignores temperature 0 and always uses a minimum safety temperature above zero"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Con temperatura 0 il modello impara dalle classificazioni precedenti e cambia idea con l'esperienza",
+      "en": "At temperature 0 the model learns from earlier classifications and changes its mind with experience"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Temperatura 0 non garantisce risposte sempre identiche: con token a pari probabilità lo spareggio può variare",
+      "en": "Temperature 0 does not guarantee identical answers: when tokens are equally likely the tie-break can vary"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Il CRM ha cambiato da solo i dati del lead tra una chiamata e l'altra: è l'unica spiegazione possibile",
+      "en": "The CRM changed the lead's data by itself between calls: it is the only possible explanation"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Le fonti Google lo dicono: anche a temperatura 0 lo spareggio fra token con la stessa probabilità può variare, e prompt identici possono dare risultati diversi.",
+    "en": "Google's sources say it: even at temperature 0 the tie-break between equally likely tokens can vary, and identical prompts can give different results."
+   }
+  }
+ },
+ {
+  "id": "DA1.2-5",
+  "origine": "autori",
+  "pillola": "P1.2",
+  "concetti": [
+   "C06",
+   "C04"
+  ],
+  "concetto_principale": "C06",
+  "segmento_aiuto": "finestra",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Un agente deve rispondere a un cliente storico che ha 6 anni di email nel CRM. Che cosa conviene inserire nella chiamata al modello?",
+    "en": "An agent must answer a long-standing customer with 6 years of emails in the CRM. What is best to put into the call to the model?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Tutte le email: più contesto dà sempre risposte migliori",
+      "en": "All the emails: more context always gives better answers"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Le ultime 50 email, perché le più recenti sono sempre le più utili",
+      "en": "The last 50 emails, because the most recent ones are always the most useful"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Nessuna email: il modello ricorda già le conversazioni passate",
+      "en": "No emails: the model already remembers past conversations"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Solo il nome del cliente: il modello trova da solo lo storico",
+      "en": "Only the customer's name: the model finds the history by itself"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Le email pertinenti alla richiesta e un riassunto dello storico",
+      "en": "The emails relevant to the request and a summary of the history"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "La finestra è limitata e costosa, e anche dentro il limite l'attenzione cala quando il testo cresce: conviene selezionare e riassumere.",
+    "en": "The window is limited and costly, and even within the limit attention drops as the text grows: it is best to select and summarise."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché non inserire tutto lo storico?",
+    "en": "Why not put in the whole history?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Costa di più, e basta",
+      "en": "It just costs more"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Il CRM si blocca",
+      "en": "The CRM freezes"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Attenzione e costi peggiorano",
+      "en": "Attention and cost get worse"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Il modello lo ricorda",
+      "en": "The model remembers it"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Rallenta, e basta",
+      "en": "It just gets slower"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "f",
+     "testo": {
+      "it": "Il cliente lo vede",
+      "en": "The customer sees it"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "g",
+     "testo": {
+      "it": "Il modello impara troppo",
+      "en": "The model learns too much"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Più testo vuol dire più costo e lentezza e un'attenzione più debole verso le informazioni importanti (il «context rot»); oltre il limite la chiamata fallisce.",
+    "en": "More text means more cost and delay and weaker attention to the important information (\"context rot\"); beyond the limit the call fails."
+   }
+  }
+ },
+ {
+  "id": "DA1.2-6",
+  "origine": "autori",
+  "pillola": "P1.2",
+  "concetti": [
+   "C06"
+  ],
+  "concetto_principale": "C06",
+  "segmento_aiuto": "finestra",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Un consulente dice: «Con i modelli da un milione di token non serve più scegliere cosa dare all'agente: basta incollare tutto». Perché è un'affermazione sbagliata?",
+    "en": "A consultant says: \"With million-token models you no longer need to choose what to give the agent: just paste everything\". Why is this wrong?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Perché anche dentro il limite l'attenzione alle informazioni importanti cala, e ogni token in più costa e rallenta",
+      "en": "Because even within the limit attention to the important information drops, and every extra token costs money and time"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Perché un milione di token è un numero dichiarato dal produttore e nella pratica la finestra è sempre molto più piccola",
+      "en": "Because a million tokens is the maker's claim and in practice the window is always much smaller"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Perché i modelli con finestre grandi accettano solo documenti in inglese e scartano quelli scritti in italiano",
+      "en": "Because models with big windows only accept documents in English and discard those written in Italian"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Non è sbagliata: con una finestra enorme il modello legge tutto con la stessa attenzione e senza costi in più",
+      "en": "It is not wrong: with a huge window the model reads everything with the same attention and at no extra cost"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Le fonti parlano di «context rot»: più testo, meno attenzione a ciò che conta. E contesti più lunghi richiedono più calcolo e memoria.",
+    "en": "The sources talk about \"context rot\": more text, less attention to what matters. And longer contexts need more computing and memory."
+   }
+  },
+  "livello2": {
+   "tipo": "diagnosi",
+   "domanda": {
+    "it": "Un agente riceve un fascicolo cliente enorme e la chiamata fallisce con un errore. Che cosa è successo più probabilmente?",
+    "en": "An agent receives a huge customer file and the call fails with an error. What most likely happened?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Il modello ha avuto un'allucinazione per il troppo testo",
+      "en": "The model hallucinated because of too much text"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Il cliente ha negato il consenso alla lettura del fascicolo",
+      "en": "The customer refused consent to read the file"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "La temperatura era troppo alta per un testo così lungo",
+      "en": "The temperature was too high for such a long text"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Il testo ha superato la finestra di contesto del modello",
+      "en": "The text went beyond the model's context window"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Il modello ha esaurito la sua memoria a lungo termine",
+      "en": "The model ran out of long-term memory"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Se il testo supera la finestra di contesto la chiamata fallisce: va ridotto, selezionando o riassumendo.",
+    "en": "If the text goes beyond the context window the call fails: it must be cut down by selecting or summarising."
+   }
+  }
+ },
+ {
+  "id": "DA1.2-7",
+  "origine": "autori",
+  "pillola": "P1.2",
+  "concetti": [
+   "C07",
+   "C05"
+  ],
+  "concetto_principale": "C07",
+  "segmento_aiuto": "previsione",
+  "striscia": "definizione",
+  "livello1": {
+   "domanda": {
+    "it": "Come si chiama una risposta inventata ma plausibile, presentata come vera?",
+    "en": "What do you call an answer that is made up but plausible, and presented as true?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Inferenza",
+      "en": "Inference"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Grounding",
+      "en": "Grounding"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Token sbagliato",
+      "en": "Wrong token"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Errore di calcolo",
+      "en": "Calculation error"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Citazione",
+      "en": "Citation"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "F",
+     "testo": {
+      "it": "Temperatura alta",
+      "en": "High temperature"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "G",
+     "testo": {
+      "it": "Allucinazione",
+      "en": "Hallucination"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Allucinazione è il nome di una risposta inventata ma plausibile: il modello genera testo verosimile senza verificarlo.",
+    "en": "Hallucination is the name for an answer that is made up but plausible: the model generates believable text without checking it."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché le allucinazioni sono un limite strutturale e non un difetto raro da correggere una volta per tutte?",
+    "en": "Why are hallucinations a built-in limit and not a rare defect to be fixed once and for all?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché i modelli sono addestrati su internet, e basterebbe togliere i siti sbagliati per eliminarle del tutto",
+      "en": "Because models are trained on the internet, and removing the wrong websites would be enough to get rid of them completely"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché il modello prevede il testo più plausibile in base a ciò che ha visto, senza verificare che sia vero",
+      "en": "Because the model predicts the most plausible text based on what it has seen, without checking that it is true"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché i fornitori le lasciano apposta, per rendere le risposte più creative e piacevoli da leggere",
+      "en": "Because providers leave them in on purpose, to make the answers more creative and pleasant to read"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Perché succedono solo con temperatura alta: a temperatura zero il modello dice sempre il vero",
+      "en": "Because they only happen at high temperature: at temperature zero the model always tells the truth"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Il modello è un motore di previsione: genera sequenze plausibili. Le fonti Google parlano di difficoltà intrinseche; il recupero di documenti le riduce ma non le elimina.",
+    "en": "The model is a prediction engine: it generates plausible sequences. Google's sources call this an inherent challenge; document retrieval reduces it but does not remove it."
+   }
+  }
+ },
+ {
+  "id": "DA1.2-8",
+  "origine": "autori",
+  "pillola": "P1.2",
+  "concetti": [
+   "C07",
+   "C06"
+  ],
+  "concetto_principale": "C07",
+  "segmento_aiuto": "cutoff",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Chiedi a un modello senza strumenti il fatturato 2025 di un'azienda poco nota. Risponde con un numero preciso. Che cosa ne pensi?",
+    "en": "You ask a model without tools for the 2025 revenue of a little-known company. It answers with a precise number. What do you think?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "È affidabile, se il modello lo scrive con sicurezza, senza esitare e senza avvertenze",
+      "en": "It is reliable, if the model writes it confidently, without hesitation or warnings"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "È un dato vecchio ma vero, preso dai dati di addestramento",
+      "en": "It is an old but true figure, taken from the training data"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Forse è inventato: senza fonti il modello riempie con un dato plausibile",
+      "en": "It may be made up: without sources the model fills in a plausible figure"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "È corretto, perché i modelli consultano i bilanci online da soli",
+      "en": "It is correct, because models look up company accounts online by themselves"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "È corretto, perché un numero così preciso non può essere inventato",
+      "en": "It is correct, because such a precise number cannot be made up"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Senza uno strumento il modello avrebbe potuto «indovinare» la risposta, cioè allucinare, in base a ciò che sapeva. Un numero preciso non è una garanzia.",
+    "en": "Without a tool the model could have \"guessed\" the answer, that is hallucinated, from what it already knew. A precise number is no guarantee."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Che cosa riduce di più questo rischio in un agente che arricchisce i lead?",
+    "en": "What reduces this risk the most in an agent that enriches leads?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Abbassare la temperatura, così il modello inventa meno numeri",
+      "en": "Lowering the temperature, so the model makes up fewer numbers"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Dargli uno strumento che legge la fonte e fargliela citare",
+      "en": "Giving it a tool that reads the source and having it cite it"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Scrivergli nel prompt di «non sbagliare mai»",
+      "en": "Writing \"never make mistakes\" in its prompt"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Usare un modello più grande, che non allucina mai",
+      "en": "Using a bigger model, which never hallucinates"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Ripetere la domanda finché due risposte coincidono",
+      "en": "Asking again until two answers match"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Ancorare la risposta a una fonte (grounding) e farla citare è la contromisura principale; temperatura e modelli più grandi non eliminano le invenzioni.",
+    "en": "Anchoring the answer to a source (grounding) and having it cited is the main safeguard; temperature and bigger models do not remove made-up facts."
+   }
+  }
+ },
+ {
+  "id": "DA1.2-9",
+  "origine": "autori",
+  "pillola": "P1.2",
+  "concetti": [
+   "C07"
+  ],
+  "concetto_principale": "C07",
+  "segmento_aiuto": "cutoff",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Il post di un'agenzia dice: «Con il recupero di documenti (RAG) le allucinazioni spariscono del tutto: il nostro agente CRM è affidabile al 100%». Qual è la lettura corretta?",
+    "en": "An agency's post says: \"With document retrieval (RAG) hallucinations disappear completely: our CRM agent is 100% reliable\". What is the right reading?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Il recupero di documenti elimina le allucinazioni solo se i documenti sono aggiornati: con un archivio pulito e recente l'affidabilità al 100% è realistica e si può smettere di controllare.",
+      "en": "Document retrieval removes hallucinations only if the documents are up to date: with a clean, recent archive 100% reliability is realistic and you can stop checking."
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "È corretto: quando il modello legge un documento non può più inventare, quindi l'unico rischio rimasto è un documento sbagliato e i controlli umani diventano inutili e costosi.",
+      "en": "It is correct: when the model reads a document it can no longer make things up, so the only risk left is a wrong document and human checks become useless and costly."
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Il recupero di documenti riduce le allucinazioni ma non le elimina: le risposte vanno comunque verificate, soprattutto quando finiscono in email ai clienti o nei campi del CRM.",
+      "en": "Document retrieval reduces hallucinations but does not remove them: answers still need checking, especially when they end up in customer emails or in CRM fields."
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "La fonte sugli embedding lo dice: il recupero di documenti riduce le allucinazioni ma «non le elimina completamente». Le percentuali del 100% sono promesse, non misure.",
+    "en": "The source on embeddings says it: document retrieval reduces hallucinations but \"does not completely eliminate them\". 100% figures are promises, not measurements."
+   }
+  },
+  "livello2": {
+   "tipo": "diagnosi",
+   "domanda": {
+    "it": "Una bozza dell'agente dice: «Come concordato al telefono, sconto del 20%». Nel CRM non ci sono né la chiamata né lo sconto. Che cosa è successo?",
+    "en": "A draft from the agent says: \"As agreed on the phone, 20% discount\". The CRM has neither the call nor the discount. What happened?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Un'inferenza ragionevole: di solito ai clienti si offre uno sconto",
+      "en": "A reasonable inference: customers are usually offered a discount"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Un errore del CRM, che ha cancellato la chiamata registrata",
+      "en": "A CRM error that deleted the logged call"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Un'allucinazione: ha inventato un fatto plausibile non presente nei dati",
+      "en": "A hallucination: it made up a plausible fact that is not in the data"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Nulla di grave: è una normale frase di cortesia commerciale",
+      "en": "Nothing serious: it is a normal polite sales phrase"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Un problema di temperatura troppo bassa del modello",
+      "en": "A problem of the model's temperature being too low"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Un fatto senza fonte nei dati è un'invenzione; una promessa economica non autorizzata in un'email è proprio il danno da fermare con i controlli.",
+    "en": "A fact with no source in the data is made up; an unauthorised money promise in an email is exactly the damage that checks must stop."
+   }
+  }
+ },
+ {
+  "id": "DA1.4-1",
+  "origine": "autori",
+  "pillola": "P1.4",
+  "concetti": [
+   "C10",
+   "C12"
+  ],
+  "concetto_principale": "C10",
+  "segmento_aiuto": "senza_modello",
+  "striscia": "definizione",
+  "livello1": {
+   "domanda": {
+    "it": "Nella metafora del corpo usata da Google, che cosa è il modello in un agente?",
+    "en": "In the body metaphor used by Google, what is the model in an agent?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "La voce",
+      "en": "The voice"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Il sistema nervoso",
+      "en": "The nervous system"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Il cervello",
+      "en": "The brain"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Le mani",
+      "en": "The hands"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "La memoria",
+      "en": "The memory"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "F",
+     "testo": {
+      "it": "Il corpo e le gambe",
+      "en": "The body and legs"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "G",
+     "testo": {
+      "it": "Il magazzino dei dati",
+      "en": "The data warehouse"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Google descrive il modello come il cervello: il motore centrale che elabora le informazioni, valuta le opzioni e prende le decisioni.",
+    "en": "Google describes the model as the brain: the central engine that processes information, weighs the options and makes decisions."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Che cosa fa il modello, in pratica, dentro un agente CRM?",
+    "en": "What does the model actually do inside a CRM agent?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Esegue da solo le modifiche nel CRM, senza bisogno di altri componenti",
+      "en": "It makes the changes in the CRM by itself, with no need for other parts"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Conserva lo storico di tutti i clienti tra una sessione e l'altra",
+      "en": "It keeps the history of all customers from one session to the next"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Ragiona sui dati ricevuti e decide il passo successivo da fare",
+      "en": "It reasons over the data it receives and decides the next step"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Controlla i limiti di spesa e blocca l'agente quando serve",
+      "en": "It checks spending limits and stops the agent when needed"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Disegna l'interfaccia che usano i venditori ogni giorno",
+      "en": "It draws the screen that salespeople use every day"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Il modello ragiona e decide; le azioni le eseguono gli strumenti attraverso la regia, e la memoria conserva ciò che serve tra una conversazione e l'altra.",
+    "en": "The model reasons and decides; the tools carry out the actions through the control layer, and memory keeps what is needed between conversations."
+   }
+  }
+ },
+ {
+  "id": "DA1.4-2",
+  "origine": "autori",
+  "pillola": "P1.4",
+  "concetti": [
+   "C10",
+   "C11"
+  ],
+  "concetto_principale": "C10",
+  "segmento_aiuto": "senza_modello",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Un flusso automatico ha strumenti collegati al CRM e regole fisse, ma nessun modello linguistico. Arriva l'email di un lead: «Non ora, risentiamoci a marzo, dopo il budget». Che cosa succede?",
+    "en": "An automated flow has tools connected to the CRM and fixed rules, but no language model. A lead's email arrives: \"Not now, let's talk again in March, after the budget\". What happens?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "La classifica come risposta positiva e fissa subito una call, perché contiene un invito esplicito a risentirsi",
+      "en": "It files it as a positive reply and books a call at once, because it contains an explicit invitation to talk again"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Nessuno capisce il testo libero: l'email resta non classificata o finisce in una categoria sbagliata",
+      "en": "Nobody understands the free text: the email stays unclassified or lands in the wrong category"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Lo strumento CRM la legge e decide da solo, perché i dati del cliente sono già tutti nella sua scheda",
+      "en": "The CRM tool reads it and decides by itself, because the customer's data are already in the record"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "La gestisce come farebbe un agente completo: gli strumenti bastano per capire il testo e decidere",
+      "en": "It handles it like a full agent would: the tools are enough to understand the text and decide"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Senza modello nessuno interpreta il testo e decide: gli strumenti eseguono, le regole fisse seguono solo parole chiave previste.",
+    "en": "Without a model nothing interprets the text and decides: tools carry out actions, fixed rules only follow expected keywords."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Quale di questi compiti ha bisogno proprio del modello?",
+    "en": "Which of these tasks really needs the model?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Copiare l'email del lead dal modulo web al campo del CRM",
+      "en": "Copy the lead's email from the web form to the CRM field"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Riconoscere la parola «disiscrivimi» dentro un'email in arrivo",
+      "en": "Spot the word \"unsubscribe\" inside an incoming email"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Inviare un promemoria ogni lunedì alle nove",
+      "en": "Send a reminder every Monday at nine"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Contare le trattative nella fase «proposta»",
+      "en": "Count the deals in the \"proposal\" stage"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Capire se una risposta libera è interesse, rinvio o rifiuto",
+      "en": "Tell whether a free-text reply means interest, delay or refusal"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Il modello serve dove c'è testo libero da interpretare e una decisione da prendere; copiare campi, contare o programmare invii lo fanno regole e strumenti.",
+    "en": "The model is needed where there is free text to interpret and a decision to make; copying fields, counting or scheduling are done by rules and tools."
+   }
+  }
+ },
+ {
+  "id": "DA1.4-3",
+  "origine": "autori",
+  "pillola": "P1.4",
+  "concetti": [
+   "C10",
+   "C11",
+   "C12",
+   "C13"
+  ],
+  "concetto_principale": "C10",
+  "segmento_aiuto": "diagnosi",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Quale guasto NON si risolve passando a un modello più potente?",
+    "en": "Which fault is NOT fixed by switching to a more powerful model?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "L'agente sbaglia spesso a classificare il tono delle risposte",
+      "en": "The agent often gets the tone of replies wrong"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "L'agente scrive email confuse e piene di ripetizioni",
+      "en": "The agent writes confusing emails full of repetition"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "L'agente ragiona male sui casi pieni di eccezioni",
+      "en": "The agent reasons badly on cases full of exceptions"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Lo strumento CRM non ha il permesso di scrivere le note",
+      "en": "The CRM tool has no permission to write notes"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "L'agente sceglie male tra due azioni possibili",
+      "en": "The agent chooses badly between two possible actions"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Un permesso mancante è un problema dello strumento e degli accessi: nessun modello, per quanto potente, scrive dove non ha il permesso.",
+    "en": "A missing permission is a problem of the tool and of access rights: no model, however powerful, writes where it has no permission."
+   }
+  },
+  "livello2": {
+   "tipo": "contro-esempio",
+   "domanda": {
+    "it": "Il fornitore dice: «Passate al modello più grande e tutti i problemi dell'agente spariranno». Perché è un consiglio incompleto?",
+    "en": "The vendor says: \"Switch to the biggest model and all the agent's problems will go away\". Why is this advice incomplete?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché un modello più grande costa di più e risponde più lentamente: i guasti spariscono davvero, ma il prezzo di ogni singola chiamata diventa troppo alto per un uso quotidiano nel CRM.",
+      "en": "Because a bigger model costs more and answers more slowly: the faults really do go away, but the price of each single call becomes too high for daily use in the CRM."
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché il modello è solo uno dei componenti: strumenti descritti male, regia senza limiti, memoria assente o istruzioni sbagliate causano guasti che un modello più grande non ripara.",
+      "en": "Because the model is only one of the parts: badly described tools, a control layer without limits, missing memory or wrong instructions cause faults that a bigger model does not fix."
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Non è incompleto: tutti i guasti di un agente nascono dal modello, quindi un modello più grande e più recente risolve anche permessi mancanti, dati sporchi e strumenti rotti.",
+      "en": "It is not incomplete: every fault of an agent comes from the model, so a bigger and newer model also fixes missing permissions, dirty data and broken tools."
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Ogni componente ha i suoi guasti tipici: strumenti descritti male portano a scelte sbagliate, istruzioni troppo sicure portano a supposizioni, senza memoria si riparte da zero.",
+    "en": "Each part has its typical faults: badly described tools lead to wrong choices, over-confident instructions lead to assumptions, without memory you start from zero."
+   }
+  }
+ },
+ {
+  "id": "DA1.4-4",
+  "origine": "autori",
+  "pillola": "P1.4",
+  "concetti": [
+   "C11",
+   "C10"
+  ],
+  "concetto_principale": "C11",
+  "segmento_aiuto": "senza_strumenti",
+  "striscia": "definizione",
+  "livello1": {
+   "domanda": {
+    "it": "Google dice che gli strumenti permettono al modello di «sapere qualcosa o fare qualcosa». Quale coppia lo illustra bene?",
+    "en": "Google says tools let the model \"know something or do something\". Which pair shows this well?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Leggere lo storico nel CRM (fare) e inviare un'email (sapere)",
+      "en": "Reading the history in the CRM (do) and sending an email (know)"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Leggere lo storico nel CRM (sapere) e inviare un'email (fare)",
+      "en": "Reading the history in the CRM (know) and sending an email (do)"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Scegliere il tono (sapere) e la temperatura del modello (fare)",
+      "en": "Choosing the tone (know) and the model's temperature (do)"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Ricordare le chat (sapere) e ragionare sul piano da seguire (fare)",
+      "en": "Remembering the chats (know) and reasoning about the plan (do)"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Scrivere il prompt (sapere) e poi rileggerlo con calma (fare)",
+      "en": "Writing the prompt (know) and then rereading it calmly (do)"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Gli strumenti sono le mani dell'agente: alcuni servono a sapere (interrogare un CRM o un database), altri a fare (aggiornare una scheda, mandare email, passare un ticket a una persona).",
+    "en": "Tools are the agent's hands: some are for knowing (querying a CRM or a database), others for doing (updating a record, sending emails, handing a ticket to a person)."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Che cosa aggiungono gli strumenti al modello?",
+    "en": "What do tools add to the model?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Dati di addestramento",
+      "en": "Training data"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Più creatività",
+      "en": "More creativity"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Nessun errore",
+      "en": "No mistakes"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Più memoria",
+      "en": "More memory"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Accesso al mondo esterno",
+      "en": "Access to the outside world"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "f",
+     "testo": {
+      "it": "Un tono migliore",
+      "en": "A better tone"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "g",
+     "testo": {
+      "it": "Più parole",
+      "en": "More words"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Gli strumenti collegano il ragionamento del modello al mondo esterno (API, database, CRM) e permettono azioni che vanno oltre la scrittura di testo.",
+    "en": "Tools connect the model's reasoning to the outside world (APIs, databases, CRM) and allow actions that go beyond writing text."
+   }
+  }
+ },
+ {
+  "id": "DA1.4-5",
+  "origine": "autori",
+  "pillola": "P1.4",
+  "concetti": [
+   "C11",
+   "C12"
+  ],
+  "concetto_principale": "C11",
+  "segmento_aiuto": "senza_strumenti",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Un agente deve passare a un collega umano i ticket dei clienti più arrabbiati. Quali strumenti gli servono come minimo?",
+    "en": "An agent must hand the angriest customers' tickets to a human colleague. Which tools does it need at minimum?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Uno per leggere i ticket in arrivo e uno per assegnarli a una persona del team di assistenza",
+      "en": "One to read incoming tickets and one to assign them to a person in the support team"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Solo uno per leggere i ticket in arrivo: l'assegnazione al collega la può scrivere nella risposta finale",
+      "en": "Only one to read incoming tickets: it can write the hand-off to the colleague in its final answer"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Uno strumento di traduzione automatica, perché i clienti arrabbiati scrivono spesso in lingue diverse",
+      "en": "An automatic translation tool, because angry customers often write in different languages"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Nessuno strumento: basta scrivere nelle istruzioni «passa i ticket arrabbiati a un collega»",
+      "en": "No tool: it is enough to write \"pass angry tickets to a colleague\" in the instructions"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Sapere (leggere i ticket) e fare (assegnarli a una persona, il «passaggio a un umano» citato da OpenAI) sono due strumenti diversi; scriverlo nel testo non sposta nulla.",
+    "en": "Knowing (reading tickets) and doing (assigning them to a person, the \"hand-off to a human\" named by OpenAI) are two different tools; writing it in the text moves nothing."
+   }
+  },
+  "livello2": {
+   "tipo": "diagnosi",
+   "domanda": {
+    "it": "L'agente scrive «ticket assegnato», ma nel sistema il ticket non ha nessun assegnatario. Probabile causa?",
+    "en": "The agent writes \"ticket assigned\", but in the system the ticket has no assignee. Likely cause?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "L'agente ha assegnato il ticket alla persona sbagliata",
+      "en": "The agent assigned the ticket to the wrong person"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "La temperatura troppo bassa ha bloccato l'assegnazione",
+      "en": "A temperature that was too low blocked the assignment"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Manca lo strumento di assegnazione: l'agente l'ha solo scritto",
+      "en": "The assignment tool is missing: the agent only wrote it"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Il cliente ha chiuso il ticket prima dell'assegnazione",
+      "en": "The customer closed the ticket before it was assigned"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Il modello non ricordava più il nome del collega a cui passarlo",
+      "en": "The model no longer remembered the name of the colleague to pass it to"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Senza lo strumento giusto l'agente può solo dichiarare un'azione, non eseguirla: va controllato l'esito nel sistema, non la frase dell'agente.",
+    "en": "Without the right tool the agent can only claim an action, not carry it out: check the result in the system, not the agent's sentence."
+   }
+  }
+ },
+ {
+  "id": "DA1.4-6",
+  "origine": "autori",
+  "pillola": "P1.4",
+  "concetti": [
+   "C12",
+   "C10"
+  ],
+  "concetto_principale": "C12",
+  "segmento_aiuto": "orchestrazione_memoria",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Un agente di outreach deve fermarsi dopo 10 passi e chiedere l'approvazione prima di ogni invio. Chi deve far rispettare queste regole?",
+    "en": "An outreach agent must stop after 10 steps and ask for approval before each send. What must enforce these rules?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Le istruzioni, scrivendo «fermati dopo 10 passi» nel prompt",
+      "en": "The instructions, by writing \"stop after 10 steps\" in the prompt"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Lo strumento email, che conta da solo i messaggi inviati",
+      "en": "The email tool, which counts the sent messages by itself"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Il modello, che sa da solo quando è il momento di fermarsi",
+      "en": "The model, which knows by itself when it is time to stop"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "L'orchestrazione, il codice che gestisce ciclo, limiti e pause",
+      "en": "The orchestration, the code that runs the loop, limits and pauses"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "La memoria a lungo termine, che ricorda tutti gli invii passati",
+      "en": "Long-term memory, which remembers all past sends"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "La regia (orchestrazione) gestisce il ciclo e lo stato e decide quando ragionare, quando usare uno strumento e quando fermarsi per un'approvazione umana.",
+    "en": "The control layer (orchestration) runs the loop and the state and decides when to reason, when to use a tool and when to stop for human approval."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché non basta scrivere quei limiti nelle istruzioni?",
+    "en": "Why is it not enough to write those limits in the instructions?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché il modello può ignorarli o sbagliare: un limite scritto nel codice della regia vale sempre",
+      "en": "Because the model can ignore them or get them wrong: a limit written in the control code always applies"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché le istruzioni lunghe occupano molti token e il modello le dimentica dopo i primi passi del ciclo",
+      "en": "Because long instructions take up many tokens and the model forgets them after the first steps of the loop"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché le istruzioni si possono scrivere solo in inglese e i limiti scritti in italiano non vengono capiti",
+      "en": "Because instructions can only be written in English and limits written in Italian are not understood"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Basta invece: un limite scritto chiaramente nelle istruzioni viene sempre rispettato dal modello",
+      "en": "It is enough: a limit written clearly in the instructions is always respected by the model"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Il comportamento del modello è probabilistico: i limiti critici vanno applicati dalla regia, fuori dal modello, qualunque cosa il modello «voglia».",
+    "en": "The model's behaviour is probabilistic: critical limits must be enforced by the control layer, outside the model, whatever the model \"wants\"."
+   }
+  }
+ },
+ {
+  "id": "DA1.4-7",
+  "origine": "autori",
+  "pillola": "P1.4",
+  "concetti": [
+   "C12",
+   "C10"
+  ],
+  "concetto_principale": "C12",
+  "segmento_aiuto": "orchestrazione_memoria",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Quale di questi NON è un compito dell'orchestrazione?",
+    "en": "Which of these is NOT a job of the orchestration?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Tenere lo stato del lavoro",
+      "en": "Keeping the work state"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Gestire il ciclo",
+      "en": "Running the loop"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Chiamare lo strumento",
+      "en": "Calling the tool"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Fermare l'agente",
+      "en": "Stopping the agent"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Applicare i limiti",
+      "en": "Enforcing limits"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "F",
+     "testo": {
+      "it": "Pausa per approvazione",
+      "en": "Pausing for approval"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "G",
+     "testo": {
+      "it": "Scrivere il testo dell'email",
+      "en": "Writing the email text"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Scrivere il testo è lavoro del modello; la regia fa girare il ciclo, tiene lo stato, chiama gli strumenti, applica limiti e pause.",
+    "en": "Writing the text is the model's job; the control layer runs the loop, keeps the state, calls the tools, applies limits and pauses."
+   }
+  },
+  "livello2": {
+   "tipo": "diagnosi",
+   "domanda": {
+    "it": "Un agente richiama lo stesso strumento all'infinito e consuma il budget in una notte. Che cosa mancava?",
+    "en": "An agent calls the same tool over and over and burns the budget in one night. What was missing?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Istruzioni più chiare su quando smettere di provare",
+      "en": "Clearer instructions on when to stop trying"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Un limite di passi applicato dall'orchestrazione",
+      "en": "A step limit enforced by the orchestration"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Un modello con una finestra di contesto più ampia",
+      "en": "A model with a bigger context window"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Una temperatura più alta, per variare le azioni",
+      "en": "A higher temperature, to vary the actions"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Più strumenti tra cui scegliere a ogni passo",
+      "en": "More tools to choose from at each step"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Contro i cicli infiniti serve un limite di passi gestito dalla regia; le istruzioni aiutano ma non garantiscono l'arresto.",
+    "en": "Against endless loops you need a step limit managed by the control layer; instructions help but do not guarantee a stop."
+   }
+  }
+ },
+ {
+  "id": "DA1.4-8",
+  "origine": "autori",
+  "pillola": "P1.4",
+  "concetti": [
+   "C13",
+   "C12"
+  ],
+  "concetto_principale": "C13",
+  "segmento_aiuto": "orchestrazione_memoria",
+  "striscia": "definizione",
+  "livello1": {
+   "domanda": {
+    "it": "Qual è la differenza tra sessione e memoria a lungo termine?",
+    "en": "What is the difference between a session and long-term memory?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "La sessione sta nel CRM, la memoria sta dentro il modello",
+      "en": "The session lives in the CRM, the memory lives inside the model"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "La sessione tiene la chat in corso; la memoria conserva l'essenziale tra le chat",
+      "en": "The session holds the current chat; memory keeps the essentials between chats"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "La sessione è per i clienti, la memoria è per i venditori",
+      "en": "The session is for customers, the memory is for salespeople"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Sono la stessa cosa: il modello ricorda tutto da solo",
+      "en": "They are the same thing: the model remembers everything by itself"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "La memoria si cancella a fine chat, mentre la sessione resta salvata per sempre nel CRM",
+      "en": "Memory is erased at the end of the chat, while the session stays saved in the CRM forever"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Google: la sessione è il contenitore di un'intera conversazione (la scrivania del progetto), la memoria è l'archivio ordinato che dura tra una sessione e l'altra.",
+    "en": "Google: the session is the container of a whole conversation (the project desk), memory is the organised filing cabinet that lasts from one session to the next."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché un agente ha bisogno di memoria e contesto, se il modello è già «intelligente»?",
+    "en": "Why does an agent need memory and context, if the model is already \"smart\"?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché il modello ricorda solo le ultime dieci conversazioni avute con ciascun cliente del CRM",
+      "en": "Because the model only remembers the last ten conversations it had with each CRM customer"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché la memoria rende il modello più veloce a scrivere le risposte",
+      "en": "Because memory makes the model faster at writing answers"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Non ne ha bisogno: il modello impara da ogni conversazione e la ricorda",
+      "en": "It does not: the model learns from every conversation and remembers it"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Perché il modello non ricorda nulla tra una chiamata e l'altra: sa solo ciò che riceve",
+      "en": "Because the model remembers nothing between calls: it only knows what it receives"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Perché senza memoria il modello non sa più rispondere in italiano",
+      "en": "Because without memory the model can no longer answer in Italian"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "I modelli sono «senza stato» (stateless): fuori dall'addestramento sanno solo ciò che è nella finestra di contesto della singola chiamata.",
+    "en": "Models are \"stateless\": apart from their training they only know what is in the context window of that single call."
+   }
+  }
+ },
+ {
+  "id": "DA1.4-9",
+  "origine": "autori",
+  "pillola": "P1.4",
+  "concetti": [
+   "C13",
+   "C12"
+  ],
+  "concetto_principale": "C13",
+  "segmento_aiuto": "orchestrazione_memoria",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Una cliente scrive all'assistenza il lunedì: «Preferisco essere contattata solo via email». Il giovedì l'agente la chiama al telefono. Quale scelta di progetto avrebbe evitato l'errore?",
+    "en": "On Monday a customer writes to support: \"I prefer to be contacted by email only\". On Thursday the agent phones her. Which design choice would have avoided the mistake?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Tenere aperta la stessa sessione di conversazione per tutta la settimana, così l'agente ha davanti l'intera chat del lunedì quando decide come contattare la cliente il giovedì.",
+      "en": "Keeping the same conversation session open all week, so the agent has the whole Monday chat in front of it when it decides how to contact the customer on Thursday."
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Usare un modello più recente, che ricorda da solo le preferenze di ogni cliente dopo averle lette una volta, senza bisogno di salvarle da nessuna parte nel sistema aziendale.",
+      "en": "Using a newer model, which remembers each customer's preferences by itself after reading them once, without needing to save them anywhere in the company's system."
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Salvare la preferenza nella memoria a lungo termine (o in un campo del CRM) e rimetterla nel contesto ogni volta che l'agente prepara un contatto con quella cliente.",
+      "en": "Saving the preference in long-term memory (or in a CRM field) and putting it back into the context every time the agent prepares to contact that customer."
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Ciò che deve durare tra le conversazioni va nella memoria lunga e va rimesso nel contesto quando serve; una sessione infinita si appesantisce, e il modello da solo non ricorda.",
+    "en": "What must last between conversations goes into long-term memory and is put back into the context when needed; an endless session gets heavy, and the model alone does not remember."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Quale informazione merita di finire nella memoria a lungo termine?",
+    "en": "Which piece of information deserves to go into long-term memory?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "L'intera trascrizione di ogni chat, parola per parola",
+      "en": "The full transcript of every chat, word for word"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Il numero di carta di credito letto in una chat",
+      "en": "The credit card number read in a chat"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "La preferenza della cliente sul canale di contatto",
+      "en": "The customer's preferred contact channel"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Il meteo del giorno in cui la cliente ha scritto",
+      "en": "The weather on the day the customer wrote"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Le bozze scartate dall'agente durante il lavoro",
+      "en": "The drafts the agent threw away while working"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "La memoria è un archivio ordinato: si conserva l'essenziale e utile, non tutto, e mai dati sensibili senza necessità.",
+    "en": "Memory is an organised filing cabinet: you keep what is essential and useful, not everything, and never sensitive data without need."
+   }
+  }
+ },
+ {
+  "id": "DA1.5-1",
+  "origine": "autori",
+  "pillola": "P1.5",
+  "concetti": [
+   "C14",
+   "C16"
+  ],
+  "concetto_principale": "C14",
+  "segmento_aiuto": "prezzo",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Un manager dice: «Diamo all'agente piena autonomia su tutto il CRM: più è libero, più è utile, e i rischi restano gli stessi». Che cosa non va?",
+    "en": "A manager says: \"Let's give the agent full autonomy over the whole CRM: the freer it is, the more useful it is, and the risks stay the same\". What is wrong?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Più autonomia aumenta soltanto i costi delle chiamate al modello, mentre il rischio resta più o meno lo stesso",
+      "en": "More autonomy only raises the cost of calls to the model, while the risk stays more or less the same"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Più autonomia e più potere aumentano l'utilità ma anche il rischio: le fonti lo dicono in modo esplicito",
+      "en": "More autonomy and power raise usefulness but also risk: the sources say so explicitly"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "L'autonomia piena è vietata dai fornitori di CRM, che bloccano gli agenti oltre un certo numero di azioni",
+      "en": "Full autonomy is banned by CRM vendors, which block agents beyond a certain number of actions"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Niente: un agente molto autonomo sbaglia meno, perché non deve aspettare le decisioni delle persone",
+      "en": "Nothing: a very autonomous agent makes fewer mistakes, because it does not wait for people's decisions"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Google: più autonomia e potere, che danno utilità, sono legati direttamente a più rischio. Ogni grammo di potere concesso porta con sé una misura di rischio.",
+    "en": "Google: more autonomy and power, which bring usefulness, are directly linked to more risk. Every ounce of power you grant brings a matching measure of risk."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Quale scelta segue l'approccio ibrido raccomandato da Google?",
+    "en": "Which choice follows the hybrid approach recommended by Google?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Il modello decide tutto e una persona rilegge i risultati a fine mese",
+      "en": "The model decides everything and a person reviews the results at month end"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Le regole decidono tutto e il modello controlla le regole",
+      "en": "The rules decide everything and the model checks the rules"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Il modello decide dentro regole di business fisse, scritte nel codice",
+      "en": "The model decides within fixed business rules written in code"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Il modello scrive da solo le regole di business che deve seguire",
+      "en": "The model writes the business rules it must follow by itself"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Si lascia l'agente libero, cliccando «always allow» sulle conferme",
+      "en": "The agent is left free, by clicking \"always allow\" on confirmations"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "WP1 raccomanda che il ragionamento non deterministico del modello sia governato da regole di business fisse; «always allow» toglie proprio i punti di controllo.",
+    "en": "WP1 recommends that the model's non-deterministic reasoning be governed by fixed business rules; \"always allow\" removes exactly the checkpoints."
+   }
+  }
+ },
+ {
+  "id": "DA1.5-2",
+  "origine": "autori",
+  "pillola": "P1.5",
+  "concetti": [
+   "C15",
+   "C14"
+  ],
+  "concetto_principale": "C15",
+  "segmento_aiuto": "workflow_o_agente",
+  "striscia": "definizione",
+  "livello1": {
+   "domanda": {
+    "it": "Che cosa distingue un workflow con LLM da un agente?",
+    "en": "What sets an LLM workflow apart from an agent?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Nel workflow c'è un solo modello; nell'agente ce ne sono sempre diversi",
+      "en": "In the workflow there is one model; in the agent there are always several"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Il workflow lavora di notte, l'agente durante l'orario d'ufficio",
+      "en": "The workflow works at night, the agent during office hours"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Il workflow non usa mai un modello linguistico, l'agente sì",
+      "en": "The workflow never uses a language model, the agent does"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Nel workflow i passi li decidono le persone; nell'agente il modello",
+      "en": "In the workflow people decide the steps; in the agent the model does"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Nessuna differenza: è lo stesso sistema con un nome più moderno",
+      "en": "No difference: it is the same system with a more modern name"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "La domanda chiave è chi decide i passi: nel workflow con LLM la sequenza è fissata da chi progetta e il modello svolge alcuni passi; nell'agente il modello pianifica ed esegue.",
+    "en": "The key question is who decides the steps: in an LLM workflow the sequence is set by the designer and the model does some steps; in an agent the model plans and acts."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Che cosa si guadagna, in cambio, scegliendo il workflow?",
+    "en": "What do you gain in return by choosing the workflow?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Più velocità",
+      "en": "More speed"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Prevedibilità",
+      "en": "Predictability"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Più creatività",
+      "en": "More creativity"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Nessun errore",
+      "en": "No mistakes"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Meno dati necessari",
+      "en": "Less data needed"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "f",
+     "testo": {
+      "it": "Più autonomia",
+      "en": "More autonomy"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "g",
+     "testo": {
+      "it": "Zero controlli",
+      "en": "No checks needed"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "È il compromesso descritto da Google: la flessibilità del modello contro il controllo prevedibile delle regole scritte nel codice.",
+    "en": "It is the trade-off Google describes: the model's flexibility against the predictable control of rules written in code."
+   }
+  }
+ },
+ {
+  "id": "DA1.5-3",
+  "origine": "autori",
+  "pillola": "P1.5",
+  "concetti": [
+   "C15",
+   "C14"
+  ],
+  "concetto_principale": "C15",
+  "segmento_aiuto": "workflow_o_agente",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Flusso n8n: ogni mattina arrivano i nuovi contatti, un nodo AI traduce la richiesta in una ricerca, poi seguono filtro, deduplica e foglio di calcolo. I passi sono sempre gli stessi. Che cos'è?",
+    "en": "An n8n flow: every morning new contacts arrive, an AI node turns the request into a search, then come filter, deduplication and spreadsheet. The steps are always the same. What is it?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Un workflow con LLM: i passi sono fissi e il modello svolge un solo compito al loro interno",
+      "en": "An LLM workflow: the steps are fixed and the model does one task inside them"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Un agente di livello base, perché usa un modello linguistico e lavora da solo ogni mattina senza persone",
+      "en": "A basic agent, because it uses a language model and works alone every morning with no people"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Un sistema multi-agente, perché ogni nodo del flusso è in realtà un agente specializzato e diverso",
+      "en": "A multi-agent system, because each node of the flow is really a different specialised agent"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Un semplice chatbot, perché alla fine il risultato è solo testo scritto dentro un foglio di calcolo",
+      "en": "A simple chatbot, because in the end the result is only text written in a spreadsheet"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Chi decide i passi? Le persone, una volta per tutte. Il modello è un nodo dentro un flusso fisso: un «pizzico di AI» in un processo esistente.",
+    "en": "Who decides the steps? People, once and for all. The model is one node in a fixed flow: a \"sprinkle of AI\" in an existing process."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Che cosa dovrebbe cambiare perché diventi un agente?",
+    "en": "What would have to change for it to become an agent?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Aggiungere altri tre nodi AI, ciascuno con un compito, nello stesso flusso fisso",
+      "en": "Add three more AI nodes, each with one task, to the same fixed flow"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Farlo girare ogni ora invece che ogni mattina",
+      "en": "Run it every hour instead of every morning"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Il modello dovrebbe scegliere strumenti e passi, e cambiare piano",
+      "en": "The model should choose tools and steps, and change plan"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Usare un modello più grande nel nodo che traduce la richiesta",
+      "en": "Use a bigger model in the node that translates the request"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Sostituire il foglio di calcolo con un vero CRM aziendale",
+      "en": "Replace the spreadsheet with a real company CRM"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Più nodi AI in un flusso fisso restano un workflow; diventa agente quando il modello decide quali passi fare e con quali strumenti.",
+    "en": "More AI nodes in a fixed flow are still a workflow; it becomes an agent when the model decides which steps to take and with which tools."
+   }
+  }
+ },
+ {
+  "id": "DA1.5-4",
+  "origine": "autori",
+  "pillola": "P1.5",
+  "concetti": [
+   "C15",
+   "C14"
+  ],
+  "concetto_principale": "C15",
+  "segmento_aiuto": "workflow_o_agente",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Un fornitore chiama «agente» un flusso con 12 passi fissi in cui il modello scrive solo l'oggetto dell'email. Che cosa rispondi?",
+    "en": "A vendor calls a flow with 12 fixed steps, where the model only writes the email subject line, an \"agent\". What do you reply?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "È un agente, ma di livello basso perché usa un solo modello",
+      "en": "It is an agent, but a low-level one because it uses a single model"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "È un workflow con LLM: i passi li ha decisi chi l'ha progettato",
+      "en": "It is an LLM workflow: the steps were decided by whoever designed it"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "È un sistema multi-agente, perché i passi sono più di dieci",
+      "en": "It is a multi-agent system, because there are more than ten steps"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "È un agente, perché ogni flusso automatico che lavora senza persone lo è",
+      "en": "It is an agent, because every automatic flow that works without people is one"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Non è AI, perché il modello scrive soltanto l'oggetto",
+      "en": "It is not AI, because the model only writes the subject line"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Il nome non conta: se la sequenza è fissa e il modello svolge un compito al suo interno, è un workflow con LLM.",
+    "en": "The name does not matter: if the sequence is fixed and the model does one task inside it, it is an LLM workflow."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché la distinzione conta per chi compra?",
+    "en": "Why does the distinction matter to the buyer?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché un agente costa sempre il doppio di un workflow, e quindi il prezzo proposto dovrebbe essere molto più basso",
+      "en": "Because an agent always costs twice as much as a workflow, so the proposed price should be much lower"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché solo i workflow si possono collegare a un CRM, mentre gli agenti lavorano sempre isolati dai sistemi aziendali",
+      "en": "Because only workflows can connect to a CRM, while agents always work cut off from company systems"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché cambiano rischi e controlli: un agente che decide i passi richiede limiti, test e supervisione più forti",
+      "en": "Because risks and checks change: an agent that decides the steps needs stronger limits, tests and supervision"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Non conta: workflow e agenti hanno gli stessi rischi e richiedono gli stessi controlli, cambia solo il nome",
+      "en": "It does not: workflows and agents have the same risks and need the same checks, only the name changes"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Più autonomia significa più flessibilità ma meno prevedibilità e più rischio: sapere che cosa si compra decide quali controlli servono.",
+    "en": "More autonomy means more flexibility but less predictability and more risk: knowing what you buy decides which checks you need."
+   }
+  }
+ },
+ {
+  "id": "DA1.5-5",
+  "origine": "autori",
+  "pillola": "P1.5",
+  "concetti": [
+   "C16",
+   "C14"
+  ],
+  "concetto_principale": "C16",
+  "segmento_aiuto": "livello_minimo",
+  "striscia": "definizione",
+  "livello1": {
+   "domanda": {
+    "it": "Il principio del «livello minimo sufficiente» dice di scegliere...",
+    "en": "The \"minimum sufficient level\" principle says to choose..."
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Il modello più piccolo",
+      "en": "The smallest model"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Sempre un agente",
+      "en": "Always an agent"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Il fornitore più noto",
+      "en": "The best-known vendor"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Il sistema più economico",
+      "en": "The cheapest system"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "L'autonomia che basta",
+      "en": "Just enough autonomy"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "F",
+     "testo": {
+      "it": "L'agente più veloce",
+      "en": "The fastest agent"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "G",
+     "testo": {
+      "it": "Sempre il multi-agente",
+      "en": "Always multi-agent"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Si sceglie il grado di autonomia più basso che risolve il problema: le fonti invitano a partire semplici e a crescere solo quando serve.",
+    "en": "You choose the lowest degree of autonomy that solves the problem: the sources advise starting simple and growing only when needed."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Secondo OpenAI, quando una soluzione a regole fisse può bastare?",
+    "en": "According to OpenAI, when can a fixed-rules solution be enough?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Quando mancano decisioni complesse, regole ingestibili e testo libero",
+      "en": "When there are no complex decisions, unmanageable rules or free text"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Quando il volume di richieste è basso, anche se le decisioni restano complesse",
+      "en": "When the volume of requests is low, even if the decisions stay complex"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Quando l'azienda ha meno di cento clienti registrati nel CRM",
+      "en": "When the company has fewer than a hundred customers in the CRM"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Mai: oggi ogni processo aziendale merita il suo agente dedicato",
+      "en": "Never: today every business process deserves its own agent"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Quando il fornitore offre uno sconto sul prezzo del modello",
+      "en": "When the vendor offers a discount on the model's price"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "OpenAI: prima di costruire un agente verifica i tre criteri (decisioni complesse, regole difficili da mantenere, molti dati non strutturati); altrimenti «una soluzione deterministica può bastare».",
+    "en": "OpenAI: before building an agent check the three criteria (complex decisions, rules hard to maintain, lots of unstructured data); otherwise \"a deterministic solution may suffice\"."
+   }
+  }
+ },
+ {
+  "id": "DA1.5-6",
+  "origine": "autori",
+  "pillola": "P1.5",
+  "concetti": [
+   "C16",
+   "C14"
+  ],
+  "concetto_principale": "C16",
+  "segmento_aiuto": "livello_minimo",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Quale progetto viola il principio del livello minimo sufficiente?",
+    "en": "Which project breaks the minimum sufficient level principle?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Una regola fissa che sposta nella fase «persa» le trattative senza attività da 90 giorni e avvisa il venditore responsabile, senza alcun modello linguistico coinvolto nel processo.",
+      "en": "A fixed rule that moves deals with no activity for 90 days to the \"lost\" stage and alerts the salesperson in charge, with no language model involved in the process."
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Un agente che gestisce le richieste di rimborso valutando caso per caso le eccezioni, con l'approvazione di una persona sopra una certa cifra stabilita dall'azienda.",
+      "en": "An agent that handles refund requests by weighing exceptions case by case, with a person's approval above a certain amount set by the company."
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Un sistema con tre agenti che si coordinano per spedire ogni lunedì lo stesso report vendite agli stessi manager, con i dati presi sempre dalla stessa tabella del CRM.",
+      "en": "A system of three agents that coordinate to send the same sales report to the same managers every Monday, with the data always taken from the same CRM table."
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Un report sempre uguale non ha decisioni complesse né testo libero: bastano regole. Il rimborso con eccezioni è proprio il caso da agente citato da OpenAI.",
+    "en": "A report that never changes has no complex decisions and no free text: rules are enough. A refund with exceptions is exactly the agent use case named by OpenAI."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Come andrebbe rifatto quel progetto?",
+    "en": "How should that project be redone?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Con un solo agente al posto di tre, per ridurre i costi",
+      "en": "With a single agent instead of three, to cut costs"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Con tre agenti ma un modello più economico per ciascuno",
+      "en": "With three agents but a cheaper model for each"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Aggiungendo un quarto agente che controlla gli altri tre",
+      "en": "By adding a fourth agent that checks the other three"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Con un flusso a regole programmato, senza modello",
+      "en": "With a scheduled rules-based flow, without a model"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Lasciando i tre agenti, ma con «always allow» attivo",
+      "en": "Keeping the three agents, but with \"always allow\" on"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Si parte dal livello più basso che risolve il compito: un'attività sempre uguale è un flusso fisso programmato.",
+    "en": "You start from the lowest level that solves the task: a job that never changes is a fixed, scheduled flow."
+   }
+  }
+ },
+ {
+  "id": "DA1.6-1",
+  "origine": "autori",
+  "pillola": "P1.6",
+  "concetti": [
+   "C17",
+   "C18"
+  ],
+  "concetto_principale": "C17",
+  "segmento_aiuto": "volume",
+  "striscia": "definizione",
+  "livello1": {
+   "domanda": {
+    "it": "Quale insieme di caratteristiche rende un compito CRM adatto a un agente?",
+    "en": "Which set of features makes a CRM task a good fit for an agent?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Volume alto e dati disponibili nel CRM, anche se l'esito non si può misurare",
+      "en": "High volume and data available in the CRM, even if the result cannot be measured"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Compito raro, molto delicato e con grande impatto economico",
+      "en": "A rare, very sensitive task with a big financial impact"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Volume alto, criteri chiari, esito misurabile, dati puliti e disponibili",
+      "en": "High volume, clear criteria, measurable result, clean and available data"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Qualunque compito, purché il fornitore garantisca i risultati",
+      "en": "Any task, as long as the vendor guarantees the results"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Compiti già automatizzati alla perfezione con regole fisse",
+      "en": "Tasks already automated perfectly with fixed rules"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Le fonti indicano volume, criteri chiari, metriche misurabili, dati disponibili e con permesso d'uso, e basso rischio per il primo progetto pilota.",
+    "en": "The sources point to volume, clear criteria, measurable metrics, data that are available and allowed to be used, and low risk for the first pilot."
+   }
+  },
+  "livello2": {
+   "tipo": "contro-esempio",
+   "domanda": {
+    "it": "Quale compito, invece, richiede più cautela e un controllo umano prima dell'azione?",
+    "en": "Which task, instead, needs more caution and a human check before the action?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Riassumere le call di vendita e proporre l'aggiornamento della fase, che il venditore conferma con un clic",
+      "en": "Summarising sales calls and suggesting the stage update, which the salesperson confirms with a click"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Inviare ai clienti strategici un'offerta con uno sconto non ancora approvato dal responsabile",
+      "en": "Sending key customers an offer with a discount not yet approved by the manager"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Smistare per argomento le richieste di assistenza in arrivo, con un controllo a campione ogni settimana",
+      "en": "Sorting incoming support requests by topic, with a sample check every week"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Classificare le risposte alle campagne in categorie già definite e misurare l'accuratezza ogni settimana",
+      "en": "Classifying campaign replies into set categories and measuring accuracy every week"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Le cautele riguardano soldi, reputazione e dati personali: un'offerta economica non autorizzata a un cliente importante è il caso tipico da far approvare.",
+    "en": "Caution is about money, reputation and personal data: an unauthorised money offer to an important customer is the typical case that needs approval."
+   }
+  }
+ },
+ {
+  "id": "DA1.6-2",
+  "origine": "autori",
+  "pillola": "P1.6",
+  "concetti": [
+   "C18",
+   "C17"
+  ],
+  "concetto_principale": "C18",
+  "segmento_aiuto": "dati",
+  "striscia": "definizione",
+  "livello1": {
+   "domanda": {
+    "it": "Un fornitore CRM scrive: «Se il tuo CRM è un disastro, un'AI ti aiuterà solo a sbagliare più in fretta». Che cosa significa?",
+    "en": "A CRM vendor writes: \"If your CRM is a mess, an AI will just help you make mistakes faster\". What does it mean?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Un agente ripulisce da solo i dati sbagliati mentre lavora",
+      "en": "An agent cleans up wrong data by itself while it works"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Prima di usare un agente bisogna cambiare software CRM",
+      "en": "Before using an agent you must change CRM software"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "I dati del CRM sono una precondizione: l'agente agisce su quelli",
+      "en": "CRM data are a precondition: the agent acts on them"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "L'AI funziona solo con CRM recenti e di marca molto nota",
+      "en": "AI only works with recent, very well-known CRM brands"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "I dati contano poco: conta soprattutto il modello linguistico che si sceglie",
+      "en": "Data matter little: what matters most is the language model you choose"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Un'AI vale quanto i dati di cui si nutre: dati sbagliati diventano azioni sbagliate, più veloci e più numerose. Il consiglio della fonte è «pulisci i dati adesso».",
+    "en": "An AI is only as good as the data it feeds on: wrong data become wrong actions, faster and more of them. The source's advice is \"clean your data now\"."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Da dove nasce, di solito, il disordine dei dati CRM?",
+    "en": "Where does messy CRM data usually come from?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Dal software CRM stesso",
+      "en": "The CRM software itself"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Da troppi campi nel CRM",
+      "en": "Too many CRM fields"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Da server troppo lenti",
+      "en": "Servers that are too slow"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Dall'inserimento manuale",
+      "en": "Manual data entry"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Da import di fogli Excel",
+      "en": "Spreadsheet imports"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "f",
+     "testo": {
+      "it": "Dai colori dell'interfaccia",
+      "en": "The interface colours"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "g",
+     "testo": {
+      "it": "Da troppi clienti felici",
+      "en": "Too many happy customers"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "La fonte elenca chiamate non registrate, note incomplete, contatti non aggiornati da mesi: il problema è «l'inserimento dei dati, non il software».",
+    "en": "The source lists unlogged calls, incomplete notes, contacts not updated for months: the problem is \"data entry and not the actual software\"."
+   }
+  }
+ },
+ {
+  "id": "DA1.6-3",
+  "origine": "autori",
+  "pillola": "P1.6",
+  "concetti": [
+   "C18",
+   "C17"
+  ],
+  "concetto_principale": "C18",
+  "segmento_aiuto": "dati",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Prima di lanciare un agente di nurturing, il CRM ha 4.000 contatti duplicati e molte email non aggiornate da due anni. Qual è la mossa giusta?",
+    "en": "Before launching a nurturing agent, the CRM has 4,000 duplicate contacts and many emails not updated for two years. What is the right move?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Lanciare subito su tutti i 4.000 contatti e correggere i dati man mano che arrivano rimbalzi, disiscrizioni e lamentele",
+      "en": "Launch right away on all 4,000 contacts and fix the data as bounces, unsubscribes and complaints come in"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Comprare una nuova lista di contatti da un fornitore esterno, così si evita il problema dei dati vecchi del CRM",
+      "en": "Buy a new contact list from an outside supplier, so you avoid the problem of the CRM's old data"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Lanciare subito: l'agente riconosce da solo duplicati ed email vecchie e le salta senza bisogno di controlli",
+      "en": "Launch right away: the agent spots duplicates and old emails by itself and skips them with no checks needed"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Pulire prima i dati (duplicati, email vecchie, consensi) e partire con una sola automazione su un segmento affidabile",
+      "en": "Clean the data first (duplicates, old emails, consents) and start with one automation on a reliable segment"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "«Pulisci i dati adesso» e «parti da una cosa sola» sono due consigli espliciti della fonte. Email vecchie e duplicati portano a invii sbagliati e rovinano la reputazione.",
+    "en": "\"Clean your data now\" and \"start with one thing\" are two explicit pieces of advice from the source. Old emails and duplicates lead to wrong sends and damage your reputation."
+   }
+  },
+  "livello2": {
+   "tipo": "diagnosi",
+   "domanda": {
+    "it": "Dopo il lancio, molti contatti ricevono la stessa email due volte. Qual è la causa più probabile?",
+    "en": "After the launch, many contacts get the same email twice. What is the most likely cause?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Un limite di passi troppo alto nell'orchestrazione",
+      "en": "A step limit set too high in the orchestration"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": null
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Contatti duplicati nel CRM, trattati come persone diverse",
+      "en": "Duplicate contacts in the CRM, treated as different people"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": null
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Una temperatura troppo alta nella scrittura dell'email",
+      "en": "A temperature set too high when writing the email"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Il modello ricorda male le email che ha già inviato ai contatti",
+      "en": "The model misremembers the emails it already sent to the contacts"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": null
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Sono stati i clienti a chiedere di riceverla due volte",
+      "en": "The customers asked to receive it twice"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": null
+    }
+   ],
+   "perche": {
+    "it": "Dati duplicati producono azioni duplicate: l'agente agisce su ciò che trova nel CRM.",
+    "en": "Duplicate data produce duplicate actions: the agent acts on what it finds in the CRM."
    }
   }
  }
