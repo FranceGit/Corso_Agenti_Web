@@ -1,5 +1,62 @@
 # PROGRESSI — Corso Agenti Web
 
+## Stato al 16/11/2026 — cantiere CONTENUTI-REV (segnalazioni France 4, 8, 9, 10)
+Commit `8197bd4` (domande) e `4e9a195` (lezioni, scalette, bibliografia). Perimetro: contenuti. Non toccati webapp, server, `corso/modello.py` (il campo `glossario` c'era già, ALPHA-FIX `74f9e7b`).
+
+### Dove si corregge (vincolante)
+- **Domande autori**: nei lotti `strumenti/domande_autori/lotto_*.json`, poi `python strumenti/inserisci_domande.py strumenti/domande_autori/*.json`.
+- **Domande benchmark**: il docstring di `estrai_corso.py` dice che la loro fonte di verità è `dati/corso_v1.json`. Lì vivono inglese, classificazione, glossario e le opzioni aggiunte con la regola delle bande. Il documento benchmark ha solo l'italiano originale. Per questo la correzione va nel JSON e, per le opzioni che esistono anche nel documento, con lo stesso testo italiano nel documento (`F:\A\CD\Game_Development\000_PROGETTO\CORSO_BENCHMARK_STRUTTURA.md`, con una nota in testa). L'estrattore controlla l'impronta (testo della domanda, corretta, tipo di livello 2), che resta invariata.
+- **Pillole** (obiettivo, scaletta, animazione): documento (IT) + `strumenti/traduzioni_en_pillole.json` (EN), poi `python strumenti/estrai_corso.py <documento>`.
+- **Lezioni**: `dati/lezioni/*.json` (sono già file di origine).
+
+### Fatto
+- **(4) Distrattori**, rivisti su tutte le 298 domande: 616 riscritti in IT+EN (386 benchmark, 230 autori), con il tipo riassegnato (76 cambiano tipo) e 9 riclassificati senza riscrittura. Riempitivi tolti: meteo, colori di logo, dashboard e interfaccia, «il CRM si blocca», emoji, voto su Google, giorno della settimana. Al loro posto c'è un fraintendimento preciso. Risposte corrette, testi delle domande benchmark, lettere e numero delle opzioni sono invariati. Composizione 2/2/2 sui livelli a 7 opzioni e fasce del budget di lettura rispettate. Anti-indizio (corretta più lunga) a 0,160 (limite 0,30). Riscritte anche le spiegazioni per opzione dei distrattori cambiati. Dei 386 distrattori benchmark, 381 sono aggiornati anche nel documento; gli altri esistono solo nel JSON (regola delle bande).
+
+  | Modulo | Distrattori riscritti | Riclassificati | Domande con distrattori nuovi | Domande con glossario (voci) |
+  |---|---|---|---|---|
+  | M1 | 93 | 0 | 41/51 | 49 (102) |
+  | M2 | 72 | 1 | 23/26 | 26 (51) |
+  | M3 | 76 | 0 | 25/33 | 33 (65) |
+  | M4 | 68 | 1 | 27/35 | 33 (62) |
+  | M5 | 63 | 2 | 27/37 | 37 (66) |
+  | M6 | 69 | 0 | 23/26 | 21 (49) |
+  | M7 | 68 | 1 | 34/40 | 40 (92) |
+  | M8 | 107 | 4 | 44/50 | 48 (86) |
+  | **Totale** | **616** | **9** | **244/298** | **287 (573)** |
+
+  Dieci esempi prima → dopo (tipo):
+  1. DA1.4-9 L2 d: «Il meteo del giorno in cui la cliente ha scritto» → «L'umore della cliente in quella singola chat» (poco: conserva un dato passeggero invece di una preferenza stabile).
+  2. D2.1-a L1 C: «La lunghezza massima» (errata) → «Il formato di uscita» (poco: confonde il formato con un vincolo di comportamento).
+  3. D3.1-a L1 D: «Il colore della dashboard» (poco) → «Come il passo ragiona al suo interno» (errata: crede che il contratto dati descriva l'interno, non l'interfaccia).
+  4. DA3.1-4 L1 C: «Il voto su Google» → «Il nome azienda» (poco: una stessa azienda ha più persone).
+  5. D4.3-a L1 A: «La scarsa qualità dei testi generati» (poco) → «La sicurezza dei collegamenti tra agenti e sistemi» (errata: crede che lo standard MCP garantisca la sicurezza).
+  6. D5.3-b L1 C: «La procedurale riguarda solo le immagini» → «La procedurale conserva lo storico delle sessioni» (poco: confonde memoria procedurale e sessione).
+  7. D6.4-a L1 C: «Un ritardo nella consegna delle email» → «Un errore di un agente che blocca tutti i successivi» (quasi: crede che la catena si fermi, invece prosegue sbagliando).
+  8. D7.1-b L1 C: «Il colore dell'interfaccia» → «Se il risultato finale è corretto o no» (poco: confonde traiettoria e risultato).
+  9. D8.2-b L1 E: «L'agente chiude le email» → «Se il servizio non risponde, si chiede conferma al cliente» (poco: confonde fail-closed con la conferma del cliente).
+  10. D8.4-c L1 A: «Di che colore è il logo del fornitore» → «Quanto costa ogni milione di token elaborati» (poco: mette il costo prima della protezione dei dati).
+- **(8) Glossari**: campo `glossario` [{termine, it, en}] su 287 domande, con 573 voci. È nei lotti per le domande autori e nel JSON per quelle benchmark. Stesso termine, stessa definizione. Restano senza glossario 11 domande che non hanno termini non ovvi.
+- **(8) Citazioni**: nessun «Google» citato come autorità nel corso. Restano solo 4 «Google Maps», che è l'oggetto di un tutorial in DA3.1-2.
+  - Domande: 31 testi neutralizzati.
+  - Lezioni: caveau_dati, plancia_controllo, presa_standard, prototipo_produzione (anche la citazione d'apertura, ora «Chi porta agenti al lavoro vero lo riassume così: …»), rilascio_canary, smistatore_rischio, valigia_contesto.
+  - Scalette di 14 pillole nel documento e nelle traduzioni EN, con formule come «guida di riferimento del settore» o «notebook di riferimento del corso». Le sigle [G1]-[G5] restano.
+  - **Bibliografia**: `dati/bibliografia.json` con 31 opere (titolo, autori, anno, editore, tipo, sigla in nota), nessun URL. Dati presi dai frontespizi dei PDF e da CORSO_CONTENUTI_VERIFICATI §0. L'anno è omesso dove il documento non lo dichiara.
+- **(9) Elenchi**: 26 paragrafi-elenco di 21 lezioni diventati punti elenco «• » o numerati «1. » (passi in ordine), IT+EN. Ogni voce è un paragrafo proprio, così la webapp attuale li mostra senza modifiche. Esempio: i «quattro pezzi» di P1.4 sono ora intro + 4 punti. I riassunti finali (3 frasi) non sono stati toccati e tutte le lezioni restano sotto le 500 parole.
+- **(10) Versioning**: ora comprende anche i dati e i settaggi/parametri del modello.
+  - Documento e EN: scalette P2.1 (5), P7.3 (4, regressione) e P8.1 (3).
+  - Lezione prototipo_produzione: elenco delle cose versionate e riassunto.
+  - Perché di D2.1-c, D8.1-b, DA7.3-2/5, DA8.1-2/5 e DA8.6-2.
+  - La risposta corretta benchmark di D8.1-b («Istruzioni, modello, strumenti e configurazioni») non cambia: i dati compaiono nel perché.
+- **Rigenerazione e test**: `inserisci_domande.py` (178/178 erogabili) poi `estrai_corso.py` (298 domande conservate e verificate contro il documento). Esiti:
+  - pytest `tests`: 199 verdi, 1 saltato;
+  - `esercizi/tests`: verdi;
+  - prove Node: `prova_animazioni` 548 e `misura_testi` 94, verdi.
+
+### Da sapere
+- Gli strumenti del cantiere (esportazione, controllo e applicazione delle patch) e le patch per modulo restano fuori dal repo, in `outputs\rev\`, insieme alla copia del documento prima delle modifiche (`doc_backup.md`) e al registro completo prima/dopo (`registro_distrattori.json`).
+- Ci sono altre citazioni a OpenAI e Anthropic («OpenAI propone…» in smistatore_rischio e uno_o_tanti) e sigle di fonte nei perché (WP1, WP4, SEC…). Non le ho toccate perché il mandato riguardava Google: va deciso se neutralizzare anche queste.
+- Alcune voci di scaletta sono note d'autore finite nel testo per lo studente, per esempio P4.2 voce 6, «confrontare con il testo scaricato». Le ho solo segnalate.
+
 ## Stato al 16/11/2026 — cantiere ALPHA-FIX (interfaccia/UX dal primo playtest alpha)
 Perimetro: webapp, server, config, schema. **Non** toccati i contenuti di domande e lezioni (`dati/corso_v1.json` e `dati/lezioni/*.json` sono del cantiere parallelo CONTENUTI-REV).
 
