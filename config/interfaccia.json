@@ -16,6 +16,7 @@
  "record_nessuno": {"it": "ancora nessuno", "en": "none yet"},
  "record_formato": {"it": "{quota}% puliti, salute {salute}", "en": "{quota}% clean, health {salute}"},
  "missioni": {"it": "Missioni", "en": "Missions"},
+ "esercizi_pratici": {"it": "Esercizi pratici", "en": "Hands-on exercises"},
  "anello": {"it": "Anello", "en": "Ring"},
  "anello_esterno": {"it": "esterno", "en": "outer"},
  "anello_interno": {"it": "interno", "en": "inner"},

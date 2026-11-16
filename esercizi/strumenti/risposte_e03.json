@@ -1,0 +1,35 @@
+{
+ "_why": "Sorgente scritta a mano delle risposte dei clienti dell'esercizio 3 (visibili e nascoste) con la categoria giusta e l'etichetta che dà il finto-LLM. genera_dati_e03.py la unisce al lessico del laboratorio P3.5 (dati/lezioni/trova_errore.json) in esercizi/catalogo/dati/e03_risposte.json.",
+ "visibili": [
+  ["giulia", "Giulia Neri", "Ottica Sole", "Interessante! Possiamo sentirci giovedì per una breve demo?", "Interesting! Can we talk on Thursday for a short demo?", "interessato", "Interested"],
+  ["marco", "Marco Rossi", "Pasticceria Dolce Vita", "Grazie, ma per ora siamo a posto così.", "Thanks, but we are fine as we are for now.", "non_interessato", "Not Interested"],
+  ["sara", "Sara Bianchi", "Studio Verde", "Toglietemi dalla vostra lista, per favore. Non scrivetemi più.", "Please take me off your list. Do not write to me again.", "disiscrizione", "Not Interested"],
+  ["paolo", "Paolo Conti", "Palestra Forma", "Ora no. Richiamatemi a gennaio, quando avremo il nuovo budget.", "Not now. Call me back in January, when we have the new budget.", "da_ricontattare", "Maybe Interested"],
+  ["elena", "Elena Galli", "Agenzia Viaggi Mare", "Abbiamo già un fornitore e ci troviamo bene. Non ci interessa.", "We already have a supplier and we are happy with it. We are not interested.", "non_interessato", "Not Interested"],
+  ["luca", "Luca Ferri", "Logica Software", "Mandatemi pure il listino, lo giro al mio socio e vi facciamo sapere entro venerdì.", "Do send me the price list, I will pass it to my partner and we will let you know by Friday.", "interessato", "Interested"],
+  ["chiara", "Chiara Costa", "ShopModa", "Sono fuori ufficio fino al 3 dicembre, con accesso limitato alla posta.", "I am out of the office until 3 December, with limited access to email.", "umano", "Out of Office"],
+  ["matteo", "Matteo Greco", "Trasporti Alpini", "Non è il momento: riscrivetemi dopo l'estate.", "It is not the right time: write to me again after the summer.", "da_ricontattare", "Maybe Interested"],
+  ["irene", "Irene Marino", "Ferramenta Rapida", "Non siamo interessati, grazie.", "We are not interested, thank you.", "non_interessato", "Not Interested"],
+  ["davide", "Davide Fontana", "Nuvola Dati", "Perfetto, prenotiamo una call martedì alle 10?", "Perfect, shall we book a call on Tuesday at 10?", "interessato", "Interested"],
+  ["marta", "Marta Moretti", "Meccanica Padana", "Cancellatemi da questa mailing list, grazie.", "Remove me from this mailing list, thank you.", "disiscrizione", "Unsubscribe"],
+  ["simone", "Simone Barbieri", "Banca del Borgo", "Al momento il budget è bloccato. Magari nel secondo trimestre.", "At the moment the budget is frozen. Maybe in the second quarter.", "da_ricontattare", "Maybe Interested"],
+  ["anna", "Anna Lombardi", "CasaVerde Online", "Messaggio automatico: sono in maternità, per urgenze scrivete all'ufficio clienti.", "Automatic message: I am on maternity leave, for urgent matters write to customer service.", "umano", "Out of Office"],
+  ["fabio", "Fabio Rinaldi", "Gruppo Alimentare Sud", "Non fa per noi, siamo troppo piccoli.", "It is not for us, we are too small.", "non_interessato", "Not Interested"],
+  ["silvia", "Silvia Caruso", "Clinica San Luca", "Sì, mi interessa: chi è il referente per la nostra zona?", "Yes, I am interested: who is the contact person for our area?", "interessato", "Interested"]
+ ],
+ "nascosti": [
+  ["n01", "Pietro Sala", "Pixel Lab", "Ottimo, mandateci una proposta per 20 utenti.", "Great, send us a proposal for 20 users.", "interessato", "Interested"],
+  ["n02", "Sofia Riva", "Mercato Facile", "Volentieri, fissiamo una demo la prossima settimana.", "Gladly, let's set up a demo next week.", "interessato", "Interested"],
+  ["n03", "Tommaso Monti", "Rete Corrieri", "No grazie, non ci serve.", "No thanks, we do not need it.", "non_interessato", "Not Interested"],
+  ["n04", "Alice Grassi", "Officine Lario", "Abbiamo appena firmato con un altro fornitore, quindi no.", "We have just signed with another supplier, so no.", "non_interessato", "Not Interested"],
+  ["n05", "Riccardo Parisi", "Bottega Digitale", "Non ci interessa al momento e non credo cambierà.", "We are not interested at the moment and I do not think it will change.", "non_interessato", "Not Interested"],
+  ["n06", "Camilla Orlando", "Cantina dei Colli", "Riprovate a marzo, ora siamo pieni di lavoro.", "Try again in March, we are swamped with work now.", "da_ricontattare", "Maybe Interested"],
+  ["n07", "Edoardo Bellini", "Nuvola Dati", "Forse più avanti: scrivetemi a fine anno.", "Maybe later: write to me at the end of the year.", "da_ricontattare", "Maybe Interested"],
+  ["n08", "Greta Cattaneo", "Logica Software", "Ne parlo con il direttore e vi richiamo io il mese prossimo.", "I will talk to the director and call you back myself next month.", "da_ricontattare", "Maybe Interested"],
+  ["n09", "Filippo Ricci", "Trasporti Alpini", "Rimuovetemi dai vostri contatti, non voglio più ricevere email.", "Remove me from your contacts, I do not want to receive emails any more.", "disiscrizione", "Not Interested"],
+  ["n10", "Noemi Silvestri", "ShopModa", "Interessante l'idea, ma toglietemi dalla lista: non autorizzo altre email.", "Interesting idea, but take me off the list: I do not allow any more emails.", "disiscrizione", "Interested"],
+  ["n11", "Lorenzo Benedetti", "Ferramenta Rapida", "Risposta automatica: sono in ferie fino al 7 gennaio.", "Automatic reply: I am on holiday until 7 January.", "umano", "Out of Office"],
+  ["n12", "Aurora Romano", "Ottica Sole", "Out of office: rientro lunedì.", "Out of office: back on Monday.", "umano", "Out of Office"]
+ ],
+ "frasi_disiscrizione": ["toglietemi", "cancellatemi", "rimuovetemi", "disiscrivetemi", "non scrivetemi più", "non voglio più ricevere", "unsubscribe"]
+}

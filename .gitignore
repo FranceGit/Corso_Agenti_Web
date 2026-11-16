@@ -23,3 +23,7 @@ desktop.ini
 
 # Appoggio temporaneo degli agenti durante la costruzione delle lezioni
 _lavoro/
+
+# Stato degli esercizi pratici (dati degli studenti: mai nel repository)
+stato_esercizi/
+esercizi/ambiente/.env

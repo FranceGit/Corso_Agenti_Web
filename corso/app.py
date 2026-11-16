@@ -52,7 +52,7 @@ def carica_interfaccia(cfg: Config) -> dict:
 
 
 def crea_app(cfg: Config | None = None, orologio: Callable[[], datetime] = orologio_utc,
-             cartella_stato: Path | None = None) -> FastAPI:
+             cartella_stato: Path | None = None, cartella_esercizi: Path | None = None) -> FastAPI:
     cfg = cfg or carica_config()
     catalogo = Catalogo(cfg)
     archivio = Archivio(cartella_stato or cfg.percorso_file("cartella_stato_studenti"))
@@ -212,5 +212,12 @@ def crea_app(cfg: Config | None = None, orologio: Callable[[], datetime] = orolo
     @app.get("/api/rapporto")
     def api_rapporto(email: str = Depends(studente)):
         return catalogo.rapporto()
+
+    # ------------------------------------------------------------ esercizi pratici (cantiere esercizi/)
+
+    if cfg.prendi("esercizi", "attivi", tipo=bool):
+        from esercizi.motore.portale import monta_esercizi
+        monta_esercizi(app, cfg, studente, lingua_valida, orologio,
+                       cartella_esercizi or (cartella_stato / "esercizi" if cartella_stato else None))
 
     return app

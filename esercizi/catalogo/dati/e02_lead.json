@@ -1,0 +1,627 @@
+{
+ "_why": "Generato da esercizi/strumenti/genera_dati_e02.py (non modificare a mano). 'nascosti' e 'fascia_attesa' non escono mai dal server.",
+ "visibili": [
+  {
+   "id": "V01",
+   "nome": "Laura Bianchi",
+   "ruolo": {
+    "it": "CEO",
+    "en": "CEO"
+   },
+   "seniority": "c_level",
+   "azienda": "Pixel Lab",
+   "settore": "software",
+   "dipendenti": 1500,
+   "visite": 1,
+   "download": 0
+  },
+  {
+   "id": "V02",
+   "nome": "Marco Greco",
+   "ruolo": {
+    "it": "Analista dati",
+    "en": "Data analyst"
+   },
+   "seniority": "specialista",
+   "azienda": "CasaVerde Online",
+   "settore": "logistica",
+   "dipendenti": 40,
+   "visite": 2,
+   "download": 2
+  },
+  {
+   "id": "V03",
+   "nome": "Giulia Longo",
+   "ruolo": {
+    "it": "Analista dati",
+    "en": "Data analyst"
+   },
+   "seniority": "specialista",
+   "azienda": "Nuvola Dati",
+   "settore": "ristorazione",
+   "dipendenti": 85,
+   "visite": 12,
+   "download": 1
+  },
+  {
+   "id": "V04",
+   "nome": "Paolo Lombardi",
+   "ruolo": {
+    "it": "Analista dati",
+    "en": "Data analyst"
+   },
+   "seniority": "specialista",
+   "azienda": "Ferramenta Rapida",
+   "settore": "ristorazione",
+   "dipendenti": 18,
+   "visite": 4,
+   "download": 2
+  },
+  {
+   "id": "V05",
+   "nome": "Sara Bruno",
+   "ruolo": {
+    "it": "Specialista CRM",
+    "en": "CRM specialist"
+   },
+   "seniority": "specialista",
+   "azienda": "Meccanica Padana",
+   "settore": "manifattura",
+   "dipendenti": 40,
+   "visite": 6,
+   "download": 2
+  },
+  {
+   "id": "V06",
+   "nome": "Luca Riva",
+   "ruolo": {
+    "it": "Responsabile acquisti",
+    "en": "Purchasing manager"
+   },
+   "seniority": "manager",
+   "azienda": "CasaVerde Online",
+   "settore": "logistica",
+   "dipendenti": 220,
+   "visite": 2,
+   "download": 2
+  },
+  {
+   "id": "V07",
+   "nome": "Elena Silvestri",
+   "ruolo": {
+    "it": "Specialista CRM",
+    "en": "CRM specialist"
+   },
+   "seniority": "specialista",
+   "azienda": "Ferramenta Rapida",
+   "settore": "manifattura",
+   "dipendenti": 450,
+   "visite": 2,
+   "download": 0
+  },
+  {
+   "id": "V08",
+   "nome": "Andrea Ferri",
+   "ruolo": {
+    "it": "VP vendite",
+    "en": "VP of Sales"
+   },
+   "seniority": "vp",
+   "azienda": "ShopModa",
+   "settore": "retail",
+   "dipendenti": 40,
+   "visite": 10,
+   "download": 0
+  },
+  {
+   "id": "V09",
+   "nome": "Chiara Testa",
+   "ruolo": {
+    "it": "Direttrice marketing",
+    "en": "Marketing director"
+   },
+   "seniority": "director",
+   "azienda": "Trasporti Alpini",
+   "settore": "ristorazione",
+   "dipendenti": 85,
+   "visite": 7,
+   "download": 1
+  },
+  {
+   "id": "V10",
+   "nome": "Matteo Moretti",
+   "ruolo": {
+    "it": "Analista dati",
+    "en": "Data analyst"
+   },
+   "seniority": "specialista",
+   "azienda": "Ottica Sole",
+   "settore": "ristorazione",
+   "dipendenti": 18,
+   "visite": 8,
+   "download": 1
+  },
+  {
+   "id": "V11",
+   "nome": "Irene Pellegrini",
+   "ruolo": {
+    "it": "Amministratrice delegata",
+    "en": "Managing director"
+   },
+   "seniority": "c_level",
+   "azienda": "Logica Software",
+   "settore": "manifattura",
+   "dipendenti": 700,
+   "visite": 7,
+   "download": 1
+  },
+  {
+   "id": "V12",
+   "nome": "Davide Esposito",
+   "ruolo": {
+    "it": "Direttrice marketing",
+    "en": "Marketing director"
+   },
+   "seniority": "director",
+   "azienda": "Officine Lario",
+   "settore": "software",
+   "dipendenti": 700,
+   "visite": 9,
+   "download": 3
+  },
+  {
+   "id": "V13",
+   "nome": "Marta Parisi",
+   "ruolo": {
+    "it": "Analista dati",
+    "en": "Data analyst"
+   },
+   "seniority": "specialista",
+   "azienda": "Pasticceria Dolce Vita",
+   "settore": "software",
+   "dipendenti": 18,
+   "visite": 1,
+   "download": 2
+  },
+  {
+   "id": "V14",
+   "nome": "Simone Conti",
+   "ruolo": {
+    "it": "Specialista CRM",
+    "en": "CRM specialist"
+   },
+   "seniority": "specialista",
+   "azienda": "Trasporti Alpini",
+   "settore": "ristorazione",
+   "dipendenti": 4000,
+   "visite": 3,
+   "download": 3
+  },
+  {
+   "id": "V15",
+   "nome": "Anna Serra",
+   "ruolo": {
+    "it": "Direttrice marketing",
+    "en": "Marketing director"
+   },
+   "seniority": "director",
+   "azienda": "Trasporti Alpini",
+   "settore": "manifattura",
+   "dipendenti": 220,
+   "visite": 0,
+   "download": 2
+  },
+  {
+   "id": "V16",
+   "nome": "Fabio Rinaldi",
+   "ruolo": {
+    "it": "VP marketing",
+    "en": "VP of Marketing"
+   },
+   "seniority": "vp",
+   "azienda": "Ferramenta Rapida",
+   "settore": "retail",
+   "dipendenti": 450,
+   "visite": 12,
+   "download": 3
+  },
+  {
+   "id": "V17",
+   "nome": "Silvia Vitale",
+   "ruolo": {
+    "it": "Direttore commerciale",
+    "en": "Sales director"
+   },
+   "seniority": "director",
+   "azienda": "Ferramenta Rapida",
+   "settore": "retail",
+   "dipendenti": 6,
+   "visite": 1,
+   "download": 0
+  },
+  {
+   "id": "V18",
+   "nome": "Nicola Colombo",
+   "ruolo": {
+    "it": "CTO",
+    "en": "CTO"
+   },
+   "seniority": "c_level",
+   "azienda": "Cantina dei Colli",
+   "settore": "logistica",
+   "dipendenti": 4000,
+   "visite": 4,
+   "download": 3
+  },
+  {
+   "id": "V19",
+   "nome": "Beatrice Sartori",
+   "ruolo": {
+    "it": "CTO",
+    "en": "CTO"
+   },
+   "seniority": "c_level",
+   "azienda": "Nuvola Dati",
+   "settore": "manifattura",
+   "dipendenti": 1500,
+   "visite": 10,
+   "download": 2
+  },
+  {
+   "id": "V20",
+   "nome": "Giorgio Rossi",
+   "ruolo": {
+    "it": "Stagista marketing",
+    "en": "Marketing intern"
+   },
+   "seniority": "stagista",
+   "azienda": "Officine Lario",
+   "settore": "ecommerce",
+   "dipendenti": 700,
+   "visite": 12,
+   "download": 3
+  },
+  {
+   "id": "V21",
+   "nome": "Federica Marino",
+   "ruolo": {
+    "it": "Analista dati",
+    "en": "Data analyst"
+   },
+   "seniority": "specialista",
+   "azienda": "Trasporti Alpini",
+   "settore": "software",
+   "dipendenti": 220,
+   "visite": 1,
+   "download": 3
+  },
+  {
+   "id": "V22",
+   "nome": "Stefano Fabbri",
+   "ruolo": {
+    "it": "Marketing manager",
+    "en": "Marketing manager"
+   },
+   "seniority": "manager",
+   "azienda": "Cantina dei Colli",
+   "settore": "manifattura",
+   "dipendenti": 6,
+   "visite": 2,
+   "download": 1
+  }
+ ],
+ "nascosti": [
+  {
+   "id": "N01",
+   "nome": "Valentina Fontana",
+   "ruolo": {
+    "it": "Marketing manager",
+    "en": "Marketing manager"
+   },
+   "seniority": "manager",
+   "azienda": "Pixel Lab",
+   "settore": "ecommerce",
+   "dipendenti": 1500,
+   "visite": 8,
+   "download": 0
+  },
+  {
+   "id": "N02",
+   "nome": "Alessio Ricci",
+   "ruolo": {
+    "it": "Specialista CRM",
+    "en": "CRM specialist"
+   },
+   "seniority": "specialista",
+   "azienda": "Ottica Sole",
+   "settore": "manifattura",
+   "dipendenti": 220,
+   "visite": 2,
+   "download": 0
+  },
+  {
+   "id": "N03",
+   "nome": "Martina Monti",
+   "ruolo": {
+    "it": "Marketing manager",
+    "en": "Marketing manager"
+   },
+   "seniority": "manager",
+   "azienda": "Meccanica Padana",
+   "settore": "ecommerce",
+   "dipendenti": 40,
+   "visite": 8,
+   "download": 1
+  },
+  {
+   "id": "N04",
+   "nome": "Roberto Benedetti",
+   "ruolo": {
+    "it": "Specialista CRM",
+    "en": "CRM specialist"
+   },
+   "seniority": "specialista",
+   "azienda": "Trasporti Alpini",
+   "settore": "retail",
+   "dipendenti": 18,
+   "visite": 7,
+   "download": 1
+  },
+  {
+   "id": "N05",
+   "nome": "Claudia Costa",
+   "ruolo": {
+    "it": "Amministratrice delegata",
+    "en": "Managing director"
+   },
+   "seniority": "c_level",
+   "azienda": "Meccanica Padana",
+   "settore": "ristorazione",
+   "dipendenti": 4000,
+   "visite": 9,
+   "download": 1
+  },
+  {
+   "id": "N06",
+   "nome": "Pietro Leone",
+   "ruolo": {
+    "it": "Analista dati",
+    "en": "Data analyst"
+   },
+   "seniority": "specialista",
+   "azienda": "Rete Corrieri",
+   "settore": "retail",
+   "dipendenti": 6,
+   "visite": 12,
+   "download": 2
+  },
+  {
+   "id": "N07",
+   "nome": "Sofia Barbieri",
+   "ruolo": {
+    "it": "CTO",
+    "en": "CTO"
+   },
+   "seniority": "c_level",
+   "azienda": "Rete Corrieri",
+   "settore": "ecommerce",
+   "dipendenti": 4000,
+   "visite": 0,
+   "download": 0
+  },
+  {
+   "id": "N08",
+   "nome": "Tommaso Ferrara",
+   "ruolo": {
+    "it": "Direttore commerciale",
+    "en": "Sales director"
+   },
+   "seniority": "director",
+   "azienda": "Nuvola Dati",
+   "settore": "retail",
+   "dipendenti": 6,
+   "visite": 7,
+   "download": 2
+  },
+  {
+   "id": "N09",
+   "nome": "Alice Bellini",
+   "ruolo": {
+    "it": "VP marketing",
+    "en": "VP of Marketing"
+   },
+   "seniority": "vp",
+   "azienda": "ShopModa",
+   "settore": "retail",
+   "dipendenti": 18,
+   "visite": 2,
+   "download": 0
+  },
+  {
+   "id": "N10",
+   "nome": "Riccardo Cattaneo",
+   "ruolo": {
+    "it": "Marketing manager",
+    "en": "Marketing manager"
+   },
+   "seniority": "manager",
+   "azienda": "Mercato Facile",
+   "settore": "ecommerce",
+   "dipendenti": 4000,
+   "visite": 6,
+   "download": 3
+  },
+  {
+   "id": "N11",
+   "nome": "Camilla Galli",
+   "ruolo": {
+    "it": "Specialista CRM",
+    "en": "CRM specialist"
+   },
+   "seniority": "specialista",
+   "azienda": "Nuvola Dati",
+   "settore": "manifattura",
+   "dipendenti": 40,
+   "visite": 0,
+   "download": 1
+  },
+  {
+   "id": "N12",
+   "nome": "Edoardo Sala",
+   "ruolo": {
+    "it": "Direttore commerciale",
+    "en": "Sales director"
+   },
+   "seniority": "director",
+   "azienda": "Nuvola Dati",
+   "settore": "retail",
+   "dipendenti": 40,
+   "visite": 11,
+   "download": 3
+  },
+  {
+   "id": "N13",
+   "nome": "Greta Caruso",
+   "ruolo": {
+    "it": "Stagista marketing",
+    "en": "Marketing intern"
+   },
+   "seniority": "stagista",
+   "azienda": "Ferramenta Rapida",
+   "settore": "software",
+   "dipendenti": 1500,
+   "visite": 12,
+   "download": 3
+  },
+  {
+   "id": "N14",
+   "nome": "Filippo Martini",
+   "ruolo": {
+    "it": "Analista dati",
+    "en": "Data analyst"
+   },
+   "seniority": "specialista",
+   "azienda": "Nuvola Dati",
+   "settore": "retail",
+   "dipendenti": 18,
+   "visite": 5,
+   "download": 0
+  },
+  {
+   "id": "N15",
+   "nome": "Noemi Gallo",
+   "ruolo": {
+    "it": "Analista dati",
+    "en": "Data analyst"
+   },
+   "seniority": "specialista",
+   "azienda": "Rete Corrieri",
+   "settore": "retail",
+   "dipendenti": 40,
+   "visite": 7,
+   "download": 0
+  },
+  {
+   "id": "N16",
+   "nome": "Lorenzo Orlando",
+   "ruolo": {
+    "it": "VP vendite",
+    "en": "VP of Sales"
+   },
+   "seniority": "vp",
+   "azienda": "Rete Corrieri",
+   "settore": "software",
+   "dipendenti": 1500,
+   "visite": 10,
+   "download": 3
+  },
+  {
+   "id": "N17",
+   "nome": "Aurora Neri",
+   "ruolo": {
+    "it": "Stagista marketing",
+    "en": "Marketing intern"
+   },
+   "seniority": "stagista",
+   "azienda": "Ottica Sole",
+   "settore": "ecommerce",
+   "dipendenti": 4000,
+   "visite": 10,
+   "download": 2
+  },
+  {
+   "id": "N18",
+   "nome": "Enrico Villa",
+   "ruolo": {
+    "it": "Specialista CRM",
+    "en": "CRM specialist"
+   },
+   "seniority": "specialista",
+   "azienda": "Mercato Facile",
+   "settore": "manifattura",
+   "dipendenti": 1500,
+   "visite": 8,
+   "download": 0
+  },
+  {
+   "id": "N19",
+   "nome": "Ilaria Gentile",
+   "ruolo": {
+    "it": "Specialista CRM",
+    "en": "CRM specialist"
+   },
+   "seniority": "specialista",
+   "azienda": "Gruppo Alimentare Sud",
+   "settore": "logistica",
+   "dipendenti": 6,
+   "visite": 10,
+   "download": 3
+  },
+  {
+   "id": "N20",
+   "nome": "Daniele Mancini",
+   "ruolo": {
+    "it": "CTO",
+    "en": "CTO"
+   },
+   "seniority": "c_level",
+   "azienda": "Nuvola Dati",
+   "settore": "software",
+   "dipendenti": 700,
+   "visite": 4,
+   "download": 1
+  }
+ ],
+ "fascia_attesa": {
+  "N01": "High",
+  "N02": "Low",
+  "N03": "Medium",
+  "N04": "Low",
+  "N05": "High",
+  "N06": "Low",
+  "N07": "High",
+  "N08": "Medium",
+  "N09": "Medium",
+  "N10": "High",
+  "N11": "Low",
+  "N12": "Medium",
+  "N13": "Medium",
+  "N14": "Low",
+  "N15": "Low",
+  "N16": "High",
+  "N17": "Medium",
+  "N18": "Medium",
+  "N19": "Low",
+  "N20": "High"
+ },
+ "riferimento": {
+  "pesi": {
+   "ruolo": 40,
+   "dimensione": 25,
+   "settore": 20,
+   "comportamento": 15
+  },
+  "soglia_alta": 65,
+  "soglia_media": 40
+ }
+}

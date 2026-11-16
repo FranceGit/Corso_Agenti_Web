@@ -1,0 +1,91 @@
+# Laboratorio degli esercizi pratici — container unico per lo studente + modello condiviso.
+#
+# Uso (dalla cartella esercizi/ambiente, oppure con gli script avvia_laboratorio / azzera_laboratorio):
+#   docker compose up -d --build                      -> portale + CRM + Mailpit + FINTO-LLM (nessuna GPU)
+#   docker compose --profile ollama up -d --build     -> aggiunge Ollama vero e scarica il modello MODELLO
+#
+# Parametri (variabili d'ambiente o file .env accanto a questo file; vedi .env.esempio):
+#   LLM_URL      dove il portale chiede al modello      (default: il finto-LLM del laboratorio)
+#   MODELLO      nome del modello                       (default: finto-llm-v1; con Ollama es. qwen2.5:3b)
+#   PORTA_PORTALE, PORTA_MAILPIT, PORTA_CRM, PORTA_OLLAMA   porte sul PC (solo 127.0.0.1)
+# _why: tutte le porte sono pubblicate SOLO su 127.0.0.1: il laboratorio non e' raggiungibile dalla rete.
+# _why: nessuna email esce davvero: il portale manda la posta a Mailpit, che la trattiene e la mostra.
+
+name: corso-laboratorio
+
+services:
+  portale:
+    build:
+      context: ../..
+      dockerfile: esercizi/ambiente/Dockerfile
+    image: corso-laboratorio:locale
+    environment:
+      CORSO_LAB_LLM_BACKEND: ollama
+      CORSO_LAB_LLM_URL: ${LLM_URL:-http://finto-llm:11434}
+      CORSO_LAB_LLM_MODELLO: ${MODELLO:-finto-llm-v1}
+      CORSO_LAB_POSTA_BACKEND: mailpit
+      CORSO_LAB_POSTA_SMTP_HOST: mailpit
+      CORSO_LAB_POSTA_API_URL: http://mailpit:8025
+      CORSO_LAB_CARTELLA_STATO: /stato/esercizi
+    volumes:
+      - stato:/stato
+      - stato_studenti:/app/stato_studenti
+    ports:
+      - "127.0.0.1:${PORTA_PORTALE:-8780}:8780"
+    depends_on:
+      - mailpit
+      - finto-llm
+    restart: unless-stopped
+
+  crm:
+    image: corso-laboratorio:locale
+    command: ["uvicorn", "esercizi.ambiente.crm_servizio:app", "--host", "0.0.0.0", "--port", "8790"]
+    environment:
+      CORSO_LAB_CARTELLA_STATO: /stato/esercizi
+    volumes:
+      - stato:/stato:ro
+    ports:
+      - "127.0.0.1:${PORTA_CRM:-8790}:8790"
+    depends_on:
+      - portale
+    restart: unless-stopped
+
+  finto-llm:
+    image: corso-laboratorio:locale
+    command: ["uvicorn", "esercizi.ambiente.finto_llm_servizio:app", "--host", "0.0.0.0", "--port", "11434"]
+    restart: unless-stopped
+
+  mailpit:
+    image: axllent/mailpit:${MAILPIT_VERSIONE:-v1.20.0}
+    environment:
+      MP_MAX_MESSAGES: 5000
+    ports:
+      - "127.0.0.1:${PORTA_MAILPIT:-8025}:8025"
+    restart: unless-stopped
+
+  # ---- modello vero (facoltativo): docker compose --profile ollama up -d
+  ollama:
+    profiles: ["ollama"]
+    image: ollama/ollama:${OLLAMA_VERSIONE:-0.5.7}
+    volumes:
+      - ollama:/root/.ollama
+    ports:
+      - "127.0.0.1:${PORTA_OLLAMA:-11434}:11434"
+    restart: unless-stopped
+    # Con una scheda video NVIDIA e Docker Desktop configurato per la GPU togli il commento:
+    # gpus: all
+
+  ollama-modello:
+    profiles: ["ollama"]
+    image: ollama/ollama:${OLLAMA_VERSIONE:-0.5.7}
+    environment:
+      OLLAMA_HOST: http://ollama:11434
+    entrypoint: ["/bin/sh", "-c", "sleep 5 && ollama pull ${MODELLO:-qwen2.5:3b}"]
+    depends_on:
+      - ollama
+    restart: "no"
+
+volumes:
+  stato:
+  stato_studenti:
+  ollama:

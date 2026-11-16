@@ -271,6 +271,9 @@ function etichettaAnello(a) {
 
 function laterale() {
   return h("aside", { class: "laterale" },
+    // esercizi pratici (cantiere esercizi/): la pagina e' un modulo a parte, caricato dopo l'accesso
+    h("button", { class: `voce voce-esercizi ${S.vista === "esercizi" ? "attiva" : ""}`, id: "voce-esercizi",
+      onclick: apriEsercizi }, icona("lampo", "icona-stato"), h("span", {}, t("esercizi_pratici"))),
     h("h2", {}, t("missioni")),
     S.percorso.anelli.map((a, i) => h("div", { class: "gruppo-anello" },
       h("h3", {}, h("span", { class: "pallino", style: `background:${COLORI_ANELLO[i % COLORI_ANELLO.length]}` }),
@@ -289,6 +292,24 @@ function disegnaPrincipale() {
   if (!el) return;
   el.replaceChildren();
   if (S.vista === "mappa") el.append(vistaMappa());
+  if (S.vista === "esercizi") montaEsercizi(el);
+}
+
+// ------------------------------------------------------------------ esercizi pratici (modulo protetto)
+
+function apriEsercizi() {
+  S.vista = "esercizi";
+  S.pid = null;
+  disegnaTutto();
+}
+
+async function montaEsercizi(el) {
+  try {
+    const mod = await import("/protetto/esercizi/esercizi.js");
+    S.modulo = mod.monta(el, { lingua: S.lingua, api, conLingua, avvisa, h });
+  } catch (e) {
+    el.append(h("div", { class: "scheda" }, `${t("errore")}: ${e.message}`));
+  }
 }
 
 // ------------------------------------------------------------------ mappa a bersaglio

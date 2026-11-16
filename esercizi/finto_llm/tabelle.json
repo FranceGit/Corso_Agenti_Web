@@ -1,0 +1,97 @@
+{
+ "_why": "Risposte del finto-LLM, deterministiche. Per ogni compito: prima la tabella esatta (testo normalizzato -> risposta), poi le regole di ripiego (prima frase contenuta -> risposta), poi la risposta di ripiego. Imita un modello piccolo con i suoi difetti (per esempio chi chiede la disiscrizione diventa spesso 'Not Interested'). Generato da esercizi/strumenti/genera_dati_e03.py.",
+ "versione": 1,
+ "risposta_generica": "Non ho capito la richiesta.",
+ "compiti": {
+  "classifica_risposta": {
+   "tabella": {
+    "Interessante! Possiamo sentirci giovedì per una breve demo?": "Interested",
+    "Grazie, ma per ora siamo a posto così.": "Not Interested",
+    "Toglietemi dalla vostra lista, per favore. Non scrivetemi più.": "Not Interested",
+    "Ora no. Richiamatemi a gennaio, quando avremo il nuovo budget.": "Maybe Interested",
+    "Abbiamo già un fornitore e ci troviamo bene. Non ci interessa.": "Not Interested",
+    "Mandatemi pure il listino, lo giro al mio socio e vi facciamo sapere entro venerdì.": "Interested",
+    "Sono fuori ufficio fino al 3 dicembre, con accesso limitato alla posta.": "Out of Office",
+    "Non è il momento: riscrivetemi dopo l'estate.": "Maybe Interested",
+    "Non siamo interessati, grazie.": "Not Interested",
+    "Perfetto, prenotiamo una call martedì alle 10?": "Interested",
+    "Cancellatemi da questa mailing list, grazie.": "Unsubscribe",
+    "Al momento il budget è bloccato. Magari nel secondo trimestre.": "Maybe Interested",
+    "Messaggio automatico: sono in maternità, per urgenze scrivete all'ufficio clienti.": "Out of Office",
+    "Non fa per noi, siamo troppo piccoli.": "Not Interested",
+    "Sì, mi interessa: chi è il referente per la nostra zona?": "Interested",
+    "Ottimo, mandateci una proposta per 20 utenti.": "Interested",
+    "Volentieri, fissiamo una demo la prossima settimana.": "Interested",
+    "No grazie, non ci serve.": "Not Interested",
+    "Abbiamo appena firmato con un altro fornitore, quindi no.": "Not Interested",
+    "Non ci interessa al momento e non credo cambierà.": "Not Interested",
+    "Riprovate a marzo, ora siamo pieni di lavoro.": "Maybe Interested",
+    "Forse più avanti: scrivetemi a fine anno.": "Maybe Interested",
+    "Ne parlo con il direttore e vi richiamo io il mese prossimo.": "Maybe Interested",
+    "Rimuovetemi dai vostri contatti, non voglio più ricevere email.": "Not Interested",
+    "Interessante l'idea, ma toglietemi dalla lista: non autorizzo altre email.": "Interested",
+    "Risposta automatica: sono in ferie fino al 7 gennaio.": "Out of Office",
+    "Out of office: rientro lunedì.": "Out of Office"
+   },
+   "regole": [
+    [
+     "fuori ufficio",
+     "Out of Office"
+    ],
+    [
+     "risposta automatica",
+     "Out of Office"
+    ],
+    [
+     "messaggio automatico",
+     "Out of Office"
+    ],
+    [
+     "out of office",
+     "Out of Office"
+    ],
+    [
+     "in ferie",
+     "Out of Office"
+    ],
+    [
+     "toglietemi",
+     "Not Interested"
+    ],
+    [
+     "cancellatemi",
+     "Unsubscribe"
+    ],
+    [
+     "non ci interessa",
+     "Not Interested"
+    ],
+    [
+     "non siamo interessati",
+     "Not Interested"
+    ],
+    [
+     "no grazie",
+     "Not Interested"
+    ],
+    [
+     "richiam",
+     "Maybe Interested"
+    ],
+    [
+     "più avanti",
+     "Maybe Interested"
+    ],
+    [
+     "demo",
+     "Interested"
+    ],
+    [
+     "interess",
+     "Interested"
+    ]
+   ],
+   "ripiego": "Interested"
+  }
+ }
+}

@@ -22,6 +22,13 @@
     "cartella_animazioni": "webapp/animazioni"
   },
 
+  "esercizi": {
+    "_why": "Esercizi pratici (cantiere esercizi/): pagina «Esercizi» con CRM di prova per studente e correttore deterministico. I parametri del laboratorio (posta, modello, soglie) stanno nel loro file; qui solo l'interruttore e i percorsi, relativi alla radice.",
+    "attivi": true,
+    "file_laboratorio": "esercizi/config/laboratorio.json",
+    "file_interfaccia": "esercizi/config/interfaccia_esercizi.json"
+  },
+
   "lingue": {
     "_why": "Decisione di France: tutto il modello dati e' bilingue IT/EN. Se un testo manca nella lingua chiesta il server risponde con l'errore 'traduzione_mancante' (mai il testo dell'altra lingua al suo posto).",
     "disponibili": ["it", "en"],

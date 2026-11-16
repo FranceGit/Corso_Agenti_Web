@@ -1,0 +1,16 @@
+# Cosa NON entra nell'immagine (letto da Docker BuildKit accanto al Dockerfile).
+.git
+.venv
+venv
+**/__pycache__
+**/*.pyc
+.pytest_cache
+.coverage
+htmlcov
+stato_studenti
+stato_esercizi
+collaudo_esito.txt
+tests
+tests_js
+esercizi/tests
+_lavoro

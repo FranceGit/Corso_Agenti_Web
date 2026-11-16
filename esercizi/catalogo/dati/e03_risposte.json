@@ -1,0 +1,589 @@
+{
+ "_why": "Generato da esercizi/strumenti/genera_dati_e03.py (non modificare a mano). Lessico (categorie, stazioni, regole, correzioni) copiato dal laboratorio della lezione P3.5; un test segnala se la lezione cambia. 'nascosti' e le categorie giuste non escono mai dal server.",
+ "categorie": [
+  {
+   "id": "interessato",
+   "nome": {
+    "it": "Interessato",
+    "en": "Interested"
+   },
+   "colore": "#16a34a",
+   "azione": {
+    "it": "Passa al commerciale",
+    "en": "Goes to the salesperson"
+   }
+  },
+  {
+   "id": "non_interessato",
+   "nome": {
+    "it": "Non interessato",
+    "en": "Not interested"
+   },
+   "colore": "#64748b",
+   "azione": {
+    "it": "Nessun nuovo contatto per ora",
+    "en": "No new contact for now"
+   }
+  },
+  {
+   "id": "da_ricontattare",
+   "nome": {
+    "it": "Da ricontattare",
+    "en": "Call back later"
+   },
+   "colore": "#0ea5e9",
+   "azione": {
+    "it": "Promemoria nel CRM alla data chiesta",
+    "en": "CRM reminder on the requested date"
+   }
+  },
+  {
+   "id": "disiscrizione",
+   "nome": {
+    "it": "Disiscrizione",
+    "en": "Unsubscribe"
+   },
+   "colore": "#e11d48",
+   "azione": {
+    "it": "Tolto subito da tutte le liste",
+    "en": "Removed from all lists at once"
+   }
+  },
+  {
+   "id": "umano",
+   "nome": {
+    "it": "A una persona",
+    "en": "To a person"
+   },
+   "colore": "#d97706",
+   "azione": {
+    "it": "Una persona legge e decide",
+    "en": "A person reads and decides"
+   }
+  }
+ ],
+ "stazioni": [
+  {
+   "id": "cliente",
+   "nome": {
+    "it": "Risposta del cliente",
+    "en": "Customer's reply"
+   }
+  },
+  {
+   "id": "llm",
+   "nome": {
+    "it": "Etichetta dell'LLM",
+    "en": "LLM label"
+   }
+  },
+  {
+   "id": "conversione",
+   "nome": {
+    "it": "Conversione",
+    "en": "Conversion"
+   }
+  },
+  {
+   "id": "crm",
+   "nome": {
+    "it": "Scheda CRM",
+    "en": "CRM record"
+   }
+  },
+  {
+   "id": "report",
+   "nome": {
+    "it": "Report",
+    "en": "Report"
+   }
+  }
+ ],
+ "stazione_giusta": "conversione",
+ "regole_bug": {
+  "confronto": "contiene",
+  "ordine": [
+   [
+    "Interested",
+    "interessato"
+   ],
+   [
+    "Not Interested",
+    "non_interessato"
+   ],
+   [
+    "Maybe Interested",
+    "da_ricontattare"
+   ]
+  ],
+  "sconosciuta": "interessato",
+  "disiscrizione_fissa": false
+ },
+ "correzioni": [
+  {
+   "id": "chiedi_llm",
+   "tipo": "inutile",
+   "testo": {
+    "it": "Chiedere all'LLM di essere più preciso",
+    "en": "Ask the LLM to be more precise"
+   },
+   "regole": {
+    "confronto": "contiene",
+    "ordine": [
+     [
+      "Interested",
+      "interessato"
+     ],
+     [
+      "Not Interested",
+      "non_interessato"
+     ],
+     [
+      "Maybe Interested",
+      "da_ricontattare"
+     ]
+    ],
+    "sconosciuta": "interessato",
+    "disiscrizione_fissa": false
+   },
+   "spiega": {
+    "it": "Non cambia nulla: l'LLM era già giusto. L'errore è nel passo dopo, la conversione.",
+    "en": "Nothing changes: the LLM was already right. The bug is in the next step, the conversion."
+   }
+  },
+  {
+   "id": "rifai_report",
+   "tipo": "inutile",
+   "testo": {
+    "it": "Rifare il report da capo",
+    "en": "Rebuild the report from scratch"
+   },
+   "regole": {
+    "confronto": "contiene",
+    "ordine": [
+     [
+      "Interested",
+      "interessato"
+     ],
+     [
+      "Not Interested",
+      "non_interessato"
+     ],
+     [
+      "Maybe Interested",
+      "da_ricontattare"
+     ]
+    ],
+    "sconosciuta": "interessato",
+    "disiscrizione_fissa": false
+   },
+   "spiega": {
+    "it": "Il report riassume dati già sbagliati: rifatto, dice le stesse cose sbagliate.",
+    "en": "The report sums up data that is already wrong: rebuilt, it says the same wrong things."
+   }
+  },
+  {
+   "id": "inverti",
+   "tipo": "fragile",
+   "testo": {
+    "it": "Controllare prima «Not Interested», poi «Interested»",
+    "en": "Check «Not Interested» first, then «Interested»"
+   },
+   "regole": {
+    "confronto": "contiene",
+    "ordine": [
+     [
+      "Not Interested",
+      "non_interessato"
+     ],
+     [
+      "Interested",
+      "interessato"
+     ],
+     [
+      "Maybe Interested",
+      "da_ricontattare"
+     ]
+    ],
+    "sconosciuta": "interessato",
+    "disiscrizione_fissa": false
+   },
+   "spiega": {
+    "it": "Mezzo rimedio: «Maybe Interested» contiene ancora «Interested» e diventa interessato, e chi chiede la disiscrizione riceverà altre email. Basta una nuova etichetta per rompere tutto di nuovo.",
+    "en": "Half a remedy: «Maybe Interested» still contains «Interested» and becomes interested, and the person who asked to unsubscribe will get more emails. One new label is enough to break everything again."
+   }
+  },
+  {
+   "id": "esatta",
+   "tipo": "quasi",
+   "testo": {
+    "it": "Confronto esatto con un elenco chiuso di etichette; etichetta sconosciuta → a una persona",
+    "en": "Exact match against a closed list of labels; unknown label → to a person"
+   },
+   "regole": {
+    "confronto": "esatto",
+    "ordine": [
+     [
+      "Interested",
+      "interessato"
+     ],
+     [
+      "Not Interested",
+      "non_interessato"
+     ],
+     [
+      "Maybe Interested",
+      "da_ricontattare"
+     ]
+    ],
+    "sconosciuta": "umano",
+    "disiscrizione_fissa": false
+   },
+   "spiega": {
+    "it": "Quasi: ora ogni etichetta finisce al posto giusto. Ma Sara ha chiesto di non ricevere più email e risulta solo «non interessata»: potrebbe ricevere la prossima campagna.",
+    "en": "Almost: now every label ends up in the right place. But Sara asked to stop receiving emails and is only «not interested»: she might get the next campaign."
+   }
+  },
+  {
+   "id": "esatta_disiscrizione",
+   "tipo": "giusta",
+   "testo": {
+    "it": "Confronto esatto + sconosciuta → a una persona + regola fissa: chi chiede la disiscrizione non va più contattato, sempre",
+    "en": "Exact match + unknown → to a person + fixed rule: whoever asks to unsubscribe is never contacted again"
+   },
+   "regole": {
+    "confronto": "esatto",
+    "ordine": [
+     [
+      "Interested",
+      "interessato"
+     ],
+     [
+      "Not Interested",
+      "non_interessato"
+     ],
+     [
+      "Maybe Interested",
+      "da_ricontattare"
+     ]
+    ],
+    "sconosciuta": "umano",
+    "disiscrizione_fissa": true
+   },
+   "spiega": {
+    "it": "Giusta: ogni etichetta va al suo posto, un'etichetta mai vista va a una persona e la disiscrizione vince su qualunque etichetta dell'LLM.",
+    "en": "Right: every label goes to its place, a label never seen before goes to a person and the unsubscribe wins over any LLM label."
+   }
+  }
+ ],
+ "frasi_disiscrizione": [
+  "toglietemi",
+  "cancellatemi",
+  "rimuovetemi",
+  "disiscrivetemi",
+  "non scrivetemi più",
+  "non voglio più ricevere",
+  "unsubscribe"
+ ],
+ "visibili": [
+  {
+   "chiave": "giulia",
+   "nome": "Giulia Neri",
+   "azienda": "Ottica Sole",
+   "testo": {
+    "it": "Interessante! Possiamo sentirci giovedì per una breve demo?",
+    "en": "Interesting! Can we talk on Thursday for a short demo?"
+   },
+   "giusta": "interessato",
+   "etichetta_finto": "Interested"
+  },
+  {
+   "chiave": "marco",
+   "nome": "Marco Rossi",
+   "azienda": "Pasticceria Dolce Vita",
+   "testo": {
+    "it": "Grazie, ma per ora siamo a posto così.",
+    "en": "Thanks, but we are fine as we are for now."
+   },
+   "giusta": "non_interessato",
+   "etichetta_finto": "Not Interested"
+  },
+  {
+   "chiave": "sara",
+   "nome": "Sara Bianchi",
+   "azienda": "Studio Verde",
+   "testo": {
+    "it": "Toglietemi dalla vostra lista, per favore. Non scrivetemi più.",
+    "en": "Please take me off your list. Do not write to me again."
+   },
+   "giusta": "disiscrizione",
+   "etichetta_finto": "Not Interested"
+  },
+  {
+   "chiave": "paolo",
+   "nome": "Paolo Conti",
+   "azienda": "Palestra Forma",
+   "testo": {
+    "it": "Ora no. Richiamatemi a gennaio, quando avremo il nuovo budget.",
+    "en": "Not now. Call me back in January, when we have the new budget."
+   },
+   "giusta": "da_ricontattare",
+   "etichetta_finto": "Maybe Interested"
+  },
+  {
+   "chiave": "elena",
+   "nome": "Elena Galli",
+   "azienda": "Agenzia Viaggi Mare",
+   "testo": {
+    "it": "Abbiamo già un fornitore e ci troviamo bene. Non ci interessa.",
+    "en": "We already have a supplier and we are happy with it. We are not interested."
+   },
+   "giusta": "non_interessato",
+   "etichetta_finto": "Not Interested"
+  },
+  {
+   "chiave": "luca",
+   "nome": "Luca Ferri",
+   "azienda": "Logica Software",
+   "testo": {
+    "it": "Mandatemi pure il listino, lo giro al mio socio e vi facciamo sapere entro venerdì.",
+    "en": "Do send me the price list, I will pass it to my partner and we will let you know by Friday."
+   },
+   "giusta": "interessato",
+   "etichetta_finto": "Interested"
+  },
+  {
+   "chiave": "chiara",
+   "nome": "Chiara Costa",
+   "azienda": "ShopModa",
+   "testo": {
+    "it": "Sono fuori ufficio fino al 3 dicembre, con accesso limitato alla posta.",
+    "en": "I am out of the office until 3 December, with limited access to email."
+   },
+   "giusta": "umano",
+   "etichetta_finto": "Out of Office"
+  },
+  {
+   "chiave": "matteo",
+   "nome": "Matteo Greco",
+   "azienda": "Trasporti Alpini",
+   "testo": {
+    "it": "Non è il momento: riscrivetemi dopo l'estate.",
+    "en": "It is not the right time: write to me again after the summer."
+   },
+   "giusta": "da_ricontattare",
+   "etichetta_finto": "Maybe Interested"
+  },
+  {
+   "chiave": "irene",
+   "nome": "Irene Marino",
+   "azienda": "Ferramenta Rapida",
+   "testo": {
+    "it": "Non siamo interessati, grazie.",
+    "en": "We are not interested, thank you."
+   },
+   "giusta": "non_interessato",
+   "etichetta_finto": "Not Interested"
+  },
+  {
+   "chiave": "davide",
+   "nome": "Davide Fontana",
+   "azienda": "Nuvola Dati",
+   "testo": {
+    "it": "Perfetto, prenotiamo una call martedì alle 10?",
+    "en": "Perfect, shall we book a call on Tuesday at 10?"
+   },
+   "giusta": "interessato",
+   "etichetta_finto": "Interested"
+  },
+  {
+   "chiave": "marta",
+   "nome": "Marta Moretti",
+   "azienda": "Meccanica Padana",
+   "testo": {
+    "it": "Cancellatemi da questa mailing list, grazie.",
+    "en": "Remove me from this mailing list, thank you."
+   },
+   "giusta": "disiscrizione",
+   "etichetta_finto": "Unsubscribe"
+  },
+  {
+   "chiave": "simone",
+   "nome": "Simone Barbieri",
+   "azienda": "Banca del Borgo",
+   "testo": {
+    "it": "Al momento il budget è bloccato. Magari nel secondo trimestre.",
+    "en": "At the moment the budget is frozen. Maybe in the second quarter."
+   },
+   "giusta": "da_ricontattare",
+   "etichetta_finto": "Maybe Interested"
+  },
+  {
+   "chiave": "anna",
+   "nome": "Anna Lombardi",
+   "azienda": "CasaVerde Online",
+   "testo": {
+    "it": "Messaggio automatico: sono in maternità, per urgenze scrivete all'ufficio clienti.",
+    "en": "Automatic message: I am on maternity leave, for urgent matters write to customer service."
+   },
+   "giusta": "umano",
+   "etichetta_finto": "Out of Office"
+  },
+  {
+   "chiave": "fabio",
+   "nome": "Fabio Rinaldi",
+   "azienda": "Gruppo Alimentare Sud",
+   "testo": {
+    "it": "Non fa per noi, siamo troppo piccoli.",
+    "en": "It is not for us, we are too small."
+   },
+   "giusta": "non_interessato",
+   "etichetta_finto": "Not Interested"
+  },
+  {
+   "chiave": "silvia",
+   "nome": "Silvia Caruso",
+   "azienda": "Clinica San Luca",
+   "testo": {
+    "it": "Sì, mi interessa: chi è il referente per la nostra zona?",
+    "en": "Yes, I am interested: who is the contact person for our area?"
+   },
+   "giusta": "interessato",
+   "etichetta_finto": "Interested"
+  }
+ ],
+ "nascosti": [
+  {
+   "chiave": "n01",
+   "nome": "Pietro Sala",
+   "azienda": "Pixel Lab",
+   "testo": {
+    "it": "Ottimo, mandateci una proposta per 20 utenti.",
+    "en": "Great, send us a proposal for 20 users."
+   },
+   "giusta": "interessato",
+   "etichetta_finto": "Interested"
+  },
+  {
+   "chiave": "n02",
+   "nome": "Sofia Riva",
+   "azienda": "Mercato Facile",
+   "testo": {
+    "it": "Volentieri, fissiamo una demo la prossima settimana.",
+    "en": "Gladly, let's set up a demo next week."
+   },
+   "giusta": "interessato",
+   "etichetta_finto": "Interested"
+  },
+  {
+   "chiave": "n03",
+   "nome": "Tommaso Monti",
+   "azienda": "Rete Corrieri",
+   "testo": {
+    "it": "No grazie, non ci serve.",
+    "en": "No thanks, we do not need it."
+   },
+   "giusta": "non_interessato",
+   "etichetta_finto": "Not Interested"
+  },
+  {
+   "chiave": "n04",
+   "nome": "Alice Grassi",
+   "azienda": "Officine Lario",
+   "testo": {
+    "it": "Abbiamo appena firmato con un altro fornitore, quindi no.",
+    "en": "We have just signed with another supplier, so no."
+   },
+   "giusta": "non_interessato",
+   "etichetta_finto": "Not Interested"
+  },
+  {
+   "chiave": "n05",
+   "nome": "Riccardo Parisi",
+   "azienda": "Bottega Digitale",
+   "testo": {
+    "it": "Non ci interessa al momento e non credo cambierà.",
+    "en": "We are not interested at the moment and I do not think it will change."
+   },
+   "giusta": "non_interessato",
+   "etichetta_finto": "Not Interested"
+  },
+  {
+   "chiave": "n06",
+   "nome": "Camilla Orlando",
+   "azienda": "Cantina dei Colli",
+   "testo": {
+    "it": "Riprovate a marzo, ora siamo pieni di lavoro.",
+    "en": "Try again in March, we are swamped with work now."
+   },
+   "giusta": "da_ricontattare",
+   "etichetta_finto": "Maybe Interested"
+  },
+  {
+   "chiave": "n07",
+   "nome": "Edoardo Bellini",
+   "azienda": "Nuvola Dati",
+   "testo": {
+    "it": "Forse più avanti: scrivetemi a fine anno.",
+    "en": "Maybe later: write to me at the end of the year."
+   },
+   "giusta": "da_ricontattare",
+   "etichetta_finto": "Maybe Interested"
+  },
+  {
+   "chiave": "n08",
+   "nome": "Greta Cattaneo",
+   "azienda": "Logica Software",
+   "testo": {
+    "it": "Ne parlo con il direttore e vi richiamo io il mese prossimo.",
+    "en": "I will talk to the director and call you back myself next month."
+   },
+   "giusta": "da_ricontattare",
+   "etichetta_finto": "Maybe Interested"
+  },
+  {
+   "chiave": "n09",
+   "nome": "Filippo Ricci",
+   "azienda": "Trasporti Alpini",
+   "testo": {
+    "it": "Rimuovetemi dai vostri contatti, non voglio più ricevere email.",
+    "en": "Remove me from your contacts, I do not want to receive emails any more."
+   },
+   "giusta": "disiscrizione",
+   "etichetta_finto": "Not Interested"
+  },
+  {
+   "chiave": "n10",
+   "nome": "Noemi Silvestri",
+   "azienda": "ShopModa",
+   "testo": {
+    "it": "Interessante l'idea, ma toglietemi dalla lista: non autorizzo altre email.",
+    "en": "Interesting idea, but take me off the list: I do not allow any more emails."
+   },
+   "giusta": "disiscrizione",
+   "etichetta_finto": "Interested"
+  },
+  {
+   "chiave": "n11",
+   "nome": "Lorenzo Benedetti",
+   "azienda": "Ferramenta Rapida",
+   "testo": {
+    "it": "Risposta automatica: sono in ferie fino al 7 gennaio.",
+    "en": "Automatic reply: I am on holiday until 7 January."
+   },
+   "giusta": "umano",
+   "etichetta_finto": "Out of Office"
+  },
+  {
+   "chiave": "n12",
+   "nome": "Aurora Romano",
+   "azienda": "Ottica Sole",
+   "testo": {
+    "it": "Out of office: rientro lunedì.",
+    "en": "Out of office: back on Monday."
+   },
+   "giusta": "umano",
+   "etichetta_finto": "Out of Office"
+  }
+ ]
+}

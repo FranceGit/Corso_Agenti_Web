@@ -1,0 +1,84 @@
+{
+  "_why": "Parametri del laboratorio degli esercizi pratici (CRM didattico su SQLite, posta finta, modello linguistico). Ogni valore sta qui con il suo motivo: il codice non ha valori di ripiego. In sandbox e in sviluppo tutto gira senza container (posta locale in SQLite, finto-LLM in-process); nel laboratorio Docker le variabili d'ambiente elencate sotto spostano posta e modello sui servizi veri.",
+  "versione_config": 1,
+
+  "cartella_stato": "stato_esercizi",
+  "_why_cartella_stato": "Relativa alla radice del progetto. Una sottocartella per studente (nome pseudonimo, mai l'email) con un database SQLite per esercizio e i tentativi corretti. Dati degli studenti: e' nel .gitignore.",
+
+  "seme_base": 20261116,
+  "variante_per_studente": true,
+  "_why_variante_per_studente": "Con true ogni studente riceve una variante dei dati (stessi difetti, persone diverse) derivata in modo deterministico da seme_base e dal suo pseudonimo: non si copiano le risposte dal vicino, ma la stessa persona ritrova sempre gli stessi dati.",
+
+  "llm": {
+    "_why": "backend 'finto' = finto-LLM deterministico in-process (risposte da tabelle, nessuna GPU, nessuna rete: serve a sviluppo e collaudo). backend 'ollama' = protocollo Ollama via HTTP (/api/chat) verso url: nel laboratorio Docker url punta al servizio finto-llm (default) oppure all'Ollama vero dell'aula. Temperatura 0 e seme fisso: stessa domanda, stessa risposta.",
+    "backend": "finto",
+    "backend_ammessi": ["finto", "ollama"],
+    "url": "http://127.0.0.1:11434",
+    "modello": "qwen2.5:3b",
+    "modello_finto": "finto-llm-v1",
+    "temperatura": 0,
+    "seme": 42,
+    "timeout_secondi": 120,
+    "file_tabelle_finto": "esercizi/finto_llm/tabelle.json",
+    "file_registro": "registro_llm.sqlite",
+    "_why_file_registro": "Registro delle risposte del modello (impronta della richiesta -> risposta), condiviso dall'aula dentro cartella_stato. Rende identica ogni ricorrezione e riduce il carico sul modello: una risposta gia' calcolata non si ricalcola."
+  },
+
+  "posta": {
+    "_why": "backend 'locale' = posta finta in un file SQLite (nessun container). backend 'mailpit' = invio SMTP a Mailpit e lettura dalla sua API web. In entrambi i casi nessuna email esce davvero. Ogni messaggio porta l'etichetta dello studente e dell'esercizio: il correttore legge solo la posta di quel tentativo.",
+    "backend": "locale",
+    "backend_ammessi": ["locale", "mailpit"],
+    "file_locale": "posta_locale.sqlite",
+    "smtp_host": "127.0.0.1",
+    "smtp_porta": 1025,
+    "api_url": "http://127.0.0.1:8025",
+    "timeout_secondi": 10,
+    "mittente": "campagne@crm-didattico.local",
+    "_why_mittente": "Dominio .local: non esiste su internet, quindi anche un errore di configurazione non potrebbe consegnare email vere."
+  },
+
+  "variabili_ambiente": {
+    "_why": "Uniche sostituzioni ammesse da fuori (le usa docker-compose). Ogni variabile sostituisce esattamente la chiave indicata; se e' impostata con un valore non ammesso il laboratorio si ferma con un errore che la nomina.",
+    "CORSO_LAB_LLM_BACKEND": ["llm", "backend"],
+    "CORSO_LAB_LLM_URL": ["llm", "url"],
+    "CORSO_LAB_LLM_MODELLO": ["llm", "modello"],
+    "CORSO_LAB_POSTA_BACKEND": ["posta", "backend"],
+    "CORSO_LAB_POSTA_SMTP_HOST": ["posta", "smtp_host"],
+    "CORSO_LAB_POSTA_API_URL": ["posta", "api_url"],
+    "CORSO_LAB_CARTELLA_STATO": ["cartella_stato"]
+  },
+
+  "esercizi": {
+    "_why": "Elenco ordinato degli esercizi attivi (modulo Python in esercizi/catalogo). La numerazione e' quella del corso web; fra parentesi nel campo 'piano' il numero dell'esercizio in CORSO_REPO_QUALITA.md.",
+    "attivi": [
+      {"numero": 1, "modulo": "e01_pulizia_lead", "piano": 1},
+      {"numero": 2, "modulo": "e02_punteggio_regole", "piano": 2},
+      {"numero": 3, "modulo": "e03_trova_errore", "piano": 4}
+    ]
+  },
+
+  "soglie": {
+    "_why": "Soglia di sufficienza (voto su 100) di ogni esercizio, dal piano: 80 per la pulizia, 75 per il punteggio a regole, 80 per 'trova l'errore'. Un controllo 'bloccante' fallito porta comunque il voto a 0.",
+    "1": 80,
+    "2": 75,
+    "3": 80
+  },
+
+  "parametri_esercizi": {
+    "_why": "Tolleranze dei controlli, dal piano. Cambiarle cambia il voto: per questo entrano nell'impronta del verbale.",
+    "1": {
+      "segmenti_errori_ammessi": 1,
+      "_why_segmenti_errori_ammessi": "Piano: segmento coerente con la dimensione per almeno 20 contatti su 21 con dimensione nota (uno sbaglio tollerato)."
+    },
+    "2": {
+      "accordo_minimo_nascosti": 16,
+      "_why_accordo_minimo_nascosti": "Piano: sui 20 lead nascosti la fascia coincide con quella del direttore vendite in almeno 16 casi."
+    },
+    "3": {
+      "accordo_minimo_etichette_mano": 13,
+      "_why_accordo_minimo_etichette_mano": "Lo studente etichetta a mano le 15 risposte visibili: almeno 13 uguali alle etichette di riferimento (due dubbi ammessi).",
+      "accordo_minimo_nascosti": 11,
+      "_why_accordo_minimo_nascosti": "Piano: con la correzione scelta, sulle 12 risposte nascoste almeno 11 finiscono nella categoria giusta."
+    }
+  }
+}
