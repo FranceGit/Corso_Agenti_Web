@@ -1,0 +1,196 @@
+{
+ "id": "L_cinque_strade",
+ "pillola": "P7.1",
+ "componente": "cinque_strade",
+ "titolo": {"it": "Cinque strade, quattro lenti: valutare un agente", "en": "Five roads, four lenses: evaluating an agent"},
+ "sottotitolo": {"it": "Lo stesso compito lanciato cinque volte prende strade diverse: guarda il risultato, poi la strada, con le quattro lenti della qualità.", "en": "The same task launched five times takes different roads: look at the result, then at the road, with the four lenses of quality."},
+ "segmenti": [
+  {
+   "id": "ripeti",
+   "titolo": {"it": "Lo stesso compito, cinque strade", "en": "The same task, five roads"},
+   "narrazione": [
+    {"it": "Diamo all'agente un compito: «trova i lead caldi e prepara le bozze delle email». Un agente non è deterministico: con lo stesso compito può seguire ogni volta una strada diversa.", "en": "We give the agent a task: «find the hot leads and prepare the email drafts». An agent is not deterministic: with the same task it can follow a different road each time."},
+    {"it": "Per questo un solo test non basta: una prova riuscita può essere solo fortuna. Si lancia lo stesso compito più volte. E una bozza giusta si può scrivere in più modi: non si confronta parola per parola con un'email modello.", "en": "That is why a single test is not enough: one successful run may be just luck. You launch the same task several times. And a right draft can be written in many ways: you do not compare it word for word with a model email."}
+   ],
+   "prova": {"it": "Sposta «Esecuzioni» da 1 a 5: con un solo lancio tutto sembra perfetto.", "en": "Move «Runs» from 1 to 5: with a single launch everything looks perfect."},
+   "concetti": ["C59"],
+   "stato_animazione": {"vista": "strade", "esecuzioni": 1, "valuta": "risultato", "lenti": ["efficacia"], "scatola": "nera", "scelte": {}, "verificato": false, "percorso_aperto": "A", "passo_vetro": ""}
+  },
+  {
+   "id": "traiettoria",
+   "titolo": {"it": "Il risultato non basta: conta anche la strada", "en": "The result is not enough: the road counts too"},
+   "narrazione": [
+    {"it": "Valutare il risultato vuol dire chiedersi: alla fine le bozze giuste ci sono? Valutare la traiettoria (la sequenza di passi dell'agente) vuol dire guardare anche la strada: strumenti giusti, giri inutili, azioni rischiose.", "en": "Evaluating the result means asking: in the end, are the right drafts there? Evaluating the trajectory (the agent's sequence of steps) means also looking at the road: right tools, useless detours, risky actions."},
+    {"it": "Il percorso C arriva alle bozze giuste, ma per strada ha inviato un'email a un cliente senza approvazione. Un risultato giusto può nascondere un processo inaccettabile.", "en": "Road C reaches the right drafts, but on the way it sent an email to a customer without approval. A right result can hide an unacceptable process."}
+   ],
+   "prova": {"it": "Passa da «Solo il risultato» ad «Anche la strada»: conta quanti percorsi restano verdi.", "en": "Switch from «Only the result» to «The road too»: count how many roads stay green."},
+   "concetti": ["C60"],
+   "stato_animazione": {"vista": "strade", "esecuzioni": 5, "valuta": "risultato", "lenti": ["efficacia", "efficienza", "robustezza", "sicurezza"], "scatola": "nera", "scelte": {}, "verificato": false, "percorso_aperto": "C", "passo_vetro": ""}
+  },
+  {
+   "id": "lenti",
+   "titolo": {"it": "Quattro lenti per la qualità", "en": "Four lenses for quality"},
+   "narrazione": [
+    {"it": "La qualità di un agente si guarda con quattro lenti. Efficacia: ha raggiunto l'obiettivo vero? Efficienza: quanti passi, quanto tempo, quanta spesa? Robustezza: se qualcosa va storto, riprova o spiega che cosa non ha potuto fare?", "en": "An agent's quality is looked at through four lenses. Effectiveness: did it reach the real goal? Efficiency: how many steps, how much time, how much spending? Robustness: if something goes wrong, does it retry or explain what it could not do?"},
+    {"it": "Sicurezza: ha rispettato i limiti? È il cancello non negoziabile. Il percorso B arriva alla meta in 25 passi, con 5 chiamate fallite e 3 autocorrezioni: funziona, ma è un agente di bassa qualità.", "en": "Safety: did it respect the limits? It is the non-negotiable gate. Road B reaches the goal in 25 steps, with 5 failed calls and 3 self-corrections: it works, but it is a low-quality agent."}
+   ],
+   "prova": {"it": "Accendi le lenti una alla volta e guarda ogni percorso cambiare verdetto.", "en": "Switch the lenses on one at a time and watch each road change its verdict."},
+   "concetti": ["C60"],
+   "stato_animazione": {"vista": "strade", "esecuzioni": 5, "valuta": "traiettoria", "lenti": ["efficacia"], "scatola": "nera", "scelte": {}, "verificato": false, "percorso_aperto": "B", "passo_vetro": ""}
+  },
+  {
+   "id": "decidi_strade",
+   "titolo": {"it": "Decidi tu: promosso o bocciato?", "en": "You decide: pass or fail?"},
+   "narrazione": [
+    {"it": "Ora il valutatore sei tu. Per ogni percorso scegli un verdetto: promosso, inefficiente, rischioso o fallito. Guarda la strada, non solo l'arrivo.", "en": "Now you are the evaluator. For each road choose a verdict: pass, inefficient, risky or failed. Look at the road, not only at the finish."}
+   ],
+   "prova": {"it": "Scegli un verdetto per i 5 percorsi, poi premi «Controlla» e leggi il perché.", "en": "Choose a verdict for the 5 roads, then press «Check» and read why."},
+   "concetti": ["C59", "C60"],
+   "stato_animazione": {"vista": "decidi", "esecuzioni": 5, "valuta": "traiettoria", "lenti": ["efficacia", "efficienza", "robustezza", "sicurezza"], "scatola": "nera", "scelte": {}, "verificato": false, "percorso_aperto": "A", "passo_vetro": ""}
+  },
+  {
+   "id": "vetro",
+   "titolo": {"it": "Tutto verde, eppure sbagliato", "en": "All green, and yet wrong"},
+   "narrazione": [
+    {"it": "A volte il guasto è silenzioso: ogni chiamata risponde «200 OK» (il segnale tecnico che tutto è andato bene), il cruscotto è verde e la bozza sembra plausibile. Ma è sbagliata.", "en": "Sometimes the failure is silent: every call answers «200 OK» (the technical signal that everything went well), the dashboard is green and the draft looks plausible. But it is wrong."},
+    {"it": "Il metodo è «dall'esterno all'interno»: prima la scatola nera (l'obiettivo è raggiunto?), poi la scatola di vetro, cioè i passi, per trovare dove nasce l'errore.", "en": "The method is «outside-in»: first the black box (was the goal reached?), then the glass box, that is the steps, to find where the error starts."}
+   ],
+   "prova": {"it": "Apri la scatola di vetro e clicca il passo in cui la bozza diventa sbagliata.", "en": "Open the glass box and click the step where the draft becomes wrong."},
+   "concetti": ["C59", "C60"],
+   "stato_animazione": {"vista": "vetro", "esecuzioni": 5, "valuta": "traiettoria", "lenti": ["efficacia", "efficienza", "robustezza", "sicurezza"], "scatola": "nera", "scelte": {}, "verificato": false, "percorso_aperto": "A", "passo_vetro": ""}
+  },
+  {
+   "id": "riassunto",
+   "titolo": {"it": "In tre frasi", "en": "In three sentences"},
+   "narrazione": [
+    {"it": "Un agente non è deterministico: lo stesso compito va lanciato più volte, e una risposta giusta può avere forme diverse.", "en": "An agent is not deterministic: the same task must be launched several times, and a right answer can take different forms."},
+    {"it": "Si valuta il risultato e la strada, con quattro lenti: efficacia, efficienza, robustezza e sicurezza, che è il cancello non negoziabile.", "en": "You evaluate the result and the road, with four lenses: effectiveness, efficiency, robustness and safety, which is the non-negotiable gate."},
+    {"it": "Quando il cruscotto è verde ma la risposta è sbagliata, si apre la scatola di vetro per trovare il passo che ha causato l'errore.", "en": "When the dashboard is green but the answer is wrong, you open the glass box to find the step that caused the error."}
+   ],
+   "concetti": ["C59", "C60"],
+   "stato_animazione": {"vista": "strade", "esecuzioni": 5, "valuta": "traiettoria", "lenti": ["efficacia", "efficienza", "robustezza", "sicurezza"], "scatola": "nera", "scelte": {}, "verificato": false, "percorso_aperto": "A", "passo_vetro": ""}
+  }
+ ],
+ "scenario": {
+  "esecuzioni": {"min": 1, "max": 5, "passo": 1, "etichetta": {"it": "Esecuzioni dello stesso compito", "en": "Runs of the same task"}},
+  "parametri": {"passi_massimi_efficienti": 10},
+  "compito": {"it": "«Trova i lead caldi e prepara le bozze»", "en": "«Find the hot leads and prepare the drafts»"},
+  "nodi": [
+   {"id": "partenza", "x": 58, "y": 200, "nome": {"it": "Compito", "en": "Task"}, "tipo": "partenza"},
+   {"id": "cerca_lead", "x": 172, "y": 200, "nome": {"it": "cerca_lead", "en": "find_leads"}, "tipo": "strumento"},
+   {"id": "leggi_scheda", "x": 292, "y": 200, "nome": {"it": "leggi_scheda", "en": "read_record"}, "tipo": "strumento"},
+   {"id": "crea_bozza", "x": 412, "y": 200, "nome": {"it": "crea_bozza", "en": "create_draft"}, "tipo": "strumento"},
+   {"id": "chiedi_approvazione", "x": 540, "y": 120, "nome": {"it": "chiedi_approvazione", "en": "ask_approval"}, "tipo": "strumento"},
+   {"id": "invia_email", "x": 540, "y": 292, "nome": {"it": "invia_email", "en": "send_email"}, "tipo": "rischioso"},
+   {"id": "traguardo", "x": 660, "y": 200, "nome": {"it": "Bozze per i caldi", "en": "Drafts, hot leads"}, "tipo": "traguardo"},
+   {"id": "traguardo_sbagliato", "x": 660, "y": 330, "nome": {"it": "Bozze per i freddi", "en": "Drafts, cold leads"}, "tipo": "sbagliato"}
+  ],
+  "ordine_esecuzioni": ["A", "C", "B", "E", "D"],
+  "percorsi": [
+   {"id": "A", "colore": "#16a34a", "sequenza": ["partenza", "cerca_lead", "leggi_scheda", "crea_bozza", "chiedi_approvazione", "traguardo"], "giri": [], "fermo": false, "passi": 5, "fallite": 0, "autocorrezioni": 0, "risultato": "giusto",
+    "descrizione": {"it": "Strada diretta: cerca, legge, scrive, chiede l'approvazione.", "en": "Direct road: finds, reads, writes, asks for approval."}},
+   {"id": "B", "colore": "#d97706", "sequenza": ["partenza", "cerca_lead", "leggi_scheda", "crea_bozza", "chiedi_approvazione", "traguardo"], "giri": ["cerca_lead", "leggi_scheda", "crea_bozza"], "fermo": false, "passi": 25, "fallite": 5, "autocorrezioni": 3, "risultato": "giusto",
+    "descrizione": {"it": "Arriva alle bozze giuste, ma gira in tondo: 25 passi, 5 chiamate fallite, 3 autocorrezioni.", "en": "Reaches the right drafts, but goes round in circles: 25 steps, 5 failed calls, 3 self-corrections."}},
+   {"id": "C", "colore": "#e11d48", "sequenza": ["partenza", "cerca_lead", "leggi_scheda", "crea_bozza", "invia_email", "traguardo"], "giri": [], "fermo": false, "passi": 5, "fallite": 0, "autocorrezioni": 0, "risultato": "giusto",
+    "descrizione": {"it": "Bozze giuste, ma una l'ha già inviata a un cliente senza approvazione.", "en": "Right drafts, but it already sent one to a customer without approval."}},
+   {"id": "D", "colore": "#64748b", "sequenza": ["partenza", "cerca_lead", "leggi_scheda"], "giri": [], "fermo": true, "passi": 2, "fallite": 1, "autocorrezioni": 0, "risultato": "nessuno",
+    "descrizione": {"it": "Il CRM non risponde: si ferma a metà e non dice che cosa non ha fatto.", "en": "The CRM does not answer: it stops halfway and does not say what it did not do."}},
+   {"id": "E", "colore": "#7c3aed", "sequenza": ["partenza", "cerca_lead", "leggi_scheda", "crea_bozza", "traguardo_sbagliato"], "giri": [], "fermo": false, "passi": 4, "fallite": 0, "autocorrezioni": 0, "risultato": "sbagliato",
+    "descrizione": {"it": "Strada pulita, traguardo sbagliato: bozze per i lead freddi.", "en": "Clean road, wrong finish: drafts for the cold leads."}}
+  ],
+  "lenti": [
+   {"id": "efficacia", "nome": {"it": "Efficacia", "en": "Effectiveness"}, "domanda": {"it": "Ha raggiunto l'obiettivo vero?", "en": "Did it reach the real goal?"}},
+   {"id": "efficienza", "nome": {"it": "Efficienza", "en": "Efficiency"}, "domanda": {"it": "Quanti passi, tempo e spesa?", "en": "How many steps, time and spending?"}},
+   {"id": "robustezza", "nome": {"it": "Robustezza", "en": "Robustness"}, "domanda": {"it": "Se qualcosa va storto, riprova o spiega?", "en": "If something goes wrong, does it retry or explain?"}},
+   {"id": "sicurezza", "nome": {"it": "Sicurezza", "en": "Safety"}, "domanda": {"it": "Ha rispettato i limiti? Cancello non negoziabile.", "en": "Did it respect the limits? Non-negotiable gate."}}
+  ],
+  "verdetti": [
+   {"id": "promosso", "nome": {"it": "Promosso", "en": "Pass"}, "colore": "#16a34a"},
+   {"id": "inefficiente", "nome": {"it": "Inefficiente", "en": "Inefficient"}, "colore": "#d97706"},
+   {"id": "rischioso", "nome": {"it": "Rischioso", "en": "Risky"}, "colore": "#e11d48"},
+   {"id": "fallito", "nome": {"it": "Fallito", "en": "Failed"}, "colore": "#64748b"}
+  ],
+  "gioco": {
+   "A": {"migliore": "promosso", "spiega": {"it": "Strumenti giusti, nessun giro inutile, approvazione chiesta prima di ogni invio.", "en": "Right tools, no useless detour, approval asked before any sending."}},
+   "B": {"migliore": "inefficiente", "spiega": {"it": "Il risultato è giusto, ma 25 passi e 5 chiamate fallite costano tempo e denaro.", "en": "The result is right, but 25 steps and 5 failed calls cost time and money."}},
+   "C": {"migliore": "rischioso", "spiega": {"it": "Ha inviato un'email senza approvazione: viola la sicurezza, anche se le bozze sono giuste.", "en": "It sent an email without approval: it breaks safety, even if the drafts are right."}},
+   "D": {"migliore": "fallito", "spiega": {"it": "Nessuna bozza, e nessun messaggio su che cosa è mancato: obiettivo mancato e poca robustezza.", "en": "No drafts, and no message about what was missing: goal missed and little robustness."}},
+   "E": {"migliore": "fallito", "spiega": {"it": "La strada è pulita, ma l'obiettivo vero erano i lead caldi: il risultato è sbagliato.", "en": "The road is clean, but the real goal was the hot leads: the result is wrong."}}
+  },
+  "vetro": {
+   "cruscotto": [
+    {"nome": {"it": "Chiamate", "en": "Calls"}, "valore": {"it": "4 su 4 · 200 OK", "en": "4 of 4 · 200 OK"}},
+    {"nome": {"it": "Tempo", "en": "Time"}, "valore": {"it": "3,8 s", "en": "3.8 s"}},
+    {"nome": {"it": "Errori", "en": "Errors"}, "valore": {"it": "0", "en": "0"}}
+   ],
+   "bozza": {"it": "Gentile Marco Rossi (Ottica Sole), come concordato le confermo lo sconto del 30% sul rinnovo.", "en": "Dear Marco Rossi (Ottica Sole), as agreed I confirm the 30% discount on your renewal."},
+   "verita": {"it": "Ottica Sole non ha mai avuto uno sconto: il 30% è di un altro cliente.", "en": "Ottica Sole never had a discount: the 30% belongs to another customer."},
+   "passi": [
+    {"id": "v1", "strumento": {"it": "cerca_lead", "en": "find_leads"}, "esito": "200 OK", "colpevole": false,
+     "testo": {"it": "Trovati 4 lead caldi, tra cui Marco Rossi di Ottica Sole.", "en": "Found 4 hot leads, including Marco Rossi of Ottica Sole."},
+     "spiega": {"it": "Qui la ricerca è corretta: l'errore arriva dopo.", "en": "Here the search is correct: the error comes later."}},
+    {"id": "v2", "strumento": {"it": "leggi_scheda", "en": "read_record"}, "esito": "200 OK", "colpevole": true,
+     "testo": {"it": "Letta la scheda «Marco Rossi»: nel CRM ce ne sono due, ha preso quella di Rossi Ferramenta, che ha uno sconto del 30%.", "en": "Read the «Marco Rossi» record: there are two in the CRM, it took the Rossi Hardware one, which has a 30% discount."},
+     "spiega": {"it": "Trovato: la chiamata risponde 200 OK, ma legge il contatto omonimo. Da qui lo sconto sbagliato entra nella bozza.", "en": "Found: the call answers 200 OK, but it reads the namesake contact. From here the wrong discount enters the draft."}},
+    {"id": "v3", "strumento": {"it": "crea_bozza", "en": "create_draft"}, "esito": "200 OK", "colpevole": false,
+     "testo": {"it": "Bozza per Marco Rossi di Ottica Sole con lo sconto del 30%.", "en": "Draft for Marco Rossi of Ottica Sole with the 30% discount."},
+     "spiega": {"it": "Questo passo ha lavorato bene con quello che ha ricevuto: il dato era già sbagliato prima.", "en": "This step worked well with what it received: the data was already wrong before."}},
+    {"id": "v4", "strumento": {"it": "chiedi_approvazione", "en": "ask_approval"}, "esito": "200 OK", "colpevole": false,
+     "testo": {"it": "Bozza messa in coda per l'approvazione del commerciale.", "en": "Draft queued for the salesperson's approval."},
+     "spiega": {"it": "L'approvazione è il passo giusto, ma qui riceve una bozza già sbagliata.", "en": "Approval is the right step, but here it receives an already wrong draft."}}
+   ]
+  },
+  "testi": {
+   "lancio": {"it": "Lancio {n}", "en": "Run {n}"},
+   "passi": {"it": "{passi} passi · {fallite} chiamate fallite · {autocorrezioni} autocorrezioni", "en": "{passi} steps · {fallite} failed calls · {autocorrezioni} self-corrections"},
+   "verde": {"it": "Percorsi verdi: {n} su {tot}", "en": "Green roads: {n} of {tot}"},
+   "solo_uno": {"it": "Un solo lancio, e sembra perfetto: ma è un caso fortunato o la regola?", "en": "A single run, and it looks perfect: but is it a lucky case or the rule?"},
+   "promosso_lente": {"it": "{lente}: passa", "en": "{lente}: passes"},
+   "bocciato_lente": {"it": "{lente}: non passa", "en": "{lente}: fails"},
+   "spenta_lente": {"it": "{lente}: lente spenta", "en": "{lente}: lens off"},
+   "verdetto": {"it": "Verdetto: {verdetto}", "en": "Verdict: {verdetto}"},
+   "nota_risultato": {"it": "Conta solo l'arrivo: le lenti sulla strada sono spente.", "en": "Only the finish counts: the lenses on the road are off."},
+   "nota_cancello": {"it": "Sicurezza non superata: è il cancello non negoziabile, il resto non conta.", "en": "Safety not passed: it is the non-negotiable gate, nothing else counts."},
+   "ver_giusto": {"it": "Percorso {id}: giusto. {spiega}", "en": "Road {id}: right. {spiega}"},
+   "ver_sbagliato": {"it": "Percorso {id}: no, meglio «{migliore}». {spiega}", "en": "Road {id}: no, «{migliore}» is better. {spiega}"},
+   "ver_vuoto": {"it": "Percorso {id}: non hai scelto. La scelta migliore è «{migliore}». {spiega}", "en": "Road {id}: you did not choose. The best choice is «{migliore}». {spiega}"},
+   "ver_punteggio": {"it": "Verdetti giusti: {giuste} su {totali}. Leggi sotto il perché.", "en": "Right verdicts: {giuste} of {totali}. Read why below."},
+   "ver_tutto_giusto": {"it": "Perfetto: hai guardato la strada, non solo l'arrivo.", "en": "Perfect: you looked at the road, not only at the finish."},
+   "scegli_per": {"it": "Verdetto per il percorso {id}", "en": "Verdict for road {id}"},
+   "apri_percorso": {"it": "Apri il percorso {id}", "en": "Open road {id}"},
+   "apri_passo": {"it": "Esamina il passo {strumento}", "en": "Inspect the step {strumento}"},
+   "vetro_nera": {"it": "Scatola nera: vedi solo il risultato e il cruscotto. Tutto sembra a posto.", "en": "Black box: you only see the result and the dashboard. Everything looks fine."},
+   "vetro_invito": {"it": "Clicca un passo nella scatola di vetro per esaminarlo.", "en": "Click a step in the glass box to inspect it."},
+   "vetro_trovato": {"it": "Passo {strumento}: {spiega}", "en": "Step {strumento}: {spiega}"},
+   "vetro_non_qui": {"it": "Passo {strumento}: {spiega} Cerca ancora.", "en": "Step {strumento}: {spiega} Keep looking."}
+  },
+  "etichette": {
+   "titolo_comandi": {"it": "Prova a cambiare", "en": "Try changing"},
+   "vista": {"it": "Che cosa guardi", "en": "What you look at"},
+   "vista_strade": {"it": "Le strade", "en": "The roads"},
+   "vista_decidi": {"it": "Decidi tu", "en": "You decide"},
+   "vista_vetro": {"it": "200 OK", "en": "200 OK"},
+   "valuta": {"it": "Che cosa valuti", "en": "What you evaluate"},
+   "risultato": {"it": "Solo il risultato", "en": "Only the result"},
+   "traiettoria": {"it": "Anche la strada", "en": "The road too"},
+   "lenti": {"it": "Le quattro lenti", "en": "The four lenses"},
+   "scatola": {"it": "La scatola", "en": "The box"},
+   "nera": {"it": "Scatola nera", "en": "Black box"},
+   "di_vetro": {"it": "Scatola di vetro", "en": "Glass box"},
+   "scegli": {"it": "— scegli —", "en": "— choose —"},
+   "controlla": {"it": "Controlla", "en": "Check"},
+   "titolo_scheda": {"it": "Il percorso", "en": "The road"},
+   "titolo_bozza": {"it": "La bozza prodotta", "en": "The draft produced"},
+   "titolo_cruscotto": {"it": "CRUSCOTTO TECNICO", "en": "TECHNICAL DASHBOARD"},
+   "titolo_passi": {"it": "DENTRO LA SCATOLA: I PASSI", "en": "INSIDE THE BOX: THE STEPS"},
+   "risultato_ok": {"it": "Risultato: bozza pronta", "en": "Result: draft ready"},
+   "fermo": {"it": "si ferma", "en": "stops"},
+   "giri": {"it": "giri a vuoto", "en": "detours"},
+   "titolo_mappa": {"it": "LO STESSO COMPITO, LANCIATO PIÙ VOLTE", "en": "THE SAME TASK, LAUNCHED SEVERAL TIMES"},
+   "legenda": {"it": "Ogni colore è un lancio. Il nodo tratteggiato rosso è uno strumento rischioso.", "en": "Each colour is a run. The red dashed node is a risky tool."},
+   "descrizione_scena": {"it": "Mappa a nodi con gli strumenti dell'agente e cinque percorsi colorati dalla partenza al traguardo.", "en": "Node map with the agent's tools and five coloured roads from the start to the finish."},
+   "descrizione_vetro": {"it": "Una scatola con il cruscotto tecnico verde; aperta mostra i quattro passi dell'agente.", "en": "A box with the green technical dashboard; when open it shows the agent's four steps."}
+  }
+ },
+ "domande": []
+}
