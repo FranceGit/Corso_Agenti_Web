@@ -1,0 +1,334 @@
+[
+ {
+  "id": "DA7.4-4",
+  "origine": "autori",
+  "pillola": "P7.4",
+  "concetti": [
+   "C65"
+  ],
+  "concetto_principale": "C65",
+  "segmento_aiuto": "posizione",
+  "striscia": "diagnosi",
+  "livello1": {
+   "domanda": {
+    "it": "Un LLM giudice confronta due bozze di risposta a un cliente. Con l'ordine A-B vince A; ripeti con l'ordine B-A e vince B. Che cosa ti dice questo risultato?",
+    "en": "An LLM judge compares two draft replies to a customer. With the order A-B, A wins; you repeat with the order B-A and B wins. What does this result tell you?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Le bozze sono quasi alla pari e decide l'ordine di lettura",
+      "en": "The drafts are almost even and the reading order decides"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "È il bias di posizione: in una coppia equilibrata vince chi viene letto per primo.",
+      "en": "It is position bias: in an even pair, whoever is read first wins."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "La bozza B è la migliore, perché ha vinto nell'ultima prova fatta",
+      "en": "Draft B is the best, because it won the last test"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "L'ultima prova non vale più della prima: i due verdetti si contraddicono.",
+      "en": "The last test is not worth more than the first: the two verdicts contradict each other."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Il giudice ha riflettuto meglio la seconda volta e ha corretto il suo primo verdetto",
+      "en": "The judge thought it over better the second time and corrected its first verdict"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il giudice non «ripensa»: ha visto le stesse bozze in un altro ordine.",
+      "en": "The judge does not «think again»: it saw the same drafts in another order."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Il CRM ha passato dati diversi tra una prova e l'altra",
+      "en": "The CRM passed different data between one test and the other"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Le bozze e i dati sono gli stessi: è cambiato solo l'ordine.",
+      "en": "The drafts and the data are the same: only the order changed."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Conviene tenere sempre il primo verdetto, perché è il più spontaneo e quindi il più affidabile",
+      "en": "It is best to always keep the first verdict, because it is the most spontaneous and so the most reliable"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Il primo verdetto è proprio quello falsato dall'ordine: non è più affidabile.",
+      "en": "The first verdict is exactly the one distorted by the order: it is not more reliable."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Quando invertire l'ordine cambia il verdetto, il giudice è influenzato dalla posizione e la coppia è quasi alla pari: il caso va trattato come incerto.",
+    "en": "When swapping the order changes the verdict, the judge is influenced by position and the pair is almost even: the case should be treated as uncertain."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Che cosa fai con le coppie in cui i due ordini danno verdetti diversi?",
+    "en": "What do you do with the pairs where the two orders give different verdicts?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Le segni come incerte e le passi a una persona",
+      "en": "Mark them as uncertain and pass them to a person"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "È la doppia valutazione: il disaccordo tra i due ordini diventa un caso per la revisione umana.",
+      "en": "This is double evaluation: disagreement between the two orders becomes a case for human review."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Le rilanci finché lo stesso verdetto non esce due volte di fila",
+      "en": "Run them again until the same verdict comes out twice in a row"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Ripetere finché «esce» un verdetto sceglie il caso fortunato, non la risposta migliore.",
+      "en": "Repeating until a verdict «comes out» picks the lucky run, not the best reply."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Le togli dal conteggio senza dirlo, così il tasso di vittorie resta pulito",
+      "en": "Remove them from the count without saying so, so the win rate stays clean"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Nasconderle falsa il risultato: vanno contate come incerte e riviste.",
+      "en": "Hiding them distorts the result: they must be counted as uncertain and reviewed."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Assegni la vittoria alla nuova versione, che di solito è migliore",
+      "en": "Give the win to the new version, which is usually better"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Decidere in anticipo chi vince annulla il senso della valutazione.",
+      "en": "Deciding in advance who wins defeats the purpose of the evaluation."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Sostituisci il giudice con un modello più grande e non controlli più l'ordine",
+      "en": "Replace the judge with a bigger model and stop checking the order"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Un modello più grande non garantisce l'assenza del bias: il controllo dell'ordine resta necessario.",
+      "en": "A bigger model does not guarantee the bias is gone: checking the order is still needed."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Votare in tutti e due gli ordini e mandare a una persona i casi in disaccordo evita che sia l'ordine a decidere.",
+    "en": "Voting in both orders and sending the disagreeing cases to a person stops the order from deciding."
+   }
+  }
+ },
+ {
+  "id": "DA7.4-5",
+  "origine": "autori",
+  "pillola": "P7.4",
+  "concetti": [
+   "C65"
+  ],
+  "concetto_principale": "C65",
+  "segmento_aiuto": "lunghezza",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Un collega aggiunge a ogni bozza tre frasi di cortesia senza informazioni nuove e il giudice LLM le premia quasi sempre. Il collega conclude: «le bozze sono migliorate». Che cosa non va?",
+    "en": "A colleague adds three polite sentences with no new information to every draft, and the LLM judge almost always rewards them. The colleague concludes: «the drafts have improved». What is wrong?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Il giudice sta premiando la lunghezza, non il contenuto",
+      "en": "The judge is rewarding length, not content"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Le frasi aggiunte non portano dati utili: il voto sale per la lunghezza, un bias noto ai progettisti.",
+      "en": "The added sentences bring no useful data: the score goes up because of length, a bias known to designers."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Niente: se il giudice le preferisce, i clienti le preferiranno di sicuro",
+      "en": "Nothing: if the judge prefers them, customers will surely prefer them"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il giudice non è il cliente: va tarato su esperti umani prima di fidarsi.",
+      "en": "The judge is not the customer: it must be calibrated on human experts before trusting it."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Il giudice dovrebbe dare voti da 1 a 10 invece che da 1 a 5",
+      "en": "The judge should give scores from 1 to 10 instead of 1 to 5"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Cambiare la scala non toglie la preferenza per i testi lunghi.",
+      "en": "Changing the scale does not remove the preference for long texts."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Le frasi di cortesia sono vietate in tutte le email commerciali",
+      "en": "Polite sentences are forbidden in all sales emails"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "La cortesia non è vietata: il problema è premiarla come se fosse contenuto.",
+      "en": "Politeness is not forbidden: the problem is rewarding it as if it were content."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Il giudice ha ragione, perché un testo più lungo è sempre più chiaro",
+      "en": "The judge is right, because a longer text is always clearer"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Un testo più lungo non è per forza più chiaro: qui aggiunge solo parole vuote.",
+      "en": "A longer text is not necessarily clearer: here it only adds empty words."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Un voto che sale solo perché il testo è più lungo è un bias del giudice: si corregge con un criterio esplicito «la lunghezza non conta» e con il controllo degli esperti.",
+    "en": "A score that rises only because the text is longer is a judge bias: you fix it with an explicit «length does not count» criterion and with expert checks."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Quale contromisura riduce di più questo problema?",
+    "en": "Which countermeasure reduces this problem the most?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Scrivere nella rubrica che la lunghezza non conta",
+      "en": "Write in the rubric that length does not count"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Un criterio esplicito toglie peso alla lunghezza; è competenza del progettista, non è nelle fonti del corso.",
+      "en": "An explicit criterion takes weight away from length; it is designer expertise, not in the course sources."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Chiedere al giudice di essere più severo con tutti",
+      "en": "Ask the judge to be stricter with everyone"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Più severità abbassa tutti i voti, ma il testo lungo resta favorito.",
+      "en": "More strictness lowers all scores, but the long text is still favoured."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Inviare ai clienti solo bozze più corte di tre righe",
+      "en": "Send customers only drafts shorter than three lines"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Tagliare tutto può togliere informazioni utili: il problema è nel giudice.",
+      "en": "Cutting everything can remove useful information: the problem is in the judge."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Valutare solo le bozze lunghe, che sono più complete",
+      "en": "Assess only the long drafts, which are more complete"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Lunghe non vuol dire complete: qui le frasi aggiunte sono vuote.",
+      "en": "Long does not mean complete: here the added sentences are empty."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Far rivedere tutte le bozze a una persona e spegnere il giudice",
+      "en": "Have a person review every draft and switch off the judge"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Le persone servono a campione e sui casi segnalati: rivedere tutto non si regge con molti volumi.",
+      "en": "People are needed on a sample and on flagged cases: reviewing everything does not scale with large volumes."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Un criterio scritto nella rubrica dice al giudice di ignorare la lunghezza e di guardare solo il contenuto.",
+    "en": "A criterion written in the rubric tells the judge to ignore length and look only at the content."
+   }
+  }
+ }
+]

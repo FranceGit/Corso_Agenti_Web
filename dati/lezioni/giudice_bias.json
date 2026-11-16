@@ -1,0 +1,928 @@
+{
+ "id": "L_giudice_bias",
+ "pillola": "P7.4",
+ "componente": "giudice_bias",
+ "titolo": {
+  "it": "Il giudice e i suoi bias",
+  "en": "The judge and its biases"
+ },
+ "sottotitolo": {
+  "it": "Un LLM giudica le risposte ai clienti: inverti l'ordine, allunga una bozza, taralo sugli esperti.",
+  "en": "An LLM judges the replies to customers: swap the order, lengthen a draft, calibrate it on the experts."
+ },
+ "segmenti": [
+  {
+   "id": "rubrica_coppie",
+   "titolo": {
+    "it": "Un modello che fa da giudice",
+    "en": "A model acting as a judge"
+   },
+   "narrazione": [
+    {
+     "it": "Le email ai clienti non hanno una sola risposta giusta. Per valutarne tante si usa un LLM giudice: un modello linguistico che legge la richiesta, le risposte e una rubrica, cioè una griglia di criteri scritti.",
+     "en": "Emails to customers do not have a single right answer. To assess many of them you use an LLM judge: a language model that reads the request, the replies and a rubric, that is a grid of written criteria."
+    },
+    {
+     "it": "Qui la rubrica ha quattro voci: correttezza rispetto ai dati del CRM, utilità, tono e conformità. Il giudice confronta due risposte e dice quale vince, con il motivo. Su molte coppie si conta il tasso di vittorie della nuova versione: è più affidabile di un piccolo cambio in un voto da 1 a 5.",
+     "en": "Here the rubric has four items: correctness against the CRM data, helpfulness, tone and compliance. The judge compares two replies and says which one wins, with the reason. Over many pairs you count the new version's win rate: it is more reliable than a small change in a 1-to-5 score."
+    }
+   ],
+   "prova": {
+    "it": "Leggi la richiesta e le bozze A e B, poi guarda la bilancia, l'uscita del giudice e il tasso di vittorie.",
+    "en": "Read the request and drafts A and B, then look at the scale, the judge's output and the win rate."
+   },
+   "concetti": [
+    "C65"
+   ],
+   "stato_animazione": {
+    "vista": "coppia",
+    "coppia": "demo",
+    "ordine": "AB",
+    "imbottitura": 0,
+    "doppia": false,
+    "regola_lunghezza": false,
+    "giudice_diverso": false,
+    "rubrica": "vaga",
+    "campione": 5,
+    "scelte": {},
+    "verificato": false
+   }
+  },
+  {
+   "id": "posizione",
+   "titolo": {
+    "it": "L'ordine conta (e non dovrebbe)",
+    "en": "The order matters (and it should not)"
+   },
+   "narrazione": [
+    {
+     "it": "Il giudice dovrebbe guardare solo il contenuto. Invece può preferire una risposta solo perché la legge per prima: è il bias di posizione, studiato da una ricerca sui giudici LLM. Nelle coppie quasi alla pari basta invertire l'ordine per cambiare il verdetto.",
+     "en": "The judge should look only at the content. Instead it may prefer a reply just because it reads it first: this is position bias, studied in research on LLM judges. In pairs that are almost even, swapping the order is enough to change the verdict."
+    },
+    {
+     "it": "Una contromisura, che viene dall'esperienza di chi progetta e non dalle fonti, è la doppia valutazione: il giudice vota in tutti e due gli ordini. Se i verdetti non coincidono, il caso è «incerto» e passa a una persona.",
+     "en": "One countermeasure, which comes from designers' experience and not from the sources, is double evaluation: the judge votes in both orders. If the verdicts differ, the case is «uncertain» and goes to a person."
+    }
+   ],
+   "prova": {
+    "it": "Premi «Inverti l'ordine» e guarda il verdetto passare da A a B. Poi accendi «Doppia valutazione».",
+    "en": "Press «Swap the order» and watch the verdict move from A to B. Then switch on «Double evaluation»."
+   },
+   "concetti": [
+    "C65"
+   ],
+   "stato_animazione": {
+    "vista": "coppia",
+    "coppia": "preventivo",
+    "ordine": "AB",
+    "imbottitura": 0,
+    "doppia": false,
+    "regola_lunghezza": false,
+    "giudice_diverso": false,
+    "rubrica": "vaga",
+    "campione": 5,
+    "scelte": {},
+    "verificato": false
+   }
+  },
+  {
+   "id": "lunghezza",
+   "titolo": {
+    "it": "Lunghezza e stesso modello: altri due bias",
+    "en": "Length and same model: two more biases"
+   },
+   "narrazione": [
+    {
+     "it": "Altri due bias sono noti a chi progetta questi sistemi, ma non sono nelle fonti del corso: è competenza del progettista. Il giudice tende a premiare le risposte più lunghe e quelle scritte dal suo stesso modello.",
+     "en": "Two more biases are known to the people who design these systems, but they are not in the course sources: it is designer expertise. The judge tends to reward longer replies and replies written by its own model."
+    },
+    {
+     "it": "Le contromisure: scrivere nella rubrica «la lunghezza non conta» e usare come giudice un modello diverso da quello che scrive le risposte.",
+     "en": "The countermeasures: write «length does not count» in the rubric and use as judge a model different from the one that writes the replies."
+    }
+   ],
+   "prova": {
+    "it": "Aggiungi frasi di cortesia vuote alla bozza B e guarda il giudice cambiare idea. Poi accendi le due contromisure.",
+    "en": "Add empty polite sentences to draft B and watch the judge change its mind. Then switch on the two countermeasures."
+   },
+   "concetti": [
+    "C65"
+   ],
+   "stato_animazione": {
+    "vista": "coppia",
+    "coppia": "offerta",
+    "ordine": "AB",
+    "imbottitura": 0,
+    "doppia": false,
+    "regola_lunghezza": false,
+    "giudice_diverso": false,
+    "rubrica": "vaga",
+    "campione": 5,
+    "scelte": {},
+    "verificato": false
+   }
+  },
+  {
+   "id": "calibrazione",
+   "titolo": {
+    "it": "Il giudice si tara sugli esperti",
+    "en": "The judge is calibrated on the experts"
+   },
+   "narrazione": [
+    {
+     "it": "Il giudice è uno strumento di misura e va calibrato: si confrontano i suoi voti con quelli di commerciali esperti su un campione. Con una rubrica vaga i punti sono sparsi e il giudice è troppo generoso; con una rubrica scomposta in sotto-domande la nuvola si stringe.",
+     "en": "The judge is a measuring tool and must be calibrated: you compare its scores with those of expert salespeople on a sample. With a vague rubric the dots are scattered and the judge is too generous; with a rubric broken into sub-questions the cloud tightens."
+    },
+    {
+     "it": "Le persone rivedono un campione e i casi segnalati, non tutto. Il loro giudizio non è una verità perfetta, perché anche gli esperti a volte non sono d'accordo: è un riferimento calibrato sull'uomo. E la rubrica la scrive una persona.",
+     "en": "People review a sample and the flagged cases, not everything. Their judgement is not a perfect truth, because experts sometimes disagree too: it is a human-calibrated reference. And a person writes the rubric."
+    }
+   ],
+   "prova": {
+    "it": "Passa da «Rubrica vaga» a «Rubrica scomposta» e guarda l'accordo salire. Poi sposta il campione per le persone.",
+    "en": "Switch from «Vague rubric» to «Broken-down rubric» and watch the agreement rise. Then move the sample for people."
+   },
+   "concetti": [
+    "C65",
+    "C66"
+   ],
+   "stato_animazione": {
+    "vista": "calibra",
+    "coppia": "demo",
+    "ordine": "AB",
+    "imbottitura": 0,
+    "doppia": false,
+    "regola_lunghezza": false,
+    "giudice_diverso": false,
+    "rubrica": "vaga",
+    "campione": 5,
+    "scelte": {},
+    "verificato": false
+   }
+  },
+  {
+   "id": "contromisure",
+   "titolo": {
+    "it": "Decidi tu: quale contromisura?",
+    "en": "You decide: which countermeasure?"
+   },
+   "narrazione": [
+    {
+     "it": "Ecco quattro problemi reali di un giudice LLM in un team vendite: per ognuno scegli la contromisura più adatta.",
+     "en": "Here are four real problems of an LLM judge in a sales team: for each one choose the most suitable countermeasure."
+    }
+   ],
+   "prova": {
+    "it": "Scegli una contromisura per ogni caso, poi premi «Controlla» e leggi il perché.",
+    "en": "Choose a countermeasure for each case, then press «Check» and read why."
+   },
+   "concetti": [
+    "C65",
+    "C66"
+   ],
+   "stato_animazione": {
+    "vista": "decidi",
+    "coppia": "demo",
+    "ordine": "AB",
+    "imbottitura": 0,
+    "doppia": false,
+    "regola_lunghezza": false,
+    "giudice_diverso": false,
+    "rubrica": "vaga",
+    "campione": 5,
+    "scelte": {},
+    "verificato": false
+   }
+  },
+  {
+   "id": "riassunto",
+   "titolo": {
+    "it": "In tre frasi",
+    "en": "In three sentences"
+   },
+   "narrazione": [
+    {
+     "it": "Un LLM giudice valuta le risposte con una rubrica scritta e, meglio ancora, le confronta a coppie contando il tasso di vittorie.",
+     "en": "An LLM judge assesses replies with a written rubric and, even better, compares them in pairs and counts the win rate."
+    },
+    {
+     "it": "Il giudice ha dei bias (ordine di lettura, lunghezza, il proprio stile) che si riducono con la doppia valutazione, criteri espliciti e un giudice diverso.",
+     "en": "The judge has biases (reading order, length, its own style) that shrink with double evaluation, explicit criteria and a different judge."
+    },
+    {
+     "it": "Va calibrato sui voti di esperti umani, che rivedono un campione e i casi segnalati e scrivono la rubrica.",
+     "en": "It must be calibrated on human experts' scores; they review a sample and the flagged cases, and they write the rubric."
+    }
+   ],
+   "concetti": [
+    "C65",
+    "C66"
+   ],
+   "stato_animazione": {
+    "vista": "coppia",
+    "coppia": "preventivo",
+    "ordine": "BA",
+    "imbottitura": 0,
+    "doppia": true,
+    "regola_lunghezza": true,
+    "giudice_diverso": true,
+    "rubrica": "scomposta",
+    "campione": 5,
+    "scelte": {},
+    "verificato": false
+   }
+  }
+ ],
+ "scenario": {
+  "parametri": {
+   "_why": "Pesi del giudice simulato (illustrativi): spinta a chi e' letto per primo, per ogni parola di lunghezza, alla risposta scritta dallo stesso modello del giudice; sotto 'pari' i due punteggi sono considerati uguali. Le parole di ogni risposta sono fissate nei dati (uguali in IT e EN) perche' il verdetto non dipenda dalla lingua.",
+   "bias_posizione": 0.3,
+   "bias_lunghezza_parola": 0.02,
+   "bias_auto": 0.2,
+   "pari": 0.15,
+   "voto_max": 5,
+   "parole_frase_riempimento": 20,
+   "risposte_giorno": 2000,
+   "segnalati_giorno": 40,
+   "minuti_revisione": 3
+  },
+  "imbottitura": {
+   "min": 0,
+   "max": 3,
+   "passo": 1,
+   "etichetta": {
+    "it": "Frasi di cortesia vuote nella bozza B",
+    "en": "Empty polite sentences in draft B"
+   }
+  },
+  "campione": {
+   "min": 0,
+   "max": 20,
+   "passo": 1,
+   "etichetta": {
+    "it": "Campione rivisto dalle persone",
+    "en": "Sample reviewed by people"
+   }
+  },
+  "riempimento": [
+   {
+    "it": "Teniamo moltissimo alla sua soddisfazione e siamo sempre felici di ricevere i suoi messaggi.",
+    "en": "We care a great deal about your satisfaction and we are always happy to receive your messages."
+   },
+   {
+    "it": "Il nostro team lavora ogni giorno con passione per offrirle un servizio davvero eccellente.",
+    "en": "Our team works with passion every day to offer you a truly excellent service."
+   },
+   {
+    "it": "Non esiti a scriverci di nuovo per qualsiasi altra domanda, saremo lieti di aiutarla.",
+    "en": "Do not hesitate to write to us again with any other question, we will be glad to help."
+   }
+  ],
+  "voci": [
+   {
+    "id": "correttezza",
+    "nome": {
+     "it": "Correttezza (dati CRM)",
+     "en": "Correctness (CRM data)"
+    }
+   },
+   {
+    "id": "utilita",
+    "nome": {
+     "it": "Utilità",
+     "en": "Helpfulness"
+    }
+   },
+   {
+    "id": "tono",
+    "nome": {
+     "it": "Tono",
+     "en": "Tone"
+    }
+   },
+   {
+    "id": "conformita",
+    "nome": {
+     "it": "Conformità",
+     "en": "Compliance"
+    }
+   }
+  ],
+  "versioni": {
+   "A": {
+    "it": "nuova versione",
+    "en": "new version"
+   },
+   "B": {
+    "it": "versione in uso",
+    "en": "current version"
+   }
+  },
+  "stesso_modello": "A",
+  "coppie": [
+   {
+    "id": "demo",
+    "nome": {
+     "it": "Demo non richiamata",
+     "en": "Demo not followed up"
+    },
+    "richiesta": {
+     "it": "Ho ordinato la demo del CRM una settimana fa e nessuno mi ha richiamato.",
+     "en": "I ordered the CRM demo a week ago and nobody called me back."
+    },
+    "A": {
+     "testo": {
+      "it": "Gentile Laura, mi scuso per l'attesa. La sua richiesta di demo del 12 marzo è assegnata a Marco Neri, che la chiamerà domani alle 10. Se l'orario non va bene, risponda pure a questa email.",
+      "en": "Dear Laura, I am sorry for the wait. Your demo request of 12 March is assigned to Marco Neri, who will call you tomorrow at 10. If the time does not suit you, just reply to this email."
+     },
+     "voti": {
+      "correttezza": 5,
+      "utilita": 5,
+      "tono": 5,
+      "conformita": 5
+     },
+     "parole": 35
+    },
+    "B": {
+     "testo": {
+      "it": "Richiesta ricevuta. Verrà ricontattata.",
+      "en": "Request received. You will be contacted."
+     },
+     "voti": {
+      "correttezza": 4,
+      "utilita": 2,
+      "tono": 2,
+      "conformita": 4
+     },
+     "parole": 4
+    }
+   },
+   {
+    "id": "preventivo",
+    "nome": {
+     "it": "Installazione inclusa?",
+     "en": "Installation included?"
+    },
+    "richiesta": {
+     "it": "Il preventivo che mi avete mandato include l'installazione?",
+     "en": "Does the quote you sent me include installation?"
+    },
+    "A": {
+     "testo": {
+      "it": "Sì, il preventivo n. 318 include l'installazione in sede. Il trasporto è a parte.",
+      "en": "Yes, quote no. 318 includes on-site installation. Transport is extra."
+     },
+     "voti": {
+      "correttezza": 5,
+      "utilita": 4,
+      "tono": 4,
+      "conformita": 4
+     },
+     "parole": 14
+    },
+    "B": {
+     "testo": {
+      "it": "Sì, l'installazione è inclusa nel preventivo n. 318; il trasporto invece si paga a parte, come da listino.",
+      "en": "Yes, installation is included in quote no. 318; transport, on the other hand, is paid separately, as per the price list."
+     },
+     "voti": {
+      "correttezza": 5,
+      "utilita": 4,
+      "tono": 4,
+      "conformita": 4
+     },
+     "parole": 18
+    }
+   },
+   {
+    "id": "rinnovo",
+    "nome": {
+     "it": "Spostare il rinnovo",
+     "en": "Moving the renewal"
+    },
+    "richiesta": {
+     "it": "Posso spostare il rinnovo del contratto al mese prossimo?",
+     "en": "Can I move the contract renewal to next month?"
+    },
+    "A": {
+     "testo": {
+      "it": "Sì: il suo contratto scade il 30 aprile e può spostare il rinnovo fino al 31 maggio senza costi.",
+      "en": "Yes: your contract expires on 30 April and you can move the renewal to 31 May at no cost."
+     },
+     "voti": {
+      "correttezza": 5,
+      "utilita": 4,
+      "tono": 4,
+      "conformita": 5
+     },
+     "parole": 19
+    },
+    "B": {
+     "testo": {
+      "it": "Il suo contratto scade a giugno, quindi non serve spostare nulla.",
+      "en": "Your contract expires in June, so there is no need to move anything."
+     },
+     "voti": {
+      "correttezza": 2,
+      "utilita": 3,
+      "tono": 4,
+      "conformita": 4
+     },
+     "parole": 11
+    }
+   },
+   {
+    "id": "offerta",
+    "nome": {
+     "it": "Offerta per chi ha il Base",
+     "en": "Offer for Basic customers"
+    },
+    "richiesta": {
+     "it": "Avete un'offerta per chi ha già il piano Base?",
+     "en": "Do you have an offer for people who already have the Basic plan?"
+    },
+    "A": {
+     "testo": {
+      "it": "Sì: chi ha il piano Base passa al Pro con il 15% di sconto fino al 30 aprile.",
+      "en": "Yes: Basic customers move to Pro with a 15% discount until 30 April."
+     },
+     "voti": {
+      "correttezza": 5,
+      "utilita": 5,
+      "tono": 4,
+      "conformita": 4
+     },
+     "parole": 18
+    },
+    "B": {
+     "testo": {
+      "it": "Sì, c'è uno sconto per passare al Pro.",
+      "en": "Yes, there is a discount to move to Pro."
+     },
+     "voti": {
+      "correttezza": 5,
+      "utilita": 4,
+      "tono": 4,
+      "conformita": 4
+     },
+     "parole": 8
+    }
+   },
+   {
+    "id": "utenti",
+    "nome": {
+     "it": "Costo di 5 utenti",
+     "en": "Cost of 5 users"
+    },
+    "richiesta": {
+     "it": "Quanto costa aggiungere 5 utenti al mio piano?",
+     "en": "How much does it cost to add 5 users to my plan?"
+    },
+    "A": {
+     "testo": {
+      "it": "Aggiungere utenti è semplice: può farlo dalle impostazioni del suo account in qualsiasi momento, con pochi clic, e il nostro team è sempre disponibile.",
+      "en": "Adding users is easy: you can do it from your account settings at any time, in a few clicks, and our team is always available."
+     },
+     "voti": {
+      "correttezza": 2,
+      "utilita": 3,
+      "tono": 4,
+      "conformita": 4
+     },
+     "parole": 24
+    },
+    "B": {
+     "testo": {
+      "it": "Con il piano Pro ogni utente in più costa 12 euro al mese: per 5 utenti sono 60 euro al mese.",
+      "en": "With the Pro plan each extra user costs 12 euros a month: for 5 users that is 60 euros a month."
+     },
+     "voti": {
+      "correttezza": 5,
+      "utilita": 5,
+      "tono": 4,
+      "conformita": 4
+     },
+     "parole": 21
+    }
+   },
+   {
+    "id": "fattura",
+    "nome": {
+     "it": "Fattura di febbraio",
+     "en": "February invoice"
+    },
+    "richiesta": {
+     "it": "Mi rimandate la fattura di febbraio?",
+     "en": "Can you send me the February invoice again?"
+    },
+    "A": {
+     "testo": {
+      "it": "Certo, gliela rinvio ora all'indirizzo dell'amministrazione registrato nel CRM.",
+      "en": "Of course, I am sending it now to the accounts address saved in the CRM."
+     },
+     "voti": {
+      "correttezza": 5,
+      "utilita": 4,
+      "tono": 4,
+      "conformita": 4
+     },
+     "parole": 9
+    },
+    "B": {
+     "testo": {
+      "it": "Certo, trova in allegato la fattura di febbraio; la copia è anche nella sua area clienti online.",
+      "en": "Of course, please find the February invoice attached; the copy is also in your online customer area."
+     },
+     "voti": {
+      "correttezza": 5,
+      "utilita": 4,
+      "tono": 4,
+      "conformita": 3
+     },
+     "parole": 17
+    }
+   }
+  ],
+  "calibrazione": {
+   "_why": "50 casi illustrativi generati in modo deterministico (seme fisso): voto degli esperti tra 1 e 5, voto del giudice = esperti + ottimismo + rumore; accordo se la differenza non supera la tolleranza.",
+   "casi": 50,
+   "seme": 4242,
+   "tolleranza": 0.5,
+   "vaga": {
+    "rumore": 1.3,
+    "ottimismo": 1.4
+   },
+   "scomposta": {
+    "rumore": 0.6,
+    "ottimismo": 0.1
+   }
+  },
+  "contromisure": [
+   {
+    "id": "ricalibra",
+    "nome": {
+     "it": "Riscrivere la rubrica con gli esperti e ricalibrare",
+     "en": "Rewrite the rubric with the experts and recalibrate"
+    }
+   },
+   {
+    "id": "doppia",
+    "nome": {
+     "it": "Doppia valutazione con ordine invertito",
+     "en": "Double evaluation with swapped order"
+    }
+   },
+   {
+    "id": "regola_lunghezza",
+    "nome": {
+     "it": "Criterio scritto: la lunghezza non conta",
+     "en": "Written criterion: length does not count"
+    }
+   },
+   {
+    "id": "giudice_diverso",
+    "nome": {
+     "it": "Giudice di un modello diverso",
+     "en": "Judge from a different model"
+    }
+   },
+   {
+    "id": "campione",
+    "nome": {
+     "it": "Persone su un campione e sui casi segnalati",
+     "en": "People on a sample and on flagged cases"
+    }
+   },
+   {
+    "id": "fidati",
+    "nome": {
+     "it": "Fidarsi del voto del giudice",
+     "en": "Trust the judge's score"
+    }
+   }
+  ],
+  "situazioni": [
+   {
+    "id": "s_generoso",
+    "testo": {
+     "it": "Il giudice dà in media 4,6 su 5 alle email; su un campione i commerciali esperti danno 2,8.",
+     "en": "The judge gives the emails 4.6 out of 5 on average; on a sample the expert salespeople give 2.8."
+    },
+    "migliore": "ricalibra",
+    "quasi": [
+     "campione"
+    ],
+    "spiega": {
+     "it": "Il giudice non è tarato: la rubrica va scritta meglio con gli esperti e ricontrollata sul loro giudizio.",
+     "en": "The judge is not calibrated: the rubric must be written better with the experts and checked again against their judgement."
+    }
+   },
+   {
+    "id": "s_ordine",
+    "testo": {
+     "it": "Invertendo le due bozze, il verdetto del giudice cambia in una coppia su tre.",
+     "en": "When the two drafts are swapped, the judge's verdict changes in one pair out of three."
+    },
+    "migliore": "doppia",
+    "quasi": [
+     "campione"
+    ],
+    "spiega": {
+     "it": "È il bias di posizione: votando in tutti e due gli ordini, i verdetti che cambiano diventano «incerti» e vanno a una persona.",
+     "en": "It is position bias: voting in both orders, the verdicts that change become «uncertain» and go to a person."
+    }
+   },
+   {
+    "id": "s_lunga",
+    "testo": {
+     "it": "Il giudice premia quasi sempre la bozza più lunga, anche quando aggiunge solo frasi di cortesia.",
+     "en": "The judge almost always rewards the longer draft, even when it only adds polite sentences."
+    },
+    "migliore": "regola_lunghezza",
+    "quasi": [
+     "ricalibra"
+    ],
+    "spiega": {
+     "it": "Un criterio esplicito nella rubrica toglie peso alla lunghezza; ricalibrare aiuta, ma senza il criterio il bias resta.",
+     "en": "An explicit criterion in the rubric takes weight away from length; recalibrating helps, but without the criterion the bias remains."
+    }
+   },
+   {
+    "id": "s_volume",
+    "testo": {
+     "it": "L'agente risponde a 2.000 clienti al giorno e il giudice valuta tutte le risposte. Chi le guarda?",
+     "en": "The agent replies to 2,000 customers a day and the judge assesses every reply. Who looks at them?"
+    },
+    "migliore": "campione",
+    "quasi": [
+     "ricalibra"
+    ],
+    "spiega": {
+     "it": "Le persone non possono leggerle tutte: rivedono un campione e i casi segnalati, e con quei voti si controlla il giudice.",
+     "en": "People cannot read them all: they review a sample and the flagged cases, and those scores are used to check the judge."
+    }
+   }
+  ],
+  "testi": {
+   "rationale": {
+    "it": "{vincente} è migliore per {voce}.",
+    "en": "{vincente} is better for {voce}."
+   },
+   "rationale_vuoto": {
+    "it": "{vincente} è più completa e scorrevole.",
+    "en": "{vincente} is more complete and fluent."
+   },
+   "rationale_pari": {
+    "it": "Le due risposte si equivalgono.",
+    "en": "The two replies are equivalent."
+   },
+   "rationale_incerto": {
+    "it": "I due ordini danno verdetti diversi: serve una persona.",
+    "en": "The two orders give different verdicts: a person is needed."
+   },
+   "verdetto_vince": {
+    "it": "Vince {lettera} ({versione})",
+    "en": "{lettera} wins ({versione})"
+   },
+   "verdetto_pari": {
+    "it": "Pari",
+    "en": "Tie"
+   },
+   "verdetto_incerto": {
+    "it": "Incerto: revisione umana",
+    "en": "Uncertain: human review"
+   },
+   "esperti": {
+    "it": "Secondo i commerciali esperti: {verdetto}.",
+    "en": "According to the expert salespeople: {verdetto}."
+   },
+   "punteggio": {
+    "it": "{lettera}: qualità {qualita} + spinta dei bias {spinta} = {totale}",
+    "en": "{lettera}: quality {qualita} + bias push {spinta} = {totale}"
+   },
+   "vittorie": {
+    "it": "Nuova contro in uso su {tot} coppie: vince la nuova {nuova} · vince quella in uso {vecchia} · pari {pari} · incerte {incerte}",
+    "en": "New against current over {tot} pairs: new wins {nuova} · current wins {vecchia} · ties {pari} · uncertain {incerte}"
+   },
+   "tasso": {
+    "it": "Tasso di vittorie della nuova versione: {tasso}%",
+    "en": "Win rate of the new version: {tasso}%"
+   },
+   "accordo": {
+    "it": "Accordo giudice-esperti (differenza fino a {tolleranza}): {accordo}%",
+    "en": "Judge-expert agreement (difference up to {tolleranza}): {accordo}%"
+   },
+   "medie": {
+    "it": "Media del giudice {giudice} · media degli esperti {esperti}",
+    "en": "Judge's average {giudice} · experts' average {esperti}"
+   },
+   "revisioni": {
+    "it": "Ogni giorno le persone rivedono {campione} risposte del campione + {segnalati} casi segnalati: circa {ore} ore (numeri illustrativi).",
+    "en": "Every day people review {campione} sample replies + {segnalati} flagged cases: about {ore} hours (illustrative numbers)."
+   },
+   "formato_campione": {
+    "it": "{n}%",
+    "en": "{n}%"
+   },
+   "formato_imbottitura": {
+    "it": "{n} frasi",
+    "en": "{n} sentences"
+   },
+   "ver_giusto": {
+    "it": "Caso {n}: giusto. {spiega}",
+    "en": "Case {n}: right. {spiega}"
+   },
+   "ver_quasi": {
+    "it": "Caso {n}: aiuta, ma la scelta migliore è «{migliore}». {spiega}",
+    "en": "Case {n}: it helps, but the best choice is «{migliore}». {spiega}"
+   },
+   "ver_sbagliato": {
+    "it": "Caso {n}: no, meglio «{migliore}». {spiega}",
+    "en": "Case {n}: no, «{migliore}» is better. {spiega}"
+   },
+   "ver_vuoto": {
+    "it": "Caso {n}: non hai ancora scelto. La scelta migliore è «{migliore}». {spiega}",
+    "en": "Case {n}: you have not chosen yet. The best choice is «{migliore}». {spiega}"
+   },
+   "ver_punteggio": {
+    "it": "Scelte migliori: {giuste} su {totali}. Leggi sotto il perché.",
+    "en": "Best choices: {giuste} of {totali}. Read why below."
+   },
+   "ver_tutto_giusto": {
+    "it": "Perfetto: per ogni problema hai scelto la contromisura giusta.",
+    "en": "Perfect: for every problem you chose the right countermeasure."
+   },
+   "apri_coppia": {
+    "it": "Apri la coppia «{nome}»",
+    "en": "Open the pair «{nome}»"
+   },
+   "scegli_per": {
+    "it": "Contromisura per il caso {n}",
+    "en": "Countermeasure for case {n}"
+   },
+   "caso": {
+    "it": "Caso {n}",
+    "en": "Case {n}"
+   }
+  },
+  "etichette": {
+   "titolo_comandi": {
+    "it": "Prova a cambiare",
+    "en": "Try changing"
+   },
+   "vista": {
+    "it": "Cosa guardi",
+    "en": "What you look at"
+   },
+   "vista_coppia": {
+    "it": "Una coppia",
+    "en": "One pair"
+   },
+   "vista_calibra": {
+    "it": "Calibrazione",
+    "en": "Calibration"
+   },
+   "vista_decidi": {
+    "it": "Decidi tu",
+    "en": "You decide"
+   },
+   "inverti": {
+    "it": "Inverti l'ordine",
+    "en": "Swap the order"
+   },
+   "ordine_AB": {
+    "it": "Ordine: A poi B",
+    "en": "Order: A then B"
+   },
+   "ordine_BA": {
+    "it": "Ordine: B poi A",
+    "en": "Order: B then A"
+   },
+   "contromisure": {
+    "it": "Contromisure",
+    "en": "Countermeasures"
+   },
+   "doppia": {
+    "it": "Doppia valutazione",
+    "en": "Double evaluation"
+   },
+   "regola_lunghezza": {
+    "it": "La lunghezza non conta",
+    "en": "Length does not count"
+   },
+   "giudice_diverso": {
+    "it": "Giudice di un altro modello",
+    "en": "Judge from another model"
+   },
+   "nota_exp": {
+    "it": "Bias di lunghezza e di stesso modello, e le tre contromisure, vengono dall'esperienza del progettista, non dalle fonti del corso.",
+    "en": "Length and same-model biases, and the three countermeasures, come from the designer's experience, not from the course sources."
+   },
+   "rubrica": {
+    "it": "Rubrica",
+    "en": "Rubric"
+   },
+   "vaga": {
+    "it": "Rubrica vaga",
+    "en": "Vague rubric"
+   },
+   "scomposta": {
+    "it": "Rubrica scomposta",
+    "en": "Broken-down rubric"
+   },
+   "controlla": {
+    "it": "Controlla",
+    "en": "Check"
+   },
+   "scegli": {
+    "it": "— scegli —",
+    "en": "— choose —"
+   },
+   "richiesta": {
+    "it": "RICHIESTA DEL CLIENTE",
+    "en": "CUSTOMER REQUEST"
+   },
+   "prima": {
+    "it": "LETTA PER PRIMA",
+    "en": "READ FIRST"
+   },
+   "seconda": {
+    "it": "LETTA PER SECONDA",
+    "en": "READ SECOND"
+   },
+   "spinta": {
+    "it": "Spinta dei bias",
+    "en": "Bias push"
+   },
+   "titolo_uscita": {
+    "it": "Uscita del giudice",
+    "en": "The judge's output"
+   },
+   "titolo_vittorie": {
+    "it": "Confronto a coppie",
+    "en": "Pairwise comparison"
+   },
+   "titolo_segnali": {
+    "it": "Segnali",
+    "en": "Signals"
+   },
+   "seg_posizione": {
+    "it": "Bias di posizione: con l'ordine invertito il verdetto cambia.",
+    "en": "Position bias: with the order swapped the verdict changes."
+   },
+   "seg_lunghezza": {
+    "it": "Spinta della lunghezza: senza di essa il verdetto sarebbe diverso.",
+    "en": "Length push: without it the verdict would be different."
+   },
+   "seg_auto": {
+    "it": "Stesso modello: il giudice favorisce la risposta scritta dal suo modello.",
+    "en": "Same model: the judge favours the reply written by its own model."
+   },
+   "seg_esperti": {
+    "it": "Il verdetto non coincide con quello degli esperti.",
+    "en": "The verdict does not match the experts' one."
+   },
+   "seg_nessuno": {
+    "it": "Nessun bias decide questo verdetto.",
+    "en": "No bias decides this verdict."
+   },
+   "asse_esperti": {
+    "it": "Voto dei commerciali esperti",
+    "en": "Expert salespeople's score"
+   },
+   "asse_giudice": {
+    "it": "Voto del giudice",
+    "en": "Judge's score"
+   },
+   "titolo_calibra": {
+    "it": "50 CASI: GIUDICE CONTRO ESPERTI (ILLUSTRATIVO)",
+    "en": "50 CASES: JUDGE AGAINST EXPERTS (ILLUSTRATIVE)"
+   },
+   "titolo_decidi": {
+    "it": "QUATTRO PROBLEMI DEL GIUDICE",
+    "en": "FOUR PROBLEMS OF THE JUDGE"
+   },
+   "titolo_calibra_destra": {
+    "it": "Taratura",
+    "en": "Calibration"
+   },
+   "titolo_revisione": {
+    "it": "Revisione umana",
+    "en": "Human review"
+   },
+   "nota_riferimento": {
+    "it": "Gli esperti non sono una verità perfetta: sono un riferimento calibrato sull'uomo. La rubrica la scrive una persona.",
+    "en": "Experts are not a perfect truth: they are a human-calibrated reference. A person writes the rubric."
+   },
+   "titolo_verifica": {
+    "it": "Riscontro",
+    "en": "Feedback"
+   },
+   "descrizione_scena": {
+    "it": "Due bozze di risposta a un cliente, la rubrica del giudice con le barre dei voti, una bilancia che pende verso la risposta vincente e le coppie da confrontare.",
+    "en": "Two draft replies to a customer, the judge's rubric with score bars, a scale tipping toward the winning reply and the pairs to compare."
+   }
+  }
+ },
+ "domande": []
+}
