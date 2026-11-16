@@ -1,5 +1,7 @@
 # PROGRESSI — Corso Agenti Web
 
+> **Cantiere in corso (16/11/2026): lezioni interattive del modulo M3 + le loro domande.** Le domande di M3 (P3.1-P3.5) le scrive questo cantiere in `strumenti/domande_autori/lotto_m3_*.json` (id `DA3.x-N`): gli altri lotti non toccano M3.
+
 ## Stato al 16/11/2026 — fase 3: batch 1 di lezioni interattive (moduli M1 e M2)
 
 ### Fatto
