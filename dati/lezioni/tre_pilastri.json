@@ -1,0 +1,206 @@
+{
+ "id": "L_tre_pilastri",
+ "pillola": "P7.2",
+ "componente": "tre_pilastri",
+ "titolo": {"it": "Log, tracce, metriche: la cascata e il filo rosso", "en": "Logs, traces, metrics: the waterfall and the red thread"},
+ "sottotitolo": {"it": "Un agente CRM risponde «hai 1.243 lead caldi», ma sono 10. Usa i tre pilastri dell'osservabilità per capire che cosa è successo, perché, e quanto bene va.", "en": "A CRM agent answers «you have 1,243 hot leads», but there are 10. Use the three pillars of observability to understand what happened, why, and how well it is going."},
+ "segmenti": [
+  {
+   "id": "log_cosa",
+   "titolo": {"it": "I log: che cosa è successo", "en": "Logs: what happened"},
+   "narrazione": [
+    {"it": "Marta Rossi chiede all'agente: «quanti lead caldi ho questa settimana?». Risposta: 1.243. Ma i lead caldi sono 10. Per capire si usano i tre pilastri dell'osservabilità: log, tracce e metriche.", "en": "Marta Rossi asks the agent: «how many hot leads do I have this week?». Answer: 1,243. But there are 10 hot leads. To understand, you use the three pillars of observability: logs, traces and metrics."},
+    {"it": "Un log è una riga di diario: dice che cosa è successo in un momento preciso. Ma le righe di tante richieste si mescolano: serve un identificativo comune (trace_id), lo stesso codice su ogni riga della stessa richiesta.", "en": "A log is a diary line: it says what happened at a precise moment. But the lines of many requests get mixed up: you need a common identifier (trace_id), the same code on every line of the same request."}
+   ],
+   "prova": {"it": "Accendi «Identificativo comune» e trova le righe della richiesta di Marta.", "en": "Switch on «Common identifier» and find the lines of Marta's request."},
+   "concetti": ["C61", "C62"],
+   "stato_animazione": {"vista": "pilastri", "pilastro": "log", "id_comune": false, "filo": false, "span_aperto": "", "calo_aperto": false, "redazione": true, "campionamento": "tutto", "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "traccia_perche",
+   "titolo": {"it": "La traccia: perché è successo", "en": "The trace: why it happened"},
+   "narrazione": [
+    {"it": "I log isolati mostrano il sintomo, non la causa. La traccia collega i passi di una richiesta in una storia: è fatta di span, cioè segmenti (una chiamata al modello, uno strumento), ognuno con durata, ingresso e uscita.", "en": "Isolated logs show the symptom, not the cause. The trace connects the steps of one request into a story: it is made of spans, that is segments (a call to the model, a tool), each with duration, input and output."},
+    {"it": "La barra rossa è conta_lead: risponde 1.243. Ma il guasto nasce un passo prima, e nessun messaggio d'errore lo segnala.", "en": "The red bar is count_leads: it answers 1,243. But the fault starts one step earlier, and no error message reports it."}
+   ],
+   "prova": {"it": "Premi «Collega con il filo rosso», poi clicca le barre: in quale passo nasce il numero sbagliato?", "en": "Press «Connect with the red thread», then click the bars: in which step does the wrong number start?"},
+   "concetti": ["C61"],
+   "stato_animazione": {"vista": "pilastri", "pilastro": "traccia", "id_comune": true, "filo": false, "span_aperto": "", "calo_aperto": false, "redazione": true, "campionamento": "tutto", "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "metriche_quanto",
+   "titolo": {"it": "Le metriche: quanto bene va", "en": "Metrics: how well it is going"},
+   "narrazione": [
+    {"it": "L'agente risponde a 1.000 richieste al giorno: nessuno le legge una per una. Le metriche sono la pagella: numeri riassuntivi calcolati da log e tracce.", "en": "The agent answers 1,000 requests a day: nobody reads them one by one. Metrics are the report card: summary numbers calculated from logs and traces."},
+    {"it": "Servono due cruscotti. Quello di sistema (tempi, errori, costo) è tutto verde; quello della qualità mostra l'utilità delle risposte scesa del 10% in 24 ore.", "en": "You need two dashboards. The system one (times, errors, cost) is all green; the quality one shows the usefulness of the answers down 10% in 24 hours."}
+   ],
+   "prova": {"it": "Clicca il calo nel cruscotto della qualità, poi apri una delle tracce coinvolte.", "en": "Click the drop on the quality dashboard, then open one of the traces involved."},
+   "concetti": ["C61"],
+   "stato_animazione": {"vista": "pilastri", "pilastro": "metriche", "id_comune": true, "filo": true, "span_aperto": "", "calo_aperto": false, "redazione": true, "campionamento": "tutto", "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "privacy_log",
+   "titolo": {"it": "Registrare senza esporre i clienti", "en": "Recording without exposing customers"},
+   "narrazione": [
+    {"it": "Nei log di un CRM entrano nomi, telefoni ed email. Prima di conservarli si fa la redazione: i dati personali diventano segnaposto come [NOME] o [TELEFONO].", "en": "Names, phones and emails enter the logs of a CRM. Before keeping them you redact them: personal data become placeholders like [NAME] or [PHONE]."},
+    {"it": "Si può anche non conservare tutto: per esempio il 10% delle richieste riuscite e il 100% degli errori. È un esempio di politica, non una regola fissa.", "en": "You can also avoid keeping everything: for example 10% of successful requests and 100% of errors. It is an example of a policy, not a fixed rule."}
+   ],
+   "prova": {"it": "Spegni la redazione e guarda il log; poi passa al campionamento e conta gli errori conservati.", "en": "Switch off redaction and look at the log; then switch to sampling and count the errors kept."},
+   "concetti": ["C62"],
+   "stato_animazione": {"vista": "pilastri", "pilastro": "log", "id_comune": true, "filo": true, "span_aperto": "", "calo_aperto": false, "redazione": true, "campionamento": "tutto", "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "decidi_pilastro",
+   "titolo": {"it": "Decidi tu: quale pilastro apri?", "en": "You decide: which pillar do you open?"},
+   "narrazione": [
+    {"it": "Ogni domanda ha il suo pilastro. Log: che cosa è successo. Traccia: perché è successo. Metriche: quanto bene va, su tante richieste.", "en": "Each question has its pillar. Logs: what happened. Trace: why it happened. Metrics: how well it is going, over many requests."}
+   ],
+   "prova": {"it": "Scegli il pilastro per ognuna delle 4 domande, poi premi «Controlla».", "en": "Choose the pillar for each of the 4 questions, then press «Check»."},
+   "concetti": ["C61"],
+   "stato_animazione": {"vista": "decidi", "pilastro": "log", "id_comune": true, "filo": true, "span_aperto": "", "calo_aperto": false, "redazione": true, "campionamento": "tutto", "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "riassunto",
+   "titolo": {"it": "In tre frasi", "en": "In three sentences"},
+   "narrazione": [
+    {"it": "I log dicono che cosa è successo, le tracce perché è successo, le metriche quanto bene va.", "en": "Logs say what happened, traces why it happened, metrics how well it is going."},
+    {"it": "Un identificativo comune lega i log e gli span della stessa richiesta, così dal sintomo si arriva alla causa.", "en": "A common identifier ties together the logs and spans of the same request, so you can go from the symptom to the cause."},
+    {"it": "Nei log i dati personali si mascherano prima di conservarli, e si può conservare solo una parte delle richieste riuscite.", "en": "In logs, personal data are masked before being kept, and you can keep only part of the successful requests."}
+   ],
+   "concetti": ["C61", "C62"],
+   "stato_animazione": {"vista": "pilastri", "pilastro": "traccia", "id_comune": true, "filo": true, "span_aperto": "s4", "calo_aperto": false, "redazione": true, "campionamento": "tutto", "scelte": {}, "verificato": false}
+  }
+ ],
+ "scenario": {
+  "pilastri": [
+   {"id": "log", "nome": {"it": "Log", "en": "Logs"}, "formula": {"it": "Log: che cosa è successo", "en": "Logs: what happened"}, "colore": "#0ea5e9"},
+   {"id": "traccia", "nome": {"it": "Traccia", "en": "Trace"}, "formula": {"it": "Traccia: perché è successo", "en": "Trace: why it happened"}, "colore": "#e11d48"},
+   {"id": "metriche", "nome": {"it": "Metriche", "en": "Metrics"}, "formula": {"it": "Metriche: quanto bene va", "en": "Metrics: how well it is going"}, "colore": "#16a34a"}
+  ],
+  "richiesta_caso": "R-0412",
+  "colori_richieste": {"R-0412": "#4f46e5", "R-0413": "#0d9488", "R-0414": "#d97706"},
+  "dati_personali": [
+   {"chiaro": "Marta Rossi", "redatto": {"it": "[NOME]", "en": "[NAME]"}},
+   {"chiaro": "Luca Ferri", "redatto": {"it": "[NOME]", "en": "[NAME]"}},
+   {"chiaro": "Sara Conti", "redatto": {"it": "[NOME]", "en": "[NAME]"}},
+   {"chiaro": "333 1234567", "redatto": {"it": "[TELEFONO]", "en": "[PHONE]"}},
+   {"chiaro": "marta@alfa.it", "redatto": {"it": "[EMAIL]", "en": "[EMAIL]"}}
+  ],
+  "log": [
+   {"ora": "10:42:01", "richiesta": "R-0412", "testo": {"it": "Richiesta da Marta Rossi, 333 1234567, marta@alfa.it: «quanti lead caldi ho?»", "en": "Request from Marta Rossi, 333 1234567, marta@alfa.it: «how many hot leads do I have?»"}},
+   {"ora": "10:42:01", "richiesta": "R-0413", "testo": {"it": "Richiesta da Luca Ferri: «aggiorna la nota del cliente»", "en": "Request from Luca Ferri: «update the customer's note»"}},
+   {"ora": "10:42:02", "richiesta": "R-0412", "testo": {"it": "Chiamato cerca_lead (settimana, stato caldo): 10 lead", "en": "Called find_leads (week, status hot): 10 leads"}},
+   {"ora": "10:42:02", "richiesta": "R-0414", "testo": {"it": "Chiamato crea_bozza per Sara Conti: in coda", "en": "Called create_draft for Sara Conti: queued"}},
+   {"ora": "10:42:03", "richiesta": "R-0413", "testo": {"it": "Chiamato aggiorna_crm: fatto", "en": "Called update_crm: done"}},
+   {"ora": "10:42:04", "richiesta": "R-0412", "testo": {"it": "Chiamato conta_lead: risultato 1.243", "en": "Called count_leads: result 1,243"}},
+   {"ora": "10:42:05", "richiesta": "R-0414", "testo": {"it": "Bozza per Sara Conti pronta per l'approvazione", "en": "Draft for Sara Conti ready for approval"}},
+   {"ora": "10:42:05", "richiesta": "R-0412", "testo": {"it": "Risposta a Marta Rossi: «Questa settimana hai 1.243 lead caldi»", "en": "Answer to Marta Rossi: «This week you have 1,243 hot leads»"}}
+  ],
+  "cartellini": [
+   {"x": 70, "y": 95, "ruota": -4, "testo": {"it": "cerca_lead: 10 lead", "en": "find_leads: 10 leads"}},
+   {"x": 400, "y": 120, "ruota": 3, "testo": {"it": "conta_lead: risultato 1.243", "en": "count_leads: result 1,243"}},
+   {"x": 150, "y": 250, "ruota": 2, "testo": {"it": "Risposta: 1.243 lead caldi", "en": "Answer: 1,243 hot leads"}},
+   {"x": 430, "y": 280, "ruota": -3, "testo": {"it": "Nessun errore registrato", "en": "No error recorded"}}
+  ],
+  "durata_totale": 4.2,
+  "span": [
+   {"id": "s1", "nome": "invoke_agent", "tipo": "radice", "livello": 0, "inizio": 0, "durata": 4.2,
+    "ingresso": {"it": "Domanda di Marta Rossi, 333 1234567: «quanti lead caldi ho?»", "en": "Question from Marta Rossi, 333 1234567: «how many hot leads do I have?»"},
+    "uscita": {"it": "«Questa settimana hai 1.243 lead caldi»", "en": "«This week you have 1,243 hot leads»"},
+    "spiega": {"it": "È la richiesta intera: contiene tutti gli altri passi. Il risultato è sbagliato, ma qui non si vede perché.", "en": "It is the whole request: it contains all the other steps. The result is wrong, but here you cannot see why."}},
+   {"id": "s2", "nome": "call_llm", "tipo": "modello", "livello": 1, "inizio": 0.1, "durata": 0.9,
+    "ingresso": {"it": "Domanda dell'utente e elenco degli strumenti", "en": "User's question and list of tools"},
+    "uscita": {"it": "Decide: chiama cerca_lead", "en": "Decides: call find_leads"},
+    "spiega": {"it": "Il modello sceglie lo strumento giusto: qui va tutto bene.", "en": "The model chooses the right tool: everything is fine here."}},
+   {"id": "s3", "nome": {"it": "cerca_lead", "en": "find_leads"}, "tipo": "strumento", "livello": 1, "inizio": 1.0, "durata": 0.6,
+    "ingresso": {"it": "settimana = corrente, stato = caldo", "en": "week = current, status = hot"},
+    "uscita": {"it": "Un elenco di 10 lead: Ottica Sole, Hotel Lago Blu, …", "en": "A list of 10 leads: Ottica Sole, Hotel Lago Blu, …"},
+    "spiega": {"it": "Lo strumento restituisce 10 lead: il dato giusto c'è ancora.", "en": "The tool returns 10 leads: the right data is still there."}},
+   {"id": "s4", "nome": "call_llm", "tipo": "modello", "livello": 1, "inizio": 1.6, "durata": 1.0, "causa": true,
+    "ingresso": {"it": "L'elenco dei 10 lead e la descrizione di conta_lead, che chiede UN testo, non un elenco", "en": "The list of 10 leads and the description of count_leads, which asks for ONE text, not a list"},
+    "uscita": {"it": "Chiama conta_lead con un unico testo: \"Ottica Sole, Hotel Lago Blu, …\"", "en": "Calls count_leads with a single text: \"Ottica Sole, Hotel Lago Blu, …\""},
+    "spiega": {"it": "Ecco la causa: lo strumento dichiara di ricevere un testo invece di un elenco, e il modello gli passa i 10 lead come un'unica stringa.", "en": "Here is the cause: the tool declares it receives a text instead of a list, and the model passes it the 10 leads as a single string."}},
+   {"id": "s5", "nome": {"it": "conta_lead", "en": "count_leads"}, "tipo": "errore", "livello": 1, "inizio": 2.6, "durata": 0.4,
+    "ingresso": {"it": "Un unico testo di 1.243 caratteri", "en": "A single text of 1,243 characters"},
+    "uscita": {"it": "1.243 (ha contato le lettere, non i lead)", "en": "1,243 (it counted the letters, not the leads)"},
+    "spiega": {"it": "Qui si vede il sintomo: un numero stranamente alto, senza errori. La causa è nel passo prima.", "en": "Here you see the symptom: an unusually high number, with no errors. The cause is in the step before."}},
+   {"id": "s6", "nome": "call_llm", "tipo": "modello", "livello": 1, "inizio": 3.0, "durata": 1.1,
+    "ingresso": {"it": "Il risultato 1.243", "en": "The result 1,243"},
+    "uscita": {"it": "Scrive la risposta finale a Marta", "en": "Writes the final answer to Marta"},
+    "spiega": {"it": "Il modello si fida del numero che riceve: l'errore arriva al cliente.", "en": "The model trusts the number it receives: the error reaches the customer."}}
+  ],
+  "metriche": {
+   "richieste_giorno": 1000,
+   "errori_giorno": 40,
+   "quota_successi_campione": 0.1,
+   "sistema": [
+    {"nome": {"it": "Tempo tipico (P50)", "en": "Typical time (P50)"}, "valore": {"it": "1,8 s", "en": "1.8 s"}},
+    {"nome": {"it": "Errori", "en": "Errors"}, "valore": {"it": "0,4%", "en": "0.4%"}},
+    {"nome": {"it": "Costo per esecuzione", "en": "Cost per run"}, "valore": {"it": "0,02 €", "en": "€0.02"}}
+   ],
+   "qualita_nome": {"it": "Utilità delle risposte (1-5)", "en": "Usefulness of answers (1-5)"},
+   "qualita": [4.4, 4.4, 4.5, 4.4, 4.4, 4.4, 3.96],
+   "giorni": {"it": ["lun", "mar", "mer", "gio", "ven", "sab", "dom"], "en": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]},
+   "tracce_calo": ["R-0412", "R-0398", "R-0377"]
+  },
+  "domande": [
+   {"id": "q1", "testo": {"it": "Che cosa è successo alle 10:42:04 nella richiesta di Marta?", "en": "What happened at 10:42:04 in Marta's request?"}, "migliore": "log",
+    "spiega": {"it": "Un fatto preciso in un momento preciso: è una riga di log.", "en": "A precise fact at a precise moment: it is a log line."}},
+   {"id": "q2", "testo": {"it": "Perché il conteggio dice 1.243 invece di 10?", "en": "Why does the count say 1,243 instead of 10?"}, "migliore": "traccia",
+    "spiega": {"it": "Serve la catena dei passi: la traccia mostra dove l'elenco diventa un unico testo.", "en": "You need the chain of steps: the trace shows where the list becomes a single text."}},
+   {"id": "q3", "testo": {"it": "Quanto bene va l'agente questa settimana?", "en": "How well is the agent doing this week?"}, "migliore": "metriche",
+    "spiega": {"it": "È una domanda su tante richieste: rispondono le metriche.", "en": "It is a question about many requests: metrics answer it."}},
+   {"id": "q4", "testo": {"it": "Le risposte sono diventate meno utili da ieri?", "en": "Have the answers become less useful since yesterday?"}, "migliore": "metriche",
+    "spiega": {"it": "Un andamento nel tempo: lo mostra il cruscotto della qualità.", "en": "A trend over time: the quality dashboard shows it."}}
+  ],
+  "testi": {
+   "righe_caso": {"it": "Righe della richiesta {id}: {n} su {tot}.", "en": "Lines of request {id}: {n} of {tot}."},
+   "senza_id": {"it": "Senza identificativo comune le righe di tre richieste si mescolano: quali sono di Marta?", "en": "Without a common identifier the lines of three requests get mixed up: which ones are Marta's?"},
+   "pii_chiaro": {"it": "Attenzione: {n} righe contengono dati personali in chiaro.", "en": "Warning: {n} lines contain personal data in clear text."},
+   "pii_redatti": {"it": "Dati personali mascherati prima di conservare il log.", "en": "Personal data masked before the log is kept."},
+   "filo_spento": {"it": "Cartellini isolati: dicono che cosa è successo, non perché. Collegali con il filo rosso.", "en": "Isolated cards: they say what happened, not why. Connect them with the red thread."},
+   "invito_span": {"it": "Clicca una barra della traccia per vedere ingresso, uscita e durata.", "en": "Click a bar of the trace to see input, output and duration."},
+   "durata": {"it": "Durata: {s} s", "en": "Duration: {s} s"},
+   "ingresso": {"it": "Ingresso", "en": "Input"},
+   "uscita": {"it": "Uscita", "en": "Output"},
+   "calo": {"it": "Utilità da {prima} a {dopo}: {calo}% in 24 ore, mentre il cruscotto di sistema è verde.", "en": "Usefulness from {prima} to {dopo}: {calo}% in 24 hours, while the system dashboard is green."},
+   "invito_calo": {"it": "Clicca il punto rosso del calo per vedere le tracce coinvolte.", "en": "Click the red point of the drop to see the traces involved."},
+   "archivio_tutto": {"it": "Si conservano tutte le {tot} tracce al giorno.", "en": "All {tot} traces a day are kept."},
+   "archivio_campione": {"it": "Si conservano {n} tracce su {tot} al giorno: {succ} riuscite (10%) e tutti i {err} errori.", "en": "{n} traces out of {tot} a day are kept: {succ} successful (10%) and all {err} errors."},
+   "ver_giusto": {"it": "«{domanda}» giusto: {spiega}", "en": "«{domanda}» right: {spiega}"},
+   "ver_sbagliato": {"it": "«{domanda}» meglio «{migliore}»: {spiega}", "en": "«{domanda}» better «{migliore}»: {spiega}"},
+   "ver_vuoto": {"it": "«{domanda}» non hai scelto, era «{migliore}»: {spiega}", "en": "«{domanda}» you did not choose, it was «{migliore}»: {spiega}"},
+   "ver_punteggio": {"it": "Pilastri giusti: {giuste} su {totali}.", "en": "Right pillars: {giuste} of {totali}."},
+   "ver_tutto_giusto": {"it": "Perfetto: sai quale pilastro risponde a ogni domanda.", "en": "Perfect: you know which pillar answers each question."},
+   "apri_span": {"it": "Apri lo span {nome}", "en": "Open the span {nome}"},
+   "apri_traccia": {"it": "Apri la traccia {id}", "en": "Open the trace {id}"},
+   "scegli_per": {"it": "Pilastro per: {domanda}", "en": "Pillar for: {domanda}"}
+  },
+  "etichette": {
+   "titolo_comandi": {"it": "Prova a cambiare", "en": "Try changing"},
+   "vista": {"it": "Che cosa fai", "en": "What you do"},
+   "vista_pilastri": {"it": "Indaga", "en": "Investigate"},
+   "vista_decidi": {"it": "Decidi tu", "en": "You decide"},
+   "pilastro": {"it": "Pilastro aperto", "en": "Pillar open"},
+   "id_comune": {"it": "Identificativo comune", "en": "Common identifier"},
+   "filo": {"it": "Collega con il filo rosso", "en": "Connect with the red thread"},
+   "redazione": {"it": "Redazione dei dati personali", "en": "Redaction of personal data"},
+   "campionamento": {"it": "Che cosa si conserva", "en": "What is kept"},
+   "tutto": {"it": "Tutto", "en": "Everything"},
+   "campione": {"it": "10% riuscite, 100% errori", "en": "10% successes, 100% errors"},
+   "apri_calo": {"it": "Apri il calo", "en": "Open the drop"},
+   "scegli": {"it": "— scegli —", "en": "— choose —"},
+   "controlla": {"it": "Controlla", "en": "Check"},
+   "titolo_dettaglio": {"it": "Che cosa vedi", "en": "What you see"},
+   "titolo_archivio": {"it": "Archivio", "en": "Storage"},
+   "titolo_sistema": {"it": "CRUSCOTTO DI SISTEMA", "en": "SYSTEM DASHBOARD"},
+   "titolo_qualita": {"it": "CRUSCOTTO DELLA QUALITÀ", "en": "QUALITY DASHBOARD"},
+   "tracce_calo": {"it": "Tracce coinvolte nel calo", "en": "Traces involved in the drop"},
+   "nota_numeri": {"it": "Numeri illustrativi.", "en": "Illustrative numbers."},
+   "secondi": {"it": "secondi", "en": "seconds"},
+   "titolo_decidi": {"it": "TRE PILASTRI, TRE DOMANDE", "en": "THREE PILLARS, THREE QUESTIONS"},
+   "descrizione_scena": {"it": "Il caso del conteggio sbagliato visto con log, traccia a cascata o cruscotti delle metriche.", "en": "The wrong-count case seen through logs, waterfall trace or metrics dashboards."}
+  }
+ },
+ "domande": []
+}
