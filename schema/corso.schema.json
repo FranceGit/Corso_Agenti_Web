@@ -54,7 +54,8 @@
     "origine": {
      "enum": [
       "benchmark",
-      "dimostratore"
+      "dimostratore",
+      "autori"
      ],
      "title": "Origine",
      "type": "string"

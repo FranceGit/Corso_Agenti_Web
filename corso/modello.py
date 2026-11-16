@@ -13,7 +13,9 @@ from pydantic import BaseModel, ConfigDict, Field, field_validator, model_valida
 TipoDistrattore = Literal["quasi", "poco", "errata"]
 TipoL2 = Literal["motivazione", "trasferimento", "contro-esempio", "diagnosi"]
 TipoArco = Literal["PRE", "APP", "CON", "ES", "MIT"]
-Origine = Literal["benchmark", "dimostratore"]
+# benchmark = dal documento del corso classico; dimostratore = delle due lezioni campione;
+# autori = scritte dopo, sui contenuti verificati, per coprire i concetti scoperti (vivono solo nel JSON)
+Origine = Literal["benchmark", "dimostratore", "autori"]
 # Striscia = punto di vista con cui una domanda guarda il suo concetto (piu' strisce = piu' punti di vista).
 Striscia = Literal["definizione", "esempio_pratico", "contro_esempio", "diagnosi"]
 VERSIONE_SCHEMA_CORSO = 2  # v2: campo 'striscia' nelle domande (migrazione da v1 in corso/migrazioni.py)

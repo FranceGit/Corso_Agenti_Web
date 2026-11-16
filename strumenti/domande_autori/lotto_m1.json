@@ -1,0 +1,46 @@
+[
+ {
+  "id": "DA1.1-1",
+  "origine": "autori",
+  "pillola": "P1.1",
+  "concetti": ["C01", "C02"],
+  "concetto_principale": "C01",
+  "segmento_aiuto": "solo_testo",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Una responsabile marketing chiede: \"Spiegami in parole semplici che cos'è il lead nurturing\". Che cosa le serve davvero?",
+    "en": "A marketing manager asks: \"Explain in simple words what lead nurturing is\". What does she really need?"
+   },
+   "opzioni": [
+    {"id": "A", "testo": {"it": "Un assistente che genera testo: basta una risposta scritta", "en": "An assistant that generates text: a written answer is enough"}, "corretta": true, "tipo_distrattore": null, "spiegazione": null},
+    {"id": "B", "testo": {"it": "Un agente collegato al CRM, perché il tema è il marketing", "en": "An agent connected to the CRM, because the topic is marketing"}, "corretta": false, "tipo_distrattore": "quasi", "spiegazione": null},
+    {"id": "C", "testo": {"it": "Un agente che invia email di prova ai lead per mostrarle l'idea", "en": "An agent that sends test emails to leads to show her the idea"}, "corretta": false, "tipo_distrattore": "errata", "spiegazione": null},
+    {"id": "D", "testo": {"it": "Un sistema con più agenti che si dividono la spiegazione", "en": "A system with several agents that split the explanation"}, "corretta": false, "tipo_distrattore": "poco", "spiegazione": null},
+    {"id": "E", "testo": {"it": "Un classificatore che dice se la domanda è positiva o negativa", "en": "A classifier that says whether the question is positive or negative"}, "corretta": false, "tipo_distrattore": "poco", "spiegazione": null}
+   ],
+   "perche": {
+    "it": "Spiegare un concetto è lavoro da modello che genera testo: non serve leggere né modificare nessun sistema esterno.",
+    "en": "Explaining a concept is a job for a model that generates text: there is no outside system to read or change."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché qui un agente sarebbe sprecato?",
+    "en": "Why would an agent be wasted here?"
+   },
+   "opzioni": [
+    {"id": "a", "testo": {"it": "Perché il compito finisce con un testo: non c'è nessuna azione da fare su CRM, email o calendario", "en": "Because the task ends with a text: there is no action to take on the CRM, email or calendar"}, "corretta": true, "tipo_distrattore": null, "spiegazione": null},
+    {"id": "b", "testo": {"it": "Perché gli agenti non sanno spiegare i concetti di marketing", "en": "Because agents cannot explain marketing concepts"}, "corretta": false, "tipo_distrattore": "errata", "spiegazione": null},
+    {"id": "c", "testo": {"it": "Perché la domanda è breve: gli agenti servono solo per i testi lunghi", "en": "Because the question is short: agents are only for long texts"}, "corretta": false, "tipo_distrattore": "poco", "spiegazione": null},
+    {"id": "d", "testo": {"it": "Perché un agente costa di più, anche se la risposta sarebbe migliore", "en": "Because an agent costs more, even though the answer would be better"}, "corretta": false, "tipo_distrattore": "quasi", "spiegazione": null},
+    {"id": "e", "testo": {"it": "Perché il lead nurturing è un argomento riservato all'ufficio vendite", "en": "Because lead nurturing is a topic reserved for the sales team"}, "corretta": false, "tipo_distrattore": "poco", "spiegazione": null}
+   ],
+   "perche": {
+    "it": "Un agente serve quando bisogna agire su sistemi esterni e reagire ai risultati; per spiegare un concetto basta il modello da solo.",
+    "en": "An agent is needed when you must act on outside systems and react to the results; to explain a concept the model alone is enough."
+   }
+  }
+ }
+]

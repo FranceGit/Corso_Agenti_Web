@@ -356,7 +356,9 @@ def conserva_domande(estratto: dict, esistente: dict) -> dict:
                 differenze.append(f"{p['id']}: pillola nuova nel documento, assente dal JSON")
                 continue
             dal_doc = {d["id"]: d for d in p["domande"]}
-            dal_json = {d["id"]: d for d in domande_json[p["id"]]}
+            # solo le domande nate dal documento si confrontano con il documento; le altre (origine "autori")
+            # esistono solo nel JSON e si conservano cosi' come sono
+            dal_json = {d["id"]: d for d in domande_json[p["id"]] if d["origine"] == "benchmark"}
             if set(dal_doc) != set(dal_json):
                 differenze.append(f"{p['id']}: domande diverse (documento {sorted(dal_doc)}, JSON {sorted(dal_json)})")
                 continue
