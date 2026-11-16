@@ -17,7 +17,16 @@ const S = {
   modulo: null,
   quiz: null,
   canone: null,
+  livello: 1,     // 1 = Fondamenta (M1-M8), 2 = Officina (O1-O6): stesse viste, API sotto /api/officina
+  livelli: null,  // da /api/livelli: titoli e stato del cancello dell'Officina
 };
+
+// Livello 2 «Officina»: le API del percorso e degli esercizi sono le stesse del livello 1 sotto /api/officina.
+// Un solo punto di instradamento: tutte le viste (mappa, pillola, quiz, debriefing, esercizi) restano invariate.
+const API_PER_LIVELLO = /^\/api\/(stato|percorso|pillole|spicchi|risposta|debriefing|rapporto|esercizi)(\/|\?|$)/;
+function instrada(url) {
+  return S.livello === 2 && API_PER_LIVELLO.test(url) ? url.replace(/^\/api\//, "/api/officina/") : url;
+}
 
 // strumenti del collaudo alpha: li accende/spegne config alpha.modalita_alpha (in beta va spenta)
 const alpha = () => Boolean(S.stato && S.stato.alpha && S.stato.alpha.modalita_alpha);
@@ -92,7 +101,7 @@ async function api(metodo, url, corpo) {
   }
   let risposta;
   try {
-    risposta = await fetch(url, opzioni);
+    risposta = await fetch(instrada(url), opzioni);
   } catch (e) {
     avvisa(`${t("errore")}: ${e.message}`, "male");
     throw e;
@@ -187,12 +196,47 @@ function mostraAccesso() {
 // ------------------------------------------------------------------ dati
 
 async function aggiornaDati() {
-  const [s, p] = await Promise.all([api("GET", conLingua("/api/stato")), api("GET", conLingua("/api/percorso"))]);
+  const [s, p, l] = await Promise.all([api("GET", conLingua("/api/stato")), api("GET", conLingua("/api/percorso")),
+    api("GET", conLingua("/api/livelli"))]);
   if (!s.ok) { errore(s); return false; }
   if (!p.ok) { errore(p); return false; }
   S.stato = s.dati;
   S.percorso = p.dati;
+  S.livelli = l.ok ? l.dati.livelli : null;  // senza livelli la barra mostra solo il livello 1 (nessun errore a schermo)
   return true;
+}
+
+async function cambiaLivello(n) {
+  if (n === S.livello) return;
+  const prima = S.livello;
+  distruggiModulo();
+  S.livello = n;
+  S.pid = null;
+  S.quiz = null;
+  if (!(await aggiornaDati())) { S.livello = prima; await aggiornaDati(); }
+  S.vista = S.stato.convalescenza ? "debriefing" : "mappa";
+  disegnaTutto();
+  if (S.vista === "debriefing") await apriDebriefing();
+}
+
+// Dopo i moduli del livello corrente: il passaggio all'altro livello (l'Officina compare dopo gli 8 moduli).
+function voceLivelli() {
+  const l2 = S.livelli && S.livelli.find((l) => l.numero === 2);
+  if (!l2) return null;
+  if (S.livello === 2) {
+    return h("div", { class: "gruppo-anello gruppo-livelli" },
+      h("h2", {}, t("livelli")),
+      h("button", { class: "voce voce-livello", id: "voce-livello-1", onclick: () => cambiaLivello(1) },
+        icona("libro", "icona-stato"), h("span", {}, t("torna_livello1"))));
+  }
+  return h("div", { class: "gruppo-anello gruppo-livelli" },
+    h("h2", {}, t("livello2_titolo")),
+    h("button", { class: "voce voce-livello", id: "voce-livello-2", disabled: !l2.sbloccato,
+      title: l2.sbloccato ? l2.titolo : t("officina_bloccata", { superati: l2.livello1.spicchi_superati, totali: l2.livello1.spicchi_erogabili }),
+      onclick: () => cambiaLivello(2) },
+      l2.sbloccato ? icona("lampo", "icona-stato") : icona("lucchetto", "icona-stato"), h("span", {}, l2.titolo),
+      l2.deroga_alpha ? h("span", { class: "distintivo" }, t("officina_deroga")) : ""),
+    !l2.sbloccato ? h("small", {}, t("officina_bloccata", { superati: l2.livello1.spicchi_superati, totali: l2.livello1.spicchi_erogabili })) : null);
 }
 
 function spicchio(pid) {
@@ -292,7 +336,8 @@ function laterale() {
         title: `${s.pillola} · ${t("stato_" + s.stato)}`,
         onclick: () => apriPillola(s.pillola),
       }, iconaStato(s.stato), h("span", {}, h("span", { class: "sigla" }, s.pillola), " ", s.titolo),
-        s.ha_lezione ? h("span", { class: "distintivo" }, t("interattiva")) : "")))));
+        s.ha_lezione ? h("span", { class: "distintivo" }, t("interattiva")) : "")))),
+    voceLivelli());
 }
 
 function disegnaPrincipale() {

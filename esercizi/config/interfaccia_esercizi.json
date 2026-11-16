@@ -579,5 +579,57 @@
   "e6_bozze": {
     "it": "Bozze preparate dall'agente: {n}",
     "en": "Drafts prepared by the agent: {n}"
+  },
+  "o_materiale": {
+    "it": "Materiale da leggere (non va eseguito)",
+    "en": "Material to read (not to be run)"
+  },
+  "o_file": {
+    "it": "File da sistemare",
+    "en": "Files to fix"
+  },
+  "o_salva": {
+    "it": "Salva",
+    "en": "Save"
+  },
+  "o_salvato": {
+    "it": "Salvato: {file}",
+    "en": "Saved: {file}"
+  },
+  "o_ripristina": {
+    "it": "Ripristina la partenza",
+    "en": "Restore the starting version"
+  },
+  "o_ripristina_conferma": {
+    "it": "Rimettere il file com'era all'inizio? Le tue modifiche andranno perse.",
+    "en": "Put the file back as it was at the start? Your changes will be lost."
+  },
+  "o_modificato": {
+    "it": "modificato",
+    "en": "changed"
+  },
+  "o_scelte": {
+    "it": "Che cosa hai trovato",
+    "en": "What you found"
+  },
+  "o_pacchetto": {
+    "it": "Importa il pacchetto di consegna",
+    "en": "Import the delivery package"
+  },
+  "o_pacchetto_spiega": {
+    "it": "Se lavori in Codespaces o sul tuo PC: nel repo dell'Officina lancia «{comando}» e incolla qui il JSON che stampa. I file del pacchetto sostituiscono quelli qui sopra.",
+    "en": "If you work in Codespaces or on your PC: in the Workshop repo run «{comando}» and paste here the JSON it prints. The package files replace the ones above."
+  },
+  "o_importa": {
+    "it": "Importa",
+    "en": "Import"
+  },
+  "o_importati": {
+    "it": "Importati {n} file (ignorati: {ignorati}).",
+    "en": "Imported {n} files (ignored: {ignorati})."
+  },
+  "o_json_non_valido": {
+    "it": "Il pacchetto non è JSON valido: copia tutto, dalla prima { all'ultima }.",
+    "en": "The package is not valid JSON: copy everything, from the first { to the last }."
   }
 }

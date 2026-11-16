@@ -123,3 +123,14 @@
 .es-diario .esito-fermata { color: var(--tenue); font-style: italic; }
 .es-tabella tr.perm-libero td:last-child select { border-color: var(--ok); }
 .es-tabella tr.perm-no td:last-child select { border-color: var(--male); }
+/* Officina (esercizi 7-12): file da sistemare, materiale in sola lettura, scelte chiuse, pacchetto */
+.es-file { margin: 12px 0 16px; min-width: 0; }
+.es-codice { width: 100%; box-sizing: border-box; font-family: var(--mono); font-size: .8rem; line-height: 1.45; padding: 8px 10px; border: 1px solid var(--bordo, #cbd5e1); border-radius: 8px; resize: vertical; tab-size: 4; white-space: pre; overflow: auto; }
+.es-materiale { margin: 0 0 12px; font-size: .84rem; }
+.es-materiale > summary { font-weight: 700; cursor: pointer; }
+.es-materiale-voce { margin: 6px 0 0 12px; }
+.es-materiale-voce > summary { cursor: pointer; }
+.es-codice-lettura { max-height: 320px; overflow: auto; font-family: var(--mono); font-size: .76rem; background: var(--avviso-chiaro); border-radius: 8px; padding: 8px 10px; white-space: pre-wrap; overflow-wrap: anywhere; }
+.es-scelta { border: 1px solid var(--bordo, #cbd5e1); border-radius: 10px; padding: 8px 12px; margin: 8px 0; min-width: 0; }
+.es-scelta legend { font-weight: 700; font-size: .86rem; padding: 0 4px; overflow-wrap: anywhere; }
+.es-opzione { display: block; font-size: .84rem; padding: 2px 0; overflow-wrap: anywhere; }

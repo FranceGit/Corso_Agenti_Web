@@ -7,6 +7,7 @@ let T = {};            // testi dell'interfaccia esercizi
 let radice = null;
 let attesa = null;     // timer del salvataggio dei cursori (esercizi 2 e 6)
 let selezione = [];    // righe selezionate per l'unione (esercizio 1)
+let bozze = {};        // testi dei file non ancora salvati (esercizi dell'Officina), per non perderli a ogni ridisegno
 
 const h = (...a) => C.h(...a);
 function t(k, valori) {
@@ -63,6 +64,7 @@ async function scheda(n, dati) {
   }
   if (!radice) return;
   selezione = [];
+  bozze = {};
   const area = h("div", { class: "es-area", id: "es-area" });
   const verbale = h("div", { id: "es-verbale" });
   radice.replaceChildren(h("div", { class: "es-pagina entra", "data-scheda": String(n) },
@@ -88,7 +90,7 @@ async function scheda(n, dati) {
 function disegnaArea(s, area) {
   area.replaceChildren();
   const disegna = { tabella_lead: areaLead, foglio_pesi: areaPesi, pipeline_risposte: areaRisposte, blocchi_prompt: areaBlocchi,
-    email_marca: areaEmail, strumenti_agente: areaStrumenti }[s.tipo_area];
+    email_marca: areaEmail, strumenti_agente: areaStrumenti, officina: areaOfficina }[s.tipo_area];
   if (!disegna) { area.append(h("p", {}, `tipo_area ${s.tipo_area}?`)); return; }
   disegna(s.numero, s.area, area);
 }
@@ -405,4 +407,55 @@ function areaStrumenti(n, a, area) {
     h("h3", {}, t("e3_posta")),
     a.posta.length ? h("ul", { class: "es-posta", id: "es-posta" }, a.posta.map((m) => h("li", {}, h("b", {}, m.a), " — ", m.oggetto)))
       : h("p", { class: "es-tenue", id: "es-posta" }, t("e3_posta_vuota")));
+}
+
+// ------------------------------------------------------------------ Officina (esercizi 7-12): file, scelte, pacchetto
+
+function areaOfficina(n, a, area) {
+  area.dataset.tipo = "officina";
+  const salva = async (f, testo) => {
+    const r = await azione(n, "salva_file", { percorso: f.percorso, contenuto: testo }, area);
+    if (r) { delete bozze[f.percorso]; C.avvisa(t("o_salvato", { file: f.percorso })); }
+  };
+  const pacchetto = h("textarea", { class: "es-codice", id: "es-pacchetto", rows: "4", spellcheck: "false", "aria-label": t("o_pacchetto") });
+  area.append(
+    a.materiale.length ? h("details", { class: "es-materiale", id: "es-materiale" },
+      h("summary", {}, `${t("o_materiale")} (${a.materiale.length})`),
+      a.materiale.map((m) => h("details", { class: "es-materiale-voce" },
+        h("summary", {}, m.titolo, " ", h("small", { class: "es-mono" }, m.percorso)),
+        h("pre", { class: "es-codice-lettura" }, m.testo)))) : null,
+    h("h3", {}, t("o_file")),
+    ...a.file.map((f) => {
+      const testo = h("textarea", { class: "es-codice", rows: String(Math.min(22, Math.max(6, f.contenuto.split("\n").length + 1))),
+        spellcheck: "false", "data-file": f.percorso, "aria-label": f.percorso,
+        oninput: (ev) => { bozze[f.percorso] = ev.target.value; } });
+      testo.value = bozze[f.percorso] !== undefined ? bozze[f.percorso] : f.contenuto;
+      return h("section", { class: "es-file", "data-percorso": f.percorso },
+        h("div", { class: "es-bozza-testa" },
+          h("span", {}, h("b", { class: "es-mono" }, f.percorso), " ", f.modificato ? h("span", { class: "es-badge" }, t("o_modificato")) : null),
+          h("span", {},
+            h("button", { class: "btn btn-piccolo btn-primario", "data-azione": "salva", onclick: () => salva(f, testo.value) }, t("o_salva")),
+            " ",
+            h("button", { class: "btn btn-piccolo btn-fantasma", "data-azione": "ripristina", onclick: () => {
+              if (window.confirm(t("o_ripristina_conferma"))) { delete bozze[f.percorso]; azione(n, "ripristina_file", { percorso: f.percorso }, area); }
+            } }, t("o_ripristina")))),
+        h("p", { class: "es-tenue" }, f.descrizione),
+        testo);
+    }),
+    a.scelte.length ? h("h3", {}, t("o_scelte")) : null,
+    ...a.scelte.map((sc) => h("fieldset", { class: "es-scelta", "data-scelta": sc.id },
+      h("legend", {}, sc.domanda),
+      sc.opzioni.map((o) => h("label", { class: "es-opzione" },
+        h("input", { type: "radio", name: `scelta-${sc.id}`, value: o.id, checked: sc.scelta === o.id,
+          onchange: () => azione(n, "scegli", { id: sc.id, valore: o.id }, area) }),
+        " ", o.testo)))),
+    h("h3", {}, t("o_pacchetto")),
+    h("p", { class: "es-tenue" }, t("o_pacchetto_spiega", { comando: a.pacchetto.comando })),
+    pacchetto,
+    h("button", { class: "btn btn-piccolo", id: "es-importa", onclick: async () => {
+      let dati;
+      try { dati = JSON.parse(pacchetto.value); } catch (e) { C.avvisa(t("o_json_non_valido"), "male"); return; }
+      const r = await azione(n, "importa_pacchetto", { pacchetto: dati }, area);
+      if (r) { bozze = {}; C.avvisa(t("o_importati", { n: r.esito.importati.length, ignorati: r.esito.ignorati.length })); }
+    } }, t("o_importa")));
 }

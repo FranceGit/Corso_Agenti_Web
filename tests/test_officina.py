@@ -155,3 +155,9 @@ def test_officina_spenta(dati_config, tmp_path, orologio):
     c = client_dentro_con(config_da(dati), tmp_path, orologio)
     assert [l["numero"] for l in c.get("/api/livelli?lingua=it").json()["livelli"]] == [1]
     assert c.get("/api/officina/percorso?lingua=it").status_code == 404
+
+
+def test_accesso_crea_anche_lo_stato_dell_officina(client, tmp_path):
+    """La prima apertura dell'Officina fa stato + percorso in parallelo: lo stato deve esistere gia' (niente corsa sul file)."""
+    assert client.post("/api/accesso", json={"email": EMAIL, "codice": "DEMO-AGENTI"}).status_code == 200
+    assert client.app.state.motore_officina.archivio.esiste(EMAIL)

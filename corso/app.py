@@ -182,6 +182,10 @@ def crea_app(cfg: Config | None = None, orologio: Callable[[], datetime] = orolo
     def api_accesso(dati: Accesso):
         email = verifica_credenziali(dati.email, dati.codice, cfg)
         motore.stato(email)
+        if getattr(app.state, "motore_officina", None) is not None:
+            # stato dell'Officina creato qui, una volta sola: la prima apertura fa richieste in parallelo
+            # (stato + percorso) e due creazioni simultanee dello stesso file si scontrerebbero
+            app.state.motore_officina.stato(email)
         token = sessioni.crea(email)
         risposta = JSONResponse({"email": email})
         risposta.set_cookie(nome_cookie, token, httponly=True, samesite="strict",
