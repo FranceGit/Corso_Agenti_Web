@@ -1,0 +1,360 @@
+[
+ {
+  "id": "DA8.1-6",
+  "origine": "autori",
+  "pillola": "P8.1",
+  "concetti": [
+   "C70"
+  ],
+  "concetto_principale": "C70",
+  "segmento_aiuto": "troppo_in_fretta",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "La nuova versione dell'agente ha un difetto nascosto: sbaglia 2 risposte su 100. Le richieste sono 20.000 al giorno. Quante risposte sbagliate al giorno se parte all'1% invece che al 100%?",
+    "en": "The agent's new version has a hidden defect: it gets 2 answers out of 100 wrong. There are 20,000 requests a day. How many wrong answers a day if it starts at 1% instead of 100%?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Circa 4 invece di 400",
+      "en": "About 4 instead of 400"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "All'1% la v2 riceve 200 richieste: il 2% fa 4. Al 100% ne riceve 20.000: il 2% fa 400.",
+      "en": "At 1% v2 gets 200 requests: 2% is 4. At 100% it gets 20,000: 2% is 400."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Circa 40 invece di 400",
+      "en": "About 40 instead of 400"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "L'idea è giusta, ma il conto no: l'1% di 20.000 sono 200 richieste, e il 2% di 200 è 4.",
+      "en": "The idea is right, but not the maths: 1% of 20,000 is 200 requests, and 2% of 200 is 4."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Circa 4 invece di 4.000",
+      "en": "About 4 instead of 4,000"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "All'1% sono 4, ma al 100% il 2% di 20.000 è 400, non 4.000.",
+      "en": "At 1% it is 4, but at 100% 2% of 20,000 is 400, not 4,000."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Nessuna: all'1% non sbaglia",
+      "en": "None: at 1% it makes no mistakes"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il difetto è lo stesso a ogni percentuale: cambia solo quante persone colpisce.",
+      "en": "The defect is the same at every percentage: only how many people it hits changes."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Dipende solo dall'orario",
+      "en": "It only depends on the time of day"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Nel caso descritto il numero dipende dalla quota di traffico, non dall'orario.",
+      "en": "In the case described the number depends on the traffic share, not the time of day."
+     }
+    },
+    {
+     "id": "F",
+     "testo": {
+      "it": "Le stesse 400 in ogni caso",
+      "en": "The same 400 in any case"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "All'1% la v2 riceve cento volte meno richieste, quindi sbaglia cento volte meno.",
+      "en": "At 1% v2 gets a hundred times fewer requests, so it gets a hundred times fewer wrong."
+     }
+    },
+    {
+     "id": "G",
+     "testo": {
+      "it": "Di più all'1% che al 100%",
+      "en": "More at 1% than at 100%"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Meno traffico alla v2 significa meno risposte sbagliate, non di più.",
+      "en": "Less traffic to v2 means fewer wrong answers, not more."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Lo stesso difetto all'1% colpisce cento volte meno clienti: è il valore del rilascio canarino.",
+    "en": "The same defect at 1% hits a hundred times fewer customers: that is the value of a canary release."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché all'1% il difetto si vede lo stesso?",
+    "en": "Why can you still see the defect at 1%?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché le curve e i contatori della v2 si misurano a parte, anche su poche richieste",
+      "en": "Because v2's curves and counters are measured separately, even on few requests"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Si confronta la v2 con la v1: il calo della v2 compare anche se riguarda pochi clienti.",
+      "en": "v2 is compared with v1: v2's drop shows up even if it concerns few customers."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché all'1% ogni richiesta della v2 viene ricontrollata a mano da una persona del team",
+      "en": "Because at 1% every v2 request is checked again by hand by a person on the team"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Una revisione umana a campione aiuta, ma il difetto si vede soprattutto dalle misure della v2 separate dalla v1.",
+      "en": "Spot human review helps, but the defect shows mainly through v2's measures, separate from v1."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché all'1% il difetto diventa più grave e salta all'occhio",
+      "en": "Because at 1% the defect becomes more serious and stands out"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il difetto è uguale: è la misura separata della v2 a farlo vedere.",
+      "en": "The defect is the same: it is v2's separate measurement that makes it visible."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Non si vede: all'1% i difetti restano nascosti fino al 100%",
+      "en": "You cannot see it: at 1% defects stay hidden until 100%"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Se fosse così il canary non servirebbe: serve proprio a vederli presto.",
+      "en": "If that were true the canary would be useless: it is there to spot them early."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Perché i clienti colpiti telefonano sempre al team",
+      "en": "Because the customers hit always phone the team"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Non si può contare sulle telefonate: si sorvegliano curve e contatori.",
+      "en": "You cannot count on phone calls: you watch curves and counters."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Si confronta la v2 con la v1: il calo della v2 compare anche se riguarda pochi clienti.",
+    "en": "v2 is compared with v1: v2's drop shows up even if it concerns few customers."
+   }
+  }
+ },
+ {
+  "id": "DA8.1-7",
+  "origine": "autori",
+  "pillola": "P8.1",
+  "concetti": [
+   "C70"
+  ],
+  "concetto_principale": "C70",
+  "segmento_aiuto": "incidente",
+  "striscia": "contro_esempio",
+  "livello1": {
+   "domanda": {
+    "it": "Canary al 25%: la nuova versione scende sotto la soglia e manda email non approvate dopo la risposta di un prospect con istruzioni nascoste. Un collega propone: «Saliamo al 50%, così abbiamo più dati per capire». Che cosa rispondi?",
+    "en": "Canary at 25%: the new version drops below the threshold and sends unapproved emails after a prospect's reply with hidden instructions. A colleague suggests: «Let's go up to 50%, so we get more data to understand». What do you answer?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "No: si torna subito alla v1 e si cerca la causa nella coppia istruzioni + modello",
+      "en": "No: go back to v1 at once and look for the cause in the instructions + model pair"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Sotto la soglia, con azioni non approvate, la fonte dice di tornare indietro subito; i dati per capire sono già nelle tracce.",
+      "en": "Below the threshold, with unapproved actions, the source says to roll back at once; the data to understand it is already in the traces."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Si scende al 5% e si continua a osservare per qualche giorno, lasciando la v2 attiva per quei clienti",
+      "en": "Go down to 5% and keep watching for a few days, leaving v2 active for those customers"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Riduce il danno, ma non lo ferma: ogni giorno alcuni clienti ricevono ancora email non approvate.",
+      "en": "It reduces the damage, but does not stop it: every day some customers still get unapproved emails."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Sì: con più traffico la media dei risultati migliora da sola",
+      "en": "Yes: with more traffic the average result improves by itself"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Più traffico alla versione difettosa vuol dire più clienti colpiti, non risultati migliori.",
+      "en": "More traffic to the faulty version means more customers hit, not better results."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Si abbassa la soglia, così la curva torna sopra la linea",
+      "en": "Lower the threshold, so the curve is back above the line"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Spostare la soglia nasconde il problema: le email non approvate continuano a partire.",
+      "en": "Moving the threshold hides the problem: the unapproved emails keep going out."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Si resta al 25% e si aspetta il fine settimana",
+      "en": "Stay at 25% and wait for the weekend"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Aspettare lascia la versione difettosa attiva: ogni giorno altri clienti ricevono email non approvate.",
+      "en": "Waiting leaves the faulty version active: every day more customers get unapproved emails."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Quando la nuova versione scende sotto la soglia si torna indietro subito, poi si cerca la causa.",
+    "en": "When the new version drops below the threshold you roll back at once, then look for the cause."
+   }
+  },
+  "livello2": {
+   "tipo": "contro-esempio",
+   "domanda": {
+    "it": "Che cosa succede ai clienti se si sale al 50% senza correggere nulla?",
+    "en": "What happens to customers if you go up to 50% without fixing anything?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Più clienti ricevono email non approvate: il danno cresce con il traffico",
+      "en": "More customers get unapproved emails: the damage grows with the traffic"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Il difetto è lo stesso, ma raddoppiando il traffico raddoppiano i clienti colpiti.",
+      "en": "The defect is the same, but doubling the traffic doubles the customers hit."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Lo stesso numero di clienti di prima, ma i reclami arrivano più in fretta e si capisce prima",
+      "en": "The same number of customers as before, but complaints come faster and you understand sooner"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "I reclami arrivano prima, è vero, ma perché i clienti colpiti sono di più.",
+      "en": "Complaints do come sooner, but because more customers are hit."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Nessuno: il rollback automatico scatta comunque solo al 100%",
+      "en": "Nobody: automatic rollback only triggers at 100% anyway"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Il rollback scatta sulla soglia, non sulla percentuale di traffico.",
+      "en": "Rollback triggers on the threshold, not on the traffic percentage."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Diminuiscono, perché la v1 riceve meno richieste",
+      "en": "They go down, because v1 gets fewer requests"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Meno traffico alla v1 buona e più alla v2 difettosa: i clienti colpiti aumentano.",
+      "en": "Less traffic to the good v1 and more to the faulty v2: the customers hit go up."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Ricevono email più brevi del solito",
+      "en": "They get shorter emails than usual"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "La lunghezza delle email non c'entra con il difetto descritto.",
+      "en": "Email length has nothing to do with the defect described."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Il difetto è lo stesso, ma raddoppiando il traffico raddoppiano i clienti colpiti.",
+    "en": "The defect is the same, but doubling the traffic doubles the customers hit."
+   }
+  }
+ }
+]

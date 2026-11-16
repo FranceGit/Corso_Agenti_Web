@@ -1,0 +1,334 @@
+[
+ {
+  "id": "DA8.2-4",
+  "origine": "autori",
+  "pillola": "P8.2",
+  "concetti": [
+   "C71"
+  ],
+  "concetto_principale": "C71",
+  "segmento_aiuto": "soglie",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Il motore di regole usa le soglie dell'esempio Google: sotto 100 consenti, da 100 a 500 chiedi conferma, oltre 500 blocca. L'agente vuole rimborsare 320 euro a un cliente per un ordine arrivato rotto. Che cosa succede?",
+    "en": "The rules engine uses the thresholds of Google's example: under 100 allow, from 100 to 500 ask for confirmation, above 500 block. The agent wants to refund a customer 320 euros for an order that arrived broken. What happens?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Il rimborso aspetta la conferma di una persona",
+      "en": "The refund waits for a person's confirmation"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "320 è tra 100 e 500: il motore di regole chiede conferma prima di procedere.",
+      "en": "320 is between 100 and 500: the rules engine asks for confirmation before going ahead."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Il rimborso resta bloccato finché un manager non lo approva",
+      "en": "The refund stays blocked until a manager approves it"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il blocco vale oltre 500; a 320 basta una conferma.",
+      "en": "Blocking applies above 500; at 320 a confirmation is enough."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Il rimborso parte da solo e viene soltanto registrato",
+      "en": "The refund goes out on its own and is only logged"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Partirebbe da solo sotto 100; a 320 serve una conferma.",
+      "en": "It would go out on its own under 100; at 320 a confirmation is needed."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "L'agente decide da solo, se il cliente gli sembra sincero",
+      "en": "The agent decides alone, if the customer seems sincere to it"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Le soglie stanno fuori dal modello proprio perché non dipendano dal suo giudizio del momento.",
+      "en": "The thresholds sit outside the model precisely so they do not depend on its judgment of the moment."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "L'agente divide il rimborso in quattro rimborsi da 80 euro",
+      "en": "The agent splits the refund into four refunds of 80 euros"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Spezzare l'importo per aggirare la soglia è proprio ciò che le regole devono impedire.",
+      "en": "Splitting the amount to get round the threshold is exactly what the rules must prevent."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Tra 100 e 500 l'azione chiede la conferma di una persona; le soglie sono regole fuori dal modello.",
+    "en": "Between 100 and 500 the action asks for a person's confirmation; the thresholds are rules outside the model."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "E se l'agente, poco prima, avesse letto un'email sospetta con istruzioni strane?",
+    "en": "And what if the agent, just before, had read a suspicious email with strange instructions?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Il controllo diventa più severo: conta anche ciò che l'agente ha appena letto",
+      "en": "The check gets stricter: what the agent has just read counts too"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Il motore di regole guarda anche le azioni precedenti: dopo dati sospetti si chiede più controllo.",
+      "en": "The rules engine also looks at previous actions: after suspicious data more control is required."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Nulla cambia: per i soldi decide soltanto l'importo",
+      "en": "Nothing changes: for money only the amount decides"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "L'importo conta, ma non è l'unico fattore: anche il contesto alza il rischio.",
+      "en": "The amount counts, but it is not the only factor: context raises the risk too."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Il rimborso passa più in fretta, per chiudere il caso",
+      "en": "The refund goes through faster, to close the case"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Dati sospetti sono un motivo per rallentare, non per accelerare.",
+      "en": "Suspicious data is a reason to slow down, not speed up."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Si cancella l'email sospetta e si procede con il rimborso come prima, senza altri controlli",
+      "en": "Delete the suspicious email and go ahead with the refund as before, with no other checks"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Cancellare l'email non toglie il rischio che l'agente sia stato manipolato.",
+      "en": "Deleting the email does not remove the risk that the agent was manipulated."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Si blocca solo se l'email era scritta in un'altra lingua",
+      "en": "It is blocked only if the email was written in another language"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "La lingua non c'entra: conta che i dati non siano affidabili.",
+      "en": "The language has nothing to do with it: what counts is that the data is untrusted."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Il motore di regole guarda anche le azioni precedenti: dopo dati sospetti si chiede più controllo.",
+    "en": "The rules engine also looks at previous actions: after suspicious data more control is required."
+   }
+  }
+ },
+ {
+  "id": "DA8.2-5",
+  "origine": "autori",
+  "pillola": "P8.2",
+  "concetti": [
+   "C72"
+  ],
+  "concetto_principale": "C72",
+  "segmento_aiuto": "persona",
+  "striscia": "diagnosi",
+  "livello1": {
+   "domanda": {
+    "it": "Un manager approva dopo tre ore uno sconto del 30% rimasto in coda. Il cliente però riceve lo sconto due volte. Nei registri, dopo l'approvazione, compare un'esecuzione con un identificativo nuovo. Che cosa è andato storto?",
+    "en": "A manager approves, after three hours, a 30% discount left in the queue. But the customer gets the discount twice. In the logs, after the approval, a run with a new identifier appears. What went wrong?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "La ripresa non ha usato l'identificativo dell'esecuzione in pausa",
+      "en": "The resume did not use the identifier of the paused run"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Senza lo stesso identificativo il sistema avvia un'esecuzione nuova invece di riprendere quella in pausa: lo sconto parte due volte.",
+      "en": "Without the same identifier the system starts a new run instead of resuming the paused one: the discount goes out twice."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "La fotografia dello stato era incompleta: mancavano i messaggi del cliente",
+      "en": "The state snapshot was incomplete: the customer's messages were missing"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Una fotografia incompleta crea problemi, ma il segnale dei registri è l'identificativo nuovo.",
+      "en": "An incomplete snapshot causes problems, but the sign in the logs is the new identifier."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Il manager ha approvato troppo tardi: dopo tre ore l'approvazione si raddoppia",
+      "en": "The manager approved too late: after three hours the approval doubles"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Il tempo d'attesa non raddoppia nulla: la pausa serve proprio ad aspettare.",
+      "en": "The waiting time doubles nothing: the pause is there precisely to wait."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Lo sconto andava applicato senza approvazione, perché è sotto il 50%",
+      "en": "The discount should have been applied without approval, because it is under 50%"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Uno sconto alto ha un impatto economico importante: l'approvazione è corretta.",
+      "en": "A large discount has a significant financial impact: the approval is correct."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Il modello ha letto «30%» come «60%»",
+      "en": "The model read «30%» as «60%»"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "I registri mostrano due esecuzioni, non un importo sbagliato.",
+      "en": "The logs show two runs, not a wrong amount."
+     }
+    }
+   ],
+   "perche": {
+    "it": "La ripresa dopo una pausa deve usare lo stesso identificativo: altrimenti parte un'esecuzione nuova e l'azione si ripete.",
+    "en": "Resuming after a pause must use the same identifier: otherwise a new run starts and the action is repeated."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché l'identificativo è indispensabile per riprendere dopo una pausa?",
+    "en": "Why is the identifier essential to resume after a pause?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché lega l'approvazione all'esecuzione in pausa, che riparte dallo stesso punto",
+      "en": "Because it ties the approval to the paused run, which restarts from the same point"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "L'identificativo dice al sistema quale esecuzione riprendere, con messaggi, strumento e parametri salvati.",
+      "en": "The identifier tells the system which run to resume, with the saved messages, tool and parameters."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché serve al manager per riconoscere il cliente giusto nella coda di approvazione",
+      "en": "Because the manager needs it to recognise the right customer in the approval queue"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Al manager serve sapere chi è il cliente, ma l'identificativo serve soprattutto al sistema per riprendere.",
+      "en": "The manager does need to know who the customer is, but the identifier mainly serves the system to resume."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché senza identificativo il modello non sa rispondere",
+      "en": "Because without an identifier the model cannot answer"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Il modello risponde comunque: il problema è che riparte da capo.",
+      "en": "The model answers anyway: the problem is that it starts from scratch."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Perché permette di cancellare la fotografia dello stato appena salvata",
+      "en": "Because it lets you delete the state snapshot just saved"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Al contrario: la fotografia serve proprio per riprendere.",
+      "en": "The opposite: the snapshot is exactly what you need to resume."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Perché rende più veloce l'approvazione del manager",
+      "en": "Because it makes the manager's approval faster"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "La velocità del manager non dipende dall'identificativo.",
+      "en": "The manager's speed does not depend on the identifier."
+     }
+    }
+   ],
+   "perche": {
+    "it": "L'identificativo dice al sistema quale esecuzione riprendere, con messaggi, strumento e parametri salvati.",
+    "en": "The identifier tells the system which run to resume, with the saved messages, tool and parameters."
+   }
+  }
+ }
+]

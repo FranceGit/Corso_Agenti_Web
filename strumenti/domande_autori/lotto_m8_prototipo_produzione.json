@@ -1,0 +1,335 @@
+[
+ {
+  "id": "DA8.1-4",
+  "origine": "autori",
+  "pillola": "P8.1",
+  "concetti": [
+   "C69"
+  ],
+  "concetto_principale": "C69",
+  "segmento_aiuto": "ambienti",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Il team prova la nuova sequenza di email in sviluppo, ma la configurazione usa le stesse chiavi del CRM e del servizio email della produzione. Che cosa rischia?",
+    "en": "The team tests the new email sequence in development, but the configuration uses the same CRM and email-service keys as production. What does it risk?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Che le email di prova arrivino a clienti veri",
+      "en": "That the test emails reach real customers"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Le chiavi della produzione aprono il CRM e il servizio email veri: la prova esce dall'ambiente di sviluppo.",
+      "en": "The production keys open the real CRM and email service: the test leaks out of development."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Che i dati di prova finiscano nel CRM vero, ma senza nessun invio ai clienti",
+      "en": "That the test data ends up in the real CRM, but with no emails sent to customers"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "I dati si mescolano davvero, ma con le stesse chiavi partono anche gli invii.",
+      "en": "The data does get mixed, but with the same keys the emails go out too."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Nessun rischio: lo sviluppo resta separato anche con le stesse chiavi",
+      "en": "No risk: development stays separate even with the same keys"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "La separazione sta proprio nei dati e nelle chiavi: con le stesse chiavi non c'è più.",
+      "en": "The separation lies precisely in the data and the keys: with the same keys it is gone."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Solo una bolletta del modello un po' più alta a fine mese",
+      "en": "Only a slightly higher model bill at the end of the month"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Il problema non è il costo: sono le email vere a clienti veri.",
+      "en": "The problem is not the cost: it is real emails to real customers."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Che il modello diventi più lento a rispondere ai lead",
+      "en": "That the model becomes slower at answering leads"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Le chiavi non cambiano la velocità del modello.",
+      "en": "The keys do not change the model's speed."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Ogni ambiente ha dati e chiavi propri: con le chiavi della produzione una prova raggiunge clienti veri.",
+    "en": "Each environment has its own data and keys: with production keys a test reaches real customers."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché ogni ambiente deve avere credenziali proprie?",
+    "en": "Why must each environment have its own credentials?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché così una prova andata storta non può toccare clienti e dati veri",
+      "en": "Because then a test that goes wrong cannot touch real customers and data"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "È lo scopo della separazione: gli errori restano dentro l'ambiente di prova.",
+      "en": "That is the point of separation: mistakes stay inside the test environment."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Per sapere sempre quale collega del team ha fatto l'ultima modifica all'agente",
+      "en": "To always know which team colleague made the last change to the agent"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Sapere chi ha cambiato cosa è utile, ma lo fanno il versionamento e i registri, non le chiavi separate.",
+      "en": "Knowing who changed what is useful, but versioning and logs do that, not separate keys."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché il modello funziona solo se riceve chiavi diverse",
+      "en": "Because the model only works if it gets different keys"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Il modello non dipende da quante chiavi ci sono.",
+      "en": "The model does not depend on how many keys there are."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Per poter scrivere le chiavi direttamente nel codice di ogni ambiente",
+      "en": "So you can write the keys directly in each environment's code"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Al contrario: le chiavi vere stanno in un servizio dedicato, non nel codice.",
+      "en": "The opposite: the real keys live in a dedicated service, not in the code."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Per rendere più veloci le prove automatiche",
+      "en": "To make the automatic tests faster"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Le chiavi separate servono alla sicurezza, non alla velocità.",
+      "en": "Separate keys are for safety, not speed."
+     }
+    }
+   ],
+   "perche": {
+    "it": "È lo scopo della separazione: gli errori restano dentro l'ambiente di prova.",
+    "en": "That is the point of separation: mistakes stay inside the test environment."
+   }
+  }
+ },
+ {
+  "id": "DA8.1-5",
+  "origine": "autori",
+  "pillola": "P8.1",
+  "concetti": [
+   "C70",
+   "C69"
+  ],
+  "concetto_principale": "C70",
+  "segmento_aiuto": "versioni",
+  "striscia": "diagnosi",
+  "livello1": {
+   "domanda": {
+    "it": "Dopo un rilascio alcuni lead ricevono email con il nome di un altro cliente. Sono cambiate solo le istruzioni (da v13 a v14), con lo stesso modello. Qual è la prima mossa?",
+    "en": "After a release some leads get emails with another customer's name. Only the instructions changed (from v13 to v14), with the same model. What is the first move?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Rollback alla coppia v13 + stesso modello, poi si cerca la causa",
+      "en": "Roll back to the pair v13 + same model, then look for the cause"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Il rollback ferma subito il danno riportando uno stato noto; la correzione arriva dopo e ripassa dal cancello.",
+      "en": "Rollback stops the damage at once by bringing back a known state; the fix comes later and goes through the gate again."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Correggere al volo le istruzioni v14 direttamente in produzione, senza prove",
+      "en": "Fix the v14 instructions on the fly directly in production, with no tests"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Correggere serve, ma farlo in produzione senza prove rischia una seconda regressione mentre i clienti aspettano.",
+      "en": "Fixing is needed, but doing it in production with no tests risks a second regression while customers wait."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Spegnere l'agente e tornare al lavoro a mano per qualche settimana",
+      "en": "Switch the agent off and go back to manual work for a few weeks"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Ferma il danno, ma butta via la versione che funzionava: il rollback fa lo stesso in un attimo.",
+      "en": "It stops the damage, but throws away the version that worked: rollback does the same in an instant."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Passare a un modello più potente",
+      "en": "Switch to a more powerful model"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il modello non è cambiato: il problema è nelle istruzioni nuove.",
+      "en": "The model did not change: the problem is in the new instructions."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Aspettare qualche giorno per vedere se l'errore sparisce",
+      "en": "Wait a few days to see if the error goes away"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Ogni giorno in più sono altri clienti con il nome sbagliato.",
+      "en": "Every extra day means more customers with the wrong name."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Prima si torna allo stato noto con il rollback, poi si cerca e si prova la correzione.",
+    "en": "First you go back to the known state with a rollback, then you find and test the fix."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché il rollback si può fare in un attimo?",
+    "en": "Why can a rollback be done in an instant?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché ogni parte è versionata e la versione precedente è uno stato noto",
+      "en": "Because every part is versioned and the previous version is a known state"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Codice, istruzioni, modello, strumenti, memoria e set di prove hanno una versione: tornare indietro è un'operazione sola.",
+      "en": "Code, instructions, model, tools, memory and test set have a version: going back is a single operation."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché le istruzioni sono l'unica parte dell'agente che si versiona davvero",
+      "en": "Because the instructions are the only part of the agent that is really versioned"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Le istruzioni si versionano, ma insieme a tutte le altre parti, modello compreso.",
+      "en": "Instructions are versioned, but together with all the other parts, model included."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché il modello ricorda da solo le sue versioni vecchie",
+      "en": "Because the model remembers its old versions by itself"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Il modello non conserva le versioni: lo fa il sistema di versionamento.",
+      "en": "The model does not keep versions: the versioning system does."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Perché l'agente si corregge da solo dopo il primo errore",
+      "en": "Because the agent corrects itself after the first mistake"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Nessun agente si ripara da solo: serve un ritorno deciso a uno stato noto.",
+      "en": "No agent repairs itself: you need a deliberate return to a known state."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Perché il set di prove si aggiorna in automatico in produzione",
+      "en": "Because the test set updates automatically in production"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Il set di prove si aggiorna con i casi reali, ma non è lui a riportare la versione precedente.",
+      "en": "The test set is updated with real cases, but it is not what brings back the previous version."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Codice, istruzioni, modello, strumenti, memoria e set di prove hanno una versione: tornare indietro è un'operazione sola.",
+    "en": "Code, instructions, model, tools, memory and test set have a version: going back is a single operation."
+   }
+  }
+ }
+]
