@@ -1,0 +1,197 @@
+{
+ "id": "L_smistatore_rischio",
+ "pillola": "P8.2",
+ "componente": "smistatore_rischio",
+ "titolo": {"it": "Lo smistatore: livelli di rischio e approvazione umana", "en": "The sorter: risk levels and human approval"},
+ "sottotitolo": {"it": "Le azioni dell'agente passano da un motore di regole: regola le manopole del rischio, le soglie, la coda di approvazione e il comportamento quando il controllo si guasta.", "en": "The agent's actions go through a rules engine: adjust the risk knobs, the thresholds, the approval queue and what happens when the check breaks down."},
+ "segmenti": [
+  {
+   "id": "fattori",
+   "titolo": {"it": "Quattro manopole per il rischio", "en": "Four knobs for risk"},
+   "narrazione": [
+    {"it": "Ogni azione dell'agente porta un rischio. OpenAI propone di dare a ogni strumento un livello, basso, medio o alto, guardando quattro fattori: legge o scrive, si può annullare, quali permessi chiede, quanto costa se sbaglia.", "en": "Every action of the agent carries a risk. OpenAI suggests giving each tool a level, low, medium or high, by looking at four factors: does it read or write, can it be undone, what permissions does it need, how much does a mistake cost."},
+    {"it": "Il livello decide l'uscita dello smistatore, un motore di regole che sta fuori dal modello: basso esegue e registra, medio chiede conferma, alto si blocca finché una persona approva. Nello schema del benchmark [R15] il medio esegue da solo con regole di controllo: è una variante.", "en": "The level decides the exit of the sorter, a rules engine that sits outside the model: low runs and logs, medium asks for confirmation, high is blocked until a person approves. In the benchmark's scheme [R15] medium runs on its own with policy rules: it is a variant."}
+   ],
+   "prova": {"it": "Seleziona «Cancella contatto» e rendilo reversibile (cestino per 30 giorni): guarda il livello scendere.", "en": "Select «Delete contact» and make it reversible (bin for 30 days): watch the level go down."},
+   "concetti": ["C71"],
+   "stato_animazione": {"vista": "nastro", "carta": "cancella_contatto", "ritocchi": {}, "importo": 250, "email_sospetta": false, "tentativi": 0, "approvazione": "attesa", "perdi_id": false, "servizio_regole": true, "fail_closed": true, "sempre_consenti": false, "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "soglie",
+   "titolo": {"it": "Soglie di importo e azioni precedenti", "en": "Amount thresholds and previous actions"},
+   "narrazione": [
+    {"it": "Per i soldi le regole diventano numeri. Nell'esempio di Google un acquisto sotto 100 dollari passa, tra 100 e 500 chiede conferma, oltre 500 si blocca. Qui usiamo le stesse soglie per i rimborsi ai clienti.", "en": "For money, the rules become numbers. In Google's example a purchase under 100 dollars goes through, between 100 and 500 it asks for confirmation, above 500 it is blocked. Here we use the same thresholds for customer refunds."},
+    {"it": "Conta anche che cosa è appena successo: se l'agente ha appena letto un'email sospetta, una risposta verso l'esterno non parte più da sola.", "en": "What has just happened counts too: if the agent has just read a suspicious email, a reply going outside no longer goes out on its own."}
+   ],
+   "prova": {"it": "Sposta l'importo del rimborso oltre 500, poi accendi «Ha appena letto un'email sospetta».", "en": "Move the refund amount above 500, then switch on «Has just read a suspicious email»."},
+   "concetti": ["C71"],
+   "stato_animazione": {"vista": "nastro", "carta": "rimborso", "ritocchi": {}, "importo": 250, "email_sospetta": false, "tentativi": 0, "approvazione": "attesa", "perdi_id": false, "servizio_regole": true, "fail_closed": true, "sempre_consenti": false, "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "persona",
+   "titolo": {"it": "Quando entra in gioco una persona", "en": "When a person steps in"},
+   "narrazione": [
+    {"it": "OpenAI indica due momenti per chiamare una persona: l'agente fallisce troppe volte, per esempio non capisce il cliente dopo tre tentativi (numero d'esempio), oppure l'azione è delicata o irreversibile.", "en": "OpenAI names two moments to call a person: the agent fails too many times, for example it does not understand the customer after three attempts (an example number), or the action is sensitive or irreversible."},
+    {"it": "Durante l'attesa l'azione è in pausa e si salva una fotografia: messaggi, strumento, parametri. Quando il manager approva, l'agente riprende dallo stesso punto, grazie allo stesso identificativo dell'esecuzione.", "en": "While waiting, the action is paused and a snapshot is saved: messages, tool, parameters. When the manager approves, the agent resumes from the same point, thanks to the same run identifier."}
+   ],
+   "prova": {"it": "Approva lo sconto, poi accendi «Perdi l'identificativo»; infine porta i tentativi falliti a 3.", "en": "Approve the discount, then switch on «Lose the identifier»; finally take the failed attempts to 3."},
+   "concetti": ["C72", "C71"],
+   "stato_animazione": {"vista": "nastro", "carta": "sconto_30", "ritocchi": {}, "importo": 250, "email_sospetta": false, "tentativi": 0, "approvazione": "attesa", "perdi_id": false, "servizio_regole": true, "fail_closed": true, "sempre_consenti": false, "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "fail_closed",
+   "titolo": {"it": "Se il controllo si guasta: fail-closed", "en": "If the check breaks down: fail-closed"},
+   "narrazione": [
+    {"it": "E se il motore di regole non risponde? Con la regola «fail-closed» (chiuso in caso di guasto) l'azione è negata, non concessa: tutto si ferma finché il controllo torna. Questa regola viene dallo schema del benchmark [R15] e dall'esperienza del progettista: le fonti studiate non la nominano.", "en": "What if the rules engine does not answer? With the «fail-closed» rule the action is denied, not granted: everything stops until the check is back. This rule comes from the benchmark's scheme [R15] and from the designer's experience: the sources studied do not name it."},
+    {"it": "Il contrario, «fail-open», lascia passare tutto senza controllo. È lo stesso errore di un tutorial reale che clicca «approva sempre» su ogni conferma e dà al CRM tutti i permessi.", "en": "The opposite, «fail-open», lets everything through with no check. It is the same mistake as a real tutorial that clicks «always allow» on every confirmation and gives the CRM every permission."}
+   ],
+   "prova": {"it": "Passa a «Fail-open» e guarda «Cancella contatto» passare; poi accendi il motore e prova «Approva sempre».", "en": "Switch to «Fail-open» and watch «Delete contact» get through; then switch the engine on and try «Always allow»."},
+   "concetti": ["C72"],
+   "stato_animazione": {"vista": "nastro", "carta": "cancella_contatto", "ritocchi": {}, "importo": 250, "email_sospetta": false, "tentativi": 0, "approvazione": "attesa", "perdi_id": false, "servizio_regole": false, "fail_closed": true, "sempre_consenti": false, "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "decidi_rischio",
+   "titolo": {"it": "Decidi tu: quale uscita?", "en": "You decide: which exit?"},
+   "narrazione": [
+    {"it": "Ora smisti tu cinque azioni di un team vendite. Per ognuna scegli l'uscita: consenti, chiedi conferma, oppure serve l'approvazione di una persona.", "en": "Now you sort five actions of a sales team. For each one choose the exit: allow, ask for confirmation, or a person's approval is needed."}
+   ],
+   "prova": {"it": "Scegli l'uscita di ogni azione, poi premi «Controlla» e leggi il perché.", "en": "Choose the exit for each action, then press «Check» and read why."},
+   "concetti": ["C71", "C72"],
+   "stato_animazione": {"vista": "decidi", "carta": "cancella_contatto", "ritocchi": {}, "importo": 250, "email_sospetta": false, "tentativi": 0, "approvazione": "attesa", "perdi_id": false, "servizio_regole": true, "fail_closed": true, "sempre_consenti": false, "scelte": {}, "verificato": false}
+  },
+  {
+   "id": "riassunto",
+   "titolo": {"it": "In tre frasi", "en": "In three sentences"},
+   "narrazione": [
+    {"it": "Ogni azione riceve un livello di rischio da quattro fattori: legge o scrive, si può annullare, quali permessi chiede, quanto costa se sbaglia.", "en": "Every action gets a risk level from four factors: does it read or write, can it be undone, what permissions it needs, how much a mistake costs."},
+    {"it": "Un motore di regole fuori dal modello consente, chiede conferma o blocca fino all'approvazione, e passa il caso a una persona dopo troppi tentativi falliti.", "en": "A rules engine outside the model allows, asks for confirmation or blocks until approval, and hands the case to a person after too many failed attempts."},
+    {"it": "Se il controllo non risponde, con la regola fail-closed l'azione è negata, mai concessa per comodità.", "en": "If the check does not answer, with the fail-closed rule the action is denied, never granted for convenience."}
+   ],
+   "concetti": ["C71", "C72"],
+   "stato_animazione": {"vista": "nastro", "carta": "sconto_30", "ritocchi": {}, "importo": 250, "email_sospetta": false, "tentativi": 0, "approvazione": "attesa", "perdi_id": false, "servizio_regole": true, "fail_closed": true, "sempre_consenti": false, "scelte": {}, "verificato": false}
+  }
+ ],
+ "scenario": {
+  "punti": {"scrive": 1, "irreversibile": 1, "permessi_ampi": 1, "impatto": {"nessuno": 0, "basso": 1, "alto": 2}},
+  "livelli": [
+   {"id": "basso", "fino_a": 2, "nome": {"it": "BASSO", "en": "LOW"}, "uscita": "consenti"},
+   {"id": "medio", "fino_a": 3, "nome": {"it": "MEDIO", "en": "MEDIUM"}, "uscita": "conferma"},
+   {"id": "alto", "fino_a": 99, "nome": {"it": "ALTO", "en": "HIGH"}, "uscita": "approvazione"}
+  ],
+  "importo": {"min": 0, "max": 1000, "passo": 10, "soglia_conferma": 100, "soglia_blocco": 500},
+  "soglia_tentativi": 3,
+  "tentativi_max": 5,
+  "uscite": [
+   {"id": "consenti", "nome": {"it": "Consenti", "en": "Allow"}, "sotto": {"it": "esegue e registra", "en": "runs and logs"}, "colore": "#16a34a"},
+   {"id": "conferma", "nome": {"it": "Chiedi conferma", "en": "Ask to confirm"}, "sotto": {"it": "una persona conferma", "en": "a person confirms"}, "colore": "#d97706"},
+   {"id": "approvazione", "nome": {"it": "Approvazione", "en": "Approval"}, "sotto": {"it": "bloccata finché si approva", "en": "blocked until approved"}, "colore": "#e11d48"},
+   {"id": "fermo", "nome": {"it": "Ferma", "en": "Stopped"}, "sotto": {"it": "controllo assente: negata", "en": "no check: denied"}, "colore": "#64748b"}
+  ],
+  "carte": [
+   {"id": "aggiorna_nota", "nome": {"it": "Aggiorna nota", "en": "Update note"}, "descrizione": {"it": "Aggiunge una nota alla scheda del lead nel CRM.", "en": "Adds a note to the lead's record in the CRM."},
+    "fattori": {"scrive": true, "reversibile": true, "permessi": "base", "impatto": "nessuno"}, "esterna": false, "a_importo": false},
+   {"id": "risposta_cliente", "nome": {"it": "Rispondi al cliente", "en": "Reply to customer"}, "descrizione": {"it": "Invia una risposta all'esterno, a un cliente che ha scritto.", "en": "Sends a reply outside, to a customer who wrote in."},
+    "fattori": {"scrive": true, "reversibile": false, "permessi": "base", "impatto": "nessuno"}, "esterna": true, "a_importo": false},
+   {"id": "email_500", "nome": {"it": "Email a 500 contatti", "en": "Email to 500 contacts"}, "descrizione": {"it": "Manda la newsletter di campagna a 500 contatti.", "en": "Sends the campaign newsletter to 500 contacts."},
+    "fattori": {"scrive": true, "reversibile": false, "permessi": "base", "impatto": "basso"}, "esterna": true, "a_importo": false},
+   {"id": "sconto_30", "nome": {"it": "Sconto 30%", "en": "30% discount"}, "descrizione": {"it": "Applica uno sconto del 30% all'offerta di un cliente.", "en": "Applies a 30% discount to a customer's offer."},
+    "fattori": {"scrive": true, "reversibile": false, "permessi": "base", "impatto": "alto"}, "esterna": false, "a_importo": false},
+   {"id": "cancella_contatto", "nome": {"it": "Cancella contatto", "en": "Delete contact"}, "descrizione": {"it": "Cancella un contatto e la sua storia dal CRM.", "en": "Deletes a contact and its history from the CRM."},
+    "fattori": {"scrive": true, "reversibile": false, "permessi": "ampi", "impatto": "basso"}, "esterna": false, "a_importo": false},
+   {"id": "rimborso", "nome": {"it": "Rimborso", "en": "Refund"}, "descrizione": {"it": "Rimborsa un cliente: qui decide la soglia d'importo.", "en": "Refunds a customer: here the amount threshold decides."},
+    "fattori": {"scrive": true, "reversibile": false, "permessi": "base", "impatto": "basso"}, "esterna": false, "a_importo": true}
+  ],
+  "fotografia": {
+   "messaggi": {"it": "3 messaggi del cliente Rossi Arredi", "en": "3 messages from the customer Rossi Arredi"},
+   "strumento": {"it": "applica_sconto", "en": "apply_discount"},
+   "parametri": {"it": "cliente: Rossi Arredi · sconto: 30% · offerta n. 418", "en": "customer: Rossi Arredi · discount: 30% · offer no. 418"}
+  },
+  "gioco": [
+   {"id": "a_nota", "breve": {"it": "Nota dopo la telefonata", "en": "Note after the call"}, "testo": {"it": "Aggiungere una nota alla scheda di un lead dopo una telefonata", "en": "Add a note to a lead's record after a phone call"},
+    "migliore": "consenti", "quasi": [], "spiega": {"it": "Scrive poco, si può correggere, non costa nulla: basso rischio, esegue e registra.", "en": "It writes little, can be corrected, costs nothing: low risk, it runs and logs."}},
+   {"id": "a_sconto", "breve": {"it": "Sconto del 40%", "en": "40% discount"}, "testo": {"it": "Inviare a un grande cliente l'offerta con sconto del 40%", "en": "Send a large customer the offer with a 40% discount"},
+    "migliore": "approvazione", "quasi": ["conferma"], "spiega": {"it": "Impatto economico alto e difficile da ritirare: si blocca finché una persona approva.", "en": "High financial impact and hard to withdraw: it is blocked until a person approves."}},
+   {"id": "a_sospetta", "breve": {"it": "Risposta dopo un'email strana", "en": "Reply after a strange email"}, "testo": {"it": "Rispondere a un cliente subito dopo aver letto un'email con istruzioni strane", "en": "Reply to a customer right after reading an email with strange instructions"},
+    "migliore": "conferma", "quasi": ["approvazione"], "spiega": {"it": "Da sola sarebbe a basso rischio, ma l'agente ha appena letto dati sospetti: una persona conferma prima dell'invio.", "en": "On its own it would be low risk, but the agent has just read suspicious data: a person confirms before sending."}},
+   {"id": "a_massa", "breve": {"it": "Cancellare 1.000 contatti", "en": "Delete 1,000 contacts"}, "testo": {"it": "Cancellare in blocco 1.000 contatti non attivi", "en": "Delete 1,000 inactive contacts in one go"},
+    "migliore": "approvazione", "quasi": [], "spiega": {"it": "Operazione di massa e irreversibile: è il caso tipico in cui si chiede prima a una persona.", "en": "A mass, irreversible operation: the typical case where you ask a person first."}},
+   {"id": "a_rimborso", "breve": {"it": "Rimborso di 60 euro", "en": "60 euro refund"}, "testo": {"it": "Rimborsare 60 euro per una spedizione in ritardo", "en": "Refund 60 euros for a late delivery"},
+    "migliore": "consenti", "quasi": ["conferma"], "spiega": {"it": "Sotto la soglia di 100 il rimborso passa da solo e viene registrato.", "en": "Under the 100 threshold the refund goes through on its own and is logged."}}
+  ],
+  "testi": {
+   "punteggio": {"it": "Punti di rischio: {punti} → livello {livello}", "en": "Risk points: {punti} → level {livello}"},
+   "fattore_riga": {"it": "{fattore}: {valore} (+{punti})", "en": "{fattore}: {valore} (+{punti})"},
+   "mot_livello": {"it": "Livello {livello}: uscita «{uscita}».", "en": "Level {livello}: exit «{uscita}»."},
+   "mot_importo": {"it": "Importo {importo}: sotto {soglia1} consenti, fino a {soglia2} conferma, oltre si blocca (soglie dell'esempio di Google). Uscita «{uscita}».", "en": "Amount {importo}: under {soglia1} allow, up to {soglia2} confirm, above that it is blocked (thresholds from Google's example). Exit «{uscita}»."},
+   "mot_sospetta": {"it": "L'agente ha appena letto un'email sospetta: la risposta verso l'esterno sale a «{uscita}».", "en": "The agent has just read a suspicious email: the outgoing reply moves up to «{uscita}»."},
+   "mot_fermo": {"it": "Motore di regole spento e fail-closed: l'azione è negata finché il controllo non torna.", "en": "Rules engine off and fail-closed: the action is denied until the check is back."},
+   "mot_aperto": {"it": "Motore di regole spento e fail-open: l'azione passa senza alcun controllo.", "en": "Rules engine off and fail-open: the action goes through with no check at all."},
+   "mot_sempre": {"it": "«Approva sempre» e tutti i permessi: l'azione passa senza controllo, come nel tutorial.", "en": "«Always allow» and every permission: the action goes through with no check, as in the tutorial."},
+   "allarme": {"it": "Allarme: un'azione di livello {livello} è passata senza controllo.", "en": "Alarm: a level {livello} action got through with no check."},
+   "operatore_no": {"it": "Tentativi falliti: {n} su {soglia}. L'agente continua da solo.", "en": "Failed attempts: {n} of {soglia}. The agent carries on alone."},
+   "operatore_si": {"it": "Tentativi falliti: {n}. Soglia raggiunta: la conversazione passa a un operatore umano.", "en": "Failed attempts: {n}. Threshold reached: the conversation goes to a human operator."},
+   "app_nessuna": {"it": "Nessuna azione in coda di approvazione.", "en": "No action in the approval queue."},
+   "app_attesa": {"it": "«{azione}» è in pausa in attesa del manager. Fotografia salvata: {messaggi} · strumento {strumento} · {parametri}.", "en": "«{azione}» is paused waiting for the manager. Snapshot saved: {messaggi} · tool {strumento} · {parametri}."},
+   "app_ripresa": {"it": "Approvata: l'agente riprende dallo stesso punto, con lo stesso identificativo. Eseguita una volta.", "en": "Approved: the agent resumes from the same point, with the same identifier. Run once."},
+   "app_doppia": {"it": "Approvata, ma l'identificativo è perso: parte un'esecuzione nuova e «{azione}» viene eseguita due volte.", "en": "Approved, but the identifier is lost: a new run starts and «{azione}» is carried out twice."},
+   "app_respinta": {"it": "Respinta: «{azione}» non viene eseguita e la decisione resta registrata.", "en": "Rejected: «{azione}» is not carried out and the decision stays on record."},
+   "conta_uscita": {"it": "{n} azioni", "en": "{n} actions"},
+   "apri_carta": {"it": "Seleziona l'azione {nome}", "en": "Select the action {nome}"},
+   "uscita_per": {"it": "Uscita per: {azione}", "en": "Exit for: {azione}"},
+   "ver_giusto": {"it": "{situazione}: giusto. {spiega}", "en": "{situazione}: right. {spiega}"},
+   "ver_quasi": {"it": "{situazione}: si può fare, ma è meglio «{migliore}». {spiega}", "en": "{situazione}: acceptable, but «{migliore}» is better. {spiega}"},
+   "ver_sbagliato": {"it": "{situazione}: no, meglio «{migliore}». {spiega}", "en": "{situazione}: no, «{migliore}» is better. {spiega}"},
+   "ver_vuoto": {"it": "{situazione}: non hai ancora scelto. L'uscita migliore è «{migliore}». {spiega}", "en": "{situazione}: you have not chosen yet. The best exit is «{migliore}». {spiega}"},
+   "ver_punteggio": {"it": "Uscite giuste: {giuste} su {totali}. Leggi sotto il perché.", "en": "Right exits: {giuste} of {totali}. Read why below."},
+   "ver_tutto_giusto": {"it": "Perfetto: hai protetto clienti e azienda senza bloccare il lavoro semplice.", "en": "Perfect: you protected customers and company without blocking the simple work."}
+  },
+  "etichette": {
+   "titolo_comandi": {"it": "Prova a cambiare", "en": "Try changing"},
+   "vista": {"it": "Chi smista", "en": "Who sorts"},
+   "vista_nastro": {"it": "Lo smistatore", "en": "The sorter"},
+   "vista_decidi": {"it": "Decidi tu", "en": "You decide"},
+   "carta": {"it": "Azione selezionata", "en": "Selected action"},
+   "f_scrive": {"it": "Che cosa fa", "en": "What it does"},
+   "legge": {"it": "Legge", "en": "Reads"},
+   "scrive": {"it": "Scrive", "en": "Writes"},
+   "f_reversibile": {"it": "Si può annullare?", "en": "Can it be undone?"},
+   "si": {"it": "Sì", "en": "Yes"},
+   "no": {"it": "No", "en": "No"},
+   "f_permessi": {"it": "Permessi", "en": "Permissions"},
+   "base": {"it": "Minimi", "en": "Minimal"},
+   "ampi": {"it": "Ampi", "en": "Broad"},
+   "f_impatto": {"it": "Costo di un errore", "en": "Cost of a mistake"},
+   "nessuno": {"it": "Nessuno", "en": "None"},
+   "basso": {"it": "Basso", "en": "Low"},
+   "alto": {"it": "Alto", "en": "High"},
+   "importo": {"it": "Importo del rimborso", "en": "Refund amount"},
+   "formato_importo": {"it": "{n} €", "en": "€{n}"},
+   "nota_importo": {"it": "Per il rimborso decide la soglia d'importo.", "en": "For the refund, the amount threshold decides."},
+   "email_sospetta": {"it": "Ha appena letto un'email sospetta", "en": "Has just read a suspicious email"},
+   "titolo_persona": {"it": "La persona", "en": "The person"},
+   "tentativi": {"it": "Tentativi falliti di capire il cliente", "en": "Failed attempts to understand the customer"},
+   "approvazione": {"it": "Il manager", "en": "The manager"},
+   "attesa": {"it": "In attesa", "en": "Waiting"},
+   "approvata": {"it": "Approva", "en": "Approve"},
+   "respinta": {"it": "Respingi", "en": "Reject"},
+   "perdi_id": {"it": "Perdi l'identificativo", "en": "Lose the identifier"},
+   "titolo_guasto": {"it": "Se il controllo si guasta", "en": "If the check breaks down"},
+   "servizio_regole": {"it": "Motore di regole attivo", "en": "Rules engine running"},
+   "modo_guasto": {"it": "Quando non risponde", "en": "When it does not answer"},
+   "fail_closed": {"it": "Fail-closed", "en": "Fail-closed"},
+   "fail_open": {"it": "Fail-open", "en": "Fail-open"},
+   "sempre_consenti": {"it": "Approva sempre + tutti i permessi", "en": "Always allow + every permission"},
+   "scegli": {"it": "— scegli —", "en": "— choose —"},
+   "controlla": {"it": "Controlla", "en": "Check"},
+   "motore": {"it": "MOTORE DI REGOLE", "en": "RULES ENGINE"},
+   "motore_attivo": {"it": "fuori dal modello · attivo", "en": "outside the model · running"},
+   "motore_spento": {"it": "non risponde", "en": "not answering"},
+   "titolo_decidi": {"it": "DA SMISTARE: SCEGLI L'USCITA A SINISTRA", "en": "TO SORT: CHOOSE THE EXIT ON THE LEFT"},
+   "titolo_dettaglio": {"it": "L'azione", "en": "The action"},
+   "titolo_operatore": {"it": "Passaggio a una persona", "en": "Handing to a person"},
+   "titolo_coda": {"it": "Coda di approvazione", "en": "Approval queue"},
+   "descrizione_scena": {"it": "Un motore di regole smista le azioni dell'agente in quattro uscite: consenti, chiedi conferma, approvazione, ferma.", "en": "A rules engine sorts the agent's actions into four exits: allow, ask to confirm, approval, stopped."}
+  }
+ },
+ "domande": []
+}
