@@ -28,6 +28,45 @@ Tocca solo `esercizi/` più agganci minimi: `corso/app.py` (monta le API se `ese
 ## Stato al 16/11/2026 — fase 6: lezioni interattive M6-M8 (IN CORSO)
 Cantiere M6-M8, in parallelo al cantiere M4-M5. Tocca solo: `dati/lezioni/`, `webapp/animazioni/`, `tests_js/lezioni/` dei componenti `uno_o_tanti`, `schemi_orchestrazione`, `due_piani_a2a`, `cinque_strade`, `tre_pilastri`, `griglia_test`, `giudice_bias`, `metriche_impatto`, `prototipo_produzione`, `rilascio_canary` (laboratorio P8.1), `smistatore_rischio`, `plancia_controllo`, `caveau_dati`, `blueprint_crm`; i lotti `strumenti/domande_autori/lotto_m6_*`, `lotto_m7_*` (non `lotto_m7_m8.json`), `lotto_m8_*`; il test `tests/test_lezioni_m6_m8.py`.
 
+## Stato al 16/11/2026 — fase 6: lezioni interattive M4 (strumenti e MCP) e M5 (contesto, sessioni, memoria)
+Cantiere M4-M5, in parallelo a M6-M8 ed esercizi. Commit `acb6551`.
+
+### Fatto
+1. **9 lezioni interattive IT/EN**, stessa architettura e stesse regole di M1-M3. Ogni lezione ha 5 passi con «Prova tu», il riassunto in 3 frasi e 390-421 parole. Gli esempi sono solo di marketing e CRM e tutte le lezioni sono deterministiche. Ora **M4 e M5 hanno una lezione per ogni pillola** (P4.1 è la lezione del dimostratore).
+   - P4.2 `strumento_chiaro` «Strumento confuso contro strumento chiaro»: lo studente cambia nome e descrizione (`api_call` ↔ `trova_lead_caldi`), parametri (9 grezzi ↔ 2 tipizzati) e granularità (10 chiamate API / un compito / mega-strumento), con il misuratore «scelte corrette su 20 compiti». Poi: strumenti distinti o sovrapposti, 4 messaggi d'errore (anche lo strumento che risponde sempre «successo»), cassetti lettura / azione / orchestrazione con «Controlla», doppio clic su «invia follow-up» con e senza idempotenza.
+   - P4.3 `presa_standard` «Dal groviglio alla presa standard»: 12 cavi diventano 7 pezzi; il conto N+M è dichiarato spiegazione del corso, N×M viene dalla fonte. Si aggiungono sistemi o app. Ci sono i 6 passi del collegamento, i ruoli host/client/server con un mini-gioco, il catalogo strumenti/risorse/prompt con la diffusione al 15/09/2025 (99/34/32%) e l'interruttore «server non fidato» (le etichette sono solo dichiarazioni del fornitore).
+   - P4.4 `valigia_strumenti` «La valigia che scoppia» (scoperta progressiva dei tool): cursore da 5 a 100 strumenti, modalità tutto caricato / specialista / scoperta progressiva a 3 ripiani, «chiamata fallita» oltre il bordo, 83 trattative filtrate nella sandbox, pannello «dichiarato o misurato?» (98,7% → 95,7% → 74,8% su UNA domanda, tempo da 37,5 a 53,5 s).
+   - P4.5 `raggi_x` «I raggi X: l'ordine nascosto nella bolla di carico»: con i raggi X lo studente scova la riga ostile bianco su bianco nella bolla di carico di un distributore; codice a barre, metadati e pixel sono esche. Poi lancia l'agente con permessi ampi / minimo privilegio / regole fisse (consenti, blocca, chiedi conferma) e segue il dato «contaminato» fino all'invio; la chiave si sposta dal prompt al caveau.
+   - P5.1 `valigia_contesto` «La valigia» (metafora del whitepaper Google, formula «selezionare, riassumere, inserire», «né più né meno»): 10 oggetti in 3 famiglie e 4 lancette. La risposta all'Hotel Lago Blu cambia davvero («non lo so», prezzo inventato, senza sconto, giusto); con troppa roba arrivano il context rot e la chiamata fallita. Ci sono i 3 aiuti, il secondo turno prompt engineering ↔ context engineering e il passo «Decidi tu» (qualità ≥ 90 con spazio ≤ 60%).
+   - P5.2 `linea_sessione` «La linea che si arrotola»: eventi e stato, compattazione (ultimi 10 turni / 4.000 token / riassunto), «riassunto troppo aggressivo» (dichiarato esempio didattico) che perde «non chiamatemi il lunedì», riavvio con archivio in memoria ↔ database, chiusura della sessione dove sopravvive solo ciò che va in memoria.
+   - P5.3 `imbuto_ricordi` «L'imbuto dei ricordi» (la memoria che ricorda il cliente tra due sessioni): argomenti da estrarre e momento dell'estrazione (costo ↔ freschezza), saluto alla seconda chiamata con e senza memoria, provenienza (CRM ↔ dedotto), consolidamento UPDATE e il suo opposto senza consolidamento, recupero con rilevanza/recency/importanza, gioco dei cassetti dichiarativa ↔ procedurale.
+   - P5.4 `mappa_significati` «La mappa dei significati» (RAG): k da 1 a 20 con precisione e richiamo dal vivo, «recupera e riordina», parole chiave ↔ significato, codici contratto simili e ricerca ibrida. Lo studente sceglie le fonti e la risposta con citazioni cambia (il listino 2024 porta un prezzo vecchio). C'è «non lo so» con e senza istruzione, e il confronto bibliotecario ↔ assistente personale.
+   - P5.5 `dove_dato` «Dove si nasconde un dato»: il cellulare di Marco in 5 contenitori (elenco illustrativo) e l'oscuramento dei dati personali. Il bottone «Diritto all'oblio» con la sola memoria spuntata lascia 4 copie; poi il muro fra clienti, il ricordo avvelenato («50% di sconto») con verifica e provenienza, la scadenza automatica (TTL), l'opt-out e la revoca di una fonte (cancella tutto ↔ rigenera).
+2. **20 domande v2** inserite nel corso (lotti `lotto_m4_strumenti.json`, `lotto_m4_m5_sicurezza_contesto.json`, `lotto_m5_memoria_rag_privacy.json`, `lotto_m2_formato_c21.json`). Sono 2 per pillola di M4-M5, con l'aiuto su un passo della lezione e strisce scelte fra quelle che mancavano (soprattutto diagnosi e contro-esempio), più **DA2.2-1** (esempio pratico) e **DA2.2-2** (diagnosi) per C21, che aveva solo domande «definizione». Usano tutte le bande, anche 4 e 7 opzioni; la corretta non è mai l'opzione più lunga. Ora ogni concetto di M4-M5 toccato ha 3-4 punti di vista.
+3. **Test**: tutti verdi.
+   - pytest (`tests/` + `esercizi/tests`, eseguiti a gruppi per il limite di tempo del comando). Nuovo `tests/test_lezioni_m4_m5.py`: ogni pillola M4-M5 ha la sua lezione, le domande nuove sono erogabili con l'aiuto su un passo, ci sono più punti di vista, C21 non è più solo definizione.
+   - Prove Node: 516 (in tutto il progetto; +134 delle 9 lezioni).
+   - Prova di fumo jsdom di **tutte** le lezioni del progetto in IT/EN, con ogni passo e ogni comando toccato: 9.106 azioni, 0 errori, compresi gli errori dentro i gestori degli eventi.
+   - Server vero (TestClient): accesso, moduli protetti prima dell'accesso, ogni pillola M4-M5 e P2.2 in IT/EN montata in jsdom con il modulo servito e la lezione risolta dal server, 128 passi, 0 errori.
+4. **Test condivisi aggiornati (dichiarati)**, perché si rompevano a ogni lezione nuova dei cantieri paralleli:
+   - `test_catalogo.py::test_rapporto_erogabilita` ora controlla il minimo garantito (M1-M5, P3.3 esclusa), non un elenco chiuso.
+   - `test_laboratorio.py`: P3.5 è fra i laboratori, non l'unico (è arrivato P8.1).
+   - `test_upgrade_domande.py`: la pillola senza lezione per il caso «non ha lezione» passa da P8.6 (ora ha `blueprint_crm`) a P3.3.
+
+### Da sapere
+- **Numeri illustrativi**, dichiarati a schermo dove serve: scelte su 20 compiti, token per strumento, spazio della valigia, 1.240 contatti, sconto del 15%, coordinate della mappa, codici contratto, mesi di scadenza.
+- **Numeri presi dalle fonti** di CORSO_CONTENUTI_VERIFICATI: 99/34/32%, 98,7/95,7/74,8%, 37,5/53,5 s, N = 10 turni, 4.000 token, 30 minuti, 7/10 e 3/6. In P5.4 gli esempi 0,7 e 0,5 sono citati in una nota, non tarati sulla mappa, perché insieme non stanno su una sola domanda.
+- **Contenuti non presi dalle fonti**:
+  - La **bolla di carico** di P4.5 è una richiesta di France, non viene dalle fonti; lo scenario CRM è un adattamento.
+  - Il GDPR in P5.5 compare solo come diritto di chiedere la cancellazione: niente basi giuridiche né tempi legali.
+  - La checklist «prima di collegare un server» di P4.3 è [EXP].
+- **Copie da cancellare**: `outputs\_fork_b\` (copie di lavoro) e `outputs\anteprime_m4_m5\` (anteprime HTML statiche) sono fuori dal progetto e si possono cancellare.
+- **Verifica visiva**: non fatta su un browser vero.
+
+### Resta da fare
+- Revisione di France sui testi delle 9 lezioni e delle 20 domande.
+- Collaudo visivo su browser vero (in particolare le scene dense: `presa_standard`, `mappa_significati`, `dove_dato`).
+
 ## Stato al 16/11/2026 — correzioni al documento benchmark (dai contenuti verificati) + riserva M3
 
 ### Fatto
