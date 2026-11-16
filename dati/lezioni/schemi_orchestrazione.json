@@ -1,0 +1,178 @@
+{
+ "id": "L_schemi_orchestrazione",
+ "pillola": "P6.2",
+ "componente": "schemi_orchestrazione",
+ "titolo": {"it": "Quattro mini-mappe e un bivio: gli schemi di orchestrazione", "en": "Four mini-maps and a fork in the road: orchestration patterns"},
+ "sottotitolo": {"it": "Un gettone percorre quattro schemi di lavoro tra agenti CRM: confronta tempi e chiamate, poi scegli lo schema giusto per ogni processo.", "en": "A token travels through four ways of working among CRM agents: compare times and calls, then choose the right pattern for each process."},
+ "segmenti": [
+  {
+   "id": "sequenza_parallelo",
+   "titolo": {"it": "In fila o tutti insieme", "en": "In a line or all together"},
+   "narrazione": [
+    {"it": "Orchestrare vuol dire decidere chi lavora, in che ordine e chi unisce i risultati. Lo schema sequenziale è una catena di montaggio: il risultato di un agente è l'ingresso del successivo, come brief, bozza e revisione di un'email.", "en": "Orchestrating means deciding who works, in what order and who combines the results. The sequential pattern is an assembly line: one agent's result is the next one's input, like brief, draft and review of an email."},
+    {"it": "Se i compiti non dipendono l'uno dall'altro, la fila è lenta. Nello schema parallelo tre agenti arricchiscono il lead insieme, e alla fine un aggregatore unisce i risultati. Funziona solo se non devono scambiarsi informazioni.", "en": "If the tasks do not depend on each other, the line is slow. In the parallel pattern three agents enrich the lead together, and at the end an aggregator combines the results. It works only if they do not need to exchange information."}
+   ],
+   "prova": {"it": "Confronta il tempo di sequenziale e parallelo, poi accendi «Punteggio ed email in parallelo» e leggi che cosa va storto.", "en": "Compare the time of sequential and parallel, then switch on «Score and email in parallel» and read what goes wrong."},
+   "concetti": ["C54"],
+   "stato_animazione": {"vista": "esplora", "schema_attivo": "parallelo", "max_giri": 3, "segnale_uscita": true, "modo_coordinatore": "manager", "pausa_umana": false, "dipendenza": false, "assegnazioni": {}, "verificato": false}
+  },
+  {
+   "id": "ciclo_critico",
+   "titolo": {"it": "Il ciclo: uno scrive, uno critica", "en": "The loop: one writes, one critiques"},
+   "narrazione": [
+    {"it": "Nel ciclo generatore-critico un agente scrive l'email di outreach e un agente critico la valuta su tono e conformità. Se non va, chiede correzioni e si ripete.", "en": "In the generator-critic loop one agent writes the outreach email and a critic agent judges it on tone and compliance. If it is not good, it asks for fixes and the loop repeats."},
+    {"it": "Servono due protezioni insieme: un segnale di uscita esplicito (il critico scrive «APPROVATO» e il ciclo esce) e un limite di giri. Il ciclo da solo non sa che «APPROVATO» vuol dire «fermati».", "en": "Two protections are needed together: an explicit exit signal (the critic writes «APPROVED» and the loop exits) and a limit on rounds. The loop on its own does not know that «APPROVED» means «stop»."}
+   ],
+   "prova": {"it": "Togli il segnale di uscita e porta il limite a 5: il ciclo gira anche dopo «APPROVATO». Poi prova il limite a 1.", "en": "Remove the exit signal and set the limit to 5: the loop keeps going even after «APPROVED». Then try a limit of 1."},
+   "concetti": ["C54"],
+   "stato_animazione": {"vista": "esplora", "schema_attivo": "ciclo", "max_giri": 3, "segnale_uscita": true, "modo_coordinatore": "manager", "pausa_umana": false, "dipendenza": false, "assegnazioni": {}, "verificato": false}
+  },
+  {
+   "id": "coordinatore_handoff",
+   "titolo": {"it": "Il coordinatore: resta al comando o passa il testimone", "en": "The coordinator: stays in charge or passes the baton"},
+   "narrazione": [
+    {"it": "Quando le richieste sono diverse tra loro, un agente coordinatore le analizza e le smista allo specialista giusto. È flessibile, ma un modello può saltare un passo o invertire l'ordine: se l'ordine è sempre lo stesso, meglio la sequenza.", "en": "When requests differ from each other, a coordinator agent analyses them and routes them to the right specialist. It is flexible, but a model may skip a step or swap the order: if the order is always the same, a sequence is better."},
+    {"it": "OpenAI distingue due varianti. Manager: chiama gli specialisti come strumenti e resta lui a parlare con il cliente. Passaggio di consegne (handoff): il Triage passa la conversazione all'agente Ordini, che da lì risponde lui.", "en": "OpenAI distinguishes two variants. Manager: it calls the specialists as tools and stays the one talking to the customer. Handoff: the Triage agent passes the conversation to the Orders agent, which answers from then on."}
+   ],
+   "prova": {"it": "Passa da «Manager» a «Passaggio di consegne»: guarda chi risponde al cliente che chiede «Dov'è il mio ordine?».", "en": "Switch from «Manager» to «Handoff»: see who answers the customer asking «Where is my order?»."},
+   "concetti": ["C55"],
+   "stato_animazione": {"vista": "esplora", "schema_attivo": "coordinatore", "max_giri": 3, "segnale_uscita": true, "modo_coordinatore": "manager", "pausa_umana": false, "dipendenza": false, "assegnazioni": {}, "verificato": false}
+  },
+  {
+   "id": "pausa_umana",
+   "titolo": {"it": "La pausa umana, dentro qualunque schema", "en": "The human pause, inside any pattern"},
+   "narrazione": [
+    {"it": "Per le azioni importanti si aggiunge una pausa umana: il flusso si ferma finché una persona approva, per esempio prima di inviare l'email. Si può inserire in qualunque schema.", "en": "For important actions you add a human pause: the flow stops until a person approves, for example before sending the email. It can be added to any pattern."},
+    {"it": "Gli schemi si possono anche annidare: tre ricercatori in parallelo dentro una sequenza, oppure un ciclo critico-rifinitore dopo la prima bozza.", "en": "Patterns can also be nested: three researchers in parallel inside a sequence, or a critic-refiner loop after the first draft."}
+   ],
+   "prova": {"it": "Accendi «Pausa umana» e cambia schema: guarda dove si ferma il gettone prima dell'ultima mossa.", "en": "Switch on «Human pause» and change pattern: see where the token stops before the last move."},
+   "concetti": ["C54", "C55"],
+   "stato_animazione": {"vista": "esplora", "schema_attivo": "sequenziale", "max_giri": 3, "segnale_uscita": true, "modo_coordinatore": "handoff", "pausa_umana": true, "dipendenza": false, "assegnazioni": {}, "verificato": false}
+  },
+  {
+   "id": "scegli_schema",
+   "titolo": {"it": "Decidi tu: quale schema per quale processo?", "en": "You decide: which pattern for which process?"},
+   "narrazione": [
+    {"it": "Quattro processi CRM. Scegli per ognuno lo schema che conviene, guardando dipendenze, tempi e controllo richiesto.", "en": "Four CRM processes. For each one choose the pattern that fits, looking at dependencies, times and the control needed."}
+   ],
+   "prova": {"it": "Assegna uno schema a ogni processo, poi premi «Controlla» e leggi il perché.", "en": "Assign a pattern to each process, then press «Check» and read why."},
+   "concetti": ["C54", "C55"],
+   "stato_animazione": {"vista": "assegna", "schema_attivo": "sequenziale", "max_giri": 3, "segnale_uscita": true, "modo_coordinatore": "manager", "pausa_umana": false, "dipendenza": false, "assegnazioni": {}, "verificato": false}
+  },
+  {
+   "id": "riassunto",
+   "titolo": {"it": "In tre frasi", "en": "In three sentences"},
+   "narrazione": [
+    {"it": "Sequenziale per un ordine fisso, parallelo per parti indipendenti con un aggregatore, ciclo generatore-critico con segnale di uscita e limite di giri.", "en": "Sequential for a fixed order, parallel for independent parts with an aggregator, generator-critic loop with an exit signal and a round limit."},
+    {"it": "Il coordinatore smista richieste diverse: come manager resta a parlare con il cliente, con il passaggio di consegne lo specialista prende la conversazione.", "en": "The coordinator routes different requests: as a manager it keeps talking to the customer, with a handoff the specialist takes over the conversation."},
+    {"it": "La pausa umana si aggiunge a qualunque schema, e gli schemi si possono annidare.", "en": "The human pause can be added to any pattern, and patterns can be nested."}
+   ],
+   "concetti": ["C54", "C55"],
+   "stato_animazione": {"vista": "esplora", "schema_attivo": "coordinatore", "max_giri": 3, "segnale_uscita": true, "modo_coordinatore": "handoff", "pausa_umana": true, "dipendenza": false, "assegnazioni": {}, "verificato": false}
+  }
+ ],
+ "scenario": {
+  "max_giri": {"min": 1, "max": 5, "passo": 1, "etichetta": {"it": "Limite di giri del ciclo", "en": "Loop round limit"}},
+  "parametri": {"giro_approvato": 2, "secondi_ricomposizione": 2},
+  "schemi": [
+   {"id": "sequenziale", "nome": {"it": "Sequenziale", "en": "Sequential"}, "colore": "#0ea5e9",
+    "descrizione": {"it": "Catena di montaggio: ordine fisso deciso da chi progetta.", "en": "Assembly line: a fixed order decided by the designer."},
+    "nodi": [
+     {"id": "brief", "nome": {"it": "Brief", "en": "Brief"}, "x": 50, "y": 82, "secondi": 3},
+     {"id": "bozza", "nome": {"it": "Bozza email", "en": "Email draft"}, "x": 170, "y": 82, "secondi": 4},
+     {"id": "revisione", "nome": {"it": "Revisione", "en": "Review"}, "x": 290, "y": 82, "secondi": 3}
+    ]},
+   {"id": "parallelo", "nome": {"it": "Parallelo", "en": "Parallel"}, "colore": "#10b981",
+    "descrizione": {"it": "Agenti insieme su parti indipendenti, poi un aggregatore unisce.", "en": "Agents together on independent parts, then an aggregator combines."},
+    "nodi": [
+     {"id": "lead", "nome": {"it": "Lead", "en": "Lead"}, "x": 46, "y": 82, "secondi": 0},
+     {"id": "sito", "nome": {"it": "Sito aziendale", "en": "Company site"}, "x": 170, "y": 40, "secondi": 4},
+     {"id": "notizie", "nome": {"it": "Notizie", "en": "News"}, "x": 170, "y": 82, "secondi": 5},
+     {"id": "storico", "nome": {"it": "Storico CRM", "en": "CRM history"}, "x": 170, "y": 124, "secondi": 3},
+     {"id": "aggregatore", "nome": {"it": "Scheda account", "en": "Account card"}, "x": 292, "y": 82, "secondi": 2}
+    ]},
+   {"id": "ciclo", "nome": {"it": "Ciclo generatore-critico", "en": "Generator-critic loop"}, "colore": "#8b5cf6",
+    "descrizione": {"it": "Uno produce, uno valuta, si ripete fino all'approvazione o al limite.", "en": "One produces, one judges, it repeats until approval or the limit."},
+    "nodi": [
+     {"id": "scrittore", "nome": {"it": "Scrittore", "en": "Writer"}, "x": 50, "y": 82, "secondi": 4},
+     {"id": "critico", "nome": {"it": "Critico", "en": "Critic"}, "x": 175, "y": 44, "secondi": 2},
+     {"id": "rifinitore", "nome": {"it": "Rifinitore", "en": "Refiner"}, "x": 175, "y": 120, "secondi": 3},
+     {"id": "uscita", "nome": {"it": "Email pronta", "en": "Email ready"}, "x": 292, "y": 82, "secondi": 0}
+    ]},
+   {"id": "coordinatore", "nome": {"it": "Coordinatore", "en": "Coordinator"}, "colore": "#f59e0b",
+    "descrizione": {"it": "Un agente analizza la richiesta e la smista allo specialista giusto.", "en": "An agent analyses the request and routes it to the right specialist."},
+    "nodi": [
+     {"id": "cliente", "nome": {"it": "Cliente", "en": "Customer"}, "x": 44, "y": 82, "secondi": 0},
+     {"id": "triage", "nome": {"it": "Triage", "en": "Triage"}, "x": 150, "y": 82, "secondi": 2},
+     {"id": "ordini", "nome": {"it": "Ordini", "en": "Orders"}, "x": 280, "y": 40, "secondi": 3},
+     {"id": "vendite", "nome": {"it": "Vendite", "en": "Sales"}, "x": 280, "y": 82, "secondi": 3},
+     {"id": "supporto", "nome": {"it": "Supporto", "en": "Support"}, "x": 280, "y": 124, "secondi": 3}
+    ],
+    "specialista": "ordini"}
+  ],
+  "processi": [
+   {"id": "q1", "testo": {"it": "Brief della campagna, poi bozza dell'email, poi revisione: sempre in quest'ordine.", "en": "Campaign brief, then email draft, then review: always in this order."},
+    "giusto": "sequenziale", "quasi": ["ciclo"],
+    "spiega": {"it": "Ordine fisso e ogni passo usa il risultato del precedente: catena di montaggio.", "en": "Fixed order and each step uses the previous result: an assembly line."}},
+   {"id": "q2", "testo": {"it": "Arricchisci il lead dal sito aziendale, dalle notizie e dallo storico CRM.", "en": "Enrich the lead from the company site, the news and the CRM history."},
+    "giusto": "parallelo", "quasi": ["sequenziale"],
+    "spiega": {"it": "Tre fonti indipendenti: lavorano insieme e l'aggregatore crea la scheda account. In fila funzionerebbe, ma più lentamente.", "en": "Three independent sources: they work together and the aggregator builds the account card. In a line it would work, but more slowly."}},
+   {"id": "q3", "testo": {"it": "Scrivi l'email di outreach e falla approvare per tono e conformità prima dell'invio.", "en": "Write the outreach email and have it approved for tone and compliance before sending."},
+    "giusto": "ciclo", "quasi": ["sequenziale"],
+    "spiega": {"it": "Serve rifare finché il critico approva: ciclo con segnale di uscita e limite di giri.", "en": "You need to redo it until the critic approves: a loop with an exit signal and a round limit."}},
+   {"id": "q4", "testo": {"it": "Smista le richieste dei clienti: ordini, offerte commerciali, problemi tecnici.", "en": "Route customer requests: orders, sales offers, technical problems."},
+    "giusto": "coordinatore", "quasi": [],
+    "spiega": {"it": "Richieste diverse tra loro: un coordinatore le smista allo specialista giusto.", "en": "Requests that differ from each other: a coordinator routes them to the right specialist."}}
+  ],
+  "testi": {
+   "contatori": {"it": "{tempo} s · {chiamate} chiamate", "en": "{tempo} s · {chiamate} calls"},
+   "tempo": {"it": "{n} s", "en": "{n} s"},
+   "esito_seq": {"it": "Ogni passo aspetta il precedente: tempo = somma dei tre passi.", "en": "Each step waits for the previous one: time = sum of the three steps."},
+   "esito_par": {"it": "Le tre fonti partono insieme: tempo = la più lenta più l'aggregatore.", "en": "The three sources start together: time = the slowest one plus the aggregator."},
+   "esito_par_dipendenza": {"it": "Errore: l'email parte insieme al punteggio e non lo trova. In parallelo non c'è stato condiviso: questi due passi vanno in fila.", "en": "Error: the email starts together with the score and does not find it. In parallel there is no shared state: these two steps must go in a line."},
+   "esito_ciclo_ok": {"it": "Il critico scrive «APPROVATO» al giro {giro}: il segnale di uscita chiude il ciclo.", "en": "The critic writes «APPROVED» at round {giro}: the exit signal closes the loop."},
+   "esito_ciclo_limite": {"it": "Il limite di {giri} giri ferma il ciclo prima dell'approvazione: l'email passa a una persona.", "en": "The {giri}-round limit stops the loop before approval: the email goes to a person."},
+   "esito_ciclo_senza_uscita": {"it": "Senza segnale di uscita il ciclo gira fino al limite ({giri} giri), anche se il critico ha già scritto «APPROVATO» al giro {giro}: chiamate sprecate.", "en": "Without an exit signal the loop runs to the limit ({giri} rounds), even though the critic already wrote «APPROVED» at round {giro}: wasted calls."},
+   "esito_manager": {"it": "Manager: Ordini risponde al Triage, che resta al comando e risponde lui al cliente.", "en": "Manager: Orders answers the Triage agent, which stays in charge and answers the customer itself."},
+   "esito_handoff": {"it": "Passaggio di consegne: il Triage cede la conversazione, e da qui risponde l'agente Ordini: «È in consegna!».", "en": "Handoff: the Triage agent hands over the conversation, and from here the Orders agent answers: «It is on its way!»."},
+   "parla_cliente": {"it": "Chi parla con il cliente: {chi}", "en": "Who talks to the customer: {chi}"},
+   "esito_pausa": {"it": "Pausa umana: il gettone si ferma prima dell'ultima mossa finché una persona approva.", "en": "Human pause: the token stops before the last move until a person approves."},
+   "nota_illustrativa": {"it": "Tempi e chiamate illustrativi: le fonti non danno misure per schema.", "en": "Illustrative times and calls: the sources give no measurements per pattern."},
+   "domanda_cliente": {"it": "«Dov'è il mio ordine?»", "en": "«Where is my order?»"},
+   "seleziona": {"it": "Mostra lo schema {nome}", "en": "Show the {nome} pattern"},
+   "processo": {"it": "Processo {n}", "en": "Process {n}"},
+   "scegli_per": {"it": "Schema per il processo {n}", "en": "Pattern for process {n}"},
+   "ver_giusto": {"it": "Processo {n}: giusto. {spiega}", "en": "Process {n}: right. {spiega}"},
+   "ver_quasi": {"it": "Processo {n}: funziona, ma meglio «{migliore}». {spiega}", "en": "Process {n}: it works, but «{migliore}» is better. {spiega}"},
+   "ver_sbagliato": {"it": "Processo {n}: no, meglio «{migliore}». {spiega}", "en": "Process {n}: no, «{migliore}» is better. {spiega}"},
+   "ver_vuoto": {"it": "Processo {n}: non hai scelto. Lo schema migliore è «{migliore}». {spiega}", "en": "Process {n}: you did not choose. The best pattern is «{migliore}». {spiega}"},
+   "ver_punteggio": {"it": "Schemi giusti: {giuste} su {totali}.", "en": "Right patterns: {giuste} of {totali}."},
+   "ver_tutto_giusto": {"it": "Perfetto: ogni processo ha lo schema che gli serve.", "en": "Perfect: every process has the pattern it needs."}
+  },
+  "etichette": {
+   "titolo_comandi": {"it": "Prova a cambiare", "en": "Try changing"},
+   "vista": {"it": "Attività", "en": "Activity"},
+   "vista_esplora": {"it": "Esplora", "en": "Explore"},
+   "vista_assegna": {"it": "Decidi tu", "en": "You decide"},
+   "schema": {"it": "Schema", "en": "Pattern"},
+   "segnale_uscita": {"it": "Segnale di uscita «APPROVATO»", "en": "Exit signal «APPROVED»"},
+   "coordinatore": {"it": "Variante del coordinatore", "en": "Coordinator variant"},
+   "manager": {"it": "Manager", "en": "Manager"},
+   "handoff": {"it": "Passaggio di consegne", "en": "Handoff"},
+   "pausa_umana": {"it": "Pausa umana", "en": "Human pause"},
+   "dipendenza": {"it": "Punteggio ed email in parallelo", "en": "Score and email in parallel"},
+   "scegli": {"it": "— scegli —", "en": "— choose —"},
+   "controlla": {"it": "Controlla", "en": "Check"},
+   "titolo_scheda": {"it": "Lo schema", "en": "The pattern"},
+   "umano": {"it": "persona", "en": "person"},
+   "approvato": {"it": "APPROVATO → esci", "en": "APPROVED → exit"},
+   "risponde": {"it": "risponde", "en": "answers"},
+   "titolo_scena": {"it": "QUATTRO SCHEMI, LO STESSO GETTONE", "en": "FOUR PATTERNS, THE SAME TOKEN"},
+   "conflitto": {"it": "Punteggio ✕ Email", "en": "Score ✕ Email"},
+   "lbl_tempo": {"it": "tempo", "en": "time"},
+   "lbl_chiamate": {"it": "chiamate al modello", "en": "model calls"},
+   "descrizione_scena": {"it": "Quattro mini-mappe di agenti: sequenziale, parallelo, ciclo generatore-critico e coordinatore, ciascuna percorsa da un gettone.", "en": "Four mini-maps of agents: sequential, parallel, generator-critic loop and coordinator, each travelled by a token."}
+  }
+ },
+ "domande": []
+}

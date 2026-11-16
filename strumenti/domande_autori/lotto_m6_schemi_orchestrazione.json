@@ -1,0 +1,360 @@
+[
+ {
+  "id": "DA6.2-4",
+  "origine": "autori",
+  "pillola": "P6.2",
+  "concetti": [
+   "C54"
+  ],
+  "concetto_principale": "C54",
+  "segmento_aiuto": "ciclo_critico",
+  "striscia": "diagnosi",
+  "livello1": {
+   "domanda": {
+    "it": "Nel ciclo che scrive e approva le email di outreach, il critico scrive «APPROVATO» al secondo giro, ma il ciclo gira comunque fino al quinto. Che cosa manca?",
+    "en": "In the loop that writes and approves outreach emails, the critic writes «APPROVED» at the second round, but the loop keeps going until the fifth. What is missing?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Un segnale di uscita legato ad «APPROVATO»",
+      "en": "An exit signal tied to «APPROVED»"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Il ciclo da solo non sa che «APPROVATO» vuol dire «fermati»: serve un'uscita esplicita.",
+      "en": "The loop on its own does not know that «APPROVED» means «stop»: an explicit exit is needed."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Un limite di giri più basso, per esempio 2",
+      "en": "A lower round limit, for example 2"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il limite è una protezione utile, ma da solo fermerebbe anche le email che servono 3 giri.",
+      "en": "The limit is a useful protection, but on its own it would also stop emails that need 3 rounds."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Un critico più severo, che non approvi così presto",
+      "en": "A stricter critic that does not approve so early"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Il critico ha già approvato: il problema è che nessuno ascolta l'approvazione.",
+      "en": "The critic has already approved: the problem is that nobody listens to the approval."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Un terzo agente che riscriva l'email da capo",
+      "en": "A third agent that rewrites the email from scratch"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Aggiungere agenti aumenta i giri e i costi, non chiude il ciclo.",
+      "en": "Adding agents increases rounds and costs, it does not close the loop."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Lo schema parallelo al posto del ciclo",
+      "en": "The parallel pattern instead of the loop"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Scrivere e criticare dipendono l'uno dall'altro: in parallelo non si può.",
+      "en": "Writing and critiquing depend on each other: it cannot be done in parallel."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Un ciclo generatore-critico ha bisogno di due protezioni: un segnale di uscita esplicito e un limite di giri.",
+    "en": "A generator-critic loop needs two protections: an explicit exit signal and a round limit."
+   }
+  },
+  "livello2": {
+   "tipo": "motivazione",
+   "domanda": {
+    "it": "Perché, oltre al segnale di uscita, si tiene comunque un limite di giri?",
+    "en": "Why, besides the exit signal, do you still keep a round limit?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "Perché il critico potrebbe non approvare mai",
+      "en": "Because the critic might never approve"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Il limite ferma il ciclo anche quando l'approvazione non arriva, poi decide una persona.",
+      "en": "The limit stops the loop even when approval never comes; then a person decides."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Perché il segnale di uscita funziona solo il lunedì",
+      "en": "Because the exit signal only works on Mondays"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il giorno non c'entra con il funzionamento del ciclo.",
+      "en": "The day has nothing to do with how the loop works."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Perché il limite rende le email più corte",
+      "en": "Because the limit makes emails shorter"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Il limite conta i giri, non la lunghezza del testo.",
+      "en": "The limit counts rounds, not the length of the text."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Perché così il ciclo dura sempre esattamente lo stesso tempo",
+      "en": "Because then the loop always lasts exactly the same time"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Con l'uscita il ciclo può finire prima: il limite fissa solo il massimo.",
+      "en": "With the exit the loop can end earlier: the limit only sets the maximum."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "Perché senza limite il critico smette di leggere",
+      "en": "Because without a limit the critic stops reading"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Il critico legge a ogni giro; il rischio è il giro infinito, non la stanchezza.",
+      "en": "The critic reads every round; the risk is the endless loop, not tiredness."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Il limite di giri è la rete di sicurezza: impedisce un ciclo infinito quando l'approvazione non arriva.",
+    "en": "The round limit is the safety net: it prevents an endless loop when approval does not come."
+   }
+  }
+ },
+ {
+  "id": "DA6.2-5",
+  "origine": "autori",
+  "pillola": "P6.2",
+  "concetti": [
+   "C55"
+  ],
+  "concetto_principale": "C55",
+  "segmento_aiuto": "coordinatore_handoff",
+  "striscia": "esempio_pratico",
+  "livello1": {
+   "domanda": {
+    "it": "Il marketing vuole che l'assistente principale resti l'unico a parlare con i clienti, ma usi gli specialisti Prezzi e Ordini per le risposte. Quale variante del coordinatore scegli?",
+    "en": "Marketing wants the main assistant to stay the only one talking to customers, but to use the Pricing and Orders specialists for the answers. Which coordinator variant do you choose?"
+   },
+   "opzioni": [
+    {
+     "id": "A",
+     "testo": {
+      "it": "Manager",
+      "en": "Manager"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Il manager chiama gli specialisti come strumenti e resta lui a parlare con il cliente.",
+      "en": "The manager calls the specialists as tools and stays the one talking to the customer."
+     }
+    },
+    {
+     "id": "B",
+     "testo": {
+      "it": "Handoff",
+      "en": "Handoff"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Con il passaggio di consegne lo specialista prende la conversazione: l'opposto di quanto chiesto.",
+      "en": "With a handoff the specialist takes over the conversation: the opposite of what was asked."
+     }
+    },
+    {
+     "id": "C",
+     "testo": {
+      "it": "Ciclo",
+      "en": "Loop"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Il ciclo serve a rifinire un lavoro, non a decidere chi parla con il cliente.",
+      "en": "The loop is for refining work, not for deciding who talks to the customer."
+     }
+    },
+    {
+     "id": "D",
+     "testo": {
+      "it": "Parallelo",
+      "en": "Parallel"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Il parallelo unisce parti indipendenti: non dice chi risponde al cliente.",
+      "en": "Parallel combines independent parts: it does not say who answers the customer."
+     }
+    },
+    {
+     "id": "E",
+     "testo": {
+      "it": "Sequenza fissa",
+      "en": "Fixed sequence"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Le richieste sono diverse tra loro: un ordine fisso non le smista.",
+      "en": "The requests differ from each other: a fixed order does not route them."
+     }
+    },
+    {
+     "id": "F",
+     "testo": {
+      "it": "Nessun agente",
+      "en": "No agent"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "La richiesta è chiara e si può soddisfare con un coordinatore.",
+      "en": "The request is clear and can be met with a coordinator."
+     }
+    },
+    {
+     "id": "G",
+     "testo": {
+      "it": "Due chatbot",
+      "en": "Two chatbots"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Due assistenti separati parlerebbero entrambi con il cliente.",
+      "en": "Two separate assistants would both talk to the customer."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Con il manager gli specialisti lavorano come strumenti: la risposta torna all'assistente principale, che resta al comando.",
+    "en": "With the manager, the specialists work as tools: the answer goes back to the main assistant, which stays in charge."
+   }
+  },
+  "livello2": {
+   "tipo": "trasferimento",
+   "domanda": {
+    "it": "Un cliente chiede «Dov'è il mio ordine?» e il sistema usa invece il passaggio di consegne. Chi gli risponde?",
+    "en": "A customer asks «Where is my order?» and the system uses a handoff instead. Who answers them?"
+   },
+   "opzioni": [
+    {
+     "id": "a",
+     "testo": {
+      "it": "L'agente Ordini, che da lì parla col cliente",
+      "en": "The Orders agent, which talks to the customer from then on"
+     },
+     "corretta": true,
+     "tipo_distrattore": null,
+     "spiegazione": {
+      "it": "Il passaggio di consegne cede la conversazione allo specialista.",
+      "en": "The handoff hands the conversation over to the specialist."
+     }
+    },
+    {
+     "id": "b",
+     "testo": {
+      "it": "Il Triage, che aspetta la risposta di Ordini e la ripete",
+      "en": "The Triage agent, which waits for the Orders answer and repeats it"
+     },
+     "corretta": false,
+     "tipo_distrattore": "quasi",
+     "spiegazione": {
+      "it": "Questo è il comportamento del manager, non del passaggio di consegne.",
+      "en": "That is how the manager behaves, not the handoff."
+     }
+    },
+    {
+     "id": "c",
+     "testo": {
+      "it": "Nessuno: la conversazione si chiude dopo il passaggio",
+      "en": "Nobody: the conversation closes after the handoff"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "Il nuovo agente riceve anche lo stato della conversazione e continua.",
+      "en": "The new agent also receives the conversation state and carries on."
+     }
+    },
+    {
+     "id": "d",
+     "testo": {
+      "it": "Un operatore umano, sempre",
+      "en": "A human operator, always"
+     },
+     "corretta": false,
+     "tipo_distrattore": "poco",
+     "spiegazione": {
+      "it": "Si passa a una persona per azioni rischiose o dopo troppi tentativi, non per ogni ordine.",
+      "en": "You hand over to a person for risky actions or after too many attempts, not for every order."
+     }
+    },
+    {
+     "id": "e",
+     "testo": {
+      "it": "L'agente Vendite, perché il cliente ha comprato",
+      "en": "The Sales agent, because the customer bought something"
+     },
+     "corretta": false,
+     "tipo_distrattore": "errata",
+     "spiegazione": {
+      "it": "La domanda riguarda la consegna: il Triage la passa a Ordini.",
+      "en": "The question is about delivery: the Triage agent passes it to Orders."
+     }
+    }
+   ],
+   "perche": {
+    "it": "Con il passaggio di consegne il Triage cede il controllo: risponde lo specialista Ordini.",
+    "en": "With a handoff the Triage agent gives up control: the Orders specialist answers."
+   }
+  }
+ }
+]
