@@ -227,6 +227,9 @@ class Lezione(Base):
     id: str = Field(min_length=1)
     pillola: str = Field(pattern=r"^P\d+\.\d+$")
     componente: str = Field(pattern=r"^[a-z_]+$")  # nome del modulo JS in webapp/animazioni
+    # "lezione" = la lezione interattiva della pillola (al massimo una); "laboratorio" = una seconda lezione
+    # facoltativa della stessa pillola, aperta in una scheda a parte (es. "Trova l'errore" su un caso reale)
+    tipo: Literal["lezione", "laboratorio"] = "lezione"
     titolo: Testo
     sottotitolo: Testo
     segmenti: list[Segmento] = Field(min_length=1)

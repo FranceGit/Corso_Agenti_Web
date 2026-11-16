@@ -32,6 +32,7 @@
  "obiettivo_pillola": {"it": "Che cosa impari", "en": "What you learn"},
  "scheda_lezione": {"it": "Lezione interattiva", "en": "Interactive lesson"},
  "scheda_scaletta": {"it": "Scaletta", "en": "Outline"},
+ "scheda_laboratorio": {"it": "Laboratorio", "en": "Lab"},
  "scheda_animazione_prevista": {"it": "Animazione prevista", "en": "Planned animation"},
  "lezione_non_pronta": {"it": "La lezione interattiva di questa pillola è in preparazione. Qui sotto trovi la scaletta e il progetto dell'animazione.", "en": "The interactive lesson for this pill is in preparation. Below you find the outline and the animation design."},
  "segmento": {"it": "Passo", "en": "Step"},

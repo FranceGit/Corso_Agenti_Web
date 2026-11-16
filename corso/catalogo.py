@@ -22,7 +22,10 @@ class Catalogo:
         self.cfg = cfg
         self.corso = Corso.model_validate(migra_corso(leggi_json(cfg.percorso_file("corso"))))
         self.kg = KnowledgeGraph.model_validate(leggi_json(cfg.percorso_file("knowledge_graph")))
-        self.lezioni: dict[str, Lezione] = self._carica_lezioni(cfg.percorso_file("cartella_lezioni"))
+        # al massimo una lezione e un laboratorio per pillola, indicizzati per id di pillola
+        self.lezioni: dict[str, Lezione] = {}
+        self.laboratori: dict[str, Lezione] = {}
+        self._carica_lezioni(cfg.percorso_file("cartella_lezioni"))
         self._domande: dict[str, Domanda] = {}
         self._banca: dict[str, list[Domanda]] = {}
         self._verifica_incroci()
@@ -30,16 +33,20 @@ class Catalogo:
 
     # ------------------------------------------------------------ caricamento
 
-    def _carica_lezioni(self, cartella: Path) -> dict[str, Lezione]:
+    def _carica_lezioni(self, cartella: Path) -> None:
         if not cartella.is_dir():
             raise ErroreDati(f"cartella delle lezioni non trovata: {cartella}")
-        lezioni: dict[str, Lezione] = {}
         for f in sorted(cartella.glob("*.json")):
             lez = Lezione.model_validate(leggi_json(f))
-            if lez.pillola in lezioni:
-                raise ErroreDati(f"due lezioni per la pillola {lez.pillola}: {lezioni[lez.pillola].id} e {lez.id}")
-            lezioni[lez.pillola] = lez
-        return lezioni
+            dove = self.lezioni if lez.tipo == "lezione" else self.laboratori
+            if lez.pillola in dove:
+                nome = "due lezioni" if lez.tipo == "lezione" else "due laboratori"
+                raise ErroreDati(f"{nome} per la pillola {lez.pillola}: {dove[lez.pillola].id} e {lez.id}")
+            dove[lez.pillola] = lez
+
+    def tutte_le_lezioni(self) -> list[Lezione]:
+        """Lezioni e laboratori insieme (per controlli, moduli JS serviti, collaudo)."""
+        return list(self.lezioni.values()) + list(self.laboratori.values())
 
     def _verifica_incroci(self) -> None:
         nodi = {n.id for n in self.kg.nodi}
@@ -59,7 +66,11 @@ class Catalogo:
                 if pid not in pillole:
                     raise ErroreDati(f"concetto {n.id}: pillola {pid} inesistente")
         cartella_anim = self.cfg.percorso_file("cartella_animazioni")
-        for pid, lez in self.lezioni.items():
+        for pid, lab in self.laboratori.items():
+            if pid not in self.lezioni:
+                raise ErroreDati(f"laboratorio {lab.id}: la pillola {pid} non ha la lezione principale")
+        for lez in self.tutte_le_lezioni():
+            pid = lez.pillola
             if pid not in pillole:
                 raise ErroreDati(f"lezione {lez.id}: pillola {pid} inesistente")
             if not (cartella_anim / f"{lez.componente}.js").is_file():
@@ -84,9 +95,10 @@ class Catalogo:
                 self._domande[d.id] = d
 
     def riferimento_aiuto(self, d: Domanda) -> dict:
-        """Dove porta il segmento di aiuto di una domanda: un segmento della lezione o un passo della scaletta.
+        """Dove porta il segmento di aiuto di una domanda: un segmento della lezione (o del laboratorio) o un passo della scaletta.
 
-        {"scheda": "lezione", "segmento": id} oppure {"scheda": "scaletta", "passo": indice da 0}.
+        {"scheda": "lezione"|"laboratorio", "segmento": id} oppure {"scheda": "scaletta", "passo": indice da 0}.
+        Un id presente sia nella lezione sia nel laboratorio porta alla lezione.
         """
         if d.segmento_aiuto is None:
             raise ErroreDati(f"domanda {d.id}: segmento_aiuto non assegnato")
@@ -99,10 +111,12 @@ class Catalogo:
                 raise ErroreDati(f"domanda {d.id}: segmento_aiuto {rif} fuori dalla scaletta di {d.pillola} ({len(scaletta)} passi)")
             return {"scheda": "scaletta", "passo": int(numero) - 1}
         lez = self.lezioni.get(d.pillola)
-        if lez is None or rif not in {s.id for s in lez.segmenti}:
-            dove = f"nella lezione {lez.id}" if lez else f"(la pillola {d.pillola} non ha lezione)"
-            raise ErroreDati(f"domanda {d.id}: segmento_aiuto {rif} inesistente {dove}")
-        return {"scheda": "lezione", "segmento": rif}
+        lab = self.laboratori.get(d.pillola)
+        for scheda, l in (("lezione", lez), ("laboratorio", lab)):
+            if l is not None and rif in {s.id for s in l.segmenti}:
+                return {"scheda": scheda, "segmento": rif}
+        dove = f"nella lezione {lez.id}" + (f" ne' nel laboratorio {lab.id}" if lab else "") if lez else f"(la pillola {d.pillola} non ha lezione)"
+        raise ErroreDati(f"domanda {d.id}: segmento_aiuto {rif} inesistente {dove}")
 
     # ------------------------------------------------------------ erogabilita'
 
@@ -160,6 +174,7 @@ class Catalogo:
             "concetti": len(self.kg.nodi),
             "archi": len(self.kg.archi),
             "lezioni_interattive": sorted(self.lezioni),
+            "laboratori": sorted(self.laboratori),
             "domande_totali": len(self._domande),
             "domande_erogabili": sum(1 for d in self._domande if self.erogabile(d)),
             "motivi_non_erogabile": dict(sorted(per_motivo.items(), key=lambda kv: -kv[1])),

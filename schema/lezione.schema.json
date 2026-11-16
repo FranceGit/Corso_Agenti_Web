@@ -342,6 +342,15 @@
   "sottotitolo": {
    "$ref": "#/$defs/Testo"
   },
+  "tipo": {
+   "default": "lezione",
+   "enum": [
+    "lezione",
+    "laboratorio"
+   ],
+   "title": "Tipo",
+   "type": "string"
+  },
   "titolo": {
    "$ref": "#/$defs/Testo"
   }

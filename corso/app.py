@@ -160,7 +160,7 @@ def crea_app(cfg: Config | None = None, orologio: Callable[[], datetime] = orolo
 
     @app.get("/protetto/animazioni/{nome}.js")
     def animazione(nome: str, email: str = Depends(studente)):
-        componenti = {lez.componente for lez in catalogo.lezioni.values()}
+        componenti = {lez.componente for lez in catalogo.tutte_le_lezioni()}
         if nome not in componenti:
             raise ErroreNonTrovato(f"animazione '{nome}' inesistente")
         return FileResponse(cartella_anim / f"{nome}.js", media_type="text/javascript")

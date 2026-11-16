@@ -161,6 +161,8 @@ class Motore:
         dati["concetti"] = [{"id": c, "nome": self.cat.kg.nodo(c).nome.model_dump()} for c in p.concetti]
         lez = self.cat.lezioni.get(pid)
         dati["lezione"] = lez.model_dump(exclude={"domande"}) if lez else None
+        lab = self.cat.laboratori.get(pid)
+        dati["laboratorio"] = lab.model_dump(exclude={"domande"}) if lab else None
         return risolvi(dati, lingua)
 
     # ------------------------------------------------------------ spicchi

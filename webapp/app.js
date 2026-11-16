@@ -430,8 +430,10 @@ async function apriPillola(pid, opzioni) {
     return;
   }
   S.contenuto = r.dati;
-  if (typeof op.segmento === "string" && r.dati.lezione) {
-    const i = r.dati.lezione.segmenti.findIndex((s) => s.id === op.segmento);
+  if (S.scheda === "laboratorio" && !r.dati.laboratorio) S.scheda = "lezione";
+  const aperta = S.scheda === "laboratorio" ? r.dati.laboratorio : r.dati.lezione;
+  if (typeof op.segmento === "string" && aperta) {
+    const i = aperta.segmenti.findIndex((s) => s.id === op.segmento);
     S.segmento = i >= 0 ? i : 0;
   }
   if (!r.dati.lezione) S.scheda = "scaletta";
@@ -457,7 +459,9 @@ function pulsanteVerifica(sp) {
 function disegnaPillola(el) {
   const c = S.contenuto;
   const info = spicchio(c.id);
-  const lez = c.lezione;
+  // il laboratorio (seconda lezione facoltativa della pillola) ha una scheda tutta sua
+  const lab = c.laboratorio;
+  const lez = S.scheda === "laboratorio" && lab ? lab : c.lezione;
   el.replaceChildren();
   el.append(h("div", { class: "pillola-testa entra" },
     h("div", {},
@@ -468,14 +472,18 @@ function disegnaPillola(el) {
     h("div", { class: "azioni" },
       h("button", { class: "btn", onclick: () => { S.vista = "mappa"; S.pid = null; disegnaTutto(); } }, icona("indietro"), t("torna_mappa")),
       pulsanteVerifica(info && info.spicchio))));
-  const schede = lez ? [["lezione", t("scheda_lezione")], ["scaletta", t("scheda_scaletta")]] : [["scaletta", t("scheda_scaletta")]];
+  const schede = [
+    c.lezione ? ["lezione", t("scheda_lezione")] : null,
+    lab ? ["laboratorio", t("scheda_laboratorio")] : null,
+    ["scaletta", t("scheda_scaletta")],
+  ].filter(Boolean);
   el.append(h("div", { class: "schede-tab", role: "tablist" }, schede.map(([k, etichetta]) => h("button", {
     role: "tab", "aria-selected": String(S.scheda === k),
-    onclick: () => { distruggiModulo(); S.scheda = k; disegnaPillola(el); },
+    onclick: () => { if (S.scheda !== k) S.segmento = 0; distruggiModulo(); S.scheda = k; disegnaPillola(el); },
   }, etichetta))));
   const area = h("div", { id: "area-scheda" });
   el.append(area);
-  if (S.scheda === "lezione" && lez) montaLezione(area, lez);
+  if ((S.scheda === "lezione" || S.scheda === "laboratorio") && lez) montaLezione(area, lez);
   else disegnaScaletta(area, c);
 }
 
